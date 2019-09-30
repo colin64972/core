@@ -43,6 +43,7 @@ export const constants = {
       TIMEOUT: 'timeout'
     }
   },
+  DEFAULT_IP: 'localhost',
   URLS: {
     HOME: '/',
     NOT_FOUND: '*',
