@@ -21,7 +21,7 @@ const defaultState = {
     item: null,
     choice: null
   },
-  ip: null
+  ip: constants.DEFAULT_IP
 }
 
 export const app = (state = defaultState, action) => {

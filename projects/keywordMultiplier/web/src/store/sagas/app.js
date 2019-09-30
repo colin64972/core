@@ -21,7 +21,7 @@ export function* multiplySets() {
     })
     const enabled = yield select(state => getEnabledSets(state))
     let ip = yield select(state => getClientIp(state))
-    if (!ip) {
+    if (process.env.NODE_ENV === 'production') {
       ip = yield call(getRequest, 'ip')
     }
     yield put({
