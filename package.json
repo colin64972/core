@@ -5,5 +5,9 @@
   "repository": "git@github.com:colin30/core.git",
   "author": "colin30 <colin30@post.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "configs"
+    ]
 }
