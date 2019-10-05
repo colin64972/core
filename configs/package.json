@@ -1,0 +1,9 @@
+{
+  "name": "@colin30/configs",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@github.com:colin30/colin30.git",
+  "author": "colin30 <colin30@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
