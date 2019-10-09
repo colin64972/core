@@ -6,6 +6,7 @@
   "author": "colin30 <colin30@gmail.com>",
   "license": "MIT",
   "private": true,
+  "prettier": "@colin30/configs/prettier",
   "dependencies": {
     "prettier": "^2.0.5"
   }
