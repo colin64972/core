@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "prettier": "@colin30/configs/prettier",
-  "dependencies": {
+  "devDependencies": {
     "prettier": "^2.0.5"
   }
 }
