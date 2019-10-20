@@ -117,7 +117,10 @@ export const MatchTypesPanel = () => {
         <Grid item xs={12}>
           <Grid container justify="center" alignItems="center">
             {matchTypes.map(buttonItem => (
-              <Grid item className={classes.matchTypeButtonGridItem}>
+              <Grid
+                item
+                className={classes.matchTypeButtonGridItem}
+                key={buttonItem.key}>
                 <FadeIn
                   key={buttonItem.key}
                   direction="y"

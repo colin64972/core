@@ -85,7 +85,7 @@ const useStyles = makeStyles(theme => {
         fontSize: theme.custom.setSpace() * 1.5
       }
     },
-    trialCardHeadingSlug: {
+    trialCardHeadingId: {
       fontSize: theme.typography.fontSize,
       textAlign: 'left',
       textTransform: 'unset'
@@ -161,7 +161,7 @@ export const TrialCard = ({ trial, isShown }) => {
     event.stopPropagation()
     dispatch({
       type: types.COPY_TRIAL,
-      slug: event.currentTarget.dataset.slug,
+      id: event.currentTarget.dataset.id,
       ref: copyRef.current
     })
   }
@@ -169,7 +169,7 @@ export const TrialCard = ({ trial, isShown }) => {
     event.stopPropagation()
     return dispatch({
       type: types.ASK_DELETE_TRIAL,
-      slug: event.currentTarget.dataset.slug
+      id: event.currentTarget.dataset.id
     })
   }
 
@@ -213,7 +213,7 @@ export const TrialCard = ({ trial, isShown }) => {
     }
   }, [isShown])
   return (
-    <div className={classes.trialCard} ref={card} id={trial.slug}>
+    <div className={classes.trialCard} ref={card} id={trial.id}>
       <Accordion defaultExpanded>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -223,14 +223,14 @@ export const TrialCard = ({ trial, isShown }) => {
             <Grid item xs={12}>
               <Grid container>
                 <button
-                  data-slug={trial.slug}
+                  data-id={trial.id}
                   onClick={copyHandler}
                   className={classes.copyButton}>
                   <AssignmentIcon className={classes.icon} />
                 </button>
                 <button
                   type="button"
-                  data-slug={trial.slug}
+                  data-id={trial.id}
                   onClick={askDeleteTrial}
                   className={classes.deleteButton}>
                   <DeleteIcon className={classes.icon} />
@@ -243,8 +243,8 @@ export const TrialCard = ({ trial, isShown }) => {
               </Typography>
               <Typography
                 variant="body1"
-                className={classes.trialCardHeadingSlug}>
-                {trial.slug}
+                className={classes.trialCardHeadingId}>
+                {trial.id}
               </Typography>
             </Grid>
           </Grid>
@@ -257,9 +257,9 @@ export const TrialCard = ({ trial, isShown }) => {
                 <TableCell className={classes.tableHeadCell}>Product</TableCell>
               </TableRow>
             </TableHead>
-            <TableBody ref={copyRef} id={trial.slug}>
+            <TableBody ref={copyRef} id={trial.id}>
               {trial.list.map((item, index) => (
-                <TableRow key={`${trial.slug} -${index} `}>
+                <TableRow key={`${trial.id}-${index}`}>
                   <TableCell component="td" className={classes.id}>
                     {index + 1}
                   </TableCell>
@@ -267,7 +267,7 @@ export const TrialCard = ({ trial, isShown }) => {
                     component="td"
                     scope="data"
                     className={classes.data}>
-                    {formatProductLine(item, matchType, whiteSpaceSelection)}
+                    {item}
                   </TableCell>
                 </TableRow>
               ))}
