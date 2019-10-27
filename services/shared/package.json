@@ -7,7 +7,10 @@
   "license": "MIT",
   "private": true,
   "prettier": "@colin30/configs/prettier",
+  "dependencies": {
+    "faker": "^5.0.0"
+  },
   "devDependencies": {
     "@colin30/configs": "0.0.1"
-  }
+  }  
 }
