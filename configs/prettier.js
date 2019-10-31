@@ -2,9 +2,9 @@ module.exports = {
   semi: false,
   singleQuote: true,
   quoteProps: 'consistent',
-  trailingComma: 'es5',
+  trailingComma: 'none',
   jsxBracketSameLine: true,
   arrowParens: 'avoid',
   proseWrap: 'always',
-  htmlWhitespaceSensitivity: 'ignore',
+  htmlWhitespaceSensitivity: 'ignore'
 }
