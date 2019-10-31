@@ -1,5 +1,5 @@
 module.exports = setEslint = (
-  ecmaFeaturesJsx = false,
+  jsx = false,
   customExts = [],
   customPlugs = [],
   customEnvs = {}
@@ -9,16 +9,16 @@ module.exports = setEslint = (
     ecmaFeatures: {
       globalReturn: false,
       impliedStrict: true,
-      jsx: ecmaFeaturesJsx,
-    },
+      jsx
+    }
   },
   extends: [...customExts, 'prettier'],
   plugins: [...customPlugs, 'prettier'],
   rules: {
-    'prettier/prettier': ['error'],
+    'prettier/prettier': ['error']
   },
   env: {
     es2020: true,
-    ...customEnvs,
-  },
+    ...customEnvs
+  }
 })
