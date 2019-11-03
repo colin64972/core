@@ -1,0 +1,13 @@
+{
+  "name": "@colin30/services-catcher",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@github.com:colin30/colin30.git",
+  "author": "colin30 <colin30@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "prettier": "@colin30/configs/prettier",
+  "devDependencies": {
+    "@colin30/configs": "0.0.1"
+  }
+}
