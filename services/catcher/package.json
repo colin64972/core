@@ -7,7 +7,15 @@
   "license": "MIT",
   "private": true,
   "prettier": "@colin30/configs/prettier",
+  "scripts": {
+    "local": "sls invoke local -f catchAll -p event.json"
+  },
   "devDependencies": {
     "@colin30/configs": "0.0.1"
+  },
+  "dependencies": {
+    "@colin30/services-shared": "0.0.1",
+    "express": "^4.17.1",
+    "serverless-http": "^2.5.0"
   }
 }
