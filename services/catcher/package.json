@@ -8,7 +8,7 @@
   "private": true,
   "prettier": "@colin30/configs/prettier",
   "scripts": {
-    "local": "sls invoke local -f catchAll -p event.json"
+    "invoke": "sls invoke local -f catcher -p event.json"
   },
   "devDependencies": {
     "@colin30/configs": "0.0.1"
