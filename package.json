@@ -10,6 +10,10 @@
     "packages": [
       "configs",
       "services/*"
+    ],
+    "nohoist": [
+      "**/@colin30/services-*/",
+      "**/@colin30/services-*/**"
     ]
   }
 }
