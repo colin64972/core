@@ -1,7 +1,7 @@
 {
   "name": "@colin30/web-colin30",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "src/index.js",
   "license": "MIT",
   "repository": "git@github.com:colin30/core.git",
   "author": "colin30 <colin30@post.com>",
@@ -9,5 +9,9 @@
   "prettier": "@colin30/configs/prettier",
   "devDependencies": {
     "@colin30/configs": "0.0.1"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }
