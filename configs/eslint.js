@@ -12,7 +12,7 @@ module.exports = setEslint = (
       jsx: ecmaFeaturesJsx
     }
   },
-  extends: [...customExts, 'prettier'],
+  extends: [...customExts, 'eslint:recommended', 'prettier'],
   plugins: [...customPlugs, 'prettier'],
   rules: {
     'prettier/prettier': ['error']
