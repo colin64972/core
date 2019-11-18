@@ -1,11 +1,7 @@
 const setEslint = require('@colin30/configs/eslint')
 
-module.exports = setEslint(
-  true,
-  ['eslint:recommended', 'plugin:react/recommended'],
-  ['react'],
-  {
-    browser: true,
-    jest: true
-  }
-)
+module.exports = setEslint(true, ['plugin:react/recommended'], ['react'], {
+  node: true,
+  browser: true,
+  jest: true
+})
