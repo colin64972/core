@@ -1,5 +1,6 @@
 # folders
 .serverless
+.dist
 node_modules
 
 # files
