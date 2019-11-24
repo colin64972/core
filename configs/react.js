@@ -44,6 +44,11 @@ module.exports = (entry, outputPath, assetsPath) => ({
             plugins: []
           }
         }
+      },
+      {
+        test: /\.pug$/,
+        exclude: /(node_modules)/,
+        loader: 'pug-loader'
       }
     ]
   },
