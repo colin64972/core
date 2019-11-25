@@ -1,7 +1,9 @@
 # folders
 .serverless
-.dist
 node_modules
+static
+media
+exports
 
 # files
 *.DS_Store

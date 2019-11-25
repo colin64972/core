@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import Sunflower from '../../../exports/news_item_1517418716.jpg'
 
 const App = () => (
-  <div>
+  <Fragment>
+    <img src={Sunflower} width="100" />
     <h1>Dolor Et Erat Sadipscing Sed Diam Takimata</h1>
     <p>
       Sed sit kasd est sea clita, clita rebum sit dolor sadipscing takimata
@@ -10,7 +12,7 @@ const App = () => (
       sit sanctus labore eirmod sit, eos diam sed amet lorem dolore dolor diam
       diam,.
     </p>
-  </div>
+  </Fragment>
 )
 
 export default App
