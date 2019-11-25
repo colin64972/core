@@ -6,8 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const base = setReact(
   { src: path.resolve('src', 'index') },
-  path.resolve('.dist'),
-  'assets'
+  path.resolve('static')
 )
 
 base.plugins.push(

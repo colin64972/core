@@ -1,5 +1,14 @@
-module.exports = (entry, outputPath, assetsPath) => ({
+module.exports = (entry, outputPath) => ({
   entry,
+  output: {
+    path: outputPath,
+    filename: '[name].js'
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
+  },
   resolve: {
     extensions: [
       '.js',
@@ -12,15 +21,6 @@ module.exports = (entry, outputPath, assetsPath) => ({
       '.svg',
       '.gif'
     ]
-  },
-  output: {
-    path: outputPath,
-    filename: '[name].js'
-  },
-  optimization: {
-    splitChunks: {
-      chunks: 'all'
-    }
   },
   module: {
     rules: [
@@ -49,6 +49,20 @@ module.exports = (entry, outputPath, assetsPath) => ({
         test: /\.pug$/,
         exclude: /(node_modules)/,
         loader: 'pug-loader'
+      },
+      {
+        test: /\.(woff(2)?|jpg|gif|png|svg|ico)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              emitFile: true,
+              name: '[name].[ext]',
+              outputPath: 'assets',
+              publicPath: filename => `assets/${filename}`
+            }
+          }
+        ]
       }
     ]
   },
