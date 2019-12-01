@@ -1,6 +1,6 @@
 const { merge } = require('webpack-merge')
 const { EnvironmentPlugin } = require('webpack')
-const base = require('./base')
+const base = require('./webpack')
 
 base.plugins.push(
   new EnvironmentPlugin({
