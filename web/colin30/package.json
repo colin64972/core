@@ -14,7 +14,7 @@
     "template_title": "Colin30 JavaScript App Development"
   },
   "scripts": {
-    "build": "NODE_ENV=prod webpack-cli --config configs/prod.js --progress"
+    "build": "NODE_ENV=prod webpack-cli --config webpack-prod.js --progress"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
