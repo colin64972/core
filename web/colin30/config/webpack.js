@@ -4,21 +4,22 @@ const { setTemplateLocals } = require('@colin30/web-shared/helpers')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const base = setReact(
+const webpack = setReact(
   { src: path.resolve('src', 'index') },
   path.resolve('static')
 )
 
-base.plugins.push(
+webpack.plugins.push(
   new CleanWebpackPlugin({ verbose: true }),
   new HtmlWebpackPlugin({
     template: path.resolve('..', 'shared', 'template.pug'),
     inject: true,
     scriptLoading: 'defer',
+    cache: false,
     templateLocals: setTemplateLocals([
       process.env.npm_package_config_template_title
     ])
   })
 )
 
-module.exports = base
+module.exports = webpack
