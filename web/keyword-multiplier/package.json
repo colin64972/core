@@ -1,0 +1,28 @@
+{
+  "name": "@colin30/web-keyword-multiplier",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "license": "MIT",
+  "repository": "git@github.com:colin30/core.git",
+  "author": "colin30 <colin30@post.com>",
+  "private": true,
+  "prettier": "@colin30/configs/prettier",
+  "config": {
+    "name": "colin30-web-keyword-multiplier",
+    "bucket": "colin30-web-keyword-multiplier-static",
+    "profile": "default",
+    "template_title": "Colin30 Content Marketing Keyword Multiplier"
+  },
+  "scripts": {
+    "start": "lite-server -c config/lite-server.js",
+    "watch": "NODE_ENV=development webpack-cli --config config/webpack-dev.js --progress --watch",
+    "build": "NODE_ENV=production webpack-cli --config config/webpack-pro.js --progress",
+    "mb": "aws s3 mb s3://$npm_package_config_bucket --profile $npm_package_config_profile",
+    "sync": "aws s3 sync static s3://$npm_package_config_bucket --acl public-read --profile $npm_package_config_profile",
+    "deploy": "yarn build && yarn sync"
+  },
+  "devDependencies": {
+    "@colin30/configs": "0.0.1",
+    "@colin30/web-shared": "0.0.1"
+  }
+}
