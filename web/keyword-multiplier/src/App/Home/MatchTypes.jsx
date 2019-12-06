@@ -14,7 +14,12 @@ import FadeIn from '@colin30/web-shared/react/components/FadeIn'
 import { defaultPadding } from '@colin30/web-shared/react/theming'
 import fields from './fields'
 import types from '../../store/types'
-import { getTrials, getMatchType, getCopySettings } from '../../store/selectors'
+import {
+  getTrials,
+  getMatchType,
+  getCopySettings,
+  getDomainMode
+} from '../../store/selectors'
 
 const CustomSwitch = withStyles(theme => ({
   switchBase: {
@@ -139,6 +144,7 @@ const MatchTypes = ({ ...props }) => {
   const trials = useSelector(state => getTrials(state))
   const selectedMatchType = useSelector(state => getMatchType(state))
   const copySettings = useSelector(state => getCopySettings(state))
+  const domainMode = useSelector(state => getDomainMode(state))
 
   const { items, shown } = trials
   const { dataOnly } = copySettings
@@ -159,6 +165,11 @@ const MatchTypes = ({ ...props }) => {
   const dataOnlyHandler = event =>
     dispatch({
       type: types.TOGGLE_COPY_DATA_ONLY
+    })
+
+  const domainModeHandler = event =>
+    dispatch({
+      type: types.TOGGLE_DOMAIN_MODE
     })
 
   if (items.length < 1) return null
@@ -211,6 +222,32 @@ const MatchTypes = ({ ...props }) => {
                         variant="body1"
                         className={classes.toggleText}>
                         Copy data only
+                      </Typography>
+                    }
+                  />
+                </FormGroup>
+              }
+            />
+            <FadeIn
+              direction="x"
+              position={-100}
+              component={
+                <FormGroup row>
+                  <FormControlLabel
+                    className={classes.switchGroupLabel}
+                    control={
+                      <CustomSwitch
+                        name="domainMode"
+                        color="primary"
+                        checked={domainMode}
+                        onChange={domainModeHandler}
+                      />
+                    }
+                    label={
+                      <Typography
+                        variant="body1"
+                        className={classes.toggleText}>
+                        Domain mode
                       </Typography>
                     }
                   />

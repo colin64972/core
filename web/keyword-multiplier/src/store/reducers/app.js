@@ -11,6 +11,7 @@ const defaultState = {
   copySettings: {
     dataOnly: false
   },
+  domainMode: false,
   notice: {
     show: false,
     item: null,
@@ -123,6 +124,11 @@ const app = (state = defaultState, action) => {
       return {
         ...state,
         ip: action.ip
+      }
+    case types.TOGGLE_DOMAIN_MODE:
+      return {
+        ...state,
+        domainMode: !state.domainMode
       }
     default:
       return state
