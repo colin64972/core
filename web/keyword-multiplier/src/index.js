@@ -1,6 +1,9 @@
 import { createElement } from 'react'
 import { render } from 'react-dom'
+import { BrowserRouter } from 'react-router-dom'
+import { ThemeProvider } from '@material-ui/styles'
 import App from './App'
+import theme from './App/theme'
 
 console.log(
   '%c env',
@@ -10,4 +13,11 @@ console.log(
   process.env.IS_BROWSER
 )
 
-render(createElement(App), document.getElementById('app'))
+render(
+  createElement(
+    BrowserRouter,
+    {},
+    createElement(ThemeProvider, { theme }, createElement(App))
+  ),
+  document.getElementById('app')
+)

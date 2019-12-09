@@ -8,6 +8,7 @@
   "private": true,
   "prettier": "@colin30/configs/prettier",
   "devDependencies": {
-    "@colin30/configs": "0.0.1"
+    "@colin30/configs": "0.0.1",
+    "faker": "^5.0.0"
   }
 }
