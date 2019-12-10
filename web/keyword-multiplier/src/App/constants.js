@@ -26,7 +26,7 @@ const constants = {
     }
   },
   URLS: {
-    APP: '/',
+    HOME: '/',
     NOT_FOUND: '*',
     TOS: '/terms-of-service',
     PP: '/privacy-policy',
