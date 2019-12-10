@@ -106,8 +106,8 @@ const Footer = () => {
   const classes = useStyles()
   const menuItems = [
     {
-      label: 'App',
-      href: constants.URLS.APP,
+      label: 'Home',
+      href: constants.URLS.HOME,
       key: generateKey(),
       icon: <WebIcon className={classes.menuItemIcon} />
     },
