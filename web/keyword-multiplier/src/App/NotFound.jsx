@@ -94,10 +94,10 @@ const NotFoundComp = props => {
                   Back to the{' '}
                   <Link
                     className={classes.appLink}
-                    href={constants.URLS.APP}
+                    href={constants.URLS.HOME}
                     onClick={event => {
                       event.preventDefault()
-                      history.push(constants.URLS.APP)
+                      history.push(constants.URLS.HOME)
                     }}>
                     app!
                   </Link>
