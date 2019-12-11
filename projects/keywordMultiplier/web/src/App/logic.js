@@ -3,9 +3,22 @@ import { createHashId } from '@colin30/shared/react/helpers'
 import { constants } from './constants'
 
 export const prepSetValue = input => {
-  // TODO update set parsing rules
-  const split = input.replace(/\r|\n/g, 'A1B2C3').split('A1B2C3')
-  return [...new Set(split)].join('\n')
+  const split = input
+    .replace(/[\n\r]+/gi, constants.REPLACEMENT_CODE)
+    .replace(/\s+/gi, '')
+    .split(constants.REPLACEMENT_CODE)
+
+  const nonWordsRemoved = split.map(line => {
+    let temp
+    if (/^\.(\w+)$/.test(line)) {
+      temp = line
+    } else {
+      temp = line.replace(/[-_\W]+/gi, '')
+    }
+    return temp.trim()
+  })
+  const uniqueSet = new Set(nonWordsRemoved)
+  return [...uniqueSet].join('\n')
 }
 
 const changeSetNameToLabel = data => data.substr(-1)
