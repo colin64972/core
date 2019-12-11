@@ -1,9 +1,9 @@
 import React from 'react'
+import FadeIn from '@colin30/web-shared/react/components/FadeIn'
+import { defaultPadding } from '@colin30/web-shared/react/theming'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/styles'
-import { defaultPadding } from '@colin30/web-shared/react/theming'
-import FadeIn from '@colin30/web-shared/react/components/FadeIn'
 import IntroImage from '../../../../exports/keyword-multiplier/intro-image-1000w.png'
 
 const useStyles = makeStyles(theme => {
