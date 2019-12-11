@@ -1,10 +1,10 @@
 import React from 'react'
+import FadeIn from '@colin30/web-shared/react/components/FadeIn'
 import { makeStyles } from '@material-ui/styles'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import VpnKeyIcon from '@material-ui/icons/VpnKey'
 import { defaultPadding } from '@colin30/web-shared/react/theming'
-import FadeIn from '@colin30/web-shared/react/components/FadeIn'
 
 const useStyles = makeStyles(theme => ({
   headerSection: {
