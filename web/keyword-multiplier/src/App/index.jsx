@@ -1,6 +1,6 @@
 import React from 'react'
-import CssBaseline from '@material-ui/core/CssBaseline'
 import { Switch, Route } from 'react-router-dom'
+import CssBaseline from '@material-ui/core/CssBaseline'
 import routes from './routes'
 
 const App = () => (
