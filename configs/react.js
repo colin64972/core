@@ -1,3 +1,6 @@
+const babelLoaderPlugins =
+  process.env.NODE_ENV === 'production' ? ['transform-remove-console'] : []
+
 module.exports = (entry, outputPath) => ({
   entry,
   output: {
@@ -40,7 +43,8 @@ module.exports = (entry, outputPath) => ({
                 }
               ],
               '@babel/preset-react'
-            ]
+            ],
+            plugins: babelLoaderPlugins
           }
         }
       },
