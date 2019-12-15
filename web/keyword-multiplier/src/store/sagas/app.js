@@ -23,11 +23,16 @@ export function* multiplySets() {
       type: types.ADD_IP,
       ip
     })
-    const posted = yield call(postRequest, 'trials', {
-      sets: enabled,
-      ip,
-      slug: generateKey()
-    })
+    const posted =
+      process.env.NODE_ENV === 'production'
+        ? yield call(postRequest, 'trials', {
+            sets: enabled,
+            ip,
+            slug: generateKey()
+          })
+        : {
+            sets: enabled
+          }
     const trial = yield call(processTrial, posted)
     yield put({
       type: types.ADD_TRIAL,
