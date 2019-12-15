@@ -3,15 +3,15 @@ import { createSelector } from 'reselect'
 import { removeSetPrefix } from '../App/logic'
 
 const setsWithValuesSelector = state => get(state, 'form.sets.values', {})
-const disabledSetKeySelector = state => get(state, 'ui.disabled', [])
-const trialsSelector = state => get(state, 'ui.trials', [])
-const matchTypeSelector = state => get(state, 'ui.matchType', 'broad')
-const noticeSelector = state => get(state, 'ui.notice', {})
-const copySettingsSelector = state => get(state, 'ui.copySettings', {})
-const ipSelector = state => get(state, 'ui.ip', null)
+const disabledSetKeySelector = state => get(state, 'app.disabled', [])
+const trialsSelector = state => get(state, 'app.trials', [])
+const matchTypeSelector = state => get(state, 'app.matchType', 'broad')
+const noticeSelector = state => get(state, 'app.notice', {})
+const copySettingsSelector = state => get(state, 'app.copySettings', {})
+const ipSelector = state => get(state, 'app.ip', null)
 
 export const checkSetDisabled = (state, set) => {
-  const sets = get(state, `ui.disabled`, [])
+  const sets = get(state, `app.disabled`, [])
   return sets.includes(set)
 }
 

@@ -49,7 +49,7 @@ const useStyles = makeStyles(theme => {
   }
 })
 
-export default ({ ...props }) => {
+const WordSetLabel = ({ ...props }) => {
   const classes = useStyles()
   const dispatch = useDispatch()
   const clickHandler = event => {
@@ -76,3 +76,5 @@ export default ({ ...props }) => {
     </label>
   )
 }
+
+export default WordSetLabel
