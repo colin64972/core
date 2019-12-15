@@ -22,6 +22,9 @@ const useStyles = makeStyles(theme => ({
     ...theme.custom.setFlex('column nowrap'),
     ...defaultPadding(theme.breakpoints, theme.custom.setSpace)
   },
+  subtitle2: {
+    marginBottom: theme.custom.setSpace() / 2
+  },
   form: {
     marginTop: theme.custom.setSpace('sm'),
     ...theme.custom.setGrid(5, 'auto', theme.custom.setSpace('sm')),
@@ -147,7 +150,11 @@ const Comp = ({ ...props }) => {
           <FadeIn
             direction="y"
             position={-100}
-            component={<Typography variant="subtitle2">Input Sets</Typography>}
+            component={
+              <Typography variant="subtitle2" className={classes.subtitle2}>
+                Input Sets
+              </Typography>
+            }
           />
           <FadeIn
             direction="x"
