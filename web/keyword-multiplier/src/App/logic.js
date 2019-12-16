@@ -87,6 +87,19 @@ export const processTrial = postedData => {
   return multiplysets(preppedSets)
 }
 
+export const addMatchType = (value, matchType) => {
+  switch (matchType) {
+    case constants.MATCHTYPES.BROAD_MODIFIER:
+      return value.replace(/(\w\B\w+)/g, '+$1')
+    case constants.MATCHTYPES.PHRASE:
+      return `"${value}"`
+    case constants.MATCHTYPES.EXACT:
+      return `[${value}]`
+    default:
+      return value
+  }
+}
+
 const buildCopyData = (tableBody, dataOnly, matchType) => {
   let result = ''
   const tableRows = tableBody.children
