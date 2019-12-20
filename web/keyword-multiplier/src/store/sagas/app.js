@@ -31,7 +31,8 @@ export function* multiplySets() {
             slug: generateKey()
           })
         : {
-            sets: enabled
+            sets: enabled,
+            slug: generateKey()
           }
     const trial = yield call(processTrial, posted)
     yield put({
