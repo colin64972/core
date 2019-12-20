@@ -119,11 +119,11 @@ const buildCopyData = (tableBody, dataOnly, matchType) => {
 
 const setCopyValue = (input, dataOnly, matchType) => {
   let result = ''
-  if ({}.prototype.isPrototypeOf.call(input, 'HTMLCollection')) {
+  try {
     for (let tableBody of input) {
       result += buildCopyData(tableBody, dataOnly, matchType)
     }
-  } else {
+  } catch {
     result += buildCopyData(input, dataOnly, matchType)
   }
   return result
