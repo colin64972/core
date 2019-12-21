@@ -1,9 +1,11 @@
 import gsap from 'gsap'
 import React, { createRef, useLayoutEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import ExpansionPanel from '@material-ui/core/ExpansionPanel'
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary
+} from '@material-ui/core'
 import Grid from '@material-ui/core/Grid'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
@@ -11,9 +13,9 @@ import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Typography from '@material-ui/core/Typography'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import AssignmentIcon from '@material-ui/icons/Assignment'
 import DeleteIcon from '@material-ui/icons/Delete'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import SearchIcon from '@material-ui/icons/Search'
 import { makeStyles } from '@material-ui/styles'
 import { addMatchType } from '../logic'
@@ -224,8 +226,8 @@ const TrialCard = ({ trial, isShown, isLastShown }) => {
   }, [isShown])
   return (
     <div className={classes.trialCard} ref={card} id={trial.slug}>
-      <ExpansionPanel defaultExpanded>
-        <ExpansionPanelSummary
+      <Accordion defaultExpanded>
+        <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header">
@@ -258,8 +260,8 @@ const TrialCard = ({ trial, isShown, isLastShown }) => {
               </Typography>
             </Grid>
           </Grid>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
+        </AccordionSummary>
+        <AccordionDetails>
           <Table size="small">
             <TableHead>
               <TableRow>
@@ -293,8 +295,8 @@ const TrialCard = ({ trial, isShown, isLastShown }) => {
               ))}
             </TableBody>
           </Table>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
+        </AccordionDetails>
+      </Accordion>
     </div>
   )
 }
