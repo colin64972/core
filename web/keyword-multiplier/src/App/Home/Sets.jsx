@@ -20,11 +20,10 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.grey[500],
     minHeight: '100vh',
     ...theme.custom.setFlex('column nowrap'),
-    ...defaultPadding(theme.breakpoints, theme.custom.setSpace)
+    ...defaultPadding(theme.breakpoints, theme.custom.setSpace),
+    textAlign: 'center'
   },
-  subtitle2: {
-    marginBottom: theme.custom.setSpace() / 2
-  },
+  mainHeading: theme.typography.mainHeading,
   form: {
     marginTop: theme.custom.setSpace('sm'),
     ...theme.custom.setGrid(5, 'auto', theme.custom.setSpace('sm')),
@@ -150,17 +149,13 @@ const Comp = ({ ...props }) => {
           <FadeIn
             direction="y"
             position={-100}
-            component={
-              <Typography variant="subtitle2" className={classes.subtitle2}>
-                Input Sets
-              </Typography>
-            }
+            component={<Typography variant="subtitle2">Input Sets</Typography>}
           />
           <FadeIn
             direction="x"
             position={-100}
             component={
-              <Typography variant="h4">
+              <Typography variant="h4" className={classes.mainHeading}>
                 Keyword Multiplication
                 <br />
                 to the Max!

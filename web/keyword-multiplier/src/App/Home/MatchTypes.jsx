@@ -49,10 +49,8 @@ const useStyles = makeStyles(theme => {
     marginTop: theme.custom.setSpace(),
     fontSize: theme.custom.setSpace('sm')
   }
-  const leftAlign = {
-    textAlign: 'left'
-  }
   return {
+    mainHeading: theme.typography.mainHeading,
     matchTypeSection: {
       backgroundColor: theme.palette.primary.main
     },
@@ -67,11 +65,6 @@ const useStyles = makeStyles(theme => {
     },
     matchTypeSelectionHeading: {
       ...theme.custom.setFlex('column nowrap', 'flex-end')
-    },
-    leftAlign,
-    subtitle2: {
-      ...leftAlign,
-      marginBottom: theme.custom.setSpace() / 2
     },
     matchTypeButtonFadeIn: {
       margin: `${theme.custom.setSpace()}px ${theme.custom.setSpace()}px 0 0`
@@ -177,17 +170,13 @@ const MatchTypes = ({ ...props }) => {
             <FadeIn
               direction="y"
               position={-100}
-              component={
-                <Typography variant="subtitle2" className={classes.subtitle2}>
-                  Settings
-                </Typography>
-              }
+              component={<Typography variant="subtitle2">Settings</Typography>}
             />
             <FadeIn
               direction="x"
               position={-100}
               component={
-                <Typography variant="h4" className={classes.leftAlign}>
+                <Typography variant="h4" className={classes.mainHeading}>
                   Manage your Trials
                 </Typography>
               }
@@ -196,7 +185,7 @@ const MatchTypes = ({ ...props }) => {
               direction="y"
               position={100}
               component={
-                <Typography variant="body1" className={classes.leftAlign}>
+                <Typography variant="body1">
                   Est voluptua stet ea sadipscing nonumy gubergren eos, nonumy
                   dolore dolore sadipscing est consetetur diam sed.
                 </Typography>
@@ -275,16 +264,16 @@ const MatchTypes = ({ ...props }) => {
                 direction="y"
                 position={-100}
                 component={
-                  <Typography variant="subtitle2" className={classes.subtitle2}>
-                    Google Adwords
-                  </Typography>
+                  <Typography variant="subtitle2">Google Adwords</Typography>
                 }
               />
               <FadeIn
                 direction="x"
                 position={-100}
                 component={
-                  <Typography variant="h4">Add a Match Type</Typography>
+                  <Typography variant="h4" className={classes.mainHeading}>
+                    Add a Match Type
+                  </Typography>
                 }
               />
             </Grid>

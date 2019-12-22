@@ -80,6 +80,11 @@ export const setCustomTheme = (
       boldItalic: {
         fontWeight: 'bold',
         fontStyle: 'italic'
+      },
+      mainHeading: {
+        ...headingStyle,
+        fontSize: fontSize * 3,
+        margin: `${fontSize}px 0 ${fontSize * 0.75}px 0`
       }
     },
     custom: {
@@ -183,7 +188,6 @@ export const setCustomTheme = (
           'body': {
             fontFamily,
             color: bodyColor,
-            textAlign: 'center',
             backgroundColor: 'white'
           }
         }
