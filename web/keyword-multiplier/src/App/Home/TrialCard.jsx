@@ -16,7 +16,6 @@ import Typography from '@material-ui/core/Typography'
 import AssignmentIcon from '@material-ui/icons/Assignment'
 import DeleteIcon from '@material-ui/icons/Delete'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import SearchIcon from '@material-ui/icons/Search'
 import { makeStyles } from '@material-ui/styles'
 import { addMatchType } from '../logic'
 import { getMatchType } from '../../store/selectors'
@@ -126,16 +125,6 @@ const useStyles = makeStyles(theme => {
     cardInfo: {
       marginTop: theme.custom.setSpace()
     },
-    volumeButton: {
-      ...button,
-      'color': theme.palette.primary[50],
-      'backgroundColor': theme.palette.primary[200],
-      'margin': '0 auto',
-      '&:hover': {
-        color: 'white',
-        backgroundColor: theme.palette.pass[500]
-      }
-    },
     tableHeadCell: {
       margin: 0,
       color: theme.palette.secondary[200],
@@ -179,12 +168,7 @@ const TrialCard = ({ trial, isShown, isLastShown }) => {
       slug: event.currentTarget.dataset.slug
     })
   }
-  const volumeHandler = event =>
-    console.log(
-      '%c volumeHandler',
-      'color: yellow; font-size: large',
-      event.currentTarget.dataset.index
-    )
+
   let timeline = gsap.timeline({ paused: true })
   useLayoutEffect(() => {
     if (isShown) {
@@ -267,7 +251,6 @@ const TrialCard = ({ trial, isShown, isLastShown }) => {
               <TableRow>
                 <TableCell className={classes.tableHeadCell}>Entry</TableCell>
                 <TableCell className={classes.tableHeadCell}>Product</TableCell>
-                <TableCell className={classes.tableHeadCell}>Volume</TableCell>
               </TableRow>
             </TableHead>
             <TableBody ref={copyRef} id={trial.slug}>
@@ -281,15 +264,6 @@ const TrialCard = ({ trial, isShown, isLastShown }) => {
                     scope="data"
                     className={classes.data}>
                     {addMatchType(item, matchType)}
-                  </TableCell>
-                  <TableCell component="td">
-                    <button
-                      type="button"
-                      onClick={volumeHandler}
-                      data-index={index}
-                      className={classes.volumeButton}>
-                      <SearchIcon className={classes.icon} />
-                    </button>
                   </TableCell>
                 </TableRow>
               ))}
