@@ -230,7 +230,7 @@ const MatchTypes = ({ ...props }) => {
             />
             <FadeIn
               direction="x"
-              position={-100}
+              position={100}
               component={
                 <FormGroup row>
                   <FormControlLabel
