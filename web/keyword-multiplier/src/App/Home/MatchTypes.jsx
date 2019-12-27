@@ -327,7 +327,8 @@ const MatchTypes = ({ ...props }) => {
                         <button
                           className={classes.matchTypeButton}
                           data-matchtype={matchType.value}
-                          onClick={matchTypeHandler}>
+                          onClick={matchTypeHandler}
+                          disabled={domainMode}>
                           {matchType.label}
                           {matchType.value === selectedMatchType ? (
                             <DoneIcon className={classes.doneIcon} />
