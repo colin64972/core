@@ -128,7 +128,8 @@ const app = (state = defaultState, action) => {
     case types.TOGGLE_DOMAIN_MODE:
       return {
         ...state,
-        domainMode: !state.domainMode
+        domainMode: !state.domainMode,
+        matchType: constants.MATCHTYPES.BROAD
       }
     default:
       return state
