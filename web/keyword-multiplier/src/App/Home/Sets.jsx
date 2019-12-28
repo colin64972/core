@@ -8,12 +8,17 @@ import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import RestorePageIcon from '@material-ui/icons/RestorePage'
 import ShuffleIcon from '@material-ui/icons/Shuffle'
+import CachedIcon from '@material-ui/icons/Cached'
 import { makeStyles } from '@material-ui/styles'
 import fields from './fields'
 import WordSet from './WordSet'
 import constants from '../constants'
 import types from '../../store/types'
-import { checkResetDisabled, checkSubmitDisabled } from '../../store/selectors'
+import {
+  checkResetDisabled,
+  checkSubmitDisabled,
+  getSpinnerStatus
+} from '../../store/selectors'
 
 const useStyles = makeStyles(theme => ({
   setsSection: {
@@ -117,6 +122,9 @@ const Comp = ({ ...props }) => {
   const classes = useStyles()
   const submitDisabled = useSelector(state => checkSubmitDisabled(state))
   const resetDisabled = useSelector(state => checkResetDisabled(state))
+  const spinnerStatus = useSelector(state =>
+    getSpinnerStatus(state, constants.SETS_FORM_NAME)
+  )
 
   const submitHandler = event => {
     event.preventDefault()
@@ -209,8 +217,17 @@ const Comp = ({ ...props }) => {
                         ? classes.submitDisabled
                         : classes.submitEnabled
                     }>
-                    <ShuffleIcon className={classes.icon} />
-                    Multiply
+                    {spinnerStatus ? (
+                      <Grid container justify="center">
+                        <CachedIcon className={classes.icon} />
+                        Working
+                      </Grid>
+                    ) : (
+                      <Grid container justify="center">
+                        <ShuffleIcon className={classes.icon} />
+                        Multiply
+                      </Grid>
+                    )}
                   </button>
                 }
               />
