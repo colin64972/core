@@ -7,6 +7,9 @@ const defaultState = {
     items: [],
     shown: []
   },
+  spinnerStatuses: {
+    [constants.SETS_FORM_NAME]: false
+  },
   matchType: constants.MATCHTYPES.BROAD,
   copySettings: {
     dataOnly: false
@@ -130,6 +133,14 @@ const app = (state = defaultState, action) => {
         ...state,
         domainMode: !state.domainMode,
         matchType: constants.MATCHTYPES.BROAD
+      }
+    case types.SET_SPINNER_STATUS:
+      return {
+        ...state,
+        spinnerStatuses: {
+          ...state.spinnerStatuses,
+          [action.spinnerName]: action.status
+        }
       }
     default:
       return state
