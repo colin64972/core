@@ -14,6 +14,11 @@ import { processTrial, copyToClipboard, generateNotice } from '../../App/logic'
 export function* multiplySets() {
   const notice = generateNotice('Check your results below')
   try {
+    yield put({
+      type: types.SET_SPINNER_STATUS,
+      spinnerName: constants.SETS_FORM_NAME,
+      status: true
+    })
     const enabled = yield select(state => getEnabledSets(state))
     let ip = yield select(state => getClientIp(state))
     if (!ip) {
@@ -43,11 +48,21 @@ export function* multiplySets() {
       type: types.SHOW_TRIAL,
       slug: trial.slug
     })
+    yield put({
+      type: types.SET_SPINNER_STATUS,
+      spinnerName: constants.SETS_FORM_NAME,
+      status: false
+    })
   } catch (error) {
     notice.bg = constants.NOTICE.BGS.FAIL
     notice.heading = 'Error'
     notice.message = error.message
   }
+  yield put({
+    type: types.SET_SPINNER_STATUS,
+    spinnerName: constants.SETS_FORM_NAME,
+    status: false
+  })
   yield put({
     type: types.ADD_NOTICE,
     notice

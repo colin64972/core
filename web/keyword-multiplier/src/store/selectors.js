@@ -10,6 +10,8 @@ const noticeSelector = state => get(state, 'app.notice', {})
 const copySettingsSelector = state => get(state, 'app.copySettings', {})
 const ipSelector = state => get(state, 'app.ip', null)
 const domainModeSelector = state => get(state, 'app.domainMode')
+const spinnerStatusSelector = (state, setName) =>
+  get(state, `app.spinnerStatuses.${setName}`)
 
 export const checkSetDisabled = (state, set) => {
   const sets = get(state, `app.disabled`, [])
@@ -63,3 +65,8 @@ export const getCopySettings = createSelector(
 export const getClientIp = createSelector(ipSelector, ip => ip)
 
 export const getDomainMode = createSelector(domainModeSelector, mode => mode)
+
+export const getSpinnerStatus = createSelector(
+  spinnerStatusSelector,
+  status => status
+)
