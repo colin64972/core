@@ -21,13 +21,17 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     textAlign: 'center',
+    lineHeight: 0.9,
+    marginBottom: theme.custom.setSpace(),
+    fontSize: theme.custom.setSpace() * 6,
     [theme.breakpoints.down('sm')]: {
       fontSize: theme.custom.setSpace('sm') * 1.67
     }
   },
   subtitle: {
     textTransform: 'unset',
-    fontWeight: 'unset'
+    fontWeight: 'unset',
+    textAlign: 'center'
   }
 }))
 

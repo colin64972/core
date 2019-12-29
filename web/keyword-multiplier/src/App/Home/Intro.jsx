@@ -67,11 +67,13 @@ const Intro = () => {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <FadeIn
-            direction="x"
-            position={100}
-            component={<img src={IntroImage} className={classes.image} />}
-          />
+          <Grid container justify="center">
+            <FadeIn
+              direction="x"
+              position={100}
+              component={<img src={IntroImage} className={classes.image} />}
+            />
+          </Grid>
         </Grid>
       </Grid>
     </Grid>
