@@ -69,6 +69,7 @@ const useStyles = makeStyles(theme => ({
   },
   badgeHeading: {
     textAlign: 'right',
+    lineHeight: 1.25,
     [theme.breakpoints.down('xs')]: {
       textAlign: 'left',
       fontSize: theme.custom.setSpace() * 1.5,

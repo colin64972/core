@@ -79,6 +79,9 @@ const useStyles = makeStyles(theme => {
     manageTrials: {
       ...defaultPadding(theme.breakpoints, theme.custom.setSpace)
     },
+    settingsCopy: {
+      marginBottom: theme.custom.setSpace() / 2
+    },
     matchTypeSelection: {
       height: '100%',
       color: 'white',
@@ -89,7 +92,10 @@ const useStyles = makeStyles(theme => {
       ...theme.custom.setFlex('column nowrap', 'flex-end')
     },
     matchTypeButtonFadeIn: {
-      margin: `${theme.custom.setSpace()}px ${theme.custom.setSpace()}px 0 0`
+      'marginRight': theme.custom.setSpace(),
+      '&:last-child': {
+        marginRight: 0
+      }
     },
     switchGroupLabel: {
       marginRight: 0
@@ -205,7 +211,7 @@ const MatchTypes = ({ ...props }) => {
               direction="y"
               position={100}
               component={
-                <Typography variant="body1">
+                <Typography variant="body1" className={classes.settingsCopy}>
                   Est voluptua stet ea sadipscing nonumy gubergren eos, nonumy
                   dolore dolore sadipscing est consetetur diam sed.
                 </Typography>
@@ -317,7 +323,10 @@ const MatchTypes = ({ ...props }) => {
                 direction="x"
                 position={-100}
                 component={
-                  <Typography variant="h4" className={classes.mainHeading}>
+                  <Typography
+                    variant="h4"
+                    className={classes.mainHeading}
+                    align="center">
                     Add a Match Type
                   </Typography>
                 }
@@ -326,30 +335,28 @@ const MatchTypes = ({ ...props }) => {
             <Grid item xs={12}>
               <Grid container justify="center" alignItems="center">
                 {fields.matchTypes.map(matchType => (
-                  <Grid item key={matchType.key}>
-                    <FadeIn
-                      key={matchType.key}
-                      direction="y"
-                      position={100}
-                      className={classes.matchTypeButtonFadeIn}
-                      component={
-                        <button
-                          className={classnames(classes.matchTypeButton, {
-                            [classes.matchTypeButtonDisabled]: domainMode
-                          })}
-                          data-matchtype={matchType.value}
-                          onClick={matchTypeHandler}
-                          disabled={domainMode}>
-                          {matchType.label}
-                          {matchType.value === selectedMatchType ? (
-                            <DoneIcon className={classes.doneIcon} />
-                          ) : (
-                            <CloseIcon className={classes.closeIcon} />
-                          )}
-                        </button>
-                      }
-                    />
-                  </Grid>
+                  <FadeIn
+                    key={matchType.key}
+                    direction="y"
+                    position={100}
+                    className={classes.matchTypeButtonFadeIn}
+                    component={
+                      <button
+                        className={classnames(classes.matchTypeButton, {
+                          [classes.matchTypeButtonDisabled]: domainMode
+                        })}
+                        data-matchtype={matchType.value}
+                        onClick={matchTypeHandler}
+                        disabled={domainMode}>
+                        {matchType.label}
+                        {matchType.value === selectedMatchType ? (
+                          <DoneIcon className={classes.doneIcon} />
+                        ) : (
+                          <CloseIcon className={classes.closeIcon} />
+                        )}
+                      </button>
+                    }
+                  />
                 ))}
               </Grid>
             </Grid>
