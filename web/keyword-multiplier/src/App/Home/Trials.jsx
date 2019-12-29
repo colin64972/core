@@ -19,7 +19,10 @@ const useStyles = makeStyles(theme => ({
       marginTop: theme.custom.setSpace()
     }
   },
-  mainHeading: theme.typography.mainHeading
+  mainHeading: {
+    ...theme.typography.mainHeading,
+    marginBottom: 0
+  }
 }))
 
 const Trials = () => {
