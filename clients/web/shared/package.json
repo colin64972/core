@@ -1,0 +1,17 @@
+{
+  "name": "@colin30/clients-web-shared",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": "git@github.com:colin30/core.git",
+  "author": "colin30 <colin30@post.com>",
+  "private": true,
+  "prettier": "@colin30/configs/prettier",
+  "devDependencies": {
+    "@colin30/configs": "0.0.1"
+  },
+  "dependencies": {
+    "axios": "^0.20.0",
+    "faker": "^5.0.0"
+  }
+}
