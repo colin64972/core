@@ -18,15 +18,13 @@
     "mb": "aws s3 mb s3://$npm_package_config_name --profile $npm_package_config_profile",
     "package": "sam package --template-file template.yaml --s3-bucket $npm_package_config_name --output-template-file packaged.yaml --profile $npm_package_config_profile",
     "deploy": "sam deploy --template-file packaged.yaml --stack-name $npm_package_config_name --capabilities CAPABILITY_IAM --profile $npm_package_config_profile",
-    "delete": "aws cloudformation delete-stack --stack-name $npm_package_config_name --profile $npm_package_config_profile",
-    "test": "NODE_ENV=test mocha",
-    "coverage": "NODE_ENV=test nyc --reporter=text mocha"
+    "delete": "aws cloudformation delete-stack --stack-name $npm_package_config_name --profile $npm_package_config_profile"
   },
   "devDependencies": {
     "@colin30/configs": "0.0.1"
   },
   "dependencies": {
-    "aws-serverless": "^1.0.2",
+    "aws-serverless-express": "^3.3.8",
     "express": "^4.17.1",
     "mongoose": "^5.10.2"
   }
