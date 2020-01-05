@@ -1,4 +1,4 @@
-import { constants } from '@cjo3/shared/raw/constants/searchQueryEvaluator'
+import { constants } from '@cjo3/shared/raw/constants/sqe'
 import { types } from '../types'
 
 const defaultState = {

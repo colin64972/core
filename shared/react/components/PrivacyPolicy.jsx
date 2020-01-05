@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 import { makeStyles } from '@material-ui/styles'
-import { constants } from '@cjo3/shared/raw/constants/searchQueryEvaluator'
+import { constants } from '@cjo3/shared/raw/constants/sqe'
 import {
   Dialog,
   DialogActions,

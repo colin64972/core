@@ -10,7 +10,7 @@ import RateReviewIcon from '@material-ui/icons/RateReview'
 import VpnLockIcon from '@material-ui/icons/VpnLock'
 import WebIcon from '@material-ui/icons/Web'
 import { makeStyles } from '@material-ui/styles'
-import { constants } from '@cjo3/shared/raw/constants/searchQueryEvaluator'
+import { constants } from '@cjo3/shared/raw/constants/sqe'
 import { ColinProfile } from '../../../assets'
 import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 
@@ -218,7 +218,8 @@ export const Footer = () => {
             Available for hire today!
           </Typography>
           <Typography variant="body1" className={classes.copyright}>
-            &copy; {new Date().getFullYear()} {process.env.COPYRIGHT_ENTITY}. All rights reserved.
+            &copy; {new Date().getFullYear()} {process.env.COPYRIGHT_ENTITY}.
+            All rights reserved.
           </Typography>
         </Grid>
       </Grid>

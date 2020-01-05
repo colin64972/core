@@ -1,5 +1,5 @@
-import { calculateTrialPrice } from '@cjo3/shared/logic/searchQueryEvaluator'
-import { constants } from '@cjo3/shared/raw/constants/searchQueryEvaluator'
+import { calculateTrialPrice } from '@cjo3/shared/logic/sqe'
+import { constants } from '@cjo3/shared/raw/constants/sqe'
 import { errorConstants } from '@cjo3/shared/serverless/errorConstants'
 import { proxyServiceError } from '@cjo3/shared/serverless/proxyServiceError'
 import { fetchKeMeta, fetchKeVolumes } from './fetchers'

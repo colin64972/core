@@ -2,7 +2,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Loadable from 'react-loadable'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import { constants } from '@cjo3/shared/raw/constants/searchQueryEvaluator'
+import { constants } from '@cjo3/shared/raw/constants/sqe'
 import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 
 const HomeLoadable = Loadable({

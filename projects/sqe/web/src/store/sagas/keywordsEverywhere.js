@@ -10,9 +10,9 @@ import {
   decorateKeOptions,
   decorateTrial,
   generateNotice
-} from '@cjo3/shared/logic/searchQueryEvaluator'
-import { constants } from '@cjo3/shared/raw/constants/searchQueryEvaluator'
-import { payloadMock } from '@cjo3/shared/react/mocks/searchQueryEvaluator'
+} from '@cjo3/shared/logic/sqe'
+import { constants } from '@cjo3/shared/raw/constants/sqe'
+import { payloadMock } from '@cjo3/shared/react/mocks/sqe'
 
 export function* getKeOptions() {
   try {

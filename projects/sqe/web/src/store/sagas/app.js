@@ -1,7 +1,7 @@
 import { call, put, select, take, race, delay } from 'redux-saga/effects'
 import { createTrial, fetchIpAddress } from '../fetchers'
 import { types } from '../types'
-import { constants } from '@cjo3/shared/raw/constants/searchQueryEvaluator'
+import { constants } from '@cjo3/shared/raw/constants/sqe'
 import { copyToClipboard } from '@cjo3/shared/react/helpers'
 import {
   decorateTrial,
@@ -9,7 +9,7 @@ import {
   getSetsWithValues,
   findEnabledSets,
   buildCopyData
-} from '@cjo3/shared/logic/searchQueryEvaluator'
+} from '@cjo3/shared/logic/sqe'
 
 export function* multiplySets(action) {
   const notice = generateNotice('Check your results below')
