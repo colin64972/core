@@ -15,10 +15,10 @@ export const prepSetValue = input => {
     } else {
       temp = line.replace(/[-_\W]+/gi, '')
     }
-    return temp.trim()
+    return temp.trim().toLowerCase()
   })
   const uniqueSet = new Set(nonWordsRemoved)
-  return [...uniqueSet].join('\n')
+  return [...uniqueSet].join('\n').replace(/\n$/, '')
 }
 
 const changeSetNameToLabel = data => data.substr(-1)
