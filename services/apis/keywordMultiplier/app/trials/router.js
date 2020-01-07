@@ -1,10 +1,15 @@
 const express = require('express')
+const TrialsModel = require('./model')
 
 const trialsRouter = express.Router()
 
 const getAll = async (req, res, next) => {
-  console.log(process.env)
-  return res.json('getAll')
+  try {
+    let docs = await TrialsModel.find({})
+    return res.json(docs)
+  } catch (err) {
+    return next(err)
+  }
 }
 
 trialsRouter.route('/').get(getAll)
