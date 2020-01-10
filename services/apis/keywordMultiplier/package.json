@@ -11,10 +11,11 @@
     "name": "colin30-services-apis-keywordMultiplier",
     "host": "localhost",
     "port": "2000",
-    "profile": "default"
+    "profile": "default",
+    "dbName": "KeywordMultiplier"
   },
   "scripts": {
-    "start": "sam local start-api --host $npm_package_config_host --port $npm_package_config_port",
+    "start": "sam local start-api --host $npm_package_config_host --port $npm_package_config_port --debug",
     "mb": "aws s3 mb s3://$npm_package_config_name --profile $npm_package_config_profile",
     "package": "sam package --template-file template.yaml --s3-bucket $npm_package_config_name --output-template-file packaged.yaml --profile $npm_package_config_profile",
     "deploy": "sam deploy --template-file packaged.yaml --stack-name $npm_package_config_name --capabilities CAPABILITY_IAM --profile $npm_package_config_profile",
@@ -24,7 +25,9 @@
     "@colin30/configs": "0.0.1"
   },
   "dependencies": {
+    "@colin30/services-shared": "0.0.1",
     "aws-serverless-express": "^3.3.8",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongoose": "^5.10.2"
   }

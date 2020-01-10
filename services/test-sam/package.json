@@ -1,0 +1,14 @@
+{
+  "name": "@colin30/services-test",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@colin30/services-shared": "0.0.1"
+  },
+  "dependencies": {
+    "aws-serverless-express": "^3.3.8",
+    "express": "^4.17.1"
+  }
+}
