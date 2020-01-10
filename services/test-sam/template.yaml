@@ -1,26 +1,23 @@
 AWSTemplateFormatVersion: '2010-09-09'
-
 Transform: AWS::Serverless-2016-10-31
-
 Globals:
   Function:
     Timeout: 100
-
 Resources:
-  KeywordMultiplierApi:
+  TestFunction:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: .
-      Handler: index.handler
+      Handler: handler.main
       Runtime: nodejs12.x
       Events:
-        Base:
+        Root:
           Type: Api
           Properties:
             Path: /
-            Method: any
+            Method: ANY
         Proxy:
           Type: Api
           Properties:
             Path: /{proxy+}
-            Method: any
+            Method: ANY

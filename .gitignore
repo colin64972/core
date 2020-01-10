@@ -5,6 +5,7 @@ static
 media
 
 # files
+.env
 *.DS_Store
 *.lock
 *.log
