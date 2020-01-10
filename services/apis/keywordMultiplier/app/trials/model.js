@@ -7,7 +7,7 @@ const schema = new Schema(
       type: String,
       required: [true, 'required'],
       minlength: [8, 'Must be at least 8 characters'],
-      trim: true,
+      trim: true
       validate: {
         validator: input => ipAddress.test(input),
         message: '{VALUE} is not a valid ip address'
