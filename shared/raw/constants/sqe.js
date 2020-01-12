@@ -108,7 +108,8 @@ exports.constants = {
     TAndC: '/terms-and-conditions',
     PP: '/privacy-policy',
     FEEDBACK: '/feedback',
-    STRIPE: 'https://stripe.com/'
+    STRIPE: 'https://stripe.com/',
+    ROOT: '/'
   },
   ENDPOINTS: {
     options: [countriesPath, currenciesPath],

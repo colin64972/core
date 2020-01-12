@@ -202,7 +202,7 @@ export const Footer = () => {
             <Link
               component="button"
               className={classes.badgeButton}
-              href={constants.URLS.NEBOCAT}>
+              href={constants.URLS.ROOT}>
               <Typography variant="h6" className={classes.badgeHeading}>
                 Need help with JavaScript
                 <br />
