@@ -1,9 +1,7 @@
 import AWS from 'aws-sdk'
-import { constants, helpers } from '@colin30/shared'
-
-const { dynamoDbConstants } = constants
-
-const { createHashId, proxyServiceError } = helpers
+import { dynamoDbConstants } from '@colin30/shared/raw/constants/dynamoDb'
+import { proxyServiceError } from '@colin30/shared/serverless/proxyServiceError'
+import { createHashId } from '@colin30/shared/react/helpers'
 
 const dbOptions = {}
 
