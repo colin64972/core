@@ -1,0 +1,7 @@
+{
+  "name": "@colin30/serverless-catcher",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true
+}
