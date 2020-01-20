@@ -27,7 +27,7 @@ export const constants = {
   },
   REPLACEMENT_CODE: '#@$@#',
   NOTICE: {
-    TIMEOUT_DELAY: process.env.NODE_ENV === 'development' ? 10000 : 5000,
+    TIMEOUT_DELAY: process.env.NODE_ENV === 'development' ? 1000 : 5000,
     TIMEOUT_HEIGHT: 4,
     KINDS: {
       SIMPLE: 0,

@@ -61,12 +61,10 @@ export function* multiplySets() {
     notice
   })
   yield put({ type: types.SHOW_NOTICE })
-  const { response } = yield race({
+  yield race({
     response: take(types.TAKE_NOTICE_RESPONSE),
     timeout: delay(constants.NOTICE.TIMEOUT_DELAY)
   })
-  if (response && response.choice === constants.NOTICE.RESPONSES.REJECT) {
-  }
   yield put({ type: types.HIDE_NOTICE })
   yield delay(500)
   yield put({ type: types.REMOVE_NOTICE })
@@ -89,12 +87,10 @@ export function* copyTrial(action) {
     notice
   })
   yield put({ type: types.SHOW_NOTICE })
-  const { response } = yield race({
+  yield race({
     response: take(types.TAKE_NOTICE_RESPONSE),
     timeout: delay(constants.NOTICE.TIMEOUT_DELAY)
   })
-  if (response && response.choice === constants.NOTICE.RESPONSES.REJECT) {
-  }
   yield put({ type: types.HIDE_NOTICE })
   yield delay(500)
   yield put({ type: types.REMOVE_NOTICE })
@@ -117,12 +113,10 @@ export function* copyAllTrials() {
     notice
   })
   yield put({ type: types.SHOW_NOTICE })
-  const { response } = yield race({
+  yield race({
     response: take(types.TAKE_NOTICE_RESPONSE),
     timeout: delay(constants.NOTICE.TIMEOUT_DELAY)
   })
-  if (response && response.choice === constants.NOTICE.RESPONSES.REJECT) {
-  }
   yield put({ type: types.HIDE_NOTICE })
   yield delay(500)
   yield put({ type: types.REMOVE_NOTICE })
