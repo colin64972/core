@@ -13,6 +13,7 @@ import {
 } from '@cjo3/shared/logic/sqe'
 import { constants } from '@cjo3/shared/raw/constants/sqe'
 import { payloadMock } from '@cjo3/shared/react/mocks/sqe'
+import { getLabelFromValue } from '@cjo3/shared/react/helpers'
 
 export function* getKeOptions() {
   try {
@@ -68,12 +69,23 @@ export function* orderMetrics(action) {
   try {
     const orderRequest = yield select(state => state.kE.orderRequest)
 
+    const kECountries = yield select(state => state.kE?.countries)
+    const kECurrencies = yield select(state => state.kE?.currencies)
+    const kEDataSources = yield select(state => state.kE?.dataSources)
+
+    const readableKeOptions = {
+      country: getLabelFromValue(action.values.country, kECountries),
+      currency: getLabelFromValue(action.values.currency, kECurrencies),
+      dataSource: getLabelFromValue(action.values.dataSource, kEDataSources)
+    }
+
     const preOrderRes = yield call(
       makePreOrder,
       orderRequest,
       action.values.country,
       action.values.currency,
-      action.values.dataSource
+      action.values.dataSource,
+      readableKeOptions
     )
 
     const { client_secret } = preOrderRes

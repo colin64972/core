@@ -56,9 +56,9 @@ export const preOrder = async eventBody => {
 
     const trial = await getTrialById(body.orderRequest.trialId)
 
-    const serverPrice = calculateTrialPrice(
-      trial.trialProduct.billableKeywords.length
-    )
+    const billableCount = trial.trialProduct.billableKeywords.length
+
+    const serverPrice = calculateTrialPrice(billableCount)
 
     if (serverPrice.total !== body.orderRequest.price.total)
       throw Error(errorConstants.PAYMENT.PRICE_MISMATCH.ERROR_CODE)
@@ -67,7 +67,18 @@ export const preOrder = async eventBody => {
 
     const paymentIntent = await paymentIntents.create({
       amount: parseInt(serverPrice.total * 100),
-      currency: 'cad'
+      currency: 'cad',
+      description: `Search Query Evaluator purchase of ${billableCount} billable keyword metric${
+        billableCount > 1 ? 's' : ''
+      }`,
+      metadata: {
+        billableCount,
+        billableKeywords: JSON.stringify(trial.trialProduct.billableKeywords),
+        country: body.readableKeOptions.country,
+        currency: body.readableKeOptions.currency,
+        dataSource: body.readableKeOptions.dataSource,
+        resultId: trial.id
+      }
     })
 
     return {

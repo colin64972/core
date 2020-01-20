@@ -53,7 +53,8 @@ export const makePreOrder = async (
   orderRequest,
   country,
   currency,
-  dataSource
+  dataSource,
+  readableKeOptions
 ) => {
   if (process.env.USE_MOCKS) return preOrderMock
   let url = 'http://localhost:2000'
@@ -66,7 +67,8 @@ export const makePreOrder = async (
       orderRequest,
       country,
       currency,
-      dataSource
+      dataSource,
+      readableKeOptions
     },
     options
   )
