@@ -1,0 +1,21 @@
+service: ${env:SERVICE_NAME}
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${env:STAGE}
+  region: ${env:AWS_REGION}
+  httpApi:
+    payload: '2.0'
+
+plugins:
+  - serverless-dotenv-plugin
+
+functions:
+  getCatcher:
+    handler: handler.getCatcher
+    events:
+      - httpApi:
+          path: /
+          method: GET
+          cors: true
