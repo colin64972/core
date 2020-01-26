@@ -1,4 +1,5 @@
-service: ${env:SERVICE_NAME}
+service:
+  name: ${env:SERVICE_NAME}
 
 provider:
   name: aws
@@ -11,11 +12,19 @@ provider:
 plugins:
   - serverless-dotenv-plugin
 
+custom:
+  dotenv:
+    logging: false
+    # path: default
+    # basePath: default
+    # include: default
+    # exclude: default
+
+
 functions:
-  getCatcher:
-    handler: handler.getCatcher
+  catcher:
+    handler: handler.catcher
     events:
       - httpApi:
-          path: /
           method: GET
-          cors: true
+          path: '*'
