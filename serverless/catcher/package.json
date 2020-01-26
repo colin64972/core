@@ -8,6 +8,11 @@
   "private": true,
   "prettier": "@colin30/configs/prettier",
   "devDependencies": {
-    "@colin30/configs": "0.0.1"
+    "@colin30/configs": "0.0.1",
+    "serverless-dotenv-plugin": "^3.0.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "serverless-http": "^2.5.0"
   }
 }
