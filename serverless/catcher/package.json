@@ -7,6 +7,9 @@
   "author": "colin30 <colin30@post.com>",
   "private": true,
   "prettier": "@colin30/configs/prettier",
+  "scripts": {
+    "event": "sls invoke local -f catcher -p event.json"
+  },
   "devDependencies": {
     "@colin30/configs": "0.0.1",
     "serverless-dotenv-plugin": "^3.0.0"
