@@ -89,7 +89,7 @@ export const Intro = () => {
         <Grid item xs={12} sm={6}>
           <FadeIn direction="y" position={-100}>
             <Typography variant="subtitle2" className={classes.subHeading}>
-              Online Visibility Search Optimization Tool
+              Keyword Optimization Tool
             </Typography>
           </FadeIn>
           <FadeIn direction="x" position={-100}>
@@ -104,7 +104,7 @@ export const Intro = () => {
               articles, podcasts, YouTube videos or other media&mdash;your
               content deserves to be seen online. So, before you hit the publish
               button, make sure you&apos;re using the right keywords and search
-              query language to target your chosen audience.
+              query language to attract your chosen audience.
             </Typography>
           </FadeIn>
         </Grid>
@@ -121,7 +121,7 @@ export const Intro = () => {
                 position={100}
                 className={classes.valuePropFadeIn}>
                 <Typography variant="h3" className={classes.valuePropTitle}>
-                  This content marketing tool can help you easily&#58;
+                  This online marketing tool can help you&#58;
                 </Typography>
               </FadeIn>
             </Grid>
@@ -138,7 +138,7 @@ export const Intro = () => {
                 </li>
                 <li className={classes.valuePropPoint}>
                   <CheckIcon color="primary" className={classes.checkIcon} />
-                  evaluate and compare search query keyword variants
+                  evaluate and compare keyword variations
                 </li>
                 <li className={classes.valuePropPoint}>
                   <CheckIcon color="primary" className={classes.checkIcon} />

@@ -62,7 +62,7 @@ export const Sets = () => {
         <Grid item xs={12} sm={8}>
           <FadeIn direction="y" position={-100}>
             <Typography variant="subtitle2">
-              Explore Search Query Variation
+              Create Keyword Variations with Ease
             </Typography>
           </FadeIn>
           <FadeIn direction="x" position={-100}>
@@ -72,11 +72,12 @@ export const Sets = () => {
           </FadeIn>
           <FadeIn direction="x" position={100}>
             <Typography variant="body1">
-              There are many ways to express search intent; therefore, as a
-              content producer, it is worth your while to explore variations of
-              your consumers&apos; expected search queries to objectively
-              evaluate and compare the keywords that will reveal their intent.
-              Use the textareas below to formulate search query variations.
+              There are many ways to express a search query; therefore, as a
+              content producer, it is worth your while to explore variations
+              within your consumers&apos; expected search queries to objectively
+              evaluate the effectiveness of your content&apos;s topics and
+              language. Use the textareas below to generate keyword variations
+              based on expected search queries.
             </Typography>
           </FadeIn>
         </Grid>

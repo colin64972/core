@@ -126,9 +126,7 @@ export const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
           Keyword Metric Order Form
         </Typography>
         <Typography variant="h4" className={classes.mainHeading}>
-          Quantify your Search Query
-          <br />
-          Result Variations
+          Quantify your Keyword Variation Trial
         </Typography>
         <Formik initialValues={initalValues} onSubmit={customSubmitHandler}>
           {formikProps => (

@@ -37,13 +37,13 @@ export const TrialCardsContainer = ({ trials }) => {
           alignItems="flex-start"
           justify="flex-start">
           <FadeIn direction="y" position={-100}>
-            <Typography variant="subtitle2">Results Display</Typography>
+            <Typography variant="subtitle2">
+              &#8230;And the Results are In
+            </Typography>
           </FadeIn>
           <FadeIn direction="x" position={-100}>
             <Typography variant="h4" className={classes.mainHeading}>
-              Explore your Search
-              <br />
-              Query Results
+              Keyword Variation Trial Cards
             </Typography>
           </FadeIn>
         </Grid>

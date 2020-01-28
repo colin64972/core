@@ -38,12 +38,12 @@ export const Header = () => {
       </FadeIn>
       <FadeIn direction="x" position={-100}>
         <Typography variant="h4" className={classes.mainHeading}>
-          Search Query Evaluator
+          Keyword Multiplier
         </Typography>
       </FadeIn>
       <FadeIn direction="y" position={100}>
         <Typography variant="subtitle2" className={classes.subHeading}>
-          Compare Interest in Search Query Variations
+          Compare Metrics of Keyword Variations
         </Typography>
       </FadeIn>
     </Grid>
