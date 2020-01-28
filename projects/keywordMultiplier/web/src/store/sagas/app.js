@@ -32,6 +32,7 @@ export function* multiplySets() {
       sets: enabled,
       ipAddress: ip
     })
+    console.log('%c posted', 'color: yellow; font-size: large', posted)
     const trial = yield call(processTrial, posted.data)
     yield put({
       type: types.ADD_TRIAL,
