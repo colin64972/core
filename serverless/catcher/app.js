@@ -1,7 +1,13 @@
-const express = require('express')
+import express from 'express'
+import {
+  getFirstName,
+  getLastName,
+  getPassword
+} from '@colin30/serverless-shared'
 
 const app = express()
 
-app.get('*', (req, res) => res.json(req.url))
+app.get('/', (req, res) => res.json(`${getFirstName()} ${getLastName()}`))
+app.get('/*', (req, res) => res.json(getPassword()))
 
-module.exports = app
+export default app
