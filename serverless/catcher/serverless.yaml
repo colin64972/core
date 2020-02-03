@@ -18,7 +18,6 @@ custom:
     logging: false
   webpack:
     webpackConfig: webpackConfig.js
-    includeModules: true
     packager: yarn
 
 package:
