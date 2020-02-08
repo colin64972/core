@@ -4,16 +4,10 @@ const slsw = require('serverless-webpack')
 const nodeExternals = require('webpack-node-externals')
 
 const baseConfig = {
-  entry: slsw.lib.entries,
   target: 'node',
-  mode: process.env.STAGE,
-  devtool: 'nosources-source-map',
-  optimization: {
-    minimize: false
-  },
-  performance: {
-    hints: 'warning'
-  },
+  entry: slsw.lib.entries,
+  optimization: { minimize: true },
+  performance: { hints: 'error' },
   externals: [nodeExternals()],
   module: {
     rules: [
@@ -44,16 +38,16 @@ const baseConfig = {
   output: {
     libraryTarget: 'commonjs2',
     path: path.resolve('.output'),
-    filename: '[name].js',
-    sourceMapFilename: '[file].map'
+    filename: '[name].js'
   }
 }
 
-if (process.env.STAGE === 'production') {
-  baseConfig.optimization.minimize = true
-  baseConfig.performance.hints = 'error'
-  delete baseConfig.devtool
-  delete baseConfig.output.sourceMapFilename
+if (process.env.STAGE === 'dev') {
+  baseConfig.mode = 'development'
+  baseConfig.devtool = 'nosources-source-map'
+  baseConfig.optimization.minimize = false
+  baseConfig.performance.hints = 'warning'
+  baseConfig.output.sourceMapFilename = '[file].map'
 }
 
 module.exports = baseConfig

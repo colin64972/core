@@ -13,6 +13,7 @@ plugins:
   - serverless-dotenv-plugin
   - serverless-webpack
   - serverless-offline
+  - serverless-domain-manager
 
 custom:
   dotenv:
@@ -23,6 +24,12 @@ custom:
   webpack:
     webpackConfig: webpackConfig.js
     packager: yarn
+  customDomain:
+    domainName: ${env:DOMAIN}
+    basePath: ${env:STAGE}
+    endpointType: regional
+    apiType: http
+    autoDomain: true
 
 package:
   individually: true
@@ -30,10 +37,11 @@ package:
 functions:
   catcher:
     handler: handler.catcher
+    stage: ${env:STAGE}
     events:
       - httpApi:
-          method: GET
           path: /
-      - httpApi:
           method: GET
+      - httpApi:
           path: /{proxy+}
+          method: GET
