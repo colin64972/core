@@ -1,0 +1,40 @@
+const path = require('path')
+
+module.exports = (slswEntries, externals) => ({
+  target: 'node',
+  entry: slswEntries,
+  optimization: { minimize: true },
+  performance: { hints: 'error' },
+  externals: [externals()],
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                [
+                  '@babel/preset-env',
+                  {
+                    targets: {
+                      node: true
+                    },
+                    modules: 'commonjs'
+                  }
+                ]
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  output: {
+    libraryTarget: 'commonjs2',
+    path: path.resolve('.output'),
+    filename: '[name].js'
+  }
+})
