@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@colin30/serverless-shared": "0.0.1",
+    "aws-serverless-express": "^3.3.8",
     "express": "^4.17.1",
     "serverless-http": "^2.5.0"
   }
