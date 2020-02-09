@@ -1,4 +1,4 @@
-exports.connectDb = async (dbName, mongooseConnect) => {
+export const connectDb = async (dbName, mongooseConnect) => {
   let uri = `mongodb://localhost:27017/${dbName}`
   let options = {
     bufferCommands: true,
