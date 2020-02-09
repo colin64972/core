@@ -24,6 +24,7 @@ custom:
   webpack:
     webpackConfig: webpackConfig.js
     packager: yarn
+    includeModules: true
   customDomain:
     domainName: ${env:DOMAIN}
     basePath: ${env:STAGE}
@@ -43,5 +44,5 @@ functions:
           path: /
           method: GET
       - httpApi:
-          path: /{proxy+}
+          path: /{path+}
           method: GET
