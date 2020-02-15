@@ -1,5 +1,5 @@
 {
-  "name": "@colin30/serverless-catcher",
+  "name": "@colin30/serverless-renderer",
   "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
@@ -8,7 +8,7 @@
   "private": true,
   "prettier": "@colin30/configs/prettier",
   "scripts": {
-    "event": "sls invoke local -f catcher -p event.json"
+    "event": "sls invoke local -f renderer -p event.json"
   },
   "devDependencies": {
     "@babel/core": "^7.11.5",

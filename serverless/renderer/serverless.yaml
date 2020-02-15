@@ -36,8 +36,8 @@ package:
   individually: true
 
 functions:
-  catcher:
-    handler: handler.catcher
+  renderer:
+    handler: index.renderer
     stage: ${env:STAGE}
     events:
       - httpApi:
