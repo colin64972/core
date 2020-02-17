@@ -86,7 +86,7 @@ export const VolumeFormTrialReview = ({ trialId }) => {
           <TableCell component="th" className={classes.headCell}>
             Time Updated
           </TableCell>
-          <TableCell variant="body">{trial.timestamp}</TableCell>
+          <TableCell variant="body">{trial.timestampUpdated}</TableCell>
         </TableRow>
         <TableRow>
           <TableCell component="th" className={classes.headCell}>

@@ -353,7 +353,7 @@ export const decorateTrial = data => ({
   billableKeywords: data.trialProduct.billableKeywords,
   geoIp: data?.geoIp,
   updatedAt: data.updatedAt,
-  timestamp: moment(data.updatedAt).format('HH:mm:ss'),
+  timestampUpdated: moment(data.updatedAt).format('HH:mm:ss'),
   metrics: data?.metrics,
   paymentId: data?.paymentId
 })

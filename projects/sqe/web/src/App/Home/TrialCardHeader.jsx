@@ -117,7 +117,7 @@ export const TrialCardHeader = ({
             </Tooltip>
             <Tooltip title="Time Updated" placement="top-start" arrow>
               <Chip
-                label={trial.timestamp}
+                label={trial.timestampUpdated}
                 className={classes.timestamp}
                 classes={{
                   label: classes.chipLabel

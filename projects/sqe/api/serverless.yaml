@@ -111,7 +111,7 @@ custom:
 
 resources:
   Resources:
-    searchQueries:
+    kmTrials:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: ${env:TABLE_NAME}

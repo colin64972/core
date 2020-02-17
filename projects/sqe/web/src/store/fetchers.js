@@ -28,7 +28,7 @@ export const createTrial = async payload => {
   if (process.env.NODE_ENV === 'production') {
     url = 'https://apis.bettermedia.ca/sqe'
   }
-  const res = await post(`${url}/search-queries`, payload, options)
+  const res = await post(`${url}/trials`, payload, options)
   return res
 }
 
