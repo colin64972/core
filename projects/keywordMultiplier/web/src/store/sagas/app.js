@@ -1,6 +1,5 @@
 import { call, put, select, take, race, delay } from 'redux-saga/effects'
 import { getRequest, postRequest } from '@colin30/shared/react/saga'
-import { createHashId } from '@colin30/shared/react/helpers'
 import {
   getCopySettings,
   getEnabledSets,
@@ -9,7 +8,7 @@ import {
 } from '../selectors'
 import { types } from '../types'
 import { constants } from '../../App/constants'
-import { processTrial, copyToClipboard, generateNotice } from '../../App/logic'
+import { decorateTrial, copyToClipboard, generateNotice } from '../../App/logic'
 
 export function* multiplySets() {
   const notice = generateNotice('Check your results below')
@@ -32,8 +31,7 @@ export function* multiplySets() {
       sets: enabled,
       ipAddress: ip
     })
-    console.log('%c posted', 'color: yellow; font-size: large', posted)
-    const trial = yield call(processTrial, posted.data)
+    const trial = yield call(decorateTrial, posted.data)
     yield put({
       type: types.ADD_TRIAL,
       trial

@@ -122,3 +122,9 @@ export const generateNotice = (
   }
   return result
 }
+
+export const decorateTrial = data => ({
+  id: data.id,
+  heading: data.trialProduct.heading,
+  list: data.trialProduct.list
+})

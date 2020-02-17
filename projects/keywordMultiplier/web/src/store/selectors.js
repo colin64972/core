@@ -1,7 +1,6 @@
 import { get } from 'lodash'
 import { createSelector } from 'reselect'
 import { constants } from '../App/constants'
-import { removeSetPrefix } from '../App/logic'
 
 const setsWithValuesSelector = state => get(state, 'form.sets.values', {})
 const disabledSetKeySelector = state => get(state, 'app.disabled', [])
@@ -43,7 +42,8 @@ export const getEnabledSets = createSelector(
   [setsWithValuesSelector, disabledSetKeySelector],
   (setsWithValues, disabledSetKeys) => {
     const sortedKeys = Object.keys(setsWithValues).sort(
-      (a, b) => removeSetPrefix(a) - removeSetPrefix(b)
+      (a, b) =>
+        parseInt(a.replace(/set-/gi, '')) - parseInt(b.replace(/set-/gi, ''))
     )
     return sortedKeys.reduce((acc, cur) => {
       const result = acc
