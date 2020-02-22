@@ -6,8 +6,26 @@ provider:
   runtime: nodejs12.x
   stage: ${env:STAGE}
   region: ${env:REGION}
+  stackName: ${env:SERVICE_NAME}
+  endpointType: regional
   httpApi:
+    name: ${env:GATEWAY_NAME}
     payload: '2.0'
+
+functions:
+  renderer:
+    name: ${env:SERVICE_NAME}
+    handler: index.renderer
+    stage: ${env:STAGE}
+    events:
+      - httpApi:
+          path: /
+          method: GET
+      - httpApi:
+          path: /{path+}
+          method: GET
+
+configValidationMode: warn
 
 plugins:
   - serverless-dotenv-plugin
@@ -34,15 +52,3 @@ custom:
 
 package:
   individually: true
-
-functions:
-  renderer:
-    handler: index.renderer
-    stage: ${env:STAGE}
-    events:
-      - httpApi:
-          path: /
-          method: GET
-      - httpApi:
-          path: /{path+}
-          method: GET
