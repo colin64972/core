@@ -13,16 +13,13 @@ provider:
     payload: '2.0'
 
 functions:
-  renderer:
+  scan:
     name: ${env:SERVICE_NAME}
-    handler: index.renderer
+    handler: index.scan
     stage: ${env:STAGE}
     events:
       - httpApi:
           path: /
-          method: GET
-      - httpApi:
-          path: /{path+}
           method: GET
 
 configValidationMode: warn
