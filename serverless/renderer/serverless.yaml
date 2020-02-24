@@ -13,13 +13,16 @@ provider:
     payload: '2.0'
 
 functions:
-  scan:
+  getAll:
     name: ${env:SERVICE_NAME}
-    handler: index.scan
+    handler: index.getAll
     stage: ${env:STAGE}
     events:
       - httpApi:
           path: /
+          method: GET
+      - httpApi:
+          path: /{proxy+}
           method: GET
 
 configValidationMode: warn
