@@ -3,8 +3,8 @@ import AWS from 'aws-sdk'
 const dbOptions = {}
 
 if (process.env.IS_LOCAL || process.env.IS_OFFLINE) {
-  dbOptions.region = process.env.DYNAMO_LOCAL_REGION
-  dbOptions.endpoint = `http://${process.env.LOCAL_HOST}:${process.env.DYNAMO_LOCAL_PORT}`
+  dbOptions.region = process.env.LOCAL_HOST
+  dbOptions.endpoint = `http://${process.env.LOCAL_HOST}:${process.env.LOCAL_DYNAMO_PORT}`
 }
 
 const docClient = new AWS.DynamoDB.DocumentClient(dbOptions)

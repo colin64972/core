@@ -7,7 +7,15 @@
   "author": "colin30 <colin30@post.com>",
   "private": true,
   "prettier": "@colin30/configs/prettier",
+  "config": {
+    "region": "localhost",
+    "endpoint": "http://localhost:8000",
+    "profile": "default",
+    "tableName": "colin30-renders"
+  },
   "scripts": {
+    "dynamo": "cd ~/dynamodb && java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb",
+    "createTable": "aws dynamodb create-table --region $npm_package_config_region --endpoint-url $npm_package_config_endpoint --profile $npm_package_config_profile --table-name $npm_package_config_tableName --attribute-definitions AttributeName=id,AttributeType=S --key-schema AttributeName=id,KeyType=HASH --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=1",
     "getAll": "sls invoke local -f getAll -p events/getAll.json",
     "createOne": "sls invoke local -f createOne -p events/createOne.json"
   },
