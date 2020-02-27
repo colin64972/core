@@ -11,19 +11,30 @@ provider:
   httpApi:
     name: ${env:GATEWAY_NAME}
     payload: '2.0'
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Scan
+        - dynamodb:PutItem
+      Resource: arn:aws:dynamodb:${env:REGION}:*:table/${env:RENDERS_TABLE_NAME}
 
 functions:
   getAll:
-    name: ${env:SERVICE_NAME}
+    name: ${env:SERVICE_NAME}-getAll
     handler: index.getAll
     stage: ${env:STAGE}
     events:
       - httpApi:
-          path: /
+          path: /renders
           method: GET
+  createOne:
+    name: ${env:SERVICE_NAME}-createOne
+    handler: index.createOne
+    stage: ${env:STAGE}
+    events:
       - httpApi:
-          path: /{proxy+}
-          method: GET
+          path: /renders
+          method: POST
 
 configValidationMode: warn
 
@@ -37,12 +48,16 @@ custom:
   dotenv:
     logging: false
   serverless-offline:
-    httpPort: ${env:LOCAL_PORT}
+    httpPort: ${env:LOCAL_SLS_PORT}
     noPrependStageInUrl: true
+    resourceRoutes: true
   webpack:
     webpackConfig: webpackConfig.js
     packager: yarn
-    includeModules: true
+    includeModules:
+      forceExclude:
+        - aws-sdk
+    keepOutputDirectory: true
   customDomain:
     domainName: ${env:DOMAIN}
     basePath: ${env:STAGE}
@@ -50,5 +65,26 @@ custom:
     apiType: http
     autoDomain: true
 
+
 package:
   individually: true
+
+resources:
+  Resources:
+    RendersTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: id
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        StreamSpecification:
+          StreamViewType: NEW_AND_OLD_IMAGES
+        TableName: ${env:RENDERS_TABLE_NAME}
