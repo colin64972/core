@@ -8,7 +8,8 @@
   "private": true,
   "prettier": "@colin30/configs/prettier",
   "scripts": {
-    "event": "sls invoke local -f renderer -p event.json"
+    "getAll": "sls invoke local -f getAll -p events/getAll.json",
+    "createOne": "sls invoke local -f createOne -p events/createOne.json"
   },
   "devDependencies": {
     "@babel/core": "^7.11.5",
@@ -19,13 +20,13 @@
     "dotenv": "^8.2.0",
     "serverless-domain-manager": "^4.2.0",
     "serverless-dotenv-plugin": "^3.0.0",
-    "serverless-dynamodb-local": "^0.2.39",
     "serverless-offline": "^6.7.0",
     "serverless-webpack": "^5.3.4",
     "webpack": "^4.44.1",
     "webpack-node-externals": "^2.5.2"
   },
   "dependencies": {
-    "@colin30/serverless-shared": "0.0.1"
+    "@colin30/serverless-shared": "0.0.1",
+    "aws-sdk": "^2.745.0"
   }
 }
