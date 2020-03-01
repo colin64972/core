@@ -1,9 +1,8 @@
 import AWS from 'aws-sdk'
-import { constants, helpers } from '@colin30/shared'
-
-const { dynamoDbConstants } = constants
-
-const { createHashId, proxyServiceError } = helpers
+import { dynamoDbConstants } from '@colin30/shared/raw/constants/dynamoDb'
+import { proxyServiceError } from '@colin30/shared/serverless/proxyServiceError'
+import { createHashId } from '@colin30/shared/react/helpers'
+import { processTrial } from './logic'
 
 const dbOptions = {}
 
@@ -20,14 +19,21 @@ const createOne = async eventBody => {
 
     const timestamp = new Date().getTime()
 
+    const trialData = {
+      id: createHashId(),
+      ipAddress: parsed.ipAddress,
+      sets: parsed.sets,
+      createdAt: timestamp,
+      updatedAt: timestamp
+    }
+
+    const trialProduct = processTrial(trialData.sets)
+
     const options = {
       TableName: process.env.TABLE_NAME,
       Item: {
-        id: createHashId(),
-        ipAddress: parsed.ipAddress,
-        sets: parsed.sets,
-        createdAt: timestamp,
-        updatedAt: timestamp
+        ...trialData,
+        trialProduct
       }
     }
 
@@ -38,7 +44,7 @@ const createOne = async eventBody => {
       body: JSON.stringify(options.Item)
     }
   } catch (error) {
-    return proxyServerError(error)
+    return proxyServiceError(error)
   }
 }
 
