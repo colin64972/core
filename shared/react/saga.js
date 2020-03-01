@@ -6,23 +6,13 @@ const IPIFY_ENDPOINT = 'https://api.ipify.org?format=json'
 const fetcher = axios.create({
   baseURL:
     process.env.NODE_ENV === 'production'
-      ? 'https://api.wordmultiplier.com'
-      : 'http://localhost:4000'
+      ? 'https://api.colin30.com/keyword-multiplier'
+      : 'http://localhost:2000'
 })
 fetcher.defaults.headers.common['Authorization'] = 'asdf'
 
-export const postRequest = async (resource, payload) => {
-  if (resource === 'trials') {
-    try {
-      const res = await fetcher.post(TRIALS_ENDPOINT, payload)
-      if (res.status !== 201) throw new Error('trials api did not return 201')
-      return res.data
-    } catch (error) {
-      console.log(err)
-      return null
-    }
-  }
-}
+export const postRequest = async (resource, payload) =>
+  fetcher.post(TRIALS_ENDPOINT, payload)
 
 export const getRequest = async resource => {
   if (resource === 'ip') {

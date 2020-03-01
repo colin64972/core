@@ -267,7 +267,7 @@ export const TrialCard = ({ trial, isShown }) => {
                     component="td"
                     scope="data"
                     className={classes.data}>
-                    {item}
+                    {formatProductLine(item, matchType, whiteSpaceSelection)}
                   </TableCell>
                 </TableRow>
               ))}

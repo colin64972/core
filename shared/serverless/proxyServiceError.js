@@ -1,4 +1,4 @@
-import { dynamoDbConstants } from '../constants/dynamoDb'
+import { dynamoDbConstants } from '../raw/constants/dynamoDb'
 
 const setErrorBody = (message, errorObject = null) => {
   let builtError = {
@@ -17,7 +17,7 @@ const setErrorBody = (message, errorObject = null) => {
   return JSON.stringify(builtError, null, 2)
 }
 
-const proxyServiceError = error => {
+export const proxyServiceError = error => {
   console.error(dynamoDbConstants.ERRORS.SERVICE.GENERAL.MESSAGE, error)
   switch (error.message) {
     case dynamoDbConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE:
@@ -41,5 +41,3 @@ const proxyServiceError = error => {
       }
   }
 }
-
-export default proxyServiceError
