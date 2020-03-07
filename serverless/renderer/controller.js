@@ -36,6 +36,50 @@ const getAll = async () => {
   return response
 }
 
+const queryFor = async queryParams => {
+  return {
+    statusCode: 200,
+    body: JSON.stringify(queryParams)
+  }
+}
+
+const getOne = async (pathParam, queryParams) => {
+  if (queryParams) return queryFor(queryParams)
+
+  let response
+
+  try {
+    const result = await docClient
+      .get({
+        TableName: process.env.RENDERS_TABLE_NAME,
+        Key: {
+          id: pathParam?.id
+        }
+      })
+      .promise()
+    if (result?.Item) {
+      response = {
+        statusCode: 200,
+        body: JSON.stringify(result.Item)
+      }
+    } else {
+      throw Error('no doc')
+    }
+  } catch (error) {
+    console.log('DYNAMO ERROR', error.name, error.message)
+    if (error.message === 'no doc') {
+      response = {
+        statusCode: 400,
+        body: JSON.stringify('no item')
+      }
+    } else {
+      response = serviceError(error)
+    }
+  }
+
+  return response
+}
+
 const createOne = async (eventBody, requestId) => {
   let response
 
@@ -74,8 +118,9 @@ const createOne = async (eventBody, requestId) => {
 }
 
 const controller = {
+  createOne,
   getAll,
-  createOne
+  getOne
 }
 
 export default controller
