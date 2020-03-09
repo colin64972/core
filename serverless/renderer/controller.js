@@ -37,14 +37,19 @@ const getAll = async () => {
 }
 
 const queryFor = async queryParams => {
-  return {
-    statusCode: 200,
-    body: JSON.stringify(queryParams)
+  let response
+
+  try {
+    const { domain, path } = queryParams
+  } catch (error) {
+    response = serviceError(error)
   }
+
+  return response
 }
 
 const getOne = async (pathParam, queryParams) => {
-  if (queryParams) return queryFor(queryParams)
+  if (queryParams?.domain && queryParams?.path) return queryFor(queryParams)
 
   let response
 
