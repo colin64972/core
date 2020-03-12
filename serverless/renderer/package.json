@@ -15,7 +15,9 @@
   },
   "scripts": {
     "dynamo": "cd ~/dynamodb && java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb",
-    "createTable": "aws dynamodb create-table --region $npm_package_config_region --endpoint-url $npm_package_config_endpoint --profile $npm_package_config_profile --table-name $npm_package_config_tableName --attribute-definitions AttributeName=id,AttributeType=S --key-schema AttributeName=id,KeyType=HASH --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=1",
+    "createTable": "node -e 'require(\"./tableManager\").makeTable(require(\"./tableSchemas\").rendersTableSchema)'",
+    "deleteTables": "node -e 'require(\"./tableManager\").deleteTables()'",
+    "listTables": "node -e 'require(\"./tableManager\").listTables()'",
     "getAll": "sls invoke local -f getAll -p events/getAll.json",
     "createOne": "sls invoke local -f createOne -p events/createOne.json"
   },
