@@ -89,17 +89,22 @@ const createOne = async (eventBody, requestId) => {
   let response
 
   try {
-    let { page } = eventBody
+    let { domain, path, content } = eventBody
 
     if (!process.env.IS_LOCAL) {
-      page = JSON.parse(eventBody).page
+      body = JSON.parse(eventBody)
+      domain = body.domain
+      path = body.path
+      content = body.content
     }
 
     const timestamp = new Date().getTime()
 
     const postItem = {
       id: requestId,
-      page,
+      domain,
+      path,
+      content,
       createdAt: timestamp,
       updatedAt: timestamp
     }
