@@ -56,6 +56,5 @@ const deleteTables = async () => {
 module.exports = {
   listTables,
   makeTable,
-  deleteTable,
   deleteTables
 }
