@@ -15,9 +15,9 @@
   },
   "scripts": {
     "dynamo": "cd ~/dynamodb && java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb",
-    "createTable": "node -e 'require(\"./tableManager\").makeTable(require(\"./tableSchemas\").rendersTableSchema)'",
-    "deleteTables": "node -e 'require(\"./tableManager\").deleteTables()'",
-    "listTables": "node -e 'require(\"./tableManager\").listTables()'",
+    "createTable": "node -e 'require(\"@colin30/serverless-shared/localTableManager\").makeTable(require(\"./tableSchemas\").rendersTableSchema)'",
+    "deleteTables": "node -e 'require(\"@colin30/serverless-shared/localTableManager\").deleteTables()'",
+    "listTables": "node -e 'require(\"@colin30/serverless-shared/localTableManager\").listTables()'",
     "getAll": "sls invoke local -f getAll -p events/getAll.json",
     "createOne": "sls invoke local -f createOne -p events/createOne.json"
   },

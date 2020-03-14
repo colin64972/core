@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   rendersTableSchema: {
     TableName: process.env.RENDERS_TABLE_NAME,
