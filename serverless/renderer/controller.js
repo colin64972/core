@@ -1,4 +1,6 @@
 import AWS from 'aws-sdk'
+import { v4 as uuidv4 } from 'uuid'
+import constants from '@colin30/serverless-shared/constants'
 
 const dbOptions = {}
 
@@ -36,46 +38,41 @@ const getAll = async () => {
   return response
 }
 
-const queryFor = async queryParams => {
+const queryBySecondaryIndex = async id => {
   let response
 
   try {
     const { domain, path } = queryParams
-  } catch (error) {
-    response = serviceError(error)
-  }
 
-  return response
-}
+    const options = {
+      TableName: process.env.RENDERS_TABLE_NAME,
+      ExpressionAttributeNames: {
+        '#d': 'domain',
+        '#p': 'path'
+      },
+      ExpressionAttributeValues: {
+        ':domain': domain,
+        ':path': path
+      },
+      KeyConditionExpression: '#d = :domain AND #p = :path'
+    }
 
-const getOne = async (pathParam, queryParams) => {
-  if (queryParams?.domain && queryParams?.path) return queryFor(queryParams)
+    const result = await docClient.query(options).promise()
 
-  let response
-
-  try {
-    const result = await docClient
-      .get({
-        TableName: process.env.RENDERS_TABLE_NAME,
-        Key: {
-          id: pathParam?.id
-        }
-      })
-      .promise()
-    if (result?.Item) {
+    if (result?.Count > 0) {
       response = {
         statusCode: 200,
-        body: JSON.stringify(result.Item)
+        body: JSON.stringify(result.Items)
       }
     } else {
-      throw Error('no doc')
+      throw Error('no items')
     }
   } catch (error) {
     console.log('DYNAMO ERROR', error.name, error.message)
-    if (error.message === 'no doc') {
+    if (error.message === 'no items') {
       response = {
         statusCode: 400,
-        body: JSON.stringify('no item')
+        body: JSON.stringify('no items')
       }
     } else {
       response = serviceError(error)
@@ -85,13 +82,60 @@ const getOne = async (pathParam, queryParams) => {
   return response
 }
 
-const createOne = async (eventBody, requestId) => {
+const getByPrimaryKey = async queryParams => {
   let response
+
+  try {
+    const { domain, path } = queryParams
+
+    const options = {
+      TableName: process.env.RENDERS_TABLE_NAME,
+      Key: {
+        domain,
+        path
+      }
+    }
+
+    const result = await docClient.get(options).promise()
+
+    if (result?.Item) {
+      response = {
+        statusCode: 200,
+        body: JSON.stringify(result.Item)
+      }
+    } else {
+      throw Error(constants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
+    }
+  } catch (error) {
+    switch (error.message) {
+      case constants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE:
+        response = {
+          statusCode: constants.ERRORS.DYNAMODB.NO_ITEMS.STATUS_CODE,
+          body: JSON.stringify(constants.ERRORS.DYNAMODB.NO_ITEMS.MESSAGE)
+        }
+        break
+      default:
+        response = serviceError(error)
+        break
+    }
+  }
+
+  return response
+}
+
+const getOne = async (pathParam, queryParams) => {
+  if (queryParams?.domain && queryParams?.path)
+    return getByPrimaryKey(queryParams)
+  return queryBySecondaryIndex(pathParam.id)
+}
+
+const createOne = async (eventBody, requestId) => {
+  let response, body
 
   try {
     let { domain, path, content } = eventBody
 
-    if (!process.env.IS_LOCAL) {
+    if (process.env.IS_OFFLINE) {
       body = JSON.parse(eventBody)
       domain = body.domain
       path = body.path
@@ -101,7 +145,7 @@ const createOne = async (eventBody, requestId) => {
     const timestamp = new Date().getTime()
 
     const postItem = {
-      id: requestId,
+      id: uuidv4(),
       domain,
       path,
       content,
