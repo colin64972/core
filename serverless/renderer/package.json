@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "@colin30/serverless-shared": "0.0.1",
-    "aws-sdk": "^2.745.0"
+    "aws-sdk": "^2.745.0",
+    "uuid": "^8.3.0"
   }
 }
