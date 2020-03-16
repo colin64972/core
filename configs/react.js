@@ -77,7 +77,7 @@ exports.setConfig = (entry, outputPath, template, templateLocals) => ({
               publicPath: (url, resourcePath, context) =>
                 process.env.NODE_ENV === 'development'
                   ? `assets/${url}`
-                  : `${process.env.npm_package_config_assetsUrl}/${process.env.npm_package_config_assetProjectName}/${process.env.npm_package_config_assetProjectContext}/${url}`
+                  : `${process.env.npm_package_config_assetsUrl}/${process.env.npm_package_config_assetProjectName}/${url}`
             }
           }
         ]
