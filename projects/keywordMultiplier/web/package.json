@@ -18,8 +18,8 @@
     "start": "lite-server -c config/lite-server.js",
     "dev": "NODE_ENV=development webpack-dev-server --config config/webpack-dev.js",
     "pro": "NODE_ENV=production webpack-cli --config config/webpack-pro.js --progress",
-    "assets:cp": "aws s3 sync dist/assets s3://$npm_package_config_assetBucket/$npm_package_config_assetProjectName --profile $npm_package_config_profile",
-    "deploy": "yarn pro && yarn assets:cp"
+    "sync": "aws s3 sync dist/assets s3://$npm_package_config_assetBucket/$npm_package_config_assetProjectName --profile $npm_package_config_profile",
+    "deploy": "yarn pro && yarn sync"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
