@@ -19,6 +19,48 @@ const serviceError = error => ({
   })
 })
 
+const createOne = async (eventBody, requestId) => {
+  let response, body
+
+  try {
+    let { domain, path, content } = eventBody
+
+    if (process.env.IS_OFFLINE) {
+      body = JSON.parse(eventBody)
+      domain = body.domain
+      path = body.path
+      content = body.content
+    }
+
+    const timestamp = new Date().getTime()
+
+    const postItem = {
+      id: uuidv4(),
+      domain,
+      path,
+      content,
+      createdAt: timestamp,
+      updatedAt: timestamp
+    }
+
+    const createData = {
+      TableName: process.env.RENDERS_TABLE_NAME,
+      Item: postItem
+    }
+
+    await docClient.put(createData).promise()
+
+    response = {
+      statusCode: 201,
+      body: JSON.stringify(postItem)
+    }
+  } catch (error) {
+    console.log('DYNAMO ERROR', error.message)
+    response = serviceError(error)
+  }
+  return response
+}
+
 const getAll = async () => {
   let response
   try {
@@ -42,40 +84,34 @@ const queryBySecondaryIndex = async id => {
   let response
 
   try {
-    const { domain, path } = queryParams
-
     const options = {
       TableName: process.env.RENDERS_TABLE_NAME,
-      ExpressionAttributeNames: {
-        '#d': 'domain',
-        '#p': 'path'
-      },
+      IndexName: process.env.RENDERS_TABLE_GLOBAL_SECONDARY_INDEX_NAME,
       ExpressionAttributeValues: {
-        ':domain': domain,
-        ':path': path
+        ':id': id
       },
-      KeyConditionExpression: '#d = :domain AND #p = :path'
+      KeyConditionExpression: 'id = :id'
     }
 
     const result = await docClient.query(options).promise()
 
-    if (result?.Count > 0) {
-      response = {
-        statusCode: 200,
-        body: JSON.stringify(result.Items)
-      }
-    } else {
-      throw Error('no items')
-    }
+    if (result?.Count > 0)
+      return getByPrimaryKey({
+        domain: result.Items[0].domain,
+        path: result.Items[0].path
+      })
+    throw Error(constants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
   } catch (error) {
-    console.log('DYNAMO ERROR', error.name, error.message)
-    if (error.message === 'no items') {
-      response = {
-        statusCode: 400,
-        body: JSON.stringify('no items')
-      }
-    } else {
-      response = serviceError(error)
+    switch (error.message) {
+      case constants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE:
+        response = {
+          statusCode: constants.ERRORS.DYNAMODB.NO_ITEMS.STATUS_CODE,
+          body: JSON.stringify(constants.ERRORS.DYNAMODB.NO_ITEMS.MESSAGE)
+        }
+        break
+      default:
+        response = serviceError(error)
+        break
     }
   }
 
@@ -129,52 +165,8 @@ const getOne = async (pathParam, queryParams) => {
   return queryBySecondaryIndex(pathParam.id)
 }
 
-const createOne = async (eventBody, requestId) => {
-  let response, body
-
-  try {
-    let { domain, path, content } = eventBody
-
-    if (process.env.IS_OFFLINE) {
-      body = JSON.parse(eventBody)
-      domain = body.domain
-      path = body.path
-      content = body.content
-    }
-
-    const timestamp = new Date().getTime()
-
-    const postItem = {
-      id: uuidv4(),
-      domain,
-      path,
-      content,
-      createdAt: timestamp,
-      updatedAt: timestamp
-    }
-
-    const createData = {
-      TableName: process.env.RENDERS_TABLE_NAME,
-      Item: postItem
-    }
-
-    await docClient.put(createData).promise()
-
-    response = {
-      statusCode: 201,
-      body: JSON.stringify(postItem)
-    }
-  } catch (error) {
-    console.log('DYNAMO ERROR', error.message)
-    response = serviceError(error)
-  }
-  return response
-}
-
-const controller = {
+export default {
   createOne,
   getAll,
   getOne
 }
-
-export default controller
