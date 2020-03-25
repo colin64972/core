@@ -5,6 +5,11 @@ export const createOne = async (event, context, callback) => {
   return callback(null, slsRes)
 }
 
+export const deleteOne = async (event, context, callback) => {
+  const slsRes = await controller.deleteOne(event.queryStringParameters)
+  return callback(null, slsRes)
+}
+
 export const getAll = async (event, context, callback) => {
   const slsRes = await controller.getAll()
   return callback(null, slsRes)
