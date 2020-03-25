@@ -61,6 +61,50 @@ const createOne = async (eventBody, requestId) => {
   return response
 }
 
+const deleteOne = async queryParams => {
+  let response
+
+  try {
+    const { domain, path } = queryParams
+
+    const options = {
+      TableName: process.env.RENDERS_TABLE_NAME,
+      Key: {
+        domain,
+        path
+      },
+      ReturnValues: 'ALL_OLD'
+    }
+
+    const result = await docClient.delete(options).promise()
+
+    if (
+      result?.Attributes?.domain === domain &&
+      result?.Attributes?.path === path
+    ) {
+      response = {
+        statusCode: 204
+      }
+    } else {
+      throw Error(constants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
+    }
+  } catch (error) {
+    switch (error.message) {
+      case constants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE:
+        response = {
+          statusCode: constants.ERRORS.DYNAMODB.NO_ITEMS.STATUS_CODE,
+          body: JSON.stringify(constants.ERRORS.DYNAMODB.NO_ITEMS.MESSAGE)
+        }
+        break
+      default:
+        response = serviceError(error)
+        break
+    }
+  }
+
+  return response
+}
+
 const getAll = async () => {
   let response
   try {
@@ -77,44 +121,6 @@ const getAll = async () => {
     console.log('DYNAMO ERROR', error.message)
     response = serviceError(error)
   }
-  return response
-}
-
-const queryBySecondaryIndex = async id => {
-  let response
-
-  try {
-    const options = {
-      TableName: process.env.RENDERS_TABLE_NAME,
-      IndexName: process.env.RENDERS_TABLE_GLOBAL_SECONDARY_INDEX_NAME,
-      ExpressionAttributeValues: {
-        ':id': id
-      },
-      KeyConditionExpression: 'id = :id'
-    }
-
-    const result = await docClient.query(options).promise()
-
-    if (result?.Count > 0)
-      return getByPrimaryKey({
-        domain: result.Items[0].domain,
-        path: result.Items[0].path
-      })
-    throw Error(constants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
-  } catch (error) {
-    switch (error.message) {
-      case constants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE:
-        response = {
-          statusCode: constants.ERRORS.DYNAMODB.NO_ITEMS.STATUS_CODE,
-          body: JSON.stringify(constants.ERRORS.DYNAMODB.NO_ITEMS.MESSAGE)
-        }
-        break
-      default:
-        response = serviceError(error)
-        break
-    }
-  }
-
   return response
 }
 
@@ -165,8 +171,47 @@ const getOne = async (pathParam, queryParams) => {
   return queryBySecondaryIndex(pathParam.id)
 }
 
+const queryBySecondaryIndex = async id => {
+  let response
+
+  try {
+    const options = {
+      TableName: process.env.RENDERS_TABLE_NAME,
+      IndexName: process.env.RENDERS_TABLE_GLOBAL_SECONDARY_INDEX_NAME,
+      ExpressionAttributeValues: {
+        ':id': id
+      },
+      KeyConditionExpression: 'id = :id'
+    }
+
+    const result = await docClient.query(options).promise()
+
+    if (result?.Count > 0)
+      return getByPrimaryKey({
+        domain: result.Items[0].domain,
+        path: result.Items[0].path
+      })
+    throw Error(constants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
+  } catch (error) {
+    switch (error.message) {
+      case constants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE:
+        response = {
+          statusCode: constants.ERRORS.DYNAMODB.NO_ITEMS.STATUS_CODE,
+          body: JSON.stringify(constants.ERRORS.DYNAMODB.NO_ITEMS.MESSAGE)
+        }
+        break
+      default:
+        response = serviceError(error)
+        break
+    }
+  }
+
+  return response
+}
+
 export default {
   createOne,
+  deleteOne,
   getAll,
   getOne
 }
