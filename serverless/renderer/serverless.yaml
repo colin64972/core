@@ -33,7 +33,7 @@ functions:
     stage: ${env:STAGE}
     events:
       - httpApi:
-          path: /renders/{id}
+          path: /renders
           method: DELETE
   getAll:
     name: ${env:SERVICE_NAME}-getAll
