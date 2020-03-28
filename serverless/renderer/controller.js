@@ -67,6 +67,9 @@ const deleteOne = async queryParams => {
   try {
     const { domain, path } = queryParams
 
+    if (!domain || !path)
+      throw Error(constants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
+
     const options = {
       TableName: process.env.RENDERS_TABLE_NAME,
       Key: {
