@@ -1,7 +1,7 @@
 require('dotenv').config()
 
-module.exports = {
-  rendersTableSchema: {
+module.exports = [
+  {
     TableName: process.env.RENDERS_TABLE_NAME,
     AttributeDefinitions: [
       {
@@ -50,4 +50,4 @@ module.exports = {
       ReadCapacityUnits: 5
     }
   }
-}
+]
