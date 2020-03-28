@@ -15,11 +15,10 @@
   },
   "scripts": {
     "dynamo": "cd ~/dynamodb && java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb",
-    "createTable": "node -e 'require(\"@colin30/serverless-shared/localTableManager\").makeTable(require(\"./tableSchemas\").rendersTableSchema)'",
-    "deleteTables": "node -e 'require(\"@colin30/serverless-shared/localTableManager\").deleteTables()'",
-    "listTables": "node -e 'require(\"@colin30/serverless-shared/localTableManager\").listTables()'",
+    "createOne": "sls invoke local -f createOne -p events/createOne.json",
     "getAll": "sls invoke local -f getAll -p events/getAll.json",
-    "createOne": "sls invoke local -f createOne -p events/createOne.json"
+    "listTables": "node -e 'require(\"@colin30/serverless-shared/localTableManager\").listTables()'",
+    "resetTables": "node -e 'require(\"@colin30/serverless-shared/localTableManager\").resetTables(require(\"./tableSchemas\"))'"
   },
   "devDependencies": {
     "@babel/core": "^7.11.5",

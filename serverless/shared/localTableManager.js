@@ -7,7 +7,7 @@ const dynamo = new AWS.DynamoDB({
   endpoint: `http://${process.env.LOCAL_HOST}:${process.env.LOCAL_DYNAMO_PORT}`
 })
 
-const makeTable = async tableSchema => {
+const createTable = async tableSchema => {
   try {
     const result = await dynamo.createTable(tableSchema).promise()
     console.log('PASS', result)
@@ -17,11 +17,10 @@ const makeTable = async tableSchema => {
   }
 }
 
-const listTables = async tableName => {
+const createTables = async schemas => {
   try {
-    const result = await dynamo.listTables().promise()
-    console.log('PASS', result.TableNames)
-    return result.TableNames
+    schemas.forEach(async schema => createTable(schema))
+    console.log('PASS', 'Tables created!')
   } catch (error) {
     console.log('FAIL', error)
     return process.exit()
@@ -53,8 +52,31 @@ const deleteTables = async () => {
   }
 }
 
+const listTables = async tableName => {
+  try {
+    const result = await dynamo.listTables().promise()
+    console.log('PASS', result.TableNames)
+    return result.TableNames
+  } catch (error) {
+    console.log('FAIL', error)
+    return process.exit()
+  }
+}
+
+const resetTables = async schemas => {
+  try {
+    await deleteTables()
+    await createTables(schemas)
+    console.log('PASS', 'Tables reset!')
+  } catch (error) {
+    console.log('FAIL', error)
+  }
+  return process.exit()
+}
+
 module.exports = {
+  createTables,
+  deleteTables,
   listTables,
-  makeTable,
-  deleteTables
+  resetTables
 }
