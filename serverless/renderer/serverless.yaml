@@ -51,6 +51,14 @@ functions:
       - httpApi:
           path: /renders/{id}
           method: GET
+  updateOne:
+    name: ${env:SERVICE_NAME}-updateOne
+    handler: index.updateOne
+    stage: ${env:STAGE}
+    events:
+      - httpApi:
+          path: /renders/{key}
+          method: PUT
 
 configValidationMode: warn
 
