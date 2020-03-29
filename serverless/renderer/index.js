@@ -22,3 +22,11 @@ export const getOne = async (event, context, callback) => {
   )
   return callback(null, slsRes)
 }
+
+export const updateOne = async (event, context, callback) => {
+  const slsRes = await controller.updateOne(
+    event.queryStringParameters,
+    event.body
+  )
+  return callback(null, slsRes)
+}
