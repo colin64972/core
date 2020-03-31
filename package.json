@@ -9,8 +9,9 @@
   "workspaces": {
     "packages": [
       "configs",
-      "clients/**",
-      "serverless/**"
+      "projects/**",
+      "services/*",
+      "shared"
     ]
   }
 }
