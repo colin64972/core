@@ -1,0 +1,114 @@
+service:
+  name: ${env:SERVICE_NAME}
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${env:STAGE}
+  region: ${env:REGION}
+  stackName: ${env:SERVICE_NAME}
+  endpointType: regional
+  httpApi:
+    name: ${env:GATEWAY_NAME}
+    payload: '2.0'
+  # iamRoleStatements:
+  #   - Effect: Allow
+  #     Action:
+  #       - dynamodb:Scan
+  #       - dynamodb:PutItem
+  #     Resource: arn:aws:dynamodb:${env:REGION}:*:table/${env:TABLE_NAME}
+
+functions:
+  createOne:
+    name: ${env:SERVICE_NAME}-createOne
+    handler: index.createOne
+    stage: ${env:STAGE}
+    events:
+      - httpApi:
+          path: /${env:RESOURCE_NAME}
+          method: POST
+  deleteOne:
+    name: ${env:SERVICE_NAME}-deleteOne
+    handler: index.deleteOne
+    stage: ${env:STAGE}
+    events:
+      - httpApi:
+          path: /${env:RESOURCE_NAME}
+          method: DELETE
+  getAll:
+    name: ${env:SERVICE_NAME}-getAll
+    handler: index.getAll
+    stage: ${env:STAGE}
+    events:
+      - httpApi:
+          path: /${env:RESOURCE_NAME}
+          method: GET
+  getOne:
+    name: ${env:SERVICE_NAME}-getOne
+    handler: index.getOne
+    stage: ${env:STAGE}
+    events:
+      - httpApi:
+          path: /${env:RESOURCE_NAME}/key
+          method: GET
+  updateOne:
+    name: ${env:SERVICE_NAME}-updateOne
+    handler: index.updateOne
+    stage: ${env:STAGE}
+    events:
+      - httpApi:
+          path: /${env:RESOURCE_NAME}/key
+          method: PUT
+
+configValidationMode: warn
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-webpack
+  - serverless-offline
+  - serverless-domain-manager
+
+custom:
+  dotenv:
+    logging: false
+  serverless-offline:
+    httpPort: ${env:LOCAL_SLS_PORT}
+    noPrependStageInUrl: true
+    resourceRoutes: true
+  webpack:
+    webpackConfig: webpackConfig.js
+    packager: yarn
+    includeModules:
+      forceExclude:
+        - aws-sdk
+    keepOutputDirectory: true
+  customDomain:
+    domainName: ${env:DOMAIN}
+    basePath: ${env:STAGE}
+    endpointType: regional
+    apiType: http
+    autoDomain: true
+
+
+package:
+  individually: true
+
+# resources:
+#   Resources:
+#     RendersTable:
+#       Type: AWS::DynamoDB::Table
+#       Properties:
+#         AttributeDefinitions:
+#           -
+#             AttributeName: id
+#             AttributeType: S
+#         KeySchema:
+#           -
+#             AttributeName: id
+#             KeyType: HASH
+#         ProvisionedThroughput:
+#           ReadCapacityUnits: 1
+#           WriteCapacityUnits: 1
+#         StreamSpecification:
+#           StreamViewType: NEW_AND_OLD_IMAGES
+#         TableName: ${env:TABLE_NAME}
