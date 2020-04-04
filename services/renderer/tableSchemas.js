@@ -27,6 +27,10 @@ module.exports = [
         KeyType: 'RANGE'
       }
     ],
+    ProvisionedThroughput: {
+      WriteCapacityUnits: 1,
+      ReadCapacityUnits: 5
+    },
     GlobalSecondaryIndexes: [
       {
         IndexName: process.env.TABLE_GLOBAL_SECONDARY_INDEX_NAME,
@@ -44,10 +48,6 @@ module.exports = [
           ReadCapacityUnits: 5
         }
       }
-    ],
-    ProvisionedThroughput: {
-      WriteCapacityUnits: 1,
-      ReadCapacityUnits: 5
-    }
+    ]
   }
 ]

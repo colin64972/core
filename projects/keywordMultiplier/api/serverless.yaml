@@ -13,6 +13,14 @@ provider:
     payload: '2.0'
 
 functions:
+  createOne:
+    name: ${env:SERVICE_NAME}-createOne
+    handler: index.createOne
+    stage: ${env:STAGE}
+    events:
+      - httpApi:
+          path: /${env:RESOURCE_NAME}
+          method: POST
   getAll:
     name: ${env:SERVICE_NAME}-getAll
     handler: index.getAll
@@ -43,7 +51,6 @@ custom:
       forceExclude:
         - aws-sdk
     keepOutputDirectory: true
-
 
 package:
   individually: true
