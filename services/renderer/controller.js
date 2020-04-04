@@ -108,7 +108,9 @@ const deleteOne = async queryParams => {
   return response
 }
 
-const getAll = async () => {
+const getAll = async queryParams => {
+  if (queryParams?.domain || queryParams?.path)
+    return getByCompositeKey(queryParams)
   let response
   try {
     const result = await docClient
@@ -127,11 +129,11 @@ const getAll = async () => {
   return response
 }
 
-const getByPrimaryKey = async queryParams => {
+const getByCompositeKey = async keyParams => {
   let response
 
   try {
-    const { domain, path } = queryParams
+    const { domain, path } = keyParams
 
     const options = {
       TableName: process.env.TABLE_NAME,
@@ -168,60 +170,62 @@ const getByPrimaryKey = async queryParams => {
   return response
 }
 
-const getOne = async (pathParam, queryParams) => {
-  if (queryParams?.domain && queryParams?.path)
-    return getByPrimaryKey(queryParams)
-  return queryBySecondaryIndex(pathParam.id)
-}
+const getOne = async (pathParam, queryParams) => queryById(pathParam.id)
 
 const updateOne = async (queryParams, eventBody) => {
   let response, update
 
   try {
-    const { domain, path } = queryParams
+    if (queryParams?.domain && queryParams?.path) {
+      const { domain, path } = queryParams
 
-    update = {
-      ...eventBody
-    }
-
-    if (process.env.IS_OFFLINE) {
-      const parsed = JSON.parse(eventBody)
       update = {
-        ...parsed
+        ...eventBody
       }
-    }
 
-    if (!domain || !path)
-      throw Error(dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
+      if (process.env.IS_OFFLINE) {
+        const parsed = JSON.parse(eventBody)
+        update = {
+          ...parsed
+        }
+      }
 
-    const timestamp = new Date().getTime()
+      const timestamp = new Date().getTime()
 
-    const options = {
-      TableName: process.env.TABLE_NAME,
-      Key: {
-        domain,
-        path
-      },
-      ExpressionAttributeNames: {
-        '#c': 'content',
-        '#u': 'updatedAt'
-      },
-      ExpressionAttributeValues: {
-        ':c': update.content,
-        ':u': timestamp
-      },
-      UpdateExpression: 'SET #c = :c, #u = :u',
-      ReturnValues: 'UPDATED_NEW'
-    }
+      const options = {
+        TableName: process.env.TABLE_NAME,
+        Key: {
+          domain,
+          path
+        },
+        ExpressionAttributeNames: {
+          '#c': 'content',
+          '#d': 'domain',
+          '#p': 'path',
+          '#u': 'updatedAt'
+        },
+        ExpressionAttributeValues: {
+          ':c': update.content,
+          ':d': update.domain,
+          ':p': update.path,
+          ':u': timestamp
+        },
+        ConditionExpression: '#d = :d AND #p = :p',
+        UpdateExpression: 'SET #c = :c, #u = :u',
+        ReturnValues: 'UPDATED_NEW'
+      }
 
-    const result = await docClient.update(options).promise()
+      const result = await docClient.update(options).promise()
 
-    if (result?.Attributes.updatedAt === timestamp) {
-      response = {
-        statusCode: 204
+      if (result?.Attributes.updatedAt === timestamp) {
+        response = {
+          statusCode: 204
+        }
+      } else {
+        throw Error(dynamoConstants.ERRORS.DYNAMODB.UPDATE_FAIL.ERROR_CODE)
       }
     } else {
-      throw Error(dynamoConstants.ERRORS.DYNAMODB.UPDATE_FAIL.ERROR_CODE)
+      throw Error(dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
     }
   } catch (error) {
     switch (error.message) {
@@ -248,7 +252,7 @@ const updateOne = async (queryParams, eventBody) => {
   return response
 }
 
-const queryBySecondaryIndex = async id => {
+const queryById = async id => {
   let response
 
   try {
@@ -264,7 +268,7 @@ const queryBySecondaryIndex = async id => {
     const result = await docClient.query(options).promise()
 
     if (result?.Count > 0)
-      return getByPrimaryKey({
+      return getByCompositeKey({
         domain: result.Items[0].domain,
         path: result.Items[0].path
       })
