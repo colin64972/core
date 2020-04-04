@@ -1,0 +1,17 @@
+{
+  "path": "/trials",
+  "httpMethod": "POST",
+  "body": {
+    "ipAddress": "230.35.221.80",
+    "sets": {
+      "set-1": [
+        "fowepfiguw",
+        "pekpo"
+      ],
+      "set-4": [
+        "fowepfiguw",
+        "pekpo"
+      ]
+    }
+  }
+}
