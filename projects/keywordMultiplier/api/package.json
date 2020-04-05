@@ -15,6 +15,7 @@
   },
   "scripts": {
     "dynamo": "cd ~/dynamodb && java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb",
+    "itemsGetAll": "sls invoke local -f getAll -p events/getAll.json",
     "tablesCreate": "node -e 'require(\"@colin30/shared/helpers/dynamoTableManager\").createTable(require(\"./tableSchemas\")[0])'",
     "tablesDelete": "node -e 'require(\"@colin30/shared/helpers/dynamoTableManager\").deleteTable(require(\"./tableSchemas\")[0].TableName)'",
     "tablesList": "node -e 'require(\"@colin30/shared/helpers/dynamoTableManager\").listTables()'",
