@@ -32,8 +32,10 @@
     "serverless-webpack": "^5.3.4",
     "webpack": "^4.44.1",
     "webpack-node-externals": "^2.5.2",
+    "aws-sdk": "^2.745.0"
+  },
+  "dependencies": {
     "@colin30/shared": "0.0.1",
-    "aws-sdk": "^2.745.0",
     "uuid": "^8.3.0"
   }
 }
