@@ -28,8 +28,8 @@ module.exports = [
       }
     ],
     ProvisionedThroughput: {
-      WriteCapacityUnits: 1,
-      ReadCapacityUnits: 5
+      ReadCapacityUnits: 5,
+      WriteCapacityUnits: 1
     },
     GlobalSecondaryIndexes: [
       {

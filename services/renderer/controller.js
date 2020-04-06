@@ -1,6 +1,7 @@
 import AWS from 'aws-sdk'
 import { v4 as uuidv4 } from 'uuid'
 import setDynamoConstants from '@colin30/shared/constants/dynamodb'
+import proxyServiceError from '@colin30/shared/helpers/proxyServiceError'
 
 const dynamoConstants = setDynamoConstants()
 
@@ -13,26 +14,9 @@ if (process.env.IS_LOCAL || process.env.IS_OFFLINE) {
 
 const docClient = new AWS.DynamoDB.DocumentClient(dbOptions)
 
-const serviceError = error => ({
-  statusCode: 500,
-  body: JSON.stringify({
-    name: 'service error',
-    error
-  })
-})
-
 const createOne = async eventBody => {
-  let response, body
-
   try {
-    body = eventBody
-
-    if (process.env.IS_OFFLINE) {
-      const parsed = JSON.parse(eventBody)
-      body = {
-        ...parsed
-      }
-    }
+    let parsed = JSON.parse(eventBody)
 
     const timestamp = new Date().getTime()
 
@@ -40,9 +24,9 @@ const createOne = async eventBody => {
       TableName: process.env.TABLE_NAME,
       Item: {
         id: uuidv4(),
-        domain: body.domain,
-        path: body.path,
-        content: body.content,
+        domain: parsed.domain,
+        path: parsed.path,
+        html: parsed.html,
         createdAt: timestamp,
         updatedAt: timestamp
       }
@@ -50,31 +34,22 @@ const createOne = async eventBody => {
 
     await docClient.put(options).promise()
 
-    response = {
+    return {
       statusCode: 201,
       body: JSON.stringify(options.Item)
     }
   } catch (error) {
-    console.log('DYNAMO ERROR', error.message)
-    response = serviceError(error)
+    return proxyServerError(error)
   }
-  return response
 }
 
 const deleteOne = async queryParams => {
-  let response
-
   try {
-    const { domain, path } = queryParams
-
-    if (!domain || !path)
-      throw Error(dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
-
     const options = {
       TableName: process.env.TABLE_NAME,
       Key: {
-        domain,
-        path
+        domain: queryParams.domain,
+        path: queryParams.path
       },
       ReturnValues: 'ALL_OLD'
     }
@@ -82,187 +57,115 @@ const deleteOne = async queryParams => {
     const result = await docClient.delete(options).promise()
 
     if (
-      result?.Attributes?.domain === domain &&
-      result?.Attributes?.path === path
+      result?.Attributes?.domain === queryParams.domain &&
+      result?.Attributes?.path === queryParams.path
     ) {
-      response = {
+      return {
         statusCode: 204
       }
     } else {
       throw Error(dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
     }
   } catch (error) {
-    switch (error.message) {
-      case dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE:
-        response = {
-          statusCode: dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.STATUS_CODE,
-          body: JSON.stringify(dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.MESSAGE)
-        }
-        break
-      default:
-        response = serviceError(error)
-        break
-    }
+    return proxyServiceError(error)
   }
-
-  return response
 }
 
 const getAll = async queryParams => {
-  if (queryParams?.domain || queryParams?.path)
-    return getByCompositeKey(queryParams)
-  let response
+  if (queryParams) return getByCompositeKey(queryParams)
   try {
     const result = await docClient
       .scan({
         TableName: process.env.TABLE_NAME
       })
       .promise()
-    response = {
+    return {
       statusCode: 200,
       body: JSON.stringify(result.Items)
     }
   } catch (error) {
-    console.log('DYNAMO ERROR', error.message)
-    response = serviceError(error)
+    return proxyServiceError(error)
   }
-  return response
 }
 
 const getByCompositeKey = async keyParams => {
-  let response
-
   try {
-    const { domain, path } = keyParams
-
     const options = {
       TableName: process.env.TABLE_NAME,
       Key: {
-        domain,
-        path
+        domain: keyParams.domain,
+        path: keyParams.path
       }
     }
 
     const result = await docClient.get(options).promise()
 
-    if (result?.Item) {
-      response = {
+    if (result?.Item)
+      return {
         statusCode: 200,
         body: JSON.stringify(result.Item)
       }
-    } else {
-      throw Error(dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
-    }
+    throw Error(dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
   } catch (error) {
-    switch (error.message) {
-      case dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE:
-        response = {
-          statusCode: dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.STATUS_CODE,
-          body: JSON.stringify(dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.MESSAGE)
-        }
-        break
-      default:
-        response = serviceError(error)
-        break
-    }
+    return proxyServiceError(error)
   }
-
-  return response
 }
 
-const getOne = async (pathParam, queryParams) => queryById(pathParam.id)
+const getOne = async pathParams => queryById(pathParams.id)
 
 const updateOne = async (queryParams, eventBody) => {
-  let response, update
-
   try {
-    if (queryParams?.domain && queryParams?.path) {
-      const { domain, path } = queryParams
+    let parsed = JSON.parse(eventBody)
 
-      update = {
-        ...eventBody
-      }
+    const timestamp = new Date().getTime()
 
-      if (process.env.IS_OFFLINE) {
-        const parsed = JSON.parse(eventBody)
-        update = {
-          ...parsed
-        }
-      }
-
-      const timestamp = new Date().getTime()
-
-      const options = {
-        TableName: process.env.TABLE_NAME,
-        Key: {
-          domain,
-          path
-        },
-        ExpressionAttributeNames: {
-          '#c': 'content',
-          '#d': 'domain',
-          '#p': 'path',
-          '#u': 'updatedAt'
-        },
-        ExpressionAttributeValues: {
-          ':c': update.content,
-          ':d': update.domain,
-          ':p': update.path,
-          ':u': timestamp
-        },
-        ConditionExpression: '#d = :d AND #p = :p',
-        UpdateExpression: 'SET #c = :c, #u = :u',
-        ReturnValues: 'UPDATED_NEW'
-      }
-
-      const result = await docClient.update(options).promise()
-
-      if (result?.Attributes.updatedAt === timestamp) {
-        response = {
-          statusCode: 204
-        }
-      } else {
-        throw Error(dynamoConstants.ERRORS.DYNAMODB.UPDATE_FAIL.ERROR_CODE)
-      }
-    } else {
-      throw Error(dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
+    const options = {
+      TableName: process.env.TABLE_NAME,
+      Key: {
+        domain: queryParams.domain,
+        path: queryParams.path
+      },
+      ExpressionAttributeNames: {
+        '#d': 'domain',
+        '#h': 'html',
+        '#p': 'path',
+        '#u': 'updatedAt'
+      },
+      ExpressionAttributeValues: {
+        ':d': parsed.domain,
+        ':h': parsed.html,
+        ':p': parsed.path,
+        ':u': timestamp
+      },
+      ConditionExpression: '#d = :d AND #p = :p',
+      UpdateExpression: 'SET #h = :h, #u = :u',
+      ReturnValues: 'UPDATED_NEW'
     }
+
+    const result = await docClient.update(options).promise()
+
+    if (result?.Attributes.updatedAt === timestamp)
+      return {
+        statusCode: 204
+      }
+    throw Error(dynamoConstants.ERRORS.DYNAMODB.UPDATE_FAIL.ERROR_CODE)
   } catch (error) {
-    switch (error.message) {
-      case dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE:
-        response = {
-          statusCode: dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.STATUS_CODE,
-          body: JSON.stringify(dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.MESSAGE)
-        }
-        break
-      case dynamoConstants.ERRORS.DYNAMODB.UPDATE_FAIL.ERROR_CODE:
-        response = {
-          statusCode: dynamoConstants.ERRORS.DYNAMODB.UPDATE_FAIL.STATUS_CODE,
-          body: JSON.stringify(
-            dynamoConstants.ERRORS.DYNAMODB.UPDATE_FAIL.MESSAGE
-          )
-        }
-        break
-      default:
-        response = serviceError(error)
-        break
-    }
+    return proxyServiceError(error)
   }
-
-  return response
 }
 
 const queryById = async id => {
-  let response
-
   try {
     const options = {
       TableName: process.env.TABLE_NAME,
       IndexName: process.env.TABLE_GLOBAL_SECONDARY_INDEX_NAME,
+      ExpressionAttributeNames: {
+        '#id': 'id'
+      },
       ExpressionAttributeValues: {
         ':id': id
       },
-      KeyConditionExpression: 'id = :id'
+      KeyConditionExpression: '#id = :id'
     }
 
     const result = await docClient.query(options).promise()
@@ -274,20 +177,8 @@ const queryById = async id => {
       })
     throw Error(dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
   } catch (error) {
-    switch (error.message) {
-      case dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE:
-        response = {
-          statusCode: dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.STATUS_CODE,
-          body: JSON.stringify(dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.MESSAGE)
-        }
-        break
-      default:
-        response = serviceError(error)
-        break
-    }
+    return proxyServiceError(error)
   }
-
-  return response
 }
 
 export default {
