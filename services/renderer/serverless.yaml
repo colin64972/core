@@ -14,12 +14,12 @@ provider:
   iamRoleStatements:
     - Effect: Allow
       Action:
-        - dynamodb:PutItem
-        - dynamodb:Scan
-        - dynamodb:Query
-        - dynamodb:GetItem
-        - dynamodb:UpdateItem
         - dynamodb:DeleteItem
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:UpdateItem
       Resource: arn:aws:dynamodb:${env:REGION}:*:table/${env:TABLE_NAME}
 
 functions:
@@ -93,10 +93,35 @@ custom:
     apiType: http
     autoDomain: true
 
-
-package:
-  individually: true
-
 resources:
   Resources:
-    ${env:TABLE_NAME}: ${file(tableSchemas.js)[0]}
+    Renders:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${env:TABLE_NAME}
+        AttributeDefinitions:
+          - AttributeName: domain
+            AttributeType: S
+          - AttributeName: path
+            AttributeType: S
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: domain
+            KeyType: HASH
+          - AttributeName: path
+            KeyType: RANGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 1
+        GlobalSecondaryIndexes:
+          - IndexName: ${env:TABLE_GLOBAL_SECONDARY_INDEX_NAME}
+            KeySchema:
+              - AttributeName: id
+                KeyType: HASH
+            Projection:
+              ProjectionType: KEYS_ONLY
+            ProvisionedThroughput:
+              ReadCapacityUnits: 5
+              WriteCapacityUnits: 1
+          
