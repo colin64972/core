@@ -1,19 +1,21 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
+import loadable from '@loadable/component'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import { routes } from './routes'
+import { constants } from './constants'
+
+const HomeLoadable = loadable(() => import('./Home'))
+const NotFoundLoadable = loadable(() => import('./NotFound'))
 
 export const App = () => (
   <CssBaseline>
     <Switch>
-      {routes.map(route => (
-        <Route
-          key={route.key}
-          path={route.path}
-          exact={route.exact}
-          component={route.component}
-        />
-      ))}
+      <Route path={constants.URLS.HOME} exact={true} component={HomeLoadable}>
+        <HomeLoadable />
+      </Route>
+      <Route path={constants.URLS.NOT_FOUND} exact={false}>
+        <NotFoundLoadable />
+      </Route>
     </Switch>
   </CssBaseline>
 )

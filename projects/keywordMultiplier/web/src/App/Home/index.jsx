@@ -7,7 +7,7 @@ import { Sets } from './Sets'
 import { Trials } from './Trials'
 import { Footer } from '../common/Footer'
 
-export const Home = () => (
+const Home = () => (
   <div id="home-container">
     <Notice />
     <Header />
@@ -18,3 +18,5 @@ export const Home = () => (
     <Footer />
   </div>
 )
+
+export default Home
