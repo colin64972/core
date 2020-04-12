@@ -8,6 +8,7 @@ provider:
   region: ${env:REGION}
   stackName: ${env:SERVICE_NAME}
   endpointType: regional
+  role: ${env:ACCESS_ROLE}
   httpApi:
     name: ${env:GATEWAY_NAME}
     payload: '2.0'
@@ -20,7 +21,8 @@ provider:
         - dynamodb:Query
         - dynamodb:Scan
         - dynamodb:UpdateItem
-      Resource: arn:aws:dynamodb:${env:REGION}:*:table/${env:TABLE_NAME}
+      Resource:
+        - arn:aws:dynamodb:${env:REGION}:*:table/${env:TABLE_NAME}
 
 functions:
   createOne:
@@ -95,7 +97,7 @@ custom:
 
 resources:
   Resources:
-    Renders:
+    colin30ServicesRenders:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: ${env:TABLE_NAME}
@@ -124,4 +126,3 @@ resources:
             ProvisionedThroughput:
               ReadCapacityUnits: 5
               WriteCapacityUnits: 1
-          
