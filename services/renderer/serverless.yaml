@@ -117,7 +117,7 @@ resources:
           ReadCapacityUnits: 5
           WriteCapacityUnits: 1
         GlobalSecondaryIndexes:
-          - IndexName: ${env:TABLE_GLOBAL_SECONDARY_INDEX_NAME}
+          - IndexName: ${env:TABLE_GSI_INDEX_NAME}
             KeySchema:
               - AttributeName: id
                 KeyType: HASH
