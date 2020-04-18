@@ -21,7 +21,7 @@ module.exports = [
     ],
     GlobalSecondaryIndexes: [
       {
-        IndexName: process.env.TABLE_GLOBAL_SECONDARY_INDEX_NAME,
+        IndexName: process.env.TABLE_GSI_INDEX_NAME,
         KeySchema: [
           {
             AttributeName: 'ipAddress',
