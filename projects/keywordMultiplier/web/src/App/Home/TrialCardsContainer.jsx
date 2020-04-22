@@ -1,12 +1,10 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/styles'
 import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import { defaultPadding } from '@colin30/shared/react/theming'
 import { TrialCard } from './TrialCard'
-import { getTrials } from '../../store/selectors'
 
 const useStyles = makeStyles(theme => ({
   trialsSection: {
@@ -25,11 +23,8 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export const Trials = () => {
+export const TrialCardsContainer = ({ trials }) => {
   const classes = useStyles()
-  const trials = useSelector(state => getTrials(state))
-  const { items, shown } = trials
-  if (items.length < 1) return null
   return (
     <Grid container component="section" className={classes.trialsSection}>
       <Grid item xs={12}>
@@ -55,22 +50,20 @@ export const Trials = () => {
           />
         </Grid>
       </Grid>
-      {items.length > 0 && (
-        <Grid
-          container
-          direction="row"
-          wrap="wrap"
-          className={classes.trialsContainer}>
-          {items.map(trial => (
-            <TrialCard
-              trial={trial}
-              isShown={shown.includes(trial.id)}
-              isLastShown={shown.length === 1}
-              key={trial.id}
-            />
-          ))}
-        </Grid>
-      )}
+      <Grid
+        container
+        direction="row"
+        wrap="wrap"
+        className={classes.trialsContainer}>
+        {trials.items.map(trial => (
+          <TrialCard
+            trial={trial}
+            isShown={trials.shown.includes(trial.id)}
+            isLastShown={trials.shown.length === 1}
+            key={trial.id}
+          />
+        ))}
+      </Grid>
     </Grid>
   )
 }
