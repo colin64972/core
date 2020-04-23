@@ -1,4 +1,4 @@
-import dynamoDbConstants from './dynamodb'
+import dynamoDbConstants from './dynamoDb'
 import patterns from './regex'
 
 export default {
