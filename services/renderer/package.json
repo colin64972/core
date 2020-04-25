@@ -7,12 +7,6 @@
   "author": "colin30 <colin30@post.com>",
   "private": true,
   "prettier": "@colin30/configs/prettier",
-  "config": {
-    "region": "localhost",
-    "endpoint": "http://localhost:8000",
-    "profile": "default",
-    "tableName": "colin30-services-renders"
-  },
   "scripts": {
     "createTable": "node -e 'require(\"@colin30/shared\").helpers.dynamoTableManager.createTable(require(\"./tableSchema\"))'",
     "deleteTable": "node -e 'require(\"@colin30/shared\").helpers.dynamoTableManager.deleteTable(require(\"./tableSchema\").TableName)'",
@@ -36,7 +30,6 @@
     "webpack-node-externals": "^2.5.2"
   },
   "dependencies": {
-    "@colin30/shared": "0.0.1",
-    "uuid": "^8.3.0"
+    "@colin30/shared": "0.0.1"
   }
 }
