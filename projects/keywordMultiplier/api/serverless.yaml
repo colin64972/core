@@ -33,14 +33,14 @@ functions:
       - httpApi:
           path: /${env:RESOURCE_NAME}
           method: POST
-  # getAll:
-  #   name: ${env:SERVICE_NAME}-getAll
-  #   handler: index.getAll
-  #   stage: ${env:STAGE}
-  #   events:
-  #     - httpApi:
-  #         path: /${env:RESOURCE_NAME}
-  #         method: GET
+  getAll:
+    name: ${env:SERVICE_NAME}-getAll
+    handler: index.getAll
+    stage: ${env:STAGE}
+    events:
+      - httpApi:
+          path: /${env:RESOURCE_NAME}
+          method: GET
 
 configValidationMode: warn
 
