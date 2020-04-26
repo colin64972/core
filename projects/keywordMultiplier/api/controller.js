@@ -41,6 +41,46 @@ const createOne = async eventBody => {
   }
 }
 
+const getAll = async queryParams => {
+  if (queryParams) return getByCompositeKey(queryParams)
+  try {
+    const result = await docClient
+      .scan({
+        TableName: process.env.TABLE_NAME
+      })
+      .promise()
+    return {
+      statusCode: 200,
+      body: JSON.stringify(result.Items)
+    }
+  } catch (error) {
+    return proxyServiceError(error)
+  }
+}
+
+const getByCompositeKey = async keyParams => {
+  try {
+    const options = {
+      TableName: process.env.TABLE_NAME,
+      Key: {
+        id: keyParams.id
+      }
+    }
+
+    const result = await docClient.get(options).promise()
+
+    if (result?.Item)
+      return {
+        statusCode: 200,
+        body: JSON.stringify(result.Item)
+      }
+    throw Error(dynamoDbConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
+  } catch (error) {
+    return proxyServiceError(error)
+  }
+}
+
 export default {
-  createOne
+  createOne,
+  getAll
 }
