@@ -41,8 +41,7 @@ const createOne = async eventBody => {
   }
 }
 
-const getAll = async queryParams => {
-  if (queryParams) return getByCompositeKey(queryParams)
+const getAll = async () => {
   try {
     const result = await docClient
       .scan({
@@ -58,23 +57,18 @@ const getAll = async queryParams => {
   }
 }
 
-const getByCompositeKey = async keyParams => {
+const getOne = async pathParams => {
   try {
-    const options = {
-      TableName: process.env.TABLE_NAME,
-      Key: {
-        id: keyParams.id
-      }
+    const result = await docClient
+      .get({
+        TableName: process.env.TABLE_NAME,
+        Key: { id: pathParams.id }
+      })
+      .promise()
+    return {
+      statusCode: 200,
+      body: JSON.stringify(result.Item)
     }
-
-    const result = await docClient.get(options).promise()
-
-    if (result?.Item)
-      return {
-        statusCode: 200,
-        body: JSON.stringify(result.Item)
-      }
-    throw Error(dynamoDbConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
   } catch (error) {
     return proxyServiceError(error)
   }
@@ -82,5 +76,6 @@ const getByCompositeKey = async keyParams => {
 
 export default {
   createOne,
-  getAll
+  getAll,
+  getOne
 }

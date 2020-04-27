@@ -41,6 +41,14 @@ functions:
       - httpApi:
           path: /${env:RESOURCE_NAME}
           method: GET
+  getOne:
+    name: ${env:SERVICE_NAME}-getOne
+    handler: index.getOne
+    stage: ${env:STAGE}
+    events:
+      - httpApi:
+          path: /${env:RESOURCE_NAME}/{id}
+          method: GET
 
 configValidationMode: warn
 
