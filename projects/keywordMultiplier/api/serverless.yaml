@@ -33,6 +33,14 @@ functions:
       - httpApi:
           path: /${env:RESOURCE_NAME}
           method: POST
+  deleteOne:
+    name: ${env:SERVICE_NAME}-deleteOne
+    handler: index.deleteOne
+    stage: ${env:STAGE}
+    events:
+      - httpApi:
+          path: /${env:RESOURCE_NAME}/{id}
+          method: DELETE
   getAll:
     name: ${env:SERVICE_NAME}-getAll
     handler: index.getAll
