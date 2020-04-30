@@ -2,7 +2,8 @@ import AWS from 'aws-sdk'
 import { constants, helpers } from '@colin30/shared'
 
 const { dynamoDbConstants } = constants
-const { createHashId } = helpers
+
+const { createHashId, proxyServiceError } = helpers
 
 const dbOptions = {}
 
@@ -41,6 +42,28 @@ const createOne = async eventBody => {
   }
 }
 
+const deleteOne = async pathParams => {
+  try {
+    const options = {
+      TableName: process.env.TABLE_NAME,
+      Key: { id: pathParams.id },
+      ReturnValues: 'ALL_OLD'
+    }
+
+    const result = await docClient.delete(options).promise()
+
+    if (result?.Attributes?.id === pathParams.id) {
+      return {
+        statusCode: 204
+      }
+    } else {
+      throw Error(dynamoDbConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
+    }
+  } catch (error) {
+    return proxyServiceError(error)
+  }
+}
+
 const getAll = async () => {
   try {
     const result = await docClient
@@ -59,12 +82,16 @@ const getAll = async () => {
 
 const getOne = async pathParams => {
   try {
-    const result = await docClient
-      .get({
-        TableName: process.env.TABLE_NAME,
-        Key: { id: pathParams.id }
-      })
-      .promise()
+    const options = {
+      TableName: process.env.TABLE_NAME,
+      Key: { id: pathParams.id }
+    }
+
+    const result = await docClient.get(options).promise()
+
+    if (!result?.Item)
+      throw Error(dynamoDbConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
+
     return {
       statusCode: 200,
       body: JSON.stringify(result.Item)
@@ -76,6 +103,7 @@ const getOne = async pathParams => {
 
 export default {
   createOne,
+  deleteOne,
   getAll,
   getOne
 }
