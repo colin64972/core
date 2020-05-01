@@ -19,3 +19,8 @@ export const getOne = async (event, context, callback) => {
   const slsRes = await controller.getOne(event.pathParameters)
   return callback(null, slsRes)
 }
+
+export const updateOne = async (event, context, callback) => {
+  const slsRes = await controller.updateOne(event.pathParameters, event.body)
+  return callback(null, slsRes)
+}

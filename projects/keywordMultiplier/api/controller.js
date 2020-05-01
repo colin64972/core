@@ -101,9 +101,52 @@ const getOne = async pathParams => {
   }
 }
 
+const updateOne = async (pathParams, eventBody) => {
+  try {
+    let parsed = JSON.parse(eventBody)
+
+    const timestamp = new Date().getTime()
+
+    const options = {
+      TableName: process.env.TABLE_NAME,
+      Key: {
+        id: pathParams.id
+      },
+      ExpressionAttributeNames: {
+        '#i': 'ipAddress',
+        '#o': 'orderId',
+        '#s': 'sets',
+        '#u': 'updatedAt',
+        '#v': 'volumes'
+      },
+      ExpressionAttributeValues: {
+        ':i': parsed.ipAddress,
+        ':o': parsed.orderId,
+        ':s': parsed.sets,
+        ':u': timestamp,
+        ':v': parsed.volumes
+      },
+      ConditionExpression: '#i = :i AND #s = :s',
+      UpdateExpression: 'SET #o = :o, #s = :s, #u = :u, #v = :v',
+      ReturnValues: 'UPDATED_NEW'
+    }
+
+    const result = await docClient.update(options).promise()
+
+    if (result?.Attributes.updatedAt === timestamp)
+      return {
+        statusCode: 204
+      }
+    throw Error(dynamoDbConstants.ERRORS.DYNAMODB.UPDATE_FAIL.ERROR_CODE)
+  } catch (error) {
+    return proxyServiceError(error)
+  }
+}
+
 export default {
   createOne,
   deleteOne,
   getAll,
-  getOne
+  getOne,
+  updateOne
 }
