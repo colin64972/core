@@ -57,6 +57,14 @@ functions:
       - httpApi:
           path: /${env:RESOURCE_NAME}/{id}
           method: GET
+  updateOne:
+    name: ${env:SERVICE_NAME}-updateOne
+    handler: index.updateOne
+    stage: ${env:STAGE}
+    events:
+      - httpApi:
+          path: /${env:RESOURCE_NAME}/{id}
+          method: PUT
 
 configValidationMode: warn
 
@@ -64,7 +72,6 @@ plugins:
   - serverless-dotenv-plugin
   - serverless-webpack
   - serverless-offline
-  # - serverless-domain-manager
 
 custom:
   dotenv:
@@ -80,12 +87,6 @@ custom:
       forceExclude:
         - aws-sdk
     keepOutputDirectory: true
-  # customDomain:
-  #   domainName: ${env:DOMAIN}
-  #   basePath: ${env:STAGE}
-  #   endpointType: regional
-  #   apiType: http
-  #   autoDomain: true
 
 resources:
   Resources:
