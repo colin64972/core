@@ -1,3 +1,13 @@
 import { internet } from 'faker'
 
-export const generateKey = () => internet.password()
+const generateKey = () => internet.password()
+
+const setTemplateLocals = (args = {}) => ({
+  ...args,
+  noScript: 'Please enable JavaScript to view this webpage'
+})
+
+export default {
+  generateKey,
+  setTemplateLocals
+}
