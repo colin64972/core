@@ -90,7 +90,7 @@ custom:
     keepOutputDirectory: true
   customDomain:
     domainName: ${env:DOMAIN}
-    basePath: ${env:STAGE}
+    basePath: ${env:API_BASE_PATH}
     endpointType: regional
     apiType: http
     autoDomain: true
