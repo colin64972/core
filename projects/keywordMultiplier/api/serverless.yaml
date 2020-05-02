@@ -4,7 +4,7 @@ service:
 provider:
   name: aws
   runtime: nodejs12.x
-  stage: ${env:STAGE}
+  stage: ${self:custom.stage}
   region: ${env:REGION}
   stackName: ${env:SERVICE_NAME}
   endpointType: regional
@@ -28,7 +28,7 @@ functions:
   createOne:
     name: ${env:SERVICE_NAME}-createOne
     handler: index.createOne
-    stage: ${env:STAGE}
+    stage: ${self:custom.stage}
     events:
       - httpApi:
           path: /${env:RESOURCE_NAME}
@@ -36,7 +36,7 @@ functions:
   deleteOne:
     name: ${env:SERVICE_NAME}-deleteOne
     handler: index.deleteOne
-    stage: ${env:STAGE}
+    stage: ${self:custom.stage}
     events:
       - httpApi:
           path: /${env:RESOURCE_NAME}/{id}
@@ -44,7 +44,7 @@ functions:
   getAll:
     name: ${env:SERVICE_NAME}-getAll
     handler: index.getAll
-    stage: ${env:STAGE}
+    stage: ${self:custom.stage}
     events:
       - httpApi:
           path: /${env:RESOURCE_NAME}
@@ -52,7 +52,7 @@ functions:
   getOne:
     name: ${env:SERVICE_NAME}-getOne
     handler: index.getOne
-    stage: ${env:STAGE}
+    stage: ${self:custom.stage}
     events:
       - httpApi:
           path: /${env:RESOURCE_NAME}/{id}
@@ -60,7 +60,7 @@ functions:
   updateOne:
     name: ${env:SERVICE_NAME}-updateOne
     handler: index.updateOne
-    stage: ${env:STAGE}
+    stage: ${self:custom.stage}
     events:
       - httpApi:
           path: /${env:RESOURCE_NAME}/{id}
@@ -72,8 +72,14 @@ plugins:
   - serverless-dotenv-plugin
   - serverless-webpack
   - serverless-offline
+  - serverless-domain-manager
 
 custom:
+  stage: ${env:NODE_ENV}
+  domains:
+    production: ${env:DOMAIN}
+    staging: sta-${env:DOMAIN}
+    development: dev-${env:DOMAIN}
   dotenv:
     logging: false
   serverless-offline:
@@ -87,6 +93,13 @@ custom:
       forceExclude:
         - aws-sdk
     keepOutputDirectory: true
+  customDomain:
+    stage: ${self:custom.stage}
+    domainName: ${self:custom.domains.${self:custom.stage}}
+    basePath: ${env:API_BASE_PATH}
+    endpointType: regional
+    apiType: http
+    autoDomain: true
 
 resources:
   Resources:

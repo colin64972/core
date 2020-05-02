@@ -4,7 +4,9 @@ const setServerlessConfig = require('@colin30/configs/serverless')
 
 const serverlessConfig = setServerlessConfig(slsw.lib.entries)
 
-if (process.env.STAGE === 'dev') {
+console.log('MY LOG', process.env)
+
+if (process.env.NODE_ENV === 'development') {
   serverlessConfig.mode = 'development'
   serverlessConfig.devtool = 'nosources-source-map'
   serverlessConfig.optimization.minimize = false
