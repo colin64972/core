@@ -8,6 +8,12 @@
   "private": true,
   "prettier": "@colin30/configs/prettier",
   "scripts": {
+    "dev": "NODE_ENV=development sls offline",
+    "sta": "NODE_ENV=staging sls offline",
+    "pro": "NODE_ENV=production sls offline",
+    "deploy:dev": "NODE_ENV=development sls deploy",
+    "deploy:sta": "NODE_ENV=staging sls deploy",
+    "deploy:pro": "NODE_ENV=production sls deploy",
     "createTable": "node -e 'require(\"@colin30/shared\").helpers.dynamoTableManager.createTable(require(\"./tableSchema\"))'",
     "deleteTable": "node -e 'require(\"@colin30/shared\").helpers.dynamoTableManager.deleteTable(require(\"./tableSchema\").TableName)'",
     "listTables": "node -e 'require(\"@colin30/shared\").helpers.dynamoTableManager.listTables()'",

@@ -28,7 +28,6 @@ functions:
   createOne:
     name: ${env:SERVICE_NAME}-createOne
     handler: index.createOne
-    stage: ${self:custom.stage}
     events:
       - httpApi:
           path: /${env:RESOURCE_NAME}
@@ -36,7 +35,6 @@ functions:
   deleteOne:
     name: ${env:SERVICE_NAME}-deleteOne
     handler: index.deleteOne
-    stage: ${self:custom.stage}
     events:
       - httpApi:
           path: /${env:RESOURCE_NAME}/{id}
@@ -44,7 +42,6 @@ functions:
   getAll:
     name: ${env:SERVICE_NAME}-getAll
     handler: index.getAll
-    stage: ${self:custom.stage}
     events:
       - httpApi:
           path: /${env:RESOURCE_NAME}
@@ -52,7 +49,6 @@ functions:
   getOne:
     name: ${env:SERVICE_NAME}-getOne
     handler: index.getOne
-    stage: ${self:custom.stage}
     events:
       - httpApi:
           path: /${env:RESOURCE_NAME}/{id}
@@ -60,7 +56,6 @@ functions:
   updateOne:
     name: ${env:SERVICE_NAME}-updateOne
     handler: index.updateOne
-    stage: ${self:custom.stage}
     events:
       - httpApi:
           path: /${env:RESOURCE_NAME}/{id}
