@@ -1,4 +1,4 @@
-import dynamoDbConstants from '../constants/dynamodb'
+import dynamoDbConstants from '../constants/dynamoDb'
 
 const setErrorBody = (message, errorObject = null) => {
   let builtError = {

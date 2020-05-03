@@ -1,7 +1,7 @@
 import AWS from 'aws-sdk'
 import fs from 'fs'
 import yaml from 'js-yaml'
-import dynamoDbConstants from '../constants/dynamodb'
+import dynamoDbConstants from '../constants/dynamoDb'
 
 const dynamo = new AWS.DynamoDB({
   apiVersion: '2012-08-10',

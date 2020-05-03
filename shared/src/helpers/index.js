@@ -1,9 +1,9 @@
-import dynamoTableManager from './dynamoTableManager'
+import dynamoDbTableManager from './dynamoDbTableManager'
 import proxyServiceError from './proxyServiceError'
 import { createHashId } from './other'
 
 export default {
-  dynamoTableManager,
+  dynamoDbTableManager,
   proxyServiceError,
   createHashId
 }
