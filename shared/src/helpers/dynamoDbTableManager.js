@@ -57,7 +57,7 @@ const readYaml = filePath => {
   }
 }
 
-const dynamoTableManager = {
+const dynamoDbTableManager = {
   createTable,
   deleteTable,
   listTables,
@@ -65,4 +65,4 @@ const dynamoTableManager = {
   readYaml
 }
 
-export default dynamoTableManager
+export default dynamoDbTableManager
