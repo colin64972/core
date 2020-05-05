@@ -14,9 +14,9 @@
     "deploy:dev": "NODE_ENV=development sls deploy",
     "deploy:sta": "NODE_ENV=staging sls deploy",
     "deploy:pro": "NODE_ENV=production sls deploy",
-    "createTable": "node -e 'require(\"@colin30/shared\").helpers.dynamoDbTableManager.createTable(require(\"./tableSchema\"))'",
-    "deleteTable": "node -e 'require(\"@colin30/shared\").helpers.dynamoDbTableManager.deleteTable(require(\"./tableSchema\").TableName)'",
-    "listTables": "node -e 'require(\"@colin30/shared\").helpers.dynamoDbTableManager.listTables()'",
+    "createTable": "node -e 'require(\"@colin30/shared/raw/dynamoDbTableManager\").createTable(require(\"./tableSchema\"))'",
+    "deleteTable": "node -e 'require(\"@colin30/shared/raw/dynamoDbTableManager\").deleteTable(require(\"./tableSchema\").TableName)'",
+    "listTables": "node -e 'require(\"@colin30/shared/raw/dynamoDbTableManager\").listTables()'",
     "resetTable": "yarn deleteTable && yarn createTable"
   },
   "devDependencies": {
