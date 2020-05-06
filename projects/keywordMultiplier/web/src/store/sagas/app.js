@@ -1,6 +1,6 @@
 import { call, put, select, take, race, delay } from 'redux-saga/effects'
 import { getRequest, postRequest } from '@colin30/shared/react/saga'
-import { generateKey } from '@colin30/shared/react'
+import { createHashId } from '@colin30/shared/react/helpers'
 import {
   getCopySettings,
   getEnabledSets,
@@ -33,11 +33,11 @@ export function* multiplySets() {
         ? yield call(postRequest, 'trials', {
             sets: enabled,
             ip,
-            slug: generateKey()
+            slug: createHashId()
           })
         : {
             sets: enabled,
-            slug: generateKey()
+            slug: createHashId()
           }
     const trial = yield call(processTrial, posted)
     yield put({
