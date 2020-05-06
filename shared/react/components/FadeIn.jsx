@@ -3,7 +3,7 @@ import React, { createRef, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { makeStyles } from '@material-ui/styles'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   invisible: {
     opacity: 0
   },
@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export const FadeIn = (
+export const FadeIn = ({
   threshold = 0.25,
   delay = Math.random(),
   duration = Math.random() + 0.25,
@@ -20,7 +20,7 @@ export const FadeIn = (
   position,
   component,
   className
-) => {
+}) => {
   const classes = useStyles()
 
   let ref = createRef()

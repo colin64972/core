@@ -1,6 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import FadeIn from '@colin30/shared/react/components/FadeIn'
+import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import { defaultPadding } from '@colin30/shared/react/theming'
 import Grid from '@material-ui/core/Grid'
 import Link from '@material-ui/core/Link'

@@ -1,5 +1,5 @@
 import moment from 'moment'
-import { generateKey } from '@colin30/shared/react'
+import { createHashId } from '@colin30/shared/react/helpers'
 import constants from './constants'
 
 export const prepSetValue = input => {
@@ -151,7 +151,7 @@ export const generateNotice = (
   kind = constants.NOTICE.KINDS.SIMPLE
 ) => {
   const result = {
-    id: generateKey(),
+    id: createHashId(),
     kind,
     bg: constants.NOTICE.BGS.PASS,
     heading: 'Success',

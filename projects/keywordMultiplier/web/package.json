@@ -15,8 +15,8 @@
   },
   "scripts": {
     "start": "lite-server -c config/lite-server.js",
-    "watch": "NODE_ENV=development webpack-cli --config config/webpack-dev.js --progress --watch",
-    "build": "NODE_ENV=production webpack-cli --config config/webpack-pro.js --progress",
+    "dev": "NODE_ENV=development webpack-cli --config config/webpack-dev.js --progress --watch",
+    "pro": "NODE_ENV=production webpack-cli --config config/webpack-pro.js --progress",
     "mb": "aws s3 mb s3://$npm_package_config_bucket --profile $npm_package_config_profile",
     "sync": "aws s3 sync static s3://$npm_package_config_bucket --acl public-read --profile $npm_package_config_profile",
     "deploy": "yarn build && yarn sync"

@@ -11,7 +11,7 @@ const webpack = setReact(
     '..',
     '..',
     'shared',
-    'webpack',
+    'react',
     'htmlPluginTemplate.pug'
   ),
   {
