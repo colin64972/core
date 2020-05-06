@@ -1,6 +1,6 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { react } = require('@colin30/shared')
+const { setTemplateLocals } = require('@colin30/shared/raw/general')
 
 const babelLoaderPlugins =
   process.env.NODE_ENV === 'production' ? ['transform-remove-console'] : []
@@ -80,7 +80,7 @@ module.exports = (entry, outputPath, template, templateLocals) => ({
       inject: true,
       scriptLoading: 'defer',
       cache: false,
-      templateLocals: react.setTemplateLocals(templateLocals)
+      templateLocals: setTemplateLocals(templateLocals)
     })
   ]
 })
