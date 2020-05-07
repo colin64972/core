@@ -10,10 +10,10 @@ import RestorePageIcon from '@material-ui/icons/RestorePage'
 import ShuffleIcon from '@material-ui/icons/Shuffle'
 import CachedIcon from '@material-ui/icons/Cached'
 import { makeStyles } from '@material-ui/styles'
-import fields from './fields'
-import WordSet from './WordSet'
-import constants from '../constants'
-import types from '../../store/types'
+import { sets } from './fields'
+import { WordSet } from './WordSet'
+import { constants } from '../constants'
+import { types } from '../../store/types'
 import {
   checkResetDisabled,
   checkSubmitDisabled,
@@ -193,7 +193,7 @@ const Comp = ({ ...props }) => {
             onSubmit={submitHandler}
             onReset={resetHandler}
             className={classes.form}>
-            {fields.sets.map(field => (
+            {sets.map(field => (
               <div key={field.key} className={classes[field.class]}>
                 <FadeIn
                   direction="y"
@@ -258,8 +258,6 @@ const Comp = ({ ...props }) => {
   )
 }
 
-const Sets = reduxForm({
+export const Sets = reduxForm({
   form: constants.SETS_FORM_NAME
 })(Comp)
-
-export default Sets

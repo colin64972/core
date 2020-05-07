@@ -1,4 +1,4 @@
-export default {
+export const types = {
   TOGGLE_SET_STATUS: 'TOGGLE_SET_STATUS',
   MULTIPLY_SETS: 'MULTIPLY_SETS',
   ADD_TRIAL: 'ADD_TRIAL',

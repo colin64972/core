@@ -1,7 +1,7 @@
 import { createHashId } from '@colin30/shared/react/helpers'
-import constants from '../constants'
+import { constants } from '../constants'
 
-const sets = []
+export const sets = []
 
 for (let i = 1; i <= 5; i += 1) {
   sets.push({
@@ -16,7 +16,7 @@ for (let i = 1; i <= 5; i += 1) {
   })
 }
 
-const matchTypes = [
+export const matchTypes = [
   {
     key: createHashId(),
     label: 'Broad',
@@ -38,8 +38,3 @@ const matchTypes = [
     value: constants.MATCHTYPES.EXACT
   }
 ]
-
-export default {
-  sets,
-  matchTypes
-}

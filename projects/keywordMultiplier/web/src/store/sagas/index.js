@@ -7,9 +7,9 @@ import {
   copyAllTrials,
   askResetAll
 } from './app'
-import types from '../types'
+import { types } from '../types'
 
-function* sagas() {
+export function* sagas() {
   yield takeLatest(types.MULTIPLY_SETS, multiplySets)
   yield takeLatest(types.COPY_TRIAL, copyTrial),
     yield takeLatest(types.COPY_ALL_TRIALS, copyAllTrials),
@@ -17,5 +17,3 @@ function* sagas() {
     yield takeLatest(types.ASK_DELETE_ALL_TRIALS, askDeleteAllTrials)
   yield takeLatest(types.ASK_RESET_ALL, askResetAll)
 }
-
-export default sagas
