@@ -3,8 +3,8 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from '@material-ui/styles'
-import App from './App'
-import theme from './App/theme'
+import { App } from './App'
+import { theme } from './App/theme'
 import { setStore } from './store'
 
 console.log(

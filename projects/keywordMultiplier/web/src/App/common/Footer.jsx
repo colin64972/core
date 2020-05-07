@@ -9,7 +9,7 @@ import RateReviewIcon from '@material-ui/icons/RateReview'
 import VpnLockIcon from '@material-ui/icons/VpnLock'
 import WebIcon from '@material-ui/icons/Web'
 import { makeStyles } from '@material-ui/styles'
-import constants from '../constants'
+import { constants } from '../constants'
 import ProfileImage from '../../exports/images/colin30-profile-1000w.jpg'
 
 const useStyles = makeStyles(theme => ({
@@ -103,7 +103,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const Footer = () => {
+export const Footer = () => {
   const classes = useStyles()
   const menuItems = [
     {
@@ -179,5 +179,3 @@ const Footer = () => {
     </Grid>
   )
 }
-
-export default Footer

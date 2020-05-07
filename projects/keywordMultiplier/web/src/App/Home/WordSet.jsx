@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/styles'
-import WordSetLabel from './WordSetLabel'
+import { WordSetLabel } from './WordSetLabel'
 import { prepSetValue } from '../logic'
 import { checkSetDisabled } from '../../store/selectors'
 
@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => {
   }
 })
 
-const WordSet = ({ ...props }) => {
+export const WordSet = ({ ...props }) => {
   const classes = useStyles()
   const disabled = useSelector(state =>
     checkSetDisabled(state, props.input.name)
@@ -69,5 +69,3 @@ const WordSet = ({ ...props }) => {
     </Grid>
   )
 }
-
-export default WordSet

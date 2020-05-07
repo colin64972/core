@@ -1,9 +1,7 @@
-const setServer = (port, baseDir, files) => ({
+exports.setServer = (port, baseDir, files) => ({
   port,
   files,
   server: {
     baseDir
   }
 })
-
-module.exports = setServer
