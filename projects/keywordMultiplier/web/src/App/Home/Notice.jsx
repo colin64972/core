@@ -4,10 +4,10 @@ import { useSelector, useDispatch } from 'react-redux'
 import CloseIcon from '@material-ui/icons/Close'
 import DoneIcon from '@material-ui/icons/Done'
 import { makeStyles } from '@material-ui/styles'
-import PassWarnFailIcon from './PassWarnFailIcon'
-import constants from '../constants'
+import { PassWarnFailIcon } from './PassWarnFailIcon'
+import { constants } from '../constants'
 import { getNotice } from '../../store/selectors'
-import types from '../../store/types'
+import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => {
   const noticeButton = {
@@ -156,7 +156,7 @@ const useStyles = makeStyles(theme => {
   }
 })
 
-const Notice = () => {
+export const Notice = () => {
   const classes = useStyles()
   const dispatch = useDispatch()
   const screen = useRef()
@@ -328,5 +328,3 @@ const Notice = () => {
     </div>
   )
 }
-
-export default Notice

@@ -2,7 +2,7 @@ import { setCustomTheme } from '@colin30/shared/react/theming'
 import primary from '@material-ui/core/colors/cyan'
 import secondary from '@material-ui/core/colors/indigo'
 
-const theme = setCustomTheme(
+export const theme = setCustomTheme(
   12,
   'Heebo',
   [
@@ -49,5 +49,3 @@ theme.shadows.concat([
     theme.custom.setSpace() / 2
   }px ${theme.palette.grey[50]}`
 ])
-
-export default theme

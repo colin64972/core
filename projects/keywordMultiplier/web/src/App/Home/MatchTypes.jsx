@@ -13,9 +13,8 @@ import FileCopyIcon from '@material-ui/icons/FileCopy'
 import { withStyles, makeStyles } from '@material-ui/styles'
 import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import { defaultPadding } from '@colin30/shared/react/theming'
-import fields from './fields'
-import constants from '../constants'
-import types from '../../store/types'
+import { matchTypes } from './fields'
+import { types } from '../../store/types'
 import {
   getTrials,
   getMatchType,
@@ -152,7 +151,7 @@ const useStyles = makeStyles(theme => {
   }
 })
 
-const MatchTypes = ({ ...props }) => {
+export const MatchTypes = ({ ...props }) => {
   const classes = useStyles()
   const dispatch = useDispatch()
 
@@ -334,7 +333,7 @@ const MatchTypes = ({ ...props }) => {
             </Grid>
             <Grid item xs={12}>
               <Grid container justify="center" alignItems="center">
-                {fields.matchTypes.map(matchType => (
+                {matchTypes.map(matchType => (
                   <FadeIn
                     key={matchType.key}
                     direction="y"
@@ -366,5 +365,3 @@ const MatchTypes = ({ ...props }) => {
     </Grid>
   )
 }
-
-export default MatchTypes

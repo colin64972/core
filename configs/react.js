@@ -5,7 +5,7 @@ const { setTemplateLocals } = require('@colin30/shared/raw/general')
 const babelLoaderPlugins =
   process.env.NODE_ENV === 'production' ? ['transform-remove-console'] : []
 
-module.exports = (entry, outputPath, template, templateLocals) => ({
+exports.setConfig = (entry, outputPath, template, templateLocals) => ({
   entry,
   output: {
     path: outputPath,

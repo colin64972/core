@@ -7,8 +7,8 @@ import {
   getMatchType,
   getClientIp
 } from '../selectors'
-import types from '../types'
-import constants from '../../App/constants'
+import { types } from '../types'
+import { constants } from '../../App/constants'
 import { processTrial, copyToClipboard, generateNotice } from '../../App/logic'
 
 export function* multiplySets() {

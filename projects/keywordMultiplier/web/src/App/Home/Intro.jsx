@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const Intro = () => {
+export const Intro = () => {
   const classes = useStyles()
   return (
     <Grid item xs={12} component="section" className={classes.introSection}>
@@ -79,5 +79,3 @@ const Intro = () => {
     </Grid>
   )
 }
-
-export default Intro

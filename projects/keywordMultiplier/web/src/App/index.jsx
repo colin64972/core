@@ -1,9 +1,9 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import routes from './routes'
+import { routes } from './routes'
 
-const App = () => (
+export const App = () => (
   <CssBaseline>
     <Switch>
       {routes.map(route => (
@@ -17,5 +17,3 @@ const App = () => (
     </Switch>
   </CssBaseline>
 )
-
-export default App

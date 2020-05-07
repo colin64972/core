@@ -1,6 +1,6 @@
 import moment from 'moment'
 import { createHashId } from '@colin30/shared/react/helpers'
-import constants from './constants'
+import { constants } from './constants'
 
 export const prepSetValue = input => {
   // TODO update set parsing rules
