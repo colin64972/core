@@ -23,7 +23,7 @@ import {
   getTrials,
   getMatchType,
   getCopySettings,
-  getDomainMode
+  getWhiteSpaceSelection
 } from '../../store/selectors'
 
 const CustomSwitch = withStyles(theme => ({
@@ -165,7 +165,9 @@ export const MatchTypes = ({ ...props }) => {
   const trials = useSelector(state => getTrials(state))
   const selectedMatchType = useSelector(state => getMatchType(state))
   const copySettings = useSelector(state => getCopySettings(state))
-  const domainMode = useSelector(state => getDomainMode(state))
+  const whiteSpaceSelection = useSelector(state =>
+    getWhiteSpaceSelection(state)
+  )
 
   const { items, shown } = trials
   const { dataOnly } = copySettings
@@ -188,9 +190,10 @@ export const MatchTypes = ({ ...props }) => {
       type: types.TOGGLE_COPY_DATA_ONLY
     })
 
-  const domainModeHandler = event =>
+  const whiteSpaceSelectorHandler = event =>
     dispatch({
-      type: types.TOGGLE_DOMAIN_MODE
+      type: types.CHANGE_WHITESPACE_SELECTION,
+      selection: event.target.value
     })
 
   if (items.length < 1) return null
@@ -230,7 +233,9 @@ export const MatchTypes = ({ ...props }) => {
               component={
                 <FormControl fullWidth>
                   <InputLabel>Whitespace Replacement</InputLabel>
-                  <Select value="disabled">
+                  <Select
+                    value={whiteSpaceSelection}
+                    onChange={whiteSpaceSelectorHandler}>
                     {whiteSpaceOptions.map(option => (
                       <MenuItem key={option.key} value={option.value}>
                         {option.label}
@@ -339,12 +344,9 @@ export const MatchTypes = ({ ...props }) => {
                     className={classes.matchTypeButtonFadeIn}
                     component={
                       <button
-                        className={classnames(classes.matchTypeButton, {
-                          [classes.matchTypeButtonDisabled]: domainMode
-                        })}
+                        className={classes.matchTypeButton}
                         data-matchtype={matchType.value}
-                        onClick={matchTypeHandler}
-                        disabled={domainMode}>
+                        onClick={matchTypeHandler}>
                         {matchType.label}
                         {matchType.value === selectedMatchType ? (
                           <DoneIcon className={classes.doneIcon} />
