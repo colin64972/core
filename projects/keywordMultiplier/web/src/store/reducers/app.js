@@ -14,7 +14,7 @@ const defaultState = {
   copySettings: {
     dataOnly: false
   },
-  domainMode: false,
+  whiteSpaceSelection: constants.WHITESPACE_OPTIONS.DISABLED.VALUE,
   notice: {
     show: false,
     item: null,
@@ -128,10 +128,10 @@ export const app = (state = defaultState, action) => {
         ...state,
         ip: action.ip
       }
-    case types.TOGGLE_DOMAIN_MODE:
+    case types.CHANGE_WHITESPACE_SELECTION:
       return {
         ...state,
-        domainMode: !state.domainMode,
+        whiteSpaceSelection: action.selection,
         matchType: constants.MATCHTYPES.BROAD
       }
     case types.SET_SPINNER_STATUS:

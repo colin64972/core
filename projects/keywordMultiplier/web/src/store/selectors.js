@@ -1,5 +1,6 @@
 import { get } from 'lodash'
 import { createSelector } from 'reselect'
+import { constants } from '../App/constants'
 import { removeSetPrefix } from '../App/logic'
 
 const setsWithValuesSelector = state => get(state, 'form.sets.values', {})
@@ -9,9 +10,14 @@ const matchTypeSelector = state => get(state, 'app.matchType', 'broad')
 const noticeSelector = state => get(state, 'app.notice', {})
 const copySettingsSelector = state => get(state, 'app.copySettings', {})
 const ipSelector = state => get(state, 'app.ip', null)
-const domainModeSelector = state => get(state, 'app.domainMode')
 const spinnerStatusSelector = (state, setName) =>
   get(state, `app.spinnerStatuses.${setName}`)
+const whiteSpaceSelector = state =>
+  get(
+    state,
+    'app.whiteSpaceSelection',
+    constants.WHITESPACE_OPTIONS.DISABLED.VALUE
+  )
 
 export const checkSetDisabled = (state, set) => {
   const sets = get(state, `app.disabled`, [])
@@ -64,9 +70,12 @@ export const getCopySettings = createSelector(
 
 export const getClientIp = createSelector(ipSelector, ip => ip)
 
-export const getDomainMode = createSelector(domainModeSelector, mode => mode)
-
 export const getSpinnerStatus = createSelector(
   spinnerStatusSelector,
   status => status
+)
+
+export const getWhiteSpaceSelection = createSelector(
+  whiteSpaceSelector,
+  selection => selection
 )
