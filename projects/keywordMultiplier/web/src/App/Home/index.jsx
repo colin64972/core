@@ -1,7 +1,7 @@
 import React from 'react'
 import { Header } from './Header'
 import { Intro } from './Intro'
-import { MatchTypes } from './MatchTypes'
+import { TrialSettings } from './TrialSettings'
 import { Notice } from './Notice'
 import { Sets } from './Sets'
 import { Trials } from './Trials'
@@ -13,7 +13,7 @@ export const Home = () => (
     <Header />
     <Intro />
     <Sets />
-    <MatchTypes />
+    <TrialSettings />
     <Trials />
     <Footer />
   </div>
