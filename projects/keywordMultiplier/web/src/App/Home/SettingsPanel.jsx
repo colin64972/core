@@ -92,6 +92,14 @@ const useStyles = makeStyles(theme => {
     },
     whiteSpaceSelector: {
       margin: `${theme.custom.setSpace()}px 0`
+    },
+    optionLabel: {
+      fontSize: 15,
+      color: theme.typography.bodyColor
+    },
+    selectInput: {
+      fontSize: 15,
+      color: theme.typography.bodyColor
     }
   }
 })
@@ -153,10 +161,16 @@ export const SettingsPanel = () => {
             <FormControl fullWidth>
               <InputLabel>Whitespace Replacement</InputLabel>
               <Select
+                classes={{
+                  root: classes.toggleText
+                }}
                 value={whiteSpaceSelection}
                 onChange={whiteSpaceSelectorHandler}>
                 {whiteSpaceOptions.map(option => (
-                  <MenuItem key={option.key} value={option.value}>
+                  <MenuItem
+                    key={option.key}
+                    value={option.value}
+                    className={classes.toggleText}>
                     {option.label}
                   </MenuItem>
                 ))}
