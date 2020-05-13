@@ -7,14 +7,7 @@ import { App } from './App'
 import { theme } from './App/theme'
 import { setStore } from './store'
 
-console.log(
-  '%c env',
-  'color: lightyellow; font-size: large',
-  window.location.pathname,
-  process.env.NODE_ENV,
-  process.env.DEBUG,
-  process.env.IS_BROWSER
-)
+console.log('%c theme', 'color: lightyellow; font-size: large', theme)
 
 const store = setStore()
 
