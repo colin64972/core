@@ -16,6 +16,7 @@ const useStyles = makeStyles(theme => {
     marginTop: theme.custom.setSpace(),
     fontSize: theme.custom.setSpace('sm')
   }
+
   const matchTypeButton = {
     'padding': theme.custom.setSpace(),
     'border': 'none',
@@ -31,8 +32,12 @@ const useStyles = makeStyles(theme => {
       outline: 'none'
     }
   }
+
   return {
-    mainHeading: theme.typography.mainHeading,
+    mainHeading: {
+      ...theme.typography.mainHeading,
+      marginBottom: 0
+    },
     matchTypeSelection: {
       height: '100%',
       color: 'white',
@@ -42,10 +47,10 @@ const useStyles = makeStyles(theme => {
     matchTypeSelectionHeading: {
       ...theme.custom.setFlex('column nowrap', 'flex-end')
     },
-    matchTypeButtonFadeIn: {
-      'marginRight': theme.custom.setSpace(),
+    matchTypeButtonGridItem: {
+      'margin': `${theme.custom.setSpace()}px ${theme.custom.setSpace()}px 0 0`,
       '&:last-child': {
-        marginRight: 0
+        margin: `${theme.custom.setSpace()}px 0 0 0`
       }
     },
     matchTypeButton: {
@@ -65,14 +70,20 @@ const useStyles = makeStyles(theme => {
     icon: {
       fontSize: theme.custom.setSpace() * 1.5,
       marginRight: theme.custom.setSpace() / 4
+    },
+    matchTypeButtonsContainer: {
+      height: '100%'
     }
   }
 })
 
 export const MatchTypesPanel = () => {
   const classes = useStyles()
-  const dispatch = useDispatch()
+
   const selectedMatchType = useSelector(state => getMatchType(state))
+
+  const dispatch = useDispatch()
+
   const matchTypeHandler = event =>
     dispatch({
       type: types.CHANGE_MATCHTYPE,
@@ -105,26 +116,27 @@ export const MatchTypesPanel = () => {
         </Grid>
         <Grid item xs={12}>
           <Grid container justify="center" alignItems="center">
-            {matchTypes.map(matchType => (
-              <FadeIn
-                key={matchType.key}
-                direction="y"
-                position={100}
-                className={classes.matchTypeButtonFadeIn}
-                component={
-                  <button
-                    className={classes.matchTypeButton}
-                    data-matchtype={matchType.value}
-                    onClick={matchTypeHandler}>
-                    {matchType.label}
-                    {matchType.value === selectedMatchType ? (
-                      <DoneIcon className={classes.doneIcon} />
-                    ) : (
-                      <CloseIcon className={classes.closeIcon} />
-                    )}
-                  </button>
-                }
-              />
+            {matchTypes.map(buttonItem => (
+              <Grid item className={classes.matchTypeButtonGridItem}>
+                <FadeIn
+                  key={buttonItem.key}
+                  direction="y"
+                  position={100}
+                  component={
+                    <button
+                      className={classes.matchTypeButton}
+                      data-matchtype={buttonItem.value}
+                      onClick={matchTypeHandler}>
+                      {buttonItem.label}
+                      {buttonItem.value === selectedMatchType ? (
+                        <DoneIcon className={classes.doneIcon} />
+                      ) : (
+                        <CloseIcon className={classes.closeIcon} />
+                      )}
+                    </button>
+                  }
+                />
+              </Grid>
             ))}
           </Grid>
         </Grid>

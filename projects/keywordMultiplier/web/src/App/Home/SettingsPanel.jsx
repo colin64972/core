@@ -51,6 +51,7 @@ const useStyles = makeStyles(theme => {
       outline: 'none'
     }
   }
+
   return {
     mainHeading: theme.typography.mainHeading,
     manageTrials: {
@@ -106,26 +107,35 @@ const useStyles = makeStyles(theme => {
 
 export const SettingsPanel = () => {
   const classes = useStyles()
+
   const copySettings = useSelector(state => getCopySettings(state))
+
+  const trials = useSelector(state => getTrials(state))
+  const buttonsDisabled = trials.shown.length < 2
+
   const { dataOnly } = copySettings
+
   const whiteSpaceSelection = useSelector(state =>
     getWhiteSpaceSelection(state)
   )
-  const trials = useSelector(state => getTrials(state))
-  const { shown } = trials
+
   const dispatch = useDispatch()
+
   const copyAllHandler = () => dispatch({ type: types.COPY_ALL_TRIALS })
+
   const askDeleteTrials = () => dispatch({ type: types.ASK_DELETE_ALL_TRIALS })
+
   const dataOnlyHandler = () =>
     dispatch({
       type: types.TOGGLE_COPY_DATA_ONLY
     })
+
   const whiteSpaceSelectorHandler = event =>
     dispatch({
       type: types.CHANGE_WHITESPACE_SELECTION,
       selection: event.target.value
     })
-  const buttonsDisabled = shown.length < 2
+
   return (
     <Grid item xs={12} sm={6} className={classes.manageTrials}>
       <Grid container direction="column">
