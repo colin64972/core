@@ -11,6 +11,7 @@ const defaultState = {
     [constants.SETS_FORM_NAME]: false
   },
   matchType: constants.MATCHTYPES.BROAD,
+  matchTypePrev: constants.MATCHTYPES.BROAD,
   copySettings: {
     dataOnly: false
   },
@@ -81,7 +82,9 @@ export const app = (state = defaultState, action) => {
     case types.CHANGE_MATCHTYPE:
       return {
         ...state,
-        matchType: action.matchType
+        matchType: action.matchType,
+        matchTypePrev: action.matchType,
+        whiteSpaceSelection: constants.WHITESPACE_OPTIONS.DISABLED.VALUE
       }
     case types.ADD_NOTICE:
       return {
@@ -132,7 +135,10 @@ export const app = (state = defaultState, action) => {
       return {
         ...state,
         whiteSpaceSelection: action.selection,
-        matchType: constants.MATCHTYPES.BROAD
+        matchType:
+          action.selection === constants.WHITESPACE_OPTIONS.DISABLED.VALUE
+            ? state.matchTypePrev
+            : constants.MATCHTYPES.BROAD
       }
     case types.SET_SPINNER_STATUS:
       return {
