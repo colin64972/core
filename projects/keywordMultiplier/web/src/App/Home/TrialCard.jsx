@@ -17,8 +17,8 @@ import AssignmentIcon from '@material-ui/icons/Assignment'
 import DeleteIcon from '@material-ui/icons/Delete'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import { makeStyles } from '@material-ui/styles'
-import { formatMatchType } from '../logic'
-import { getMatchType } from '../../store/selectors'
+import { formatProductLine } from '../logic'
+import { getMatchType, getWhiteSpaceSelection } from '../../store/selectors'
 import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => {
@@ -148,15 +148,15 @@ const useStyles = makeStyles(theme => {
   }
 })
 
-export const TrialCard = ({ trial, isShown, isLastShown }) => {
+export const TrialCard = ({ trial, isShown }) => {
   const classes = useStyles()
   const dispatch = useDispatch()
   const copyRef = createRef()
   const card = createRef()
   const matchType = useSelector(state => getMatchType(state))
-  // const whiteSpaceSelection = useSelector(state =>
-  //   getWhiteSpaceSelection(state)
-  // )
+  const whiteSpaceSelection = useSelector(state =>
+    getWhiteSpaceSelection(state)
+  )
   const copyHandler = event => {
     event.stopPropagation()
     dispatch({
@@ -267,7 +267,7 @@ export const TrialCard = ({ trial, isShown, isLastShown }) => {
                     component="td"
                     scope="data"
                     className={classes.data}>
-                    {formatMatchType(item, matchType)}
+                    {formatProductLine(item, matchType, whiteSpaceSelection)}
                   </TableCell>
                 </TableRow>
               ))}
