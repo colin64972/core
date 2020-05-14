@@ -87,17 +87,42 @@ export const processTrial = postedData => {
   return multiplysets(preppedSets)
 }
 
-export const formatMatchType = (value, matchType) => {
-  switch (matchType) {
-    case constants.MATCHTYPES.BROAD_MODIFIER:
-      return value.replace(/(\w\B\w+)/g, '+$1')
-    case constants.MATCHTYPES.PHRASE:
-      return `"${value}"`
-    case constants.MATCHTYPES.EXACT:
-      return `[${value}]`
-    default:
-      return value
+export const formatProductLine = (value, matchType, whiteSpaceCode) => {
+  let result = ''
+  if (whiteSpaceCode) {
+    switch (whiteSpaceCode) {
+      case constants.WHITESPACE_OPTIONS.NONE.VALUE:
+        result = value.replace(/\s+/g, '')
+        break
+      case constants.WHITESPACE_OPTIONS.HYPHEN.VALUE:
+        result = value.replace(/\s+/g, '-')
+        break
+      case constants.WHITESPACE_OPTIONS.UNDERSCORE.VALUE:
+        result = value.replace(/\s+/g, '_')
+        break
+      default:
+        result = value
+    }
+
+    if (result.match(/^(.*)[-_]+\.+(\w+)$/)) {
+      result = result.replace(/[-_]+\.+/gi, '.')
+    }
+  } else {
+    switch (matchType) {
+      case constants.MATCHTYPES.BROAD_MODIFIER:
+        result = value.replace(/(\w\B\w+)/g, '+$1').replace(/\.\+/, '+.')
+        break
+      case constants.MATCHTYPES.PHRASE:
+        result = `"${value}"`
+        break
+      case constants.MATCHTYPES.EXACT:
+        result = `[${value}]`
+        break
+      default:
+        result = value
+    }
   }
+  return result
 }
 
 const buildCopyData = (tableBody, dataOnly, matchType) => {
