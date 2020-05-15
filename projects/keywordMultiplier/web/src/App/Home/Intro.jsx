@@ -4,7 +4,8 @@ import { defaultPadding } from '@colin30/shared/react/theming'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/styles'
-import IntroImage from '../../exports/images/intro-image-1000w.png'
+import { ImageHandler } from '@colin30/shared/react/components/ImageHandler'
+import { IntroImage } from '../../../assets'
 
 const useStyles = makeStyles(theme => ({
   introSection: {
@@ -15,12 +16,12 @@ const useStyles = makeStyles(theme => ({
     fontSize: theme.custom.setSpace('xl')
   },
   mainHeading: theme.typography.mainHeading,
-  image: {
+  introImage: {
     width: '100%',
-    maxWidth: 500,
-    padding: `0 0 0 ${theme.custom.setSpace('sm')}px`,
+    // maxWidth: 500,
+    margin: `0 0 0 ${theme.custom.setSpace('sm')}px`,
     [theme.breakpoints.down('xs')]: {
-      padding: `${theme.custom.setSpace()}px 0 0 0 `
+      margin: `${theme.custom.setSpace()}px 0 0 0 `
     }
   }
 }))
@@ -67,11 +68,16 @@ export const Intro = () => {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Grid container justify="center">
+          <Grid container justify="center" alignItems="center">
             <FadeIn
               direction="x"
               position={100}
-              component={<img src={IntroImage} className={classes.image} />}
+              component={
+                <ImageHandler
+                  asset={IntroImage}
+                  styleClass={classes.introImage}
+                />
+              }
             />
           </Grid>
         </Grid>
