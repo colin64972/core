@@ -1,5 +1,6 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
 const { setTemplateLocals } = require('@colin30/shared/raw/general')
 
 const babelLoaderPlugins =
@@ -92,6 +93,20 @@ exports.setConfig = (entry, outputPath, template, templateLocals) => ({
       scriptLoading: 'defer',
       cache: false,
       templateLocals: setTemplateLocals(templateLocals)
+    }),
+    new ImageminWebpWebpackPlugin({
+      config: [
+        {
+          test: /\.(jpe?g|png)/,
+          options: {
+            quality: 75
+          }
+        }
+      ],
+      overrideExtension: true,
+      detailedLogs: false,
+      silent: false,
+      strict: true
     })
   ]
 })
