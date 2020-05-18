@@ -49,7 +49,15 @@ const useStyles = makeStyles(theme => {
   }
 
   return {
-    mainHeading: theme.typography.mainHeading,
+    subHeading: {
+      width: '100%',
+      textAlign: 'left'
+    },
+    mainHeading: {
+      ...theme.typography.mainHeading,
+      width: '100%',
+      textAlign: 'left'
+    },
     manageTrials: {
       ...defaultPadding(theme.breakpoints, theme.custom.setSpace)
     },
@@ -135,7 +143,11 @@ export const TrialResultsSettings = ({ buttonsDisabled }) => {
         <FadeIn
           direction="y"
           position={-100}
-          component={<Typography variant="subtitle2">Settings</Typography>}
+          component={
+            <Typography variant="subtitle2" className={classes.subHeading}>
+              Settings
+            </Typography>
+          }
         />
         <FadeIn
           direction="x"
@@ -185,24 +197,26 @@ export const TrialResultsSettings = ({ buttonsDisabled }) => {
           direction="x"
           position={-100}
           component={
-            <FormGroup row>
-              <FormControlLabel
-                className={classes.switchGroupLabel}
-                control={
-                  <CustomSwitch
-                    name="copyDataOnly"
-                    color="primary"
-                    checked={dataOnly}
-                    onChange={dataOnlyHandler}
-                  />
-                }
-                label={
-                  <Typography variant="body1" className={classes.toggleText}>
-                    Copy Data Only
-                  </Typography>
-                }
-              />
-            </FormGroup>
+            <Grid container>
+              <FormGroup row>
+                <FormControlLabel
+                  className={classes.switchGroupLabel}
+                  control={
+                    <CustomSwitch
+                      name="copyDataOnly"
+                      color="primary"
+                      checked={dataOnly}
+                      onChange={dataOnlyHandler}
+                    />
+                  }
+                  label={
+                    <Typography variant="body1" className={classes.toggleText}>
+                      Copy Data Only
+                    </Typography>
+                  }
+                />
+              </FormGroup>
+            </Grid>
           }
         />
         <Grid container justify="flex-start" alignItems="center">
