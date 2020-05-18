@@ -71,20 +71,17 @@ const useStyles = makeStyles(theme => ({
   badgeHeading: {
     textAlign: 'right',
     lineHeight: 1.25,
+    margin: `0 ${theme.custom.setSpace()}px 0 0`,
     [theme.breakpoints.down('xs')]: {
       textAlign: 'left',
       fontSize: theme.custom.setSpace() * 1.5,
-      marginTop: theme.custom.setSpace() / 2
+      margin: `0 0 0 ${theme.custom.setSpace()}px`
     }
   },
   colinProfile: {
     width: '100%',
     maxWidth: 48,
-    borderRadius: theme.custom.borderRadius,
-    margin: `0 0 0 ${theme.custom.setSpace()}px`,
-    [theme.breakpoints.down('xs')]: {
-      margin: `0 ${theme.custom.setSpace()}px 0 0`
-    }
+    borderRadius: theme.custom.borderRadius
   },
   badgeSubheading: {
     textAlign: 'right',
