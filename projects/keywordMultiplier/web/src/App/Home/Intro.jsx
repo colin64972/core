@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/styles'
 import { ImageHandler } from '@colin30/shared/react/components/ImageHandler'
-import { IntroImage } from '../../../assets'
+import { Intro as IntroImage } from '../../../assets'
 
 const useStyles = makeStyles(theme => ({
   introSection: {
@@ -15,10 +15,22 @@ const useStyles = makeStyles(theme => ({
   icon: {
     fontSize: theme.custom.setSpace('xl')
   },
-  mainHeading: theme.typography.mainHeading,
+  subHeading: {
+    width: '100%',
+    [theme.breakpoints.down('xs')]: {
+      textAlign: 'center'
+    }
+  },
+  mainHeading: {
+    width: '100%',
+    ...theme.typography.mainHeading,
+    [theme.breakpoints.down('xs')]: {
+      textAlign: 'center'
+    }
+  },
   introImage: {
     width: '100%',
-    // maxWidth: 500,
+    maxWidth: 600,
     margin: `0 0 0 ${theme.custom.setSpace('sm')}px`,
     [theme.breakpoints.down('xs')]: {
       margin: `${theme.custom.setSpace()}px 0 0 0 `
@@ -36,7 +48,9 @@ export const Intro = () => {
             direction="y"
             position={-100}
             component={
-              <Typography variant="subtitle2">Target Acquired</Typography>
+              <Typography variant="subtitle2" className={classes.subHeading}>
+                Target Acquired
+              </Typography>
             }
           />
           <FadeIn
@@ -68,18 +82,16 @@ export const Intro = () => {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Grid container justify="center" alignItems="center">
-            <FadeIn
-              direction="x"
-              position={100}
-              component={
-                <ImageHandler
-                  asset={IntroImage}
-                  styleClass={classes.introImage}
-                />
-              }
-            />
-          </Grid>
+          <FadeIn
+            direction="x"
+            position={100}
+            component={
+              <ImageHandler
+                asset={IntroImage}
+                styleClass={classes.introImage}
+              />
+            }
+          />
         </Grid>
       </Grid>
     </Grid>
