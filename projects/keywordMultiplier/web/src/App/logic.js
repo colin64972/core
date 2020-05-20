@@ -137,5 +137,6 @@ export const generateNotice = (
 export const decorateTrial = data => ({
   id: data.id,
   heading: data.trialProduct.heading,
-  list: data.trialProduct.list
+  list: data.trialProduct.list,
+  volumes: data?.volumes
 })
