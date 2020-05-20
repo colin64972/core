@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import gsap from 'gsap'
 import React, { createRef, useLayoutEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -16,13 +17,14 @@ import Typography from '@material-ui/core/Typography'
 import AssignmentIcon from '@material-ui/icons/Assignment'
 import DeleteIcon from '@material-ui/icons/Delete'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import SearchIcon from '@material-ui/icons/Search'
 import { makeStyles } from '@material-ui/styles'
 import { formatProductLine } from '../logic'
 import { getMatchType, getWhiteSpaceSelection } from '../../store/selectors'
 import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => {
-  const button = {
+  const iconButton = {
     'border': 'none',
     'fontSize': theme.custom.setSpace(),
     'padding': theme.custom.setSpace() / 2,
@@ -37,46 +39,53 @@ const useStyles = makeStyles(theme => {
       outline: 'none'
     }
   }
-  return {
-    trialCard: {
-      'width': '100%',
-      'margin': `${theme.custom.setSpace()}px 0 0 0`,
-      '&:nth-child(1)': {
+
+  const trialCard = {
+    'width': '100%',
+    'margin': `${theme.custom.setSpace()}px 0 0 0`,
+    '&:nth-child(1)': {
+      marginTop: 0
+    },
+    [theme.breakpoints.up('sm')]: {
+      'width': `calc(50% - ((${theme.custom.setSpace('sm')}px * 1) / 2))`,
+      'margin': `${theme.custom.setSpace('sm')}px ${theme.custom.setSpace(
+        'sm'
+      )}px 0 0`,
+      '&:nth-child(1), &:nth-child(2)': {
         marginTop: 0
       },
-      [theme.breakpoints.up('sm')]: {
-        'width': `calc(50% - ((${theme.custom.setSpace('sm')}px * 1) / 2))`,
-        'margin': `${theme.custom.setSpace('sm')}px ${theme.custom.setSpace(
-          'sm'
-        )}px 0 0`,
-        '&:nth-child(1), &:nth-child(2)': {
-          marginTop: 0
-        },
-        '&:nth-child(2n)': {
-          marginRight: 0
-        }
-      },
-      [theme.breakpoints.up('xl')]: {
-        'width': `calc(33.3333% - ((${theme.custom.setSpace(
-          'sm'
-        )}px * 2) / 3))`,
-        'margin': `${theme.custom.setSpace('sm')}px ${theme.custom.setSpace(
-          'sm'
-        )}px 0 0`,
-        '&:nth-child(1), &:nth-child(3)': {
-          marginTop: 0
-        },
-        '&:nth-child(2)': {
-          marginTop: 0,
-          marginRight: 0
-        },
-        '&:nth-child(2n)': {
-          marginRight: theme.custom.setSpace('sm')
-        },
-        '&:nth-child(3n)': {
-          marginRight: 0
-        }
+      '&:nth-child(2n)': {
+        marginRight: 0
       }
+    },
+    [theme.breakpoints.up('xl')]: {
+      'width': `calc(33.3333% - ((${theme.custom.setSpace('sm')}px * 2) / 3))`,
+      'margin': `${theme.custom.setSpace('sm')}px ${theme.custom.setSpace(
+        'sm'
+      )}px 0 0`,
+      '&:nth-child(1), &:nth-child(3)': {
+        marginTop: 0
+      },
+      '&:nth-child(2)': {
+        marginTop: 0,
+        marginRight: 0
+      },
+      '&:nth-child(2n)': {
+        marginRight: theme.custom.setSpace('sm')
+      },
+      '&:nth-child(3n)': {
+        marginRight: 0
+      }
+    }
+  }
+
+  return {
+    trialCard,
+    trialCardFullWIdth: {
+      width: '100%',
+      margin: `${theme.custom.setSpace()}px 0 0 0`,
+      [theme.breakpoints.up('sm')]: null,
+      [theme.breakpoints.up('xl')]: null
     },
     trialCardHeading: {
       textAlign: 'left',
@@ -101,7 +110,7 @@ const useStyles = makeStyles(theme => {
       textAlign: 'left'
     },
     copyButton: {
-      ...button,
+      ...iconButton,
       'color': theme.palette.primary[50],
       'backgroundColor': theme.palette.primary[200],
       '&:hover': {
@@ -109,11 +118,8 @@ const useStyles = makeStyles(theme => {
         backgroundColor: theme.palette.pass[500]
       }
     },
-    icon: {
-      fontSize: theme.custom.setSpace() * 1.5
-    },
     deleteButton: {
-      ...button,
+      ...iconButton,
       'marginRight': 0,
       'color': theme.palette.secondary[50],
       'backgroundColor': theme.palette.secondary[200],
@@ -121,6 +127,22 @@ const useStyles = makeStyles(theme => {
         color: 'white',
         backgroundColor: theme.palette.fail[500]
       }
+    },
+    requestVolumeButton: {
+      ...iconButton,
+      'color': theme.palette.primary[50],
+      'backgroundColor': theme.palette.primary[200],
+      'margin': '0 auto',
+      '&:hover': {
+        color: 'white',
+        backgroundColor: theme.palette.pass[500]
+      }
+    },
+    actionButtonIcon: {
+      fontSize: theme.custom.setSpace() * 1.5
+    },
+    requestVolumeButtonIcon: {
+      fontSize: theme.custom.setSpace()
     },
     cardInfo: {
       marginTop: theme.custom.setSpace()
@@ -133,13 +155,13 @@ const useStyles = makeStyles(theme => {
         fontSize: theme.typography.fontSize
       }
     },
-    data: {
+    tableCellData: {
       wordBreak: 'break-all',
       [theme.breakpoints.down('xs')]: {
         fontSize: theme.typography.fontSize
       }
     },
-    id: {
+    trialId: {
       color: theme.palette.secondary[200],
       [theme.breakpoints.down('xs')]: {
         fontSize: theme.typography.fontSize
@@ -149,14 +171,21 @@ const useStyles = makeStyles(theme => {
 })
 
 export const TrialCard = ({ trial, isShown }) => {
+  console.log('%c trial', 'color: yellow; font-size: large', trial)
   const classes = useStyles()
+
   const dispatch = useDispatch()
+
   const copyRef = createRef()
+
   const card = createRef()
+
   const matchType = useSelector(state => getMatchType(state))
+
   const whiteSpaceSelection = useSelector(state =>
     getWhiteSpaceSelection(state)
   )
+
   const copyHandler = event => {
     event.stopPropagation()
     dispatch({
@@ -165,6 +194,7 @@ export const TrialCard = ({ trial, isShown }) => {
       ref: copyRef.current
     })
   }
+
   const askDeleteTrial = event => {
     event.stopPropagation()
     return dispatch({
@@ -173,7 +203,16 @@ export const TrialCard = ({ trial, isShown }) => {
     })
   }
 
+  const requestVolumeHandler = event => {
+    console.log(
+      '%c volumeHandler',
+      'color: yellow; font-size: large',
+      event.currentTarget.dataset.id
+    )
+  }
+
   let timeline = gsap.timeline({ paused: true })
+
   useLayoutEffect(() => {
     if (isShown) {
       timeline
@@ -212,8 +251,14 @@ export const TrialCard = ({ trial, isShown }) => {
       timeline.kill()
     }
   }, [isShown])
+
   return (
-    <div className={classes.trialCard} ref={card} id={trial.id}>
+    <div
+      className={classNames(classes.trialCard, {
+        [classes.trialCardFullWIdth]: trial?.volumes
+      })}
+      ref={card}
+      id={trial.id}>
       <Accordion defaultExpanded>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -226,14 +271,14 @@ export const TrialCard = ({ trial, isShown }) => {
                   data-id={trial.id}
                   onClick={copyHandler}
                   className={classes.copyButton}>
-                  <AssignmentIcon className={classes.icon} />
+                  <AssignmentIcon className={classes.actionButtonIcon} />
                 </button>
                 <button
                   type="button"
                   data-id={trial.id}
                   onClick={askDeleteTrial}
                   className={classes.deleteButton}>
-                  <DeleteIcon className={classes.icon} />
+                  <DeleteIcon className={classes.actionButtonIcon} />
                 </button>
               </Grid>
             </Grid>
@@ -255,19 +300,29 @@ export const TrialCard = ({ trial, isShown }) => {
               <TableRow>
                 <TableCell className={classes.tableHeadCell}>Entry</TableCell>
                 <TableCell className={classes.tableHeadCell}>Product</TableCell>
+                <TableCell className={classes.tableHeadCell}>Volume</TableCell>
               </TableRow>
             </TableHead>
             <TableBody ref={copyRef} id={trial.id}>
               {trial.list.map((item, index) => (
                 <TableRow key={`${trial.id}-${index}`}>
-                  <TableCell component="td" className={classes.id}>
+                  <TableCell component="td" className={classes.trialId}>
                     {index + 1}
                   </TableCell>
                   <TableCell
                     component="td"
                     scope="data"
-                    className={classes.data}>
+                    className={classes.tableCellData}>
                     {formatProductLine(item, matchType, whiteSpaceSelection)}
+                  </TableCell>
+                  <TableCell component="td">
+                    <button
+                      type="button"
+                      onClick={requestVolumeHandler}
+                      data-id={trial.id}
+                      className={classes.requestVolumeButton}>
+                      <SearchIcon className={classes.requestVolumeButtonIcon} />
+                    </button>
                   </TableCell>
                 </TableRow>
               ))}
