@@ -7,12 +7,12 @@ import ColinProfile3x from './images/colin30-profile-144w.jpg'
 
 export const Intro = {
   alt: 'content-marketing-seo-illustration',
-  format: 'png',
+  mimeType: 'image/png',
   paths: [Intro1x, Intro2x, Intro3x]
 }
 
 export const ColinProfile = {
   alt: 'colin30-profile-photo',
-  format: 'jpg',
+  mimeType: 'image/jpeg',
   paths: [ColinProfile1x, ColinProfile2x, ColinProfile3x]
 }
