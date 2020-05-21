@@ -252,10 +252,11 @@ export const TrialCard = ({ trial, isShown }) => {
     }
   }, [isShown])
 
+  const getVolumeData = (entryId, dataKind) => {}
   return (
     <div
       className={classNames(classes.trialCard, {
-        [classes.trialCardFullWIdth]: trial?.volumes
+        [classes.trialCardFullWIdth]: trial.volumeData
       })}
       ref={card}
       id={trial.id}>
@@ -301,29 +302,51 @@ export const TrialCard = ({ trial, isShown }) => {
                 <TableCell className={classes.tableHeadCell}>Entry</TableCell>
                 <TableCell className={classes.tableHeadCell}>Product</TableCell>
                 <TableCell className={classes.tableHeadCell}>Volume</TableCell>
+                {trial.volumeData &&
+                  ['CPC', 'Comp'].map(item => (
+                    <TableCell className={classes.tableHeadCell}>
+                      {item}
+                    </TableCell>
+                  ))}
               </TableRow>
             </TableHead>
             <TableBody ref={copyRef} id={trial.id}>
-              {trial.list.map((item, index) => (
-                <TableRow key={`${trial.id}-${index}`}>
+              {trial.list.map((keyword, keywordIndex) => (
+                <TableRow key={`${trial.id}-${keywordIndex}`}>
                   <TableCell component="td" className={classes.trialId}>
-                    {index + 1}
+                    {keywordIndex + 1}
                   </TableCell>
                   <TableCell
                     component="td"
                     scope="data"
                     className={classes.tableCellData}>
-                    {formatProductLine(item, matchType, whiteSpaceSelection)}
+                    {formatProductLine(keyword, matchType, whiteSpaceSelection)}
                   </TableCell>
                   <TableCell component="td">
-                    <button
-                      type="button"
-                      onClick={requestVolumeHandler}
-                      data-id={trial.id}
-                      className={classes.requestVolumeButton}>
-                      <SearchIcon className={classes.requestVolumeButtonIcon} />
-                    </button>
+                    {trial.volumeData ? (
+                      trial.volumeData[keywordIndex].vol
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={requestVolumeHandler}
+                        data-id={trial.id}
+                        className={classes.requestVolumeButton}>
+                        <SearchIcon
+                          className={classes.requestVolumeButtonIcon}
+                        />
+                      </button>
+                    )}
                   </TableCell>
+                  {trial.volumeData && (
+                    <TableCell component="td">
+                      {trial.volumeData[keywordIndex].cpc.value}
+                    </TableCell>
+                  )}
+                  {trial.volumeData && (
+                    <TableCell component="td">
+                      {trial.volumeData[keywordIndex].competition}
+                    </TableCell>
+                  )}
                 </TableRow>
               ))}
             </TableBody>

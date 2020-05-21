@@ -138,5 +138,78 @@ export const decorateTrial = data => ({
   id: data.id,
   heading: data.trialProduct.heading,
   list: data.trialProduct.list,
-  volumes: data?.volumes
+  volumeData: data?.volumeData
+  // volumeData: [
+  //   {
+  //     vol: 150,
+  //     cpc: {
+  //       currency: '$',
+  //       value: '3.77'
+  //     },
+  //     keyword: 'asdf asdf',
+  //     competition: 0.03,
+  //     trend: [
+  //       {
+  //         month: 'May',
+  //         year: 2019,
+  //         value: 480
+  //       },
+  //       {
+  //         month: 'June',
+  //         year: 2019,
+  //         value: 480
+  //       },
+  //       {
+  //         month: 'July',
+  //         year: 2019,
+  //         value: 390
+  //       },
+  //       {
+  //         month: 'August',
+  //         year: 2019,
+  //         value: 480
+  //       },
+  //       {
+  //         month: 'September',
+  //         year: 2019,
+  //         value: 390
+  //       },
+  //       {
+  //         month: 'October',
+  //         year: 2019,
+  //         value: 390
+  //       },
+  //       {
+  //         month: 'November',
+  //         year: 2019,
+  //         value: 320
+  //       },
+  //       {
+  //         month: 'December',
+  //         year: 2019,
+  //         value: 480
+  //       },
+  //       {
+  //         month: 'January',
+  //         year: 2020,
+  //         value: 390
+  //       },
+  //       {
+  //         month: 'February',
+  //         year: 2020,
+  //         value: 390
+  //       },
+  //       {
+  //         month: 'March',
+  //         year: 2020,
+  //         value: 480
+  //       },
+  //       {
+  //         month: 'April',
+  //         year: 2020,
+  //         value: 480
+  //       }
+  //     ]
+  //   }
+  // ]
 })
