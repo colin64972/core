@@ -19,6 +19,8 @@ import DeleteIcon from '@material-ui/icons/Delete'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import SearchIcon from '@material-ui/icons/Search'
 import { makeStyles } from '@material-ui/styles'
+import { constants } from '../constants'
+import { volumeDataFields } from './fields'
 import { formatProductLine } from '../logic'
 import { getMatchType, getWhiteSpaceSelection } from '../../store/selectors'
 import { types } from '../../store/types'
@@ -135,14 +137,11 @@ const useStyles = makeStyles(theme => {
       'margin': '0 auto',
       '&:hover': {
         color: 'white',
-        backgroundColor: theme.palette.pass[500]
+        backgroundColor: theme.palette.warn[500]
       }
     },
     actionButtonIcon: {
       fontSize: theme.custom.setSpace() * 1.5
-    },
-    requestVolumeButtonIcon: {
-      fontSize: theme.custom.setSpace()
     },
     cardInfo: {
       marginTop: theme.custom.setSpace()
@@ -171,7 +170,6 @@ const useStyles = makeStyles(theme => {
 })
 
 export const TrialCard = ({ trial, isShown }) => {
-  console.log('%c trial', 'color: yellow; font-size: large', trial)
   const classes = useStyles()
 
   const dispatch = useDispatch()
@@ -252,7 +250,19 @@ export const TrialCard = ({ trial, isShown }) => {
     }
   }, [isShown])
 
-  const getVolumeData = (entryId, dataKind) => {}
+  const createTrendChart = dataPoints => JSON.stringify(dataPoints)
+
+  const setVolumeFieldCell = (index, field) => {
+    switch (field.label) {
+      case constants.VOLUME_DATA.CPC.LABEL:
+        return trial.volumeData[index][field.value].value
+      case constants.VOLUME_DATA.TREND.LABEL:
+        return createTrendChart(trial.volumeData[index][field.value])
+      default:
+        return trial.volumeData[index][field.value]
+    }
+  }
+
   return (
     <div
       className={classNames(classes.trialCard, {
@@ -301,11 +311,15 @@ export const TrialCard = ({ trial, isShown }) => {
               <TableRow>
                 <TableCell className={classes.tableHeadCell}>Entry</TableCell>
                 <TableCell className={classes.tableHeadCell}>Product</TableCell>
-                <TableCell className={classes.tableHeadCell}>Volume</TableCell>
+                <TableCell className={classes.tableHeadCell}>
+                  {constants.VOLUME_DATA.VOLUME.LABEL}
+                </TableCell>
                 {trial.volumeData &&
-                  ['CPC', 'Comp'].map(item => (
-                    <TableCell className={classes.tableHeadCell}>
-                      {item}
+                  volumeDataFields.map(field => (
+                    <TableCell
+                      className={classes.tableHeadCell}
+                      key={field.key}>
+                      {field.label}
                     </TableCell>
                   ))}
               </TableRow>
@@ -324,29 +338,25 @@ export const TrialCard = ({ trial, isShown }) => {
                   </TableCell>
                   <TableCell component="td">
                     {trial.volumeData ? (
-                      trial.volumeData[keywordIndex].vol
+                      trial.volumeData[keywordIndex][
+                        constants.VOLUME_DATA.VOLUME.VALUE
+                      ]
                     ) : (
                       <button
                         type="button"
                         onClick={requestVolumeHandler}
                         data-id={trial.id}
                         className={classes.requestVolumeButton}>
-                        <SearchIcon
-                          className={classes.requestVolumeButtonIcon}
-                        />
+                        <SearchIcon className={classes.actionButtonIcon} />
                       </button>
                     )}
                   </TableCell>
-                  {trial.volumeData && (
-                    <TableCell component="td">
-                      {trial.volumeData[keywordIndex].cpc.value}
-                    </TableCell>
-                  )}
-                  {trial.volumeData && (
-                    <TableCell component="td">
-                      {trial.volumeData[keywordIndex].competition}
-                    </TableCell>
-                  )}
+                  {trial.volumeData &&
+                    volumeDataFields.map(field => (
+                      <TableCell component="td" key={field.key}>
+                        {setVolumeFieldCell(keywordIndex, field)}
+                      </TableCell>
+                    ))}
                 </TableRow>
               ))}
             </TableBody>
