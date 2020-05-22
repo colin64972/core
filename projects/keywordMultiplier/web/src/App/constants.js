@@ -26,6 +26,24 @@ export const constants = {
     }
   },
   REPLACEMENT_CODE: '#@$@#',
+  VOLUME_DATA: {
+    VOLUME: {
+      LABEL: 'Volume',
+      VALUE: 'vol'
+    },
+    CPC: {
+      LABEL: 'CPC',
+      VALUE: 'cpc'
+    },
+    COMP: {
+      LABEL: 'Comp',
+      VALUE: 'competition'
+    },
+    TREND: {
+      LABEL: 'Trend',
+      VALUE: 'trend'
+    }
+  },
   NOTICE: {
     TIMEOUT_DELAY: process.env.NODE_ENV === 'development' ? 1000 : 5000,
     TIMEOUT_HEIGHT: 4,

@@ -61,3 +61,21 @@ export const whiteSpaceOptions = [
     value: constants.WHITESPACE_OPTIONS.UNDERSCORE.VALUE
   }
 ]
+
+export const volumeDataFields = [
+  {
+    key: createHashId(),
+    label: constants.VOLUME_DATA.CPC.LABEL,
+    value: constants.VOLUME_DATA.CPC.VALUE
+  },
+  {
+    key: createHashId(),
+    label: constants.VOLUME_DATA.COMP.LABEL,
+    value: constants.VOLUME_DATA.COMP.VALUE
+  },
+  {
+    key: createHashId(),
+    label: constants.VOLUME_DATA.TREND.LABEL,
+    value: constants.VOLUME_DATA.TREND.VALUE
+  }
+]
