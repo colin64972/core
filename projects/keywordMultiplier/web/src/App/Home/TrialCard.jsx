@@ -1,7 +1,8 @@
 import classNames from 'classnames'
 import gsap from 'gsap'
-import React, { createRef, useLayoutEffect } from 'react'
+import React, { createRef, useLayoutEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import loadable from '@loadable/component'
 import {
   Accordion,
   AccordionDetails,
@@ -201,13 +202,11 @@ export const TrialCard = ({ trial, isShown }) => {
     })
   }
 
-  const requestVolumeHandler = event => {
-    console.log(
-      '%c volumeHandler',
-      'color: yellow; font-size: large',
-      event.currentTarget.dataset.id
-    )
-  }
+  const [modalStatus, setModalStatus] = useState(false)
+
+  const openRequestVolumeHandler = event => setModalStatus(true)
+
+  const closeRequestVolumeHandler = event => setModalStatus(false)
 
   let timeline = gsap.timeline({ paused: true })
 
@@ -263,6 +262,14 @@ export const TrialCard = ({ trial, isShown }) => {
     }
   }
 
+  const RequestVolumeLoadable = loadable(() =>
+    import(
+      /* webpackChunkName: "chunk-RequestVolume" */
+      /* webpackPrefetch: true */
+      './RequestVolume'
+    )
+  )
+
   return (
     <div
       className={classNames(classes.trialCard, {
@@ -270,6 +277,11 @@ export const TrialCard = ({ trial, isShown }) => {
       })}
       ref={card}
       id={trial.id}>
+      <RequestVolumeLoadable
+        status={modalStatus}
+        closeHandler={closeRequestVolumeHandler}
+        trial={trial}
+      />
       <Accordion defaultExpanded>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -344,7 +356,7 @@ export const TrialCard = ({ trial, isShown }) => {
                     ) : (
                       <button
                         type="button"
-                        onClick={requestVolumeHandler}
+                        onClick={openRequestVolumeHandler}
                         data-id={trial.id}
                         className={classes.requestVolumeButton}>
                         <SearchIcon className={classes.actionButtonIcon} />
