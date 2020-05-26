@@ -21,8 +21,13 @@ const useStyles = makeStyles(theme => ({
 const RequestVolume = ({ status, closeHandler, trial }) => {
   const classes = useStyles()
   useEffect(() => {
-    closeHandler()
-  })
+    console.log(
+      '%c RequestVolume',
+      'color: yellow; font-size: large',
+      status,
+      trial
+    )
+  }, [])
   return (
     <Modal open={status} onClose={closeHandler}>
       <Grid container justify="center" alignItems="center">
