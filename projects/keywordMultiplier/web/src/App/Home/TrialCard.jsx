@@ -277,11 +277,13 @@ export const TrialCard = ({ trial, isShown }) => {
       })}
       ref={card}
       id={trial.id}>
-      <RequestVolumeLoadable
-        status={modalStatus}
-        closeHandler={closeRequestVolumeHandler}
-        trial={trial}
-      />
+      {modalStatus && (
+        <RequestVolumeLoadable
+          status={modalStatus}
+          closeHandler={closeRequestVolumeHandler}
+          trial={trial}
+        />
+      )}
       <Accordion defaultExpanded>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
