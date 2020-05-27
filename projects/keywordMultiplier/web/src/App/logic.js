@@ -134,6 +134,12 @@ export const generateNotice = (
   return result
 }
 
+export const decorateKeywordsEverywhereOptions = data => ({
+  credits: data.credits[0],
+  countries: data.countries,
+  currencies: data.currencies
+})
+
 export const decorateTrial = data => ({
   id: data.id,
   heading: data.trialProduct.heading,
