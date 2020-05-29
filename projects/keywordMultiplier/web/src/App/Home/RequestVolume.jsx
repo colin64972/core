@@ -1,7 +1,11 @@
-import React, { useEffect } from 'react'
+import { TweenMax } from 'gsap'
+
+import React, { useRef, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import Modal from '@material-ui/core/Modal'
+import Fade from '@material-ui/core/Fade'
+import Backdrop from '@material-ui/core/Backdrop'
 import Grid from '@material-ui/core/Grid'
+import Modal from '@material-ui/core/Modal'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/styles'
@@ -17,6 +21,15 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('sm')]: {
       margin: `0 ${theme.custom.setSpace()}px`
     }
+  },
+  modalBackground: {
+    ...theme.debug.border,
+    position: 'relative',
+    top: 0,
+    left: 0,
+    color: 'red',
+    width: '100%',
+    height: '100%'
   }
 }))
 
@@ -39,25 +52,34 @@ const RequestVolume = ({ status, closeHandler, trial }) => {
 
   if (credits && countries && currencies)
     return (
-      <Modal open={status} onClose={closeHandler}>
-        <Grid container justify="center" alignItems="center">
-          <Grid item xs={12}>
-            <Grid
-              container
-              justify="center"
-              alignItems="center"
-              className={classes.fullHeight}>
-              <Grid item xs={12} md={10} lg={8}>
-                <Paper elevation={1} className={classes.paper}>
-                  <Typography variant="h3">Volume Request Options</Typography>
-                  <Typography variant="body1">
-                    {JSON.stringify(trial, null, 2)}
-                  </Typography>
-                </Paper>
+      <Modal
+        open={status}
+        onClose={closeHandler}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500
+        }}>
+        <Fade in={status}>
+          <Grid container justify="center" alignItems="center">
+            <Grid item xs={12}>
+              <Grid
+                container
+                justify="center"
+                alignItems="center"
+                className={classes.fullHeight}>
+                <Grid item xs={12} md={10} lg={8}>
+                  <Paper elevation={1} className={classes.paper}>
+                    <Typography variant="h3">Volume Request Options</Typography>
+                    <Typography variant="body1">
+                      {JSON.stringify(trial, null, 2)}
+                    </Typography>
+                  </Paper>
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
+        </Fade>
       </Modal>
     )
   return null
