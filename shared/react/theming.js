@@ -189,6 +189,9 @@ export const setCustomTheme = (
             fontFamily,
             color: bodyColor,
             backgroundColor: 'white'
+          },
+          '*:focus': {
+            outline: 'none'
           }
         }
       },
