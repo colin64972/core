@@ -1,6 +1,7 @@
 export const constants = {
   SETS_FORM_NAME: 'sets',
   EXCEL_TEXT_QUALIFIER: "'",
+  VOLUME_SPINNER: 'volume',
   MATCHTYPES: {
     BROAD: 'broad',
     BROAD_MODIFIER: 'modifier',

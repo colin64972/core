@@ -19,6 +19,7 @@ import AssignmentIcon from '@material-ui/icons/Assignment'
 import DeleteIcon from '@material-ui/icons/Delete'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import SearchIcon from '@material-ui/icons/Search'
+import CachedIcon from '@material-ui/icons/Cached'
 import { makeStyles } from '@material-ui/styles'
 import { constants } from '../constants'
 import { volumeDataFields } from './fields'
@@ -183,6 +184,10 @@ export const TrialCard = ({ trial, isShown }) => {
 
   const whiteSpaceSelection = useSelector(state =>
     getWhiteSpaceSelection(state)
+  )
+
+  const volumeRequestSpinnerStatus = useSelector(
+    state => state.app.spinnerStatuses[constants.VOLUME_SPINNER]
   )
 
   const copyHandler = event => {
@@ -361,7 +366,11 @@ export const TrialCard = ({ trial, isShown }) => {
                         onClick={openRequestVolumeHandler}
                         data-id={trial.id}
                         className={classes.requestVolumeButton}>
-                        <SearchIcon className={classes.actionButtonIcon} />
+                        {volumeRequestSpinnerStatus ? (
+                          <CachedIcon className={classes.actionButtonIcon} />
+                        ) : (
+                          <SearchIcon className={classes.actionButtonIcon} />
+                        )}
                       </button>
                     )}
                   </TableCell>
