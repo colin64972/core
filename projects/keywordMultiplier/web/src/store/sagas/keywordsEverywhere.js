@@ -10,13 +10,24 @@ import {
 export function* fetchOptions() {
   const notice = generateNotice('Volume options updated')
   try {
+    yield put({
+      type: types.SET_SPINNER_STATUS,
+      spinnerName: constants.VOLUME_SPINNER,
+      status: true
+    })
     const result = yield call(getKeywordsEverywhereOptions)
     const decoratedData = decorateKeywordsEverywhereOptions(result.data)
-    if (result.status === 200)
-      return yield put({
+    if (result.status === 200) {
+      yield put({
         type: types.SET_KEYWORDS_EVERYWHERE_OPTIONS,
         ...decoratedData
       })
+      return yield put({
+        type: types.SET_SPINNER_STATUS,
+        spinnerName: constants.VOLUME_SPINNER,
+        status: false
+      })
+    }
   } catch (error) {
     notice.bg = constants.NOTICE.BGS.FAIL
     notice.heading = 'Error'

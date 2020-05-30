@@ -8,7 +8,8 @@ const defaultState = {
     shown: []
   },
   spinnerStatuses: {
-    [constants.SETS_FORM_NAME]: false
+    [constants.SETS_FORM_NAME]: false,
+    [constants.VOLUME_SPINNER]: false
   },
   matchType: constants.MATCHTYPES.BROAD,
   matchTypePrev: constants.MATCHTYPES.BROAD,
