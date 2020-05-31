@@ -6,6 +6,7 @@ import {
   generateNotice,
   decorateKeywordsEverywhereOptions
 } from '../../App/logic'
+import { optionsMock } from '@colin30/shared/raw/mocks/keywordMultiplier'
 
 export function* fetchOptions() {
   const notice = generateNotice('Volume options updated')
@@ -15,7 +16,10 @@ export function* fetchOptions() {
       spinnerName: constants.VOLUME_SPINNER,
       status: true
     })
-    const result = yield call(getKeywordsEverywhereOptions)
+    let result = optionsMock
+    if (process.env.NODE_ENV === 'production') {
+      result = yield call(getKeywordsEverywhereOptions)
+    }
     const decoratedData = decorateKeywordsEverywhereOptions(result.data)
     if (result.status === 200) {
       yield put({

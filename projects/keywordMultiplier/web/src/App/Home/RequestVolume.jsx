@@ -1,5 +1,5 @@
 import { TweenMax } from 'gsap'
-
+import Button from '@material-ui/core/Button'
 import React, { useRef, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Fade from '@material-ui/core/Fade'
@@ -22,14 +22,8 @@ const useStyles = makeStyles(theme => ({
       margin: `0 ${theme.custom.setSpace()}px`
     }
   },
-  modalBackground: {
-    ...theme.debug.border,
-    position: 'relative',
-    top: 0,
-    left: 0,
-    color: 'red',
-    width: '100%',
-    height: '100%'
+  closeButton: {
+    float: 'right'
   }
 }))
 
@@ -70,10 +64,23 @@ const RequestVolume = ({ status, closeHandler, trial }) => {
                 className={classes.fullHeight}>
                 <Grid item xs={12} md={10} lg={8}>
                   <Paper elevation={1} className={classes.paper}>
-                    <Typography variant="h3">Volume Request Options</Typography>
-                    <Typography variant="body1">
-                      {JSON.stringify(trial, null, 2)}
-                    </Typography>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={closeHandler}
+                      className={classes.closeButton}>
+                      Close
+                    </Button>
+                    <Grid container>
+                      <Grid item xs={12}>
+                        <Typography variant="h3">
+                          Volume Request Options
+                        </Typography>
+                        <Typography variant="body1">
+                          {JSON.stringify(trial, null, 2)}
+                        </Typography>
+                      </Grid>
+                    </Grid>
                   </Paper>
                 </Grid>
               </Grid>
