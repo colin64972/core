@@ -28,22 +28,6 @@ import { getMatchType, getWhiteSpaceSelection } from '../../store/selectors'
 import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => {
-  const iconButton = {
-    'border': 'none',
-    'fontSize': theme.custom.setSpace(),
-    'padding': theme.custom.setSpace() / 2,
-    'margin': `0 ${theme.custom.setSpace() / 2}px 0 0`,
-    'borderRadius': theme.custom.borderRadius,
-    'cursor': 'pointer',
-    'display': 'flex',
-    'justifyContent': 'center',
-    'alignItems': 'center',
-    'transition': 'all 250ms ease-out',
-    '&:focus': {
-      outline: 'none'
-    }
-  }
-
   const trialCard = {
     'width': '100%',
     'margin': `${theme.custom.setSpace()}px 0 0 0`,
@@ -114,7 +98,7 @@ const useStyles = makeStyles(theme => {
       textAlign: 'left'
     },
     copyButton: {
-      ...iconButton,
+      ...theme.custom.iconButton,
       'color': theme.palette.primary[50],
       'backgroundColor': theme.palette.primary[200],
       '&:hover': {
@@ -123,7 +107,7 @@ const useStyles = makeStyles(theme => {
       }
     },
     deleteButton: {
-      ...iconButton,
+      ...theme.custom.iconButton,
       'marginRight': 0,
       'color': theme.palette.secondary[50],
       'backgroundColor': theme.palette.secondary[200],
@@ -133,7 +117,7 @@ const useStyles = makeStyles(theme => {
       }
     },
     requestVolumeButton: {
-      ...iconButton,
+      ...theme.custom.iconButton,
       'color': theme.palette.primary[50],
       'backgroundColor': theme.palette.primary[200],
       'margin': '0 auto',
