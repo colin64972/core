@@ -1,13 +1,13 @@
-import { TweenMax } from 'gsap'
-import Button from '@material-ui/core/Button'
-import React, { useRef, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import Fade from '@material-ui/core/Fade'
 import Backdrop from '@material-ui/core/Backdrop'
 import Grid from '@material-ui/core/Grid'
 import Modal from '@material-ui/core/Modal'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
+import CloseIcon from '@material-ui/icons/Close'
 import { makeStyles } from '@material-ui/styles'
 import { defaultPadding } from '@colin30/shared/react/theming'
 import { types } from '../../store/types'
@@ -17,13 +17,66 @@ const useStyles = makeStyles(theme => ({
     height: '100vh'
   },
   paper: {
+    position: 'relative',
     ...defaultPadding(theme.breakpoints, theme.custom.setSpace),
+    [theme.breakpoints.down('md')]: {
+      margin: `0 ${theme.custom.setSpace('md')}px`
+    },
     [theme.breakpoints.down('sm')]: {
-      margin: `0 ${theme.custom.setSpace()}px`
+      margin: `0 ${theme.custom.setSpace('sm')}px`
+    },
+    [theme.breakpoints.down('xs')]: {
+      margin: `0 ${theme.custom.setSpace('xs')}px`
+    }
+  },
+  closeButtonFadeIn: {
+    width: theme.custom.setSpace() * 3,
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    zIndex: 2,
+    [theme.breakpoints.down('xl')]: {
+      margin: theme.custom.setSpace('xl')
+    },
+    [theme.breakpoints.down('lg')]: {
+      margin: theme.custom.setSpace('lg')
+    },
+    [theme.breakpoints.down('md')]: {
+      margin: theme.custom.setSpace('md')
+    },
+    [theme.breakpoints.down('sm')]: {
+      margin: theme.custom.setSpace('sm')
+    },
+    [theme.breakpoints.down('xs')]: {
+      margin: theme.custom.setSpace('xs')
     }
   },
   closeButton: {
-    float: 'right'
+    ...theme.custom.iconButton,
+    'color': theme.palette.primary[50],
+    'backgroundColor': theme.palette.primary[200],
+    'padding': theme.custom.setSpace() / 2,
+    'margin': 0,
+    '&:hover': {
+      color: 'white',
+      backgroundColor: theme.palette.fail[500]
+    }
+  },
+  closeIcon: {
+    fontSize: theme.custom.setSpace('sm')
+  },
+  subHeading: {
+    width: '100%',
+    textAlign: 'left'
+  },
+  mainHeading: {
+    width: '100%',
+    textAlign: 'left'
+  },
+  body1: {
+    width: '100%',
+    textAlign: 'left',
+    margin: `${theme.custom.setSpace()}px 0`
   }
 }))
 
@@ -64,21 +117,53 @@ const RequestVolume = ({ status, closeHandler, trial }) => {
                 className={classes.fullHeight}>
                 <Grid item xs={12} md={10} lg={8}>
                   <Paper elevation={1} className={classes.paper}>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={closeHandler}
-                      className={classes.closeButton}>
-                      Close
-                    </Button>
+                    <FadeIn
+                      direction="x"
+                      position={100}
+                      className={classes.closeButtonFadeIn}
+                      component={
+                        <button
+                          onClick={closeHandler}
+                          className={classes.closeButton}>
+                          <CloseIcon className={classes.closeIcon} />
+                        </button>
+                      }
+                    />
                     <Grid container>
                       <Grid item xs={12}>
-                        <Typography variant="h3">
-                          Volume Request Options
-                        </Typography>
-                        <Typography variant="body1">
-                          {JSON.stringify(trial, null, 2)}
-                        </Typography>
+                        <FadeIn
+                          direction="x"
+                          position={-100}
+                          component={
+                            <Typography
+                              variant="subtitle2"
+                              className={classes.subHeading}>
+                              Order Form
+                            </Typography>
+                          }
+                        />
+                        <FadeIn
+                          direction="x"
+                          position={-100}
+                          component={
+                            <Typography
+                              variant="h4"
+                              className={classes.mainHeading}>
+                              Request Volume Metrics
+                            </Typography>
+                          }
+                        />
+                        <FadeIn
+                          direction="x"
+                          position={100}
+                          component={
+                            <Typography
+                              variant="body1"
+                              className={classes.body1}>
+                              {JSON.stringify(trial, null, 2)}
+                            </Typography>
+                          }
+                        />
                       </Grid>
                     </Grid>
                   </Paper>
