@@ -39,29 +39,19 @@ export const Header = () => {
   const classes = useStyles()
   return (
     <Grid item xs={12} component="section" className={classes.headerSection}>
-      <FadeIn
-        direction="y"
-        position={-100}
-        component={<VpnKeyIcon className={classes.icon} />}
-      />
-      <FadeIn
-        direction="x"
-        position={-100}
-        component={
-          <Typography variant="h1" color="primary" className={classes.title}>
-            Keyword Multiplier
-          </Typography>
-        }
-      />
-      <FadeIn
-        direction="y"
-        position={100}
-        component={
-          <Typography variant="h4" className={classes.subtitle}>
-            Content Marketing Keyword Multiplier Tool
-          </Typography>
-        }
-      />
+      <FadeIn direction="y" position={-100}>
+        <VpnKeyIcon className={classes.icon} />
+      </FadeIn>
+      <FadeIn direction="x" position={-100}>
+        <Typography variant="h1" color="primary" className={classes.title}>
+          Keyword Multiplier
+        </Typography>
+      </FadeIn>
+      <FadeIn direction="y" position={100}>
+        <Typography variant="h4" className={classes.subtitle}>
+          Content Marketing Keyword Multiplier Tool
+        </Typography>
+      </FadeIn>
     </Grid>
   )
 }

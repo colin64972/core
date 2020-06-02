@@ -140,122 +140,94 @@ export const TrialResultsSettings = ({ buttonsDisabled }) => {
   return (
     <Grid item xs={12} sm={6} className={classes.manageTrials}>
       <Grid container direction="column">
-        <FadeIn
-          direction="y"
-          position={-100}
-          component={
-            <Typography variant="subtitle2" className={classes.subHeading}>
-              Settings
-            </Typography>
-          }
-        />
-        <FadeIn
-          direction="x"
-          position={-100}
-          component={
-            <Typography variant="h4" className={classes.mainHeading}>
-              Manage your Trials
-            </Typography>
-          }
-        />
-        <FadeIn
-          direction="y"
-          position={100}
-          component={
-            <Typography variant="body1" className={classes.settingsCopy}>
-              Est voluptua stet ea sadipscing nonumy gubergren eos, nonumy
-              dolore dolore sadipscing est consetetur diam sed.
-            </Typography>
-          }
-        />
+        <FadeIn direction="y" position={-100}>
+          <Typography variant="subtitle2" className={classes.subHeading}>
+            Settings
+          </Typography>
+        </FadeIn>
+        <FadeIn direction="x" position={-100}>
+          <Typography variant="h4" className={classes.mainHeading}>
+            Manage your Trials
+          </Typography>
+        </FadeIn>
+        <FadeIn direction="y" position={100}>
+          <Typography variant="body1" className={classes.settingsCopy}>
+            Est voluptua stet ea sadipscing nonumy gubergren eos, nonumy dolore
+            dolore sadipscing est consetetur diam sed.
+          </Typography>
+        </FadeIn>
         <FadeIn
           direction="x"
           position={100}
-          className={classes.whiteSpaceSelector}
-          component={
-            <FormControl fullWidth>
-              <InputLabel>Whitespace Replacement</InputLabel>
-              <Select
-                classes={{
-                  root: classes.toggleText
-                }}
-                value={whiteSpaceSelection}
-                onChange={whiteSpaceSelectorHandler}>
-                {whiteSpaceOptions.map(option => (
-                  <MenuItem
-                    key={option.key}
-                    value={option.value}
-                    className={classes.toggleText}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          }
-        />
-        <FadeIn
-          direction="x"
-          position={-100}
-          component={
-            <Grid container>
-              <FormGroup row>
-                <FormControlLabel
-                  className={classes.switchGroupLabel}
-                  control={
-                    <CustomSwitch
-                      name="copyDataOnly"
-                      color="primary"
-                      checked={dataOnly}
-                      onChange={dataOnlyHandler}
-                    />
-                  }
-                  label={
-                    <Typography variant="body1" className={classes.toggleText}>
-                      Copy Data Only
-                    </Typography>
-                  }
-                />
-              </FormGroup>
-            </Grid>
-          }
-        />
+          className={classes.whiteSpaceSelector}>
+          <FormControl fullWidth>
+            <InputLabel>Whitespace Replacement</InputLabel>
+            <Select
+              classes={{
+                root: classes.toggleText
+              }}
+              value={whiteSpaceSelection}
+              onChange={whiteSpaceSelectorHandler}>
+              {whiteSpaceOptions.map(option => (
+                <MenuItem
+                  key={option.key}
+                  value={option.value}
+                  className={classes.toggleText}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </FadeIn>
+        <FadeIn direction="x" position={-100}>
+          <Grid container>
+            <FormGroup row>
+              <FormControlLabel
+                className={classes.switchGroupLabel}
+                control={
+                  <CustomSwitch
+                    name="copyDataOnly"
+                    color="primary"
+                    checked={dataOnly}
+                    onChange={dataOnlyHandler}
+                  />
+                }
+                label={
+                  <Typography variant="body1" className={classes.toggleText}>
+                    Copy Data Only
+                  </Typography>
+                }
+              />
+            </FormGroup>
+          </Grid>
+        </FadeIn>
         <Grid container justify="flex-start" alignItems="center">
-          <FadeIn
-            direction="x"
-            position={-100}
-            component={
-              <button
-                type="button"
-                onClick={copyAllHandler}
-                disabled={buttonsDisabled}
-                className={
-                  buttonsDisabled
-                    ? classes.disabledButton
-                    : classes.copyAllButton
-                }>
-                <FileCopyIcon className={classes.icon} />
-                Copy All
-              </button>
-            }
-          />
-          <FadeIn
-            direction="x"
-            position={100}
-            component={
-              <button
-                type="button"
-                onClick={askDeleteTrials}
-                disabled={buttonsDisabled}
-                className={
-                  buttonsDisabled
-                    ? classes.disabledButton
-                    : classes.deleteAllButton
-                }>
-                <DeleteSweepIcon className={classes.icon} />
-                Delete All
-              </button>
-            }
-          />
+          <FadeIn direction="x" position={-100}>
+            <button
+              type="button"
+              onClick={copyAllHandler}
+              disabled={buttonsDisabled}
+              className={
+                buttonsDisabled ? classes.disabledButton : classes.copyAllButton
+              }>
+              <FileCopyIcon className={classes.icon} />
+              Copy All
+            </button>
+          </FadeIn>
+          <FadeIn direction="x" position={100}>
+            <button
+              type="button"
+              onClick={askDeleteTrials}
+              disabled={buttonsDisabled}
+              className={
+                buttonsDisabled
+                  ? classes.disabledButton
+                  : classes.deleteAllButton
+              }>
+              <DeleteSweepIcon className={classes.icon} />
+              Delete All
+            </button>
+          </FadeIn>
         </Grid>
       </Grid>
     </Grid>

@@ -94,25 +94,17 @@ export const TrialResultsMatchTypes = () => {
     <Grid item xs={12} sm={6}>
       <Grid container className={classes.matchTypeSelection}>
         <Grid item xs={12} className={classes.matchTypeSelectionHeading}>
-          <FadeIn
-            direction="y"
-            position={-100}
-            component={
-              <Typography variant="subtitle2">Google Adwords</Typography>
-            }
-          />
-          <FadeIn
-            direction="x"
-            position={-100}
-            component={
-              <Typography
-                variant="h4"
-                className={classes.mainHeading}
-                align="center">
-                Add a Match Type
-              </Typography>
-            }
-          />
+          <FadeIn direction="y" position={-100}>
+            <Typography variant="subtitle2">Google Adwords</Typography>
+          </FadeIn>
+          <FadeIn direction="x" position={-100}>
+            <Typography
+              variant="h4"
+              className={classes.mainHeading}
+              align="center">
+              Add a Match Type
+            </Typography>
+          </FadeIn>
         </Grid>
         <Grid item xs={12}>
           <Grid container justify="center" alignItems="center">
@@ -121,24 +113,19 @@ export const TrialResultsMatchTypes = () => {
                 item
                 className={classes.matchTypeButtonGridItem}
                 key={buttonItem.key}>
-                <FadeIn
-                  key={buttonItem.key}
-                  direction="y"
-                  position={100}
-                  component={
-                    <button
-                      className={classes.matchTypeButton}
-                      data-matchtype={buttonItem.value}
-                      onClick={matchTypeHandler}>
-                      {buttonItem.label}
-                      {buttonItem.value === selectedMatchType ? (
-                        <DoneIcon className={classes.doneIcon} />
-                      ) : (
-                        <CloseIcon className={classes.closeIcon} />
-                      )}
-                    </button>
-                  }
-                />
+                <FadeIn key={buttonItem.key} direction="y" position={100}>
+                  <button
+                    className={classes.matchTypeButton}
+                    data-matchtype={buttonItem.value}
+                    onClick={matchTypeHandler}>
+                    {buttonItem.label}
+                    {buttonItem.value === selectedMatchType ? (
+                      <DoneIcon className={classes.doneIcon} />
+                    ) : (
+                      <CloseIcon className={classes.closeIcon} />
+                    )}
+                  </button>
+                </FadeIn>
               </Grid>
             ))}
           </Grid>
