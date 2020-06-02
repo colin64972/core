@@ -154,36 +154,26 @@ const Comp = ({ ...props }) => {
           <Grid item sm={2} md={3} />
         </Hidden>
         <Grid item xs={12} sm={8} md={6}>
-          <FadeIn
-            direction="y"
-            position={-100}
-            component={<Typography variant="subtitle2">Input Sets</Typography>}
-          />
-          <FadeIn
-            direction="x"
-            position={-100}
-            component={
-              <Typography variant="h4" className={classes.mainHeading}>
-                Keyword Multiplication
-                <br />
-                to the Max!
-              </Typography>
-            }
-          />
-          <FadeIn
-            direction="x"
-            position={100}
-            component={
-              <Typography variant="body1">
-                Est voluptua stet ea sadipscing nonumy gubergren eos, nonumy
-                dolore dolore sadipscing est consetetur diam sed. Gubergren sea
-                eirmod ut accusam dolore. Accusam sed sed amet aliquyam amet
-                diam. Dolor ipsum nonumy gubergren gubergren. Takimata et lorem
-                takimata sit sed dolor sit, rebum et gubergren accusam elitr
-                dolores rebum stet.
-              </Typography>
-            }
-          />
+          <FadeIn direction="y" position={-100}>
+            <Typography variant="subtitle2">Input Sets</Typography>
+          </FadeIn>
+          <FadeIn direction="x" position={-100}>
+            <Typography variant="h4" className={classes.mainHeading}>
+              Keyword Multiplication
+              <br />
+              to the Max!
+            </Typography>
+          </FadeIn>
+          <FadeIn direction="x" position={100}>
+            <Typography variant="body1">
+              Est voluptua stet ea sadipscing nonumy gubergren eos, nonumy
+              dolore dolore sadipscing est consetetur diam sed. Gubergren sea
+              eirmod ut accusam dolore. Accusam sed sed amet aliquyam amet diam.
+              Dolor ipsum nonumy gubergren gubergren. Takimata et lorem takimata
+              sit sed dolor sit, rebum et gubergren accusam elitr dolores rebum
+              stet.
+            </Typography>
+          </FadeIn>
         </Grid>
         <Hidden xsDown>
           <Grid item sm={2} md={3} />
@@ -197,59 +187,47 @@ const Comp = ({ ...props }) => {
               <div key={field.key} className={classes[field.class]}>
                 <FadeIn
                   direction="y"
-                  position={Math.random() > 0.5 ? 100 : -100}
-                  component={
-                    <Field component={WordSet} {...field} id={field.key} />
-                  }
-                />
+                  position={Math.random() > 0.5 ? 100 : -100}>
+                  <Field component={WordSet} {...field} id={field.key} />
+                </FadeIn>
               </div>
             ))}
             <div className={classes.submitGrid}>
-              <FadeIn
-                direction="x"
-                position={-100}
-                component={
-                  <button
-                    type={'submit'}
-                    disabled={submitDisabled}
-                    className={
-                      submitDisabled
-                        ? classes.submitDisabled
-                        : classes.submitEnabled
-                    }>
-                    {spinnerStatus ? (
-                      <Grid container justify="center">
-                        <CachedIcon className={classes.icon} />
-                        Working
-                      </Grid>
-                    ) : (
-                      <Grid container justify="center">
-                        <ShuffleIcon className={classes.icon} />
-                        Multiply
-                      </Grid>
-                    )}
-                  </button>
-                }
-              />
+              <FadeIn direction="x" position={-100}>
+                <button
+                  type={'submit'}
+                  disabled={submitDisabled}
+                  className={
+                    submitDisabled
+                      ? classes.submitDisabled
+                      : classes.submitEnabled
+                  }>
+                  {spinnerStatus ? (
+                    <Grid container justify="center">
+                      <CachedIcon className={classes.icon} />
+                      Working
+                    </Grid>
+                  ) : (
+                    <Grid container justify="center">
+                      <ShuffleIcon className={classes.icon} />
+                      Multiply
+                    </Grid>
+                  )}
+                </button>
+              </FadeIn>
             </div>
             <div className={classes.resetGrid}>
-              <FadeIn
-                direction="x"
-                position={100}
-                component={
-                  <button
-                    type={'reset'}
-                    disabled={resetDisabled}
-                    className={
-                      resetDisabled
-                        ? classes.resetDisabled
-                        : classes.resetEnabled
-                    }>
-                    <RestorePageIcon className={classes.icon} />
-                    Reset All
-                  </button>
-                }
-              />
+              <FadeIn direction="x" position={100}>
+                <button
+                  type={'reset'}
+                  disabled={resetDisabled}
+                  className={
+                    resetDisabled ? classes.resetDisabled : classes.resetEnabled
+                  }>
+                  <RestorePageIcon className={classes.icon} />
+                  Reset All
+                </button>
+              </FadeIn>
             </div>
           </form>
         </Grid>
