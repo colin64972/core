@@ -120,50 +120,34 @@ const RequestVolume = ({ status, closeHandler, trial }) => {
                     <FadeIn
                       direction="x"
                       position={100}
-                      className={classes.closeButtonFadeIn}
-                      component={
-                        <button
-                          onClick={closeHandler}
-                          className={classes.closeButton}>
-                          <CloseIcon className={classes.closeIcon} />
-                        </button>
-                      }
-                    />
+                      className={classes.closeButtonFadeIn}>
+                      <button
+                        onClick={closeHandler}
+                        className={classes.closeButton}>
+                        <CloseIcon className={classes.closeIcon} />
+                      </button>
+                    </FadeIn>
                     <Grid container>
                       <Grid item xs={12}>
-                        <FadeIn
-                          direction="x"
-                          position={-100}
-                          component={
-                            <Typography
-                              variant="subtitle2"
-                              className={classes.subHeading}>
-                              Order Form
-                            </Typography>
-                          }
-                        />
-                        <FadeIn
-                          direction="x"
-                          position={-100}
-                          component={
-                            <Typography
-                              variant="h4"
-                              className={classes.mainHeading}>
-                              Request Volume Metrics
-                            </Typography>
-                          }
-                        />
-                        <FadeIn
-                          direction="x"
-                          position={100}
-                          component={
-                            <Typography
-                              variant="body1"
-                              className={classes.body1}>
-                              {JSON.stringify(trial, null, 2)}
-                            </Typography>
-                          }
-                        />
+                        <FadeIn direction="x" position={-100}>
+                          <Typography
+                            variant="subtitle2"
+                            className={classes.subHeading}>
+                            Order Form
+                          </Typography>
+                        </FadeIn>
+                        <FadeIn direction="x" position={-100}>
+                          <Typography
+                            variant="h4"
+                            className={classes.mainHeading}>
+                            Request Volume Metrics
+                          </Typography>
+                        </FadeIn>
+                        <FadeIn direction="x" position={100}>
+                          <Typography variant="body1" className={classes.body1}>
+                            {JSON.stringify(trial, null, 2)}
+                          </Typography>
+                        </FadeIn>
                       </Grid>
                     </Grid>
                   </Paper>
