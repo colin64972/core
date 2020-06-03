@@ -3,7 +3,8 @@ import { createSelector } from 'reselect'
 import { constants } from '../App/constants'
 import { removeSetPrefix } from '@colin30/shared/react/helpers'
 
-const setsWithValuesSelector = state => get(state, 'form.sets.values', {})
+const setsWithValuesSelector = state =>
+  get(state, `form.${constants.SETS_FORM_NAME}.values`, {})
 const disabledSetKeySelector = state => get(state, 'app.disabled', [])
 const trialsSelector = state => get(state, 'app.trials', [])
 const matchTypeSelector = state => get(state, 'app.matchType', 'broad')
