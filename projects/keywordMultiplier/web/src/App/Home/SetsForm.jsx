@@ -187,7 +187,3 @@ const Comp = ({ ...props }) => {
     </Grid>
   )
 }
-
-export const SetsForm = reduxForm({
-  form: constants.SETS_FORM_NAME
-})(Comp)
