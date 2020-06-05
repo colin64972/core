@@ -7,9 +7,9 @@ import Grid from '@material-ui/core/Grid'
 import Modal from '@material-ui/core/Modal'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
-import CloseIcon from '@material-ui/icons/Close'
 import { makeStyles } from '@material-ui/styles'
 import { defaultPadding } from '@colin30/shared/react/theming'
+import { RequestVolumeForm } from './RequestVolumeForm'
 import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => ({
@@ -17,7 +17,6 @@ const useStyles = makeStyles(theme => ({
     height: '100vh'
   },
   paper: {
-    position: 'relative',
     ...defaultPadding(theme.breakpoints, theme.custom.setSpace),
     [theme.breakpoints.down('md')]: {
       margin: `0 ${theme.custom.setSpace('md')}px`
@@ -28,42 +27,6 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('xs')]: {
       margin: `0 ${theme.custom.setSpace('xs')}px`
     }
-  },
-  closeButtonFadeIn: {
-    width: theme.custom.setSpace() * 3,
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    zIndex: 2,
-    [theme.breakpoints.down('xl')]: {
-      margin: theme.custom.setSpace('xl')
-    },
-    [theme.breakpoints.down('lg')]: {
-      margin: theme.custom.setSpace('lg')
-    },
-    [theme.breakpoints.down('md')]: {
-      margin: theme.custom.setSpace('md')
-    },
-    [theme.breakpoints.down('sm')]: {
-      margin: theme.custom.setSpace('sm')
-    },
-    [theme.breakpoints.down('xs')]: {
-      margin: theme.custom.setSpace('xs')
-    }
-  },
-  closeButton: {
-    ...theme.custom.iconButton,
-    'color': theme.palette.primary[50],
-    'backgroundColor': theme.palette.primary[200],
-    'padding': theme.custom.setSpace() / 2,
-    'margin': 0,
-    '&:hover': {
-      color: 'white',
-      backgroundColor: theme.palette.fail[500]
-    }
-  },
-  closeIcon: {
-    fontSize: theme.custom.setSpace('sm')
   },
   subHeading: {
     width: '100%',
@@ -108,52 +71,31 @@ const RequestVolume = ({ status, closeHandler, trial }) => {
           timeout: 500
         }}>
         <Fade in={status}>
-          <Grid container justify="center" alignItems="center">
-            <Grid item xs={12}>
-              <Grid
-                container
-                justify="center"
-                alignItems="center"
-                className={classes.fullHeight}>
-                <Grid item xs={12} md={10} lg={8}>
-                  <Paper elevation={1} className={classes.paper}>
-                    <FadeIn
-                      direction="x"
-                      position={100}
-                      className={classes.closeButtonFadeIn}>
-                      <button
-                        onClick={closeHandler}
-                        className={classes.closeButton}>
-                        <CloseIcon className={classes.closeIcon} />
-                      </button>
-                    </FadeIn>
-                    <Grid container>
-                      <Grid item xs={12}>
-                        <FadeIn direction="x" position={-100}>
-                          <Typography
-                            variant="subtitle2"
-                            className={classes.subHeading}>
-                            Order Form
-                          </Typography>
-                        </FadeIn>
-                        <FadeIn direction="x" position={-100}>
-                          <Typography
-                            variant="h4"
-                            className={classes.mainHeading}>
-                            Request Volume Metrics
-                          </Typography>
-                        </FadeIn>
-                        <FadeIn direction="x" position={100}>
-                          <Typography variant="body1" className={classes.body1}>
-                            {JSON.stringify(trial, null, 2)}
-                          </Typography>
-                        </FadeIn>
-                      </Grid>
-                    </Grid>
-                  </Paper>
-                </Grid>
-              </Grid>
-            </Grid>
+          <Grid
+            container
+            justify="center"
+            alignItems="center"
+            className={classes.fullHeight}>
+            <Paper elevation={1} className={classes.paper}>
+              <FadeIn direction="x" position={-100}>
+                <Typography variant="subtitle2" className={classes.subHeading}>
+                  Order Form
+                </Typography>
+              </FadeIn>
+              <FadeIn direction="x" position={-100}>
+                <Typography variant="h4" className={classes.mainHeading}>
+                  Request Volume Metrics
+                </Typography>
+              </FadeIn>
+              <FadeIn direction="x" position={100}>
+                <Typography variant="body1" className={classes.body1}>
+                  {JSON.stringify(trial, null, 2)}
+                </Typography>
+              </FadeIn>
+              <FadeIn direction="x" position={100}>
+                <RequestVolumeForm modalCloseHandler={closeHandler} />
+              </FadeIn>
+            </Paper>
           </Grid>
         </Fade>
       </Modal>

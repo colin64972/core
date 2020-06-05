@@ -45,6 +45,8 @@ export const constants = {
       VALUE: 'trend'
     }
   },
+  DEFAULT_VOLUME_REQUEST_COUNTRY: 'us',
+  DEFAULT_VOLUME_REQUEST_CURRENCY: 'usd',
   NOTICE: {
     TIMEOUT_DELAY: process.env.NODE_ENV === 'development' ? 1000 : 5000,
     TIMEOUT_HEIGHT: 4,

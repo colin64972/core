@@ -8,3 +8,16 @@ export const createHashId = () => {
 }
 
 export const removeSetPrefix = text => text.replace(/set-/gi, '')
+
+export const optionizeObject = input =>
+  Object.entries(input).reduce(
+    (acc, cur, ind) => [
+      ...acc,
+      {
+        key: createHashId(),
+        value: cur[0],
+        label: cur[1]
+      }
+    ],
+    []
+  )
