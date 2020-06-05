@@ -1,5 +1,5 @@
 import moment from 'moment'
-import { createHashId } from '@colin30/shared/react/helpers'
+import { createHashId, optionizeObject } from '@colin30/shared/react/helpers'
 import { DOMAIN_WITH_TLD } from '@colin30/shared/raw/constants/regex'
 import { constants } from './constants'
 
@@ -136,8 +136,13 @@ export const generateNotice = (
 
 export const decorateKeywordsEverywhereOptions = data => ({
   credits: data.credits[0],
-  countries: data.countries,
-  currencies: data.currencies
+  countries: optionizeObject(data.countries).map(item => {
+    if (item.label === 'Global') {
+      item.value = 'global'
+    }
+    return item
+  }),
+  currencies: optionizeObject(data.currencies).filter(item => item.value !== '')
 })
 
 export const decorateTrial = data => ({
