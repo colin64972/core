@@ -1,16 +1,23 @@
 import { createHashId } from '@colin30/shared/react/helpers'
 import { constants } from '../constants'
 
-export const sets = []
+export const setFields = []
 
 for (let i = 1; i <= 5; i += 1) {
-  sets.push({
-    componentType: 'WordSet',
-    name: `set-${i}`,
-    class: `set${i}`,
-    label: i,
-    rows: 8,
-    placeholder: 'Enter words here',
+  const setName = `setField${i}`
+  setFields.push({
+    group: {
+      className: `${setName}GridPosition`
+    },
+    label: {
+      name: i
+    },
+    textArea: {
+      setName,
+      rows: 8,
+      placeholder: 'Enter keywords here',
+      initialValue: ''
+    },
     validations: [],
     key: createHashId()
   })

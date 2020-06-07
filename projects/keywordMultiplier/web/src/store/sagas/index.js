@@ -18,5 +18,4 @@ export function* sagas() {
   yield takeLatest(types.ASK_DELETE_ALL_TRIALS, askDeleteAllTrials)
   yield takeLatest(types.ASK_RESET_ALL, askResetAll)
   yield takeLatest(types.UPDATE_KEYWORDS_EVERYWHERE_OPTIONS, fetchOptions)
-  // yield takeLatest(types.FETCH_VOLUME_OPTIONS, fetchVolumeOptions)
 }
