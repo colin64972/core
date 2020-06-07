@@ -2,7 +2,6 @@ import { constants } from '../../App/constants'
 import { types } from '../types'
 
 const defaultState = {
-  disabled: [],
   trials: {
     items: [],
     shown: []
@@ -27,17 +26,6 @@ const defaultState = {
 
 export const app = (state = defaultState, action) => {
   switch (action.type) {
-    case types.TOGGLE_SET_STATUS:
-      if (state.disabled.includes(action.set)) {
-        return {
-          ...state,
-          disabled: state.disabled.filter(name => name !== action.set)
-        }
-      }
-      return {
-        ...state,
-        disabled: [...state.disabled, action.set]
-      }
     case types.RESET_ALL_BUT_NOTICE:
       return {
         ...defaultState,

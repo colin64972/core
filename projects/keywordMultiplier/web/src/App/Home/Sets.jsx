@@ -51,7 +51,9 @@ export const Sets = () => {
         <Hidden xsDown>
           <Grid item sm={2} md={3} />
         </Hidden>
-        <SetsForm />
+        <Grid item xs={12}>
+          <SetsForm />
+        </Grid>
       </Grid>
     </Grid>
   )
