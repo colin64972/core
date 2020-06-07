@@ -10,7 +10,8 @@ for (let i = 1; i <= 5; i += 1) {
       className: `${setName}GridPosition`
     },
     label: {
-      name: i
+      name: i,
+      id: createHashId()
     },
     textArea: {
       setName,
