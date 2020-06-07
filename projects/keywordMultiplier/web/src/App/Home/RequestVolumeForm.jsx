@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { useFormik } from 'formik'
+import { Formik } from 'formik'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/styles'
@@ -35,63 +35,80 @@ export const RequestVolumeForm = props => {
     state => state.keywordsEverywhere.currencies
   )
 
-  const formik = useFormik({
-    initialValues: {
-      country: countryOptions.find(
-        option => option.value === constants.DEFAULT_VOLUME_REQUEST_COUNTRY
-      ).value,
-      currency: currencyOptions.find(
-        option => option.value === constants.DEFAULT_VOLUME_REQUEST_CURRENCY
-      ).value
-    },
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2))
-    }
-  })
+  const initalValues = {
+    country: countryOptions.find(
+      option => option.value === constants.DEFAULT_VOLUME_REQUEST_COUNTRY
+    ).value,
+    currency: currencyOptions.find(
+      option => option.value === constants.DEFAULT_VOLUME_REQUEST_CURRENCY
+    ).value
+  }
+
+  const onSubmit = (values, actions) => {
+    console.log(
+      '%c submitHandler',
+      'color: yellow; font-size: large',
+      JSON.stringify(values, null, 2),
+      JSON.stringify(actions, null, 2)
+    )
+  }
   return (
-    <form
-      onSubmit={formik.handleSubmit}
-      onReset={formik.resetForm}
-      className={classes.form}>
-      <FormControl required className={classes.formGroup}>
-        <InputLabel id="country">Country Database</InputLabel>
-        <Select
-          labelId="country"
-          id="country"
-          name="country"
-          value={formik.values.country}
-          onChange={formik.handleChange}>
-          {countryOptions.map(option => (
-            <MenuItem key={option.key} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      <FormControl required className={classes.formGroup}>
-        <InputLabel id="currency">CPC Currency</InputLabel>
-        <Select
-          labelId="currency"
-          id="currency"
-          name="currency"
-          value={formik.values.currency}
-          onChange={formik.handleChange}>
-          {currencyOptions.map(option => (
-            <MenuItem key={option.key} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      <div className={classNames(classes.formGroup, classes.centered)}>
-        <ButtonGroup color="primary" aria-label="outlined primary button group">
-          <Button type="submit">Submit Order</Button>
-          <Button type="reset">Reset</Button>
-          <Button type="button" onClick={props.modalCloseHandler}>
-            Close
-          </Button>
-        </ButtonGroup>
-      </div>
-    </form>
+    <Formik initialValues={initalValues} onSubmit={onSubmit}>
+      {formik => {
+        console.log(
+          '%c Formik Props',
+          'color: yellow; font-size: large',
+          formik
+        )
+        return (
+          <form
+            onSubmit={formik.handleSubmit}
+            onReset={formik.resetForm}
+            className={classes.form}>
+            <FormControl required className={classes.formGroup}>
+              <InputLabel id="country">Country Database</InputLabel>
+              <Select
+                labelId="country"
+                id="country"
+                name="country"
+                value={formik.values.country}
+                onChange={formik.handleChange}>
+                {countryOptions.map(option => (
+                  <MenuItem key={option.key} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <FormControl required className={classes.formGroup}>
+              <InputLabel id="currency">CPC Currency</InputLabel>
+              <Select
+                labelId="currency"
+                id="currency"
+                name="currency"
+                value={formik.values.currency}
+                onChange={formik.handleChange}>
+                {currencyOptions.map(option => (
+                  <MenuItem key={option.key} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <div className={classNames(classes.formGroup, classes.centered)}>
+              <ButtonGroup
+                color="primary"
+                aria-label="outlined primary button group">
+                <Button type="submit">Submit Order</Button>
+                <Button type="reset">Reset</Button>
+                <Button type="button" onClick={props.modalCloseHandler}>
+                  Close
+                </Button>
+              </ButtonGroup>
+            </div>
+          </form>
+        )
+      }}
+    </Formik>
   )
 }

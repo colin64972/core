@@ -50,8 +50,3 @@ export function* fetchOptions() {
   yield delay(500)
   yield put({ type: types.REMOVE_NOTICE })
 }
-
-export function* fetchVolumeOptions() {
-  try {
-  } catch (error) {}
-}
