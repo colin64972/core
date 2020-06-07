@@ -1,10 +1,12 @@
 import React from 'react'
+import { Formik } from 'formik'
 import { defaultPadding } from '@colin30/shared/react/theming'
 import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import Hidden from '@material-ui/core/Hidden'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/styles'
+import { setFields } from './fields'
 import { SetsForm } from './SetsForm'
 
 const useStyles = makeStyles(theme => ({
@@ -20,6 +22,15 @@ const useStyles = makeStyles(theme => ({
 
 export const Sets = () => {
   const classes = useStyles()
+
+  const initialValues = {
+    ...setFields.reduce((acc, cur) => {
+      let temp = acc
+      temp[cur.textArea.setName] = ''
+      return temp
+    }, {})
+  }
+
   return (
     <Grid item xs={12} component="section" className={classes.setsSection}>
       <Grid container>
@@ -52,7 +63,7 @@ export const Sets = () => {
           <Grid item sm={2} md={3} />
         </Hidden>
         <Grid item xs={12}>
-          <SetsForm />
+          <Formik initialValues={initialValues} component={SetsForm} />
         </Grid>
       </Grid>
     </Grid>
