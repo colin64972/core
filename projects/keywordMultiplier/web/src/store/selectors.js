@@ -1,7 +1,6 @@
 import { get } from 'lodash'
 import { createSelector } from 'reselect'
 import { constants } from '../App/constants'
-import { removeSetPrefix } from '@colin30/shared/react/helpers'
 
 const setsWithValuesSelector = state =>
   get(state, `form.${constants.SETS_FORM_NAME}.values`, {})
@@ -38,21 +37,6 @@ export const checkSubmitDisabled = createSelector(
 export const checkResetDisabled = createSelector(
   setsWithValuesSelector,
   setsWithValues => Object.values(setsWithValues).length < 1
-)
-
-export const getEnabledSets = createSelector(
-  [setsWithValuesSelector, disabledSetKeySelector],
-  (setsWithValues, disabledSetKeys) => {
-    const sortedKeys = Object.keys(setsWithValues).sort(
-      (a, b) => parseInt(removeSetPrefix(a)) - parseInt(removeSetPrefix(b))
-    )
-    return sortedKeys.reduce((acc, cur) => {
-      const result = acc
-      if (disabledSetKeys.includes(cur)) return result
-      result[cur] = setsWithValues[cur]
-      return result
-    }, {})
-  }
 )
 
 export const getTrials = createSelector(trialsSelector, trials => trials)
