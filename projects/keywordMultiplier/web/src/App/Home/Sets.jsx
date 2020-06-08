@@ -1,5 +1,6 @@
 import React from 'react'
 import { Formik } from 'formik'
+import { useDispatch } from 'react-redux'
 import { defaultPadding } from '@colin30/shared/react/theming'
 import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import Hidden from '@material-ui/core/Hidden'
@@ -8,6 +9,7 @@ import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/styles'
 import { setFields } from './fields'
 import { SetsForm } from './SetsForm'
+import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => ({
   setsSection: {
@@ -23,12 +25,27 @@ const useStyles = makeStyles(theme => ({
 export const Sets = () => {
   const classes = useStyles()
 
+  const dispatch = useDispatch()
+
   const initialValues = {
     ...setFields.reduce((acc, cur) => {
       let temp = acc
       temp[cur.textArea.setName] = ''
       return temp
     }, {})
+  }
+
+  const customSubmitHandler = (values, actions) => {
+    // console.log(
+    //   '%c customSubmitHandler',
+    //   'color: yellow; font-size: large',
+    //   values,
+    //   actions
+    // )
+    return dispatch({
+      type: types.MULTIPLY_SETS,
+      values
+    })
   }
 
   return (
@@ -63,7 +80,11 @@ export const Sets = () => {
           <Grid item sm={2} md={3} />
         </Hidden>
         <Grid item xs={12}>
-          <Formik initialValues={initialValues} component={SetsForm} />
+          <Formik
+            component={SetsForm}
+            initialValues={initialValues}
+            onSubmit={customSubmitHandler}
+          />
         </Grid>
       </Grid>
     </Grid>
