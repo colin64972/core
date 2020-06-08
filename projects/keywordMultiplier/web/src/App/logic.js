@@ -224,3 +224,22 @@ export const decorateTrial = data => ({
   //   }
   // ]
 })
+
+export const getSetsWithValues = values =>
+  Object.entries(values).reduce((acc, cur) => {
+    let temp = acc
+    const [key, val] = cur
+    if (val !== '') {
+      temp.push(key)
+    }
+    return temp
+  }, [])
+
+export const findEnabledSets = (filled, disabled, values) =>
+  filled.reduce((acc, cur) => {
+    let temp = acc
+    if (!disabled.includes(cur)) {
+      temp[cur] = values[cur]
+    }
+    return temp
+  }, {})

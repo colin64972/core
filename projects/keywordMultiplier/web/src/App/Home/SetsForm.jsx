@@ -1,14 +1,18 @@
 import classNames from 'classnames'
 import { Form, Field } from 'formik'
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import Grid from '@material-ui/core/Grid'
 import RestorePageIcon from '@material-ui/icons/RestorePage'
+import CachedIcon from '@material-ui/icons/Cached'
 import ShuffleIcon from '@material-ui/icons/Shuffle'
 import { makeStyles } from '@material-ui/styles'
 import { setFields } from './fields'
 import { SetsTextAreaField } from './SetsTextAreaField'
-import { prepSetValue } from '../logic'
+import { constants } from '../constants'
+import { getSetsWithValues } from '../logic'
+import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => {
   const formButton = {
@@ -121,15 +125,39 @@ export const SetsForm = props => {
 
   const classes = useStyles()
 
+  const dispatch = useDispatch()
+
+  const disabledSets = useSelector(state => state.app?.disabledSets)
+
+  const isSubmitting = useSelector(
+    state => state.app?.spinnerStatuses[constants.SETS_FORM_NAME]
+  )
+
+  const setsWithValues = getSetsWithValues(props.values)
+
+  const submitEnabled = setsWithValues.length - disabledSets.length > 1
+
+  const resetEnabled = setsWithValues.length > 0
+
+  const customResetHandler = event => {
+    event.preventDefault()
+    return dispatch({
+      type: types.ASK_RESET_ALL,
+      handler: props.handleReset
+    })
+  }
+
   return (
     <Form className={classes.form}>
       {setFields.map(setField => (
-        <Field
-          key={setField.key}
-          name={setField.textArea.setName}
-          component={SetsTextAreaField}
-          setField={setField}
-        />
+        <div key={setField.key} className={classes[setField.group.className]}>
+          <Field
+            name={setField.textArea.setName}
+            component={SetsTextAreaField}
+            setField={setField}
+            disabled={disabledSets.includes(setField.textArea.setName)}
+          />
+        </div>
       ))}
       <FadeIn
         direction="x"
@@ -137,15 +165,21 @@ export const SetsForm = props => {
         className={classes.submitGridPosition}>
         <button
           type="submit"
-          // disabled={!submitEnabled}
-          // onClick={formProps.handleSubmit}
+          disabled={!submitEnabled}
           className={classNames(classes.submitButton, {
-            // [classes.submitEnabled]: submitEnabled
+            [classes.submitEnabled]: submitEnabled
           })}>
-          <Grid container>
-            <ShuffleIcon className={classes.formButtonIcon} />
-            Multiply
-          </Grid>
+          {isSubmitting ? (
+            <Grid container>
+              <CachedIcon className={classes.formButtonIcon} />
+              Submitting
+            </Grid>
+          ) : (
+            <Grid container>
+              <ShuffleIcon className={classes.formButtonIcon} />
+              Multiply
+            </Grid>
+          )}
         </button>
       </FadeIn>
       <FadeIn
@@ -153,15 +187,15 @@ export const SetsForm = props => {
         position={100}
         className={classes.resetGridPosition}>
         <button
-          type="reset"
-          // disabled={!resetEnabled}
-          // onClick={customResetHandler}
+          type="button"
+          onClick={customResetHandler}
+          disabled={!resetEnabled}
           className={classNames(classes.resetButton, {
-            // [classes.resetEnabled]: resetEnabled
+            [classes.resetEnabled]: resetEnabled
           })}>
           <Grid container>
             <RestorePageIcon className={classes.formButtonIcon} />
-            Reset All
+            Reset Everything
           </Grid>
         </button>
       </FadeIn>

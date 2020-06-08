@@ -2,6 +2,7 @@ import { constants } from '../../App/constants'
 import { types } from '../types'
 
 const defaultState = {
+  disabledSets: [],
   trials: {
     items: [],
     shown: []
@@ -26,6 +27,18 @@ const defaultState = {
 
 export const app = (state = defaultState, action) => {
   switch (action.type) {
+    case types.ADD_DISABLED_SET:
+      return {
+        ...defaultState,
+        disabledSets: [...state.disabledSets, action.fieldName]
+      }
+    case types.REMOVE_DISABLED_SET:
+      return {
+        ...defaultState,
+        disabledSets: state.disabledSets.filter(
+          setName => setName !== action.fieldName
+        )
+      }
     case types.RESET_ALL_BUT_NOTICE:
       return {
         ...defaultState,

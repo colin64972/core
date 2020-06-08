@@ -1,10 +1,12 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import classNames from 'classnames'
 import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import Grid from '@material-ui/core/Grid'
 import ListIcon from '@material-ui/icons/List'
 import { makeStyles } from '@material-ui/styles'
 import { prepSetValue } from '../logic'
+import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => ({
   label: {
@@ -54,20 +56,36 @@ const useStyles = makeStyles(theme => ({
     padding: theme.custom.setSpace(),
     color: theme.palette.bodyColor,
     borderRadius: `0 0 ${theme.custom.borderRadius}px ${theme.custom.borderRadius}px`,
-    transition: 'color 250ms ease-out'
+    transition: 'all 250ms ease-out'
+  },
+  textAreaDisabled: {
+    backgroundColor: theme.palette.grey[200]
   }
 }))
 
 export const SetsTextAreaField = props => {
-  console.log('%c FORMIK FIELD PROPS', 'color: yellow; font-size: large', props)
+  // console.log('%c FORMIK FIELD PROPS', 'color: yellow; font-size: large', props)
 
   const classes = useStyles()
 
+  const dispatch = useDispatch()
+
+  const toggleDisabledSet = (fieldName, fieldValue) => {
+    if (props.disabled)
+      return dispatch({
+        type: types.REMOVE_DISABLED_SET,
+        fieldName
+      })
+    if (!props.disabled && fieldValue)
+      return dispatch({
+        type: types.ADD_DISABLED_SET,
+        fieldName
+      })
+    return null
+  }
+
   return (
-    <FadeIn
-      direction="y"
-      position={Math.random() > 0.5 ? 100 : -100}
-      className={classes[props.setField.group.className]}>
+    <FadeIn direction="y" position={Math.random() > 0.5 ? 100 : -100}>
       <Grid container>
         <label
           id={props.setField.label.id}
@@ -75,41 +93,35 @@ export const SetsTextAreaField = props => {
           className={classes.label}>
           <button
             type="button"
-            // onClick={labelClickHandler(fieldProps.field.name)}
+            onClick={event =>
+              toggleDisabledSet(props.field.name, props.field.value)
+            }
             className={classNames(classes.labelButton, {
-              // [classes.labelDisabled]: disabledSets.includes(
-              //   setField.textArea.setName
-              // ),
-              // [classes.labelWithValue]:
-              //   fieldProps.meta.value &&
-              //   !disabledSets.includes(
-              //     setField.textArea.setName
-              //   )
+              [classes.labelDisabled]: props.disabled,
+              [classes.labelWithValue]: !props.disabled && props.field.value
             })}>
             <ListIcon className={classes.labelIcon} />
             {props.setField.label.name}
           </button>
         </label>
         <textarea
-          className={classNames(classes.textArea)}
-          onChange={event => {
-            // props.handleChange(event)
-          }}
+          className={classNames(classes.textArea, {
+            [classes.textAreaDisabled]: props.disabled
+          })}
+          onChange={props.field.onChange}
           onBlur={event => {
-            // props.handleBlur(event)
-            // customBlurHandler(
-            //   fieldProps.field.name,
-            //   event.target.value,
-            //   props.setFieldValue
-            // )
+            props.form.setFieldValue(
+              props.field.name,
+              prepSetValue(event.target.value),
+              false
+            )
+            props.field.onBlur(event)
           }}
           rows={props.setField.textArea.rows}
           placeholder={props.setField.textArea.placeholder}
           id={props.setField.textArea.setName}
           name={props.setField.textArea.setName}
-          // disabled={disabledSets.includes(
-          //   props.setField.textArea.setName
-          // )}
+          disabled={props.disabled}
           value={props.field.value}
         />
       </Grid>
