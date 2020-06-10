@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export const PassWarnFailIcon = ({ bg }) => {
+export const NoticeIcon = ({ bg }) => {
   const classes = useStyles()
   switch (bg) {
     case constants.NOTICE.BGS.WARN:
