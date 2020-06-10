@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import CloseIcon from '@material-ui/icons/Close'
 import DoneIcon from '@material-ui/icons/Done'
 import { makeStyles } from '@material-ui/styles'
-import { PassWarnFailIcon } from './PassWarnFailIcon'
+import { NoticeIcon } from './NoticeIcon'
 import { constants } from '../constants'
 import { getNotice } from '../../store/selectors'
 import { types } from '../../store/types'
@@ -287,7 +287,7 @@ export const Notice = () => {
           <div className={classes.noticeBarInner}>
             <div className={classes.noticeBarInnerLeft}>
               <div className={classes.heading}>
-                <PassWarnFailIcon bg={bg} className={classes.headingIcon} />
+                <NoticeIcon bg={bg} className={classes.headingIcon} />
                 <h6 className={classes.headingText}>{heading}</h6>
               </div>
               <p className={classes.messageText}>{message}</p>
