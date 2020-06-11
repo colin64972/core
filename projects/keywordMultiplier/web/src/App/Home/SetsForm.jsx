@@ -96,6 +96,7 @@ const useStyles = makeStyles(theme => {
       backgroundColor: theme.palette.grey[400]
     },
     submitEnabled: {
+      'cursor': 'pointer',
       'backgroundColor': theme.palette.pass[500],
       '&:hover': {
         backgroundColor: theme.palette.pass[400]
@@ -107,6 +108,7 @@ const useStyles = makeStyles(theme => {
     },
     resetEnabled: {
       'backgroundColor': theme.palette.fail[500],
+      'cursor': 'pointer',
       '&:hover': {
         backgroundColor: theme.palette.fail[400]
       }
