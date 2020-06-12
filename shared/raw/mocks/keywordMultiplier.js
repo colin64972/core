@@ -1,4 +1,4 @@
-exports.optionsMock = {
+exports.metaMock = {
   status: 200,
   data: {
     credits: [3828],

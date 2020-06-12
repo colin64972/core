@@ -32,9 +32,9 @@ functions:
       - httpApi:
           path: /${env:RESOURCE_NAME}
           method: POST
-  optionsRequest:
-    name: ${env:SERVICE_NAME}-optionsRequest
-    handler: index.optionsRequest
+  getMeta:
+    name: ${env:SERVICE_NAME}-getMeta
+    handler: index.getMeta
     events:
       - httpApi:
           path: /keywords-everywhere

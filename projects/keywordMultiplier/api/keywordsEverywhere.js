@@ -1,9 +1,9 @@
 import { get } from 'axios'
 
-export const getOptions = async queryParams => {
+export const fetchKeMeta = async () => {
   const options = {
     headers: {
-      Authorization: `Bearer ${process.env.KEYWORDS_EVERYWHERE_API_KEY}`,
+      Authorization: `Bearer ${process.env.KE_API_KEY}`,
       Accept: 'application/json'
     }
   }
@@ -18,20 +18,30 @@ export const getOptions = async queryParams => {
 
   try {
     const responses = await Promise.all(promises)
+
     const data = responses.reduce((acc, cur) => {
       let temp = acc
       const { url } = cur.config
       temp[url.substring(url.lastIndexOf('/') + 1)] = cur.data
       return temp
     }, {})
+
     return {
       statusCode: 200,
       body: JSON.stringify(data)
     }
   } catch (error) {
+    console.error('fetchKeMeta', error, error.response?.status)
+
+    let statusCode = 500
+
+    if (error.response?.status) {
+      statusCode = error.response.status
+    }
+
     return {
-      statusCode: error.response.status,
-      body: JSON.stringify(error)
+      statusCode,
+      body: JSON.stringify(error.message)
     }
   }
 }

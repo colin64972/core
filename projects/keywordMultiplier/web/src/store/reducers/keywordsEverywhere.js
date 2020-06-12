@@ -7,9 +7,9 @@ const defaultState = {
   currencies: null
 }
 
-export const keywordsEverywhere = (state = defaultState, action) => {
+export const KE = (state = defaultState, action) => {
   switch (action.type) {
-    case types.SET_KEYWORDS_EVERYWHERE_OPTIONS:
+    case types.SET_KE_META:
       const { credits, countries, currencies } = action
       return {
         ...state,
