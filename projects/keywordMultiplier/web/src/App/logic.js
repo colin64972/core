@@ -134,7 +134,7 @@ export const generateNotice = (
   return result
 }
 
-export const decorateKeywordsEverywhereOptions = data => ({
+export const decorateKEMeta = data => ({
   credits: data.credits[0],
   countries: optionizeObject(data.countries).map(item => {
     if (item.label === 'Global') {

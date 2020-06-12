@@ -11,7 +11,7 @@ const fetcher = axios.create({
 })
 fetcher.defaults.headers.common['Authorization'] = 'asdf'
 
-export const getKeywordsEverywhereOptions = async () =>
+export const fetchKeMeta = async () =>
   await axios.get('http://localhost:2000/keywords-everywhere')
 
 export const postRequest = async (resource, payload) =>
