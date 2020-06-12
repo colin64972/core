@@ -1,12 +1,12 @@
 import { createOne } from './trials'
-import { getOptions } from './keywordsEverywhere'
+import { fetchKeMeta } from './keywordsEverywhere'
 
 export const postTrial = async (event, context, callback) => {
   const slsRes = await createOne(event.body)
   return callback(null, slsRes)
 }
 
-export const optionsRequest = async (event, context, callback) => {
-  const slsRes = await getOptions()
+export const getMeta = async (event, context, callback) => {
+  const slsRes = await fetchKeMeta()
   return callback(null, slsRes)
 }

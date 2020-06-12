@@ -36,15 +36,12 @@ export const Sets = () => {
   }
 
   const customSubmitHandler = (values, actions) => {
-    // console.log(
-    //   '%c customSubmitHandler',
-    //   'color: yellow; font-size: large',
-    //   values,
-    //   actions
-    // )
-    return dispatch({
+    dispatch({
       type: types.MULTIPLY_SETS,
       values
+    })
+    dispatch({
+      type: types.GET_KE_META
     })
   }
 

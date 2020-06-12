@@ -48,7 +48,7 @@ export const constants = {
   DEFAULT_VOLUME_REQUEST_COUNTRY: 'us',
   DEFAULT_VOLUME_REQUEST_CURRENCY: 'usd',
   NOTICE: {
-    TIMEOUT_DELAY: process.env.NODE_ENV === 'development' ? 1000 : 5000,
+    TIMEOUT_DELAY: process.env.NODE_ENV === 'development' ? 10000 : 5000,
     TIMEOUT_HEIGHT: 4,
     KINDS: {
       SIMPLE: 0,
