@@ -35,15 +35,11 @@ export const Sets = () => {
     }, {})
   }
 
-  const customSubmitHandler = (values, actions) => {
+  const customSubmitHandler = (values, actions) =>
     dispatch({
       type: types.MULTIPLY_SETS,
       values
     })
-    dispatch({
-      type: types.GET_KE_META
-    })
-  }
 
   return (
     <Grid item xs={12} component="section" className={classes.setsSection}>
