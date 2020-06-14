@@ -7,6 +7,6 @@ export const postTrial = async (event, context, callback) => {
 }
 
 export const getMeta = async (event, context, callback) => {
-  const slsRes = await fetchKeMeta()
+  const slsRes = await fetchKeMeta(event.queryStringParameters)
   return callback(null, slsRes)
 }
