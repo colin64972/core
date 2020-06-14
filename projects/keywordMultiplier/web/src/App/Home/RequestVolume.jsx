@@ -46,61 +46,45 @@ const useStyles = makeStyles(theme => ({
 const RequestVolume = ({ status, closeHandler, trial }) => {
   const classes = useStyles()
 
-  const dispatch = useDispatch()
-
-  const { credits, countries, currencies } = useSelector(
-    state => state.keywordsEverywhere
+  return (
+    <Modal
+      open={status}
+      onClose={closeHandler}
+      closeAfterTransition
+      BackdropComponent={Backdrop}
+      BackdropProps={{
+        timeout: 500
+      }}>
+      <Fade in={status}>
+        <Grid
+          container
+          justify="center"
+          alignItems="center"
+          className={classes.fullHeight}>
+          <Paper elevation={1} className={classes.paper}>
+            <FadeIn direction="x" position={-100}>
+              <Typography variant="subtitle2" className={classes.subHeading}>
+                Order Form
+              </Typography>
+            </FadeIn>
+            <FadeIn direction="x" position={-100}>
+              <Typography variant="h4" className={classes.mainHeading}>
+                Request Volume Metrics
+              </Typography>
+            </FadeIn>
+            <FadeIn direction="x" position={100}>
+              <Typography variant="body1" className={classes.body1}>
+                {JSON.stringify(trial, null, 2)}
+              </Typography>
+            </FadeIn>
+            <FadeIn direction="x" position={100}>
+              <RequestVolumeForm modalCloseHandler={closeHandler} />
+            </FadeIn>
+          </Paper>
+        </Grid>
+      </Fade>
+    </Modal>
   )
-
-  useEffect(() => {
-    if (!credits || !countries || !currencies) {
-      dispatch({
-        type: types.UPDATE_KEYWORDS_EVERYWHERE_OPTIONS
-      })
-    }
-  }, [trial])
-
-  if (credits && countries && currencies)
-    return (
-      <Modal
-        open={status}
-        onClose={closeHandler}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500
-        }}>
-        <Fade in={status}>
-          <Grid
-            container
-            justify="center"
-            alignItems="center"
-            className={classes.fullHeight}>
-            <Paper elevation={1} className={classes.paper}>
-              <FadeIn direction="x" position={-100}>
-                <Typography variant="subtitle2" className={classes.subHeading}>
-                  Order Form
-                </Typography>
-              </FadeIn>
-              <FadeIn direction="x" position={-100}>
-                <Typography variant="h4" className={classes.mainHeading}>
-                  Request Volume Metrics
-                </Typography>
-              </FadeIn>
-              <FadeIn direction="x" position={100}>
-                <Typography variant="body1" className={classes.body1}>
-                  {JSON.stringify(trial, null, 2)}
-                </Typography>
-              </FadeIn>
-              <FadeIn direction="x" position={100}>
-                <RequestVolumeForm modalCloseHandler={closeHandler} />
-              </FadeIn>
-            </Paper>
-          </Grid>
-        </Fade>
-      </Modal>
-    )
-  return null
 }
 
 export default RequestVolume
