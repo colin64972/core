@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import gsap from 'gsap'
-import React, { createRef, useLayoutEffect, useState } from 'react'
+import React, { createRef, useEffect, useLayoutEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import loadable from '@loadable/component'
 import {
@@ -170,9 +170,7 @@ export const TrialCard = ({ trial, isShown }) => {
     getWhiteSpaceSelection(state)
   )
 
-  const volumeRequestSpinnerStatus = useSelector(
-    state => state.app.spinnerStatuses[constants.VOLUME_SPINNER]
-  )
+  const KeCredits = useSelector(state => state.KE?.credits)
 
   const copyHandler = event => {
     event.stopPropagation()
@@ -192,6 +190,7 @@ export const TrialCard = ({ trial, isShown }) => {
   }
 
   const [modalStatus, setModalStatus] = useState(false)
+  const [insufficientCredits, setInsufficientCredits] = useState(false)
 
   const openRequestVolumeHandler = event => setModalStatus(true)
 
@@ -237,6 +236,15 @@ export const TrialCard = ({ trial, isShown }) => {
       timeline.kill()
     }
   }, [isShown])
+
+  useEffect(() => {
+    if (KeCredits && trial && KeCredits < trial.list.length) {
+      setInsufficientCredits(true)
+      dispatch({
+        type: types.ALERT_INSUFFICIENT_KE_CREDITS
+      })
+    }
+  }, [KeCredits])
 
   const createTrendChart = dataPoints => JSON.stringify(dataPoints)
 
@@ -314,9 +322,11 @@ export const TrialCard = ({ trial, isShown }) => {
               <TableRow>
                 <TableCell className={classes.tableHeadCell}>Entry</TableCell>
                 <TableCell className={classes.tableHeadCell}>Product</TableCell>
-                <TableCell className={classes.tableHeadCell}>
-                  {constants.VOLUME_DATA.VOLUME.LABEL}
-                </TableCell>
+                {!insufficientCredits && (
+                  <TableCell className={classes.tableHeadCell}>
+                    {constants.VOLUME_DATA.VOLUME.LABEL}
+                  </TableCell>
+                )}
                 {trial.volumeData &&
                   volumeDataFields.map(field => (
                     <TableCell
@@ -339,25 +349,23 @@ export const TrialCard = ({ trial, isShown }) => {
                     className={classes.tableCellData}>
                     {formatProductLine(keyword, matchType, whiteSpaceSelection)}
                   </TableCell>
-                  <TableCell component="td">
-                    {trial.volumeData ? (
-                      trial.volumeData[keywordIndex][
-                        constants.VOLUME_DATA.VOLUME.VALUE
-                      ]
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={openRequestVolumeHandler}
-                        data-id={trial.id}
-                        className={classes.requestVolumeButton}>
-                        {volumeRequestSpinnerStatus ? (
-                          <CachedIcon className={classes.actionButtonIcon} />
-                        ) : (
+                  {!insufficientCredits && (
+                    <TableCell component="td">
+                      {trial.volumeData ? (
+                        trial.volumeData[keywordIndex][
+                          constants.VOLUME_DATA.VOLUME.VALUE
+                        ]
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={openRequestVolumeHandler}
+                          data-id={trial.id}
+                          className={classes.requestVolumeButton}>
                           <SearchIcon className={classes.actionButtonIcon} />
-                        )}
-                      </button>
-                    )}
-                  </TableCell>
+                        </button>
+                      )}
+                    </TableCell>
+                  )}
                   {trial.volumeData &&
                     volumeDataFields.map(field => (
                       <TableCell component="td" key={field.key}>

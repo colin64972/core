@@ -28,3 +28,10 @@ export function* getKeMeta() {
     console.error('%c getKeMeta', 'color: red; font-size: large', error)
   }
 }
+
+export function* alertInsufficientKeCredits() {
+  console.log(
+    '%c alertInsufficientKeCredits',
+    'color: orange; font-size: large'
+  )
+}

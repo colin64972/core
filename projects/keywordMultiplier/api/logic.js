@@ -64,7 +64,7 @@ export const processTrial = setData => {
       .replace(/setField/gi, '')
     result.list = setList(setData)
   } catch (error) {
-    console.log('error', error)
+    console.error('error', error)
   }
   return result
 }

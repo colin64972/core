@@ -7,7 +7,7 @@ import {
   copyAllTrials,
   askResetAll
 } from './app'
-import { getKeMeta } from './keywordsEverywhere'
+import { getKeMeta, alertInsufficientKeCredits } from './keywordsEverywhere'
 import { types } from '../types'
 
 export function* sagas() {
@@ -17,5 +17,9 @@ export function* sagas() {
   yield takeLatest(types.ASK_DELETE_TRIAL, askDeleteTrial)
   yield takeLatest(types.ASK_DELETE_ALL_TRIALS, askDeleteAllTrials)
   yield takeLatest(types.ASK_RESET_ALL, askResetAll)
-  yield takeLatest(types.GET_KE_META, getKeMeta)
+  yield takeLatest(types.GET_KE_META, getKeMeta),
+    yield takeLatest(
+      types.ALERT_INSUFFICIENT_KE_CREDITS,
+      alertInsufficientKeCredits
+    )
 }

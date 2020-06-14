@@ -23,8 +23,8 @@ export const getRequest = async resource => {
       const res = await axios.get(IPIFY_ENDPOINT)
       if (res.status !== 200) throw new Error('api.ipify.org did not return ip')
       return res.data.ip
-    } catch (err) {
-      console.log(err)
+    } catch (error) {
+      console.error(error)
       return null
     }
   }
