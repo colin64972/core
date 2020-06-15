@@ -1,5 +1,5 @@
 import { call, put, select, take, race, delay } from 'redux-saga/effects'
-import { getRequest, postRequest } from '@colin30/shared/react/saga'
+import { fetchClientIp, postTrial } from '../fetchers'
 import { getCopySettings, getMatchType, getClientIp } from '../selectors'
 import { types } from '../types'
 import { constants } from '../../App/constants'
@@ -28,13 +28,13 @@ export function* multiplySets(action) {
     )
     let ip = yield select(state => getClientIp(state))
     if (process.env.NODE_ENV === 'production') {
-      ip = yield call(getRequest, 'ip')
+      ip = yield call(fetchClientIp, 'ip')
     }
     yield put({
       type: types.ADD_IP,
       ip
     })
-    const posted = yield call(postRequest, 'trials', {
+    const posted = yield call(postTrial, {
       sets: setsEnabled,
       ipAddress: ip
     })
