@@ -39,3 +39,12 @@ export const fetchKeResource = async resource => {
   )
   return res
 }
+
+export const fetchKeCredts = async () => {
+  let url = 'http://localhost:2000'
+  if (process.env.NODE_ENV !== 'development') {
+    url = 'https://apis.colin30.com/keyword-multiplier'
+  }
+  const res = await get(`${url}/keywords-everywhere?resource=credits`, options)
+  return res
+}
