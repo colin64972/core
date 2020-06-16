@@ -20,9 +20,9 @@ const TrialResults = ({ trials }) => {
 
   useEffect(() => {
     dispatch({
-      type: types.GET_KE_META
+      type: types.GET_KE_CREDITS
     })
-  })
+  }, [trials.items.length])
 
   return (
     <Fragment>
