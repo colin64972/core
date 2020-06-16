@@ -1,3 +1,10 @@
+exports.creditsMock = {
+  status: 200,
+  data: {
+    credits: [3292]
+  }
+}
+
 exports.metaMock = {
   status: 200,
   data: {

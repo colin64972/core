@@ -9,6 +9,11 @@ const defaultState = {
 
 export const KE = (state = defaultState, action) => {
   switch (action.type) {
+    case types.SET_KE_CREDITS:
+      return {
+        ...state,
+        credits: parseInt(action.credits)
+      }
     case types.SET_KE_META:
       const { credits, countries, currencies } = action
       return {
