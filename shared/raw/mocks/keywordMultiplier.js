@@ -5,10 +5,9 @@ exports.creditsMock = {
   }
 }
 
-exports.metaMock = {
+exports.optionsMock = {
   status: 200,
   data: {
-    credits: [3828],
     countries: {
       '': 'Global',
       'au': 'Australia',
