@@ -5,7 +5,7 @@ const keywordsPath = 'v1/get_keyword_data'
 
 exports.KeConstants = {
   ENDPOINTS: {
-    meta: [creditsPath, countriesPath, currenciesPath],
+    options: [countriesPath, currenciesPath],
     credits: [creditsPath],
     countries: [countriesPath],
     currencies: [currenciesPath],

@@ -134,15 +134,20 @@ export const generateNotice = (
   return result
 }
 
-export const decorateKEMeta = data => ({
-  credits: data.credits[0],
+export const decorateKeOptions = data => ({
   countries: optionizeObject(data.countries).map(item => {
     if (item.label === 'Global') {
       item.value = 'global'
     }
     return item
   }),
-  currencies: optionizeObject(data.currencies).filter(item => item.value !== '')
+  currencies: optionizeObject(data.currencies).filter(
+    item => item.value !== ''
+  ),
+  dataSources: optionizeObject({
+    gkp: 'Google Keyword Planner',
+    cli: 'Google Keyword Planner + Clickstream Data'
+  })
 })
 
 export const decorateTrial = data => ({

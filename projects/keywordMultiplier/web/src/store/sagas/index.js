@@ -9,7 +9,7 @@ import {
 } from './app'
 import {
   getKeCredits,
-  getKeMeta,
+  getKeOptions,
   alertInsufficientKeCredits
 } from './keywordsEverywhere'
 import { types } from '../types'
@@ -21,9 +21,10 @@ export function* sagas() {
   yield takeLatest(types.ASK_DELETE_TRIAL, askDeleteTrial)
   yield takeLatest(types.ASK_DELETE_ALL_TRIALS, askDeleteAllTrials)
   yield takeLatest(types.ASK_RESET_ALL, askResetAll)
-  yield takeLatest(types.GET_KE_CREDITS, getKeCredits),
-    yield takeLatest(
-      types.ALERT_INSUFFICIENT_KE_CREDITS,
-      alertInsufficientKeCredits
-    )
+  yield takeLatest(types.GET_KE_CREDITS, getKeCredits)
+  yield takeLatest(types.GET_KE_OPTIONS, getKeOptions)
+  yield takeLatest(
+    types.ALERT_INSUFFICIENT_KE_CREDITS,
+    alertInsufficientKeCredits
+  )
 }
