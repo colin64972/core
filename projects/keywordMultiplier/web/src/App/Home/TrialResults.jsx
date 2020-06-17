@@ -24,6 +24,12 @@ const TrialResults = ({ trials }) => {
     })
   }, [trials.items.length])
 
+  useEffect(() => {
+    dispatch({
+      type: types.GET_KE_OPTIONS
+    })
+  }, [])
+
   return (
     <Fragment>
       <Grid

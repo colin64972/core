@@ -1,10 +1,10 @@
-import { constants } from '../../App/constants'
 import { types } from '../types'
 
 const defaultState = {
   credits: null,
   countries: null,
-  currencies: null
+  currencies: null,
+  dataSources: null
 }
 
 export const KE = (state = defaultState, action) => {
@@ -14,13 +14,13 @@ export const KE = (state = defaultState, action) => {
         ...state,
         credits: parseInt(action.credits)
       }
-    case types.SET_KE_META:
-      const { credits, countries, currencies } = action
+    case types.SET_KE_OPTIONS:
+      const { countries, currencies, dataSources } = action
       return {
         ...state,
-        credits,
         countries,
-        currencies
+        currencies,
+        dataSources
       }
     default:
       return state

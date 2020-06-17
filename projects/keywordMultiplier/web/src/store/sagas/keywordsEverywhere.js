@@ -1,11 +1,10 @@
-import { call, put, select, take, race, delay } from 'redux-saga/effects'
-import { fetchKeResource, fetchKeCredts, fetchKeMeta } from '../fetchers'
+import { call, put, select } from 'redux-saga/effects'
+import { fetchKeCredts, fetchKeOptions } from '../fetchers'
 import { types } from '../types'
-import { constants } from '../../App/constants'
-import { generateNotice, decorateKEMeta } from '../../App/logic'
+import { decorateKeOptions } from '../../App/logic'
 import {
   creditsMock,
-  metaMock
+  optionsMock
 } from '@colin30/shared/raw/mocks/keywordMultiplier'
 
 export function* getKeCredits() {
@@ -24,27 +23,22 @@ export function* getKeCredits() {
   }
 }
 
-export function* getKeMeta() {
+export function* getKeOptions() {
   try {
-    const { credits, countries, currencies } = yield select(state => state.KE)
-    if (!credits || !countries || !currencies) {
-      let result = metaMock
-
+    const { countries, currencies } = yield select(state => state.KE)
+    if (!countries || !currencies) {
+      let result = optionsMock
       if (process.env.NODE_ENV !== 'development') {
-        result = yield call(fetchKeMeta)
+        result = yield call(fetchKeOptions)
       }
-
-      const decoratedData = decorateKEMeta(result.data)
-
+      const decoratedData = decorateKeOptions(result.data)
       return yield put({
-        type: types.SET_KE_META,
+        type: types.SET_KE_OPTIONS,
         ...decoratedData
       })
     }
     return null
-  } catch (error) {
-    console.error('%c getKeMeta', 'color: red; font-size: large', error)
-  }
+  } catch (error) {}
 }
 
 export function* alertInsufficientKeCredits() {
