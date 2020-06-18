@@ -27,9 +27,10 @@ const useStyles = makeStyles(theme => ({
 
 export const RequestVolumeForm = props => {
   const classes = useStyles()
-  const countryOptions = useSelector(state => state.KE.countries)
 
+  const countryOptions = useSelector(state => state.KE.countries)
   const currencyOptions = useSelector(state => state.KE.currencies)
+  const dataSourceOptions = useSelector(state => state.KE.dataSources)
 
   const initalValues = {
     country: countryOptions.find(
@@ -37,6 +38,9 @@ export const RequestVolumeForm = props => {
     ).value,
     currency: currencyOptions.find(
       option => option.value === constants.DEFAULT_VOLUME_REQUEST_CURRENCY
+    ).value,
+    dataSource: dataSourceOptions.find(
+      option => option.value === constants.DEFAULT_VOLUME_REQUEST_DATASOURCE
     ).value
   }
 
@@ -62,7 +66,7 @@ export const RequestVolumeForm = props => {
             onReset={formik.resetForm}
             className={classes.form}>
             <FormControl required className={classes.formGroup}>
-              <InputLabel id="country">Country Database</InputLabel>
+              <InputLabel id="country">Country</InputLabel>
               <Select
                 labelId="country"
                 id="country"
@@ -85,6 +89,21 @@ export const RequestVolumeForm = props => {
                 value={formik.values.currency}
                 onChange={formik.handleChange}>
                 {currencyOptions.map(option => (
+                  <MenuItem key={option.key} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <FormControl required className={classes.formGroup}>
+              <InputLabel id="dataSource">Data Source</InputLabel>
+              <Select
+                labelId="dataSource"
+                id="dataSource"
+                name="dataSource"
+                value={formik.values.dataSource}
+                onChange={formik.handleChange}>
+                {dataSourceOptions.map(option => (
                   <MenuItem key={option.key} value={option.value}>
                     {option.label}
                   </MenuItem>
