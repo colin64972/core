@@ -238,12 +238,9 @@ export const TrialCard = ({ trial, isShown }) => {
   }, [isShown])
 
   useEffect(() => {
-    // if (KeCredits && trial && KeCredits < trial.list.length) {
-    //   setInsufficientCredits(true)
-    //   dispatch({
-    //     type: types.ALERT_INSUFFICIENT_KE_CREDITS
-    //   })
-    // }
+    if (KeCredits && trial) {
+      setInsufficientCredits(KeCredits < trial.list.length)
+    }
   }, [KeCredits])
 
   const createTrendChart = dataPoints => JSON.stringify(dataPoints)

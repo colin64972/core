@@ -4,7 +4,12 @@ const defaultState = {
   credits: null,
   countries: null,
   currencies: null,
-  dataSources: null
+  dataSources: null,
+  userSelections: {
+    country: null,
+    currency: null,
+    dataSource: null
+  }
 }
 
 export const KE = (state = defaultState, action) => {
@@ -21,6 +26,16 @@ export const KE = (state = defaultState, action) => {
         countries,
         currencies,
         dataSources
+      }
+    case 'ZERO_CREDITS':
+      return {
+        ...state,
+        credits: 0
+      }
+    case 'FILL_CREDITS':
+      return {
+        ...state,
+        credits: action.count
       }
     default:
       return state
