@@ -29,12 +29,12 @@ export const app = (state = defaultState, action) => {
   switch (action.type) {
     case types.ADD_DISABLED_SET:
       return {
-        ...defaultState,
+        ...state,
         disabledSets: [...state.disabledSets, action.fieldName]
       }
     case types.REMOVE_DISABLED_SET:
       return {
-        ...defaultState,
+        ...state,
         disabledSets: state.disabledSets.filter(
           setName => setName !== action.fieldName
         )
