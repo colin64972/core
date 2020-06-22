@@ -262,22 +262,14 @@ export const Notice = () => {
     }
   })
 
-  useEffect(() => {
-    if (item) {
-      document.addEventListener('keyup', keyUpHandler)
-    }
-    return () => {
-      document.removeEventListener('keyup', keyUpHandler)
-    }
-  }, [item])
-
   if (item) {
     const { kind, bg, heading, message } = item
     return (
       <div className={classes.screen} ref={screen}>
         <div
           className={[classes.noticeBar, classes[bg]].join(' ')}
-          ref={noticeBar}>
+          ref={noticeBar}
+          onKeyUp={keyUpHandler}>
           <div
             className={[classes.timeoutBar, classes[`${bg}TimeoutBar`]].join(
               ' '
