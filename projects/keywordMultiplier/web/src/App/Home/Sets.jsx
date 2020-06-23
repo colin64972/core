@@ -14,7 +14,6 @@ import { types } from '../../store/types'
 const useStyles = makeStyles(theme => ({
   setsSection: {
     backgroundColor: theme.palette.grey[500],
-    minHeight: '100vh',
     ...theme.custom.setFlex('column nowrap'),
     ...defaultPadding(theme.breakpoints, theme.custom.setSpace),
     textAlign: 'center'

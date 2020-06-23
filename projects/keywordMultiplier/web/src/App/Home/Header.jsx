@@ -9,7 +9,7 @@ import { defaultPadding } from '@colin30/shared/react/theming'
 const useStyles = makeStyles(theme => ({
   headerSection: {
     width: '100vw',
-    minHeight: '100vh',
+    minHeight: '75vh',
     ...theme.custom.setFlex('column nowrap'),
     ...defaultPadding(theme.breakpoints, theme.custom.setSpace)
   },
