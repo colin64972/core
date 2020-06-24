@@ -1,4 +1,5 @@
 import gsap from 'gsap'
+import classNames from 'classnames'
 import React, { useRef, useEffect, useLayoutEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import CloseIcon from '@material-ui/icons/Close'
@@ -262,17 +263,26 @@ export const Notice = () => {
     }
   })
 
+  useEffect(() => {
+    if (item) {
+      document.addEventListener('keyup', keyUpHandler)
+    }
+    return () => {
+      document.removeEventListener('keyup', keyUpHandler)
+    }
+  }, [item])
+
   if (item) {
     const { kind, bg, heading, message } = item
     return (
       <div className={classes.screen} ref={screen}>
         <div
           className={[classes.noticeBar, classes[bg]].join(' ')}
-          ref={noticeBar}
-          onKeyUp={keyUpHandler}>
+          ref={noticeBar}>
           <div
-            className={[classes.timeoutBar, classes[`${bg}TimeoutBar`]].join(
-              ' '
+            className={classNames(
+              classes.timeoutBar,
+              classes[`${bg}TimeoutBar`]
             )}
             ref={timeoutBar}
           />
