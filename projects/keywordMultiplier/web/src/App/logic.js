@@ -248,3 +248,16 @@ export const findEnabledSets = (filled, disabled, values) =>
     }
     return temp
   }, {})
+
+const createTrendChart = dataPoints => JSON.stringify(dataPoints)
+
+export const setVolumeFieldCell = (asdf, field) => {
+  switch (field.label) {
+    case constants.VOLUME_DATA.CPC.LABEL:
+      return asdf[field.value].value
+    case constants.VOLUME_DATA.TREND.LABEL:
+      return createTrendChart(asdf[field.value])
+    default:
+      return asdf[field.value]
+  }
+}
