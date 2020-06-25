@@ -12,7 +12,7 @@ const defaultState = {
   }
 }
 
-export const KE = (state = defaultState, action) => {
+export const kE = (state = defaultState, action) => {
   switch (action.type) {
     case types.SET_KE_CREDITS:
       return {

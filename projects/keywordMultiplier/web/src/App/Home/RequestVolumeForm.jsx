@@ -28,9 +28,9 @@ const useStyles = makeStyles(theme => ({
 export const RequestVolumeForm = props => {
   const classes = useStyles()
 
-  const countryOptions = useSelector(state => state.KE.countries)
-  const currencyOptions = useSelector(state => state.KE.currencies)
-  const dataSourceOptions = useSelector(state => state.KE.dataSources)
+  const countryOptions = useSelector(state => state.kE.countries)
+  const currencyOptions = useSelector(state => state.kE.currencies)
+  const dataSourceOptions = useSelector(state => state.kE.dataSources)
 
   const initalValues = {
     country: countryOptions.find(

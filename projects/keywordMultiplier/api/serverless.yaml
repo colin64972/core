@@ -37,7 +37,7 @@ functions:
     handler: index.getMeta
     events:
       - httpApi:
-          path: /keywords-everywhere
+          path: /ke
           method: GET
   # deleteOne:
   #   name: ${env:SERVICE_NAME}-deleteOne
