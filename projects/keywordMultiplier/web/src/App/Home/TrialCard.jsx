@@ -78,7 +78,7 @@ export const TrialCard = ({ trial, isShown }) => {
   const card = createRef()
   const copyRef = createRef()
 
-  const KeCredits = useSelector(state => state.KE?.credits)
+  const KeCredits = useSelector(state => state.kE?.credits)
 
   const [insufficientCredits, setInsufficientCredits] = useState(false)
 

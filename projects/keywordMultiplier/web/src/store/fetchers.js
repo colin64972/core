@@ -24,7 +24,7 @@ export const fetchKeMeta = async () => {
   if (process.env.NODE_ENV !== 'development') {
     url = 'https://apis.colin30.com/keyword-multiplier'
   }
-  const res = await get(`${url}/keywords-everywhere?resource=meta`, options)
+  const res = await get(`${url}/ke?resource=meta`, options)
   return res
 }
 
@@ -33,10 +33,7 @@ export const fetchKeResource = async resource => {
   if (process.env.NODE_ENV !== 'development') {
     url = 'https://apis.colin30.com/keyword-multiplier'
   }
-  const res = await get(
-    `${url}/keywords-everywhere?resource=${resource}`,
-    options
-  )
+  const res = await get(`${url}/ke?resource=${resource}`, options)
   return res
 }
 
@@ -45,7 +42,7 @@ export const fetchKeCredts = async () => {
   if (process.env.NODE_ENV !== 'development') {
     url = 'https://apis.colin30.com/keyword-multiplier'
   }
-  const res = await get(`${url}/keywords-everywhere?resource=credits`, options)
+  const res = await get(`${url}/ke?resource=credits`, options)
   return res
 }
 
@@ -54,6 +51,6 @@ export const fetchKeOptions = async () => {
   if (process.env.NODE_ENV !== 'development') {
     url = 'https://apis.colin30.com/keyword-multiplier'
   }
-  const res = await get(`${url}/keywords-everywhere?resource=options`, options)
+  const res = await get(`${url}/ke?resource=options`, options)
   return res
 }
