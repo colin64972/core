@@ -10,11 +10,11 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'left',
     textTransform: 'unset',
     [theme.breakpoints.down('xs')]: {
-      fontSize: theme.custom.setSpace() * 1.5
+      fontSize: theme.custom.setSpace() * 1.75
     }
   },
   trialCardHeadingId: {
-    fontSize: theme.typography.fontSize,
+    fontSize: theme.custom.setSpace() * 1.25,
     textAlign: 'left',
     textTransform: 'unset'
   },
