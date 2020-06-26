@@ -17,22 +17,13 @@ const useStyles = makeStyles(theme => ({
   tableHeadCell: {
     margin: 0,
     color: theme.palette.secondary[200],
-    ...theme.typography.bold,
-    [theme.breakpoints.down('xs')]: {
-      fontSize: theme.typography.fontSize
-    }
+    ...theme.typography.bold
   },
   trialId: {
-    color: theme.palette.secondary[200],
-    [theme.breakpoints.down('xs')]: {
-      fontSize: theme.typography.fontSize
-    }
+    color: theme.palette.secondary[200]
   },
   tableCellData: {
-    wordBreak: 'break-all',
-    [theme.breakpoints.down('xs')]: {
-      fontSize: theme.typography.fontSize
-    }
+    wordBreak: 'break-all'
   },
   requestVolumeButton: {
     ...theme.custom.iconButton,
