@@ -80,7 +80,7 @@ export const TrialCard = ({ trial, isShown }) => {
 
   const KeCredits = useSelector(state => state.kE?.credits)
 
-  const [insufficientCredits, setInsufficientCredits] = useState(false)
+  const [volumeUnobtainable, setVolumeUnobtainable] = useState(false)
 
   const copyHandler = event => {
     event.stopPropagation()
@@ -141,7 +141,9 @@ export const TrialCard = ({ trial, isShown }) => {
   }, [isShown])
 
   useEffect(() => {
-    setInsufficientCredits(KeCredits < trial.list.length)
+    setVolumeUnobtainable(
+      trial.list.length > 100 || KeCredits < trial.list.length
+    )
   }, [KeCredits])
 
   return (
@@ -166,7 +168,7 @@ export const TrialCard = ({ trial, isShown }) => {
           <TrialCardTable
             trial={trial}
             copyRef={copyRef}
-            insufficientCredits={insufficientCredits}
+            volumeUnobtainable={volumeUnobtainable}
           />
         </AccordionDetails>
       </Accordion>
