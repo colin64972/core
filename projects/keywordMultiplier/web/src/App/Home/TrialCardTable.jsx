@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export const TrialCardTable = ({ trial, copyRef, insufficientCredits }) => {
+export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
   const classes = useStyles()
 
   const matchType = useSelector(state => getMatchType(state))
@@ -76,7 +76,7 @@ export const TrialCardTable = ({ trial, copyRef, insufficientCredits }) => {
         <TableRow>
           <TableCell className={classes.tableHeadCell}>Entry</TableCell>
           <TableCell className={classes.tableHeadCell}>Product</TableCell>
-          {!insufficientCredits && (
+          {!volumeUnobtainable && (
             <TableCell className={classes.tableHeadCell}>
               {constants.VOLUME_DATA.VOLUME.LABEL}
             </TableCell>
@@ -101,7 +101,7 @@ export const TrialCardTable = ({ trial, copyRef, insufficientCredits }) => {
               className={classes.tableCellData}>
               {formatProductLine(keyword, matchType, whiteSpaceSelection)}
             </TableCell>
-            {!insufficientCredits && (
+            {!volumeUnobtainable && (
               <TableCell component="td">
                 {trial.volumeData ? (
                   trial.volumeData[keywordIndex][
