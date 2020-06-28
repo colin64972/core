@@ -154,6 +154,7 @@ export const decorateTrial = data => ({
   id: data.id,
   heading: data.trialProduct.heading,
   list: data.trialProduct.list,
+  createdAt: moment(data.createdAt).format('HH:mm:ss'),
   volumeData: data?.volumeData
   // volumeData: [
   //   {

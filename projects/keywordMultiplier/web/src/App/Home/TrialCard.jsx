@@ -58,6 +58,11 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('sm')]: null,
     [theme.breakpoints.up('xl')]: null
   },
+  expandIcon: {
+    position: 'relative',
+    top: 15,
+    right: 25
+  },
   trialList: {
     'padding': theme.custom.setSpace(),
     'margin': 0,
@@ -153,9 +158,12 @@ export const TrialCard = ({ trial, isShown }) => {
       })}
       ref={card}
       id={trial.id}>
-      <Accordion defaultExpanded>
+      <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
+          classes={{
+            expandIcon: classes.expandIcon
+          }}
           aria-controls="panel1a-content"
           id="panel1a-header">
           <TrialCardHeader
