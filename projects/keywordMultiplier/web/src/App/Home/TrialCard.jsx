@@ -151,6 +151,14 @@ export const TrialCard = ({ trial, isShown }) => {
     )
   }, [KeCredits])
 
+  const accordionChangeHandler = (event, expanded) => {
+    if (expanded)
+      return dispatch({
+        type: types.GET_KE_CREDITS
+      })
+    return null
+  }
+
   return (
     <div
       className={classNames(classes.trialCard, {
@@ -158,7 +166,7 @@ export const TrialCard = ({ trial, isShown }) => {
       })}
       ref={card}
       id={trial.id}>
-      <Accordion>
+      <Accordion onChange={accordionChangeHandler}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           classes={{
