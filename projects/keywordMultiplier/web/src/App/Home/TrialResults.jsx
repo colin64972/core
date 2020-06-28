@@ -20,12 +20,6 @@ const TrialResults = ({ trials }) => {
 
   useEffect(() => {
     dispatch({
-      type: types.GET_KE_CREDITS
-    })
-  }, [trials.items.length])
-
-  useEffect(() => {
-    dispatch({
       type: types.GET_KE_OPTIONS
     })
   }, [])
