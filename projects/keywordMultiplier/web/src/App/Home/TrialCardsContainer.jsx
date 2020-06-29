@@ -6,6 +6,7 @@ import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import { defaultPadding } from '@colin30/shared/react/theming'
 import { TrialCard } from './TrialCard'
 import { useDispatch } from 'react-redux'
+import { mergeSort } from '@colin30/shared/general/sorting'
 
 const useStyles = makeStyles(theme => ({
   trialsSection: {
@@ -38,6 +39,7 @@ export const TrialCardsContainer = ({ trials }) => {
       count: 3
     })
   }
+  const sortedItems = mergeSort(trials.items, 'createdAt', 'down')
   return (
     <Grid container component="section" className={classes.trialsSection}>
       <Grid item xs={12}>
@@ -64,7 +66,7 @@ export const TrialCardsContainer = ({ trials }) => {
         direction="row"
         wrap="wrap"
         className={classes.trialsContainer}>
-        {trials.items.map(trial => (
+        {sortedItems.map(trial => (
           <TrialCard
             trial={trial}
             isShown={trials.shown.includes(trial.id)}
