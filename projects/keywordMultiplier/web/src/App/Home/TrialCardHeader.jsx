@@ -57,7 +57,7 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.custom.setSpace() / 2,
     height: 30
   },
-  createdAt: {
+  timestamp: {
     height: 30
   },
   chipLabel: {
@@ -85,8 +85,8 @@ export const TrialCardHeader = ({
               }}
             />
             <Chip
-              label={trial.createdAt}
-              className={classes.createdAt}
+              label={trial.timestamp}
+              className={classes.timestamp}
               classes={{
                 label: classes.chipLabel
               }}
