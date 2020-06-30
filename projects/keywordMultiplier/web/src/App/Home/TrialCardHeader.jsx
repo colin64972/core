@@ -107,7 +107,7 @@ export const TrialCardHeader = ({
       </Grid>
       <Grid item xs={10}>
         <Typography variant="h6" className={classes.trialCardHeading}>
-          Set Fields {trial.heading}
+          {trial.heading}
         </Typography>
         <Typography variant="body1" className={classes.trialCardHeadingId}>
           {trial.id}
