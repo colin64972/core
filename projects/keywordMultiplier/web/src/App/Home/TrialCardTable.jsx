@@ -68,7 +68,7 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
       {modalStatus && (
         <RequestVolumeLoadable
           status={modalStatus}
-          closeHandler={closeRequestVolumeHandler}
+          modalCloseHandler={closeRequestVolumeHandler}
           trial={trial}
         />
       )}
