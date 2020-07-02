@@ -146,7 +146,7 @@ export const decorateKeOptions = data => ({
   ),
   dataSources: optionizeObject({
     gkp: 'Google Keyword Planner',
-    cli: 'Google Keyword Planner + Clickstream Data'
+    cli: 'GKP + Clickstream'
   })
 })
 

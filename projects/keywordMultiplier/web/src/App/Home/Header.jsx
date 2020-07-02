@@ -8,30 +8,24 @@ import { defaultPadding } from '@colin30/shared/react/theming'
 
 const useStyles = makeStyles(theme => ({
   headerSection: {
-    width: '100vw',
-    minHeight: '75vh',
+    ...defaultPadding(theme.breakpoints, theme.custom.setSpace),
     ...theme.custom.setFlex('column nowrap'),
-    ...defaultPadding(theme.breakpoints, theme.custom.setSpace)
+    width: '100vw',
+    minHeight: '75vh'
   },
   icon: {
-    fontSize: theme.custom.setSpace('lg'),
-    [theme.breakpoints.down('sm')]: {
-      fontSize: theme.custom.setSpace('md')
-    }
+    fontSize: theme.custom.setSpace('md')
   },
-  title: {
+  mainHeading: {
+    ...theme.typography.mainHeading,
+    width: '100%',
     textAlign: 'center',
-    lineHeight: 0.9,
-    marginBottom: theme.custom.setSpace(),
-    fontSize: theme.custom.setSpace() * 6,
-    [theme.breakpoints.down('sm')]: {
-      fontSize: theme.custom.setSpace('sm') * 1.67
-    }
+    color: theme.palette.primary.main
   },
-  subtitle: {
-    textTransform: 'unset',
-    fontWeight: 'unset',
-    textAlign: 'center'
+  subHeading: {
+    width: '100%',
+    textAlign: 'center',
+    lineHeight: 1.25
   }
 }))
 
@@ -43,13 +37,13 @@ export const Header = () => {
         <VpnKeyIcon className={classes.icon} />
       </FadeIn>
       <FadeIn direction="x" position={-100}>
-        <Typography variant="h1" color="primary" className={classes.title}>
+        <Typography variant="h4" className={classes.mainHeading}>
           Keyword Multiplier
         </Typography>
       </FadeIn>
       <FadeIn direction="y" position={100}>
-        <Typography variant="h4" className={classes.subtitle}>
-          Content Marketing Keyword Multiplier Tool
+        <Typography variant="subtitle2" className={classes.subHeading}>
+          Content Marketing Keyword Multiplying Tool
         </Typography>
       </FadeIn>
     </Grid>
