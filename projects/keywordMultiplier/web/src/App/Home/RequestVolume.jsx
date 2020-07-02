@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { Formik } from 'formik'
 import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import Fade from '@material-ui/core/Fade'
 import Backdrop from '@material-ui/core/Backdrop'
@@ -10,7 +11,7 @@ import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/styles'
 import { defaultPadding } from '@colin30/shared/react/theming'
 import { RequestVolumeForm } from './RequestVolumeForm'
-import { types } from '../../store/types'
+import { constants } from '../constants'
 
 const useStyles = makeStyles(theme => ({
   fullHeight: {
@@ -43,13 +44,38 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const RequestVolume = ({ status, closeHandler, trial }) => {
+const RequestVolume = ({ status, modalCloseHandler, trial }) => {
   const classes = useStyles()
+
+  const countryOptions = useSelector(state => state.kE.countries)
+  const currencyOptions = useSelector(state => state.kE.currencies)
+  const dataSourceOptions = useSelector(state => state.kE.dataSources)
+
+  const initalValues = {
+    country: countryOptions.find(
+      option => option.value === constants.DEFAULT_VOLUME_REQUEST_COUNTRY
+    ).value,
+    currency: currencyOptions.find(
+      option => option.value === constants.DEFAULT_VOLUME_REQUEST_CURRENCY
+    ).value,
+    dataSource: dataSourceOptions.find(
+      option => option.value === constants.DEFAULT_VOLUME_REQUEST_DATASOURCE
+    ).value
+  }
+
+  const customSubmitHandler = (values, actions) => {
+    console.log(
+      '%c submitHandler',
+      'color: yellow; font-size: large',
+      JSON.stringify(values, null, 2),
+      JSON.stringify(actions, null, 2)
+    )
+  }
 
   return (
     <Modal
       open={status}
-      onClose={closeHandler}
+      onClose={modalCloseHandler}
       closeAfterTransition
       BackdropComponent={Backdrop}
       BackdropProps={{
@@ -77,9 +103,19 @@ const RequestVolume = ({ status, closeHandler, trial }) => {
                 {JSON.stringify(trial, null, 2)}
               </Typography>
             </FadeIn>
-            <FadeIn direction="x" position={100}>
-              <RequestVolumeForm modalCloseHandler={closeHandler} />
-            </FadeIn>
+            <Formik initialValues={initalValues} onSubmit={customSubmitHandler}>
+              {formikProps => (
+                <RequestVolumeForm
+                  modalCloseHandler={modalCloseHandler}
+                  kEOptions={{
+                    countryOptions,
+                    currencyOptions,
+                    dataSourceOptions
+                  }}
+                  formikProps={formikProps}
+                />
+              )}
+            </Formik>
           </Paper>
         </Grid>
       </Fade>
