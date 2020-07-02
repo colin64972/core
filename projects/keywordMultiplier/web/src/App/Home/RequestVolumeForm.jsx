@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { Form } from 'formik'
+import { Form, Field } from 'formik'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/styles'
@@ -35,51 +35,63 @@ export const RequestVolumeForm = ({
       // onSubmit={formikProps.handleSubmit}
       // onReset={formikProps.resetForm}
       className={classes.form}>
-      <FormControl required className={classes.formGroup}>
-        <InputLabel id="country">Country</InputLabel>
-        <Select
-          labelId="country"
-          id="country"
-          name="country"
-          value={formikProps.values.country}
-          onChange={formikProps.handleChange}>
-          {kEOptions.countryOptions.map(option => (
-            <MenuItem key={option.key} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      <FormControl required className={classes.formGroup}>
-        <InputLabel id="currency">CPC Currency</InputLabel>
-        <Select
-          labelId="currency"
-          id="currency"
-          name="currency"
-          value={formikProps.values.currency}
-          onChange={formikProps.handleChange}>
-          {kEOptions.currencyOptions.map(option => (
-            <MenuItem key={option.key} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      <FormControl required className={classes.formGroup}>
-        <InputLabel id="dataSource">Data Source</InputLabel>
-        <Select
-          labelId="dataSource"
-          id="dataSource"
-          name="dataSource"
-          value={formikProps.values.dataSource}
-          onChange={formikProps.handleChange}>
-          {kEOptions.dataSourceOptions.map(option => (
-            <MenuItem key={option.key} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+      <Field name="country">
+        {fieldProps => (
+          <FormControl required className={classes.formGroup}>
+            <InputLabel id="country">Country</InputLabel>
+            <Select
+              labelId="country"
+              id="country"
+              name="country"
+              value={formikProps.values.country}
+              onChange={formikProps.handleChange}>
+              {kEOptions.countryOptions.map(option => (
+                <MenuItem key={option.key} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        )}
+      </Field>
+      <Field name="currency">
+        {fieldProps => (
+          <FormControl required className={classes.formGroup}>
+            <InputLabel id="currency">CPC Currency</InputLabel>
+            <Select
+              labelId="currency"
+              id="currency"
+              name="currency"
+              value={formikProps.values.currency}
+              onChange={formikProps.handleChange}>
+              {kEOptions.currencyOptions.map(option => (
+                <MenuItem key={option.key} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        )}
+      </Field>
+      <Field name="dataSource">
+        {fieldProps => (
+          <FormControl required className={classes.formGroup}>
+            <InputLabel id="dataSource">Data Source</InputLabel>
+            <Select
+              labelId="dataSource"
+              id="dataSource"
+              name="dataSource"
+              value={formikProps.values.dataSource}
+              onChange={formikProps.handleChange}>
+              {kEOptions.dataSourceOptions.map(option => (
+                <MenuItem key={option.key} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        )}
+      </Field>
       <div className={classNames(classes.formGroup, classes.centered)}>
         <ButtonGroup color="primary" aria-label="outlined primary button group">
           <Button type="submit">Submit Order</Button>
