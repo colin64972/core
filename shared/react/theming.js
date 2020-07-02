@@ -230,5 +230,6 @@ export const setCustomTheme = (
       }
     }
   })
-  return responsiveFontSizes(muiTheme, { factor })
+  return muiTheme
+  // return responsiveFontSizes(muiTheme, { factor })
 }

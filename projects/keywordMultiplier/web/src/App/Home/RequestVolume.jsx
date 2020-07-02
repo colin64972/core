@@ -34,6 +34,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'left'
   },
   mainHeading: {
+    ...theme.typography.mainHeading,
     width: '100%',
     textAlign: 'left'
   },
@@ -98,11 +99,11 @@ const RequestVolume = ({ status, modalCloseHandler, trial }) => {
                 Request Volume Metrics
               </Typography>
             </FadeIn>
-            <FadeIn direction="x" position={100}>
+            {/* <FadeIn direction="x" position={100}>
               <Typography variant="body1" className={classes.body1}>
                 {JSON.stringify(trial, null, 2)}
               </Typography>
-            </FadeIn>
+            </FadeIn> */}
             <Formik initialValues={initalValues} onSubmit={customSubmitHandler}>
               {formikProps => (
                 <RequestVolumeForm
