@@ -87,3 +87,27 @@ export const volumeDataFields = [
     value: constants.VOLUME_DATA.TREND.VALUE
   }
 ]
+
+export const kEFields = [
+  {
+    key: createHashId(),
+    name: constants.KE_OPTIONS.COUNTRY.NAME,
+    label: constants.KE_OPTIONS.COUNTRY.LABEL,
+    kind: constants.KE_OPTIONS.COUNTRY.KIND,
+    optionsName: constants.KE_OPTIONS.COUNTRY.OPTIONS_NAME
+  },
+  {
+    key: createHashId(),
+    name: constants.KE_OPTIONS.CURRENCY.NAME,
+    label: constants.KE_OPTIONS.CURRENCY.LABEL,
+    kind: constants.KE_OPTIONS.CURRENCY.KIND,
+    optionsName: constants.KE_OPTIONS.CURRENCY.OPTIONS_NAME
+  },
+  {
+    key: createHashId(),
+    name: constants.KE_OPTIONS.DATASOURCE.NAME,
+    label: constants.KE_OPTIONS.DATASOURCE.LABEL,
+    kind: constants.KE_OPTIONS.DATASOURCE.KIND,
+    optionsName: constants.KE_OPTIONS.DATASOURCE.OPTIONS_NAME
+  }
+]

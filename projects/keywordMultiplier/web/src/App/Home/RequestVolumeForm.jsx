@@ -1,18 +1,51 @@
 import classNames from 'classnames'
+import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import { Form, Field } from 'formik'
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/styles'
-import Button from '@material-ui/core/Button'
-import ButtonGroup from '@material-ui/core/ButtonGroup'
-import InputLabel from '@material-ui/core/InputLabel'
-import MenuItem from '@material-ui/core/MenuItem'
-import FormControl from '@material-ui/core/FormControl'
-import Select from '@material-ui/core/Select'
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Button,
+  ButtonGroup,
+  FormControl,
+  Grid,
+  InputLabel,
+  MenuItem,
+  Select,
+  Table,
+  TableContainer,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  Typography,
+  Paper,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+  List,
+  ListItem,
+  ListItemText
+} from '@material-ui/core'
+import FindInPageIcon from '@material-ui/icons/FindInPage'
+import { kEFields } from './fields'
+import { constants } from '../constants'
 
 const useStyles = makeStyles(theme => ({
+  accordion: {
+    'margin': `0 0 ${theme.custom.setSpace()}px 0`,
+    '&:last-child': {
+      margin: 0
+    }
+  },
   form: {
-    width: '100%'
+    width: '100%',
+    margin: `${theme.custom.setSpace()}px 0`
   },
   formGroup: {
     width: '100%',
@@ -20,78 +53,251 @@ const useStyles = makeStyles(theme => ({
   },
   centered: {
     ...theme.custom.setFlex()
+  },
+  table: {
+    borderRadius: theme.custom.borderRadius
+  },
+  headCell: {
+    ...theme.typography.bold,
+    backgroundColor: theme.palette.grey[50]
+  },
+  priceCell: {
+    backgroundColor: theme.palette.secondary[50]
+  },
+  reviewKeywordsButton: {
+    'backgroundColor': theme.palette.secondary[50],
+    '&:hover': {
+      backgroundColor: theme.palette.secondary[100]
+    }
+  },
+  reviewListTitle: {
+    ...theme.typography.mainHeading,
+    color: theme.palette.primary.main,
+    fontSize: theme.custom.setSpace('sm') * 1.25,
+    margin: 0,
+    borderRadius: theme.custom.borderRadius
+  },
+  code: {
+    backgroundColor: theme.palette.grey[200],
+    padding: theme.custom.setSpace() / 2,
+    fontFamily: 'courier, mono',
+    margin: `0 0 0 ${theme.custom.setSpace() / 2}px`
+  },
+  reviewList: {
+    backgroundColor: theme.palette.grey[100]
   }
 }))
 
 export const RequestVolumeForm = ({
   formikProps,
   modalCloseHandler,
-  kEOptions
+  kEOptions,
+  trial
 }) => {
   const classes = useStyles()
+
+  const [expanded, setExpanded] = React.useState(
+    constants.VOLUME_REQUEST_FORM.ACCORDION_PANELS[0]
+  )
+
+  const [reviewModalStatus, setReviewModalStatus] = useState(false)
+
+  const handleChange = panel => (event, newExpanded) => {
+    setExpanded(newExpanded ? panel : false)
+  }
+
+  const openReviewHandler = event => setReviewModalStatus(true)
+
+  const closeReviewHandler = event => setReviewModalStatus(false)
 
   return (
     <Form
       // onSubmit={formikProps.handleSubmit}
       // onReset={formikProps.resetForm}
       className={classes.form}>
-      <Field name="country">
-        {fieldProps => (
-          <FormControl required className={classes.formGroup}>
-            <InputLabel id="country">Country</InputLabel>
-            <Select
-              labelId="country"
-              id="country"
-              name="country"
-              value={formikProps.values.country}
-              onChange={formikProps.handleChange}>
-              {kEOptions.countryOptions.map(option => (
-                <MenuItem key={option.key} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+      <Accordion
+        // square
+        expanded={
+          expanded === constants.VOLUME_REQUEST_FORM.ACCORDION_PANELS[0]
+        }
+        onChange={handleChange(
+          constants.VOLUME_REQUEST_FORM.ACCORDION_PANELS[0]
         )}
-      </Field>
-      <Field name="currency">
-        {fieldProps => (
-          <FormControl required className={classes.formGroup}>
-            <InputLabel id="currency">CPC Currency</InputLabel>
-            <Select
-              labelId="currency"
-              id="currency"
-              name="currency"
-              value={formikProps.values.currency}
-              onChange={formikProps.handleChange}>
-              {kEOptions.currencyOptions.map(option => (
-                <MenuItem key={option.key} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+        className={classes.accordion}>
+        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+          <Typography>Trial Details</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Table size="small" className={classes.table}>
+            <TableHead>
+              <TableRow className={classes.tableRow}>
+                <TableCell
+                  component="th"
+                  className={classNames(classes.headCell, classes.priceCell)}>
+                  Price for Keyword Metrics
+                </TableCell>
+                <TableCell variant="body" className={classes.priceCell}>
+                  $ {constants.VOLUME_DATA.PRICE / 100} USD
+                </TableCell>
+              </TableRow>
+              <TableRow className={classes.tableRow}>
+                <TableCell component="th" className={classes.headCell}>
+                  ID
+                </TableCell>
+                <TableCell variant="body">{trial.id}</TableCell>
+              </TableRow>
+              <TableRow className={classes.tableRow}>
+                <TableCell component="th" className={classes.headCell}>
+                  Set Fields
+                </TableCell>
+                <TableCell variant="body">{trial.heading}</TableCell>
+              </TableRow>
+              <TableRow className={classes.tableRow}>
+                <TableCell component="th" className={classes.headCell}>
+                  Entry Count
+                </TableCell>
+                <TableCell variant="body">{trial.list.length}</TableCell>
+              </TableRow>
+              <TableRow className={classes.tableRow}>
+                <TableCell component="th" className={classes.headCell}>
+                  Time Created
+                </TableCell>
+                <TableCell variant="body">{trial.timestamp}</TableCell>
+              </TableRow>
+              <TableRow className={classes.tableRow}>
+                <TableCell component="th" className={classes.headCell}>
+                  Keywords
+                </TableCell>
+                <TableCell variant="body">
+                  <Button
+                    variant="contained"
+                    onClick={openReviewHandler}
+                    startIcon={<FindInPageIcon size="small" />}
+                    classes={{
+                      contained: classes.reviewKeywordsButton
+                    }}>
+                    Review
+                  </Button>
+                  <Dialog
+                    onClose={closeReviewHandler}
+                    aria-labelledby="customized-dialog-title"
+                    open={reviewModalStatus}>
+                    <DialogTitle
+                      disableTypography
+                      id="customized-dialog-title"
+                      onClose={closeReviewHandler}
+                      className={classes.reviewListTitle}>
+                      Keyword List Review
+                    </DialogTitle>
+                    <DialogContent dividers>
+                      <DialogContentText id="alert-dialog-description">
+                        Review the list of keywords to purchase volume metrics
+                        for here. If keyword entries include domain name TLDs
+                        such as
+                        <span className={classes.code}>.com</span>,
+                        <span className={classes.code}>.net</span>,
+                        <span className={classes.code}>.club</span>, &nbsp;etc.,
+                        such TLDs will be removed, and only remaning keyword
+                        entries will be queried.
+                      </DialogContentText>
+                      <List dense className={classes.reviewList}>
+                        {trial.list.map(entry => (
+                          <ListItem key={`review-list-${entry}`}>
+                            <ListItemText primary={entry} align="center" />
+                          </ListItem>
+                        ))}
+                      </List>
+                    </DialogContent>
+                    <DialogActions>
+                      <Button
+                        autoFocus
+                        onClick={closeReviewHandler}
+                        color="primary">
+                        Close
+                      </Button>
+                    </DialogActions>
+                  </Dialog>
+                </TableCell>
+              </TableRow>
+            </TableHead>
+          </Table>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        square
+        expanded={
+          expanded === constants.VOLUME_REQUEST_FORM.ACCORDION_PANELS[1]
+        }
+        onChange={handleChange(
+          constants.VOLUME_REQUEST_FORM.ACCORDION_PANELS[1]
         )}
-      </Field>
-      <Field name="dataSource">
-        {fieldProps => (
-          <FormControl required className={classes.formGroup}>
-            <InputLabel id="dataSource">Data Source</InputLabel>
-            <Select
-              labelId="dataSource"
-              id="dataSource"
-              name="dataSource"
-              value={formikProps.values.dataSource}
-              onChange={formikProps.handleChange}>
-              {kEOptions.dataSourceOptions.map(option => (
-                <MenuItem key={option.key} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+        className={classes.accordion}>
+        <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
+          <Typography>Keyword Metric Options</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Grid container>
+            {kEFields.map(kEField => (
+              <Grid item xs={12} key={kEField.key}>
+                <FadeIn
+                  direction="x"
+                  position={Math.random() > 0.5 ? 100 : -100}>
+                  <Field name={kEField.name}>
+                    {fieldProps => {
+                      console.log(
+                        '%c fieldProps',
+                        'color: yellow; font-size: large',
+                        fieldProps
+                      )
+                      return (
+                        <FormControl required className={classes.formGroup}>
+                          <InputLabel id={kEField.key}>
+                            {kEField.label}
+                          </InputLabel>
+                          <Select
+                            labelId={kEField.key}
+                            id={kEField.key}
+                            name={fieldProps.field.name}
+                            value={fieldProps.field.value}
+                            onChange={fieldProps.field.onChange}>
+                            {kEOptions[kEField.optionsName].map(option => (
+                              <MenuItem key={option.key} value={option.value}>
+                                {option.label}
+                              </MenuItem>
+                            ))}
+                          </Select>
+                        </FormControl>
+                      )
+                    }}
+                  </Field>
+                </FadeIn>
+              </Grid>
+            ))}
+          </Grid>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        square
+        expanded={
+          expanded === constants.VOLUME_REQUEST_FORM.ACCORDION_PANELS[2]
+        }
+        onChange={handleChange(
+          constants.VOLUME_REQUEST_FORM.ACCORDION_PANELS[2]
         )}
-      </Field>
+        className={classes.accordion}>
+        <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
+          <Typography>Payment Details</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
+            lacus ex, sit amet blandit leo lobortis eget.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+
       <div className={classNames(classes.formGroup, classes.centered)}>
         <ButtonGroup color="primary" aria-label="outlined primary button group">
           <Button type="submit">Submit Order</Button>

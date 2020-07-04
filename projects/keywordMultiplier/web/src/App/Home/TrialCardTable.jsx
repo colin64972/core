@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import loadable from '@loadable/component'
-import Table from '@material-ui/core/Table'
-import TableBody from '@material-ui/core/TableBody'
-import TableCell from '@material-ui/core/TableCell'
-import TableHead from '@material-ui/core/TableHead'
-import TableRow from '@material-ui/core/TableRow'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow
+} from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search'
 import { makeStyles } from '@material-ui/styles'
 import { volumeDataFields } from './fields'

@@ -19,6 +19,7 @@ const useStyles = makeStyles(theme => ({
   },
   paper: {
     ...defaultPadding(theme.breakpoints, theme.custom.setSpace),
+    backgroundColor: theme.palette.grey[200],
     [theme.breakpoints.down('md')]: {
       margin: `0 ${theme.custom.setSpace('md')}px`
     },
@@ -96,17 +97,13 @@ const RequestVolume = ({ status, modalCloseHandler, trial }) => {
             </FadeIn>
             <FadeIn direction="x" position={-100}>
               <Typography variant="h4" className={classes.mainHeading}>
-                Request Volume Metrics
+                Keyword Volume Metrics
               </Typography>
             </FadeIn>
-            {/* <FadeIn direction="x" position={100}>
-              <Typography variant="body1" className={classes.body1}>
-                {JSON.stringify(trial, null, 2)}
-              </Typography>
-            </FadeIn> */}
             <Formik initialValues={initalValues} onSubmit={customSubmitHandler}>
               {formikProps => (
                 <RequestVolumeForm
+                  trial={trial}
                   modalCloseHandler={modalCloseHandler}
                   kEOptions={{
                     countryOptions,
