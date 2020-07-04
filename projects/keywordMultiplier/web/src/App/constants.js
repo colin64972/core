@@ -28,6 +28,7 @@ export const constants = {
   },
   REPLACEMENT_CODE: '#@$@#',
   VOLUME_DATA: {
+    PRICE: 100,
     VOLUME: {
       LABEL: 'Volume',
       VALUE: 'vol'
@@ -49,6 +50,29 @@ export const constants = {
   DEFAULT_VOLUME_REQUEST_CURRENCY: 'usd',
   DEFAULT_VOLUME_REQUEST_DATASOURCE: 'gkp',
   LOW_CREDIT_ALERT_THRESHOLD: 100000 / 2,
+  VOLUME_REQUEST_FORM: {
+    ACCORDION_PANELS: [1, 2, 3]
+  },
+  KE_OPTIONS: {
+    COUNTRY: {
+      NAME: 'country',
+      LABEL: 'Country',
+      KIND: 'dropdown',
+      OPTIONS_NAME: 'countryOptions'
+    },
+    CURRENCY: {
+      NAME: 'currency',
+      LABEL: 'CPC Currency',
+      KIND: 'dropdown',
+      OPTIONS_NAME: 'currencyOptions'
+    },
+    DATASOURCE: {
+      NAME: 'dataSource',
+      LABEL: 'Data Source',
+      KIND: 'dropdown',
+      OPTIONS_NAME: 'dataSourceOptions'
+    }
+  },
   NOTICE: {
     TIMEOUT_DELAY: process.env.NODE_ENV === 'development' ? 10000 : 5000,
     TIMEOUT_HEIGHT: 4,
