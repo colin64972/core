@@ -51,11 +51,11 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
     getWhiteSpaceSelection(state)
   )
 
-  const [modalStatus, setModalStatus] = useState(false)
+  const [drawerStatus, setDrawerStatus] = useState(false)
 
-  const openRequestVolumeHandler = event => setModalStatus(true)
+  const openDrawerHandler = event => setDrawerStatus(true)
 
-  const closeRequestVolumeHandler = event => setModalStatus(false)
+  const closeDrawerHandler = event => setDrawerStatus(false)
 
   const RequestVolumeLoadable = loadable(() =>
     import(
@@ -67,10 +67,10 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
 
   return (
     <Table size="small">
-      {modalStatus && (
+      {drawerStatus && (
         <RequestVolumeLoadable
-          status={modalStatus}
-          modalCloseHandler={closeRequestVolumeHandler}
+          drawerStatus={drawerStatus}
+          closeDrawerHandler={closeDrawerHandler}
           trial={trial}
         />
       )}
@@ -112,7 +112,7 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
                 ) : (
                   <button
                     type="button"
-                    onClick={openRequestVolumeHandler}
+                    onClick={openDrawerHandler}
                     data-id={trial.id}
                     className={classes.requestVolumeButton}>
                     <SearchIcon className={classes.searchButtonIcon} />
