@@ -28,7 +28,7 @@ export const constants = {
   },
   REPLACEMENT_CODE: '#@$@#',
   VOLUME_DATA: {
-    PRICE: 100,
+    KEYWORD_PRICE: 1,
     VOLUME: {
       LABEL: 'Volume',
       VALUE: 'vol'
