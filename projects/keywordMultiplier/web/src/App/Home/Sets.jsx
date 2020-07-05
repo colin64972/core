@@ -26,12 +26,20 @@ export const Sets = () => {
 
   const dispatch = useDispatch()
 
-  const initialValues = {
+  let initialValues = {
     ...setFields.reduce((acc, cur) => {
       let temp = acc
       temp[cur.textArea.setName] = ''
       return temp
     }, {})
+  }
+
+  if (process.env.NODE_ENV === 'development') {
+    initialValues = {
+      setField1: 'best\ncheap\ntrustworthy',
+      setField2: 'kia\nhyundai\nford',
+      setField4: 'dealer\ndealership\nstore\n'
+    }
   }
 
   const customSubmitHandler = (values, actions) =>

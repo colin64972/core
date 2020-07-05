@@ -2,6 +2,7 @@ import moment from 'moment'
 import { createHashId, optionizeObject } from '@colin30/shared/react/helpers'
 import { DOMAIN_WITH_TLD } from '@colin30/shared/raw/constants/regex'
 import { constants } from './constants'
+import { stripe } from '@colin30/shared/raw/constants/stripe'
 
 const removeAllButSpaces = line =>
   line
@@ -262,4 +263,19 @@ export const setVolumeFieldCell = (asdf, field) => {
     default:
       return asdf[field.value]
   }
+}
+
+const formatToDollars = input => {
+  const cents = Math.round(input)
+  const dollars = cents / 100
+  const stringVal = dollars.toString()
+  return stringVal.substring(0, stringVal.lastIndexOf('.') + 3)
+}
+
+export const calculateTrialPrice = itemCount => {
+  const preStripe = itemCount * constants.VOLUME_DATA.KEYWORD_PRICE
+  const stripeVariable = preStripe * stripe.VARIABLE_RATE
+  const withStripeFixed = preStripe + stripeVariable + stripe.FIXED
+  const result = formatToDollars(withStripeFixed)
+  return result
 }

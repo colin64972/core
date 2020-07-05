@@ -28,15 +28,20 @@ export const FadeIn = ({
 
   let timeline = gsap.timeline({
     paused: true,
-    delay
+    delay: process.env.NODE_ENV === 'development' ? 0 : delay
   })
+
+  let envDuration = duration
+  if (process.env.NODE_ENV === 'development') {
+    envDuration = 0.125
+  }
 
   useEffect(() => {
     if (inView) {
       timeline
-        .add(gsap.to(ref, duration, { opacity: 1 }))
+        .add(gsap.to(ref, envDuration, { opacity: 1 }))
         .add(
-          gsap.from(ref, duration, {
+          gsap.from(ref, envDuration, {
             [direction]: position,
             ease: 'back.out(1.5)'
           }),

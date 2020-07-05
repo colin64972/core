@@ -15,6 +15,10 @@ import {
   DialogContentText,
   DialogTitle,
   FormControl,
+  FormGroup,
+  FormControlLabel,
+  FormHelperText,
+  Checkbox,
   Grid,
   InputLabel,
   List,
@@ -23,17 +27,21 @@ import {
   MenuItem,
   Select,
   Table,
+  TableContainer,
+  TableBody,
   TableCell,
   TableHead,
   TableRow,
   Typography
 } from '@material-ui/core'
 import FindInPageIcon from '@material-ui/icons/FindInPage'
+import { calculateTrialPrice } from '../logic'
 import { kEFields } from './fields'
 import { constants } from '../constants'
 
 const useStyles = makeStyles(theme => ({
   accordion: {
+    'width': '100%',
     'margin': `0 0 ${theme.custom.setSpace()}px 0`,
     'overflow': 'hidden',
     '&:last-child': {
@@ -81,14 +89,23 @@ const useStyles = makeStyles(theme => ({
     margin: 0,
     borderRadius: theme.custom.borderRadius
   },
+  reviewListContainer: {
+    margin: `${theme.custom.setSpace('sm')}px 0 0 0`,
+    borderRadius: theme.custom.borderRadius,
+    backgroundColor: theme.palette.grey[50]
+  },
+  reviewListRow: {
+    border: 'none'
+  },
+  reviewListHeadCell: {
+    textAlign: 'center',
+    fontWeight: 'bold'
+  },
   code: {
     backgroundColor: theme.palette.grey[200],
     padding: theme.custom.setSpace() / 2,
     fontFamily: 'courier, mono',
     margin: `0 0 0 ${theme.custom.setSpace() / 2}px`
-  },
-  reviewList: {
-    backgroundColor: theme.palette.grey[100]
   }
 }))
 
@@ -108,7 +125,14 @@ export const RequestVolumeForm = ({
     setExpanded(newExpanded ? panel : false)
   }
 
-  const openReviewHandler = event => setReviewModalStatus(true)
+  const openReviewHandler = event => {
+    console.log(
+      '%c openReviewHandler',
+      'color: yellow; font-size: large',
+      trial.list
+    )
+    setReviewModalStatus(true)
+  }
 
   const closeReviewHandler = event => setReviewModalStatus(false)
 
@@ -117,8 +141,8 @@ export const RequestVolumeForm = ({
       // onSubmit={formikProps.handleSubmit}
       // onReset={formikProps.resetForm}
       className={classes.form}>
-      <Grid container spacing={2}>
-        <Grid item>
+      <Grid container justify="flex-start" spacing={2}>
+        <Grid item xs={12}>
           <FadeIn direction="x" position={-100}>
             <Accordion
               expanded={
@@ -134,110 +158,153 @@ export const RequestVolumeForm = ({
                 <Typography>Trial Details</Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Table size="small" className={classes.table}>
-                  <TableHead>
-                    <TableRow className={classes.tableRow}>
-                      <TableCell
-                        component="th"
-                        className={classNames(
-                          classes.headCell,
-                          classes.priceCell
-                        )}>
-                        Price for Keyword Metrics
-                      </TableCell>
-                      <TableCell variant="body" className={classes.priceCell}>
-                        $ {constants.VOLUME_DATA.PRICE / 100} USD
-                      </TableCell>
-                    </TableRow>
-                    <TableRow className={classes.tableRow}>
-                      <TableCell component="th" className={classes.headCell}>
-                        ID
-                      </TableCell>
-                      <TableCell variant="body">{trial.id}</TableCell>
-                    </TableRow>
-                    <TableRow className={classes.tableRow}>
-                      <TableCell component="th" className={classes.headCell}>
-                        Set Fields
-                      </TableCell>
-                      <TableCell variant="body">{trial.heading}</TableCell>
-                    </TableRow>
-                    <TableRow className={classes.tableRow}>
-                      <TableCell component="th" className={classes.headCell}>
-                        Entry Count
-                      </TableCell>
-                      <TableCell variant="body">{trial.list.length}</TableCell>
-                    </TableRow>
-                    <TableRow className={classes.tableRow}>
-                      <TableCell component="th" className={classes.headCell}>
-                        Time Created
-                      </TableCell>
-                      <TableCell variant="body">{trial.timestamp}</TableCell>
-                    </TableRow>
-                    <TableRow className={classes.tableRow}>
-                      <TableCell component="th" className={classes.headCell}>
-                        Keywords
-                      </TableCell>
-                      <TableCell variant="body">
-                        <Button
-                          variant="contained"
-                          onClick={openReviewHandler}
-                          startIcon={<FindInPageIcon size="small" />}
-                          classes={{
-                            contained: classes.reviewKeywordsButton
-                          }}>
-                          Review
-                        </Button>
-                        <Dialog
-                          onClose={closeReviewHandler}
-                          aria-labelledby="customized-dialog-title"
-                          open={reviewModalStatus}>
-                          <DialogTitle
-                            disableTypography
-                            id="customized-dialog-title"
+                <TableContainer className={classes.table}>
+                  <Table size="small">
+                    <TableHead>
+                      <TableRow className={classes.tableRow}>
+                        <TableCell
+                          component="th"
+                          className={classNames(
+                            classes.headCell,
+                            classes.priceCell
+                          )}>
+                          Price for Keyword Metrics
+                        </TableCell>
+                        <TableCell variant="body" className={classes.priceCell}>
+                          $&nbsp;
+                          {calculateTrialPrice(trial.list.length)}
+                          &nbsp;CAD
+                        </TableCell>
+                      </TableRow>
+                      <TableRow className={classes.tableRow}>
+                        <TableCell component="th" className={classes.headCell}>
+                          ID
+                        </TableCell>
+                        <TableCell variant="body">{trial.id}</TableCell>
+                      </TableRow>
+                      <TableRow className={classes.tableRow}>
+                        <TableCell component="th" className={classes.headCell}>
+                          Set Fields
+                        </TableCell>
+                        <TableCell variant="body">{trial.heading}</TableCell>
+                      </TableRow>
+                      <TableRow className={classes.tableRow}>
+                        <TableCell component="th" className={classes.headCell}>
+                          Entry Count
+                        </TableCell>
+                        <TableCell variant="body">
+                          {trial.list.length}
+                        </TableCell>
+                      </TableRow>
+                      <TableRow className={classes.tableRow}>
+                        <TableCell component="th" className={classes.headCell}>
+                          Time Created
+                        </TableCell>
+                        <TableCell variant="body">{trial.timestamp}</TableCell>
+                      </TableRow>
+                      <TableRow className={classes.tableRow}>
+                        <TableCell component="th" className={classes.headCell}>
+                          Keywords
+                        </TableCell>
+                        <TableCell variant="body">
+                          <Button
+                            size="small"
+                            variant="contained"
+                            onClick={openReviewHandler}
+                            startIcon={<FindInPageIcon size="small" />}
+                            classes={{
+                              contained: classes.reviewKeywordsButton
+                            }}>
+                            Review
+                          </Button>
+                          <Dialog
                             onClose={closeReviewHandler}
-                            className={classes.reviewListTitle}>
-                            Keyword List Review
-                          </DialogTitle>
-                          <DialogContent dividers>
-                            <DialogContentText id="alert-dialog-description">
-                              Review the list of keywords to purchase volume
-                              metrics for here. If keyword entries include
-                              domain name TLDs such as
-                              <span className={classes.code}>.com</span>,
-                              <span className={classes.code}>.net</span>,
-                              <span className={classes.code}>.club</span>,
-                              &nbsp;etc., such TLDs will be removed, and only
-                              remaning keyword entries will be queried.
-                            </DialogContentText>
-                            <List dense className={classes.reviewList}>
-                              {trial.list.map(entry => (
-                                <ListItem key={`review-list-${entry}`}>
-                                  <ListItemText
-                                    primary={entry}
-                                    align="center"
-                                  />
-                                </ListItem>
-                              ))}
-                            </List>
-                          </DialogContent>
-                          <DialogActions>
-                            <Button
-                              autoFocus
-                              onClick={closeReviewHandler}
-                              color="primary">
-                              Close
-                            </Button>
-                          </DialogActions>
-                        </Dialog>
-                      </TableCell>
-                    </TableRow>
-                  </TableHead>
-                </Table>
+                            aria-labelledby="customized-dialog-title"
+                            open={reviewModalStatus}>
+                            <DialogTitle
+                              disableTypography
+                              id="customized-dialog-title"
+                              onClose={closeReviewHandler}
+                              className={classes.reviewListTitle}>
+                              Keyword List Review
+                            </DialogTitle>
+                            <DialogContent dividers>
+                              <DialogContentText id="alert-dialog-description">
+                                Review the list of keywords to purchase volume
+                                metrics for here. If keyword entries include
+                                domain name TLDs such as
+                                <span className={classes.code}>.com</span>,
+                                <span className={classes.code}>.net</span>,
+                                <span className={classes.code}>.club</span>,
+                                &nbsp;etc., such TLDs will be removed, and only
+                                remaning keyword entries will be queried.
+                              </DialogContentText>
+                              <TableContainer
+                                className={classes.reviewListContainer}>
+                                <Table size="small">
+                                  <TableHead>
+                                    <TableRow>
+                                      <TableCell
+                                        component="th"
+                                        className={classes.reviewListHeadCell}>
+                                        Entry Number
+                                      </TableCell>
+                                      <TableCell
+                                        component="th"
+                                        className={classes.reviewListHeadCell}>
+                                        Keyword
+                                      </TableCell>
+                                      <TableCell
+                                        component="th"
+                                        className={classes.reviewListHeadCell}>
+                                        Price
+                                      </TableCell>
+                                    </TableRow>
+                                  </TableHead>
+                                  <TableBody>
+                                    {trial.list.map((entry, ind) => (
+                                      <TableRow
+                                        key={`${entry}-${ind}`}
+                                        hover
+                                        className={classes.reviewListRow}>
+                                        <TableCell align="center">
+                                          {ind + 1}
+                                        </TableCell>
+                                        <TableCell align="center">
+                                          {entry}
+                                        </TableCell>
+                                        <TableCell align="center">
+                                          $ 0.0
+                                          {
+                                            constants.VOLUME_DATA.KEYWORD_PRICE
+                                          }{' '}
+                                          CAD
+                                        </TableCell>
+                                      </TableRow>
+                                    ))}
+                                  </TableBody>
+                                </Table>
+                              </TableContainer>
+                            </DialogContent>
+                            <DialogActions>
+                              <Button
+                                autoFocus
+                                onClick={closeReviewHandler}
+                                color="primary">
+                                Close
+                              </Button>
+                            </DialogActions>
+                          </Dialog>
+                        </TableCell>
+                      </TableRow>
+                    </TableHead>
+                  </Table>
+                </TableContainer>
               </AccordionDetails>
             </Accordion>
           </FadeIn>
         </Grid>
-        <Grid item>
+        <Grid item xs={12}>
           <FadeIn direction="x" position={100}>
             <Accordion
               square
@@ -328,6 +395,31 @@ export const RequestVolumeForm = ({
                 </Typography>
               </AccordionDetails>
             </Accordion>
+          </FadeIn>
+        </Grid>
+        <Grid item xs={12}>
+          <FadeIn direction="x" position={100}>
+            <Grid container justify="flex-start">
+              <Field name="acceptTerms">
+                {fieldProps => (
+                  <FormControl component="fieldset">
+                    <FormGroup>
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={fieldProps.value}
+                            onChange={fieldProps.onChange}
+                            name={fieldProps.field.name}
+                          />
+                        }
+                        label="Accept Terms and Conditions"
+                      />
+                    </FormGroup>
+                    <FormHelperText>Required</FormHelperText>
+                  </FormControl>
+                )}
+              </Field>
+            </Grid>
           </FadeIn>
         </Grid>
       </Grid>
