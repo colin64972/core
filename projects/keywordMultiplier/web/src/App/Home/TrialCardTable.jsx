@@ -11,7 +11,7 @@ import {
 import SearchIcon from '@material-ui/icons/Search'
 import { makeStyles } from '@material-ui/styles'
 import { volumeDataFields } from './fields'
-import { constants } from '../constants'
+import { KeConstants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { formatProductLine, setVolumeFieldCell } from '../logic'
 import { getMatchType, getWhiteSpaceSelection } from '../../store/selectors'
 
@@ -80,7 +80,7 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
           <TableCell className={classes.tableHeadCell}>Product</TableCell>
           {!volumeUnobtainable && (
             <TableCell className={classes.tableHeadCell}>
-              {constants.VOLUME_DATA.VOLUME.LABEL}
+              {KeConstants.VOLUME_DATA.VOLUME.LABEL}
             </TableCell>
           )}
           {trial.volumeData &&
@@ -107,7 +107,7 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
               <TableCell component="td">
                 {trial.volumeData ? (
                   trial.volumeData[keywordIndex][
-                    constants.VOLUME_DATA.VOLUME.VALUE
+                    KeConstants.VOLUME_DATA.VOLUME.VALUE
                   ]
                 ) : (
                   <button

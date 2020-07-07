@@ -1,4 +1,4 @@
-import { constants } from '../../App/constants'
+import { KeConstants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { types } from '../types'
 
 const defaultState = {
@@ -8,21 +8,21 @@ const defaultState = {
     shown: []
   },
   spinnerStatuses: {
-    [constants.SETS_FORM_NAME]: false,
-    [constants.VOLUME_SPINNER]: false
+    [KeConstants.SETS_FORM_NAME]: false,
+    [KeConstants.VOLUME_SPINNER]: false
   },
-  matchType: constants.MATCHTYPES.BROAD,
-  matchTypePrev: constants.MATCHTYPES.BROAD,
+  matchType: KeConstants.MATCHTYPES.BROAD,
+  matchTypePrev: KeConstants.MATCHTYPES.BROAD,
   copySettings: {
     dataOnly: false
   },
-  whiteSpaceSelection: constants.WHITESPACE_OPTIONS.DISABLED.VALUE,
+  whiteSpaceSelection: KeConstants.WHITESPACE_OPTIONS.DISABLED.VALUE,
   notice: {
     show: false,
     item: null,
     choice: null
   },
-  ip: constants.DEFAULT_IP
+  clientIp: null
 }
 
 export const app = (state = defaultState, action) => {
@@ -86,7 +86,7 @@ export const app = (state = defaultState, action) => {
         ...state,
         matchType: action.matchType,
         matchTypePrev: action.matchType,
-        whiteSpaceSelection: constants.WHITESPACE_OPTIONS.DISABLED.VALUE
+        whiteSpaceSelection: KeConstants.WHITESPACE_OPTIONS.DISABLED.VALUE
       }
     case types.ADD_NOTICE:
       return {
@@ -131,16 +131,16 @@ export const app = (state = defaultState, action) => {
     case types.ADD_IP:
       return {
         ...state,
-        ip: action.ip
+        clientIp: action.clientIp
       }
     case types.CHANGE_WHITESPACE_SELECTION:
       return {
         ...state,
         whiteSpaceSelection: action.selection,
         matchType:
-          action.selection === constants.WHITESPACE_OPTIONS.DISABLED.VALUE
+          action.selection === KeConstants.WHITESPACE_OPTIONS.DISABLED.VALUE
             ? state.matchTypePrev
-            : constants.MATCHTYPES.BROAD
+            : KeConstants.MATCHTYPES.BROAD
       }
     case types.SET_SPINNER_STATUS:
       return {

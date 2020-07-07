@@ -10,7 +10,7 @@ import RateReviewIcon from '@material-ui/icons/RateReview'
 import VpnLockIcon from '@material-ui/icons/VpnLock'
 import WebIcon from '@material-ui/icons/Web'
 import { makeStyles } from '@material-ui/styles'
-import { constants } from '../constants'
+import { KeConstants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { ColinProfile } from '../../../assets'
 
 const useStyles = makeStyles(theme => ({
@@ -107,25 +107,25 @@ export const Footer = () => {
   const menuItems = [
     {
       label: 'Home',
-      href: constants.URLS.HOME,
+      href: KeConstants.URLS.HOME,
       key: createHashId(),
       icon: <WebIcon className={classes.menuItemIcon} />
     },
     {
       label: 'Terms of Service',
-      href: constants.URLS.TOS,
+      href: KeConstants.URLS.TOS,
       key: createHashId(),
       icon: <GavelIcon className={classes.menuItemIcon} />
     },
     {
       label: 'Privacy Policy',
-      href: constants.URLS.PP,
+      href: KeConstants.URLS.PP,
       key: createHashId(),
       icon: <VpnLockIcon className={classes.menuItemIcon} />
     },
     {
       label: 'Feedback',
-      href: constants.URLS.FEEDBACK,
+      href: KeConstants.URLS.FEEDBACK,
       key: createHashId(),
       icon: <RateReviewIcon className={classes.menuItemIcon} />
     }
@@ -157,7 +157,7 @@ export const Footer = () => {
             <Link
               component="button"
               className={classes.badgeButton}
-              href={constants.URLS.NEBOCAT}
+              href={KeConstants.URLS.NEBOCAT}
               onClick={() => {}}>
               <Typography variant="h6" className={classes.badgeHeading}>
                 Need help with JavaScript

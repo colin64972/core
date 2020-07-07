@@ -25,16 +25,16 @@ provider:
         - arn:aws:dynamodb:${env:REGION}:*:table/${env:TABLE_NAME}
 
 functions:
-  postTrial:
-    name: ${env:SERVICE_NAME}-postTrial
-    handler: index.postTrial
+  createTrialHandler:
+    name: ${env:SERVICE_NAME}-createTrialHandler
+    handler: index.createTrialHandler
     events:
       - httpApi:
           path: /${env:RESOURCE_NAME}
           method: POST
-  getMeta:
-    name: ${env:SERVICE_NAME}-getMeta
-    handler: index.getMeta
+  getKeDataHandler:
+    name: ${env:SERVICE_NAME}-getKeDataHandler
+    handler: index.getKeDataHandler
     events:
       - httpApi:
           path: /ke
