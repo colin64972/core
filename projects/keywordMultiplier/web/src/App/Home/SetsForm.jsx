@@ -10,7 +10,7 @@ import ShuffleIcon from '@material-ui/icons/Shuffle'
 import { makeStyles } from '@material-ui/styles'
 import { setFields } from './fields'
 import { SetsTextAreaField } from './SetsTextAreaField'
-import { constants } from '../constants'
+import { KeConstants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { getSetsWithValues } from '../logic'
 import { types } from '../../store/types'
 
@@ -132,7 +132,7 @@ export const SetsForm = props => {
   const disabledSets = useSelector(state => state.app?.disabledSets)
 
   const isSubmitting = useSelector(
-    state => state.app?.spinnerStatuses[constants.SETS_FORM_NAME]
+    state => state.app?.spinnerStatuses[KeConstants.SETS_FORM_NAME]
   )
 
   const setsWithValues = getSetsWithValues(props.values)

@@ -1,21 +1,12 @@
-import { get } from 'axios'
 import { KeConstants } from '@colin30/shared/raw/constants/keywordMultiplier'
+import { fetchKeData } from './fetchers'
 
-export const fetchKeMeta = async queryStringParameters => {
-  const options = {
-    headers: {
-      Authorization: `Bearer ${process.env.KE_API_KEY}`,
-      Accept: 'application/json'
-    }
-  }
-
+export const getKeData = async queryStringParameters => {
   const { resource } = queryStringParameters
 
   let resources = KeConstants.ENDPOINTS[resource]
 
-  const promises = resources.map(path =>
-    get(`https://api.keywordseverywhere.com/${path}`, options)
-  )
+  const promises = resources.map(path => fetchKeData(path))
 
   try {
     const responses = await Promise.all(promises)
@@ -32,7 +23,7 @@ export const fetchKeMeta = async queryStringParameters => {
       body: JSON.stringify(data)
     }
   } catch (error) {
-    console.error('fetchKeMeta', error, error.response?.status)
+    console.error('getKeData', error, error.response?.status)
 
     let statusCode = 500
 

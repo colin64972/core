@@ -7,10 +7,7 @@ const options = {
   }
 }
 
-export const fetchClientIp = async () =>
-  await get('https://api.ipify.org?format=json', options)
-
-export const postTrial = async payload => {
+export const createTrial = async payload => {
   let url = 'http://localhost:2000'
   if (process.env.NODE_ENV !== 'development') {
     url = 'https://apis.colin30.com/keyword-multiplier'
@@ -19,38 +16,11 @@ export const postTrial = async payload => {
   return res
 }
 
-export const fetchKeMeta = async () => {
-  let url = 'http://localhost:2000'
-  if (process.env.NODE_ENV !== 'development') {
-    url = 'https://apis.colin30.com/keyword-multiplier'
-  }
-  const res = await get(`${url}/ke?resource=meta`, options)
-  return res
-}
-
-export const fetchKeResource = async resource => {
+export const fetchKeData = async resource => {
   let url = 'http://localhost:2000'
   if (process.env.NODE_ENV !== 'development') {
     url = 'https://apis.colin30.com/keyword-multiplier'
   }
   const res = await get(`${url}/ke?resource=${resource}`, options)
-  return res
-}
-
-export const fetchKeCredts = async () => {
-  let url = 'http://localhost:2000'
-  if (process.env.NODE_ENV !== 'development') {
-    url = 'https://apis.colin30.com/keyword-multiplier'
-  }
-  const res = await get(`${url}/ke?resource=credits`, options)
-  return res
-}
-
-export const fetchKeOptions = async () => {
-  let url = 'http://localhost:2000'
-  if (process.env.NODE_ENV !== 'development') {
-    url = 'https://apis.colin30.com/keyword-multiplier'
-  }
-  const res = await get(`${url}/ke?resource=options`, options)
   return res
 }

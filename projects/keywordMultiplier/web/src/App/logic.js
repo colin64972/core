@@ -1,7 +1,7 @@
 import moment from 'moment'
 import { createHashId, optionizeObject } from '@colin30/shared/react/helpers'
 import { DOMAIN_WITH_TLD } from '@colin30/shared/raw/constants/regex'
-import { constants } from './constants'
+import { KeConstants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { stripe } from '@colin30/shared/raw/constants/stripe'
 
 const removeAllButSpaces = line =>
@@ -37,13 +37,13 @@ export const formatProductLine = (value, matchType, whiteSpaceCode) => {
   let result = ''
   if (whiteSpaceCode) {
     switch (whiteSpaceCode) {
-      case constants.WHITESPACE_OPTIONS.NONE.VALUE:
+      case KeConstants.WHITESPACE_OPTIONS.NONE.VALUE:
         result = value.replace(/\s+/g, '')
         break
-      case constants.WHITESPACE_OPTIONS.HYPHEN.VALUE:
+      case KeConstants.WHITESPACE_OPTIONS.HYPHEN.VALUE:
         result = value.replace(/\s+/g, '-')
         break
-      case constants.WHITESPACE_OPTIONS.UNDERSCORE.VALUE:
+      case KeConstants.WHITESPACE_OPTIONS.UNDERSCORE.VALUE:
         result = value.replace(/\s+/g, '_')
         break
       default:
@@ -55,13 +55,13 @@ export const formatProductLine = (value, matchType, whiteSpaceCode) => {
     }
   } else {
     switch (matchType) {
-      case constants.MATCHTYPES.BROAD_MODIFIER:
+      case KeConstants.MATCHTYPES.BROAD_MODIFIER:
         result = value.replace(/(\w\B\w+)/g, '+$1').replace(/\.\+/, '+.')
         break
-      case constants.MATCHTYPES.PHRASE:
+      case KeConstants.MATCHTYPES.PHRASE:
         result = `"${value}"`
         break
-      case constants.MATCHTYPES.EXACT:
+      case KeConstants.MATCHTYPES.EXACT:
         result = `[${value}]`
         break
       default:
@@ -78,8 +78,8 @@ const buildCopyData = (tableBody, dataOnly, matchType) => {
     if (dataOnly) {
       result += `${row.firstChild.nextSibling.innerHTML}\n`
     } else {
-      if (matchType === constants.MATCHTYPES.BROAD_MODIFIER) {
-        result += `${tableBody.id}\t${row.firstChild.innerHTML}\t${constants.EXCEL_TEXT_QUALIFIER}${row.firstChild.nextSibling.innerHTML}\n`
+      if (matchType === KeConstants.MATCHTYPES.BROAD_MODIFIER) {
+        result += `${tableBody.id}\t${row.firstChild.innerHTML}\t${KeConstants.EXCEL_TEXT_QUALIFIER}${row.firstChild.nextSibling.innerHTML}\n`
       } else {
         result += `${tableBody.id}\t${row.firstChild.innerHTML}\t${row.firstChild.nextSibling.innerHTML}\n`
       }
@@ -117,19 +117,19 @@ export const copyToClipboard = (input, dataOnly, matchType) => {
 
 export const generateNotice = (
   message,
-  kind = constants.NOTICE.KINDS.SIMPLE
+  kind = KeConstants.NOTICE.KINDS.SIMPLE
 ) => {
   const result = {
     id: createHashId(),
     kind,
-    bg: constants.NOTICE.BGS.PASS,
+    bg: KeConstants.NOTICE.BGS.PASS,
     heading: 'Success',
     message,
     choice: null,
     moment: moment()
   }
-  if (kind !== constants.NOTICE.KINDS.SIMPLE) {
-    result.bg = constants.NOTICE.BGS.WARN
+  if (kind !== KeConstants.NOTICE.KINDS.SIMPLE) {
+    result.bg = KeConstants.NOTICE.BGS.WARN
     result.heading = 'Warning'
   }
   return result
@@ -156,6 +156,36 @@ export const decorateTrial = data => ({
   heading: data.trialProduct.heading,
   list: data.trialProduct.list,
   timestamp: moment(data.createdAt).format('HH:mm:ss'),
+  clientIp: {
+    ip: '139.99.131.38',
+    type: 'ipv4',
+    continent_code: 'OC',
+    continent_name: 'Oceania',
+    country_code: 'AU',
+    country_name: 'Australia',
+    region_code: 'NSW',
+    region_name: 'New South Wales',
+    city: 'Sydney',
+    zip: '2060',
+    latitude: -33.839969635009766,
+    longitude: 151.19581604003906,
+    location: {
+      geoname_id: 2147714,
+      capital: 'Canberra',
+      languages: [
+        {
+          code: 'en',
+          name: 'English',
+          native: 'English'
+        }
+      ],
+      country_flag: 'http://assets.ipstack.com/flags/au.svg',
+      country_flag_emoji: '🇦🇺',
+      country_flag_emoji_unicode: 'U+1F1E6 U+1F1FA',
+      calling_code: '61',
+      is_eu: false
+    }
+  },
   createdAt: data.createdAt,
   volumeData: data?.volumeData
   // volumeData: [
@@ -256,9 +286,9 @@ const createTrendChart = dataPoints => JSON.stringify(dataPoints)
 
 export const setVolumeFieldCell = (asdf, field) => {
   switch (field.label) {
-    case constants.VOLUME_DATA.CPC.LABEL:
+    case KeConstants.VOLUME_DATA.CPC.LABEL:
       return asdf[field.value].value
-    case constants.VOLUME_DATA.TREND.LABEL:
+    case KeConstants.VOLUME_DATA.TREND.LABEL:
       return createTrendChart(asdf[field.value])
     default:
       return asdf[field.value]
@@ -273,7 +303,7 @@ const formatToDollars = input => {
 }
 
 export const calculateTrialPrice = itemCount => {
-  const preStripe = itemCount * constants.VOLUME_DATA.KEYWORD_PRICE
+  const preStripe = itemCount * KeConstants.VOLUME_DATA.KEYWORD_PRICE
   const stripeVariable = preStripe * stripe.VARIABLE_RATE
   const withStripeFixed = preStripe + stripeVariable + stripe.FIXED
   const result = formatToDollars(withStripeFixed)
