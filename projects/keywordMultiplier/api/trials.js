@@ -2,6 +2,7 @@ import AWS from 'aws-sdk'
 import { dynamoDbConstants } from '@colin30/shared/raw/constants/dynamoDb'
 import { proxyServiceError } from '@colin30/shared/serverless/proxyServiceError'
 import { createHashId } from '@colin30/shared/react/helpers'
+import { fetchClientIp } from './fetchers'
 import { processTrial } from './logic'
 
 const dbOptions = {}
@@ -13,15 +14,21 @@ if (process.env.IS_LOCAL || process.env.IS_OFFLINE) {
 
 const docClient = new AWS.DynamoDB.DocumentClient(dbOptions)
 
-export const createOne = async eventBody => {
+export const createTrial = async eventBody => {
   try {
     let parsed = JSON.parse(eventBody)
+
+    let { clientIp } = parsed
+
+    if (!clientIp) {
+      clientIp = await fetchClientIp()
+    }
 
     const timestamp = new Date().getTime()
 
     const trialData = {
       id: createHashId(),
-      ipAddress: parsed.ipAddress,
+      clientIp,
       sets: parsed.sets,
       createdAt: timestamp,
       updatedAt: timestamp

@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography'
 import InfoIcon from '@material-ui/icons/Info'
 import { makeStyles } from '@material-ui/styles'
 import { Footer } from './common/Footer'
-import { constants } from '../App/constants'
+import { KeConstants } from '@colin30/shared/raw/constants/keywordMultiplier'
 
 const useStyles = makeStyles(theme => ({
   notFoundSection: {
@@ -85,10 +85,10 @@ const NotFoundComp = props => {
                 Back to the{' '}
                 <Link
                   className={classes.appLink}
-                  href={constants.URLS.HOME}
+                  href={KeConstants.URLS.HOME}
                   onClick={event => {
                     event.preventDefault()
-                    history.push(constants.URLS.HOME)
+                    history.push(KeConstants.URLS.HOME)
                   }}>
                   app!
                 </Link>

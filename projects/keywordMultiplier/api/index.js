@@ -1,5 +1,5 @@
-import { createOne } from './trials'
-import { fetchKeMeta } from './keywordsEverywhere'
+import { createTrial } from './trials'
+import { getKeData } from './keywordsEverywhere'
 
 const checkAuthorization = (authHeader, callback) => {
   if (authHeader !== 'secret')
@@ -8,14 +8,14 @@ const checkAuthorization = (authHeader, callback) => {
     })
 }
 
-export const postTrial = async (event, context, callback) => {
+export const createTrialHandler = async (event, context, callback) => {
   // checkAuthorization(event.headers?.Authorization, callback)
-  const slsRes = await createOne(event.body)
+  const slsRes = await createTrial(event.body)
   return callback(null, slsRes)
 }
 
-export const getMeta = async (event, context, callback) => {
+export const getKeDataHandler = async (event, context, callback) => {
   // checkAuthorization(event.headers?.Authorization, callback)
-  const slsRes = await fetchKeMeta(event.queryStringParameters)
+  const slsRes = await getKeData(event.queryStringParameters)
   return callback(null, slsRes)
 }
