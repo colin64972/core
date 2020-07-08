@@ -51,27 +51,27 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
     getWhiteSpaceSelection(state)
   )
 
-  const [drawerStatus, setDrawerStatus] = useState(false)
+  const [dialogStatus, setDialogStatus] = useState(false)
 
-  const openDrawerHandler = event => setDrawerStatus(true)
+  const openDialogHandler = event => setDialogStatus(true)
 
-  const closeDrawerHandler = event => setDrawerStatus(false)
+  const closeDialogHandler = event => setDialogStatus(false)
 
-  const RequestVolumeLoadable = loadable(() =>
+  const VolumeLoadable = loadable(() =>
     import(
-      /* webpackChunkName: "chunk-RequestVolume" */
+      /* webpackChunkName: "chunk-Volume" */
       /* webpackPrefetch: true */
-      './RequestVolume'
+      './Volume'
     )
   )
 
   return (
     <Table size="small">
-      {drawerStatus && (
-        <RequestVolumeLoadable
-          drawerStatus={drawerStatus}
-          closeDrawerHandler={closeDrawerHandler}
-          trial={trial}
+      {dialogStatus && (
+        <VolumeLoadable
+          dialogStatus={dialogStatus}
+          closeDialogHandler={closeDialogHandler}
+          trialId={trial.id}
         />
       )}
       <TableHead>
@@ -112,7 +112,7 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
                 ) : (
                   <button
                     type="button"
-                    onClick={openDrawerHandler}
+                    onClick={openDialogHandler}
                     data-id={trial.id}
                     className={classes.requestVolumeButton}>
                     <SearchIcon className={classes.searchButtonIcon} />
