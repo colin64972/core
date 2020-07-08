@@ -13,9 +13,9 @@ export function* getKeOptions() {
     const { countries, currencies } = yield select(state => state.kE)
     if (!countries || !currencies) {
       let result = optionsMock
-      // if (process.env.NODE_ENV !== 'development') {
-      result = yield call(fetchKeData, Object.keys(constants.ENDPOINTS)[0])
-      // }
+      if (process.env.NODE_ENV !== 'development') {
+        result = yield call(fetchKeData, Object.keys(constants.ENDPOINTS)[0])
+      }
       const decoratedData = decorateKeOptions(result.data)
       return yield put({
         type: types.SET_KE_OPTIONS,
@@ -29,9 +29,9 @@ export function* getKeOptions() {
 export function* getKeCredits() {
   try {
     let result = creditsMock
-    // if (process.env.NODE_ENV !== 'development') {
-    result = yield call(fetchKeData, Object.keys(constants.ENDPOINTS)[1])
-    // }
+    if (process.env.NODE_ENV !== 'development') {
+      result = yield call(fetchKeData, Object.keys(constants.ENDPOINTS)[1])
+    }
     const credits = result?.data.credits[0]
 
     if (credits < constants.LOW_CREDIT_ALERT_THRESHOLD) {

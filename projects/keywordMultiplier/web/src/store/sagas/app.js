@@ -11,6 +11,8 @@ import {
   findEnabledSets
 } from '../../App/logic'
 
+import { ipMock } from '@colin30/shared/raw/mocks/keywordMultiplier'
+
 export function* multiplySets(action) {
   const notice = generateNotice('Check your results below')
   try {
@@ -27,6 +29,9 @@ export function* multiplySets(action) {
       action.values
     )
     let clientIp = yield select(state => state.app?.clientIp)
+    if (process.env.NODE_ENV === 'development') {
+      clientIp = ipMock
+    }
     const posted = yield call(createTrial, {
       sets: setsEnabled,
       clientIp
