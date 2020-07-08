@@ -6,14 +6,17 @@ import Dialog from '@material-ui/core/Dialog'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/styles'
 import { defaultPadding } from '@colin30/shared/react/theming'
-import { RequestVolumeForm } from './RequestVolumeForm'
-import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
+import { VolumeForm } from './VolumeForm'
 
 const useStyles = makeStyles(theme => ({
   paper: {
-    ...theme.custom.setFlex('column', 'center', 'flex-start'),
-    ...defaultPadding(theme.breakpoints, theme.custom.setSpace),
-    backgroundColor: theme.palette.secondary[100]
+    backgroundColor: theme.palette.secondary[100],
+    [theme.breakpoints.up('xs')]: {
+      padding: theme.custom.setSpace('lg')
+    },
+    [theme.breakpoints.down('xs')]: {
+      padding: theme.custom.setSpace()
+    }
   },
   subHeading: {
     width: '100%',
@@ -26,7 +29,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const RequestVolume = ({ drawerStatus, closeDrawerHandler, trial }) => {
+const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
   const classes = useStyles()
 
   const countryOptions = useSelector(state => state.kE.countries)
@@ -34,15 +37,16 @@ const RequestVolume = ({ drawerStatus, closeDrawerHandler, trial }) => {
   const dataSourceOptions = useSelector(state => state.kE.dataSources)
 
   const initalValues = {
-    country: countryOptions.find(
-      option => option.value === constants.DEFAULT_VOLUME_REQUEST_COUNTRY
-    ).value,
-    currency: currencyOptions.find(
-      option => option.value === constants.DEFAULT_VOLUME_REQUEST_CURRENCY
-    ).value,
-    dataSource: dataSourceOptions.find(
-      option => option.value === constants.DEFAULT_VOLUME_REQUEST_DATASOURCE
-    ).value
+    country: '',
+    currency: '',
+    dataSource: '',
+    acceptTerms: false,
+    cardNumber: '',
+    expMonth: '',
+    expYear: '',
+    code: '',
+    email: '',
+    billingCountry: ''
   }
 
   const customSubmitHandler = (values, actions) => {
@@ -56,7 +60,7 @@ const RequestVolume = ({ drawerStatus, closeDrawerHandler, trial }) => {
 
   return (
     <Dialog
-      open={drawerStatus}
+      open={dialogStatus}
       transitionDuration={500}
       disableBackdropClick
       disableEscapeKeyDown
@@ -78,15 +82,15 @@ const RequestVolume = ({ drawerStatus, closeDrawerHandler, trial }) => {
       </FadeIn>
       <Formik initialValues={initalValues} onSubmit={customSubmitHandler}>
         {formikProps => (
-          <RequestVolumeForm
-            trial={trial}
-            closeDrawerHandler={closeDrawerHandler}
+          <VolumeForm
+            formikProps={formikProps}
+            closeDialogHandler={closeDialogHandler}
+            trialId={trialId}
             kEOptions={{
               countryOptions,
               currencyOptions,
               dataSourceOptions
             }}
-            formikProps={formikProps}
           />
         )}
       </Formik>
@@ -94,4 +98,4 @@ const RequestVolume = ({ drawerStatus, closeDrawerHandler, trial }) => {
   )
 }
 
-export default RequestVolume
+export default Volume
