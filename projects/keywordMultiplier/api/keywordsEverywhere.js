@@ -1,10 +1,10 @@
-import { KeConstants } from '@colin30/shared/raw/constants/keywordMultiplier'
+import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { fetchKeData } from './fetchers'
 
 export const getKeData = async queryStringParameters => {
   const { resource } = queryStringParameters
 
-  let resources = KeConstants.ENDPOINTS[resource]
+  let resources = constants.ENDPOINTS[resource]
 
   const promises = resources.map(path => fetchKeData(path))
 

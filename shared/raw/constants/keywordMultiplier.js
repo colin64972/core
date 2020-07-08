@@ -3,7 +3,7 @@ const countriesPath = 'v1/countries'
 const currenciesPath = 'v1/currencies'
 const keywordsPath = 'v1/get_keyword_data'
 
-exports.KeConstants = {
+exports.constants = {
   SETS_FORM_NAME: 'setsForm',
   EXCEL_TEXT_QUALIFIER: "'",
   VOLUME_SPINNER: 'volume',

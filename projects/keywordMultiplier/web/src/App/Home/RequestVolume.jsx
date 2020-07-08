@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/styles'
 import { defaultPadding } from '@colin30/shared/react/theming'
 import { RequestVolumeForm } from './RequestVolumeForm'
-import { KeConstants } from '@colin30/shared/raw/constants/keywordMultiplier'
+import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -35,13 +35,13 @@ const RequestVolume = ({ drawerStatus, closeDrawerHandler, trial }) => {
 
   const initalValues = {
     country: countryOptions.find(
-      option => option.value === KeConstants.DEFAULT_VOLUME_REQUEST_COUNTRY
+      option => option.value === constants.DEFAULT_VOLUME_REQUEST_COUNTRY
     ).value,
     currency: currencyOptions.find(
-      option => option.value === KeConstants.DEFAULT_VOLUME_REQUEST_CURRENCY
+      option => option.value === constants.DEFAULT_VOLUME_REQUEST_CURRENCY
     ).value,
     dataSource: dataSourceOptions.find(
-      option => option.value === KeConstants.DEFAULT_VOLUME_REQUEST_DATASOURCE
+      option => option.value === constants.DEFAULT_VOLUME_REQUEST_DATASOURCE
     ).value
   }
 
