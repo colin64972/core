@@ -1,4 +1,4 @@
-import { KeConstants } from '@colin30/shared/raw/constants/keywordMultiplier'
+import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { types } from '../types'
 
 const defaultState = {
@@ -8,15 +8,15 @@ const defaultState = {
     shown: []
   },
   spinnerStatuses: {
-    [KeConstants.SETS_FORM_NAME]: false,
-    [KeConstants.VOLUME_SPINNER]: false
+    [constants.SETS_FORM_NAME]: false,
+    [constants.VOLUME_SPINNER]: false
   },
-  matchType: KeConstants.MATCHTYPES.BROAD,
-  matchTypePrev: KeConstants.MATCHTYPES.BROAD,
+  matchType: constants.MATCHTYPES.BROAD,
+  matchTypePrev: constants.MATCHTYPES.BROAD,
   copySettings: {
     dataOnly: false
   },
-  whiteSpaceSelection: KeConstants.WHITESPACE_OPTIONS.DISABLED.VALUE,
+  whiteSpaceSelection: constants.WHITESPACE_OPTIONS.DISABLED.VALUE,
   notice: {
     show: false,
     item: null,
@@ -86,7 +86,7 @@ export const app = (state = defaultState, action) => {
         ...state,
         matchType: action.matchType,
         matchTypePrev: action.matchType,
-        whiteSpaceSelection: KeConstants.WHITESPACE_OPTIONS.DISABLED.VALUE
+        whiteSpaceSelection: constants.WHITESPACE_OPTIONS.DISABLED.VALUE
       }
     case types.ADD_NOTICE:
       return {
@@ -138,9 +138,9 @@ export const app = (state = defaultState, action) => {
         ...state,
         whiteSpaceSelection: action.selection,
         matchType:
-          action.selection === KeConstants.WHITESPACE_OPTIONS.DISABLED.VALUE
+          action.selection === constants.WHITESPACE_OPTIONS.DISABLED.VALUE
             ? state.matchTypePrev
-            : KeConstants.MATCHTYPES.BROAD
+            : constants.MATCHTYPES.BROAD
       }
     case types.SET_SPINNER_STATUS:
       return {

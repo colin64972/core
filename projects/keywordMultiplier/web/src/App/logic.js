@@ -1,7 +1,7 @@
 import moment from 'moment'
 import { createHashId, optionizeObject } from '@colin30/shared/react/helpers'
 import { DOMAIN_WITH_TLD } from '@colin30/shared/raw/constants/regex'
-import { KeConstants } from '@colin30/shared/raw/constants/keywordMultiplier'
+import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { stripe } from '@colin30/shared/raw/constants/stripe'
 
 const removeAllButSpaces = line =>
@@ -37,13 +37,13 @@ export const formatProductLine = (value, matchType, whiteSpaceCode) => {
   let result = ''
   if (whiteSpaceCode) {
     switch (whiteSpaceCode) {
-      case KeConstants.WHITESPACE_OPTIONS.NONE.VALUE:
+      case constants.WHITESPACE_OPTIONS.NONE.VALUE:
         result = value.replace(/\s+/g, '')
         break
-      case KeConstants.WHITESPACE_OPTIONS.HYPHEN.VALUE:
+      case constants.WHITESPACE_OPTIONS.HYPHEN.VALUE:
         result = value.replace(/\s+/g, '-')
         break
-      case KeConstants.WHITESPACE_OPTIONS.UNDERSCORE.VALUE:
+      case constants.WHITESPACE_OPTIONS.UNDERSCORE.VALUE:
         result = value.replace(/\s+/g, '_')
         break
       default:
@@ -55,13 +55,13 @@ export const formatProductLine = (value, matchType, whiteSpaceCode) => {
     }
   } else {
     switch (matchType) {
-      case KeConstants.MATCHTYPES.BROAD_MODIFIER:
+      case constants.MATCHTYPES.BROAD_MODIFIER:
         result = value.replace(/(\w\B\w+)/g, '+$1').replace(/\.\+/, '+.')
         break
-      case KeConstants.MATCHTYPES.PHRASE:
+      case constants.MATCHTYPES.PHRASE:
         result = `"${value}"`
         break
-      case KeConstants.MATCHTYPES.EXACT:
+      case constants.MATCHTYPES.EXACT:
         result = `[${value}]`
         break
       default:
@@ -78,8 +78,8 @@ const buildCopyData = (tableBody, dataOnly, matchType) => {
     if (dataOnly) {
       result += `${row.firstChild.nextSibling.innerHTML}\n`
     } else {
-      if (matchType === KeConstants.MATCHTYPES.BROAD_MODIFIER) {
-        result += `${tableBody.id}\t${row.firstChild.innerHTML}\t${KeConstants.EXCEL_TEXT_QUALIFIER}${row.firstChild.nextSibling.innerHTML}\n`
+      if (matchType === constants.MATCHTYPES.BROAD_MODIFIER) {
+        result += `${tableBody.id}\t${row.firstChild.innerHTML}\t${constants.EXCEL_TEXT_QUALIFIER}${row.firstChild.nextSibling.innerHTML}\n`
       } else {
         result += `${tableBody.id}\t${row.firstChild.innerHTML}\t${row.firstChild.nextSibling.innerHTML}\n`
       }
@@ -117,19 +117,19 @@ export const copyToClipboard = (input, dataOnly, matchType) => {
 
 export const generateNotice = (
   message,
-  kind = KeConstants.NOTICE.KINDS.SIMPLE
+  kind = constants.NOTICE.KINDS.SIMPLE
 ) => {
   const result = {
     id: createHashId(),
     kind,
-    bg: KeConstants.NOTICE.BGS.PASS,
+    bg: constants.NOTICE.BGS.PASS,
     heading: 'Success',
     message,
     choice: null,
     moment: moment()
   }
-  if (kind !== KeConstants.NOTICE.KINDS.SIMPLE) {
-    result.bg = KeConstants.NOTICE.BGS.WARN
+  if (kind !== constants.NOTICE.KINDS.SIMPLE) {
+    result.bg = constants.NOTICE.BGS.WARN
     result.heading = 'Warning'
   }
   return result
@@ -286,9 +286,9 @@ const createTrendChart = dataPoints => JSON.stringify(dataPoints)
 
 export const setVolumeFieldCell = (asdf, field) => {
   switch (field.label) {
-    case KeConstants.VOLUME_DATA.CPC.LABEL:
+    case constants.VOLUME_DATA.CPC.LABEL:
       return asdf[field.value].value
-    case KeConstants.VOLUME_DATA.TREND.LABEL:
+    case constants.VOLUME_DATA.TREND.LABEL:
       return createTrendChart(asdf[field.value])
     default:
       return asdf[field.value]
@@ -303,7 +303,7 @@ const formatToDollars = input => {
 }
 
 export const calculateTrialPrice = itemCount => {
-  const preStripe = itemCount * KeConstants.VOLUME_DATA.KEYWORD_PRICE
+  const preStripe = itemCount * constants.VOLUME_DATA.KEYWORD_PRICE
   const stripeVariable = preStripe * stripe.VARIABLE_RATE
   const withStripeFixed = preStripe + stripeVariable + stripe.FIXED
   const result = formatToDollars(withStripeFixed)

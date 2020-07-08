@@ -1,9 +1,9 @@
 import { get } from 'lodash'
 import { createSelector } from 'reselect'
-import { KeConstants } from '@colin30/shared/raw/constants/keywordMultiplier'
+import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 
 const setsWithValuesSelector = state =>
-  get(state, `form.${KeConstants.SETS_FORM_NAME}.values`, {})
+  get(state, `form.${constants.SETS_FORM_NAME}.values`, {})
 const disabledSetKeySelector = state => get(state, 'app.disabled', [])
 const trialsSelector = state => get(state, 'app.trials', [])
 const matchTypeSelector = state => get(state, 'app.matchType', 'broad')
@@ -16,7 +16,7 @@ const whiteSpaceSelector = state =>
   get(
     state,
     'app.whiteSpaceSelection',
-    KeConstants.WHITESPACE_OPTIONS.DISABLED.VALUE
+    constants.WHITESPACE_OPTIONS.DISABLED.VALUE
   )
 
 export const checkSetDisabled = (state, set) => {

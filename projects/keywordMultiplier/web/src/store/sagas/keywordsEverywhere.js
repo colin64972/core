@@ -6,7 +6,7 @@ import {
   creditsMock,
   optionsMock
 } from '@colin30/shared/raw/mocks/keywordMultiplier'
-import { KeConstants } from '@colin30/shared/raw/constants/keywordMultiplier'
+import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 
 export function* getKeOptions() {
   try {
@@ -14,7 +14,7 @@ export function* getKeOptions() {
     if (!countries || !currencies) {
       let result = optionsMock
       // if (process.env.NODE_ENV !== 'development') {
-      result = yield call(fetchKeData, Object.keys(KeConstants.ENDPOINTS)[0])
+      result = yield call(fetchKeData, Object.keys(constants.ENDPOINTS)[0])
       // }
       const decoratedData = decorateKeOptions(result.data)
       return yield put({
@@ -30,11 +30,11 @@ export function* getKeCredits() {
   try {
     let result = creditsMock
     // if (process.env.NODE_ENV !== 'development') {
-    result = yield call(fetchKeData, Object.keys(KeConstants.ENDPOINTS)[1])
+    result = yield call(fetchKeData, Object.keys(constants.ENDPOINTS)[1])
     // }
     const credits = result?.data.credits[0]
 
-    if (credits < KeConstants.LOW_CREDIT_ALERT_THRESHOLD) {
+    if (credits < constants.LOW_CREDIT_ALERT_THRESHOLD) {
       console.error(
         '%c low credit warning',
         'color: red; font-size: large',
