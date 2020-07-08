@@ -6,7 +6,7 @@ import CloseIcon from '@material-ui/icons/Close'
 import DoneIcon from '@material-ui/icons/Done'
 import { makeStyles } from '@material-ui/styles'
 import { NoticeIcon } from './NoticeIcon'
-import { KeConstants } from '@colin30/shared/raw/constants/keywordMultiplier'
+import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { getNotice } from '../../store/selectors'
 import { types } from '../../store/types'
 
@@ -73,7 +73,7 @@ const useStyles = makeStyles(theme => {
       right: 0,
       zIndex: 3,
       width: 0,
-      height: KeConstants.NOTICE.TIMEOUT_HEIGHT
+      height: constants.NOTICE.TIMEOUT_HEIGHT
     },
     passTimeoutBar: {
       backgroundColor: theme.palette.pass[100]
@@ -86,7 +86,7 @@ const useStyles = makeStyles(theme => {
     },
     noticeBarInner: {
       padding: `
-        ${theme.custom.setSpace() - KeConstants.NOTICE.TIMEOUT_HEIGHT}px
+        ${theme.custom.setSpace() - constants.NOTICE.TIMEOUT_HEIGHT}px
         ${theme.custom.setSpace('sm')}px
         ${theme.custom.setSpace()}px
         ${theme.custom.setSpace('sm')}px
@@ -95,7 +95,7 @@ const useStyles = makeStyles(theme => {
       [theme.breakpoints.down('xs')]: {
         flexFlow: 'column nowrap',
         paddingBottom: `${
-          theme.custom.setSpace() - KeConstants.NOTICE.TIMEOUT_HEIGHT
+          theme.custom.setSpace() - constants.NOTICE.TIMEOUT_HEIGHT
         }px`
       }
     },
@@ -184,10 +184,10 @@ export const Notice = () => {
     let choice
     switch (keyCode) {
       case 27:
-        choice = KeConstants.NOTICE.RESPONSES.REJECT
+        choice = constants.NOTICE.RESPONSES.REJECT
         break
       case 13:
-        choice = KeConstants.NOTICE.RESPONSES.ACCEPT
+        choice = constants.NOTICE.RESPONSES.ACCEPT
         break
     }
     return responseHandler(null, choice)
@@ -203,14 +203,10 @@ export const Notice = () => {
           0
         )
         .add(
-          gsap.from(
-            timeoutBar.current,
-            KeConstants.NOTICE.TIMEOUT_DELAY / 1000,
-            {
-              width: '100%',
-              ease: 'linear'
-            }
-          ),
+          gsap.from(timeoutBar.current, constants.NOTICE.TIMEOUT_DELAY / 1000, {
+            width: '100%',
+            ease: 'linear'
+          }),
           0
         )
         .fromTo(
@@ -299,11 +295,11 @@ export const Notice = () => {
               <p className={classes.messageText}>{message}</p>
             </div>
             <div className={classes.noticeBarInnerRight}>
-              {kind === KeConstants.NOTICE.KINDS.CHOICE && (
+              {kind === constants.NOTICE.KINDS.CHOICE && (
                 <button
                   type="button"
                   className={classes.buttonAccept}
-                  value={KeConstants.NOTICE.RESPONSES.ACCEPT}
+                  value={constants.NOTICE.RESPONSES.ACCEPT}
                   onClick={responseHandler}>
                   <DoneIcon className={classes.icon} />
                 </button>
@@ -311,11 +307,11 @@ export const Notice = () => {
               <button
                 type="button"
                 className={
-                  kind === KeConstants.NOTICE.KINDS.CHOICE
+                  kind === constants.NOTICE.KINDS.CHOICE
                     ? classes.buttonReject
                     : classes.buttonRejectSingle
                 }
-                value={KeConstants.NOTICE.RESPONSES.REJECT}
+                value={constants.NOTICE.RESPONSES.REJECT}
                 onClick={responseHandler}>
                 <CloseIcon className={classes.icon} />
               </button>

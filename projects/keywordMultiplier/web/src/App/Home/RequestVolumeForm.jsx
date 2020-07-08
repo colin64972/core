@@ -37,7 +37,7 @@ import {
 import FindInPageIcon from '@material-ui/icons/FindInPage'
 import { calculateTrialPrice } from '../logic'
 import { kEFields } from './fields'
-import { KeConstants } from '@colin30/shared/raw/constants/keywordMultiplier'
+import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 
 const useStyles = makeStyles(theme => ({
   accordion: {
@@ -146,10 +146,10 @@ export const RequestVolumeForm = ({
           <FadeIn direction="x" position={-100}>
             <Accordion
               expanded={
-                expanded === KeConstants.VOLUME_REQUEST_FORM.ACCORDION_PANELS[0]
+                expanded === constants.VOLUME_REQUEST_FORM.ACCORDION_PANELS[0]
               }
               onChange={handleChange(
-                KeConstants.VOLUME_REQUEST_FORM.ACCORDION_PANELS[0]
+                constants.VOLUME_REQUEST_FORM.ACCORDION_PANELS[0]
               )}
               className={classes.accordion}>
               <AccordionSummary
@@ -276,8 +276,7 @@ export const RequestVolumeForm = ({
                                         <TableCell align="center">
                                           $ 0.0
                                           {
-                                            KeConstants.VOLUME_DATA
-                                              .KEYWORD_PRICE
+                                            constants.VOLUME_DATA.KEYWORD_PRICE
                                           }{' '}
                                           CAD
                                         </TableCell>
@@ -310,10 +309,10 @@ export const RequestVolumeForm = ({
             <Accordion
               square
               expanded={
-                expanded === KeConstants.VOLUME_REQUEST_FORM.ACCORDION_PANELS[1]
+                expanded === constants.VOLUME_REQUEST_FORM.ACCORDION_PANELS[1]
               }
               onChange={handleChange(
-                KeConstants.VOLUME_REQUEST_FORM.ACCORDION_PANELS[1]
+                constants.VOLUME_REQUEST_FORM.ACCORDION_PANELS[1]
               )}
               className={classes.accordion}>
               <AccordionSummary
@@ -375,10 +374,10 @@ export const RequestVolumeForm = ({
             <Accordion
               square
               expanded={
-                expanded === KeConstants.VOLUME_REQUEST_FORM.ACCORDION_PANELS[2]
+                expanded === constants.VOLUME_REQUEST_FORM.ACCORDION_PANELS[2]
               }
               onChange={handleChange(
-                KeConstants.VOLUME_REQUEST_FORM.ACCORDION_PANELS[2]
+                constants.VOLUME_REQUEST_FORM.ACCORDION_PANELS[2]
               )}
               className={classes.accordion}>
               <AccordionSummary
