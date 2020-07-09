@@ -156,36 +156,7 @@ export const decorateTrial = data => ({
   heading: data.trialProduct.heading,
   list: data.trialProduct.list,
   timestamp: moment(data.createdAt).format('HH:mm:ss'),
-  clientIp: {
-    ip: '139.99.131.38',
-    type: 'ipv4',
-    continent_code: 'OC',
-    continent_name: 'Oceania',
-    country_code: 'AU',
-    country_name: 'Australia',
-    region_code: 'NSW',
-    region_name: 'New South Wales',
-    city: 'Sydney',
-    zip: '2060',
-    latitude: -33.839969635009766,
-    longitude: 151.19581604003906,
-    location: {
-      geoname_id: 2147714,
-      capital: 'Canberra',
-      languages: [
-        {
-          code: 'en',
-          name: 'English',
-          native: 'English'
-        }
-      ],
-      country_flag: 'http://assets.ipstack.com/flags/au.svg',
-      country_flag_emoji: '🇦🇺',
-      country_flag_emoji_unicode: 'U+1F1E6 U+1F1FA',
-      calling_code: '61',
-      is_eu: false
-    }
-  },
+  geoIp: data?.geoIp,
   createdAt: data.createdAt,
   volumeData: data?.volumeData
   // volumeData: [

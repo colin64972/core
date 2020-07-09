@@ -1,5 +1,5 @@
 import { call, put, select, take, race, delay } from 'redux-saga/effects'
-import { createTrial } from '../fetchers'
+import { createTrial, fetchIpAddress } from '../fetchers'
 import { getCopySettings, getMatchType } from '../selectors'
 import { types } from '../types'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
@@ -10,8 +10,6 @@ import {
   getSetsWithValues,
   findEnabledSets
 } from '../../App/logic'
-
-import { ipMock } from '@colin30/shared/raw/mocks/keywordMultiplier'
 
 export function* multiplySets(action) {
   const notice = generateNotice('Check your results below')
@@ -28,19 +26,21 @@ export function* multiplySets(action) {
       setsDisabled,
       action.values
     )
-    let clientIp = yield select(state => state.app?.clientIp)
-    if (process.env.NODE_ENV === 'development') {
-      clientIp = ipMock
+    const geoIp = yield select(state => state.app.geoIp)
+    let ipAddress = geoIp?.ip
+    if (!ipAddress) {
+      ipAddress = yield call(fetchIpAddress)
     }
     const posted = yield call(createTrial, {
       sets: setsEnabled,
-      clientIp
+      ipAddress,
+      country: geoIp?.country_name
     })
     const trial = yield call(decorateTrial, posted.data)
-    if (!clientIp) {
+    if (!geoIp) {
       yield put({
-        type: types.ADD_IP,
-        clientIp: trial.clientIp
+        type: types.ADD_GEO_IP,
+        geoIp: trial.geoIp
       })
     }
     yield put({

@@ -22,7 +22,7 @@ const defaultState = {
     item: null,
     choice: null
   },
-  clientIp: null
+  geoIp: null
 }
 
 export const app = (state = defaultState, action) => {
@@ -128,10 +128,10 @@ export const app = (state = defaultState, action) => {
           dataOnly: !state.copySettings.dataOnly
         }
       }
-    case types.ADD_IP:
+    case types.ADD_GEO_IP:
       return {
         ...state,
-        clientIp: action.clientIp
+        geoIp: action.geoIp
       }
     case types.CHANGE_WHITESPACE_SELECTION:
       return {

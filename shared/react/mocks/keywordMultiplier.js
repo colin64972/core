@@ -1,11 +1,11 @@
-exports.creditsMock = {
+export const creditsMock = {
   status: 200,
   data: {
     credits: [3292]
   }
 }
 
-exports.optionsMock = {
+export const optionsMock = {
   status: 200,
   data: {
     countries: {
@@ -155,35 +155,36 @@ exports.optionsMock = {
   }
 }
 
-exports.ipMock = {
+export const ipMock = {
   status: 200,
   data: {
-    ip: '139.99.131.38',
+    ip: 'localhost'
+  }
+}
+
+export const ipGeoMock = {
+  status: 200,
+  data: {
+    ip: '162.221.202.17',
     type: 'ipv4',
-    continent_code: 'OC',
-    continent_name: 'Oceania',
-    country_code: 'AU',
-    country_name: 'Australia',
-    region_code: 'NSW',
-    region_name: 'New South Wales',
-    city: 'Sydney',
-    zip: '2060',
-    latitude: -33.839969635009766,
-    longitude: 151.19581604003906,
+    continent_code: 'NA',
+    continent_name: 'North America',
+    country_code: 'CA',
+    country_name: 'Canada',
+    region_code: 'BC',
+    region_name: 'British Columbia',
+    city: 'Coquitlam',
+    zip: 'V3B 1A1',
+    latitude: 49.28226089477539,
+    longitude: -122.79740142822266,
     location: {
-      geoname_id: 2147714,
-      capital: 'Canberra',
-      languages: [
-        {
-          code: 'en',
-          name: 'English',
-          native: 'English'
-        }
-      ],
-      country_flag: 'http://assets.ipstack.com/flags/au.svg',
-      country_flag_emoji: '🇦🇺',
-      country_flag_emoji_unicode: 'U+1F1E6 U+1F1FA',
-      calling_code: '61',
+      geoname_id: 5927690,
+      capital: 'Ottawa',
+      languages: [Array],
+      country_flag: 'http://assets.ipstack.com/flags/ca.svg',
+      country_flag_emoji: '🇨🇦',
+      country_flag_emoji_unicode: 'U+1F1E8 U+1F1E6',
+      calling_code: '1',
       is_eu: false
     }
   }

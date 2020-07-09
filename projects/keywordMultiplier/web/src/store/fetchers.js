@@ -1,4 +1,11 @@
 import { get, post } from 'axios'
+import { ipMock } from '@colin30/shared/react/mocks/keywordMultiplier'
+
+export const fetchIpAddress = async () => {
+  if (process.env.NODE_ENV === 'development') return ipMock.data.ip
+  const res = await get('https://api.ipify.org?format=json')
+  return res.data.ip
+}
 
 const options = {
   headers: {
