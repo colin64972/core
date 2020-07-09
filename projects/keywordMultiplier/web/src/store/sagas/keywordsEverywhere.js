@@ -5,7 +5,7 @@ import { decorateKeOptions } from '../../App/logic'
 import {
   creditsMock,
   optionsMock
-} from '@colin30/shared/raw/mocks/keywordMultiplier'
+} from '@colin30/shared/react/mocks/keywordMultiplier'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 
 export function* getKeOptions() {

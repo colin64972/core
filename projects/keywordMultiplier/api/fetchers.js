@@ -1,14 +1,14 @@
 import { get } from 'axios'
 
-export const fetchClientIp = async () => {
+export const fetchGeoIp = async ipAddress => {
   try {
     const res = await get(
-      `http://api.ipstack.com/check?access_key=${process.env.IPSTACK_API_KEY}&output=json`
+      `http://api.ipstack.com/${ipAddress}?access_key=${process.env.IPSTACK_API_KEY}&output=json`
     )
     if (res.data?.error) return res.data.error
     return res.data
   } catch (error) {
-    console.error('fetchClientIp', error)
+    console.error('fetchGeoIp', error)
     return error.message
   }
 }
