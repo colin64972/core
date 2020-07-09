@@ -2,7 +2,8 @@ import AWS from 'aws-sdk'
 import { dynamoDbConstants } from '@colin30/shared/raw/constants/dynamoDb'
 import { proxyServiceError } from '@colin30/shared/serverless/proxyServiceError'
 import { createHashId } from '@colin30/shared/react/helpers'
-import { fetchClientIp } from './fetchers'
+import { IP_ADDRESS } from '@colin30/shared/raw/constants/regex'
+import { fetchGeoIp } from './fetchers'
 import { processTrial } from './logic'
 
 const dbOptions = {}
@@ -18,17 +19,19 @@ export const createTrial = async eventBody => {
   try {
     let parsed = JSON.parse(eventBody)
 
-    let { clientIp } = parsed
+    let { ipAddress, country } = parsed
 
-    if (!clientIp) {
-      clientIp = await fetchClientIp()
+    let geoIp = ipAddress
+
+    if (IP_ADDRESS.test(ipAddress) && !country) {
+      geoIp = await fetchGeoIp(ipAddress)
     }
 
     const timestamp = new Date().getTime()
 
     const trialData = {
       id: createHashId(),
-      clientIp,
+      geoIp,
       sets: parsed.sets,
       createdAt: timestamp,
       updatedAt: timestamp
