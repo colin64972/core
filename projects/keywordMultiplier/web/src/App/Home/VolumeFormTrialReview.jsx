@@ -13,7 +13,8 @@ import {
   TableBody,
   TableCell,
   TableHead,
-  TableRow
+  TableRow,
+  Paper
 } from '@material-ui/core'
 import FindInPageIcon from '@material-ui/icons/FindInPage'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
@@ -24,16 +25,18 @@ const useStyles = makeStyles(theme => ({
   },
   headCell: {
     ...theme.typography.bold,
-    backgroundColor: theme.palette.grey[50]
-  },
-  priceCell: {
     backgroundColor: theme.palette.secondary[50]
   },
-  reviewKeywordsButton: {
+  revewButton: {
     'backgroundColor': theme.palette.secondary[50],
     '&:hover': {
       backgroundColor: theme.palette.secondary[100]
     }
+  },
+  reviewListContainer: {
+    margin: `${theme.custom.setSpace('sm')}px 0 0 0`,
+    borderRadius: theme.custom.borderRadius,
+    backgroundColor: theme.palette.grey[50]
   },
   reviewListTitle: {
     ...theme.typography.mainHeading,
@@ -41,11 +44,6 @@ const useStyles = makeStyles(theme => ({
     fontSize: theme.custom.setSpace('sm') * 1.25,
     margin: 0,
     borderRadius: theme.custom.borderRadius
-  },
-  reviewListContainer: {
-    margin: `${theme.custom.setSpace('sm')}px 0 0 0`,
-    borderRadius: theme.custom.borderRadius,
-    backgroundColor: theme.palette.grey[50]
   },
   reviewListRow: {
     border: 'none'
@@ -62,18 +60,18 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export const VolumeFormTrialReview = ({ trialId }) => {
+export const VolumeFormTrialReview = ({ trialId, formSectionClass }) => {
   const classes = useStyles()
   const trial = useSelector(state =>
     state.app.trials.items.find(trial => trial.id === trialId)
   )
-  console.log('%c trialId', 'color: yellow; font-size: large', trialId, trial)
+  // console.log('%c trialId', 'color: yellow; font-size: large', trialId, trial)
   const [reviewModalStatus, setReviewModalStatus] = useState(false)
   const openReviewHandler = event => setReviewModalStatus(true)
   const closeReviewHandler = event => setReviewModalStatus(false)
   return (
-    <TableContainer className={classes.table}>
-      <Table size="small">
+    <Paper className={formSectionClass}>
+      <Table size="small" className={classes.table}>
         <TableHead>
           <TableRow className={classes.tableRow}>
             <TableCell component="th" className={classes.headCell}>
@@ -110,7 +108,7 @@ export const VolumeFormTrialReview = ({ trialId }) => {
                 onClick={openReviewHandler}
                 startIcon={<FindInPageIcon size="small" />}
                 classes={{
-                  contained: classes.reviewKeywordsButton
+                  contained: classes.revewButton
                 }}>
                 Review
               </Button>
@@ -137,7 +135,7 @@ export const VolumeFormTrialReview = ({ trialId }) => {
                     the line&nbsp;
                     <span className={classes.code}>best new car .com</span>
                     &nbsp;will return volume metrics for only the keyword
-                    portion of the entry: &nbsp;
+                    portion of the entry &nbsp;
                     <span className={classes.code}>best new car</span>.
                   </DialogContentText>
                   <TableContainer className={classes.reviewListContainer}>
@@ -183,6 +181,6 @@ export const VolumeFormTrialReview = ({ trialId }) => {
           </TableRow>
         </TableHead>
       </Table>
-    </TableContainer>
+    </Paper>
   )
 }
