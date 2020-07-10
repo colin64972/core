@@ -1,11 +1,8 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import { Formik } from 'formik'
 import { FadeIn } from '@colin30/shared/react/components/FadeIn'
-import Dialog from '@material-ui/core/Dialog'
-import Typography from '@material-ui/core/Typography'
+import { Dialog, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
-import { defaultPadding } from '@colin30/shared/react/theming'
 import { VolumeForm } from './VolumeForm'
 
 const useStyles = makeStyles(theme => ({
@@ -31,10 +28,6 @@ const useStyles = makeStyles(theme => ({
 
 const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
   const classes = useStyles()
-
-  const countryOptions = useSelector(state => state.kE.countries)
-  const currencyOptions = useSelector(state => state.kE.currencies)
-  const dataSourceOptions = useSelector(state => state.kE.dataSources)
 
   const initalValues = {
     country: '',
@@ -86,11 +79,6 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
             formikProps={formikProps}
             closeDialogHandler={closeDialogHandler}
             trialId={trialId}
-            kEOptions={{
-              countryOptions,
-              currencyOptions,
-              dataSourceOptions
-            }}
           />
         )}
       </Formik>
