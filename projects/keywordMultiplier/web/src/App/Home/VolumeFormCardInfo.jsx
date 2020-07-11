@@ -18,22 +18,24 @@ export const VolumeFormCardInfo = ({ formSectionClass }) => {
 
   return (
     <Paper className={formSectionClass}>
-      <Field name="cardNumber">
-        {fieldProps => {
-          return (
-            <FormControl error fullWidth>
-              <InputLabel htmlFor="component-error">Name</InputLabel>
-              <Input
-                id="component-error"
-                value={name}
-                // onChange={handleChange}
-                aria-describedby="component-error-text"
-              />
-              <FormHelperText id="component-error-text">Error</FormHelperText>
-            </FormControl>
-          )
-        }}
-      </Field>
+      <FadeIn direction="x" position={Math.random() > 0.5 ? 100 : -100}>
+        <Field name="cardNumber">
+          {fieldProps => {
+            return (
+              <FormControl error fullWidth>
+                <InputLabel htmlFor="component-error">Name</InputLabel>
+                <Input
+                  id="component-error"
+                  value={name}
+                  // onChange={handleChange}
+                  aria-describedby="component-error-text"
+                />
+                <FormHelperText id="component-error-text">Error</FormHelperText>
+              </FormControl>
+            )
+          }}
+        </Field>
+      </FadeIn>
     </Paper>
   )
 }
