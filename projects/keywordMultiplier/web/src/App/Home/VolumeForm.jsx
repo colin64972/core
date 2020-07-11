@@ -20,6 +20,7 @@ const useStyles = makeStyles(theme => ({
   formSection: {
     padding: theme.custom.setSpace('sm'),
     marginBottom: theme.custom.setSpace('sm'),
+    overflow: 'hidden',
     [theme.breakpoints.down('xs')]: {
       padding: theme.custom.setSpace(),
       marginBottom: theme.custom.setSpace()
@@ -27,9 +28,6 @@ const useStyles = makeStyles(theme => ({
   },
   formActionButtons: {
     ...theme.custom.setFlex('row nowrap', 'flex-start')
-    // [theme.breakpoints.down('xs')]: {
-    //   ...theme.custom.setFlex()
-    // }
   },
   formActionButton: {
     'margin': `0 ${theme.custom.setSpace()}px 0 0`,
