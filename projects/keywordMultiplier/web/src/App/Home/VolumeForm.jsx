@@ -8,6 +8,7 @@ import { VolumeFormCardInfo } from './VolumeFormCardInfo'
 import { VolumeFormKEOptions } from './VolumeFormKEOptions'
 import { VolumeFormPricing } from './VolumeFormPricing'
 import { VolumeFormTrialReview } from './VolumeFormTrialReview'
+import { VolumeFormTerms } from './VolumeFormTerms'
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -49,7 +50,11 @@ export const VolumeForm = ({ formikProps, closeDialogHandler, trialId }) => {
       />
       <VolumeFormKEOptions formSectionClass={classes.formSection} />
       <VolumeFormCardInfo formSectionClass={classes.formSection} />
-      <VolumeFormPricing formSectionClass={classes.formSection} />
+      {/* <VolumeFormPricing
+        formSectionClass={classes.formSection}
+        trialId={trialId}
+      /> */}
+      <VolumeFormTerms formSectionClass={classes.formSection} />
       <FadeIn
         direction="y"
         position={100}

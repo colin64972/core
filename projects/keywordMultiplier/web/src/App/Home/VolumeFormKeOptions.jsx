@@ -14,8 +14,7 @@ import {
 import { kEFields } from './fields'
 
 const useStyles = makeStyles(theme => ({
-  formGroup: {
-    width: '100%',
+  fieldGroup: {
     margin: `${theme.custom.setSpace()}px 0`
   }
 }))
@@ -30,14 +29,19 @@ export const VolumeFormKEOptions = ({ formSectionClass }) => {
     dataSourceOptions: useSelector(state => state.kE.dataSources)
   }
 
+  const validator = value => {
+    if (!value) return 'Required'
+  }
+
   return (
     <Paper className={formSectionClass}>
       {kEFields.map(kEField => (
         <FadeIn
           direction="x"
           position={Math.random() > 0.5 ? 100 : -100}
-          key={kEField.key}>
-          <Field name={kEField.name}>
+          key={kEField.key}
+          className={classes.fieldGroup}>
+          <Field name={kEField.name} validate={validator}>
             {fieldProps => {
               // console.log(
               //   '%c fieldProps',
@@ -48,12 +52,13 @@ export const VolumeFormKEOptions = ({ formSectionClass }) => {
                 <FormControl
                   required
                   fullWidth
-                  // error={false}
-                >
-                  <InputLabel id={kEField.key}>{kEField.label}</InputLabel>
+                  error={fieldProps.meta.touched && fieldProps.meta.error}>
+                  <InputLabel id={fieldProps.field.name}>
+                    {kEField.label}
+                  </InputLabel>
                   <Select
-                    labelId={kEField.key}
-                    id={kEField.key}
+                    labelId={fieldProps.field.name}
+                    id={fieldProps.field.name}
                     name={fieldProps.field.name}
                     value={fieldProps.field.value}
                     onChange={fieldProps.field.onChange}
@@ -64,7 +69,9 @@ export const VolumeFormKEOptions = ({ formSectionClass }) => {
                       </MenuItem>
                     ))}
                   </Select>
-                  <FormHelperText>asdf</FormHelperText>
+                  {fieldProps.meta.touched && fieldProps.meta.error && (
+                    <FormHelperText>{fieldProps.meta.error}</FormHelperText>
+                  )}
                 </FormControl>
               )
             }}
