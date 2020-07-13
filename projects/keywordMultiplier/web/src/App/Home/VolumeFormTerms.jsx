@@ -21,10 +21,21 @@ export const VolumeFormTerms = ({ formSectionClass }) => {
   // console.log('%c formikProps', 'color: yellow; font-size: large', formikProps)
   const classes = useStyles()
 
+  const validator = value => {
+    if (!value)
+      return {
+        status: true,
+        message: 'Please accept the Terms of Service to continue'
+      }
+    return {
+      status: false
+    }
+  }
+
   return (
     <Paper className={formSectionClass}>
       <FadeIn direction="x" position={Math.random() > 0.5 ? 100 : -100}>
-        <Field name="acceptTerms">
+        <Field name="acceptTerms" validate={validator}>
           {fieldProps => {
             // console.log(
             //   '%c fieldProps',
@@ -35,21 +46,23 @@ export const VolumeFormTerms = ({ formSectionClass }) => {
               <FormControl
                 required
                 fullWidth
-                // error={error}
-                // component="fieldset"
-                // className={classes.formControl}
-              >
+                error={fieldProps.meta.touched && fieldProps.meta.error.status}>
                 <FormControlLabel
                   control={
                     <Checkbox
-                      // checked={}
-                      // onChange={handleChange}
                       name={fieldProps.field.name}
+                      checked={fieldProps.field.value}
+                      onChange={fieldProps.field.onChange}
+                      onBlur={fieldProps.field.onBlur}
                     />
                   }
                   label="I accept the Terms of Service"
                 />
-                <FormHelperText>You can display an error</FormHelperText>
+                {fieldProps.meta.touched && fieldProps.meta.error.status && (
+                  <FormHelperText>
+                    {fieldProps.meta.error.message}
+                  </FormHelperText>
+                )}
               </FormControl>
             )
           }}
