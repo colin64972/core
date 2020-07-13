@@ -30,7 +30,14 @@ export const VolumeFormKEOptions = ({ formSectionClass }) => {
   }
 
   const validator = value => {
-    if (!value) return 'Required'
+    if (!value)
+      return {
+        status: true,
+        message: 'Required'
+      }
+    return {
+      status: false
+    }
   }
 
   return (
@@ -52,7 +59,9 @@ export const VolumeFormKEOptions = ({ formSectionClass }) => {
                 <FormControl
                   required
                   fullWidth
-                  error={fieldProps.meta.touched && fieldProps.meta.error}>
+                  error={
+                    fieldProps.meta.touched && fieldProps.meta.error.status
+                  }>
                   <InputLabel id={fieldProps.field.name}>
                     {kEField.label}
                   </InputLabel>
@@ -69,8 +78,10 @@ export const VolumeFormKEOptions = ({ formSectionClass }) => {
                       </MenuItem>
                     ))}
                   </Select>
-                  {fieldProps.meta.touched && fieldProps.meta.error && (
-                    <FormHelperText>{fieldProps.meta.error}</FormHelperText>
+                  {fieldProps.meta.touched && fieldProps.meta.error.status && (
+                    <FormHelperText>
+                      {fieldProps.meta.error.message}
+                    </FormHelperText>
                   )}
                 </FormControl>
               )
