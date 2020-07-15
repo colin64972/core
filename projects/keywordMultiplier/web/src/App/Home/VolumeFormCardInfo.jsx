@@ -9,6 +9,7 @@ import {
   Input,
   Paper
 } from '@material-ui/core'
+import { CREDIT_CARD_NUMBER } from '@colin30/shared/raw/constants/regex'
 
 const useStyles = makeStyles(theme => ({}))
 
@@ -16,21 +17,41 @@ export const VolumeFormCardInfo = ({ formSectionClass }) => {
   // console.log('%c formikProps', 'color: yellow; font-size: large', formikProps)
   const classes = useStyles()
 
+  const cardNumberValidator = value => {
+    if (!CREDIT_CARD_NUMBER.test(value))
+      return {
+        status: true,
+        message: 'Invalid card number'
+      }
+    return {
+      status: false
+    }
+  }
+
   return (
     <Paper className={formSectionClass}>
       <FadeIn direction="x" position={Math.random() > 0.5 ? 100 : -100}>
-        <Field name="cardNumber">
+        <Field name="cardNumber" validate={cardNumberValidator}>
           {fieldProps => {
             return (
-              <FormControl error fullWidth>
-                <InputLabel htmlFor="component-error">Name</InputLabel>
+              <FormControl
+                fullWidth
+                required
+                error={fieldProps.meta.touched && fieldProps.meta.error.status}>
+                <InputLabel htmlFor={fieldProps.field.name}>
+                  Card Number
+                </InputLabel>
                 <Input
-                  id="component-error"
-                  value={name}
-                  // onChange={handleChange}
-                  aria-describedby="component-error-text"
+                  id={fieldProps.field.name}
+                  value={fieldProps.field.value}
+                  onChange={fieldProps.field.onChange}
+                  onBlur={fieldProps.field.onBlur}
                 />
-                <FormHelperText id="component-error-text">Error</FormHelperText>
+                {fieldProps.meta.touched && fieldProps.meta.error.status && (
+                  <FormHelperText id="component-error-text">
+                    {fieldProps.meta.error.message}
+                  </FormHelperText>
+                )}
               </FormControl>
             )
           }}
