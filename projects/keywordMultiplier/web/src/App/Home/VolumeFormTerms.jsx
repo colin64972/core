@@ -27,9 +27,6 @@ export const VolumeFormTerms = ({ formSectionClass }) => {
         status: true,
         message: 'Please accept the Terms of Service to continue'
       }
-    return {
-      status: false
-    }
   }
 
   return (
@@ -46,7 +43,9 @@ export const VolumeFormTerms = ({ formSectionClass }) => {
               <FormControl
                 required
                 fullWidth
-                error={fieldProps.meta.touched && fieldProps.meta.error.status}>
+                error={
+                  fieldProps.meta.touched && fieldProps.meta.error?.status
+                }>
                 <FormControlLabel
                   control={
                     <Checkbox
@@ -58,7 +57,7 @@ export const VolumeFormTerms = ({ formSectionClass }) => {
                   }
                   label="I accept the Terms of Service"
                 />
-                {fieldProps.meta.touched && fieldProps.meta.error.status && (
+                {fieldProps.meta.touched && fieldProps.meta.error?.status && (
                   <FormHelperText>
                     {fieldProps.meta.error.message}
                   </FormHelperText>

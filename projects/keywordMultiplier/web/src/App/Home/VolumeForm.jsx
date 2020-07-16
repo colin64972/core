@@ -42,6 +42,8 @@ export const VolumeForm = ({ formikProps, closeDialogHandler, trialId }) => {
   // console.log('%c formikProps', 'color: yellow; font-size: large', formikProps)
   const classes = useStyles()
 
+  const checkIfPristine = touchedFields => Object.keys(touchedFields).length < 1
+
   return (
     <Form className={classes.form}>
       <VolumeFormTrialReview
@@ -63,7 +65,9 @@ export const VolumeForm = ({ formikProps, closeDialogHandler, trialId }) => {
           type="submit"
           variant="contained"
           color="secondary"
-          disabled
+          disabled={
+            !formikProps.isValid || checkIfPristine(formikProps.touched)
+          }
           className={classNames(classes.formActionButton)}>
           Order
         </Button>
@@ -72,7 +76,7 @@ export const VolumeForm = ({ formikProps, closeDialogHandler, trialId }) => {
           variant="contained"
           color="secondary"
           className={classNames(classes.formActionButton)}
-          disabled={true}>
+          disabled={checkIfPristine(formikProps.touched)}>
           Reset
         </Button>
         <Button
