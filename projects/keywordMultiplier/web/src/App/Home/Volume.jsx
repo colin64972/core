@@ -37,8 +37,8 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
     cardNumber: '',
     expMonth: '',
     expYear: '',
-    code: '',
-    email: '',
+    cardCode: '',
+    billingEmail: '',
     billingCountry: ''
   }
 
@@ -46,8 +46,8 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
     console.log(
       '%c submitHandler',
       'color: yellow; font-size: large',
-      JSON.stringify(values, null, 2),
-      JSON.stringify(actions, null, 2)
+      values,
+      actions
     )
   }
 

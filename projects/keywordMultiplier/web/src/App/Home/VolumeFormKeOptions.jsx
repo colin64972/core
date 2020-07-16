@@ -35,9 +35,6 @@ export const VolumeFormKEOptions = ({ formSectionClass }) => {
         status: true,
         message: 'Required'
       }
-    return {
-      status: false
-    }
   }
 
   return (
@@ -60,7 +57,7 @@ export const VolumeFormKEOptions = ({ formSectionClass }) => {
                   required
                   fullWidth
                   error={
-                    fieldProps.meta.touched && fieldProps.meta.error.status
+                    fieldProps.meta.touched && fieldProps.meta.error?.status
                   }>
                   <InputLabel id={fieldProps.field.name}>
                     {kEField.label}
@@ -78,7 +75,7 @@ export const VolumeFormKEOptions = ({ formSectionClass }) => {
                       </MenuItem>
                     ))}
                   </Select>
-                  {fieldProps.meta.touched && fieldProps.meta.error.status && (
+                  {fieldProps.meta.touched && fieldProps.meta.error?.status && (
                     <FormHelperText>
                       {fieldProps.meta.error.message}
                     </FormHelperText>
