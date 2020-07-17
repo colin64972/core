@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
   paper: {
     backgroundColor: theme.palette.secondary[100],
     [theme.breakpoints.up('xs')]: {
-      padding: theme.custom.setSpace('lg')
+      padding: theme.custom.setSpace('md')
     },
     [theme.breakpoints.down('xs')]: {
       padding: theme.custom.setSpace()
