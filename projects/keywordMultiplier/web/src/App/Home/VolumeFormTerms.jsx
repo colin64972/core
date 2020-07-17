@@ -1,6 +1,6 @@
 import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import { Field } from 'formik'
-import React from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/styles'
 import {
   FormControl,
@@ -8,8 +8,15 @@ import {
   FormControlLabel,
   Checkbox,
   Paper,
-  Typography
+  Typography,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Button
 } from '@material-ui/core'
+import SearchIcon from '@material-ui/icons/Search'
 
 const useStyles = makeStyles(theme => ({
   formGroup: {
@@ -20,6 +27,22 @@ const useStyles = makeStyles(theme => ({
     '&$checked': {
       color: theme.palette.secondary[200]
     }
+  },
+  checkboxLabel: {
+    ...theme.custom.setFlex()
+  },
+  viewTermsButton: {
+    ...theme.custom.iconButton,
+    'color': theme.palette.secondary[50],
+    'backgroundColor': theme.palette.secondary[200],
+    'margin': `0 0 0 ${theme.custom.setSpace()}px`,
+    '&:hover': {
+      color: 'white',
+      backgroundColor: theme.palette.secondary[300]
+    }
+  },
+  viewTermsButtonIcon: {
+    fontSize: theme.custom.setSpace() * 1.5
   }
 }))
 
@@ -38,6 +61,10 @@ export const VolumeFormTerms = ({
       }
   }
 
+  const [termsDialogStatus, setTermsDialogStatus] = useState(false)
+
+  const openTermsDialogHandler = event => setTermsDialogStatus(true)
+  const closeTermsDialogHandler = event => setTermsDialogStatus(false)
   return (
     <Paper className={formSectionClass}>
       <Typography variant="h3" className={formSectionTitleClass}>
@@ -71,7 +98,42 @@ export const VolumeFormTerms = ({
                       }}
                     />
                   }
-                  label="I accept the Terms of Service"
+                  label={
+                    <div className={classes.checkboxLabel}>
+                      I accept the Terms of Service
+                      <button
+                        type="button"
+                        onClick={openTermsDialogHandler}
+                        className={classes.viewTermsButton}>
+                        <SearchIcon className={classes.viewTermsButtonIcon} />
+                      </button>
+                      <Dialog
+                        onClose={closeTermsDialogHandler}
+                        open={termsDialogStatus}>
+                        <DialogTitle disableTypography>
+                          Terms of Service
+                        </DialogTitle>
+                        <DialogContent>
+                          <DialogContentText id="alert-dialog-description">
+                            Eirmod takimata dolores at sed ea, gubergren sit
+                            dolor ipsum et justo sea vero ut et. Labore eos
+                            takimata ipsum ea ea, amet labore dolor erat ipsum
+                            nonumy accusam, sed ea labore rebum nonumy sed et.
+                            At sit labore elitr dolor est est vero, eirmod
+                            aliquyam justo eirmod dolor tempor.
+                          </DialogContentText>
+                        </DialogContent>
+                        <DialogActions>
+                          <Button
+                            autoFocus
+                            onClick={closeTermsDialogHandler}
+                            color="primary">
+                            Close
+                          </Button>
+                        </DialogActions>
+                      </Dialog>
+                    </div>
+                  }
                 />
                 {fieldProps.meta.touched && fieldProps.meta.error?.status && (
                   <FormHelperText>
