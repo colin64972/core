@@ -14,6 +14,7 @@ import {
   TableCell,
   TableHead,
   TableRow,
+  Typography,
   Paper
 } from '@material-ui/core'
 import FindInPageIcon from '@material-ui/icons/FindInPage'
@@ -28,9 +29,10 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.secondary[50]
   },
   revewButton: {
-    'backgroundColor': theme.palette.secondary[50],
+    ...theme.typography.bold,
+    'backgroundColor': theme.palette.secondary[100],
     '&:hover': {
-      backgroundColor: theme.palette.secondary[100]
+      backgroundColor: theme.palette.secondary[200]
     }
   },
   reviewListContainer: {
@@ -60,7 +62,11 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export const VolumeFormTrialReview = ({ trialId, formSectionClass }) => {
+export const VolumeFormTrialReview = ({
+  trialId,
+  formSectionClass,
+  formSectionTitleClass
+}) => {
   const classes = useStyles()
   const trial = useSelector(state =>
     state.app.trials.items.find(trial => trial.id === trialId)
@@ -71,33 +77,36 @@ export const VolumeFormTrialReview = ({ trialId, formSectionClass }) => {
   const closeReviewHandler = event => setReviewModalStatus(false)
   return (
     <Paper className={formSectionClass}>
+      <Typography variant="h3" className={formSectionTitleClass}>
+        Trial Review
+      </Typography>
       <Table size="small" className={classes.table}>
         <TableHead>
-          <TableRow className={classes.tableRow}>
+          <TableRow>
             <TableCell component="th" className={classes.headCell}>
               ID
             </TableCell>
             <TableCell variant="body">{trial.id}</TableCell>
           </TableRow>
-          <TableRow className={classes.tableRow}>
+          <TableRow>
             <TableCell component="th" className={classes.headCell}>
               Set Fields
             </TableCell>
             <TableCell variant="body">{trial.heading}</TableCell>
           </TableRow>
-          <TableRow className={classes.tableRow}>
+          <TableRow>
             <TableCell component="th" className={classes.headCell}>
               Entry Count
             </TableCell>
             <TableCell variant="body">{trial.list.length}</TableCell>
           </TableRow>
-          <TableRow className={classes.tableRow}>
+          <TableRow>
             <TableCell component="th" className={classes.headCell}>
               Time Created
             </TableCell>
             <TableCell variant="body">{trial.timestamp}</TableCell>
           </TableRow>
-          <TableRow className={classes.tableRow}>
+          <TableRow>
             <TableCell component="th" className={classes.headCell}>
               Keywords
             </TableCell>

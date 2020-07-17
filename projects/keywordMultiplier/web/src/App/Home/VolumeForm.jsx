@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import { Form } from 'formik'
 import React from 'react'
-import { Button } from '@material-ui/core'
+import { Button, Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import { VolumeFormCardInfo } from './VolumeFormCardInfo'
@@ -12,10 +12,11 @@ import { VolumeFormTerms } from './VolumeFormTerms'
 
 const useStyles = makeStyles(theme => ({
   form: {
-    width: '100%',
+    width: theme.custom.setSpace() * 70,
     margin: `${theme.custom.setSpace('sm')}px auto 0 auto`,
     [theme.breakpoints.down('xs')]: {
-      marginTop: 0
+      marginTop: 0,
+      width: '100%'
     }
   },
   formSection: {
@@ -27,13 +28,36 @@ const useStyles = makeStyles(theme => ({
       marginBottom: theme.custom.setSpace()
     }
   },
+  formSectionTitle: {
+    color: theme.palette.primary[200],
+    marginBottom: theme.custom.setSpace()
+  },
   formActionButtons: {
     ...theme.custom.setFlex('row nowrap', 'flex-start')
   },
   formActionButton: {
+    ...theme.custom.formButton,
     'margin': `0 ${theme.custom.setSpace()}px 0 0`,
     '&:last-of-type': {
       margin: 0
+    }
+  },
+  formActionButtonSubmit: {
+    'backgroundColor': theme.palette.pass[500],
+    '&:hover': {
+      backgroundColor: theme.palette.pass[400]
+    }
+  },
+  formActionButtonReset: {
+    'backgroundColor': theme.palette.fail[500],
+    '&:hover': {
+      backgroundColor: theme.palette.fail[400]
+    }
+  },
+  formActionButtonClose: {
+    'backgroundColor': theme.palette.primary[200],
+    '&:hover': {
+      backgroundColor: theme.palette.primary[300]
     }
   }
 }))
@@ -49,14 +73,20 @@ export const VolumeForm = ({ formikProps, closeDialogHandler, trialId }) => {
       <VolumeFormTrialReview
         trialId={trialId}
         formSectionClass={classes.formSection}
+        formSectionTitleClass={classes.formSectionTitle}
       />
-      <VolumeFormKEOptions formSectionClass={classes.formSection} />
-      <VolumeFormCardInfo formSectionClass={classes.formSection} />
-      {/* <VolumeFormPricing
+      <VolumeFormKEOptions
         formSectionClass={classes.formSection}
-        trialId={trialId}
-      /> */}
-      <VolumeFormTerms formSectionClass={classes.formSection} />
+        formSectionTitleClass={classes.formSectionTitle}
+      />
+      <VolumeFormCardInfo
+        formSectionClass={classes.formSection}
+        formSectionTitleClass={classes.formSectionTitle}
+      />
+      <VolumeFormTerms
+        formSectionClass={classes.formSection}
+        formSectionTitleClass={classes.formSectionTitle}
+      />
       <FadeIn
         direction="y"
         position={100}
@@ -64,30 +94,41 @@ export const VolumeForm = ({ formikProps, closeDialogHandler, trialId }) => {
         <Button
           type="submit"
           variant="contained"
-          color="secondary"
           disabled={
             !formikProps.isValid || checkIfPristine(formikProps.touched)
           }
-          className={classNames(classes.formActionButton)}>
+          className={classNames(
+            classes.formActionButton,
+            classes.formActionButtonSubmit
+          )}>
           Order
         </Button>
         <Button
           type="reset"
           variant="contained"
-          color="secondary"
-          className={classNames(classes.formActionButton)}
+          className={classNames(
+            classes.formActionButton,
+            classes.formActionButtonReset
+          )}
           disabled={checkIfPristine(formikProps.touched)}>
           Reset
         </Button>
         <Button
           type="button"
           variant="contained"
-          color="secondary"
           onClick={closeDialogHandler}
-          className={classNames(classes.formActionButton)}>
+          className={classNames(
+            classes.formActionButton,
+            classes.formActionButtonClose
+          )}>
           Close
         </Button>
       </FadeIn>
+
+      {/* <VolumeFormPricing
+        formSectionClass={classes.formSection}
+        trialId={trialId}
+      /> */}
     </Form>
   )
 }
