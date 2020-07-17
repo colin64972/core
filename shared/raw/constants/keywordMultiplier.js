@@ -58,20 +58,20 @@ exports.constants = {
   KE_OPTIONS: {
     COUNTRY: {
       NAME: 'country',
-      LABEL: 'Country',
-      KIND: 'dropdown',
+      LABEL: 'Target Country',
+      CLASSNAME: 'gridPositionCountry',
       OPTIONS_NAME: 'countryOptions'
     },
     CURRENCY: {
       NAME: 'currency',
       LABEL: 'CPC Currency',
-      KIND: 'dropdown',
+      CLASSNAME: 'gridPositionCurrency',
       OPTIONS_NAME: 'currencyOptions'
     },
     DATASOURCE: {
       NAME: 'dataSource',
       LABEL: 'Data Source',
-      KIND: 'dropdown',
+      CLASSNAME: 'gridPositionDataSource',
       OPTIONS_NAME: 'dataSourceOptions'
     }
   },

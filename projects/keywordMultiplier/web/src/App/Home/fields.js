@@ -93,21 +93,21 @@ export const kEFields = [
     key: createHashId(),
     name: constants.KE_OPTIONS.COUNTRY.NAME,
     label: constants.KE_OPTIONS.COUNTRY.LABEL,
-    kind: constants.KE_OPTIONS.COUNTRY.KIND,
-    optionsName: constants.KE_OPTIONS.COUNTRY.OPTIONS_NAME
+    optionsName: constants.KE_OPTIONS.COUNTRY.OPTIONS_NAME,
+    className: constants.KE_OPTIONS.COUNTRY.CLASSNAME
   },
   {
     key: createHashId(),
     name: constants.KE_OPTIONS.CURRENCY.NAME,
     label: constants.KE_OPTIONS.CURRENCY.LABEL,
-    kind: constants.KE_OPTIONS.CURRENCY.KIND,
-    optionsName: constants.KE_OPTIONS.CURRENCY.OPTIONS_NAME
+    optionsName: constants.KE_OPTIONS.CURRENCY.OPTIONS_NAME,
+    className: constants.KE_OPTIONS.CURRENCY.CLASSNAME
   },
   {
     key: createHashId(),
     name: constants.KE_OPTIONS.DATASOURCE.NAME,
     label: constants.KE_OPTIONS.DATASOURCE.LABEL,
-    kind: constants.KE_OPTIONS.DATASOURCE.KIND,
-    optionsName: constants.KE_OPTIONS.DATASOURCE.OPTIONS_NAME
+    optionsName: constants.KE_OPTIONS.DATASOURCE.OPTIONS_NAME,
+    className: constants.KE_OPTIONS.DATASOURCE.CLASSNAME
   }
 ]

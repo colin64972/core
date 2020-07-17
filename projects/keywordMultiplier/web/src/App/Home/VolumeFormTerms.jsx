@@ -7,17 +7,26 @@ import {
   FormHelperText,
   FormControlLabel,
   Checkbox,
-  Paper
+  Paper,
+  Typography
 } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   formGroup: {
     width: '100%',
     margin: `${theme.custom.setSpace()}px 0`
+  },
+  checked: {
+    '&$checked': {
+      color: theme.palette.secondary[200]
+    }
   }
 }))
 
-export const VolumeFormTerms = ({ formSectionClass }) => {
+export const VolumeFormTerms = ({
+  formSectionClass,
+  formSectionTitleClass
+}) => {
   // console.log('%c formikProps', 'color: yellow; font-size: large', formikProps)
   const classes = useStyles()
 
@@ -31,6 +40,9 @@ export const VolumeFormTerms = ({ formSectionClass }) => {
 
   return (
     <Paper className={formSectionClass}>
+      <Typography variant="h3" className={formSectionTitleClass}>
+        Other
+      </Typography>
       <FadeIn direction="x" position={Math.random() > 0.5 ? 100 : -100}>
         <Field name="acceptTerms" validate={validator}>
           {fieldProps => {
@@ -53,6 +65,10 @@ export const VolumeFormTerms = ({ formSectionClass }) => {
                       checked={fieldProps.field.value}
                       onChange={fieldProps.field.onChange}
                       onBlur={fieldProps.field.onBlur}
+                      color="secondary"
+                      classes={{
+                        colorSecondary: classes.checked
+                      }}
                     />
                   }
                   label="I accept the Terms of Service"

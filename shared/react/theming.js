@@ -228,6 +228,26 @@ export const setCustomTheme = (
           }
         }
       }
+      // MuiInputBase: {
+      //   root: {
+      //     fontSize
+      //   }
+      // },
+      // MuiInputLabel: {
+      //   root: {
+      //     fontSize
+      //   }
+      // },
+      // MuiFormHelperText: {
+      //   root: {
+      //     fontSize
+      //   }
+      // },
+      // MuiMenuItem: {
+      //   root: {
+      //     fontSize
+      //   }
+      // }
     }
   })
   return muiTheme
