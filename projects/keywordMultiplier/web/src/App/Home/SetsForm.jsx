@@ -15,18 +15,6 @@ import { getSetsWithValues } from '../logic'
 import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => {
-  const formButton = {
-    padding: theme.custom.setSpace(),
-    borderRadius: theme.custom.borderRadius,
-    fontFamily: theme.typography.fontFamily,
-    width: '100%',
-    border: 'none',
-    fontSize: theme.custom.setSpace(),
-    fontWeight: 'bold',
-    textTransform: 'uppercase',
-    transition: 'all 250ms ease-out',
-    color: theme.palette.bodyColor
-  }
   return {
     form: {
       marginTop: theme.custom.setSpace('sm'),
@@ -92,7 +80,7 @@ const useStyles = makeStyles(theme => {
       }
     },
     submitButton: {
-      ...formButton,
+      ...theme.custom.formButton,
       backgroundColor: theme.palette.grey[400]
     },
     submitEnabled: {
@@ -103,7 +91,7 @@ const useStyles = makeStyles(theme => {
       }
     },
     resetButton: {
-      ...formButton,
+      ...theme.custom.formButton,
       backgroundColor: theme.palette.grey[400]
     },
     resetEnabled: {

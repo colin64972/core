@@ -50,6 +50,19 @@ theme.shadows.concat([
   }px ${theme.palette.grey[50]}`
 ])
 
+theme.custom.formButton = {
+  padding: theme.custom.setSpace(),
+  borderRadius: theme.custom.borderRadius,
+  fontFamily: theme.typography.fontFamily,
+  width: '100%',
+  border: 'none',
+  fontSize: theme.custom.setSpace(),
+  fontWeight: 'bold',
+  textTransform: 'uppercase',
+  transition: 'all 250ms ease-out',
+  color: theme.palette.bodyColor
+}
+
 theme.custom.iconButton = {
   'border': 'none',
   'fontSize': theme.custom.setSpace(),

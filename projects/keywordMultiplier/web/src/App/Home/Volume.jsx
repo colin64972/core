@@ -1,7 +1,7 @@
 import React from 'react'
 import { Formik } from 'formik'
 import { FadeIn } from '@colin30/shared/react/components/FadeIn'
-import { Dialog, Typography } from '@material-ui/core'
+import { Dialog, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import { VolumeForm } from './VolumeForm'
 
@@ -63,16 +63,18 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
           root: classes.paper
         }
       }}>
-      <FadeIn direction="x" position={-100}>
+      <Grid
+        container
+        justify="flex-start"
+        direction="column"
+        alignItems="center">
         <Typography variant="subtitle2" className={classes.subHeading}>
           Order Form
         </Typography>
-      </FadeIn>
-      <FadeIn direction="x" position={-100}>
         <Typography variant="h4" className={classes.mainHeading}>
           Keyword Volume Metrics
         </Typography>
-      </FadeIn>
+      </Grid>
       <Formik initialValues={initalValues} onSubmit={customSubmitHandler}>
         {formikProps => (
           <VolumeForm
