@@ -1,5 +1,3 @@
-import classNames from 'classnames'
-import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import { Field } from 'formik'
 import { useSelector } from 'react-redux'
 import React from 'react'
@@ -20,6 +18,10 @@ import {
   EMAIL_ADDRESS
 } from '@colin30/shared/raw/constants/regex'
 import { countryCodesList } from '@colin30/shared/raw/constants/countryCodes'
+import {
+  setExpMonthOptions,
+  setExpYearOptions
+} from '@colin30/shared/react/helpers'
 
 const useStyles = makeStyles(theme => ({
   grid: {
@@ -200,15 +202,19 @@ export const VolumeFormCardInfo = ({
                   <InputLabel htmlFor={fieldProps.field.name}>
                     Expiry Month
                   </InputLabel>
-                  <Input
-                    type="number"
-                    min={1}
-                    max={12}
+                  <Select
+                    labelId={fieldProps.field.name}
                     id={fieldProps.field.name}
+                    name={fieldProps.field.name}
                     value={fieldProps.field.value}
                     onChange={fieldProps.field.onChange}
-                    onBlur={fieldProps.field.onBlur}
-                  />
+                    onBlur={fieldProps.field.onBlur}>
+                    {setExpMonthOptions().map(option => (
+                      <MenuItem key={option.key} value={option.value}>
+                        {option.label}
+                      </MenuItem>
+                    ))}
+                  </Select>
                   {fieldProps.meta.touched && fieldProps.meta.error?.status && (
                     <FormHelperText id="component-error-text">
                       {fieldProps.meta.error.message}
@@ -232,14 +238,19 @@ export const VolumeFormCardInfo = ({
                   <InputLabel htmlFor={fieldProps.field.name}>
                     Expiry Year
                   </InputLabel>
-                  <Input
-                    type="number"
-                    min={minYear}
+                  <Select
+                    labelId={fieldProps.field.name}
                     id={fieldProps.field.name}
+                    name={fieldProps.field.name}
                     value={fieldProps.field.value}
                     onChange={fieldProps.field.onChange}
-                    onBlur={fieldProps.field.onBlur}
-                  />
+                    onBlur={fieldProps.field.onBlur}>
+                    {setExpYearOptions().map(option => (
+                      <MenuItem key={option.key} value={option.value}>
+                        {option.label}
+                      </MenuItem>
+                    ))}
+                  </Select>
                   {fieldProps.meta.touched && fieldProps.meta.error?.status && (
                     <FormHelperText id="component-error-text">
                       {fieldProps.meta.error.message}
