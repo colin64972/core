@@ -1,8 +1,7 @@
 import moment from 'moment'
 import { createHashId, optionizeObject } from '@colin30/shared/react/helpers'
-import { DOMAIN_WITH_TLD } from '@colin30/shared/raw/constants/regex'
+import { LINE_INCLUDES_TLD } from '@colin30/shared/raw/constants/regex'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
-import { stripe } from '@colin30/shared/raw/constants/stripe'
 
 const removeAllButSpaces = line =>
   line
@@ -12,7 +11,7 @@ const removeAllButSpaces = line =>
     .map(word => word.replace(/[^a-z0-9]+/gi, ''))
     .join(' ')
 
-const removeAllButTld = line => line.replace(DOMAIN_WITH_TLD, '$2')
+const takeLastTld = line => line.replace(LINE_INCLUDES_TLD, '$2')
 
 export const prepSetValue = input => {
   const split = input
@@ -22,8 +21,8 @@ export const prepSetValue = input => {
 
   const nonWordsRemoved = split.map(line => {
     let temp = removeAllButSpaces(line)
-    if (DOMAIN_WITH_TLD.test(line)) {
-      temp = removeAllButTld(line)
+    if (LINE_INCLUDES_TLD.test(line)) {
+      temp = takeLastTld(line)
     }
     return temp
   })
