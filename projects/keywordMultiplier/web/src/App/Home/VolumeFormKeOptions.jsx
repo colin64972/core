@@ -106,12 +106,11 @@ export const VolumeFormKEOptions = ({
                         </MenuItem>
                       ))}
                     </Select>
-                    {fieldProps.meta.touched &&
-                      fieldProps.meta.error?.status && (
-                        <FormHelperText>
-                          {fieldProps.meta.error.message}
-                        </FormHelperText>
-                      )}
+                    <FormHelperText>
+                      {fieldProps.meta.touched && fieldProps.meta.error?.status
+                        ? fieldProps.meta.error.message
+                        : kEField?.helperText}
+                    </FormHelperText>
                   </FormControl>
                 )
               }}

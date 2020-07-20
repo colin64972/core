@@ -5,5 +5,5 @@ module.exports = {
   CREDIT_CARD_NUMBER: /^\d{16}$/,
   CREDI_CARD_CODE: /^[1-9]\d{2}$/,
   IP_ADDRESS: /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/,
-  DOMAIN_WITH_TLD: /^([a-z.-]+)?(\.\w{2,})$/i
+  LINE_INCLUDES_TLD: /(.*)(\.[a-z]{1}[a-z0-9\-]{1,23})/gi
 }
