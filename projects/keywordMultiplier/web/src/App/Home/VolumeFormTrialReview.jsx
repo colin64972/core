@@ -96,19 +96,21 @@ export const VolumeFormTrialReview = ({
           </TableRow>
           <TableRow>
             <TableCell component="th" className={classes.headCell}>
-              Entry Count
-            </TableCell>
-            <TableCell variant="body">{trial.list.length}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell component="th" className={classes.headCell}>
               Time Created
             </TableCell>
             <TableCell variant="body">{trial.timestamp}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell component="th" className={classes.headCell}>
-              Keywords
+              Billable Keyword Count
+            </TableCell>
+            <TableCell variant="body">
+              {trial.billableKeywords.length}
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell component="th" className={classes.headCell}>
+              Billable Keywords
             </TableCell>
             <TableCell variant="body">
               <Button
@@ -164,7 +166,7 @@ export const VolumeFormTrialReview = ({
                         </TableRow>
                       </TableHead>
                       <TableBody>
-                        {trial.list.map((entry, ind) => (
+                        {trial.billableKeywords.map((entry, ind) => (
                           <TableRow
                             key={`${entry}-${ind}`}
                             hover
