@@ -36,9 +36,9 @@ export const Sets = () => {
 
   if (process.env.NODE_ENV === 'development') {
     initialValues = {
-      setField1: 'best\ncheap\ntrustworthy',
+      setField1: 'best\ncheap',
       setField2: 'kia\nhyundai\nford',
-      setField4: 'dealer\ndealership\nstore\n'
+      setField4: 'dealer\ndealership'
     }
   }
 
