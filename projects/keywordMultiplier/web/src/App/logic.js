@@ -2,6 +2,10 @@ import moment from 'moment'
 import { createHashId, optionizeObject } from '@colin30/shared/react/helpers'
 import { LINE_INCLUDES_TLD } from '@colin30/shared/raw/constants/regex'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
+import {
+  takeLastTld,
+  parseBillableKeywords
+} from '@colin30/shared/logic/keywordMultiplier'
 
 const removeAllButSpaces = line =>
   line
@@ -10,8 +14,6 @@ const removeAllButSpaces = line =>
     .split(/\s+/gi)
     .map(word => word.replace(/[^a-z0-9]+/gi, ''))
     .join(' ')
-
-const takeLastTld = line => line.replace(LINE_INCLUDES_TLD, '$2')
 
 export const prepSetValue = input => {
   const split = input
@@ -154,6 +156,7 @@ export const decorateTrial = data => ({
   id: data.id,
   heading: data.trialProduct.heading,
   list: data.trialProduct.list,
+  billableKeywords: parseBillableKeywords(data.trialProduct.list),
   timestamp: moment(data.createdAt).format('HH:mm:ss'),
   geoIp: data?.geoIp,
   createdAt: data.createdAt,
