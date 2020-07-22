@@ -2,10 +2,7 @@ import moment from 'moment'
 import { createHashId, optionizeObject } from '@colin30/shared/react/helpers'
 import { LINE_INCLUDES_TLD } from '@colin30/shared/raw/constants/regex'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
-import {
-  takeLastTld,
-  parseBillableKeywords
-} from '@colin30/shared/logic/keywordMultiplier'
+import { takeLastTld } from '@colin30/shared/logic/keywordMultiplier'
 
 const removeAllButSpaces = line =>
   line
@@ -156,7 +153,7 @@ export const decorateTrial = data => ({
   id: data.id,
   heading: data.trialProduct.heading,
   list: data.trialProduct.list,
-  billableKeywords: parseBillableKeywords(data.trialProduct.list),
+  billableKeywords: data.trialProduct.billableKeywords,
   timestamp: moment(data.createdAt).format('HH:mm:ss'),
   geoIp: data?.geoIp,
   createdAt: data.createdAt,
