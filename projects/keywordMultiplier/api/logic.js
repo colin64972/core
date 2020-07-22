@@ -1,3 +1,5 @@
+import { parseBillableKeywords } from '@colin30/shared/logic/keywordMultiplier'
+
 const alphaCodeSetKeys = setData =>
   Object.keys(setData).reduce((acc, cur, ind) => {
     const temp = acc
@@ -58,11 +60,13 @@ const setList = setData => {
 
 export const processTrial = setData => {
   const result = {}
+  const wholeList = setList(setData)
   try {
     result.heading = Object.keys(setData)
       .join(' x ')
       .replace(/setField/gi, '')
-    result.list = setList(setData)
+    result.list = wholeList
+    result.billableKeywords = parseBillableKeywords(wholeList)
   } catch (error) {
     console.error('error', error)
   }
