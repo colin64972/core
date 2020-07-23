@@ -147,7 +147,8 @@ export const TrialCard = ({ trial, isShown }) => {
 
   useEffect(() => {
     setVolumeUnobtainable(
-      trial.list.length > 100 || KeCredits < trial.list.length
+      trial.billableKeywords.length > 100 ||
+        KeCredits < trial.billableKeywords.length
     )
   }, [KeCredits])
 
