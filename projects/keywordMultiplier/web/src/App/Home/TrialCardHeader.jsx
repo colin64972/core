@@ -1,7 +1,6 @@
+import classNames from 'classnames'
 import React from 'react'
-import Chip from '@material-ui/core/Chip'
-import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
+import { Chip, Grid, Typography } from '@material-ui/core'
 import AssignmentIcon from '@material-ui/icons/Assignment'
 import DeleteIcon from '@material-ui/icons/Delete'
 import { makeStyles } from '@material-ui/styles'
@@ -50,12 +49,18 @@ const useStyles = makeStyles(theme => ({
   actionButtonIcon: {
     fontSize: theme.custom.setSpace() * 1.5
   },
-  listCount: {
+  countChip: {
     ...theme.typography.bold,
-    color: theme.palette.primary[50],
-    backgroundColor: theme.palette.primary[200],
     marginRight: theme.custom.setSpace() / 2,
     height: 30
+  },
+  listCount: {
+    color: theme.palette.secondary[50],
+    backgroundColor: theme.palette.secondary[200]
+  },
+  billableCount: {
+    color: theme.palette.primary[50],
+    backgroundColor: theme.palette.primary[200]
   },
   timestamp: {
     height: 30
@@ -78,8 +83,15 @@ export const TrialCardHeader = ({
         <Grid container justify="space-between" alignItems="flex-start">
           <Grid item>
             <Chip
+              label={trial.billableKeywords.length}
+              className={classNames(classes.countChip, classes.billableCount)}
+              classes={{
+                label: classes.chipLabel
+              }}
+            />
+            <Chip
               label={trial.list.length}
-              className={classes.listCount}
+              className={classNames(classes.countChip, classes.listCount)}
               classes={{
                 label: classes.chipLabel
               }}
