@@ -18,7 +18,6 @@ import {
   Paper
 } from '@material-ui/core'
 import FindInPageIcon from '@material-ui/icons/FindInPage'
-import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 
 const useStyles = makeStyles(theme => ({
   table: {
@@ -136,17 +135,27 @@ export const VolumeFormTrialReview = ({
                 </DialogTitle>
                 <DialogContent dividers>
                   <DialogContentText id="alert-dialog-description">
-                    You can review the list of keywords to purchase volume
-                    metrics for here. If keyword entries include domain name
-                    TLDs such as
+                    Review your list of keywords to buy volume metrics for here.
+                    You will only be charged for the billable keywords contained
+                    in this list, even if your trial result list included many
+                    more entries with TLD variations!
+                  </DialogContentText>
+                  <DialogContentText id="alert-dialog-description">
+                    If your trial result list did indeed include entries with
+                    top-level domain variations&mdash;such as
                     <span className={classes.code}>.com</span>,
                     <span className={classes.code}>.net</span>,
-                    <span className={classes.code}>.club</span>, etc., these
-                    TLDs will be removed from the keyword query. For example,
-                    the line&nbsp;
+                    <span className={classes.code}>.club</span>, etc.&mdash;such
+                    entries have been parsed and de&ndash;duplicated to leave
+                    only billable keywords.
+                  </DialogContentText>
+                  <DialogContentText id="alert-dialog-description">
+                    For example, TLD variation line
                     <span className={classes.code}>best new car .com</span>
-                    &nbsp;will return volume metrics for only the keyword
-                    portion of the entry &nbsp;
+                    &nbsp;and TLD variation line
+                    <span className={classes.code}>best new car .net</span>
+                    &nbsp; have been reduced into a single billable keyword
+                    entry:
                     <span className={classes.code}>best new car</span>.
                   </DialogContentText>
                   <TableContainer className={classes.reviewListContainer}>
@@ -161,7 +170,7 @@ export const VolumeFormTrialReview = ({
                           <TableCell
                             component="th"
                             className={classes.reviewListHeadCell}>
-                            Keyword
+                            Billable Keyword
                           </TableCell>
                         </TableRow>
                       </TableHead>
