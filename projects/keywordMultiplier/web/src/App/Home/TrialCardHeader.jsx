@@ -55,12 +55,12 @@ const useStyles = makeStyles(theme => ({
     height: 30
   },
   listCount: {
-    color: theme.palette.secondary[50],
-    backgroundColor: theme.palette.secondary[200]
-  },
-  billableCount: {
     color: theme.palette.primary[50],
     backgroundColor: theme.palette.primary[200]
+  },
+  billableCount: {
+    color: theme.palette.secondary[50],
+    backgroundColor: theme.palette.secondary[200]
   },
   timestamp: {
     height: 30
@@ -82,13 +82,15 @@ export const TrialCardHeader = ({
       <Grid item xs={12}>
         <Grid container justify="space-between" alignItems="flex-start">
           <Grid item>
-            <Chip
-              label={trial.billableKeywords.length}
-              className={classNames(classes.countChip, classes.billableCount)}
-              classes={{
-                label: classes.chipLabel
-              }}
-            />
+            {trial.billableKeywords.length !== trial.list.length && (
+              <Chip
+                label={trial.billableKeywords.length}
+                className={classNames(classes.countChip, classes.billableCount)}
+                classes={{
+                  label: classes.chipLabel
+                }}
+              />
+            )}
             <Chip
               label={trial.list.length}
               className={classNames(classes.countChip, classes.listCount)}

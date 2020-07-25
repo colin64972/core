@@ -1,6 +1,5 @@
 import React from 'react'
 import { Formik } from 'formik'
-import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import { Dialog, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import { VolumeForm } from './VolumeForm'
