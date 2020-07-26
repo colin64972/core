@@ -14,6 +14,8 @@ import {
 } from '@material-ui/core'
 import { kEFields } from './fields'
 
+import { countryCodesList } from '@colin30/shared/raw/constants/countryCodes'
+
 const useStyles = makeStyles(theme => ({
   grid: {
     width: '100%',
@@ -59,6 +61,13 @@ export const VolumeFormKEOptions = ({
     currencyOptions: useSelector(state => state.kE.currencies),
     dataSourceOptions: useSelector(state => state.kE.dataSources)
   }
+
+  const ipCountryCode = useSelector(state => state.app.geoIp?.country_code)
+  const countryDetails = countryCodesList.find(
+    country => country.alpha2Code === ipCountryCode
+  )
+  const firstCurrency = countryDetails?.currencies[0]
+  const curCode = firstCurrency?.code.toLowerCase()
 
   const validator = value => {
     if (!value)
