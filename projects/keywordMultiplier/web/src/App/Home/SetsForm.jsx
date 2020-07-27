@@ -3,7 +3,7 @@ import { Form, Field } from 'formik'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { FadeIn } from '@colin30/shared/react/components/FadeIn'
-import Grid from '@material-ui/core/Grid'
+import { Grid, Backdrop, CircularProgress } from '@material-ui/core'
 import RestorePageIcon from '@material-ui/icons/RestorePage'
 import CachedIcon from '@material-ui/icons/Cached'
 import ShuffleIcon from '@material-ui/icons/Shuffle'
@@ -16,6 +16,9 @@ import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => {
   return {
+    backdrop: {
+      zIndex: theme.zIndex.drawer + 1
+    },
     form: {
       marginTop: theme.custom.setSpace('sm'),
       ...theme.custom.setGrid(5, 'auto', theme.custom.setSpace('sm')),
@@ -139,6 +142,9 @@ export const SetsForm = props => {
 
   return (
     <Form className={classes.form}>
+      <Backdrop className={classes.backdrop} open={isSubmitting}>
+        <CircularProgress color="primary" />
+      </Backdrop>
       {setFields.map(setField => (
         <div key={setField.key} className={classes[setField.group.className]}>
           <Field
