@@ -18,6 +18,9 @@ const useStyles = makeStyles(theme => ({
     ...defaultPadding(theme.breakpoints, theme.custom.setSpace),
     textAlign: 'center'
   },
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1
+  },
   mainHeading: theme.typography.mainHeading
 }))
 
