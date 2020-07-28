@@ -71,10 +71,10 @@ const useStyles = makeStyles(theme => ({
   badgeHeading: {
     textAlign: 'right',
     lineHeight: 1.25,
+    fontSize: theme.custom.setSpace() * 1.5,
     margin: `0 ${theme.custom.setSpace()}px 0 0`,
     [theme.breakpoints.down('xs')]: {
       textAlign: 'left',
-      fontSize: theme.custom.setSpace() * 1.5,
       margin: `0 0 0 ${theme.custom.setSpace()}px`
     }
   },
