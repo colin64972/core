@@ -164,10 +164,7 @@ export const Notice = () => {
   const timeoutBar = useRef()
   const noticeBar = useRef()
   const { show, item } = useSelector(state => getNotice(state))
-  const [lastY, setLastY] = useState()
   let timeline = gsap.timeline({ paused: true })
-
-  const scrollLock = event => scrollTo(0, lastY)
 
   const responseHandler = (event, choice = null) => {
     if (event) {
@@ -252,16 +249,6 @@ export const Notice = () => {
       timeoutBar.current.setAttribute('style', 'width: 0;')
     }
   }, [show])
-
-  useLayoutEffect(() => {
-    setLastY(window.scrollY)
-    if (show) {
-      document.addEventListener('scroll', scrollLock)
-    }
-    return () => {
-      document.removeEventListener('scroll', scrollLock)
-    }
-  })
 
   useEffect(() => {
     if (item) {
