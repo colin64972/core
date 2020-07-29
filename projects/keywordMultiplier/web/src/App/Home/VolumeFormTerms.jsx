@@ -29,7 +29,9 @@ const useStyles = makeStyles(theme => ({
     }
   },
   checkboxLabel: {
-    ...theme.custom.setFlex()
+    ...theme.custom.setFlex(),
+    fontSize: theme.custom.setSpace() * 1.25,
+    lineHeight: 1.25
   },
   viewTermsButton: {
     ...theme.custom.iconButton,
