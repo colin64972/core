@@ -4,66 +4,87 @@ import { useSelector } from 'react-redux'
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import {
-  FormControl,
-  FormHelperText,
-  FormControlLabel,
   Checkbox,
+  FormControl,
+  FormControlLabel,
+  FormHelperText,
+  Grid,
   Paper,
   Table,
-  TableHead,
   TableBody,
-  TableRow,
-  TableCell
+  TableCell,
+  TableHead,
+  TableRow
 } from '@material-ui/core'
 import { formatToDollars } from '@colin30/shared/general/formatting'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 
 const useStyles = makeStyles(theme => ({
-  formGroup: {
-    width: '100%',
-    margin: `${theme.custom.setSpace()}px 0`
+  table: {
+    marginTop: theme.custom.setSpace()
+  },
+  tableRow: {
+    border: 'none'
+  },
+  headCell: {
+    color: theme.palette.secondary[100],
+    paddingLeft: 0,
+    paddingRight: 0
+  },
+  dataCell: {
+    ...theme.typography.bold,
+    color: 'white',
+    paddingLeft: 0,
+    paddingRight: 0
   }
 }))
 
-export const VolumeFormPricing = ({ trialId, formSectionClass }) => {
+export const VolumeFormPricing = ({ trialId }) => {
   // console.log('%c formikProps', 'color: yellow; font-size: large', formikProps)
   const classes = useStyles()
   const trial = useSelector(state =>
     state.app.trials.items.find(trial => trial.id === trialId)
   )
 
+  console.log('%c VolumeFormPricing', 'color: yellow; font-size: large', trial)
+
   return (
-    <Paper className={formSectionClass}>
-      <FadeIn direction="x" position={Math.random() > 0.5 ? 100 : -100}>
-        <Table size="small">
-          <TableBody>
-            <TableRow>
-              <TableCell component="th">Keywords</TableCell>
-              <TableCell>{trial.list.length} @ $0.01 CAD each</TableCell>
-              <TableCell>
-                $&nbsp;
-                {formatToDollars(
-                  trial.list.length * constants.VOLUME_DATA.KEYWORD_PRICE
-                )}
-                &nbsp;CAD
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell component="th">Processing Fee</TableCell>
-              <TableCell></TableCell>
-              <TableCell>
-                $&nbsp;
-                {formatToDollars(
-                  trial.list.length *
-                    constants.VOLUME_DATA.KEYWORD_PRICE *
-                    0.029
-                )}
-                &nbsp;CAD
-              </TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-      </FadeIn>
-    </Paper>
+    <Table size="small" className={classes.table}>
+      <TableBody>
+        <TableRow className={classes.tableRow} hover>
+          <TableCell component="th" align="left" className={classes.headCell}>
+            Billable Keywords
+          </TableCell>
+          <TableCell className={classes.dataCell}>
+            {trial.billableKeywords.length}
+          </TableCell>
+        </TableRow>
+        <TableRow className={classes.tableRow} hover>
+          <TableCell component="th" align="left" className={classes.headCell}>
+            Cost per Metric
+          </TableCell>
+          <TableCell className={classes.dataCell}>
+            $&nbsp;{formatToDollars(1)}
+          </TableCell>
+        </TableRow>
+        <TableRow className={classes.tableRow} hover>
+          <TableCell component="th" align="left" className={classes.headCell}>
+            Metrics Cost
+          </TableCell>
+          <TableCell className={classes.dataCell}>
+            $&nbsp;{formatToDollars(trial.billableKeywords.length * 1)}
+          </TableCell>
+        </TableRow>
+        <TableRow className={classes.tableRow} hover>
+          <TableCell component="th" align="left" className={classes.headCell}>
+            Fee
+          </TableCell>
+          <TableCell className={classes.dataCell}>
+            $&nbsp;
+            {formatToDollars(trial.billableKeywords.length * 1 * 0.029)}
+          </TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
   )
 }
