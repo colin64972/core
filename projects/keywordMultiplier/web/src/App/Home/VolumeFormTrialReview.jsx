@@ -75,132 +75,121 @@ export const VolumeFormTrialReview = ({
   const openReviewHandler = event => setReviewModalStatus(true)
   const closeReviewHandler = event => setReviewModalStatus(false)
   return (
-    <Paper className={formSectionClass}>
-      <Typography variant="h3" className={formSectionTitleClass}>
-        Trial Review
-      </Typography>
-      <Table size="small" className={classes.table}>
-        <TableHead>
-          <TableRow>
-            <TableCell component="th" className={classes.headCell}>
-              ID
-            </TableCell>
-            <TableCell variant="body">{trial.id}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell component="th" className={classes.headCell}>
-              Set Fields
-            </TableCell>
-            <TableCell variant="body">{trial.heading}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell component="th" className={classes.headCell}>
-              Time Created
-            </TableCell>
-            <TableCell variant="body">{trial.timestamp}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell component="th" className={classes.headCell}>
-              Billable Keyword Count
-            </TableCell>
-            <TableCell variant="body">
-              {trial.billableKeywords.length}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell component="th" className={classes.headCell}>
-              Billable Keywords
-            </TableCell>
-            <TableCell variant="body">
-              <Button
-                size="small"
-                variant="contained"
-                onClick={openReviewHandler}
-                startIcon={<FindInPageIcon size="small" />}
-                classes={{
-                  contained: classes.revewButton
-                }}>
-                Review
-              </Button>
-              <Dialog
+    <Table size="small" className={classes.table}>
+      <TableHead>
+        <TableRow>
+          <TableCell component="th" className={classes.headCell}>
+            ID
+          </TableCell>
+          <TableCell variant="body">{trial.id}</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell component="th" className={classes.headCell}>
+            Set Fields
+          </TableCell>
+          <TableCell variant="body">{trial.heading}</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell component="th" className={classes.headCell}>
+            Time Created
+          </TableCell>
+          <TableCell variant="body">{trial.timestamp}</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell component="th" className={classes.headCell}>
+            Billable Keyword Count
+          </TableCell>
+          <TableCell variant="body">{trial.billableKeywords.length}</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell component="th" className={classes.headCell}>
+            Billable Keywords
+          </TableCell>
+          <TableCell variant="body">
+            <Button
+              size="small"
+              variant="contained"
+              onClick={openReviewHandler}
+              startIcon={<FindInPageIcon size="small" />}
+              classes={{
+                contained: classes.revewButton
+              }}>
+              Review
+            </Button>
+            <Dialog
+              onClose={closeReviewHandler}
+              aria-labelledby="customized-dialog-title"
+              open={reviewModalStatus}>
+              <DialogTitle
+                disableTypography
+                id="customized-dialog-title"
                 onClose={closeReviewHandler}
-                aria-labelledby="customized-dialog-title"
-                open={reviewModalStatus}>
-                <DialogTitle
-                  disableTypography
-                  id="customized-dialog-title"
-                  onClose={closeReviewHandler}
-                  className={classes.reviewListTitle}>
-                  Keyword List Review
-                </DialogTitle>
-                <DialogContent dividers>
-                  <DialogContentText id="alert-dialog-description">
-                    Review your list of keywords to buy volume metrics for here.
-                    You will only be charged for the billable keywords contained
-                    in this list, even if your trial result list included many
-                    more entries with TLD variations!
-                  </DialogContentText>
-                  <DialogContentText id="alert-dialog-description">
-                    If your trial result list did indeed include entries with
-                    top-level domain variations&mdash;such as
-                    <span className={classes.code}>.com</span>,
-                    <span className={classes.code}>.net</span>,
-                    <span className={classes.code}>.club</span>, etc.&mdash;such
-                    entries have been parsed and de&ndash;duplicated to leave
-                    only billable keywords.
-                  </DialogContentText>
-                  <DialogContentText id="alert-dialog-description">
-                    For example, TLD variation line
-                    <span className={classes.code}>best new car .com</span>
-                    &nbsp;and TLD variation line
-                    <span className={classes.code}>best new car .net</span>
-                    &nbsp; have been reduced into a single billable keyword
-                    entry:
-                    <span className={classes.code}>best new car</span>.
-                  </DialogContentText>
-                  <TableContainer className={classes.reviewListContainer}>
-                    <Table size="small">
-                      <TableHead>
-                        <TableRow>
-                          <TableCell
-                            component="th"
-                            className={classes.reviewListHeadCell}>
-                            Entry Number
-                          </TableCell>
-                          <TableCell
-                            component="th"
-                            className={classes.reviewListHeadCell}>
-                            Billable Keyword
-                          </TableCell>
+                className={classes.reviewListTitle}>
+                Keyword List Review
+              </DialogTitle>
+              <DialogContent dividers>
+                <DialogContentText id="alert-dialog-description">
+                  Review your list of keywords to buy volume metrics for here.
+                  You will only be charged for the billable keywords contained
+                  in this list, even if your trial result list included many
+                  more entries with TLD variations!
+                </DialogContentText>
+                <DialogContentText id="alert-dialog-description">
+                  If your trial result list did indeed include entries with
+                  top-level domain variations&mdash;such as
+                  <span className={classes.code}>.com</span>,
+                  <span className={classes.code}>.net</span>,
+                  <span className={classes.code}>.club</span>, etc.&mdash;such
+                  entries have been parsed and de&ndash;duplicated to leave only
+                  billable keywords.
+                </DialogContentText>
+                <DialogContentText id="alert-dialog-description">
+                  For example, TLD variation line
+                  <span className={classes.code}>best new car .com</span>
+                  &nbsp;and TLD variation line
+                  <span className={classes.code}>best new car .net</span>
+                  &nbsp; have been reduced into a single billable keyword entry:
+                  <span className={classes.code}>best new car</span>.
+                </DialogContentText>
+                <TableContainer className={classes.reviewListContainer}>
+                  <Table size="small">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell
+                          component="th"
+                          className={classes.reviewListHeadCell}>
+                          Entry Number
+                        </TableCell>
+                        <TableCell
+                          component="th"
+                          className={classes.reviewListHeadCell}>
+                          Billable Keyword
+                        </TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {trial.billableKeywords.map((entry, ind) => (
+                        <TableRow
+                          key={`${entry}-${ind}`}
+                          hover
+                          className={classes.reviewListRow}>
+                          <TableCell align="center">{ind + 1}</TableCell>
+                          <TableCell align="center">{entry}</TableCell>
                         </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {trial.billableKeywords.map((entry, ind) => (
-                          <TableRow
-                            key={`${entry}-${ind}`}
-                            hover
-                            className={classes.reviewListRow}>
-                            <TableCell align="center">{ind + 1}</TableCell>
-                            <TableCell align="center">{entry}</TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </TableContainer>
-                </DialogContent>
-                <DialogActions>
-                  <Button
-                    autoFocus
-                    onClick={closeReviewHandler}
-                    color="primary">
-                    Close
-                  </Button>
-                </DialogActions>
-              </Dialog>
-            </TableCell>
-          </TableRow>
-        </TableHead>
-      </Table>
-    </Paper>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </DialogContent>
+              <DialogActions>
+                <Button autoFocus onClick={closeReviewHandler} color="primary">
+                  Close
+                </Button>
+              </DialogActions>
+            </Dialog>
+          </TableCell>
+        </TableRow>
+      </TableHead>
+    </Table>
   )
 }
