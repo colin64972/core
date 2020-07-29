@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
   },
   gridPosition4: {
     gridColumn: '9 / 13',
-    gridRow: '1 / 5',
+    gridRow: '1 / 6',
     [theme.breakpoints.down('xs')]: {
       gridColumn: '1 / 13',
       gridRow: 4
@@ -161,7 +161,10 @@ export const VolumeForm = ({ formikProps, closeDialogHandler, trialId }) => {
             )}>
             Pricing
           </Typography>
-          <VolumeFormPricing trialId={trialId} />
+          <VolumeFormPricing
+            trialId={trialId}
+            billingCountry={formikProps.values.billingCountry}
+          />
         </div>
       </Paper>
       <Paper className={classNames(classes.gridPosition5, classes.formSection)}>

@@ -1,6 +1,9 @@
-export const formatToDollars = input => {
-  const cents = Math.round(input)
+export const formatCentsToDollars = input => {
+  const cents = parseInt(input)
   const dollars = cents / 100
-  const stringVal = dollars.toString()
+  let stringVal = dollars.toString()
+  if (stringVal.length < 4) {
+    stringVal = stringVal.padEnd(4, '0')
+  }
   return stringVal.substring(0, stringVal.lastIndexOf('.') + 3)
 }

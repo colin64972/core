@@ -1,13 +1,34 @@
-import { formatToDollars } from '../general/formatting'
+import { formatCentsToDollars } from '../general/formatting'
 import { constants } from '../raw/constants/keywordMultiplier'
 import { LINE_INCLUDES_TLD } from '../raw/constants/regex'
 import { stripe } from '../raw/constants/stripe'
 
-export const calculateTrialPrice = itemCount => {
-  const preStripe = itemCount * constants.VOLUME_DATA.KEYWORD_PRICE
-  const stripeVariable = preStripe * stripe.VARIABLE_RATE
-  const withStripeFixed = preStripe + stripeVariable + stripe.FIXED
-  const result = formatToDollars(withStripeFixed)
+import { billingCountryNotCanada } from '../general/payment'
+
+export const calculateTrialPrice = (itemCount, billingCountry = null) => {
+  const result = {}
+
+  const metricUnitPrice = constants.VOLUME_DATA.KEYWORD_PRICE
+  const metricsCost = itemCount * constants.VOLUME_DATA.KEYWORD_PRICE
+  const processingFee = metricsCost * stripe.VARIABLE_RATE + stripe.FIXED
+  const subtotal = metricsCost + processingFee
+  const total = subtotal
+  const intFeeRate =
+    stripe.INTERNATIONAL_CARD_RATE + stripe.CURRENCY_CONVERSION_RATE
+  const intFee = subtotal * intFeeRate
+  const intTotal = subtotal + intFee
+
+  result.unitPrice = formatCentsToDollars(metricUnitPrice)
+  result.metricsCost = formatCentsToDollars(metricsCost)
+  result.processingFee = formatCentsToDollars(processingFee)
+  result.subtotal = formatCentsToDollars(subtotal)
+  result.total = formatCentsToDollars(total)
+
+  if (billingCountryNotCanada(billingCountry)) {
+    result.intFee = formatCentsToDollars(intFee)
+    result.intTotal = formatCentsToDollars(intTotal)
+  }
+
   return result
 }
 

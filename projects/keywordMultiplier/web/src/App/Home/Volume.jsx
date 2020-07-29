@@ -62,27 +62,23 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
           root: classes.paper
         }
       }}>
-      <Grid
-        container
-        justify="flex-start"
-        direction="column"
-        alignItems="center">
+      <Grid container justify="center" direction="column" alignItems="center">
         <Typography variant="subtitle2" className={classes.subHeading}>
           Order Form
         </Typography>
         <Typography variant="h4" className={classes.mainHeading}>
           Keyword Volume Metrics
         </Typography>
+        <Formik initialValues={initalValues} onSubmit={customSubmitHandler}>
+          {formikProps => (
+            <VolumeForm
+              formikProps={formikProps}
+              closeDialogHandler={closeDialogHandler}
+              trialId={trialId}
+            />
+          )}
+        </Formik>
       </Grid>
-      <Formik initialValues={initalValues} onSubmit={customSubmitHandler}>
-        {formikProps => (
-          <VolumeForm
-            formikProps={formikProps}
-            closeDialogHandler={closeDialogHandler}
-            trialId={trialId}
-          />
-        )}
-      </Formik>
     </Dialog>
   )
 }
