@@ -78,55 +78,50 @@ export const VolumeFormKEOptions = ({
   }
 
   return (
-    <Paper className={formSectionClass}>
-      <Typography variant="h3" className={formSectionTitleClass}>
-        Keyword Metric Options
-      </Typography>
-      <div className={classes.grid}>
-        {kEFields.map(kEField => (
-          <div className={classes[kEField.className]} key={kEField.key}>
-            <Field name={kEField.name} validate={validator}>
-              {fieldProps => {
-                // console.log(
-                //   '%c fieldProps',
-                //   'color: yellow; font-size: large',
-                //   fieldProps
-                // )
-                return (
-                  <FormControl
-                    required
-                    fullWidth
-                    error={
-                      fieldProps.meta.touched && fieldProps.meta.error?.status
-                    }>
-                    <InputLabel id={fieldProps.field.name}>
-                      {kEField.label}
-                    </InputLabel>
-                    <Select
-                      labelId={fieldProps.field.name}
-                      id={fieldProps.field.name}
-                      name={fieldProps.field.name}
-                      value={fieldProps.field.value}
-                      onChange={fieldProps.field.onChange}
-                      onBlur={fieldProps.field.onBlur}>
-                      {kEOptions[kEField.optionsName].map(option => (
-                        <MenuItem key={option.key} value={option.value}>
-                          {option.label}
-                        </MenuItem>
-                      ))}
-                    </Select>
-                    <FormHelperText>
-                      {fieldProps.meta.touched && fieldProps.meta.error?.status
-                        ? fieldProps.meta.error.message
-                        : kEField?.helperText}
-                    </FormHelperText>
-                  </FormControl>
-                )
-              }}
-            </Field>
-          </div>
-        ))}
-      </div>
-    </Paper>
+    <div className={classes.grid}>
+      {kEFields.map(kEField => (
+        <div className={classes[kEField.className]} key={kEField.key}>
+          <Field name={kEField.name} validate={validator}>
+            {fieldProps => {
+              // console.log(
+              //   '%c fieldProps',
+              //   'color: yellow; font-size: large',
+              //   fieldProps
+              // )
+              return (
+                <FormControl
+                  required
+                  fullWidth
+                  error={
+                    fieldProps.meta.touched && fieldProps.meta.error?.status
+                  }>
+                  <InputLabel id={fieldProps.field.name}>
+                    {kEField.label}
+                  </InputLabel>
+                  <Select
+                    labelId={fieldProps.field.name}
+                    id={fieldProps.field.name}
+                    name={fieldProps.field.name}
+                    value={fieldProps.field.value}
+                    onChange={fieldProps.field.onChange}
+                    onBlur={fieldProps.field.onBlur}>
+                    {kEOptions[kEField.optionsName].map(option => (
+                      <MenuItem key={option.key} value={option.value}>
+                        {option.label}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                  <FormHelperText>
+                    {fieldProps.meta.touched && fieldProps.meta.error?.status
+                      ? fieldProps.meta.error.message
+                      : kEField?.helperText}
+                  </FormHelperText>
+                </FormControl>
+              )
+            }}
+          </Field>
+        </div>
+      ))}
+    </div>
   )
 }

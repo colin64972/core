@@ -155,211 +155,206 @@ export const VolumeFormCardInfo = ({
   }
 
   return (
-    <Paper className={formSectionClass}>
-      <Typography variant="h3" className={formSectionTitleClass}>
-        Credit Card Info
-      </Typography>
-      <div className={classes.grid}>
-        <div className={classes.gridPositionCardNumber}>
-          <Field name="cardNumber" validate={cardNumberValidator}>
-            {fieldProps => {
-              return (
-                <FormControl
-                  fullWidth
-                  required
-                  error={
-                    fieldProps.meta.touched && fieldProps.meta.error?.status
-                  }>
-                  <InputLabel htmlFor={fieldProps.field.name}>
-                    Card Number
-                  </InputLabel>
-                  <Input
-                    id={fieldProps.field.name}
-                    value={fieldProps.field.value}
-                    onChange={fieldProps.field.onChange}
-                    onBlur={fieldProps.field.onBlur}
-                  />
-                  {fieldProps.meta.touched && fieldProps.meta.error?.status && (
-                    <FormHelperText id="component-error-text">
-                      {fieldProps.meta.error.message}
-                    </FormHelperText>
-                  )}
-                </FormControl>
-              )
-            }}
-          </Field>
-        </div>
-        <div className={classes.gridPositionExpMonth}>
-          <Field name="expMonth" validate={expMonthValidator}>
-            {fieldProps => {
-              return (
-                <FormControl
-                  fullWidth
-                  required
-                  error={
-                    fieldProps.meta.touched && fieldProps.meta.error?.status
-                  }>
-                  <InputLabel htmlFor={fieldProps.field.name}>
-                    Expiry Month
-                  </InputLabel>
-                  <Select
-                    labelId={fieldProps.field.name}
-                    id={fieldProps.field.name}
-                    name={fieldProps.field.name}
-                    value={fieldProps.field.value}
-                    onChange={fieldProps.field.onChange}
-                    onBlur={fieldProps.field.onBlur}>
-                    {setExpMonthOptions().map(option => (
-                      <MenuItem key={option.key} value={option.value}>
-                        {option.label}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                  {fieldProps.meta.touched && fieldProps.meta.error?.status && (
-                    <FormHelperText id="component-error-text">
-                      {fieldProps.meta.error.message}
-                    </FormHelperText>
-                  )}
-                </FormControl>
-              )
-            }}
-          </Field>
-        </div>
-        <div className={classes.gridPositionExpYear}>
-          <Field name="expYear" validate={expYearValidator}>
-            {fieldProps => {
-              return (
-                <FormControl
-                  fullWidth
-                  required
-                  error={
-                    fieldProps.meta.touched && fieldProps.meta.error?.status
-                  }>
-                  <InputLabel htmlFor={fieldProps.field.name}>
-                    Expiry Year
-                  </InputLabel>
-                  <Select
-                    labelId={fieldProps.field.name}
-                    id={fieldProps.field.name}
-                    name={fieldProps.field.name}
-                    value={fieldProps.field.value}
-                    onChange={fieldProps.field.onChange}
-                    onBlur={fieldProps.field.onBlur}>
-                    {setExpYearOptions().map(option => (
-                      <MenuItem key={option.key} value={option.value}>
-                        {option.label}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                  {fieldProps.meta.touched && fieldProps.meta.error?.status && (
-                    <FormHelperText id="component-error-text">
-                      {fieldProps.meta.error.message}
-                    </FormHelperText>
-                  )}
-                </FormControl>
-              )
-            }}
-          </Field>
-        </div>
-        <div className={classes.gridPositionCode}>
-          <Field
-            name="cardCode"
-            validate={cardCodeValidator}
-            className={classes.gridPositionCode}>
-            {fieldProps => {
-              return (
-                <FormControl
-                  fullWidth
-                  required
-                  error={
-                    fieldProps.meta.touched && fieldProps.meta.error?.status
-                  }>
-                  <InputLabel htmlFor={fieldProps.field.name}>
-                    Card Code
-                  </InputLabel>
-                  <Input
-                    id={fieldProps.field.name}
-                    value={fieldProps.field.value}
-                    onChange={fieldProps.field.onChange}
-                    onBlur={fieldProps.field.onBlur}
-                  />
-                  {fieldProps.meta.touched && fieldProps.meta.error?.status && (
-                    <FormHelperText id="component-error-text">
-                      {fieldProps.meta.error.message}
-                    </FormHelperText>
-                  )}
-                </FormControl>
-              )
-            }}
-          </Field>
-        </div>
-        <div className={classes.gridPositionBillingCountry}>
-          <Field name="billingCountry" validate={billingCountryValidator}>
-            {fieldProps => {
-              return (
-                <FormControl
-                  required
-                  fullWidth
-                  error={
-                    fieldProps.meta.touched && fieldProps.meta.error?.status
-                  }>
-                  <InputLabel id={fieldProps.field.name}>
-                    Billing Country
-                  </InputLabel>
-                  <Select
-                    labelId={fieldProps.field.name}
-                    id={fieldProps.field.name}
-                    name={fieldProps.field.name}
-                    value={ipCountryCode || fieldProps.field.value}
-                    onChange={fieldProps.field.onChange}
-                    onBlur={fieldProps.field.onBlur}>
-                    {countryCodesList.map(option => (
-                      <MenuItem
-                        key={`${option.name}-${option.alpha2Code}`}
-                        value={option.alpha2Code}>
-                        {option.name}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                  {fieldProps.meta.touched && fieldProps.meta.error?.status && (
-                    <FormHelperText>
-                      {fieldProps.meta.error.message}
-                    </FormHelperText>
-                  )}
-                </FormControl>
-              )
-            }}
-          </Field>
-        </div>
-        <div className={classes.gridPositionBillingEmail}>
-          <Field name="billingEmail" validate={billingEmailValidator}>
-            {fieldProps => {
-              return (
-                <FormControl
-                  fullWidth
-                  error={
-                    fieldProps.meta.touched && fieldProps.meta.error?.status
-                  }>
-                  <InputLabel htmlFor={fieldProps.field.name}>
-                    Billing Email Address
-                  </InputLabel>
-                  <Input
-                    id={fieldProps.field.name}
-                    value={fieldProps.field.value}
-                    onChange={fieldProps.field.onChange}
-                    onBlur={fieldProps.field.onBlur}
-                  />
+    <div className={classes.grid}>
+      <div className={classes.gridPositionCardNumber}>
+        <Field name="cardNumber" validate={cardNumberValidator}>
+          {fieldProps => {
+            return (
+              <FormControl
+                fullWidth
+                required
+                error={
+                  fieldProps.meta.touched && fieldProps.meta.error?.status
+                }>
+                <InputLabel htmlFor={fieldProps.field.name}>
+                  Card Number
+                </InputLabel>
+                <Input
+                  id={fieldProps.field.name}
+                  value={fieldProps.field.value}
+                  onChange={fieldProps.field.onChange}
+                  onBlur={fieldProps.field.onBlur}
+                />
+                {fieldProps.meta.touched && fieldProps.meta.error?.status && (
                   <FormHelperText id="component-error-text">
-                    {fieldProps.meta.touched && fieldProps.meta.error?.status
-                      ? 'Invalid email address'
-                      : 'Email address to send receipt. No receipt sent if left blank'}
+                    {fieldProps.meta.error.message}
                   </FormHelperText>
-                </FormControl>
-              )
-            }}
-          </Field>
-        </div>
+                )}
+              </FormControl>
+            )
+          }}
+        </Field>
       </div>
-    </Paper>
+      <div className={classes.gridPositionExpMonth}>
+        <Field name="expMonth" validate={expMonthValidator}>
+          {fieldProps => {
+            return (
+              <FormControl
+                fullWidth
+                required
+                error={
+                  fieldProps.meta.touched && fieldProps.meta.error?.status
+                }>
+                <InputLabel htmlFor={fieldProps.field.name}>
+                  Expiry Month
+                </InputLabel>
+                <Select
+                  labelId={fieldProps.field.name}
+                  id={fieldProps.field.name}
+                  name={fieldProps.field.name}
+                  value={fieldProps.field.value}
+                  onChange={fieldProps.field.onChange}
+                  onBlur={fieldProps.field.onBlur}>
+                  {setExpMonthOptions().map(option => (
+                    <MenuItem key={option.key} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </Select>
+                {fieldProps.meta.touched && fieldProps.meta.error?.status && (
+                  <FormHelperText id="component-error-text">
+                    {fieldProps.meta.error.message}
+                  </FormHelperText>
+                )}
+              </FormControl>
+            )
+          }}
+        </Field>
+      </div>
+      <div className={classes.gridPositionExpYear}>
+        <Field name="expYear" validate={expYearValidator}>
+          {fieldProps => {
+            return (
+              <FormControl
+                fullWidth
+                required
+                error={
+                  fieldProps.meta.touched && fieldProps.meta.error?.status
+                }>
+                <InputLabel htmlFor={fieldProps.field.name}>
+                  Expiry Year
+                </InputLabel>
+                <Select
+                  labelId={fieldProps.field.name}
+                  id={fieldProps.field.name}
+                  name={fieldProps.field.name}
+                  value={fieldProps.field.value}
+                  onChange={fieldProps.field.onChange}
+                  onBlur={fieldProps.field.onBlur}>
+                  {setExpYearOptions().map(option => (
+                    <MenuItem key={option.key} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </Select>
+                {fieldProps.meta.touched && fieldProps.meta.error?.status && (
+                  <FormHelperText id="component-error-text">
+                    {fieldProps.meta.error.message}
+                  </FormHelperText>
+                )}
+              </FormControl>
+            )
+          }}
+        </Field>
+      </div>
+      <div className={classes.gridPositionCode}>
+        <Field
+          name="cardCode"
+          validate={cardCodeValidator}
+          className={classes.gridPositionCode}>
+          {fieldProps => {
+            return (
+              <FormControl
+                fullWidth
+                required
+                error={
+                  fieldProps.meta.touched && fieldProps.meta.error?.status
+                }>
+                <InputLabel htmlFor={fieldProps.field.name}>
+                  Card Code
+                </InputLabel>
+                <Input
+                  id={fieldProps.field.name}
+                  value={fieldProps.field.value}
+                  onChange={fieldProps.field.onChange}
+                  onBlur={fieldProps.field.onBlur}
+                />
+                {fieldProps.meta.touched && fieldProps.meta.error?.status && (
+                  <FormHelperText id="component-error-text">
+                    {fieldProps.meta.error.message}
+                  </FormHelperText>
+                )}
+              </FormControl>
+            )
+          }}
+        </Field>
+      </div>
+      <div className={classes.gridPositionBillingCountry}>
+        <Field name="billingCountry" validate={billingCountryValidator}>
+          {fieldProps => {
+            return (
+              <FormControl
+                required
+                fullWidth
+                error={
+                  fieldProps.meta.touched && fieldProps.meta.error?.status
+                }>
+                <InputLabel id={fieldProps.field.name}>
+                  Billing Country
+                </InputLabel>
+                <Select
+                  labelId={fieldProps.field.name}
+                  id={fieldProps.field.name}
+                  name={fieldProps.field.name}
+                  value={ipCountryCode || fieldProps.field.value}
+                  onChange={fieldProps.field.onChange}
+                  onBlur={fieldProps.field.onBlur}>
+                  {countryCodesList.map(option => (
+                    <MenuItem
+                      key={`${option.name}-${option.alpha2Code}`}
+                      value={option.alpha2Code}>
+                      {option.name}
+                    </MenuItem>
+                  ))}
+                </Select>
+                {fieldProps.meta.touched && fieldProps.meta.error?.status && (
+                  <FormHelperText>
+                    {fieldProps.meta.error.message}
+                  </FormHelperText>
+                )}
+              </FormControl>
+            )
+          }}
+        </Field>
+      </div>
+      <div className={classes.gridPositionBillingEmail}>
+        <Field name="billingEmail" validate={billingEmailValidator}>
+          {fieldProps => {
+            return (
+              <FormControl
+                fullWidth
+                error={
+                  fieldProps.meta.touched && fieldProps.meta.error?.status
+                }>
+                <InputLabel htmlFor={fieldProps.field.name}>
+                  Billing Email Address
+                </InputLabel>
+                <Input
+                  id={fieldProps.field.name}
+                  value={fieldProps.field.value}
+                  onChange={fieldProps.field.onChange}
+                  onBlur={fieldProps.field.onBlur}
+                />
+                <FormHelperText id="component-error-text">
+                  {fieldProps.meta.touched && fieldProps.meta.error?.status
+                    ? 'Invalid email address'
+                    : 'Email address to send receipt. No receipt sent if left blank'}
+                </FormHelperText>
+              </FormControl>
+            )
+          }}
+        </Field>
+      </div>
+    </div>
   )
 }
