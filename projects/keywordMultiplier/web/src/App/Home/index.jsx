@@ -6,7 +6,6 @@ import { Intro } from './Intro'
 import { Notice } from './Notice'
 import { Sets } from './Sets'
 import { Footer } from '../common/Footer'
-import { getTrials } from '../../store/selectors'
 
 const TrialResultsLoadable = loadable(() =>
   import(
@@ -17,7 +16,7 @@ const TrialResultsLoadable = loadable(() =>
 )
 
 const Home = () => {
-  const trials = useSelector(state => getTrials(state))
+  const trials = useSelector(state => state.app.trials)
   return (
     <div id="home-container">
       <Notice />
