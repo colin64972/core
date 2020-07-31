@@ -9,7 +9,6 @@ import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import { defaultPadding } from '@colin30/shared/react/theming'
 import { matchTypes } from './fields'
 import { types } from '../../store/types'
-import { getMatchType } from '../../store/selectors'
 
 const useStyles = makeStyles(theme => {
   const matchTypeIcon = {
@@ -80,7 +79,7 @@ const useStyles = makeStyles(theme => {
 export const TrialResultsMatchTypes = () => {
   const classes = useStyles()
 
-  const selectedMatchType = useSelector(state => getMatchType(state))
+  const selectedMatchType = useSelector(state => state.app.matchType)
 
   const dispatch = useDispatch()
 

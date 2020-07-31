@@ -7,7 +7,6 @@ import DoneIcon from '@material-ui/icons/Done'
 import { makeStyles } from '@material-ui/styles'
 import { NoticeIcon } from './NoticeIcon'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
-import { getNotice } from '../../store/selectors'
 import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => {
@@ -163,7 +162,7 @@ export const Notice = () => {
   const screen = useRef()
   const timeoutBar = useRef()
   const noticeBar = useRef()
-  const { show, item } = useSelector(state => getNotice(state))
+  const { show, item } = useSelector(state => state.app.notice)
   let timeline = gsap.timeline({ paused: true })
 
   const responseHandler = (event, choice = null) => {
