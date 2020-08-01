@@ -41,7 +41,9 @@ export const Sets = () => {
     initialValues = {
       setField1: 'best\ncheap',
       setField2: 'kia\nhyundai\nford',
-      setField4: 'dealer\ndealership'
+      setField3: '',
+      setField4: 'dealer\ndealership',
+      setField5: ''
     }
   }
 

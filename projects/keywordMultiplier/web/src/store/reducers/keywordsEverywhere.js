@@ -9,7 +9,8 @@ const defaultState = {
     country: null,
     currency: null,
     dataSource: null
-  }
+  },
+  orderRequest: null
 }
 
 export const kE = (state = defaultState, action) => {
@@ -27,15 +28,23 @@ export const kE = (state = defaultState, action) => {
         currencies,
         dataSources
       }
-    case 'ZERO_CREDITS':
+    case types.SET_ORDER_REQUEST:
       return {
         ...state,
-        credits: 0
+        orderRequest: {
+          trialId: action.trialId,
+          price: action.price
+        }
       }
-    case 'FILL_CREDITS':
+    case types.ADD_USER_KE_SELECTIONS:
+      const { country, currency, dataSource } = action
       return {
         ...state,
-        credits: action.count
+        userSelections: {
+          country,
+          currency,
+          dataSource
+        }
       }
     default:
       return state

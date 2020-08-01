@@ -49,25 +49,9 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export const VolumeFormKEOptions = ({
-  formSectionClass,
-  formSectionTitleClass
-}) => {
+export const VolumeFormKEOptions = ({ keOptions }) => {
   // console.log('%c formikProps', 'color: yellow; font-size: large', formikProps)
   const classes = useStyles()
-
-  const kEOptions = {
-    countryOptions: useSelector(state => state.kE.countries),
-    currencyOptions: useSelector(state => state.kE.currencies),
-    dataSourceOptions: useSelector(state => state.kE.dataSources)
-  }
-
-  const ipCountryCode = useSelector(state => state.app.geoIp?.country_code)
-  const countryDetails = countryCodesList.find(
-    country => country.alpha2Code === ipCountryCode
-  )
-  const firstCurrency = countryDetails?.currencies[0]
-  const curCode = firstCurrency?.code.toLowerCase()
 
   const validator = value => {
     if (!value)
@@ -105,7 +89,7 @@ export const VolumeFormKEOptions = ({
                     value={fieldProps.field.value}
                     onChange={fieldProps.field.onChange}
                     onBlur={fieldProps.field.onBlur}>
-                    {kEOptions[kEField.optionsName].map(option => (
+                    {keOptions[kEField.optionsName].map(option => (
                       <MenuItem key={option.key} value={option.value}>
                         {option.label}
                       </MenuItem>

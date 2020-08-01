@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import { Field } from 'formik'
-import { useSelector } from 'react-redux'
-import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import React, { useEffect } from 'react'
 import { makeStyles } from '@material-ui/styles'
 import {
   Checkbox,
@@ -22,7 +22,7 @@ import { formatToDollars } from '@colin30/shared/general/formatting'
 import { calculateTrialPrice } from '@colin30/shared/logic/keywordMultiplier'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { billingCountryNotCanada } from '@colin30/shared/general/payment'
-import { result } from 'lodash'
+import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => ({
   table: {
@@ -51,14 +51,11 @@ const useStyles = makeStyles(theme => ({
     ...theme.typography.italic,
     border: 'none',
     width: '100%',
-    textAlign: 'right',
     fontSize: theme.custom.setSpace() * 1.25,
     lineHeight: 1.25,
     color: 'white',
-    marginTop: theme.custom.setSpace(),
-    [theme.breakpoints.down('xs')]: {
-      textAlign: 'left'
-    }
+    textAlign: 'left',
+    marginTop: theme.custom.setSpace()
   }
 }))
 
@@ -69,10 +66,20 @@ export const VolumeFormPricing = ({ trialId, billingCountry }) => {
     state.app.trials.items.find(trial => trial.id === trialId)
   )
 
+  const dispatch = useDispatch()
+
   const price = calculateTrialPrice(
     trial.billableKeywords.length,
     billingCountry
   )
+
+  useEffect(() => {
+    dispatch({
+      type: types.SET_ORDER_REQUEST,
+      trialId: trialId,
+      price
+    })
+  }, [price])
 
   const isInternational = billingCountryNotCanada(billingCountry)
 
@@ -160,12 +167,14 @@ export const VolumeFormPricing = ({ trialId, billingCountry }) => {
             &#42; All prices listed in &#36; Canadian Dollars CAD
           </TableCell>
         </TableRow>
-        <TableRow className={classes.noBorder}>
-          <TableCell className={classes.note} colSpan={2}>
-            &#42; International card and currency conversion fee applied to
-            non-Canadian credit cards
-          </TableCell>
-        </TableRow>
+        {isInternational && (
+          <TableRow className={classes.noBorder}>
+            <TableCell className={classes.note} colSpan={2}>
+              &#42; International card and currency conversion fee applied to
+              non-Canadian credit cards
+            </TableCell>
+          </TableRow>
+        )}
       </TableBody>
     </Table>
   )

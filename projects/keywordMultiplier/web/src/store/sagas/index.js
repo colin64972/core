@@ -10,7 +10,8 @@ import {
 import {
   getKeCredits,
   getKeOptions,
-  alertInsufficientKeCredits
+  alertInsufficientKeCredits,
+  orderMetrics
 } from './keywordsEverywhere'
 import { types } from '../types'
 
@@ -27,4 +28,5 @@ export function* sagas() {
     types.ALERT_INSUFFICIENT_KE_CREDITS,
     alertInsufficientKeCredits
   )
+  yield takeLatest(types.ORDER_METRICS, orderMetrics)
 }
