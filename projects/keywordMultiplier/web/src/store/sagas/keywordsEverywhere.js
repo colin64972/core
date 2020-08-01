@@ -57,3 +57,20 @@ export function* alertInsufficientKeCredits() {
     'color: orange; font-size: large'
   )
 }
+
+export function* orderMetrics(action) {
+  try {
+    const orderRequest = yield select(state => state.kE.orderRequest)
+    const trial = yield select(state =>
+      state.app.trials.items.find(trial => trial.id === orderRequest.trialId)
+    )
+    yield put({
+      type: types.ADD_USER_KE_SELECTIONS,
+      country: action.values.country,
+      currency: action.values.currency,
+      dataSource: action.values.dataSource
+    })
+  } catch (error) {
+    console.error('%c error', 'color: red; font-size: large', error)
+  }
+}

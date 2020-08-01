@@ -81,7 +81,8 @@ const useStyles = makeStyles(theme => ({
   pricingSticky: {
     width: '100%',
     position: 'sticky',
-    top: 0
+    top: 0,
+    overflow: 'hidden'
   },
   formSectionTitle: {
     color: theme.palette.primary[200],
@@ -120,7 +121,12 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export const VolumeForm = ({ formikProps, closeDialogHandler, trialId }) => {
+export const VolumeForm = ({
+  formikProps,
+  closeDialogHandler,
+  trialId,
+  keOptions
+}) => {
   // console.log('%c formikProps', 'color: yellow; font-size: large', formikProps)
   const classes = useStyles()
 
@@ -138,7 +144,7 @@ export const VolumeForm = ({ formikProps, closeDialogHandler, trialId }) => {
         <Typography variant="h3" className={classes.formSectionTitle}>
           Keyword Metric Options
         </Typography>
-        <VolumeFormKEOptions />
+        <VolumeFormKEOptions keOptions={keOptions} />
       </Paper>
       <Paper className={classNames(classes.gridPosition3, classes.formSection)}>
         <Typography variant="h3" className={classes.formSectionTitle}>

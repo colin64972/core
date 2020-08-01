@@ -156,8 +156,8 @@ export const decorateTrial = data => ({
   billableKeywords: data.trialProduct.billableKeywords,
   timestamp: moment(data.createdAt).format('HH:mm:ss'),
   geoIp: data?.geoIp,
-  createdAt: data.createdAt,
-  volumeData: data?.volumeData
+  createdAt: data.createdAt
+  // volumeData: data?.volumeData
   // volumeData: [
   //   {
   //     vol: 150,
