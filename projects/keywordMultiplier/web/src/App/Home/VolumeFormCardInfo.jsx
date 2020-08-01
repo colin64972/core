@@ -79,16 +79,11 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export const VolumeFormCardInfo = ({
-  formSectionClass,
-  formSectionTitleClass
-}) => {
+export const VolumeFormCardInfo = () => {
   // console.log('%c formikProps', 'color: yellow; font-size: large', formikProps)
   const classes = useStyles()
 
   const minYear = new Date().getFullYear()
-
-  const ipCountryCode = useSelector(state => state.app.geoIp?.country_code)
 
   const cardNumberValidator = value => {
     if (!CREDIT_CARD_NUMBER.test(value))
@@ -306,7 +301,7 @@ export const VolumeFormCardInfo = ({
                   labelId={fieldProps.field.name}
                   id={fieldProps.field.name}
                   name={fieldProps.field.name}
-                  value={ipCountryCode || fieldProps.field.value}
+                  value={fieldProps.field.value}
                   onChange={fieldProps.field.onChange}
                   onBlur={fieldProps.field.onBlur}>
                   {countryCodesList.map(option => (

@@ -48,10 +48,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export const VolumeFormTerms = ({
-  formSectionClass,
-  formSectionTitleClass
-}) => {
+export const VolumeFormTerms = () => {
   // console.log('%c formikProps', 'color: yellow; font-size: large', formikProps)
   const classes = useStyles()
 

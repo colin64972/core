@@ -61,11 +61,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export const VolumeFormTrialReview = ({
-  trialId,
-  formSectionClass,
-  formSectionTitleClass
-}) => {
+export const VolumeFormTrialReview = ({ trialId }) => {
   const classes = useStyles()
   const trial = useSelector(state =>
     state.app.trials.items.find(trial => trial.id === trialId)

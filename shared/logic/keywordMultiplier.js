@@ -27,6 +27,8 @@ export const calculateTrialPrice = (itemCount, billingCountry = null) => {
   if (billingCountryNotCanada(billingCountry)) {
     result.intFee = formatCentsToDollars(intFee)
     result.intTotal = formatCentsToDollars(intTotal)
+    result.intCard = true
+    result.billingCountry = billingCountry
   }
 
   return result

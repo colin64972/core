@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Formik } from 'formik'
+import { useSelector, useDispatch } from 'react-redux'
 import { Dialog, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import { VolumeForm } from './VolumeForm'
+import { countryCodesList } from '@colin30/shared/raw/constants/countryCodes'
+import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -28,26 +31,55 @@ const useStyles = makeStyles(theme => ({
 const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
   const classes = useStyles()
 
-  const initalValues = {
-    country: '',
-    currency: '',
-    dataSource: '',
+  const dispatch = useDispatch()
+
+  const keOptions = {
+    countryOptions: useSelector(state => state.kE.countries),
+    currencyOptions: useSelector(state => state.kE.currencies),
+    dataSourceOptions: useSelector(state => state.kE.dataSources),
+    userSelections: useSelector(state => state.kE.userSelections)
+  }
+
+  const ipCountryCode = useSelector(state => state.app.geoIp?.country_code)
+  const countryDetails = countryCodesList.find(
+    country => country.alpha2Code === ipCountryCode
+  )
+  const firstCurrency = countryDetails?.currencies[0]
+  const curCode = firstCurrency?.code.toLowerCase()
+
+  let initalValues = {
+    country: keOptions.userSelections.country || ipCountryCode,
+    currency: keOptions.userSelections.currency || curCode,
+    dataSource: keOptions.userSelections.dataSource || '',
     acceptTerms: false,
     cardNumber: '',
     expMonth: '',
     expYear: '',
     cardCode: '',
     billingEmail: '',
-    billingCountry: ''
+    billingCountry: ipCountryCode
+  }
+
+  if (process.env.NODE_ENV === 'development') {
+    initalValues = {
+      country: keOptions.userSelections.country || 'ca',
+      currency: keOptions.userSelections.currency || 'cad',
+      dataSource: keOptions.userSelections.dataSource || 'gkp',
+      acceptTerms: false,
+      cardNumber: '4242424242424242',
+      expMonth: '4',
+      expYear: '2024',
+      cardCode: '562',
+      billingEmail: '',
+      billingCountry: 'CA'
+    }
   }
 
   const customSubmitHandler = (values, actions) => {
-    console.log(
-      '%c submitHandler',
-      'color: yellow; font-size: large',
-      values,
-      actions
-    )
+    dispatch({
+      type: types.ORDER_METRICS,
+      values
+    })
   }
 
   return (
@@ -75,6 +107,7 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
               formikProps={formikProps}
               closeDialogHandler={closeDialogHandler}
               trialId={trialId}
+              keOptions={keOptions}
             />
           )}
         </Formik>
