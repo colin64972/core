@@ -1,12 +1,12 @@
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
-import { fetchKeData } from './fetchers'
+import { fetchKeMeta } from './fetchers'
 
-export const getKeData = async queryStringParameters => {
+export const getMeta = async queryStringParameters => {
   const { resource } = queryStringParameters
 
   let resources = constants.ENDPOINTS[resource]
 
-  const promises = resources.map(path => fetchKeData(path))
+  const promises = resources.map(path => fetchKeMeta(path))
 
   try {
     const responses = await Promise.all(promises)
@@ -36,4 +36,11 @@ export const getKeData = async queryStringParameters => {
       body: JSON.stringify(error.message)
     }
   }
+}
+
+export const getMetrics = async eventBody => {
+  try {
+    const body = JSON.parse(eventBody)
+    console.log('getMetrics', body)
+  } catch (error) {}
 }
