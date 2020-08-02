@@ -39,9 +39,9 @@ functions:
       - httpApi:
           path: /ke
           method: GET
-  getMetricsHandler:
-    name: ${env:SERVICE_NAME}-getMetricsHandler
-    handler: index.getMetricsHandler
+  orderMetricsHandler:
+    name: ${env:SERVICE_NAME}-orderMetricsHandler
+    handler: index.orderMetricsHandler
     events:
       - httpApi:
           path: /ke

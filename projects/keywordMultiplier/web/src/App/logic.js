@@ -252,7 +252,7 @@ export const findEnabledSets = (filled, disabled, values) =>
     return temp
   }, {})
 
-const createTrendChart = dataPoints => JSON.stringify(dataPoints)
+const createTrendChart = dataPoints => null
 
 export const setVolumeFieldCell = (asdf, field) => {
   switch (field.label) {
