@@ -1,5 +1,5 @@
 import { createTrial } from './trials'
-import { getMeta, getMetrics } from './keywordsEverywhere'
+import { getMeta, orderMetrics } from './keywordsEverywhere'
 
 const checkAuthorization = (authHeader, callback) => {
   if (authHeader !== 'secret')
@@ -20,7 +20,7 @@ export const getMetaHandler = async (event, context, callback) => {
   return callback(null, slsRes)
 }
 
-export const getMetricsHandler = async (event, context, callback) => {
-  const slsRes = await getMetrics(event.body)
+export const orderMetricsHandler = async (event, context, callback) => {
+  const slsRes = await orderMetrics(event.body)
   return callback(null, slsRes)
 }

@@ -58,6 +58,24 @@ export const createTrial = async eventBody => {
   }
 }
 
+export const getTrialById = async id => {
+  try {
+    const options = {
+      TableName: process.env.TABLE_NAME,
+      Key: { id }
+    }
+
+    const result = await docClient.get(options).promise()
+
+    if (!result?.Item)
+      throw Error(dynamoDbConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
+
+    return result.Item
+  } catch (error) {
+    return error
+  }
+}
+
 // const deleteOne = async pathParams => {
 //   try {
 //     const options = {

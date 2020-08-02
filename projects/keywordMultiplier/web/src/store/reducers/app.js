@@ -150,6 +150,19 @@ export const app = (state = defaultState, action) => {
           [action.spinnerName]: action.status
         }
       }
+    case types.UPDATE_TRIAL:
+      return {
+        ...state,
+        trials: {
+          ...state.trials,
+          items: [
+            ...state.trials.items.filter(
+              item => item.id !== action.updatedTrial.id
+            ),
+            action.updatedTrial
+          ]
+        }
+      }
     default:
       return state
   }
