@@ -1,4 +1,5 @@
-import { get } from 'axios'
+import { get, post } from 'axios'
+import { errorConstants } from '@colin30/shared/serverless/errorConstants'
 
 export const fetchGeoIp = async ipAddress => {
   try {
@@ -13,12 +14,34 @@ export const fetchGeoIp = async ipAddress => {
   }
 }
 
-export const fetchKeMeta = async path => {
-  const options = {
-    headers: {
-      Authorization: `Bearer ${process.env.KE_API_KEY}`,
-      Accept: 'application/json'
-    }
+const keHeaders = {
+  headers: {
+    Authorization: `Bearer ${process.env.KE_API_KEY}`,
+    Accept: 'application/json'
   }
-  return get(`https://api.keywordseverywhere.com/${path}`, options)
+}
+
+export const fetchKeMeta = async path =>
+  get(`https://api.keywordseverywhere.com/${path}`, keHeaders)
+
+export const fetchKeMetrics = async (
+  country,
+  currency,
+  dataSource,
+  keywordList
+) => {
+  try {
+    const keywords = keywordList.map(keyword => `kw[]=${keyword}`).join('&')
+    const res = await post(
+      'https://api.keywordseverywhere.com/v1/get_keyword_data',
+      `country=${country}&currency=${currency}&dataSource=${dataSource}&${keywords}`,
+      keHeaders
+    )
+
+    if (res.status === 200) return res.data
+    throw Error(res)
+  } catch (error) {
+    // console.log('error', error)
+    if (error?.response) throw Error(errorConstants.THIRD_PARTY.ERROR_CODE)
+  }
 }

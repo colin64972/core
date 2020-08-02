@@ -1,5 +1,9 @@
+import { calculateTrialPrice } from '@colin30/shared/logic/keywordMultiplier'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
-import { fetchKeMeta } from './fetchers'
+import { errorConstants } from '@colin30/shared/serverless/errorConstants'
+import { proxyServiceError } from '@colin30/shared/serverless/proxyServiceError'
+import { fetchKeMeta, fetchKeMetrics } from './fetchers'
+import { getTrialById } from './trials'
 
 export const getMeta = async queryStringParameters => {
   const { resource } = queryStringParameters
@@ -38,9 +42,34 @@ export const getMeta = async queryStringParameters => {
   }
 }
 
-export const getMetrics = async eventBody => {
+export const orderMetrics = async eventBody => {
   try {
     const body = JSON.parse(eventBody)
-    console.log('getMetrics', body)
-  } catch (error) {}
+
+    const trial = await getTrialById(body.orderRequest.trialId)
+
+    const serverPrice = calculateTrialPrice(
+      trial.trialProduct.billableKeywords.length,
+      body.country
+    )
+
+    if (serverPrice.total !== body.orderRequest.price.total)
+      throw Error(errorConstants.PAYMENT.PRICE_MISMATCH.ERROR_CODE)
+
+    const metrics = await fetchKeMetrics(
+      body.country,
+      body.currency,
+      body.dataSource,
+      trial.trialProduct.billableKeywords
+    )
+
+    if (!metrics.credits) throw Error('order fail')
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify(metrics)
+    }
+  } catch (error) {
+    return proxyServiceError(error)
+  }
 }

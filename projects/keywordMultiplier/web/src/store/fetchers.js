@@ -31,3 +31,26 @@ export const fetchKeData = async resource => {
   const res = await get(`${url}/ke?resource=${resource}`, options)
   return res
 }
+
+export const postOrderRequest = async (
+  orderRequest,
+  country,
+  currency,
+  dataSource
+) => {
+  let url = 'http://localhost:2000'
+  if (process.env.NODE_ENV !== 'development') {
+    url = 'https://apis.colin30.com/keyword-multiplier'
+  }
+  const res = await post(
+    `${url}/ke`,
+    {
+      orderRequest,
+      country,
+      currency,
+      dataSource
+    },
+    options
+  )
+  return res.data
+}

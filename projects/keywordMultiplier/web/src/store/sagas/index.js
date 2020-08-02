@@ -7,12 +7,7 @@ import {
   copyAllTrials,
   askResetAll
 } from './app'
-import {
-  getKeCredits,
-  getKeOptions,
-  alertInsufficientKeCredits,
-  orderMetrics
-} from './keywordsEverywhere'
+import { getKeCredits, getKeOptions, orderMetrics } from './keywordsEverywhere'
 import { types } from '../types'
 
 export function* sagas() {
@@ -24,9 +19,5 @@ export function* sagas() {
   yield takeLatest(types.ASK_RESET_ALL, askResetAll)
   yield takeLatest(types.GET_KE_CREDITS, getKeCredits)
   yield takeLatest(types.GET_KE_OPTIONS, getKeOptions)
-  yield takeLatest(
-    types.ALERT_INSUFFICIENT_KE_CREDITS,
-    alertInsufficientKeCredits
-  )
   yield takeLatest(types.ORDER_METRICS, orderMetrics)
 }
