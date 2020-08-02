@@ -13,7 +13,7 @@ export const fetchGeoIp = async ipAddress => {
   }
 }
 
-export const fetchKeData = async path => {
+export const fetchKeMeta = async path => {
   const options = {
     headers: {
       Authorization: `Bearer ${process.env.KE_API_KEY}`,
