@@ -1,5 +1,5 @@
 import { call, put, select, take, race, delay } from 'redux-saga/effects'
-import { fetchKeData, postOrderRequest } from '../fetchers'
+import { fetchKeData, makePreOrder } from '../fetchers'
 import { types } from '../types'
 import { decorateKeOptions, generateNotice } from '../../App/logic'
 import {
@@ -55,30 +55,37 @@ export function* getKeCredits() {
 export function* orderMetrics(action) {
   try {
     const orderRequest = yield select(state => state.kE.orderRequest)
-    const returnedMetrics = yield call(
-      postOrderRequest,
+    const preOrderRes = yield call(
+      makePreOrder,
       orderRequest,
       action.values.country,
       action.values.currency,
       action.values.dataSource
     )
-    yield put({
-      type: types.SET_KE_CREDITS,
-      credits: returnedMetrics.credits
-    })
-    const oldTrial = yield select(state =>
-      state.app.trials.items.find(trial => trial.id === orderRequest.trialId)
+
+    console.log(
+      '%c preOrderRes',
+      'color: yellow; font-size: large',
+      preOrderRes
     )
-    const updatedTrial = {
-      ...oldTrial,
-      volumeData: returnedMetrics.data,
-      updatedAt: new Date().getTime(),
-      orderId: createHashId()
-    }
-    yield put({
-      type: types.UPDATE_TRIAL,
-      updatedTrial
-    })
+    const { client_secret } = preOrderRes
+    // yield put({
+    //   type: types.SET_KE_CREDITS,
+    //   credits: returnedMetrics.credits
+    // })
+    // const oldTrial = yield select(state =>
+    //   state.app.trials.items.find(trial => trial.id === orderRequest.trialId)
+    // )
+    // const updatedTrial = {
+    //   ...oldTrial,
+    //   volumeData: returnedMetrics.data,
+    //   updatedAt: new Date().getTime(),
+    //   orderId: createHashId()
+    // }
+    // yield put({
+    //   type: types.UPDATE_TRIAL,
+    //   updatedTrial
+    // })
   } catch (error) {
     console.error('%c error', 'color: red; font-size: large', error)
   }

@@ -48,9 +48,9 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
   const curCode = firstCurrency?.code.toLowerCase()
 
   let initalValues = {
-    country: keOptions.userSelections.country || ipCountryCode,
-    currency: keOptions.userSelections.currency || curCode,
-    dataSource: keOptions.userSelections.dataSource || '',
+    country: keOptions.userSelections?.country || ipCountryCode,
+    currency: keOptions.userSelections?.currency || curCode,
+    dataSource: keOptions.userSelections?.dataSource || '',
     acceptTerms: false,
     cardNumber: '',
     expMonth: '',
@@ -108,6 +108,7 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
               closeDialogHandler={closeDialogHandler}
               trialId={trialId}
               keOptions={keOptions}
+              curCode={curCode}
             />
           )}
         </Formik>

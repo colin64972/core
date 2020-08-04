@@ -4,6 +4,7 @@ import { errorConstants } from '@colin30/shared/serverless/errorConstants'
 import { proxyServiceError } from '@colin30/shared/serverless/proxyServiceError'
 import { fetchKeMeta, fetchKeMetrics } from './fetchers'
 import { getTrialById } from './trials'
+import Stripe from 'stripe'
 
 export const getMeta = async queryStringParameters => {
   const { resource } = queryStringParameters
@@ -42,7 +43,7 @@ export const getMeta = async queryStringParameters => {
   }
 }
 
-export const orderMetrics = async eventBody => {
+export const preOrder = async eventBody => {
   try {
     const body = JSON.parse(eventBody)
 
@@ -50,11 +51,24 @@ export const orderMetrics = async eventBody => {
 
     const serverPrice = calculateTrialPrice(
       trial.trialProduct.billableKeywords.length,
-      body.country
+      body.country,
+      body.orderRequest.price.billingCurrency
     )
 
     if (serverPrice.total !== body.orderRequest.price.total)
       throw Error(errorConstants.PAYMENT.PRICE_MISMATCH.ERROR_CODE)
+
+    const { paymentIntents } = new Stripe(process.env.STRIPE_TEST_KEY)
+
+    const paymentIntent = await paymentIntents.create({
+      amount: parseInt(serverPrice.total * 100),
+      currency: serverPrice.billingCurrency
+    })
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify(paymentIntent)
+    }
 
     const metrics = await fetchKeMetrics(
       body.country,

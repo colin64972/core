@@ -32,7 +32,7 @@ export const fetchKeData = async resource => {
   return res
 }
 
-export const postOrderRequest = async (
+export const makePreOrder = async (
   orderRequest,
   country,
   currency,
@@ -43,7 +43,7 @@ export const postOrderRequest = async (
     url = 'https://apis.colin30.com/keyword-multiplier'
   }
   const res = await post(
-    `${url}/ke`,
+    `${url}/ke/pre-order`,
     {
       orderRequest,
       country,
