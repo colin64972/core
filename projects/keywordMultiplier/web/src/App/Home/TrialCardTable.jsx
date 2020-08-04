@@ -93,7 +93,7 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
       </TableHead>
       <TableBody ref={copyRef} id={trial.id}>
         {trial.list.map((keyword, keywordIndex) => (
-          <TableRow key={`${trial.id}-${keywordIndex}`}>
+          <TableRow key={`${trial.id}-${keywordIndex}`} hover>
             <TableCell component="td" className={classes.trialId}>
               {keywordIndex + 1}
             </TableCell>

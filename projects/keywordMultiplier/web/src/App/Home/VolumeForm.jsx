@@ -125,7 +125,8 @@ export const VolumeForm = ({
   formikProps,
   closeDialogHandler,
   trialId,
-  keOptions
+  keOptions,
+  curCode
 }) => {
   // console.log('%c formikProps', 'color: yellow; font-size: large', formikProps)
   const classes = useStyles()
@@ -170,6 +171,7 @@ export const VolumeForm = ({
           <VolumeFormPricing
             trialId={trialId}
             billingCountry={formikProps.values.billingCountry}
+            curCode={curCode}
           />
         </div>
       </Paper>

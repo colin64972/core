@@ -39,12 +39,12 @@ functions:
       - httpApi:
           path: /ke
           method: GET
-  orderMetricsHandler:
-    name: ${env:SERVICE_NAME}-orderMetricsHandler
-    handler: index.orderMetricsHandler
+  preOrderHandler:
+    name: ${env:SERVICE_NAME}-preOrderHandler
+    handler: index.preOrderHandler
     events:
       - httpApi:
-          path: /ke
+          path: /ke/pre-order
           method: POST
   # deleteOne:
   #   name: ${env:SERVICE_NAME}-deleteOne

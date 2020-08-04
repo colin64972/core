@@ -34,6 +34,7 @@ exports.constants = {
   REPLACEMENT_CODE: '#@$@#',
   VOLUME_DATA: {
     KEYWORD_PRICE: 1,
+    MIN_ITEM_COUNT: 57,
     VOLUME: {
       LABEL: 'Volume',
       VALUE: 'vol'

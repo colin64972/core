@@ -59,7 +59,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export const VolumeFormPricing = ({ trialId, billingCountry }) => {
+export const VolumeFormPricing = ({ trialId, billingCountry, curCode }) => {
   // console.log('%c formikProps', 'color: yellow; font-size: large', formikProps)
   const classes = useStyles()
   const trial = useSelector(state =>
@@ -70,8 +70,11 @@ export const VolumeFormPricing = ({ trialId, billingCountry }) => {
 
   const price = calculateTrialPrice(
     trial.billableKeywords.length,
-    billingCountry
+    billingCountry,
+    curCode
   )
+
+  const hasBumpUpFee = price.bumpUpFee > 0
 
   useEffect(() => {
     dispatch({
@@ -110,6 +113,17 @@ export const VolumeFormPricing = ({ trialId, billingCountry }) => {
             &#36;&nbsp;{price.metricsCost}
           </TableCell>
         </TableRow>
+        {hasBumpUpFee && (
+          <TableRow className={classes.noBorder} hover>
+            <TableCell component="th" align="left" className={classes.headCell}>
+              Bump Up Fee
+            </TableCell>
+            <TableCell className={classes.dataCell} align="right">
+              &#43;&nbsp;&#36;&nbsp;
+              {price.bumpUpFee}
+            </TableCell>
+          </TableRow>
+        )}
         <TableRow className={classes.noBorder} hover>
           <TableCell component="th" align="left" className={classes.headCell}>
             Processing Fee
@@ -172,6 +186,13 @@ export const VolumeFormPricing = ({ trialId, billingCountry }) => {
             <TableCell className={classes.note} colSpan={2}>
               &#42; International card and currency conversion fee applied to
               non-Canadian credit cards
+            </TableCell>
+          </TableRow>
+        )}
+        {hasBumpUpFee && (
+          <TableRow className={classes.noBorder}>
+            <TableCell className={classes.note} colSpan={2}>
+              &#42; Bump up fee charged when billable keywords are less than 50
             </TableCell>
           </TableRow>
         )}

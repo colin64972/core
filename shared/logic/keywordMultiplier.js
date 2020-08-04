@@ -3,15 +3,27 @@ import { constants } from '../raw/constants/keywordMultiplier'
 import { LINE_INCLUDES_TLD } from '../raw/constants/regex'
 import { stripe } from '../raw/constants/stripe'
 
-import { billingCountryNotCanada } from '../general/payment'
+import { billingCountryNotCanada, getBillingCurrency } from '../general/payment'
 
-export const calculateTrialPrice = (itemCount, billingCountry = null) => {
+export const calculateTrialPrice = (
+  itemCount,
+  billingCountry = null,
+  curCode
+) => {
   const result = {}
+
+  let bumpUpFee = 0
+  if (itemCount < constants.VOLUME_DATA.MIN_ITEM_COUNT) {
+    bumpUpFee =
+      (constants.VOLUME_DATA.MIN_ITEM_COUNT - itemCount) *
+      constants.VOLUME_DATA.KEYWORD_PRICE
+  }
 
   const metricUnitPrice = constants.VOLUME_DATA.KEYWORD_PRICE
   const metricsCost = itemCount * constants.VOLUME_DATA.KEYWORD_PRICE
-  const processingFee = metricsCost * stripe.VARIABLE_RATE + stripe.FIXED
-  const subtotal = metricsCost + processingFee
+  const processingFee =
+    (metricsCost + bumpUpFee) * stripe.VARIABLE_RATE + stripe.FIXED
+  const subtotal = metricsCost + bumpUpFee + processingFee
   const total = subtotal
   const intFeeRate =
     stripe.INTERNATIONAL_CARD_RATE + stripe.CURRENCY_CONVERSION_RATE
@@ -23,6 +35,8 @@ export const calculateTrialPrice = (itemCount, billingCountry = null) => {
   result.processingFee = formatCentsToDollars(processingFee)
   result.subtotal = formatCentsToDollars(subtotal)
   result.total = formatCentsToDollars(total)
+  result.billingCurrency = curCode.toLowerCase()
+  result.bumpUpFee = formatCentsToDollars(bumpUpFee)
 
   if (billingCountryNotCanada(billingCountry)) {
     result.intFee = formatCentsToDollars(intFee)

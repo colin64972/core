@@ -52,11 +52,9 @@ const useStyles = makeStyles(theme => ({
       }
     }
   },
-  trialCardFullWIdth: {
+  trialCardFullWidth: {
     width: '100%',
-    margin: `${theme.custom.setSpace()}px 0 0 0`,
-    [theme.breakpoints.up('sm')]: null,
-    [theme.breakpoints.up('xl')]: null
+    margin: theme.custom.setSpace()
   },
   expandIcon: {
     position: 'relative',
@@ -163,7 +161,7 @@ export const TrialCard = ({ trial, isShown }) => {
   return (
     <div
       className={classNames(classes.trialCard, {
-        [classes.trialCardFullWIdth]: trial.volumeData
+        [classes.trialCardFullWidth]: trial.volumeData
       })}
       ref={card}
       id={trial.id}>
