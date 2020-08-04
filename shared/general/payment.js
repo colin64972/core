@@ -3,3 +3,5 @@ export const billingCountryNotCanada = countryCode => {
   if (countryCode.toLowerCase() === 'ca') return false
   return true
 }
+
+export const getBillingCurrency = countryCode => {}

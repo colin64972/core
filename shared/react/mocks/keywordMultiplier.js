@@ -158,7 +158,7 @@ export const optionsMock = {
 export const ipMock = {
   status: 200,
   data: {
-    ip: '27.252.255.255'
+    ip: '162.221.202.17'
   }
 }
 
