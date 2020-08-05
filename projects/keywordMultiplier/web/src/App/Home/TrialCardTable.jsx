@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import loadable from '@loadable/component'
+import { loadStripe } from '@stripe/stripe-js'
+import { Elements } from '@stripe/react-stripe-js'
 import {
   Table,
   TableBody,
@@ -14,6 +16,8 @@ import { volumeDataFields } from './fields'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { formatProductLine, setVolumeFieldCell } from '../logic'
 import { getMatchType, getWhiteSpaceSelection } from '../../store/selectors'
+
+const stripePromise = loadStripe('pk_test_vo3pSAjgXWz5JIjWvfwTmBpu')
 
 const useStyles = makeStyles(theme => ({
   tableHeadCell: {
@@ -68,11 +72,13 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
   return (
     <Table size="small">
       {dialogStatus && (
-        <VolumeLoadable
-          dialogStatus={dialogStatus}
-          closeDialogHandler={closeDialogHandler}
-          trialId={trial.id}
-        />
+        <Elements stripe={stripePromise}>
+          <VolumeLoadable
+            dialogStatus={dialogStatus}
+            closeDialogHandler={closeDialogHandler}
+            trialId={trial.id}
+          />
+        </Elements>
       )}
       <TableHead>
         <TableRow>
