@@ -6,6 +6,11 @@ import { makeStyles } from '@material-ui/styles'
 import { VolumeForm } from './VolumeForm'
 import { countryCodesList } from '@colin30/shared/raw/constants/countryCodes'
 import { types } from '../../store/types'
+import {
+  useStripe,
+  useElements,
+  CardNumberElement
+} from '@stripe/react-stripe-js'
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -33,6 +38,8 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
 
   const dispatch = useDispatch()
 
+  const stripe = useStripe()
+
   const keOptions = {
     countryOptions: useSelector(state => state.kE.countries),
     currencyOptions: useSelector(state => state.kE.currencies),
@@ -48,38 +55,36 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
   const curCode = firstCurrency?.code.toLowerCase()
 
   let initalValues = {
-    country: keOptions.userSelections?.country || ipCountryCode,
+    country: keOptions.userSelections?.country || ipCountryCode.toLowerCase(),
     currency: keOptions.userSelections?.currency || curCode,
     dataSource: keOptions.userSelections?.dataSource || '',
-    acceptTerms: false,
-    cardNumber: '',
-    expMonth: '',
-    expYear: '',
-    cardCode: '',
-    billingEmail: '',
-    billingCountry: ipCountryCode
+    cardNumber: false,
+    acceptTerms: false
+    // cardExpiry: false,
+    // cardCvc: false,
+    // billingEmail: '',
+    // billingCountry: ipCountryCode
   }
 
-  if (process.env.NODE_ENV === 'development') {
-    initalValues = {
-      country: keOptions.userSelections.country || 'ca',
-      currency: keOptions.userSelections.currency || 'cad',
-      dataSource: keOptions.userSelections.dataSource || 'gkp',
-      acceptTerms: false,
-      cardNumber: '4242424242424242',
-      expMonth: '4',
-      expYear: '2024',
-      cardCode: '562',
-      billingEmail: '',
-      billingCountry: 'CA'
-    }
-  }
+  // if (process.env.NODE_ENV === 'development') {
+  //   initalValues = {
+  //     country: keOptions.userSelections.country || 'ca',
+  //     currency: keOptions.userSelections.currency || 'cad',
+  //     dataSource: keOptions.userSelections.dataSource || 'gkp',
+  //     acceptTerms: false,
+  //     cardNumber: false
+  //     cardExpiry: false,
+  //     cardCvc: false,
+  //     billingEmail: '',
+  //     billingCountry: 'CA'
+  //   }
+  // }
 
   const customSubmitHandler = (values, actions) => {
-    dispatch({
-      type: types.ORDER_METRICS,
-      values
-    })
+    // dispatch({
+    //   type: types.ORDER_METRICS,
+    //   values
+    // })
   }
 
   return (

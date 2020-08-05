@@ -9,6 +9,7 @@ import { VolumeFormKEOptions } from './VolumeFormKEOptions'
 import { VolumeFormPricing } from './VolumeFormPricing'
 import { VolumeFormTrialReview } from './VolumeFormTrialReview'
 import { VolumeFormTerms } from './VolumeFormTerms'
+import { VolumeFormStripe } from './VolumeFormStripe'
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -149,9 +150,9 @@ export const VolumeForm = ({
       </Paper>
       <Paper className={classNames(classes.gridPosition3, classes.formSection)}>
         <Typography variant="h3" className={classes.formSectionTitle}>
-          Credit Card Info
+          Stripe Credit Card
         </Typography>
-        <VolumeFormCardInfo />
+        <VolumeFormStripe />
       </Paper>
       <Paper
         className={classNames(
