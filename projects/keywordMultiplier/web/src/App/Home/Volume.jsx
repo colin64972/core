@@ -56,11 +56,12 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
 
   let initalValues = {
     country: keOptions.userSelections?.country || ipCountryCode.toLowerCase(),
-    currency: keOptions.userSelections?.currency || curCode,
+    currency: keOptions.userSelections?.currency || curCode.toLowerCase(),
     dataSource: keOptions.userSelections?.dataSource || '',
     cardNumber: false,
+    cardExpiry: false,
+    cardCvc: false,
     acceptTerms: false
-    // cardExpiry: false,
     // cardCvc: false,
     // billingEmail: '',
     // billingCountry: ipCountryCode
