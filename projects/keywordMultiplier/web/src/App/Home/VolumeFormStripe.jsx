@@ -1,33 +1,14 @@
+import classNames from 'classnames'
 import { Field } from 'formik'
-import { useSelector } from 'react-redux'
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
-import {
-  FormControl,
-  FormHelperText,
-  InputLabel,
-  Input,
-  Paper,
-  Select,
-  MenuItem,
-  Typography
-} from '@material-ui/core'
+import { FormControl, FormHelperText, InputLabel } from '@material-ui/core'
 import {
   useElements,
   CardNumberElement,
   CardExpiryElement,
   CardCvcElement
 } from '@stripe/react-stripe-js'
-import {
-  CREDIT_CARD_NUMBER,
-  CREDI_CARD_CODE,
-  EMAIL_ADDRESS
-} from '@colin30/shared/raw/constants/regex'
-import { countryCodesList } from '@colin30/shared/raw/constants/countryCodes'
-import {
-  setExpMonthOptions,
-  setExpYearOptions
-} from '@colin30/shared/react/helpers'
 
 const useStyles = makeStyles(theme => ({
   grid: {
@@ -37,55 +18,55 @@ const useStyles = makeStyles(theme => ({
       ...theme.custom.setGrid(2, 'auto', theme.custom.setSpace())
     }
   },
-  gridPositionCardNumber: {
+  gridPosition1: {
     gridColumn: '1 / 13',
     gridRow: 1,
     [theme.breakpoints.down('xs')]: {
       gridColumn: '1 / 13'
     }
   },
-  gridPositionExpMonth: {
-    gridColumn: '1 / 5',
+  gridPosition2: {
+    gridColumn: '1 / 7',
     gridRow: 2,
     [theme.breakpoints.down('xs')]: {
       gridColumn: '1 / 13'
     }
   },
-  gridPositionExpYear: {
-    gridColumn: '5 / 9',
+  gridPosition3: {
+    gridColumn: '7 / 13',
     gridRow: 2,
     [theme.breakpoints.down('xs')]: {
       gridColumn: '1 / 13',
       gridRow: 3
     }
   },
-  gridPositionCode: {
-    gridColumn: '9 / 13',
-    gridRow: 2,
-    [theme.breakpoints.down('xs')]: {
-      gridColumn: '1 / 13',
-      gridRow: 4
-    }
-  },
-  gridPositionBillingCountry: {
-    gridColumn: '1 / 5',
-    gridRow: 3,
-    [theme.breakpoints.down('xs')]: {
-      gridColumn: '1 / 13',
-      gridRow: 5
-    }
-  },
-  gridPositionBillingEmail: {
-    gridColumn: '5 / 13',
-    gridRow: 3,
-    [theme.breakpoints.down('xs')]: {
-      gridColumn: '1 / 13',
-      gridRow: 6
-    }
-  },
-  label: {
+  inputLabel: {
     position: 'relative',
-    top: -22
+    top: -25,
+    transition: 'font-size 250ms linear'
+  },
+  inputLabelShrink: {
+    fontSize: 18.2875 * 0.75
+  },
+  stripeBase: {
+    'padding': '6px 0 7px 0',
+    'transition': 'border 250ms linear',
+    'borderBottom': '1px solid rgb(118, 118, 118)',
+    '&:hover': {
+      borderBottom: `2px solid ${theme.palette.primary.main}`
+    }
+  },
+  stripeComplete: {
+    borderBottom: '1px solid rgb(118, 118, 118)'
+  },
+  stripeFocus: {
+    borderBottom: `2px solid ${theme.palette.primary.main}`
+  },
+  stripeInvalid: {
+    'borderBottom': `2px solid ${theme.palette.error.main}`,
+    '&:hover': {
+      borderBottom: `2px solid ${theme.palette.error.main}`
+    }
   }
 }))
 
@@ -95,7 +76,7 @@ export const VolumeFormStripe = () => {
 
   const elements = useElements()
 
-  const cardNumberValidator = value => {
+  const stripeElementValidator = value => {
     if (!value)
       return {
         status: true,
@@ -118,22 +99,58 @@ export const VolumeFormStripe = () => {
     }
     return setFieldValue(name, status, true)
   }
+
+  const inputStyle = {
+    base: {
+      'color': 'rgb(68, 68, 68)',
+      'fontFamily': 'Heebo, Roboto, Open Sans, Segoe UI, sans-serif',
+      'fontSize': '18.2857px',
+      'fontSmoothing': 'antialiased',
+      '::placeholder': {
+        color: 'rgb(68, 68, 68)',
+        fontFamily: 'Heebo, Roboto, Open Sans, Segoe UI, sans-serif',
+        fontSize: '18.2857px'
+      }
+    },
+    invalid: {
+      color: '#f44336'
+    }
+  }
+
+  const fieldIsDirty = meta => {
+    const { error, value } = meta
+    if (error || value) return true
+    return false
+  }
   return (
     <div className={classes.grid}>
-      <div className={classes.gridPositionCardNumber}>
-        <Field name="cardNumber" validate={cardNumberValidator}>
+      <div className={classes.gridPosition1}>
+        <Field name="cardNumber" validate={stripeElementValidator}>
           {fieldProps => {
             return (
               <FormControl
                 fullWidth
                 required
-                error={fieldProps.meta.error?.status}>
+                error={fieldProps.meta.touched && fieldProps.meta.error?.status}
+                className={classes.formControl}>
                 <InputLabel
-                  htmlFor={fieldProps.field.name}
-                  className={classes.label}>
+                  htmlFor={`stripe-element-${fieldProps.field.name}`}
+                  className={classNames(classes.inputLabel, {
+                    [classes.inputLabelShrink]: fieldIsDirty(fieldProps.meta)
+                  })}>
                   Card Number
                 </InputLabel>
                 <CardNumberElement
+                  options={{
+                    style: inputStyle,
+                    classes: {
+                      base: classes.stripeBase,
+                      complete: classes.stripeComplete,
+                      focus: classes.stripeFocus,
+                      invalid: classes.stripeInvalid
+                    }
+                  }}
+                  className={classes.stripeInput}
                   id={`stripe-element-${fieldProps.field.name}`}
                   name={fieldProps.field.name}
                   value={fieldProps.field.value}
@@ -152,8 +169,126 @@ export const VolumeFormStripe = () => {
                     )
                   }}
                 />
-                {fieldProps.meta.error?.status && (
-                  <FormHelperText id="component-error-text">
+                {fieldProps.meta.touched && fieldProps.meta.error?.status && (
+                  <FormHelperText
+                    id="component-error-text"
+                    className={classes.formHelperText}>
+                    {fieldProps.meta.error.message}
+                  </FormHelperText>
+                )}
+              </FormControl>
+            )
+          }}
+        </Field>
+      </div>
+
+      <div className={classes.gridPosition2}>
+        <Field name="cardExpiry" validate={stripeElementValidator}>
+          {fieldProps => {
+            return (
+              <FormControl
+                fullWidth
+                required
+                error={fieldProps.meta.touched && fieldProps.meta.error?.status}
+                className={classes.formControl}>
+                <InputLabel
+                  htmlFor={`stripe-element-${fieldProps.field.name}`}
+                  className={classNames(classes.inputLabel, {
+                    [classes.inputLabelShrink]: fieldIsDirty(fieldProps.meta)
+                  })}>
+                  Card Expiry
+                </InputLabel>
+                <CardExpiryElement
+                  options={{
+                    style: inputStyle,
+                    classes: {
+                      base: classes.stripeBase,
+                      complete: classes.stripeComplete,
+                      focus: classes.stripeFocus,
+                      invalid: classes.stripeInvalid
+                    }
+                  }}
+                  className={classes.stripeInput}
+                  id={`stripe-element-${fieldProps.field.name}`}
+                  name={fieldProps.field.name}
+                  value={fieldProps.field.value}
+                  onChange={meta =>
+                    setStripeValue(
+                      meta,
+                      fieldProps.field.name,
+                      fieldProps.form.setFieldValue
+                    )
+                  }
+                  onBlur={meta => {
+                    fieldProps.form.setFieldTouched(
+                      fieldProps.field.name,
+                      true,
+                      true
+                    )
+                  }}
+                />
+                {fieldProps.meta.touched && fieldProps.meta.error?.status && (
+                  <FormHelperText
+                    id="component-error-text"
+                    className={classes.formHelperText}>
+                    {fieldProps.meta.error.message}
+                  </FormHelperText>
+                )}
+              </FormControl>
+            )
+          }}
+        </Field>
+      </div>
+
+      <div className={classes.gridPosition3}>
+        <Field name="cardCvc" validate={stripeElementValidator}>
+          {fieldProps => {
+            return (
+              <FormControl
+                fullWidth
+                required
+                error={fieldProps.meta.touched && fieldProps.meta.error?.status}
+                className={classes.formControl}>
+                <InputLabel
+                  htmlFor={`stripe-element-${fieldProps.field.name}`}
+                  className={classNames(classes.inputLabel, {
+                    [classes.inputLabelShrink]: fieldIsDirty(fieldProps.meta)
+                  })}>
+                  Card Cvc
+                </InputLabel>
+                <CardCvcElement
+                  options={{
+                    style: inputStyle,
+                    classes: {
+                      base: classes.stripeBase,
+                      complete: classes.stripeComplete,
+                      focus: classes.stripeFocus,
+                      invalid: classes.stripeInvalid
+                    }
+                  }}
+                  className={classes.stripeInput}
+                  id={`stripe-element-${fieldProps.field.name}`}
+                  name={fieldProps.field.name}
+                  value={fieldProps.field.value}
+                  onChange={meta =>
+                    setStripeValue(
+                      meta,
+                      fieldProps.field.name,
+                      fieldProps.form.setFieldValue
+                    )
+                  }
+                  onBlur={meta => {
+                    fieldProps.form.setFieldTouched(
+                      fieldProps.field.name,
+                      true,
+                      true
+                    )
+                  }}
+                />
+                {fieldProps.meta.touched && fieldProps.meta.error?.status && (
+                  <FormHelperText
+                    id="component-error-text"
+                    className={classes.formHelperText}>
                     {fieldProps.meta.error.message}
                   </FormHelperText>
                 )}
