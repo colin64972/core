@@ -192,7 +192,8 @@ export const VolumeFormPricing = ({ trialId, billingCountry, curCode }) => {
         {hasBumpUpFee && (
           <TableRow className={classes.noBorder}>
             <TableCell className={classes.note} colSpan={2}>
-              &#42; Bump up fee charged when billable keywords are less than 50
+              &#42; Bump up fee charged when billable keywords are less than
+              &nbsp;{constants.VOLUME_DATA.MIN_ITEM_COUNT}
             </TableCell>
           </TableRow>
         )}
