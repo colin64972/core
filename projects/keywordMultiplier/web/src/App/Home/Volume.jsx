@@ -39,6 +39,7 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
   const dispatch = useDispatch()
 
   const stripe = useStripe()
+  const elements = useElements()
 
   const keOptions = {
     countryOptions: useSelector(state => state.kE.countries),
@@ -62,30 +63,33 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
     cardExpiry: false,
     cardCvc: false,
     acceptTerms: false
-    // cardCvc: false,
-    // billingEmail: '',
-    // billingCountry: ipCountryCode
   }
 
-  // if (process.env.NODE_ENV === 'development') {
-  //   initalValues = {
-  //     country: keOptions.userSelections.country || 'ca',
-  //     currency: keOptions.userSelections.currency || 'cad',
-  //     dataSource: keOptions.userSelections.dataSource || 'gkp',
-  //     acceptTerms: false,
-  //     cardNumber: false
-  //     cardExpiry: false,
-  //     cardCvc: false,
-  //     billingEmail: '',
-  //     billingCountry: 'CA'
-  //   }
-  // }
+  if (process.env.NODE_ENV === 'development') {
+    initalValues = {
+      country: keOptions.userSelections.country || 'ca',
+      currency: keOptions.userSelections.currency || 'cad',
+      dataSource: keOptions.userSelections.dataSource || 'gkp',
+      cardNumber: false,
+      cardExpiry: false,
+      cardCvc: false,
+      acceptTerms: false
+    }
+  }
 
   const customSubmitHandler = (values, actions) => {
-    // dispatch({
-    //   type: types.ORDER_METRICS,
-    //   values
-    // })
+    const cardNumberElement = elements.getElement('cardNumber')
+    const cardExpiryElement = elements.getElement('cardExpiry')
+    const cardCvcElement = elements.getElement('cardCvc')
+
+    dispatch({
+      type: types.ORDER_METRICS,
+      values,
+      cardNumberElement,
+      cardExpiryElement,
+      cardCvcElement,
+      confirmCardPaymentHandler: stripe.confirmCardPayment
+    })
   }
 
   return (
