@@ -63,12 +63,22 @@ export function* orderMetrics(action) {
       action.values.dataSource
     )
 
-    console.log(
-      '%c preOrderRes',
-      'color: yellow; font-size: large',
-      preOrderRes
-    )
     const { client_secret } = preOrderRes
+
+    const payload = yield call(
+      action.confirmCardPaymentHandler,
+      client_secret,
+      {
+        payment_method: {
+          card: action.cardNumberElement
+        }
+      }
+    )
+
+    if (payload.error) throw Error(payload.error)
+
+    console.log('%c PASS', 'color: yellow; font-size: large', payload)
+
     // yield put({
     //   type: types.SET_KE_CREDITS,
     //   credits: returnedMetrics.credits
@@ -87,7 +97,7 @@ export function* orderMetrics(action) {
     //   updatedTrial
     // })
   } catch (error) {
-    console.error('%c error', 'color: red; font-size: large', error)
+    console.error('%c FAIL', 'color: red; font-size: large', error)
   }
   yield put({
     type: types.ADD_USER_KE_SELECTIONS,
