@@ -53,6 +53,7 @@ export function* getKeCredits() {
 }
 
 export function* orderMetrics(action) {
+  // console.log('%c action', 'color: yellow; font-size: large', action)
   try {
     const orderRequest = yield select(state => state.kE.orderRequest)
     const preOrderRes = yield call(
@@ -70,7 +71,10 @@ export function* orderMetrics(action) {
       client_secret,
       {
         payment_method: {
-          card: action.cardNumberElement
+          card: action.cardNumberElement,
+          billing_details: {
+            email: action.values.billingEmail || null
+          }
         }
       }
     )
