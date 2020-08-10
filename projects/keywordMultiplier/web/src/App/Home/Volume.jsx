@@ -62,6 +62,7 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
     cardNumber: false,
     cardExpiry: false,
     cardCvc: false,
+    billingEmail: '',
     acceptTerms: false
   }
 
@@ -73,6 +74,7 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
       cardNumber: false,
       cardExpiry: false,
       cardCvc: false,
+      billingEmail: '',
       acceptTerms: false
     }
   }

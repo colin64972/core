@@ -2,13 +2,19 @@ import classNames from 'classnames'
 import { Field } from 'formik'
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
-import { FormControl, FormHelperText, InputLabel } from '@material-ui/core'
+import {
+  FormControl,
+  FormHelperText,
+  Input,
+  InputLabel
+} from '@material-ui/core'
 import {
   useElements,
   CardNumberElement,
   CardExpiryElement,
   CardCvcElement
 } from '@stripe/react-stripe-js'
+import { EMAIL_ADDRESS } from '@colin30/shared/raw/constants/regex'
 
 const useStyles = makeStyles(theme => ({
   grid: {
@@ -38,6 +44,14 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('xs')]: {
       gridColumn: '1 / 13',
       gridRow: 3
+    }
+  },
+  gridPosition4: {
+    gridColumn: '1 / 13',
+    gridRow: 3,
+    [theme.breakpoints.down('xs')]: {
+      gridColumn: '1 / 13',
+      gridRow: 4
     }
   },
   inputLabel: {
@@ -122,6 +136,16 @@ export const VolumeFormStripe = () => {
     if (error || value) return true
     return false
   }
+
+  const billingEmailValidator = value => {
+    if (!value) return null
+    if (!EMAIL_ADDRESS.test(value))
+      return {
+        status: true,
+        message: 'Invalid email address'
+      }
+  }
+
   return (
     <div className={classes.grid}>
       <div className={classes.gridPosition1}>
@@ -292,6 +316,35 @@ export const VolumeFormStripe = () => {
                     {fieldProps.meta.error.message}
                   </FormHelperText>
                 )}
+              </FormControl>
+            )
+          }}
+        </Field>
+      </div>
+
+      <div className={classes.gridPosition4}>
+        <Field name="billingEmail" validate={billingEmailValidator}>
+          {fieldProps => {
+            return (
+              <FormControl
+                fullWidth
+                error={
+                  fieldProps.meta.touched && fieldProps.meta.error?.status
+                }>
+                <InputLabel htmlFor={fieldProps.field.name}>
+                  Billing Email Address
+                </InputLabel>
+                <Input
+                  id={fieldProps.field.name}
+                  value={fieldProps.field.value}
+                  onChange={fieldProps.field.onChange}
+                  onBlur={fieldProps.field.onBlur}
+                />
+                <FormHelperText id="component-error-text">
+                  {fieldProps.meta.touched && fieldProps.meta.error?.status
+                    ? 'Invalid email address'
+                    : 'Email address to send receipt. No receipt sent if left blank'}
+                </FormHelperText>
               </FormControl>
             )
           }}
