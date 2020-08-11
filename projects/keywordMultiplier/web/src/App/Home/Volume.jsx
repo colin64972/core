@@ -48,7 +48,7 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
     userSelections: useSelector(state => state.kE.userSelections)
   }
 
-  const ipCountryCode = useSelector(state => state.app.geoIp?.country_code)
+  let ipCountryCode = useSelector(state => state.app.geoIp?.country_code)
   const countryDetails = countryCodesList.find(
     country => country.alpha2Code === ipCountryCode
   )
@@ -56,7 +56,10 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
   const curCode = firstCurrency?.code.toLowerCase()
 
   let initalValues = {
-    country: keOptions.userSelections?.country || ipCountryCode.toLowerCase(),
+    country:
+      keOptions.userSelections?.country || ipCountryCode === 'GB'
+        ? 'uk'
+        : ipCountryCode.toLowerCase(),
     currency: keOptions.userSelections?.currency || curCode.toLowerCase(),
     dataSource: keOptions.userSelections?.dataSource || '',
     cardNumber: false,
@@ -66,18 +69,18 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
     acceptTerms: false
   }
 
-  if (process.env.NODE_ENV === 'development') {
-    initalValues = {
-      country: keOptions.userSelections.country || 'ca',
-      currency: keOptions.userSelections.currency || 'cad',
-      dataSource: keOptions.userSelections.dataSource || 'gkp',
-      cardNumber: false,
-      cardExpiry: false,
-      cardCvc: false,
-      billingEmail: '',
-      acceptTerms: false
-    }
-  }
+  // if (process.env.NODE_ENV === 'development') {
+  //   initalValues = {
+  //     country: keOptions.userSelections.country || 'ca',
+  //     currency: keOptions.userSelections.currency || 'cad',
+  //     dataSource: keOptions.userSelections.dataSource || 'gkp',
+  //     cardNumber: false,
+  //     cardExpiry: false,
+  //     cardCvc: false,
+  //     billingEmail: '',
+  //     acceptTerms: false
+  //   }
+  // }
 
   const customSubmitHandler = (values, actions) => {
     const cardNumberElement = elements.getElement('cardNumber')

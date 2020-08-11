@@ -62,7 +62,7 @@ export const preOrder = async eventBody => {
 
     const paymentIntent = await paymentIntents.create({
       amount: parseInt(serverPrice.total * 100),
-      currency: serverPrice.billingCurrency
+      currency: 'cad'
     })
 
     return {
