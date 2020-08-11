@@ -4,7 +4,7 @@ import { errorConstants } from '@colin30/shared/serverless/errorConstants'
 export const fetchGeoIp = async ipAddress => {
   try {
     const res = await get(
-      `http://api.ipstack.com/${ipAddress}?access_key=${process.env.IPSTACK_API_KEY}&output=json`
+      `http://api.ipstack.com/${ipAddress}?access_key=${process.env.IPSTACK_API_KEY}&output=json&fields=main`
     )
     if (res.data?.error) return res.data.error
     return res.data
