@@ -3,13 +3,7 @@ import { constants } from '../raw/constants/keywordMultiplier'
 import { LINE_INCLUDES_TLD } from '../raw/constants/regex'
 import { stripe } from '../raw/constants/stripe'
 
-import { billingCountryNotCanada, getBillingCurrency } from '../general/payment'
-
-export const calculateTrialPrice = (
-  itemCount,
-  billingCountry = null,
-  curCode
-) => {
+export const calculateTrialPrice = itemCount => {
   const result = {}
 
   let bumpUpFee = 0
@@ -18,32 +12,16 @@ export const calculateTrialPrice = (
       (constants.VOLUME_DATA.MIN_ITEM_COUNT - itemCount) *
       constants.VOLUME_DATA.KEYWORD_PRICE
   }
-
-  const metricUnitPrice = constants.VOLUME_DATA.KEYWORD_PRICE
   const metricsCost = itemCount * constants.VOLUME_DATA.KEYWORD_PRICE
-  const processingFee =
-    (metricsCost + bumpUpFee) * stripe.VARIABLE_RATE + stripe.FIXED
-  const subtotal = metricsCost + bumpUpFee + processingFee
-  const total = subtotal
-  const intFeeRate =
-    stripe.INTERNATIONAL_CARD_RATE + stripe.CURRENCY_CONVERSION_RATE
-  const intFee = subtotal * intFeeRate
-  const intTotal = subtotal + intFee
+  const beforeFee = metricsCost + bumpUpFee
+  const processingFee = beforeFee * stripe.VARIABLE_RATE + stripe.FIXED
+  const total = beforeFee + processingFee
 
-  result.unitPrice = formatCentsToDollars(metricUnitPrice)
+  result.unitPrice = formatCentsToDollars(constants.VOLUME_DATA.KEYWORD_PRICE)
   result.metricsCost = formatCentsToDollars(metricsCost)
-  result.processingFee = formatCentsToDollars(processingFee)
-  result.subtotal = formatCentsToDollars(subtotal)
-  result.total = formatCentsToDollars(total)
-  result.billingCurrency = curCode.toLowerCase()
   result.bumpUpFee = formatCentsToDollars(bumpUpFee)
-
-  if (billingCountryNotCanada(billingCountry)) {
-    result.intFee = formatCentsToDollars(intFee)
-    result.intTotal = formatCentsToDollars(intTotal)
-    result.intCard = true
-    result.billingCountry = billingCountry
-  }
+  result.processingFee = formatCentsToDollars(processingFee)
+  result.total = formatCentsToDollars(total)
 
   return result
 }
