@@ -123,7 +123,6 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
               closeDialogHandler={closeDialogHandler}
               trialId={trialId}
               keOptions={keOptions}
-              curCode={curCode}
             />
           )}
         </Formik>

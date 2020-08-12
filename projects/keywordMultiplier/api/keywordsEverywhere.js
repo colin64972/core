@@ -50,9 +50,7 @@ export const preOrder = async eventBody => {
     const trial = await getTrialById(body.orderRequest.trialId)
 
     const serverPrice = calculateTrialPrice(
-      trial.trialProduct.billableKeywords.length,
-      body.country,
-      body.orderRequest.price.billingCurrency
+      trial.trialProduct.billableKeywords.length
     )
 
     if (serverPrice.total !== body.orderRequest.price.total)
