@@ -27,6 +27,7 @@ const useStyles = makeStyles(theme => ({
   gridPosition1: {
     gridColumn: '1 / 13',
     gridRow: 1,
+    marginTop: theme.custom.setSpace(),
     [theme.breakpoints.down('xs')]: {
       gridColumn: '1 / 13'
     }

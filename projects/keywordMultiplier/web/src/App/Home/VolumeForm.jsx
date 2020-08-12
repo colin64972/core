@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import { Form } from 'formik'
 import React from 'react'
-import { Button, Grid, Paper, Typography } from '@material-ui/core'
+import { Button, Paper, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import { VolumeFormKEOptions } from './VolumeFormKEOptions'
@@ -125,8 +125,7 @@ export const VolumeForm = ({
   formikProps,
   closeDialogHandler,
   trialId,
-  keOptions,
-  curCode
+  keOptions
 }) => {
   // console.log('%c formikProps', 'color: yellow; font-size: large', formikProps)
   const classes = useStyles()
@@ -149,7 +148,7 @@ export const VolumeForm = ({
       </Paper>
       <Paper className={classNames(classes.gridPosition3, classes.formSection)}>
         <Typography variant="h3" className={classes.formSectionTitle}>
-          Stripe Credit Card
+          Payment Info
         </Typography>
         <VolumeFormStripe />
       </Paper>
@@ -168,11 +167,7 @@ export const VolumeForm = ({
             )}>
             Pricing
           </Typography>
-          <VolumeFormPricing
-            trialId={trialId}
-            billingCountry={formikProps.values.billingCountry}
-            curCode={curCode}
-          />
+          <VolumeFormPricing trialId={trialId} />
         </div>
       </Paper>
       <Paper className={classNames(classes.gridPosition5, classes.formSection)}>

@@ -1,27 +1,10 @@
 import classNames from 'classnames'
-import { FadeIn } from '@colin30/shared/react/components/FadeIn'
-import { Field } from 'formik'
 import { useSelector, useDispatch } from 'react-redux'
 import React, { useEffect } from 'react'
 import { makeStyles } from '@material-ui/styles'
-import {
-  Checkbox,
-  FormControl,
-  FormControlLabel,
-  FormHelperText,
-  Grid,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-  Typography
-} from '@material-ui/core'
-import { formatToDollars } from '@colin30/shared/general/formatting'
+import { Table, TableBody, TableCell, TableRow } from '@material-ui/core'
 import { calculateTrialPrice } from '@colin30/shared/logic/keywordMultiplier'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
-import { billingCountryNotCanada } from '@colin30/shared/general/payment'
 import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => ({
@@ -59,7 +42,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export const VolumeFormPricing = ({ trialId, billingCountry, curCode }) => {
+export const VolumeFormPricing = ({ trialId }) => {
   // console.log('%c formikProps', 'color: yellow; font-size: large', formikProps)
   const classes = useStyles()
   const trial = useSelector(state =>
@@ -68,11 +51,7 @@ export const VolumeFormPricing = ({ trialId, billingCountry, curCode }) => {
 
   const dispatch = useDispatch()
 
-  const price = calculateTrialPrice(
-    trial.billableKeywords.length,
-    billingCountry,
-    curCode
-  )
+  const price = calculateTrialPrice(trial.billableKeywords.length)
 
   const hasBumpUpFee = price.bumpUpFee > 0
 
@@ -83,8 +62,6 @@ export const VolumeFormPricing = ({ trialId, billingCountry, curCode }) => {
       price
     })
   }, [price])
-
-  const isInternational = billingCountryNotCanada(billingCountry)
 
   return (
     <Table className={classes.table}>
@@ -137,42 +114,13 @@ export const VolumeFormPricing = ({ trialId, billingCountry, curCode }) => {
           <TableCell
             component="th"
             align="left"
-            className={classNames(classes.headCell, {
-              [classes.total]: !isInternational
-            })}>
-            {isInternational ? 'Subtotal' : 'Total'}
+            className={classNames(classes.headCell)}>
+            Total
           </TableCell>
           <TableCell className={classes.dataCell} align="right">
-            &#36;&nbsp;{isInternational ? price.subtotal : price.total}
+            &#36;&nbsp;{price.total}
           </TableCell>
         </TableRow>
-        {isInternational && (
-          <TableRow className={classes.noBorder} hover>
-            <TableCell component="th" align="left" className={classes.headCell}>
-              International Card &amp;
-              <br />
-              Currency Conversion Fee
-            </TableCell>
-            <TableCell className={classes.dataCell} align="right">
-              &#43;&nbsp;&#36;&nbsp;
-              {price?.intFee}
-            </TableCell>
-          </TableRow>
-        )}
-        {isInternational && (
-          <TableRow hover>
-            <TableCell
-              component="th"
-              align="left"
-              className={classNames(classes.headCell, classes.total)}>
-              Total
-            </TableCell>
-            <TableCell className={classes.dataCell} align="right">
-              &#36;&nbsp;
-              {price?.intTotal}
-            </TableCell>
-          </TableRow>
-        )}
         <TableRow className={classes.noBorder}>
           <TableCell className={classes.note} colSpan={2}></TableCell>
         </TableRow>
@@ -181,14 +129,6 @@ export const VolumeFormPricing = ({ trialId, billingCountry, curCode }) => {
             &#42; All prices listed in &#36; Canadian Dollars CAD
           </TableCell>
         </TableRow>
-        {isInternational && (
-          <TableRow className={classes.noBorder}>
-            <TableCell className={classes.note} colSpan={2}>
-              &#42; International card and currency conversion fee applied to
-              non-Canadian credit cards
-            </TableCell>
-          </TableRow>
-        )}
         {hasBumpUpFee && (
           <TableRow className={classes.noBorder}>
             <TableCell className={classes.note} colSpan={2}>
