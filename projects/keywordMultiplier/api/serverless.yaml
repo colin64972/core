@@ -39,6 +39,13 @@ functions:
       - httpApi:
           path: /ke
           method: GET
+  getVolumesHandler:
+    name: ${env:SERVICE_NAME}-getVolumesHandler
+    handler: index.getVolumesHandler
+    events:
+      - httpApi:
+          path: /ke
+          method: POST
   preOrderHandler:
     name: ${env:SERVICE_NAME}-preOrderHandler
     handler: index.preOrderHandler

@@ -1,5 +1,5 @@
 import { createTrial } from './trials'
-import { getMeta, preOrder } from './keywordsEverywhere'
+import { getMeta, preOrder, getVolumes } from './keywordsEverywhere'
 
 const checkAuthorization = (authHeader, callback) => {
   if (authHeader !== 'secret')
@@ -22,5 +22,10 @@ export const getMetaHandler = async (event, context, callback) => {
 
 export const preOrderHandler = async (event, context, callback) => {
   const slsRes = await preOrder(event.body)
+  return callback(null, slsRes)
+}
+
+export const getVolumesHandler = async (event, context, callback) => {
+  const slsRes = await getVolumes(event.body)
   return callback(null, slsRes)
 }
