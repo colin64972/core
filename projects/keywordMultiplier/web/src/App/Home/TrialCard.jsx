@@ -161,7 +161,7 @@ export const TrialCard = ({ trial, isShown }) => {
   return (
     <div
       className={classNames(classes.trialCard, {
-        [classes.trialCardFullWidth]: trial.volumeData
+        [classes.trialCardFullWidth]: trial?.metrics
       })}
       ref={card}
       id={trial.id}>

@@ -2,8 +2,8 @@ import { calculateTrialPrice } from '@colin30/shared/logic/keywordMultiplier'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { errorConstants } from '@colin30/shared/serverless/errorConstants'
 import { proxyServiceError } from '@colin30/shared/serverless/proxyServiceError'
-import { fetchKeMeta, fetchKeMetrics } from './fetchers'
-import { getTrialById } from './trials'
+import { fetchKeMeta, fetchKeVolumes } from './fetchers'
+import { getTrialById, updateTrialWithPaymentAndVolumes } from './trials'
 import Stripe from 'stripe'
 
 export const getMeta = async queryStringParameters => {
@@ -67,8 +67,18 @@ export const preOrder = async eventBody => {
       statusCode: 200,
       body: JSON.stringify(paymentIntent)
     }
+  } catch (error) {
+    return proxyServiceError(error)
+  }
+}
 
-    const metrics = await fetchKeMetrics(
+export const getVolumes = async eventBody => {
+  try {
+    const body = JSON.parse(eventBody)
+
+    const trial = await getTrialById(body.trialId)
+
+    const metrics = await fetchKeVolumes(
       body.country,
       body.currency,
       body.dataSource,
@@ -77,11 +87,29 @@ export const preOrder = async eventBody => {
 
     if (!metrics.credits) throw Error('order fail')
 
+    const update = await updateTrialWithPaymentAndVolumes(
+      trial.id,
+      body.paymentId,
+      body.country,
+      body.currency,
+      body.dataSource,
+      metrics.data
+    )
+
     return {
       statusCode: 200,
-      body: JSON.stringify(metrics)
+      body: JSON.stringify({
+        credits: metrics.credits,
+        updatedTrial: {
+          ...trial,
+          ...update
+        }
+      })
     }
   } catch (error) {
-    return proxyServiceError(error)
+    return {
+      statusCode: 500,
+      error
+    }
   }
 }

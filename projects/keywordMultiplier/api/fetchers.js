@@ -24,7 +24,7 @@ const keHeaders = {
 export const fetchKeMeta = async path =>
   get(`https://api.keywordseverywhere.com/${path}`, keHeaders)
 
-export const fetchKeMetrics = async (
+export const fetchKeVolumes = async (
   country,
   currency,
   dataSource,
