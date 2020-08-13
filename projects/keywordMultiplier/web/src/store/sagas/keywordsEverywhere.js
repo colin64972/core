@@ -1,5 +1,5 @@
 import { call, put, select, take, race, delay } from 'redux-saga/effects'
-import { fetchKeData, makePreOrder } from '../fetchers'
+import { fetchKeData, makePreOrder, fetchKeVolumes } from '../fetchers'
 import { types } from '../types'
 import { decorateKeOptions, generateNotice } from '../../App/logic'
 import {
@@ -53,7 +53,6 @@ export function* getKeCredits() {
 }
 
 export function* orderMetrics(action) {
-  // console.log('%c action', 'color: yellow; font-size: large', action)
   try {
     const orderRequest = yield select(state => state.kE.orderRequest)
     const preOrderRes = yield call(
@@ -81,7 +80,14 @@ export function* orderMetrics(action) {
 
     if (payload.error) throw Error(payload.error)
 
-    console.log('%c PASS', 'color: yellow; font-size: large', payload)
+    const keVolumes = yield call(
+      fetchKeVolumes,
+      orderRequest.trialId,
+      action.values.country,
+      action.values.currency,
+      action.values.dataSource,
+      payload.paymentIntent.id
+    )
 
     // yield put({
     //   type: types.SET_KE_CREDITS,
