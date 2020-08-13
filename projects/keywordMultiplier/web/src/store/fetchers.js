@@ -57,10 +57,10 @@ export const makePreOrder = async (
 
 export const fetchKeVolumes = async (
   trialId,
+  paymentId,
   country,
   currency,
-  dataSource,
-  paymentId
+  dataSource
 ) => {
   let url = 'http://localhost:2000'
   if (process.env.NODE_ENV !== 'development') {
@@ -77,5 +77,6 @@ export const fetchKeVolumes = async (
     },
     options
   )
-  console.log('%c fetchKeVolumes', 'color: yellow; font-size: large', res)
+
+  if (res.status === 200) return res.data
 }

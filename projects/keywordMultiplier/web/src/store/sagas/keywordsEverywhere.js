@@ -1,7 +1,11 @@
 import { call, put, select, take, race, delay } from 'redux-saga/effects'
 import { fetchKeData, makePreOrder, fetchKeVolumes } from '../fetchers'
 import { types } from '../types'
-import { decorateKeOptions, generateNotice } from '../../App/logic'
+import {
+  decorateKeOptions,
+  decorateTrial,
+  generateNotice
+} from '../../App/logic'
 import {
   creditsMock,
   optionsMock
@@ -55,6 +59,7 @@ export function* getKeCredits() {
 export function* orderMetrics(action) {
   try {
     const orderRequest = yield select(state => state.kE.orderRequest)
+
     const preOrderRes = yield call(
       makePreOrder,
       orderRequest,
@@ -69,6 +74,7 @@ export function* orderMetrics(action) {
       action.confirmCardPaymentHandler,
       client_secret,
       {
+        receipt_email: action.values.billingEmail || null,
         payment_method: {
           card: action.cardNumberElement,
           billing_details: {
@@ -83,29 +89,23 @@ export function* orderMetrics(action) {
     const keVolumes = yield call(
       fetchKeVolumes,
       orderRequest.trialId,
+      payload.paymentIntent.id,
       action.values.country,
       action.values.currency,
-      action.values.dataSource,
-      payload.paymentIntent.id
+      action.values.dataSource
     )
 
-    // yield put({
-    //   type: types.SET_KE_CREDITS,
-    //   credits: returnedMetrics.credits
-    // })
-    // const oldTrial = yield select(state =>
-    //   state.app.trials.items.find(trial => trial.id === orderRequest.trialId)
-    // )
-    // const updatedTrial = {
-    //   ...oldTrial,
-    //   volumeData: returnedMetrics.data,
-    //   updatedAt: new Date().getTime(),
-    //   orderId: createHashId()
-    // }
-    // yield put({
-    //   type: types.UPDATE_TRIAL,
-    //   updatedTrial
-    // })
+    yield put({
+      type: types.SET_KE_CREDITS,
+      credits: keVolumes.credits
+    })
+
+    const updatedTrial = decorateTrial(keVolumes.updatedTrial)
+
+    yield put({
+      type: types.UPDATE_TRIAL,
+      updatedTrial
+    })
   } catch (error) {
     console.error('%c FAIL', 'color: red; font-size: large', error)
   }

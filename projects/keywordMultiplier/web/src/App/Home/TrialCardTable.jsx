@@ -89,7 +89,7 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
               {constants.VOLUME_DATA.VOLUME.LABEL}
             </TableCell>
           )}
-          {trial.volumeData &&
+          {trial?.metrics &&
             volumeDataFields.map(field => (
               <TableCell className={classes.tableHeadCell} key={field.key}>
                 {field.label}
@@ -111,8 +111,8 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
             </TableCell>
             {!volumeUnobtainable && (
               <TableCell component="td">
-                {trial.volumeData ? (
-                  trial.volumeData[keywordIndex][
+                {trial?.metrics?.volume ? (
+                  trial?.metrics.volume[keywordIndex][
                     constants.VOLUME_DATA.VOLUME.VALUE
                   ]
                 ) : (
@@ -126,10 +126,13 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
                 )}
               </TableCell>
             )}
-            {trial.volumeData &&
+            {trial?.metrics &&
               volumeDataFields.map(field => (
                 <TableCell component="td" key={field.key}>
-                  {setVolumeFieldCell(trial.volumeData[keywordIndex], field)}
+                  {setVolumeFieldCell(
+                    trial?.metrics.volume[keywordIndex],
+                    field
+                  )}
                 </TableCell>
               ))}
           </TableRow>

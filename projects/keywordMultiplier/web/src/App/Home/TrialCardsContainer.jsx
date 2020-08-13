@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
 
 export const TrialCardsContainer = ({ trials }) => {
   const classes = useStyles()
-  const sortedItems = mergeSort(trials.items, 'createdAt', 'down')
+  const sortedItems = mergeSort(trials.items, 'updatedAt', 'down')
   return (
     <Grid container component="section" className={classes.trialsSection}>
       <Grid item xs={12}>

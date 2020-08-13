@@ -76,6 +76,51 @@ export const getTrialById = async id => {
   }
 }
 
+export const updateTrialWithPaymentAndVolumes = async (
+  trialId,
+  paymentId,
+  country,
+  currency,
+  dataSource,
+  volume
+) => {
+  try {
+    const timestamp = new Date().getTime()
+
+    const options = {
+      TableName: process.env.TABLE_NAME,
+      Key: {
+        id: trialId
+      },
+      ExpressionAttributeNames: {
+        '#m': 'metrics',
+        '#p': 'paymentId',
+        '#u': 'updatedAt'
+      },
+      ExpressionAttributeValues: {
+        ':m': {
+          country,
+          currency,
+          dataSource,
+          volume
+        },
+        ':p': paymentId,
+        ':u': timestamp
+      },
+      ConditionExpression:
+        'attribute_not_exists(#p) AND attribute_not_exists(#m)',
+      UpdateExpression: 'SET #m = :m, #p = :p, #u = :u',
+      ReturnValues: 'UPDATED_NEW'
+    }
+
+    const result = await docClient.update(options).promise()
+
+    if (result?.Attributes.updatedAt === timestamp) return result.Attributes
+  } catch (error) {
+    return error
+  }
+}
+
 // const deleteOne = async pathParams => {
 //   try {
 //     const options = {
