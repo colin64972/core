@@ -93,7 +93,8 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
       cardNumberElement,
       cardExpiryElement,
       cardCvcElement,
-      confirmCardPaymentHandler: stripe.confirmCardPayment
+      confirmCardPaymentHandler: stripe.confirmCardPayment,
+      closeDialogHandler
     })
   }
 
