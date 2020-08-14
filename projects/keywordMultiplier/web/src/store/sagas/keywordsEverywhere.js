@@ -34,9 +34,7 @@ export function* getKeOptions() {
 export function* getKeCredits() {
   try {
     let result = creditsMock
-    if (process.env.NODE_ENV !== 'development') {
-      result = yield call(fetchKeData, Object.keys(constants.ENDPOINTS)[1])
-    }
+    result = yield call(fetchKeData, Object.keys(constants.ENDPOINTS)[1])
     const credits = result?.data.credits[0]
 
     if (credits < constants.LOW_CREDIT_ALERT_THRESHOLD) {
@@ -57,6 +55,10 @@ export function* getKeCredits() {
 }
 
 export function* orderMetrics(action) {
+  const notice = generateNotice('Metrics purchased successfully')
+
+  let stripeError = null
+
   try {
     const orderRequest = yield select(state => state.kE.orderRequest)
 
@@ -84,7 +86,10 @@ export function* orderMetrics(action) {
       }
     )
 
-    if (payload.error) throw Error(payload.error)
+    if (payload.error) {
+      stripeError = payload.error
+      throw Error('stripeError', payload.error)
+    }
 
     const keVolumes = yield call(
       fetchKeVolumes,
@@ -106,13 +111,34 @@ export function* orderMetrics(action) {
       type: types.UPDATE_TRIAL,
       updatedTrial
     })
+
+    return action.closeDialogHandler()
   } catch (error) {
     console.error('%c FAIL', 'color: red; font-size: large', error)
+    action.closeDialogHandler()
+    notice.bg = constants.NOTICE.BGS.FAIL
+    notice.heading = 'Payment Error'
+    if (error.message === 'stripeError') {
+      notice.message = stripeError.message
+    }
+  } finally {
+    yield put({
+      type: types.ADD_USER_KE_SELECTIONS,
+      country: action.values.country,
+      currency: action.values.currency,
+      dataSource: action.values.dataSource
+    })
+    yield put({
+      type: types.ADD_NOTICE,
+      notice
+    })
+    yield put({ type: types.SHOW_NOTICE })
+    yield race({
+      response: take(types.TAKE_NOTICE_RESPONSE),
+      timeout: delay(constants.NOTICE.TIMEOUT_DELAY)
+    })
+    yield put({ type: types.HIDE_NOTICE })
+    yield delay(500)
+    yield put({ type: types.REMOVE_NOTICE })
   }
-  yield put({
-    type: types.ADD_USER_KE_SELECTIONS,
-    country: action.values.country,
-    currency: action.values.currency,
-    dataSource: action.values.dataSource
-  })
 }
