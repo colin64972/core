@@ -55,6 +55,11 @@ export function* getKeCredits() {
 }
 
 export function* orderMetrics(action) {
+  yield put({
+    type: types.SET_SPINNER_STATUS,
+    spinnerName: constants.VOLUME_SPINNER,
+    status: true
+  })
   const notice = generateNotice('Metrics purchased successfully')
 
   let stripeError = null
@@ -111,7 +116,11 @@ export function* orderMetrics(action) {
       type: types.UPDATE_TRIAL,
       updatedTrial
     })
-
+    yield put({
+      type: types.SET_SPINNER_STATUS,
+      spinnerName: constants.VOLUME_SPINNER,
+      status: true
+    })
     return action.closeDialogHandler()
   } catch (error) {
     console.error('%c FAIL', 'color: red; font-size: large', error)
@@ -127,6 +136,11 @@ export function* orderMetrics(action) {
       country: action.values.country,
       currency: action.values.currency,
       dataSource: action.values.dataSource
+    })
+    yield put({
+      type: types.SET_SPINNER_STATUS,
+      spinnerName: constants.ORDER_SPINNER,
+      status: true
     })
     yield put({
       type: types.ADD_NOTICE,

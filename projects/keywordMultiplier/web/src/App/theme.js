@@ -40,8 +40,8 @@ theme.typography.subtitle1 = {
   }
 }
 
-theme.palette.gradients = {
-  screen: 'linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75))'
+theme.palette.screens = {
+  backdrop: 'rgba(0, 0, 0, 0.5)'
 }
 
 theme.shadows.concat([
