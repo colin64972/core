@@ -1,18 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Formik } from 'formik'
 import { useSelector, useDispatch } from 'react-redux'
 import { Dialog, Grid, Typography } from '@material-ui/core'
+import { BackDropScreen } from '@colin30/shared/react/components/BackDropScreen'
 import { makeStyles } from '@material-ui/styles'
 import { VolumeForm } from './VolumeForm'
 import { countryCodesList } from '@colin30/shared/raw/constants/countryCodes'
 import { types } from '../../store/types'
-import {
-  useStripe,
-  useElements,
-  CardNumberElement
-} from '@stripe/react-stripe-js'
+import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
+import { useStripe, useElements } from '@stripe/react-stripe-js'
 
 const useStyles = makeStyles(theme => ({
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1
+  },
   paper: {
     backgroundColor: theme.palette.secondary[100],
     [theme.breakpoints.up('xs')]: {
@@ -98,6 +99,10 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
     })
   }
 
+  const isSubmitting = useSelector(
+    state => state.app?.spinnerStatuses[constants.VOLUME_SPINNER]
+  )
+
   return (
     <Dialog
       open={dialogStatus}
@@ -110,6 +115,7 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
           root: classes.paper
         }
       }}>
+      <BackDropScreen isOpen={isSubmitting} spinner />
       <Grid container justify="center" direction="column" alignItems="center">
         <Typography variant="subtitle2" className={classes.subHeading}>
           Order Form

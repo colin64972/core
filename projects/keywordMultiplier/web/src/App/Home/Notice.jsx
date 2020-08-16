@@ -55,7 +55,7 @@ const useStyles = makeStyles(theme => {
       top: 0,
       left: 0,
       opacity: 0,
-      background: theme.palette.gradients.screen
+      background: theme.palette.screens.backdrop
     },
     noticeBar: {
       position: 'fixed',
