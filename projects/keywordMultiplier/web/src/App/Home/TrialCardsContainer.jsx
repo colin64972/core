@@ -48,16 +48,20 @@ export const TrialCardsContainer = ({ trials }) => {
       </Grid>
       <Grid
         container
+        justify="center"
+        alignItems="flex-start"
         direction="row"
         wrap="wrap"
+        spacing={3}
         className={classes.trialsContainer}>
         {sortedItems.map(trial => (
-          <TrialCard
-            trial={trial}
-            isShown={trials.shown.includes(trial.id)}
-            isLastShown={trials.shown.length === 1}
-            key={trial.id}
-          />
+          <Grid item xs={12} md={6} lg={4} xl={3} key={trial.id}>
+            <TrialCard
+              trial={trial}
+              isShown={trials.shown.includes(trial.id)}
+              isLastShown={trials.shown.length === 1}
+            />
+          </Grid>
         ))}
       </Grid>
     </Grid>
