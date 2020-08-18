@@ -4,6 +4,8 @@ import loadable from '@loadable/component'
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements } from '@stripe/react-stripe-js'
 import {
+  Grid,
+  Typography,
   Table,
   TableBody,
   TableCell,
@@ -15,11 +17,33 @@ import { makeStyles } from '@material-ui/styles'
 import { volumeDataFields } from './fields'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { formatProductLine, setVolumeFieldCell } from '../logic'
+import { getLabelFromValue } from '@colin30/shared/react/helpers'
 import { getMatchType, getWhiteSpaceSelection } from '../../store/selectors'
 
 const stripePromise = loadStripe('pk_test_vo3pSAjgXWz5JIjWvfwTmBpu')
 
 const useStyles = makeStyles(theme => ({
+  metricDetailsContainer: {
+    marginBottom: theme.custom.setSpace('sm'),
+    [theme.breakpoints.down('xs')]: {
+      marginBottom: theme.custom.setSpace()
+    }
+  },
+  metricProp: {
+    'fontSize': theme.custom.setSpace() * 1.25,
+    'marginTop': theme.custom.setSpace() / 2,
+    'marginRight': theme.custom.setSpace(),
+    'fontWeight': 'normal',
+    'color': theme.palette.bodyColor,
+    'textTransform': 'unset',
+    '&:last-child': {
+      marginRight: 0
+    }
+  },
+  metricPropValue: {
+    fontWeight: 'bold',
+    color: theme.palette.primary.main
+  },
   tableHeadCell: {
     margin: 0,
     color: theme.palette.secondary[200],
@@ -55,6 +79,10 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
     getWhiteSpaceSelection(state)
   )
 
+  const kECountries = useSelector(state => state.kE?.countries)
+  const kECurrencies = useSelector(state => state.kE?.currencies)
+  const kEDataSources = useSelector(state => state.kE?.dataSources)
+
   const [dialogStatus, setDialogStatus] = useState(false)
 
   const openDialogHandler = event => setDialogStatus(true)
@@ -70,7 +98,7 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
   )
 
   return (
-    <Table size="small">
+    <Grid container>
       {dialogStatus && (
         <Elements stripe={stripePromise}>
           <VolumeLoadable
@@ -80,64 +108,92 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
           />
         </Elements>
       )}
-      <TableHead>
-        <TableRow>
-          <TableCell className={classes.tableHeadCell}>Entry</TableCell>
-          <TableCell className={classes.tableHeadCell}>Product</TableCell>
-          {!volumeUnobtainable && (
-            <TableCell className={classes.tableHeadCell}>
-              {constants.VOLUME_DATA.VOLUME.LABEL}
-            </TableCell>
-          )}
-          {trial?.metrics &&
-            volumeDataFields.map(field => (
-              <TableCell className={classes.tableHeadCell} key={field.key}>
-                {field.label}
-              </TableCell>
-            ))}
-        </TableRow>
-      </TableHead>
-      <TableBody ref={copyRef} id={trial.id}>
-        {trial.list.map((keyword, keywordIndex) => (
-          <TableRow key={`${trial.id}-${keywordIndex}`} hover>
-            <TableCell component="td" className={classes.trialId}>
-              {keywordIndex + 1}
-            </TableCell>
-            <TableCell
-              component="td"
-              scope="data"
-              className={classes.tableCellData}>
-              {formatProductLine(keyword, matchType, whiteSpaceSelection)}
-            </TableCell>
+      {trial?.metrics && (
+        <Grid
+          container
+          justify="center"
+          alignItems="center"
+          className={classes.metricDetailsContainer}>
+          <Typography variant="h6" className={classes.metricProp}>
+            Target Country&nbsp;
+            <span className={classes.metricPropValue}>
+              {getLabelFromValue(trial.metrics.country, kECountries)}
+            </span>
+          </Typography>
+          <Typography variant="h6" className={classes.metricProp}>
+            CPC Currency&nbsp;
+            <span className={classes.metricPropValue}>
+              {getLabelFromValue(trial.metrics.currency, kECurrencies)}
+            </span>
+          </Typography>
+          <Typography variant="h6" className={classes.metricProp}>
+            Metics Data Source&nbsp;
+            <span className={classes.metricPropValue}>
+              {getLabelFromValue(trial.metrics.dataSource, kEDataSources)}
+            </span>
+          </Typography>
+        </Grid>
+      )}
+      <Table size="small">
+        <TableHead>
+          <TableRow>
+            <TableCell className={classes.tableHeadCell}>Entry</TableCell>
+            <TableCell className={classes.tableHeadCell}>Product</TableCell>
             {!volumeUnobtainable && (
-              <TableCell component="td">
-                {trial?.metrics?.volume ? (
-                  trial?.metrics.volume[keywordIndex][
-                    constants.VOLUME_DATA.VOLUME.VALUE
-                  ]
-                ) : (
-                  <button
-                    type="button"
-                    onClick={openDialogHandler}
-                    data-id={trial.id}
-                    className={classes.requestVolumeButton}>
-                    <SearchIcon className={classes.searchButtonIcon} />
-                  </button>
-                )}
+              <TableCell className={classes.tableHeadCell}>
+                {constants.VOLUME_DATA.VOLUME.LABEL}
               </TableCell>
             )}
             {trial?.metrics &&
               volumeDataFields.map(field => (
-                <TableCell component="td" key={field.key}>
-                  {setVolumeFieldCell(
-                    trial?.metrics.volume[keywordIndex],
-                    field
-                  )}
+                <TableCell className={classes.tableHeadCell} key={field.key}>
+                  {field.label}
                 </TableCell>
               ))}
           </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+        </TableHead>
+        <TableBody ref={copyRef} id={trial.id}>
+          {trial.list.map((keyword, keywordIndex) => (
+            <TableRow key={`${trial.id}-${keywordIndex}`} hover>
+              <TableCell component="td" className={classes.trialId}>
+                {keywordIndex + 1}
+              </TableCell>
+              <TableCell
+                component="td"
+                scope="data"
+                className={classes.tableCellData}>
+                {formatProductLine(keyword, matchType, whiteSpaceSelection)}
+              </TableCell>
+              {!volumeUnobtainable && (
+                <TableCell component="td">
+                  {trial?.metrics?.volume ? (
+                    trial?.metrics.volume[keywordIndex][
+                      constants.VOLUME_DATA.VOLUME.VALUE
+                    ]
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={openDialogHandler}
+                      data-id={trial.id}
+                      className={classes.requestVolumeButton}>
+                      <SearchIcon className={classes.searchButtonIcon} />
+                    </button>
+                  )}
+                </TableCell>
+              )}
+              {trial?.metrics &&
+                volumeDataFields.map(field => (
+                  <TableCell component="td" key={field.key}>
+                    {setVolumeFieldCell(
+                      trial?.metrics.volume[keywordIndex],
+                      field
+                    )}
+                  </TableCell>
+                ))}
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </Grid>
   )
 }
