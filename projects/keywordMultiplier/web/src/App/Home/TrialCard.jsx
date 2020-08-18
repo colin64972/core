@@ -16,45 +16,6 @@ import { types } from '../../store/types'
 const useStyles = makeStyles(theme => ({
   trialCard: {
     width: '100%'
-    // 'margin': `${theme.custom.setSpace()}px 0 0 0`,
-    // '&:nth-child(1)': {
-    //   marginTop: 0
-    // },
-    // [theme.breakpoints.up('sm')]: {
-    //   'width': `calc(50% - ((${theme.custom.setSpace('sm')}px * 1) / 2))`,
-    //   'margin': `${theme.custom.setSpace('sm')}px ${theme.custom.setSpace(
-    //     'sm'
-    //   )}px 0 0`,
-    //   '&:nth-child(1), &:nth-child(2)': {
-    //     marginTop: 0
-    //   },
-    //   '&:nth-child(2n)': {
-    //     marginRight: 0
-    //   }
-    // },
-    // [theme.breakpoints.up('xl')]: {
-    //   'width': `calc(33.3333% - ((${theme.custom.setSpace('sm')}px * 2) / 3))`,
-    //   'margin': `${theme.custom.setSpace('sm')}px ${theme.custom.setSpace(
-    //     'sm'
-    //   )}px 0 0`,
-    //   '&:nth-child(1), &:nth-child(3)': {
-    //     marginTop: 0
-    //   },
-    //   '&:nth-child(2)': {
-    //     marginTop: 0,
-    //     marginRight: 0
-    //   },
-    //   '&:nth-child(2n)': {
-    //     marginRight: theme.custom.setSpace('sm')
-    //   },
-    //   '&:nth-child(3n)': {
-    //     marginRight: 0
-    //   }
-    // }
-  },
-  trialCardFullWidth: {
-    width: '100%',
-    margin: theme.custom.setSpace()
   },
   expandIcon: {
     position: 'relative',
@@ -159,12 +120,7 @@ export const TrialCard = ({ trial, isShown }) => {
   }
 
   return (
-    <div
-      className={classNames(classes.trialCard, {
-        // [classes.trialCardFullWidth]: trial?.metrics
-      })}
-      ref={card}
-      id={trial.id}>
+    <div className={classes.trialCard} ref={card} id={trial.id}>
       <Accordion onChange={accordionChangeHandler}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}

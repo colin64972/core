@@ -55,11 +55,11 @@ const useStyles = makeStyles(theme => ({
     height: 30
   },
   listCount: {
-    color: theme.palette.primary[50],
+    color: theme.palette.bodyColor,
     backgroundColor: theme.palette.primary[200]
   },
   billableCount: {
-    color: theme.palette.secondary[50],
+    color: theme.palette.bodyColor,
     backgroundColor: theme.palette.secondary[200]
   },
   timestamp: {
@@ -68,6 +68,13 @@ const useStyles = makeStyles(theme => ({
   chipLabel: {
     position: 'relative',
     top: 1
+  },
+  metricsChip: {
+    backgroundColor: theme.palette.pass[500],
+    color: theme.palette.bodyColor,
+    marginLeft: theme.custom.setSpace() / 2,
+    fontWeight: 'normal',
+    textTransform: 'uppercase'
   }
 }))
 
@@ -105,6 +112,15 @@ export const TrialCardHeader = ({
                 label: classes.chipLabel
               }}
             />
+            {trial?.metrics && (
+              <Chip
+                label="Metrics"
+                className={classNames(classes.countChip, classes.metricsChip)}
+                classes={{
+                  label: classes.chipLabel
+                }}
+              />
+            )}
           </Grid>
           <Grid item className={classes.copyDeleteContainer}>
             <button onClick={copyHandler} className={classes.copyButton}>
