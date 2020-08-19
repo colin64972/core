@@ -45,3 +45,18 @@ export const parseBillableKeywords = fullList => {
 
   return [...new Set(reduced)]
 }
+
+export const findMetricFromEntry = (keyword, field, volumes) => {
+  let searchItem = keyword
+  if (LINE_INCLUDES_TLD.test(keyword)) {
+    searchItem = takeKewordsFromTld(keyword)
+  }
+  const metric = volumes.find(item => item.keyword === searchItem)
+  let result = ''
+  if (field === constants.VOLUME_DATA.CPC.VALUE) {
+    result = parseFloat(metric[field].value)
+  } else {
+    result = metric[field]
+  }
+  return JSON.stringify(result)
+}
