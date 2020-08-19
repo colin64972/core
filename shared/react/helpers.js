@@ -58,7 +58,6 @@ export const setExpYearOptions = () => {
 export const getLabelFromValue = (value, source) => {
   if (source && Array.isArray(source)) {
     const found = source.find(item => item.value === value)
-    console.log('%c found', 'color: yellow; font-size: large', found)
     return found?.label
   }
   return value
