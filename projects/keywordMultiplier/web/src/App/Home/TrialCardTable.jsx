@@ -16,9 +16,10 @@ import SearchIcon from '@material-ui/icons/Search'
 import { makeStyles } from '@material-ui/styles'
 import { volumeDataFields } from './fields'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
-import { formatProductLine, setVolumeFieldCell } from '../logic'
+import { formatProductLine } from '../logic'
 import { getLabelFromValue } from '@colin30/shared/react/helpers'
 import { getMatchType, getWhiteSpaceSelection } from '../../store/selectors'
+import { findMetricFromEntry } from '@colin30/shared/logic/keywordMultiplier'
 
 const stripePromise = loadStripe('pk_test_vo3pSAjgXWz5JIjWvfwTmBpu')
 
@@ -167,9 +168,11 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
               {!volumeUnobtainable && (
                 <TableCell component="td">
                   {trial?.metrics?.volume ? (
-                    trial?.metrics.volume[keywordIndex][
-                      constants.VOLUME_DATA.VOLUME.VALUE
-                    ]
+                    findMetricFromEntry(
+                      keyword,
+                      constants.VOLUME_DATA.VOLUME.VALUE,
+                      trial.metrics.volume
+                    )
                   ) : (
                     <button
                       type="button"
@@ -184,9 +187,10 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
               {trial?.metrics &&
                 volumeDataFields.map(field => (
                   <TableCell component="td" key={field.key}>
-                    {setVolumeFieldCell(
-                      trial?.metrics.volume[keywordIndex],
-                      field
+                    {findMetricFromEntry(
+                      keyword,
+                      field.value,
+                      trial.metrics.volume
                     )}
                   </TableCell>
                 ))}

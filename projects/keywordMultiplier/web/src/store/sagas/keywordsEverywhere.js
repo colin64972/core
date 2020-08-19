@@ -119,7 +119,7 @@ export function* orderMetrics(action) {
     yield put({
       type: types.SET_SPINNER_STATUS,
       spinnerName: constants.VOLUME_SPINNER,
-      status: true
+      status: false
     })
     return action.closeDialogHandler()
   } catch (error) {
