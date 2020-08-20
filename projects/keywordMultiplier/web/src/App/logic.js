@@ -86,23 +86,23 @@ const buildCopyData = (tableBody, dataOnly, matchType) => {
   return result
 }
 
-const setCopyValue = (input, dataOnly, matchType) => {
+const setCopyValue = (inputRef, dataOnly, matchType) => {
   let result = ''
   try {
-    for (let tableBody of input) {
+    for (let tableBody of inputRef) {
       result += buildCopyData(tableBody, dataOnly, matchType)
     }
   } catch {
-    result += buildCopyData(input, dataOnly, matchType)
+    result += buildCopyData(inputRef, dataOnly, matchType)
   }
   return result
 }
 
-export const copyToClipboard = (input, dataOnly, matchType) => {
+export const copyToClipboard = (inputRef, dataOnly, matchType) => {
   let value = dataOnly ? '' : `Trial ID\tEntry\tProduct\n`
   try {
     let container = document.createElement('textarea')
-    container.value = value + setCopyValue(input, dataOnly, matchType)
+    container.value = value + setCopyValue(inputRef, dataOnly, matchType)
     document.body.appendChild(container)
     container.select()
     document.execCommand('copy')

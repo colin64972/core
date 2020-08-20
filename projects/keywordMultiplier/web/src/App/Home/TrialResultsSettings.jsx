@@ -194,7 +194,7 @@ export const TrialResultsSettings = ({ buttonsDisabled }) => {
                 }
                 label={
                   <Typography variant="body1" className={classes.toggleText}>
-                    Copy Data Only
+                    Copy Keywords Only
                   </Typography>
                 }
               />

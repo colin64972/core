@@ -128,7 +128,7 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
             </span>
           </Typography>
           <Typography variant="h6" className={classes.metricProp}>
-            Metics Data Source&nbsp;
+            Metrics Data Source&nbsp;
             <span className={classes.metricPropValue}>
               {getLabelFromValue(trial.metrics.dataSource, kEDataSources)}
             </span>
