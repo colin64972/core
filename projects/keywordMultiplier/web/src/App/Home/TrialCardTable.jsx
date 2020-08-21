@@ -17,7 +17,6 @@ import { makeStyles } from '@material-ui/styles'
 import { volumeDataFields } from './fields'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { formatProductLine } from '../logic'
-import { getLabelFromValue } from '@colin30/shared/react/helpers'
 import { getMatchType, getWhiteSpaceSelection } from '../../store/selectors'
 import { findMetricFromEntry } from '@colin30/shared/logic/keywordMultiplier'
 
@@ -71,7 +70,12 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
+export const TrialCardTable = ({
+  trial,
+  copyRef,
+  volumeUnobtainable,
+  metricOptionLabels
+}) => {
   const classes = useStyles()
 
   const matchType = useSelector(state => getMatchType(state))
@@ -79,10 +83,6 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
   const whiteSpaceSelection = useSelector(state =>
     getWhiteSpaceSelection(state)
   )
-
-  const kECountries = useSelector(state => state.kE?.countries)
-  const kECurrencies = useSelector(state => state.kE?.currencies)
-  const kEDataSources = useSelector(state => state.kE?.dataSources)
 
   const [dialogStatus, setDialogStatus] = useState(false)
 
@@ -118,19 +118,19 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
           <Typography variant="h6" className={classes.metricProp}>
             Target Country&nbsp;
             <span className={classes.metricPropValue}>
-              {getLabelFromValue(trial.metrics.country, kECountries)}
+              {metricOptionLabels.country}
             </span>
           </Typography>
           <Typography variant="h6" className={classes.metricProp}>
             CPC Currency&nbsp;
             <span className={classes.metricPropValue}>
-              {getLabelFromValue(trial.metrics.currency, kECurrencies)}
+              {metricOptionLabels.currency}
             </span>
           </Typography>
           <Typography variant="h6" className={classes.metricProp}>
-            Metrics Data Source&nbsp;
+            Metric Data Source&nbsp;
             <span className={classes.metricPropValue}>
-              {getLabelFromValue(trial.metrics.dataSource, kEDataSources)}
+              {metricOptionLabels.dataSource}
             </span>
           </Typography>
         </Grid>

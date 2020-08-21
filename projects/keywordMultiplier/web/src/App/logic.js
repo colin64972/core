@@ -69,40 +69,69 @@ export const formatProductLine = (value, matchType, whiteSpaceCode) => {
   return result
 }
 
-const buildCopyData = (tableBody, keywordsOnly, matchType) => {
+const buildCopyData = (tableBody, keywordsOnly, matchType, hasMetrics) => {
   let result = ''
   const tableRows = tableBody.children
   for (let row of tableRows) {
     if (keywordsOnly) {
       result += `${row.firstChild.nextSibling.innerHTML}\n`
     } else {
-      if (matchType === constants.MATCHTYPES.BROAD_MODIFIER) {
-        result += `${tableBody.id}\t${row.firstChild.innerHTML}\t${constants.EXCEL_TEXT_QUALIFIER}${row.firstChild.nextSibling.innerHTML}\n`
+      if (matchType === constants.MATCHTYPES.PHRASE) {
+        result += `${tableBody.id}\t${row.firstChild.innerHTML}\t'${row.firstChild.nextSibling.innerHTML}\n`
       } else {
         result += `${tableBody.id}\t${row.firstChild.innerHTML}\t${row.firstChild.nextSibling.innerHTML}\n`
       }
+      if (hasMetrics) {
+        result = result.substring(0, result.lastIndexOf('\n'))
+        result += `\t${row.firstChild.nextSibling.nextSibling.innerHTML}\t${row.firstChild.nextSibling.nextSibling.nextSibling.innerHTML}\t${row.firstChild.nextSibling.nextSibling.nextSibling.nextSibling.innerHTML}\n`
+      }
     }
   }
-  return result
+  return result.substring(0, result.lastIndexOf('\n'))
 }
 
-const setCopyValue = (inputRef, keywordsOnly, matchType) => {
+const setCopyValue = (inputRef, keywordsOnly, matchType, hasMetrics) => {
   let result = ''
   try {
     for (let tableBody of inputRef) {
-      result += buildCopyData(tableBody, keywordsOnly, matchType)
+      result += buildCopyData(tableBody, keywordsOnly, matchType, hasMetrics)
     }
   } catch {
-    result += buildCopyData(inputRef, keywordsOnly, matchType)
+    result += buildCopyData(inputRef, keywordsOnly, matchType, hasMetrics)
   }
   return result
 }
 
-export const copyToClipboard = (inputRef, keywordsOnly, matchType) => {
-  let value = keywordsOnly ? '' : `Trial ID\tEntry\tProduct\n`
+export const copyToClipboard = (
+  inputRef,
+  keywordsOnly,
+  matchType,
+  hasMetrics,
+  metricOptionLabels
+) => {
+  let value = ''
+
+  if (keywordsOnly) {
+    value = ''
+  } else {
+    if (hasMetrics) {
+      value = `Metric Details\nTarget Country\t${metricOptionLabels.country}\nCPC Currency\t${metricOptionLabels.currency}\nData Source\t${metricOptionLabels.dataSource}\n\nTrial ID\tEntry\tProduct\tVolume\tCPC\tCompetition\n`
+    } else {
+      value = `Trial ID\tEntry\tProduct\n`
+    }
+  }
+
   try {
     let container = document.createElement('textarea')
-    container.value = value + setCopyValue(inputRef, keywordsOnly, matchType)
+    container.value =
+      value +
+      setCopyValue(
+        inputRef,
+        keywordsOnly,
+        matchType,
+        hasMetrics,
+        metricOptionLabels
+      )
     document.body.appendChild(container)
     container.select()
     document.execCommand('copy')

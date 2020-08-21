@@ -80,8 +80,15 @@ export function* copyTrial(action) {
   const copySettings = yield select(state => getCopySettings(state))
   const matchType = yield select(state => getMatchType(state))
   try {
-    const { ref } = action
-    yield call(copyToClipboard, ref, copySettings.keywordsOnly, matchType)
+    const { ref, hasMetrics, metricOptionLabels } = action
+    yield call(
+      copyToClipboard,
+      ref,
+      copySettings.keywordsOnly,
+      matchType,
+      hasMetrics,
+      metricOptionLabels
+    )
   } catch (error) {
     notice.bg = constants.NOTICE.BGS.FAIL
     notice.heading = 'Error'

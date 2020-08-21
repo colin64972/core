@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import { getLabelFromValue } from '@colin30/shared/react/helpers'
 import gsap from 'gsap'
 import React, { createRef, useEffect, useLayoutEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -43,14 +43,25 @@ export const TrialCard = ({ trial, isShown }) => {
   const copyRef = createRef()
 
   const KeCredits = useSelector(state => state.kE?.credits)
+  const kECountries = useSelector(state => state.kE?.countries)
+  const kECurrencies = useSelector(state => state.kE?.currencies)
+  const kEDataSources = useSelector(state => state.kE?.dataSources)
 
   const [volumeUnobtainable, setVolumeUnobtainable] = useState(false)
+
+  const metricOptionLabels = {
+    country: getLabelFromValue(trial?.metrics?.country, kECountries),
+    currency: getLabelFromValue(trial?.metrics?.currency, kECurrencies),
+    dataSource: getLabelFromValue(trial?.metrics?.dataSource, kEDataSources)
+  }
 
   const copyHandler = event => {
     event.stopPropagation()
     return dispatch({
       type: types.COPY_TRIAL,
       id: trial.id,
+      hasMetrics: trial?.metrics?.volume.length > 0,
+      metricOptionLabels,
       ref: copyRef.current
     })
   }
@@ -140,6 +151,7 @@ export const TrialCard = ({ trial, isShown }) => {
             trial={trial}
             copyRef={copyRef}
             volumeUnobtainable={volumeUnobtainable}
+            metricOptionLabels={metricOptionLabels}
           />
         </AccordionDetails>
       </Accordion>
