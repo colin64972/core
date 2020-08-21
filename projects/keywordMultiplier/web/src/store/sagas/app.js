@@ -81,7 +81,7 @@ export function* copyTrial(action) {
   const matchType = yield select(state => getMatchType(state))
   try {
     const { ref } = action
-    yield call(copyToClipboard, ref, copySettings.dataOnly, matchType)
+    yield call(copyToClipboard, ref, copySettings.keywordsOnly, matchType)
   } catch (error) {
     notice.bg = constants.NOTICE.BGS.FAIL
     notice.heading = 'Error'
@@ -107,7 +107,7 @@ export function* copyAllTrials() {
   const matchType = yield select(state => getMatchType(state))
   try {
     const tbodys = document.getElementsByTagName('tbody')
-    yield call(copyToClipboard, tbodys, copySettings.dataOnly, matchType)
+    yield call(copyToClipboard, tbodys, copySettings.keywordsOnly, matchType)
   } catch (error) {
     notice.bg = constants.NOTICE.BGS.FAIL
     notice.heading = 'Error'
