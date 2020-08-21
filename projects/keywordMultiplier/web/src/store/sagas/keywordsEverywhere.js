@@ -6,21 +6,17 @@ import {
   decorateTrial,
   generateNotice
 } from '../../App/logic'
-import {
-  creditsMock,
-  optionsMock
-} from '@colin30/shared/react/mocks/keywordMultiplier'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
-import { createHashId } from '@colin30/shared/react/helpers'
+import { payloadMock } from '@colin30/shared/react/mocks/keywordMultiplier'
 
 export function* getKeOptions() {
   try {
     const { countries, currencies } = yield select(state => state.kE)
     if (!countries || !currencies) {
-      let result = optionsMock
-      if (process.env.NODE_ENV !== 'development') {
-        result = yield call(fetchKeData, Object.keys(constants.ENDPOINTS)[0])
-      }
+      const result = yield call(
+        fetchKeData,
+        Object.keys(constants.ENDPOINTS)[0]
+      )
       const decoratedData = decorateKeOptions(result.data)
       return yield put({
         type: types.SET_KE_OPTIONS,
@@ -28,13 +24,14 @@ export function* getKeOptions() {
       })
     }
     return null
-  } catch (error) {}
+  } catch (error) {
+    // TODO
+  }
 }
 
 export function* getKeCredits() {
   try {
-    let result = creditsMock
-    result = yield call(fetchKeData, Object.keys(constants.ENDPOINTS)[1])
+    const result = yield call(fetchKeData, Object.keys(constants.ENDPOINTS)[1])
     const credits = result?.data.credits[0]
 
     if (credits < constants.LOW_CREDIT_ALERT_THRESHOLD) {
@@ -77,10 +74,10 @@ export function* orderMetrics(action) {
 
     const { client_secret } = preOrderRes
 
-    const payload = yield call(
-      action.confirmCardPaymentHandler,
-      client_secret,
-      {
+    let payload = payloadMock
+
+    if (process.env.NODE_ENV !== 'development') {
+      payload = yield call(action.confirmCardPaymentHandler, client_secret, {
         receipt_email: action.values.billingEmail || null,
         payment_method: {
           card: action.cardNumberElement,
@@ -88,8 +85,8 @@ export function* orderMetrics(action) {
             email: action.values.billingEmail || null
           }
         }
-      }
-    )
+      })
+    }
 
     if (payload.error) {
       stripeError = payload.error

@@ -69,11 +69,11 @@ export const formatProductLine = (value, matchType, whiteSpaceCode) => {
   return result
 }
 
-const buildCopyData = (tableBody, dataOnly, matchType) => {
+const buildCopyData = (tableBody, keywordsOnly, matchType) => {
   let result = ''
   const tableRows = tableBody.children
   for (let row of tableRows) {
-    if (dataOnly) {
+    if (keywordsOnly) {
       result += `${row.firstChild.nextSibling.innerHTML}\n`
     } else {
       if (matchType === constants.MATCHTYPES.BROAD_MODIFIER) {
@@ -86,23 +86,23 @@ const buildCopyData = (tableBody, dataOnly, matchType) => {
   return result
 }
 
-const setCopyValue = (inputRef, dataOnly, matchType) => {
+const setCopyValue = (inputRef, keywordsOnly, matchType) => {
   let result = ''
   try {
     for (let tableBody of inputRef) {
-      result += buildCopyData(tableBody, dataOnly, matchType)
+      result += buildCopyData(tableBody, keywordsOnly, matchType)
     }
   } catch {
-    result += buildCopyData(inputRef, dataOnly, matchType)
+    result += buildCopyData(inputRef, keywordsOnly, matchType)
   }
   return result
 }
 
-export const copyToClipboard = (inputRef, dataOnly, matchType) => {
-  let value = dataOnly ? '' : `Trial ID\tEntry\tProduct\n`
+export const copyToClipboard = (inputRef, keywordsOnly, matchType) => {
+  let value = keywordsOnly ? '' : `Trial ID\tEntry\tProduct\n`
   try {
     let container = document.createElement('textarea')
-    container.value = value + setCopyValue(inputRef, dataOnly, matchType)
+    container.value = value + setCopyValue(inputRef, keywordsOnly, matchType)
     document.body.appendChild(container)
     container.select()
     document.execCommand('copy')

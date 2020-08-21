@@ -14,7 +14,7 @@ const defaultState = {
   matchType: constants.MATCHTYPES.BROAD,
   matchTypePrev: constants.MATCHTYPES.BROAD,
   copySettings: {
-    dataOnly: false
+    keywordsOnly: false
   },
   whiteSpaceSelection: constants.WHITESPACE_OPTIONS.DISABLED.VALUE,
   notice: {
@@ -125,7 +125,7 @@ export const app = (state = defaultState, action) => {
         ...state,
         copySettings: {
           ...state.copySettings,
-          dataOnly: !state.copySettings.dataOnly
+          keywordsOnly: !state.copySettings.keywordsOnly
         }
       }
     case types.ADD_GEO_IP:
