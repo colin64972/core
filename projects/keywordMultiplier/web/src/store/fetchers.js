@@ -1,8 +1,16 @@
 import { get, post } from 'axios'
-import { ipMock } from '@colin30/shared/react/mocks/keywordMultiplier'
+import {
+  ipMock,
+  createTrialMock,
+  optionsMock,
+  creditsMock,
+  preOrderMock,
+  volumeMock
+} from '@colin30/shared/react/mocks/keywordMultiplier'
+import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 
 export const fetchIpAddress = async () => {
-  // if (process.env.NODE_ENV === 'development') return ipMock.data.ip
+  if (process.env.NODE_ENV === 'development') return ipMock.data.ip
   const res = await get('https://api.ipify.org?format=json')
   return res.data.ip
 }
@@ -15,19 +23,22 @@ const options = {
 }
 
 export const createTrial = async payload => {
+  if (process.env.NODE_ENV === 'development') return createTrialMock
   let url = 'http://localhost:2000'
-  if (process.env.NODE_ENV !== 'development') {
-    url = 'https://apis.colin30.com/keyword-multiplier'
-  }
   const res = await post(`${url}/trials`, payload, options)
   return res
 }
 
 export const fetchKeData = async resource => {
-  let url = 'http://localhost:2000'
-  if (process.env.NODE_ENV !== 'development') {
-    url = 'https://apis.colin30.com/keyword-multiplier'
+  if (process.env.NODE_ENV === 'development') {
+    switch (resource) {
+      case Object.keys(constants.ENDPOINTS)[1]:
+        return creditsMock
+      default:
+        return optionsMock
+    }
   }
+  let url = 'http://localhost:2000'
   const res = await get(`${url}/ke?resource=${resource}`, options)
   return res
 }
@@ -38,10 +49,8 @@ export const makePreOrder = async (
   currency,
   dataSource
 ) => {
+  if (process.env.NODE_ENV === 'development') return preOrderMock
   let url = 'http://localhost:2000'
-  if (process.env.NODE_ENV !== 'development') {
-    url = 'https://apis.colin30.com/keyword-multiplier'
-  }
   const res = await post(
     `${url}/ke/pre-order`,
     {
@@ -62,10 +71,8 @@ export const fetchKeVolumes = async (
   currency,
   dataSource
 ) => {
+  if (process.env.NODE_ENV === 'development') return volumeMock
   let url = 'http://localhost:2000'
-  if (process.env.NODE_ENV !== 'development') {
-    url = 'https://apis.colin30.com/keyword-multiplier'
-  }
   const res = await post(
     `${url}/ke`,
     {

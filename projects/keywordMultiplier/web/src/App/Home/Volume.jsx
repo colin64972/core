@@ -70,18 +70,18 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
     acceptTerms: false
   }
 
-  // if (process.env.NODE_ENV === 'development') {
-  //   initalValues = {
-  //     country: keOptions.userSelections.country || 'ca',
-  //     currency: keOptions.userSelections.currency || 'cad',
-  //     dataSource: keOptions.userSelections.dataSource || 'gkp',
-  //     cardNumber: false,
-  //     cardExpiry: false,
-  //     cardCvc: false,
-  //     billingEmail: '',
-  //     acceptTerms: false
-  //   }
-  // }
+  if (process.env.NODE_ENV === 'development') {
+    initalValues = {
+      country: keOptions.userSelections.country || 'ca',
+      currency: keOptions.userSelections.currency || 'cad',
+      dataSource: keOptions.userSelections.dataSource || 'gkp',
+      cardNumber: true,
+      cardExpiry: true,
+      cardCvc: true,
+      billingEmail: '',
+      acceptTerms: true
+    }
+  }
 
   const customSubmitHandler = (values, actions) => {
     const cardNumberElement = elements.getElement('cardNumber')
