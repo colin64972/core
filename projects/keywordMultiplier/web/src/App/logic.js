@@ -3,6 +3,7 @@ import { createHashId, optionizeObject } from '@colin30/shared/react/helpers'
 import { LINE_INCLUDES_TLD } from '@colin30/shared/raw/constants/regex'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { takeLastTld } from '@colin30/shared/logic/keywordMultiplier'
+import { removeTrailingChar } from '@colin30/shared/general/formatting'
 
 const removeAllButSpaces = line =>
   line
@@ -82,12 +83,12 @@ const buildCopyData = (tableBody, keywordsOnly, matchType, hasMetrics) => {
         result += `${tableBody.id}\t${row.firstChild.innerHTML}\t${row.firstChild.nextSibling.innerHTML}\n`
       }
       if (hasMetrics) {
-        result = result.substring(0, result.lastIndexOf('\n'))
+        result = removeTrailingChar(result, '\n')
         result += `\t${row.firstChild.nextSibling.nextSibling.innerHTML}\t${row.firstChild.nextSibling.nextSibling.nextSibling.innerHTML}\t${row.firstChild.nextSibling.nextSibling.nextSibling.nextSibling.innerHTML}\n`
       }
     }
   }
-  return result.substring(0, result.lastIndexOf('\n'))
+  return removeTrailingChar(result, '\n')
 }
 
 const setCopyValue = (inputRef, keywordsOnly, matchType, hasMetrics) => {
@@ -95,11 +96,12 @@ const setCopyValue = (inputRef, keywordsOnly, matchType, hasMetrics) => {
   try {
     for (let tableBody of inputRef) {
       result += buildCopyData(tableBody, keywordsOnly, matchType, hasMetrics)
+      result += '\n'
     }
   } catch {
     result += buildCopyData(inputRef, keywordsOnly, matchType, hasMetrics)
   }
-  return result
+  return removeTrailingChar(result, '\n')
 }
 
 export const copyToClipboard = (
