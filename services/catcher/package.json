@@ -1,5 +1,5 @@
 {
-  "name": "@colin30/services-shared",
+  "name": "@colin30/services-catcher",
   "version": "0.0.1",
   "main": "index.js",
   "repository": "git@github.com:colin30/colin30.git",
@@ -7,10 +7,15 @@
   "license": "MIT",
   "private": true,
   "prettier": "@colin30/configs/prettier",
+  "scripts": {
+    "invoke": "sls invoke local -f catcher -p event.json"
+  },
   "devDependencies": {
     "@colin30/configs": "0.0.1"
   },
   "dependencies": {
-    "faker": "^5.0.0"
+    "@colin30/services-shared": "0.0.1",
+    "express": "^4.17.1",
+    "serverless-http": "^2.5.0"
   }
 }
