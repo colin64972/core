@@ -1,0 +1,16 @@
+{
+  "name": "@colin30/services-shared",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@github.com:colin30/colin30.git",
+  "author": "colin30 <colin30@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "prettier": "@colin30/configs/prettier",
+  "dependencies": {
+    "faker": "^5.0.0"
+  },
+  "devDependencies": {
+    "@colin30/configs": "0.0.1"
+  }  
+}
