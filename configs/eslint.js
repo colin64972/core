@@ -1,5 +1,5 @@
 module.exports = setEslint = (
-  jsx = false,
+  ecmaFeaturesJsx = false,
   customExts = [],
   customPlugs = [],
   customEnvs = {}
@@ -9,7 +9,7 @@ module.exports = setEslint = (
     ecmaFeatures: {
       globalReturn: false,
       impliedStrict: true,
-      jsx
+      jsx: ecmaFeaturesJsx
     }
   },
   extends: [...customExts, 'prettier'],
