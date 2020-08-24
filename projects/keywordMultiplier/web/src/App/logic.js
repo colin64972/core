@@ -91,36 +91,43 @@ const buildCopyData = (tableBody, keywordsOnly, matchType, hasMetrics) => {
   return removeTrailingChar(result, '\n')
 }
 
-const setCopyValue = (inputRef, keywordsOnly, matchType, hasMetrics) => {
+const setCopyValue = (tableRef, keywordsOnly, matchType, hasMetrics) => {
   let result = ''
-  try {
-    for (let tableBody of inputRef) {
-      result += buildCopyData(tableBody, keywordsOnly, matchType, hasMetrics)
-      result += '\n'
-    }
-  } catch {
-    result += buildCopyData(inputRef, keywordsOnly, matchType, hasMetrics)
-  }
-  return removeTrailingChar(result, '\n')
+  // try {
+  //   for (let tableBody of tableRef) {
+  //     result += buildCopyData(tableBody, keywordsOnly, matchType, hasMetrics)
+  //     result += '\n'
+  //   }
+  // } catch {
+  //   result += buildCopyData(tableRef, keywordsOnly, matchType, hasMetrics)
+  // }
+  // return removeTrailingChar(result, '\n')
 }
+
+const checkTableForMetrics = table =>
+  table?.firstChild?.firstChild?.children.length > 3
 
 export const copyToClipboard = (
   inputRef,
   keywordsOnly,
   matchType,
-  hasMetrics,
   metricOptionLabels
 ) => {
+  console.log(
+    '%c copyToClipboard',
+    'color: yellow; font-size: large',
+    inputRef.length
+  )
+  const hasMetrics = checkTableForMetrics(inputRef)
   let value = ''
-
+  const trialIdHead = 'Trial ID\t'
   if (keywordsOnly) {
     value = ''
   } else {
     if (hasMetrics) {
-      value = `Metric Details\nTarget Country\t${metricOptionLabels.country}\nCPC Currency\t${metricOptionLabels.currency}\nData Source\t${metricOptionLabels.dataSource}\n\nTrial ID\tEntry\tProduct\tVolume\tCPC\tCompetition\n`
-    } else {
-      value = `Trial ID\tEntry\tProduct\n`
+      value = `Metric Details\nTarget Country\t${metricOptionLabels.country}\nCPC Currency\t${metricOptionLabels.currency}\nData Source\t${metricOptionLabels.dataSource}\n\n`
     }
+    value += trialIdHead
   }
 
   try {
@@ -128,7 +135,7 @@ export const copyToClipboard = (
     container.value =
       value +
       setCopyValue(
-        inputRef,
+        tableRef,
         keywordsOnly,
         matchType,
         hasMetrics,
