@@ -59,10 +59,8 @@ export const TrialCard = ({ trial, isShown }) => {
     event.stopPropagation()
     return dispatch({
       type: types.COPY_TRIAL,
-      id: trial.id,
-      hasMetrics: trial?.metrics?.volume.length > 0,
-      metricOptionLabels,
-      ref: copyRef.current
+      tableRef: copyRef.current,
+      metricOptionLabels
     })
   }
 

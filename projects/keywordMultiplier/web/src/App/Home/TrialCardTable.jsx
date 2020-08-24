@@ -135,38 +135,56 @@ export const TrialCardTable = ({
           </Typography>
         </Grid>
       )}
-      <Table size="small">
+      <Table size="small" ref={copyRef} scope={trial.id}>
         <TableHead>
           <TableRow>
-            <TableCell className={classes.tableHeadCell}>Entry</TableCell>
-            <TableCell className={classes.tableHeadCell}>Product</TableCell>
+            <TableCell
+              className={classes.tableHeadCell}
+              scope={constants.VOLUME_DATA.ENTRY.LABEL}>
+              {constants.VOLUME_DATA.ENTRY.LABEL}
+            </TableCell>
+            <TableCell
+              className={classes.tableHeadCell}
+              scope={constants.VOLUME_DATA.PRODUCT.LABEL}>
+              {constants.VOLUME_DATA.PRODUCT.LABEL}
+            </TableCell>
             {!volumeUnobtainable && (
-              <TableCell className={classes.tableHeadCell}>
+              <TableCell
+                className={classes.tableHeadCell}
+                scope={constants.VOLUME_DATA.VOLUME.LABEL}>
                 {constants.VOLUME_DATA.VOLUME.LABEL}
               </TableCell>
             )}
             {trial?.metrics &&
               volumeDataFields.map(field => (
-                <TableCell className={classes.tableHeadCell} key={field.key}>
+                <TableCell
+                  className={classes.tableHeadCell}
+                  key={field.key}
+                  scope={field.label}>
                   {field.label}
                 </TableCell>
               ))}
           </TableRow>
         </TableHead>
-        <TableBody ref={copyRef} id={trial.id}>
+        <TableBody id={trial.id}>
           {trial.list.map((keyword, keywordIndex) => (
             <TableRow key={`${trial.id}-${keywordIndex}`} hover>
-              <TableCell component="td" className={classes.trialId}>
+              <TableCell
+                component="td"
+                className={classes.trialId}
+                scope={constants.VOLUME_DATA.ENTRY.VALUE}>
                 {keywordIndex + 1}
               </TableCell>
               <TableCell
                 component="td"
-                scope="data"
-                className={classes.tableCellData}>
+                className={classes.tableCellData}
+                scope={constants.VOLUME_DATA.PRODUCT.VALUE}>
                 {formatProductLine(keyword, matchType, whiteSpaceSelection)}
               </TableCell>
               {!volumeUnobtainable && (
-                <TableCell component="td">
+                <TableCell
+                  component="td"
+                  scope={constants.VOLUME_DATA.VOLUME.VALUE}>
                   {trial?.metrics?.volume ? (
                     findMetricFromEntry(
                       keyword,
@@ -186,7 +204,7 @@ export const TrialCardTable = ({
               )}
               {trial?.metrics &&
                 volumeDataFields.map(field => (
-                  <TableCell component="td" key={field.key}>
+                  <TableCell component="td" key={field.key} scope={field.value}>
                     {findMetricFromEntry(
                       keyword,
                       field.value,
