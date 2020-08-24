@@ -60,3 +60,100 @@ export const findMetricFromEntry = (keyword, field, volumes) => {
   }
   return JSON.stringify(result)
 }
+
+export const buildCopyData = (inputRef, keywordsOnly, metricOptionLabels) => {
+  if (inputRef.length) {
+    const tableRefs = inputRef
+    const stringifiedTables = []
+    for (let tableRef of tableRefs) {
+      stringifiedTables.push(stringifyTable(tableRef))
+    }
+    const allTablesString = stringifiedTables.join('\n\n')
+    console.log(
+      '%c allTablesString',
+      'color: yellow; font-size: large',
+      allTablesString
+    )
+  } else {
+    const tableRef = inputRef
+    const tableString = stringifyTable(
+      tableRef,
+      keywordsOnly,
+      metricOptionLabels
+    )
+    console.log(
+      '%c tableString',
+      'color: yellow; font-size: large',
+      tableString
+    )
+  }
+}
+
+const stringifyHeadCells = headCells => {
+  let headings = ['Trial Id']
+
+  for (let headCell of headCells) {
+    headings.push(headCell.getAttribute('scope'))
+  }
+
+  return headings.join('\t')
+}
+
+const stringifyBodyRows = (bodyRows, keywordsOnly, trialId) => {
+  const rowsArray = []
+
+  for (let bodyRow of bodyRows) {
+    let rowCells = bodyRow.children
+
+    let rowArray = []
+
+    let rowString = ''
+
+    if (keywordsOnly) {
+      rowArray.push(bodyRow.firstChild.nextSibling.innerHTML)
+    } else {
+      rowArray.push(trialId)
+
+      for (let rowCell of rowCells) {
+        if (
+          rowCell.getAttribute('scope') ===
+            constants.VOLUME_DATA.VOLUME.VALUE &&
+          /\W/gi.test(rowCell.innerHTML)
+        ) {
+          rowArray.push('Available to Order')
+        } else {
+          rowArray.push(rowCell.innerHTML)
+        }
+      }
+    }
+
+    rowString = rowArray.join('\t')
+
+    rowsArray.push(rowString)
+  }
+
+  return '\n' + rowsArray.join('\n')
+}
+
+const stringifyTable = (tableRef, keywordsOnly, metricOptionLabels) => {
+  let result = ''
+
+  const trialId = tableRef.getAttribute('scope')
+
+  const hasMetrics = Object.values(metricOptionLabels).every(item => item)
+
+  if (!keywordsOnly) {
+    if (hasMetrics) {
+      result += `Target Country\t${metricOptionLabels.country}\nCPC Currency\t${metricOptionLabels.currency}\nData Source\t${metricOptionLabels.dataSource}\n`
+    }
+    result += stringifyHeadCells(tableRef.firstChild.firstChild.children)
+  }
+
+  result += stringifyBodyRows(
+    tableRef.lastChild.children,
+    keywordsOnly,
+    trialId
+  )
+
+  return result
+}

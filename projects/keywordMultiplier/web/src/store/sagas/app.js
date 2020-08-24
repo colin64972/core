@@ -10,6 +10,7 @@ import {
   getSetsWithValues,
   findEnabledSets
 } from '../../App/logic'
+import { buildCopyData } from '@colin30/shared/logic/keywordMultiplier'
 
 export function* multiplySets(action) {
   const notice = generateNotice('Check your results below')
@@ -80,13 +81,11 @@ export function* copyTrial(action) {
   const copySettings = yield select(state => getCopySettings(state))
   const matchType = yield select(state => getMatchType(state))
   try {
-    const { ref, hasMetrics, metricOptionLabels } = action
-    yield call(
-      copyToClipboard,
-      ref,
+    const { tableRef, metricOptionLabels } = action
+    const copyData = yield call(
+      buildCopyData,
+      tableRef,
       copySettings.keywordsOnly,
-      matchType,
-      hasMetrics,
       metricOptionLabels
     )
   } catch (error) {
@@ -114,7 +113,7 @@ export function* copyAllTrials() {
   const matchType = yield select(state => getMatchType(state))
   try {
     const tbodys = document.getElementsByTagName('tbody')
-    yield call(copyToClipboard, tbodys, copySettings.keywordsOnly, matchType)
+    yield call(copyTrials, tbodys, copySettings.keywordsOnly, matchType)
   } catch (error) {
     notice.bg = constants.NOTICE.BGS.FAIL
     notice.heading = 'Error'

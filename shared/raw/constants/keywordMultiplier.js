@@ -35,6 +35,14 @@ exports.constants = {
   VOLUME_DATA: {
     KEYWORD_PRICE: 1,
     MIN_ITEM_COUNT: 36,
+    ENTRY: {
+      LABEL: 'Entry',
+      VALUE: 'entry'
+    },
+    PRODUCT: {
+      LABEL: 'Product',
+      VALUE: 'product'
+    },
     VOLUME: {
       LABEL: 'Volume',
       VALUE: 'vol'
