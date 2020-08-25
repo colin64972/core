@@ -62,3 +62,17 @@ export const getLabelFromValue = (value, source) => {
   }
   return value
 }
+
+export const copyToClipboard = data => {
+  try {
+    let container = document.createElement('textarea')
+    container.value = data
+    document.body.appendChild(container)
+    container.select()
+    document.execCommand('copy')
+    document.body.removeChild(container)
+  } catch (error) {
+    console.error('%c error', 'color: yellow; font-size: large', error.message)
+    throw error
+  }
+}

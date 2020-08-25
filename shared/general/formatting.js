@@ -6,6 +6,3 @@ export const formatCentsToDollars = input => {
   if (stringVal.length > 3) return stringVal
   if (stringVal.length > 2) return `${stringVal}0`
 }
-
-export const removeTrailingChar = (text, char) =>
-  text.substring(0, text.lastIndexOf(char))

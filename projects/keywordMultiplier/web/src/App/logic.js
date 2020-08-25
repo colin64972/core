@@ -3,7 +3,6 @@ import { createHashId, optionizeObject } from '@colin30/shared/react/helpers'
 import { LINE_INCLUDES_TLD } from '@colin30/shared/raw/constants/regex'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { takeLastTld } from '@colin30/shared/logic/keywordMultiplier'
-import { removeTrailingChar } from '@colin30/shared/general/formatting'
 
 const removeAllButSpaces = line =>
   line
@@ -68,87 +67,6 @@ export const formatProductLine = (value, matchType, whiteSpaceCode) => {
     }
   }
   return result
-}
-
-const buildCopyData = (tableBody, keywordsOnly, matchType, hasMetrics) => {
-  let result = ''
-  const tableRows = tableBody.children
-  for (let row of tableRows) {
-    if (keywordsOnly) {
-      result += `${row.firstChild.nextSibling.innerHTML}\n`
-    } else {
-      if (matchType === constants.MATCHTYPES.PHRASE) {
-        result += `${tableBody.id}\t${row.firstChild.innerHTML}\t'${row.firstChild.nextSibling.innerHTML}\n`
-      } else {
-        result += `${tableBody.id}\t${row.firstChild.innerHTML}\t${row.firstChild.nextSibling.innerHTML}\n`
-      }
-      if (hasMetrics) {
-        result = removeTrailingChar(result, '\n')
-        result += `\t${row.firstChild.nextSibling.nextSibling.innerHTML}\t${row.firstChild.nextSibling.nextSibling.nextSibling.innerHTML}\t${row.firstChild.nextSibling.nextSibling.nextSibling.nextSibling.innerHTML}\n`
-      }
-    }
-  }
-  return removeTrailingChar(result, '\n')
-}
-
-const setCopyValue = (tableRef, keywordsOnly, matchType, hasMetrics) => {
-  let result = ''
-  // try {
-  //   for (let tableBody of tableRef) {
-  //     result += buildCopyData(tableBody, keywordsOnly, matchType, hasMetrics)
-  //     result += '\n'
-  //   }
-  // } catch {
-  //   result += buildCopyData(tableRef, keywordsOnly, matchType, hasMetrics)
-  // }
-  // return removeTrailingChar(result, '\n')
-}
-
-const checkTableForMetrics = table =>
-  table?.firstChild?.firstChild?.children.length > 3
-
-export const copyToClipboard = (
-  inputRef,
-  keywordsOnly,
-  matchType,
-  metricOptionLabels
-) => {
-  console.log(
-    '%c copyToClipboard',
-    'color: yellow; font-size: large',
-    inputRef.length
-  )
-  const hasMetrics = checkTableForMetrics(inputRef)
-  let value = ''
-  const trialIdHead = 'Trial ID\t'
-  if (keywordsOnly) {
-    value = ''
-  } else {
-    if (hasMetrics) {
-      value = `Metric Details\nTarget Country\t${metricOptionLabels.country}\nCPC Currency\t${metricOptionLabels.currency}\nData Source\t${metricOptionLabels.dataSource}\n\n`
-    }
-    value += trialIdHead
-  }
-
-  try {
-    let container = document.createElement('textarea')
-    container.value =
-      value +
-      setCopyValue(
-        tableRef,
-        keywordsOnly,
-        matchType,
-        hasMetrics,
-        metricOptionLabels
-      )
-    document.body.appendChild(container)
-    container.select()
-    document.execCommand('copy')
-    document.body.removeChild(container)
-  } catch (error) {
-    console.error('%c error', 'color: yellow; font-size: large', error.message)
-    throw error
-  }
 }
 
 export const generateNotice = (
