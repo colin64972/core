@@ -1,15 +1,15 @@
 import { call, put, select, take, race, delay } from 'redux-saga/effects'
 import { createTrial, fetchIpAddress } from '../fetchers'
-import { getCopySettings, getMatchType } from '../selectors'
+import { getCopySettings } from '../selectors'
 import { types } from '../types'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import {
   decorateTrial,
-  copyToClipboard,
   generateNotice,
   getSetsWithValues,
   findEnabledSets
 } from '../../App/logic'
+import { copyToClipboard } from '@colin30/shared/react/helpers'
 import { buildCopyData } from '@colin30/shared/logic/keywordMultiplier'
 
 export function* multiplySets(action) {
@@ -79,15 +79,14 @@ export function* multiplySets(action) {
 export function* copyTrial(action) {
   const notice = generateNotice(`Trial ${action.id} copied to clipboard`)
   const copySettings = yield select(state => getCopySettings(state))
-  const matchType = yield select(state => getMatchType(state))
   try {
-    const { tableRef, metricOptionLabels } = action
+    const { tableRef } = action
     const copyData = yield call(
       buildCopyData,
       tableRef,
-      copySettings.keywordsOnly,
-      metricOptionLabels
+      copySettings.keywordsOnly
     )
+    copyToClipboard(copyData)
   } catch (error) {
     notice.bg = constants.NOTICE.BGS.FAIL
     notice.heading = 'Error'
@@ -110,10 +109,14 @@ export function* copyTrial(action) {
 export function* copyAllTrials() {
   const notice = generateNotice('All trials copied to clipboard')
   const copySettings = yield select(state => getCopySettings(state))
-  const matchType = yield select(state => getMatchType(state))
+  const tables = document.getElementsByTagName('table')
   try {
-    const tbodys = document.getElementsByTagName('tbody')
-    yield call(copyTrials, tbodys, copySettings.keywordsOnly, matchType)
+    const copyData = yield call(
+      buildCopyData,
+      tables,
+      copySettings.keywordsOnly
+    )
+    copyToClipboard(copyData)
   } catch (error) {
     notice.bg = constants.NOTICE.BGS.FAIL
     notice.heading = 'Error'
