@@ -19,6 +19,7 @@ import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { formatProductLine } from '../logic'
 import { getMatchType, getWhiteSpaceSelection } from '../../store/selectors'
 import { findMetricFromEntry } from '@colin30/shared/logic/keywordMultiplier'
+import { getLabelFromValue } from '@colin30/shared/react/helpers'
 
 const stripePromise = loadStripe('pk_test_vo3pSAjgXWz5JIjWvfwTmBpu')
 
@@ -70,12 +71,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export const TrialCardTable = ({
-  trial,
-  copyRef,
-  volumeUnobtainable,
-  metricOptionLabels
-}) => {
+export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
   const classes = useStyles()
 
   const matchType = useSelector(state => getMatchType(state))
@@ -89,6 +85,23 @@ export const TrialCardTable = ({
   const openDialogHandler = event => setDialogStatus(true)
 
   const closeDialogHandler = event => setDialogStatus(false)
+
+  const kECountries = useSelector(state => state.kE?.countries)
+  const kECurrencies = useSelector(state => state.kE?.currencies)
+  const kEDataSources = useSelector(state => state.kE?.dataSources)
+
+  const metricOptionLabels = {
+    country: getLabelFromValue(trial?.metrics?.country, kECountries),
+    currency: getLabelFromValue(trial?.metrics?.currency, kECurrencies),
+    dataSource: getLabelFromValue(trial?.metrics?.dataSource, kEDataSources)
+  }
+
+  const tableMeta = JSON.stringify({
+    trialId: trial.id,
+    metricOptions: {
+      ...metricOptionLabels
+    }
+  })
 
   const VolumeLoadable = loadable(() =>
     import(
@@ -135,7 +148,7 @@ export const TrialCardTable = ({
           </Typography>
         </Grid>
       )}
-      <Table size="small" ref={copyRef} scope={trial.id}>
+      <Table size="small" ref={copyRef} scope={tableMeta}>
         <TableHead>
           <TableRow>
             <TableCell

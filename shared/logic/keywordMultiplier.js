@@ -61,32 +61,23 @@ export const findMetricFromEntry = (keyword, field, volumes) => {
   return JSON.stringify(result)
 }
 
-export const buildCopyData = (inputRef, keywordsOnly, metricOptionLabels) => {
+export const buildCopyData = (inputRef, keywordsOnly) => {
+  let builtData = null
   if (inputRef.length) {
     const tableRefs = inputRef
     const stringifiedTables = []
     for (let tableRef of tableRefs) {
-      stringifiedTables.push(stringifyTable(tableRef))
+      stringifiedTables.push(stringifyTable(tableRef, keywordsOnly))
     }
     const allTablesString = stringifiedTables.join('\n\n')
-    console.log(
-      '%c allTablesString',
-      'color: yellow; font-size: large',
-      allTablesString
-    )
+    builtData = allTablesString
   } else {
     const tableRef = inputRef
-    const tableString = stringifyTable(
-      tableRef,
-      keywordsOnly,
-      metricOptionLabels
-    )
-    console.log(
-      '%c tableString',
-      'color: yellow; font-size: large',
-      tableString
-    )
+    const tableString = stringifyTable(tableRef, keywordsOnly)
+    builtData = tableString
   }
+
+  return builtData
 }
 
 const stringifyHeadCells = headCells => {
@@ -135,16 +126,17 @@ const stringifyBodyRows = (bodyRows, keywordsOnly, trialId) => {
   return '\n' + rowsArray.join('\n')
 }
 
-const stringifyTable = (tableRef, keywordsOnly, metricOptionLabels) => {
+const stringifyTable = (tableRef, keywordsOnly) => {
   let result = ''
 
-  const trialId = tableRef.getAttribute('scope')
+  const tableMeta = JSON.parse(tableRef.getAttribute('scope'))
+  const { trialId, metricOptions } = tableMeta
 
-  const hasMetrics = Object.values(metricOptionLabels).every(item => item)
+  const hasMetrics = Object.values(metricOptions).length > 0
 
   if (!keywordsOnly) {
     if (hasMetrics) {
-      result += `Target Country\t${metricOptionLabels.country}\nCPC Currency\t${metricOptionLabels.currency}\nData Source\t${metricOptionLabels.dataSource}\n`
+      result += `Target Country\t${metricOptions.country}\nCPC Currency\t${metricOptions.currency}\nData Source\t${metricOptions.dataSource}\n`
     }
     result += stringifyHeadCells(tableRef.firstChild.firstChild.children)
   }
