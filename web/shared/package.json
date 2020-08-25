@@ -9,5 +9,9 @@
   "prettier": "@colin30/configs/prettier",
   "devDependencies": {
     "@colin30/configs": "0.0.1"
+  },
+  "dependencies": {
+    "axios": "^0.20.0",
+    "faker": "^5.0.0"
   }
 }
