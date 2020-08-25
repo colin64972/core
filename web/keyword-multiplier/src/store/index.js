@@ -1,12 +1,12 @@
+import 'regenerator-runtime/runtime'
 import { applyMiddleware, createStore, compose } from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import formActionSaga from 'redux-form-saga'
 import { createLogger } from 'redux-logger'
 import reducers from './reducers'
 import sagas from './sagas'
 
 export const setStore = preloadedState => {
-  const combinedSagas = [sagas, formActionSaga]
+  const combinedSagas = [sagas]
 
   const sagaMiddleware = createSagaMiddleware()
 

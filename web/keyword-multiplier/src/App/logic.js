@@ -1,3 +1,5 @@
+import moment from 'moment'
+import { generateKey } from '@colin30/web-shared/react'
 import constants from './constants'
 
 export const prepSetValue = input => {
@@ -104,7 +106,7 @@ const buildCopyData = (tableBody, dataOnly, matchType) => {
 
 const setCopyValue = (input, dataOnly, matchType) => {
   let result = ''
-  if (HTMLCollection.prototype.isPrototypeOf(input)) {
+  if ({}.prototype.isPrototypeOf.call(input, 'HTMLCollection')) {
     for (let tableBody of input) {
       result += buildCopyData(tableBody, dataOnly, matchType)
     }
@@ -127,4 +129,24 @@ export const copyToClipboard = (input, dataOnly, matchType) => {
     console.error('%c error', 'color: yellow; font-size: large', error.message)
     throw error
   }
+}
+
+export const generateNotice = (
+  message,
+  kind = constants.NOTICE.KINDS.SIMPLE
+) => {
+  const result = {
+    id: generateKey(),
+    kind,
+    bg: constants.NOTICE.BGS.PASS,
+    heading: 'Success',
+    message,
+    choice: null,
+    moment: moment()
+  }
+  if (kind !== constants.NOTICE.KINDS.SIMPLE) {
+    result.bg = constants.NOTICE.BGS.WARN
+    result.heading = 'Warning'
+  }
+  return result
 }
