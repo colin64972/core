@@ -40,8 +40,7 @@ module.exports = (entry, outputPath) => ({
                 }
               ],
               '@babel/preset-react'
-            ],
-            plugins: []
+            ]
           }
         }
       },
