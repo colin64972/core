@@ -9,6 +9,10 @@ import { VolumeFormPricing } from './VolumeFormPricing'
 import { VolumeFormTrialReview } from './VolumeFormTrialReview'
 import { VolumeFormTerms } from './VolumeFormTerms'
 import { VolumeFormStripe } from './VolumeFormStripe'
+import RestorePageIcon from '@material-ui/icons/RestorePage'
+import CloseIcon from '@material-ui/icons/Close'
+import PaymentIcon from '@material-ui/icons/Payment'
+import CachedIcon from '@material-ui/icons/Cached'
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -96,6 +100,7 @@ const useStyles = makeStyles(theme => ({
   },
   formActionButton: {
     ...theme.custom.formButton,
+    ...theme.custom.setFlex(),
     'margin': `0 ${theme.custom.setSpace()}px 0 0`,
     '&:last-of-type': {
       margin: 0
@@ -118,6 +123,12 @@ const useStyles = makeStyles(theme => ({
     '&:hover': {
       backgroundColor: theme.palette.primary[300]
     }
+  },
+  formButtonIcon: {
+    fontSize: theme.custom.setSpace() * 1.5,
+    marginRight: theme.custom.setSpace() / 2,
+    position: 'relative',
+    top: -1
   }
 }))
 
@@ -127,7 +138,7 @@ export const VolumeForm = ({
   trialId,
   keOptions
 }) => {
-  // console.log('%c formikProps', 'color: yellow; font-size: large', formikProps)
+  console.log('%c formikProps', 'color: yellow; font-size: large', formikProps)
   const classes = useStyles()
 
   const checkIfPristine = touchedFields => Object.keys(touchedFields).length < 1
@@ -191,7 +202,12 @@ export const VolumeForm = ({
               classes.formActionButton,
               classes.formActionButtonSubmit
             )}>
-            Order
+            {formikProps.isSubmitting ? (
+              <CachedIcon className={classes.formButtonIcon} />
+            ) : (
+              <PaymentIcon className={classes.formButtonIcon} />
+            )}
+            {formikProps.isSubmitting ? 'Ordering' : 'Order'}
           </Button>
           <Button
             type="reset"
@@ -201,6 +217,7 @@ export const VolumeForm = ({
               classes.formActionButtonReset
             )}
             disabled={checkIfPristine(formikProps.touched)}>
+            <RestorePageIcon className={classes.formButtonIcon} />
             Reset
           </Button>
           <Button
@@ -211,6 +228,7 @@ export const VolumeForm = ({
               classes.formActionButton,
               classes.formActionButtonClose
             )}>
+            <CloseIcon className={classes.formButtonIcon} />
             Close
           </Button>
         </FadeIn>
