@@ -19,10 +19,7 @@ const useStyles = makeStyles(theme => ({
       marginTop: theme.custom.setSpace()
     }
   },
-  subtitle2: {
-    textAlign: 'left',
-    marginBottom: theme.custom.setSpace() / 2
-  }
+  mainHeading: theme.typography.mainHeading
 }))
 
 const Trials = () => {
@@ -42,16 +39,16 @@ const Trials = () => {
           <FadeIn
             direction="y"
             position={-100}
-            component={
-              <Typography variant="subtitle2" className={classes.subtitle2}>
-                Results
-              </Typography>
-            }
+            component={<Typography variant="subtitle2">Results</Typography>}
           />
           <FadeIn
             direction="x"
             position={-100}
-            component={<Typography variant="h4">Trial Cards</Typography>}
+            component={
+              <Typography variant="h4" className={classes.mainHeading}>
+                Trial Card Display
+              </Typography>
+            }
           />
         </Grid>
       </Grid>
