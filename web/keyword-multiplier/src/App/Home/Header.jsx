@@ -20,6 +20,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   title: {
+    textAlign: 'center',
     [theme.breakpoints.down('sm')]: {
       fontSize: theme.custom.setSpace('sm') * 1.67
     }
