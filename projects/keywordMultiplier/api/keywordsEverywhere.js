@@ -44,6 +44,12 @@ export const getMeta = async queryStringParameters => {
 }
 
 export const preOrder = async eventBody => {
+  let stripeSecret = process.env.STRIPE_SECRET_KEY_LIVE
+
+  if (process.env.IS_LOCAL || process.env.IS_OFFLINE) {
+    stripeSecret = process.env.STRIPE_SECRET_KEY_TEST
+  }
+
   try {
     const body = JSON.parse(eventBody)
 
@@ -56,7 +62,7 @@ export const preOrder = async eventBody => {
     if (serverPrice.total !== body.orderRequest.price.total)
       throw Error(errorConstants.PAYMENT.PRICE_MISMATCH.ERROR_CODE)
 
-    const { paymentIntents } = new Stripe(process.env.STRIPE_TEST_KEY)
+    const { paymentIntents } = new Stripe(stripeSecret)
 
     const paymentIntent = await paymentIntents.create({
       amount: parseInt(serverPrice.total * 100),
