@@ -87,7 +87,9 @@ export const processTrial = postedData => {
   return multiplysets(preppedSets)
 }
 
-export const addMatchType = (value, matchType) => {
+export const formatDomainMode = value => value.replace(/\s+/g, '').toLowerCase()
+
+export const formatMatchType = (value, matchType) => {
   switch (matchType) {
     case constants.MATCHTYPES.BROAD_MODIFIER:
       return value.replace(/(\w\B\w+)/g, '+$1')
