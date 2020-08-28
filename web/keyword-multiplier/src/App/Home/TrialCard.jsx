@@ -134,6 +134,7 @@ const useStyles = makeStyles(theme => {
       }
     },
     data: {
+      wordBreak: 'break-all',
       [theme.breakpoints.down('xs')]: {
         fontSize: theme.typography.fontSize
       }
