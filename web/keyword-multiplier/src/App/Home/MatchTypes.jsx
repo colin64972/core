@@ -1,3 +1,4 @@
+import classnames from 'classnames'
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Grid from '@material-ui/core/Grid'
@@ -13,6 +14,7 @@ import { withStyles, makeStyles } from '@material-ui/styles'
 import FadeIn from '@colin30/web-shared/react/components/FadeIn'
 import { defaultPadding } from '@colin30/web-shared/react/theming'
 import fields from './fields'
+import constants from '../constants'
 import types from '../../store/types'
 import {
   getTrials,
@@ -54,6 +56,21 @@ const useStyles = makeStyles(theme => {
     marginTop: theme.custom.setSpace(),
     fontSize: theme.custom.setSpace('sm')
   }
+  const matchTypeButton = {
+    'padding': theme.custom.setSpace(),
+    'border': 'none',
+    'borderRadius': theme.custom.borderRadius,
+    'backgroundColor': theme.palette.primary.main,
+    'cursor': 'pointer',
+    'color': 'white',
+    'fontFamily': theme.typography.fontFamily,
+    'fontSize': theme.typography.fontSize,
+    'transition': 'background 250ms ease-out, opacity 250ms ease-out',
+    ...theme.custom.setFlex('column'),
+    '&:focus': {
+      outline: 'none'
+    }
+  }
   return {
     mainHeading: theme.typography.mainHeading,
     matchTypeSection: {
@@ -78,25 +95,17 @@ const useStyles = makeStyles(theme => {
       marginRight: 0
     },
     matchTypeButton: {
-      'padding': theme.custom.setSpace(),
-      'border': 'none',
-      'borderRadius': theme.custom.borderRadius,
-      'backgroundColor': theme.palette.primary.main,
-      'cursor': 'pointer',
-      'color': 'white',
-      'fontFamily': theme.typography.fontFamily,
-      'fontSize': theme.typography.fontSize,
-      'transition': 'background 250ms ease-out',
-      ...theme.custom.setFlex('column'),
-      '&:focus': {
-        outline: 'none'
-      },
+      ...matchTypeButton,
       '&:hover': {
         backgroundColor: theme.palette.primary[600]
-      },
-      '&.disabled': {
-        backgroundColor: 'black'
       }
+    },
+    matchTypeButtonDisabled: {
+      ...matchTypeButton,
+      '&:hover': {
+        backgroundColor: theme.palette.primary.main
+      },
+      'cursor': 'initial'
     },
     doneIcon: {
       ...matchTypeIcon,
@@ -325,7 +334,9 @@ const MatchTypes = ({ ...props }) => {
                       className={classes.matchTypeButtonFadeIn}
                       component={
                         <button
-                          className={classes.matchTypeButton}
+                          className={classnames(classes.matchTypeButton, {
+                            [classes.matchTypeButtonDisabled]: domainMode
+                          })}
                           data-matchtype={matchType.value}
                           onClick={matchTypeHandler}
                           disabled={domainMode}>
