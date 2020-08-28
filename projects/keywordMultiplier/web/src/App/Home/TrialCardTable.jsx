@@ -21,7 +21,7 @@ import { getMatchType, getWhiteSpaceSelection } from '../../store/selectors'
 import { findMetricFromEntry } from '@colin30/shared/logic/keywordMultiplier'
 import { getLabelFromValue } from '@colin30/shared/react/helpers'
 
-const stripePromise = loadStripe('pk_test_vo3pSAjgXWz5JIjWvfwTmBpu')
+const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY)
 
 const useStyles = makeStyles(theme => ({
   metricDetailsContainer: {
