@@ -17,8 +17,8 @@ import AssignmentIcon from '@material-ui/icons/Assignment'
 import DeleteIcon from '@material-ui/icons/Delete'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import { makeStyles } from '@material-ui/styles'
-import { addMatchType } from '../logic'
-import { getMatchType } from '../../store/selectors'
+import { formatDomainMode, formatMatchType } from '../logic'
+import { getMatchType, getDomainMode } from '../../store/selectors'
 import types from '../../store/types'
 
 const useStyles = makeStyles(theme => {
@@ -153,6 +153,7 @@ const TrialCard = ({ trial, isShown, isLastShown }) => {
   const copyRef = createRef()
   const card = createRef()
   const matchType = useSelector(state => getMatchType(state))
+  const domainMode = useSelector(state => getDomainMode(state))
   const copyHandler = event => {
     event.stopPropagation()
     dispatch({
@@ -263,7 +264,9 @@ const TrialCard = ({ trial, isShown, isLastShown }) => {
                     component="td"
                     scope="data"
                     className={classes.data}>
-                    {addMatchType(item, matchType)}
+                    {domainMode === true
+                      ? formatDomainMode(item)
+                      : formatMatchType(item, matchType)}
                   </TableCell>
                 </TableRow>
               ))}
