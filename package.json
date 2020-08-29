@@ -9,8 +9,8 @@
   "workspaces": {
     "packages": [
       "configs",
-      "services/*",
-      "web/*"
+      "clients/**",
+      "services/**"
     ],
     "nohoist": [
       "**/@colin30/services-*/",
