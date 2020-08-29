@@ -6,17 +6,10 @@ import {
   FormControl,
   FormHelperText,
   FormControlLabel,
-  Checkbox,
-  Paper,
-  Typography,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  Button
+  Checkbox
 } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search'
+import { TermsOfService } from '@colin30/shared/react/components/TermsOfService'
 
 const useStyles = makeStyles(theme => ({
   formGroup: {
@@ -99,30 +92,10 @@ export const VolumeFormTerms = () => {
                     className={classes.viewTermsButton}>
                     <SearchIcon className={classes.viewTermsButtonIcon} />
                   </button>
-                  <Dialog
-                    onClose={closeTermsDialogHandler}
-                    open={termsDialogStatus}>
-                    <DialogTitle disableTypography>
-                      Terms of Service
-                    </DialogTitle>
-                    <DialogContent>
-                      <DialogContentText id="alert-dialog-description">
-                        Eirmod takimata dolores at sed ea, gubergren sit dolor
-                        ipsum et justo sea vero ut et. Labore eos takimata ipsum
-                        ea ea, amet labore dolor erat ipsum nonumy accusam, sed
-                        ea labore rebum nonumy sed et. At sit labore elitr dolor
-                        est est vero, eirmod aliquyam justo eirmod dolor tempor.
-                      </DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                      <Button
-                        autoFocus
-                        onClick={closeTermsDialogHandler}
-                        color="primary">
-                        Close
-                      </Button>
-                    </DialogActions>
-                  </Dialog>
+                  <TermsOfService
+                    open={termsDialogStatus}
+                    closeHandler={closeTermsDialogHandler}
+                  />
                 </div>
               }
             />
