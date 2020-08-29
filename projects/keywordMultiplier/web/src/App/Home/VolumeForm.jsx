@@ -138,7 +138,6 @@ export const VolumeForm = ({
   trialId,
   keOptions
 }) => {
-  console.log('%c formikProps', 'color: yellow; font-size: large', formikProps)
   const classes = useStyles()
 
   const checkIfPristine = touchedFields => Object.keys(touchedFields).length < 1
