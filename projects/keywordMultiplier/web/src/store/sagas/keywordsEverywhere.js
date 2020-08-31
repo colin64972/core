@@ -74,9 +74,11 @@ export function* orderMetrics(action) {
 
     const { client_secret } = preOrderRes
 
-    let payload = payloadMock
+    let payload
 
-    if (process.env.NODE_ENV !== 'development') {
+    if (process.env.USE_MOCKS) {
+      payload = payloadMock
+    } else {
       payload = yield call(action.confirmCardPaymentHandler, client_secret, {
         receipt_email: action.values.billingEmail || null,
         payment_method: {
