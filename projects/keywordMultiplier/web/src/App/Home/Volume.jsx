@@ -7,6 +7,7 @@ import { makeStyles } from '@material-ui/styles'
 import { VolumeForm } from './VolumeForm'
 import { countryCodesList } from '@colin30/shared/raw/constants/countryCodes'
 import { types } from '../../store/types'
+import { setInitialCountry } from '@colin30/shared/logic/keywordMultiplier'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { useStripe, useElements } from '@stripe/react-stripe-js'
 
@@ -57,10 +58,10 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
   const curCode = firstCurrency?.code.toLowerCase()
 
   let initalValues = {
-    country:
-      keOptions.userSelections?.country || ipCountryCode === 'GB'
-        ? 'uk'
-        : ipCountryCode.toLowerCase(),
+    country: setInitialCountry(
+      keOptions.userSelections?.country,
+      ipCountryCode
+    ),
     currency: keOptions.userSelections?.currency || curCode.toLowerCase(),
     dataSource: keOptions.userSelections?.dataSource || '',
     cardNumber: false,
@@ -70,7 +71,7 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
     acceptTerms: false
   }
 
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.USE_MOCKS) {
     initalValues = {
       country: keOptions.userSelections.country || 'ca',
       currency: keOptions.userSelections.currency || 'cad',

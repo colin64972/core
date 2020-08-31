@@ -10,7 +10,7 @@ import {
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 
 export const fetchIpAddress = async () => {
-  if (process.env.NODE_ENV === 'development') return ipMock.data.ip
+  if (process.env.USE_MOCKS) return ipMock.data.ip
   const res = await get('https://api.ipify.org?format=json')
   return res.data.ip
 }
@@ -23,14 +23,14 @@ const options = {
 }
 
 export const createTrial = async payload => {
-  if (process.env.NODE_ENV === 'development') return createTrialMock
+  if (process.env.USE_MOCKS) return createTrialMock
   let url = 'http://localhost:2000'
   const res = await post(`${url}/trials`, payload, options)
   return res
 }
 
 export const fetchKeData = async resource => {
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.USE_MOCKS) {
     switch (resource) {
       case Object.keys(constants.ENDPOINTS)[1]:
         return creditsMock
@@ -49,7 +49,7 @@ export const makePreOrder = async (
   currency,
   dataSource
 ) => {
-  if (process.env.NODE_ENV === 'development') return preOrderMock
+  if (process.env.USE_MOCKS) return preOrderMock
   let url = 'http://localhost:2000'
   const res = await post(
     `${url}/ke/pre-order`,
@@ -71,7 +71,7 @@ export const fetchKeVolumes = async (
   currency,
   dataSource
 ) => {
-  if (process.env.NODE_ENV === 'development') return volumeMock
+  if (process.env.USE_MOCKS) return volumeMock
   let url = 'http://localhost:2000'
   const res = await post(
     `${url}/ke`,
