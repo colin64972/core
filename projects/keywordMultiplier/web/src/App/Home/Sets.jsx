@@ -37,7 +37,7 @@ export const Sets = () => {
     }, {})
   }
 
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.USE_MOCKS) {
     initialValues = {
       setField1: 'good\nfast\nsuper',
       setField2: '',

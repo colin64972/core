@@ -149,3 +149,9 @@ const stringifyTable = (tableRef, keywordsOnly) => {
 
   return result
 }
+
+export const setInitialCountry = (previousSelection, ipCountry) => {
+  if (previousSelection) return previousSelection
+  if (/^gb$/i.test(ipCountry)) return 'uk'
+  return ipCountry.toLowerCase()
+}
