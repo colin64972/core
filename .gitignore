@@ -1,5 +1,6 @@
 # folders
 .serverless
+.output
 node_modules
 static
 media
