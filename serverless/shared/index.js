@@ -1,7 +1,5 @@
-const faker = require('faker')
+import faker from 'faker'
 
-module.exports = {
-  getFirstName: () => faker.name.firstName(),
-  getLastName: () => faker.name.lastName(),
-  getPassword: () => faker.internet.password()
-}
+export const getFirstName = () => faker.name.firstName()
+export const getLastName = () => faker.name.lastName()
+export const getPassword = () => faker.internet.password()

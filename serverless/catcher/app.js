@@ -4,6 +4,7 @@ import {
   getLastName,
   getPassword
 } from '@colin30/serverless-shared'
+import patterns from '@colin30/serverless-shared/regex'
 
 const app = express()
 
