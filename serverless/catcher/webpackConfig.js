@@ -1,59 +1,16 @@
 require('dotenv').config()
-const path = require('path')
 const slsw = require('serverless-webpack')
 const nodeExternals = require('webpack-node-externals')
+const setServerlessConfig = require('@colin30/configs/serverless')
 
-const baseConfig = {
-  entry: slsw.lib.entries,
-  target: 'node',
-  mode: process.env.STAGE,
-  devtool: 'nosources-source-map',
-  optimization: {
-    minimize: false
-  },
-  performance: {
-    hints: 'warning'
-  },
-  externals: [nodeExternals()],
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: [
-                [
-                  '@babel/preset-env',
-                  {
-                    targets: {
-                      node: true
-                    },
-                    modules: 'commonjs'
-                  }
-                ]
-              ]
-            }
-          }
-        ]
-      }
-    ]
-  },
-  output: {
-    libraryTarget: 'commonjs2',
-    path: path.resolve('.output'),
-    filename: '[name].js',
-    sourceMapFilename: '[file].map'
-  }
+const serverlessConfig = setServerlessConfig(slsw.lib.entries, nodeExternals)
+
+if (process.env.STAGE === 'dev') {
+  serverlessConfig.mode = 'development'
+  serverlessConfig.devtool = 'nosources-source-map'
+  serverlessConfig.optimization.minimize = false
+  serverlessConfig.performance.hints = 'warning'
+  serverlessConfig.output.sourceMapFilename = '[file].map'
 }
 
-if (process.env.STAGE === 'production') {
-  baseConfig.optimization.minimize = true
-  baseConfig.performance.hints = 'error'
-  delete baseConfig.devtool
-  delete baseConfig.output.sourceMapFilename
-}
-
-module.exports = baseConfig
+module.exports = serverlessConfig
