@@ -1,0 +1,36 @@
+service:
+  name: ${env:SERVICE_NAME}
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${env:STAGE}
+  region: ${env:REGION}
+  httpApi:
+    payload: '2.0'
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-webpack
+
+custom:
+  dotenv:
+    logging: false
+  webpack:
+    webpackConfig: webpackConfig.js
+    includeModules: true
+    packager: yarn
+
+package:
+  individually: true
+
+functions:
+  catcher:
+    handler: handler.catcher
+    events:
+      - httpApi:
+          method: GET
+          path: /
+      - httpApi:
+          method: GET
+          path: /{proxy+}

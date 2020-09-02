@@ -10,12 +10,7 @@
     "packages": [
       "configs",
       "clients/**",
-      "services/**"
-    ],
-    "nohoist": [
-      "**/@colin30/services-*/",
-      "**/@colin30/services-*/*",
-      "**/@colin30/services-*/**"
+      "serverless/**"
     ]
   }
 }
