@@ -1,5 +1,5 @@
 {
-  "name": "@colin30/serverless-catcher",
+  "name": "@colin30/serverless-renderer",
   "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
@@ -8,7 +8,8 @@
   "private": true,
   "prettier": "@colin30/configs/prettier",
   "scripts": {
-    "event": "sls invoke local -f catcher -p event.json"
+    "getAll": "sls invoke local -f getAll -p events/getAll.json",
+    "createOne": "sls invoke local -f createOne -p events/createOne.json"
   },
   "devDependencies": {
     "@babel/core": "^7.11.5",
@@ -26,8 +27,6 @@
   },
   "dependencies": {
     "@colin30/serverless-shared": "0.0.1",
-    "aws-serverless-express": "^3.3.8",
-    "express": "^4.17.1",
-    "serverless-http": "^2.5.0"
+    "aws-sdk": "^2.745.0"
   }
 }
