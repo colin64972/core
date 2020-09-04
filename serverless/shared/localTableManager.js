@@ -17,16 +17,6 @@ const createTable = async tableSchema => {
   }
 }
 
-const createTables = async schemas => {
-  try {
-    schemas.forEach(async schema => createTable(schema))
-    console.log('PASS', 'Tables created!')
-  } catch (error) {
-    console.log('FAIL', error)
-    return process.exit()
-  }
-}
-
 const deleteTable = async tableName => {
   try {
     const result = await dynamo
@@ -35,17 +25,6 @@ const deleteTable = async tableName => {
       })
       .promise()
     console.log('PASS', result)
-  } catch (error) {
-    console.log('FAIL', error)
-    return process.exit()
-  }
-}
-
-const deleteTables = async () => {
-  try {
-    const tableNames = await listTables()
-    tableNames.forEach(async tableName => deleteTable(tableName))
-    console.log('PASS', 'Tables deleted!')
   } catch (error) {
     console.log('FAIL', error)
     return process.exit()
@@ -63,20 +42,8 @@ const listTables = async tableName => {
   }
 }
 
-const resetTables = async schemas => {
-  try {
-    await deleteTables()
-    await createTables(schemas)
-    console.log('PASS', 'Tables reset!')
-  } catch (error) {
-    console.log('FAIL', error)
-  }
-  return process.exit()
-}
-
 module.exports = {
-  createTables,
-  deleteTables,
-  listTables,
-  resetTables
+  createTable,
+  deleteTable,
+  listTables
 }
