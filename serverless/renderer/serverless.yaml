@@ -19,14 +19,6 @@ provider:
       Resource: arn:aws:dynamodb:${env:REGION}:*:table/${env:RENDERS_TABLE_NAME}
 
 functions:
-  getAll:
-    name: ${env:SERVICE_NAME}-getAll
-    handler: index.getAll
-    stage: ${env:STAGE}
-    events:
-      - httpApi:
-          path: /renders
-          method: GET
   createOne:
     name: ${env:SERVICE_NAME}-createOne
     handler: index.createOne
@@ -35,6 +27,30 @@ functions:
       - httpApi:
           path: /renders
           method: POST
+  deleteOne:
+    name: ${env:SERVICE_NAME}-deleteOne
+    handler: index.deleteOne
+    stage: ${env:STAGE}
+    events:
+      - httpApi:
+          path: /renders
+          method: DELETE
+  getAll:
+    name: ${env:SERVICE_NAME}-getAll
+    handler: index.getAll
+    stage: ${env:STAGE}
+    events:
+      - httpApi:
+          path: /renders
+          method: GET
+  getOne:
+    name: ${env:SERVICE_NAME}-getOne
+    handler: index.getOne
+    stage: ${env:STAGE}
+    events:
+      - httpApi:
+          path: /renders/{id}
+          method: GET
 
 configValidationMode: warn
 
