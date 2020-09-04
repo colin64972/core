@@ -19,40 +19,38 @@ const serviceError = error => ({
   })
 })
 
-const createOne = async (eventBody, requestId) => {
+const createOne = async eventBody => {
   let response, body
 
   try {
-    let { domain, path, content } = eventBody
+    body = eventBody
 
     if (process.env.IS_OFFLINE) {
-      body = JSON.parse(eventBody)
-      domain = body.domain
-      path = body.path
-      content = body.content
+      const parsed = JSON.parse(eventBody)
+      body = {
+        ...parsed
+      }
     }
 
     const timestamp = new Date().getTime()
 
-    const postItem = {
-      id: uuidv4(),
-      domain,
-      path,
-      content,
-      createdAt: timestamp,
-      updatedAt: timestamp
-    }
-
-    const createData = {
+    const options = {
       TableName: process.env.RENDERS_TABLE_NAME,
-      Item: postItem
+      Item: {
+        id: uuidv4(),
+        domain: body.domain,
+        path: body.path,
+        content: body.content,
+        createdAt: timestamp,
+        updatedAt: timestamp
+      }
     }
 
-    await docClient.put(createData).promise()
+    await docClient.put(options).promise()
 
     response = {
       statusCode: 201,
-      body: JSON.stringify(postItem)
+      body: JSON.stringify(options.Item)
     }
   } catch (error) {
     console.log('DYNAMO ERROR', error.message)
@@ -174,6 +172,78 @@ const getOne = async (pathParam, queryParams) => {
   return queryBySecondaryIndex(pathParam.id)
 }
 
+const updateOne = async (queryParams, eventBody) => {
+  let response, update
+
+  try {
+    const { domain, path } = queryParams
+
+    update = {
+      ...eventBody
+    }
+
+    if (process.env.IS_OFFLINE) {
+      const parsed = JSON.parse(eventBody)
+      update = {
+        ...parsed
+      }
+    }
+
+    if (!domain || !path)
+      throw Error(constants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
+
+    const timestamp = new Date().getTime()
+
+    const options = {
+      TableName: process.env.RENDERS_TABLE_NAME,
+      Key: {
+        domain,
+        path
+      },
+      ExpressionAttributeNames: {
+        '#c': 'content',
+        '#u': 'updatedAt'
+      },
+      ExpressionAttributeValues: {
+        ':c': update.content,
+        ':u': timestamp
+      },
+      UpdateExpression: 'SET #c = :c, #u = :u',
+      ReturnValues: 'UPDATED_NEW'
+    }
+
+    const result = await docClient.update(options).promise()
+
+    if (result?.Attributes.updatedAt === timestamp) {
+      response = {
+        statusCode: 204
+      }
+    } else {
+      throw Error(constants.ERRORS.DYNAMODB.UPDATE_FAIL.ERROR_CODE)
+    }
+  } catch (error) {
+    switch (error.message) {
+      case constants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE:
+        response = {
+          statusCode: constants.ERRORS.DYNAMODB.NO_ITEMS.STATUS_CODE,
+          body: JSON.stringify(constants.ERRORS.DYNAMODB.NO_ITEMS.MESSAGE)
+        }
+        break
+      case constants.ERRORS.DYNAMODB.UPDATE_FAIL.ERROR_CODE:
+        response = {
+          statusCode: constants.ERRORS.DYNAMODB.UPDATE_FAIL.STATUS_CODE,
+          body: JSON.stringify(constants.ERRORS.DYNAMODB.UPDATE_FAIL.MESSAGE)
+        }
+        break
+      default:
+        response = serviceError(error)
+        break
+    }
+  }
+
+  return response
+}
+
 const queryBySecondaryIndex = async id => {
   let response
 
@@ -216,5 +286,6 @@ export default {
   createOne,
   deleteOne,
   getAll,
-  getOne
+  getOne,
+  updateOne
 }
