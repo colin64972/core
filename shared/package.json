@@ -1,0 +1,17 @@
+{
+  "name": "@colin30/shared",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": "git@github.com:colin30/core.git",
+  "author": "colin30 <colin30@post.com>",
+  "private": true,
+  "prettier": "@colin30/configs/prettier",
+  "devDependencies": {
+    "@colin30/configs": "0.0.1",
+    "@material-ui/core": "^4.11.0",
+    "aws-sdk": "^2.747.0",
+    "axios": "^0.20.0",
+    "faker": "^5.1.0"
+  }
+}

@@ -1,7 +1,11 @@
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { setTemplateLocals } = require('@colin30/shared/webpack')
+
 const babelLoaderPlugins =
   process.env.NODE_ENV === 'production' ? ['transform-remove-console'] : []
 
-module.exports = (entry, outputPath) => ({
+module.exports = (entry, outputPath, template, templateLocals) => ({
   entry,
   output: {
     path: outputPath,
@@ -69,5 +73,14 @@ module.exports = (entry, outputPath) => ({
       }
     ]
   },
-  plugins: []
+  plugins: [
+    new CleanWebpackPlugin({ verbose: true }),
+    new HtmlWebpackPlugin({
+      template,
+      inject: true,
+      scriptLoading: 'defer',
+      cache: false,
+      templateLocals: setTemplateLocals(templateLocals)
+    })
+  ]
 })
