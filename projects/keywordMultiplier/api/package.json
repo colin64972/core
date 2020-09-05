@@ -1,0 +1,27 @@
+{
+  "name": "@colin30/projects-keyword_multiplier-api",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": "git@github.com:colin30/core.git",
+  "author": "colin30 <colin30@post.com>",
+  "private": true,
+  "prettier": "@colin30/configs/prettier",
+  "config": {
+    "region": "localhost",
+    "endpoint": "http://localhost:8000",
+    "profile": "default",
+    "tableName": "colin30-projects-keyword_multiplier-trials"
+  },
+  "scripts": {
+    "dynamo": "cd ~/dynamodb && java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb",
+    "tablesCreate": "node -e 'require(\"@colin30/shared/helpers/dynamoTableManager\").createTable(require(\"./tableSchemas\")[0])'",
+    "tablesDelete": "node -e 'require(\"@colin30/shared/helpers/dynamoTableManager\").deleteTable(require(\"./tableSchemas\")[0].TableName)'",
+    "tablesList": "node -e 'require(\"@colin30/shared/helpers/dynamoTableManager\").listTables()'",
+    "tablesReset": "yarn tablesDelete && yarn tablesCreate"
+  },
+  "devDependencies": {
+    "@colin30/configs": "0.0.1",
+    "@colin30/shared": "0.0.1"
+  }
+}
