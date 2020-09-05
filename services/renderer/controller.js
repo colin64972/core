@@ -1,12 +1,14 @@
 import AWS from 'aws-sdk'
 import { v4 as uuidv4 } from 'uuid'
-import constants from '@colin30/shared/constants/dynamodb'
+import setDynamoConstants from '@colin30/shared/constants/dynamodb'
+
+const dynamoConstants = setDynamoConstants()
 
 const dbOptions = {}
 
 if (process.env.IS_LOCAL || process.env.IS_OFFLINE) {
-  dbOptions.region = process.env.LOCAL_HOST
-  dbOptions.endpoint = `http://${process.env.LOCAL_HOST}:${process.env.LOCAL_DYNAMO_PORT}`
+  dbOptions.region = dynamoConstants.LOCAL.REGION
+  dbOptions.endpoint = dynamoConstants.LOCAL.ENDPOINT
 }
 
 const docClient = new AWS.DynamoDB.DocumentClient(dbOptions)
@@ -66,7 +68,7 @@ const deleteOne = async queryParams => {
     const { domain, path } = queryParams
 
     if (!domain || !path)
-      throw Error(constants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
+      throw Error(dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
 
     const options = {
       TableName: process.env.TABLE_NAME,
@@ -87,14 +89,14 @@ const deleteOne = async queryParams => {
         statusCode: 204
       }
     } else {
-      throw Error(constants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
+      throw Error(dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
     }
   } catch (error) {
     switch (error.message) {
-      case constants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE:
+      case dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE:
         response = {
-          statusCode: constants.ERRORS.DYNAMODB.NO_ITEMS.STATUS_CODE,
-          body: JSON.stringify(constants.ERRORS.DYNAMODB.NO_ITEMS.MESSAGE)
+          statusCode: dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.STATUS_CODE,
+          body: JSON.stringify(dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.MESSAGE)
         }
         break
       default:
@@ -147,14 +149,14 @@ const getByPrimaryKey = async queryParams => {
         body: JSON.stringify(result.Item)
       }
     } else {
-      throw Error(constants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
+      throw Error(dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
     }
   } catch (error) {
     switch (error.message) {
-      case constants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE:
+      case dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE:
         response = {
-          statusCode: constants.ERRORS.DYNAMODB.NO_ITEMS.STATUS_CODE,
-          body: JSON.stringify(constants.ERRORS.DYNAMODB.NO_ITEMS.MESSAGE)
+          statusCode: dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.STATUS_CODE,
+          body: JSON.stringify(dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.MESSAGE)
         }
         break
       default:
@@ -190,7 +192,7 @@ const updateOne = async (queryParams, eventBody) => {
     }
 
     if (!domain || !path)
-      throw Error(constants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
+      throw Error(dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
 
     const timestamp = new Date().getTime()
 
@@ -219,20 +221,22 @@ const updateOne = async (queryParams, eventBody) => {
         statusCode: 204
       }
     } else {
-      throw Error(constants.ERRORS.DYNAMODB.UPDATE_FAIL.ERROR_CODE)
+      throw Error(dynamoConstants.ERRORS.DYNAMODB.UPDATE_FAIL.ERROR_CODE)
     }
   } catch (error) {
     switch (error.message) {
-      case constants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE:
+      case dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE:
         response = {
-          statusCode: constants.ERRORS.DYNAMODB.NO_ITEMS.STATUS_CODE,
-          body: JSON.stringify(constants.ERRORS.DYNAMODB.NO_ITEMS.MESSAGE)
+          statusCode: dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.STATUS_CODE,
+          body: JSON.stringify(dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.MESSAGE)
         }
         break
-      case constants.ERRORS.DYNAMODB.UPDATE_FAIL.ERROR_CODE:
+      case dynamoConstants.ERRORS.DYNAMODB.UPDATE_FAIL.ERROR_CODE:
         response = {
-          statusCode: constants.ERRORS.DYNAMODB.UPDATE_FAIL.STATUS_CODE,
-          body: JSON.stringify(constants.ERRORS.DYNAMODB.UPDATE_FAIL.MESSAGE)
+          statusCode: dynamoConstants.ERRORS.DYNAMODB.UPDATE_FAIL.STATUS_CODE,
+          body: JSON.stringify(
+            dynamoConstants.ERRORS.DYNAMODB.UPDATE_FAIL.MESSAGE
+          )
         }
         break
       default:
@@ -264,13 +268,13 @@ const queryBySecondaryIndex = async id => {
         domain: result.Items[0].domain,
         path: result.Items[0].path
       })
-    throw Error(constants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
+    throw Error(dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
   } catch (error) {
     switch (error.message) {
-      case constants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE:
+      case dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE:
         response = {
-          statusCode: constants.ERRORS.DYNAMODB.NO_ITEMS.STATUS_CODE,
-          body: JSON.stringify(constants.ERRORS.DYNAMODB.NO_ITEMS.MESSAGE)
+          statusCode: dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.STATUS_CODE,
+          body: JSON.stringify(dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.MESSAGE)
         }
         break
       default:
