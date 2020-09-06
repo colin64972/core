@@ -14,14 +14,10 @@
     "tableName": "colin30-services-renders"
   },
   "scripts": {
-    "dynamo": "cd ~/dynamodb && java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb",
-    "itemsCreateOne": "sls invoke local -f createOne -p events/createOne.json",
-    "itemsGetAll": "sls invoke local -f getAll -p events/getAll.json",
-    "itemsUpdateOne": "sls invoke local -f updateOne -p events/updateOne.json",
-    "tablesCreate": "node -e 'require(\"@colin30/shared/helpers/dynamoTableManager\").createTable(require(\"./tableSchemas\")[0])'",
-    "tablesDelete": "node -e 'require(\"@colin30/shared/helpers/dynamoTableManager\").deleteTable(require(\"./tableSchemas\")[0].TableName)'",
-    "tablesList": "node -e 'require(\"@colin30/shared/helpers/dynamoTableManager\").listTables()'",
-    "tablesReset": "yarn tablesDelete && yarn tablesCreate"
+    "createTable": "node -e 'require(\"@colin30/shared/helpers/dynamoTableManager\").createTable(require(\"./tableSchemas\")[0])'",
+    "deleteTable": "node -e 'require(\"@colin30/shared/helpers/dynamoTableManager\").deleteTable(require(\"./tableSchemas\")[0].TableName)'",
+    "listTables": "node -e 'require(\"@colin30/shared/helpers/dynamoTableManager\").listTables()'",
+    "resetTables": "yarn deleteTables && yarn createTables"
   },
   "devDependencies": {
     "@babel/core": "^7.11.5",
@@ -36,8 +32,10 @@
     "serverless-webpack": "^5.3.4",
     "webpack": "^4.44.1",
     "webpack-node-externals": "^2.5.2",
+    "aws-sdk": "^2.745.0"
+  },
+  "dependencies": {
     "@colin30/shared": "0.0.1",
-    "aws-sdk": "^2.745.0",
     "uuid": "^8.3.0"
   }
 }
