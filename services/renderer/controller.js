@@ -1,7 +1,7 @@
 import AWS from 'aws-sdk'
-import { v4 as uuidv4 } from 'uuid'
 import setDynamoConstants from '@colin30/shared/constants/dynamodb'
 import proxyServiceError from '@colin30/shared/helpers/proxyServiceError'
+import { createHashId } from '@colin30/shared/helpers'
 
 const dynamoConstants = setDynamoConstants()
 
@@ -23,7 +23,7 @@ const createOne = async eventBody => {
     const options = {
       TableName: process.env.TABLE_NAME,
       Item: {
-        id: uuidv4(),
+        id: createHashId(),
         domain: parsed.domain,
         path: parsed.path,
         html: parsed.html,
@@ -158,7 +158,7 @@ const queryById = async id => {
   try {
     const options = {
       TableName: process.env.TABLE_NAME,
-      IndexName: process.env.TABLE_GLOBAL_SECONDARY_INDEX_NAME,
+      IndexName: process.env.TABLE_GSI_INDEX_NAME,
       ExpressionAttributeNames: {
         '#id': 'id'
       },
@@ -167,6 +167,8 @@ const queryById = async id => {
       },
       KeyConditionExpression: '#id = :id'
     }
+
+    console.log('MY LOG', options)
 
     const result = await docClient.query(options).promise()
 
