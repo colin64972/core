@@ -1,0 +1,56 @@
+service:
+  name: ${env:SERVICE_NAME}
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${env:STAGE}
+  region: ${env:REGION}
+  stackName: ${env:SERVICE_NAME}
+  endpointType: regional
+  httpApi:
+    name: ${env:GATEWAY_NAME}
+    payload: '2.0'
+
+functions:
+  createOne:
+    name: ${env:SERVICE_NAME}-createOne
+    handler: index.createOne
+    stage: ${env:STAGE}
+    events:
+      - httpApi:
+          path: /${env:RESOURCE_NAME}
+          method: POST
+  getAll:
+    name: ${env:SERVICE_NAME}-getAll
+    handler: index.getAll
+    stage: ${env:STAGE}
+    events:
+      - httpApi:
+          path: /${env:RESOURCE_NAME}
+          method: GET
+
+configValidationMode: warn
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-webpack
+  - serverless-offline
+
+custom:
+  dotenv:
+    logging: false
+  serverless-offline:
+    httpPort: ${env:LOCAL_SLS_PORT}
+    noPrependStageInUrl: true
+    resourceRoutes: true
+  webpack:
+    webpackConfig: webpackConfig.js
+    packager: yarn
+    includeModules:
+      forceExclude:
+        - aws-sdk
+    keepOutputDirectory: true
+
+package:
+  individually: true

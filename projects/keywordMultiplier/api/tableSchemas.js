@@ -5,38 +5,26 @@ module.exports = [
     TableName: process.env.TABLE_NAME,
     AttributeDefinitions: [
       {
-        AttributeName: 'domain',
-        AttributeType: 'S'
-      },
-      {
-        AttributeName: 'path',
-        AttributeType: 'S'
-      },
-      {
         AttributeName: 'id',
+        AttributeType: 'S'
+      },
+      {
+        AttributeName: 'ipAddress',
         AttributeType: 'S'
       }
     ],
     KeySchema: [
       {
-        AttributeName: 'domain',
+        AttributeName: 'id',
         KeyType: 'HASH'
-      },
-      {
-        AttributeName: 'path',
-        KeyType: 'RANGE'
       }
     ],
-    ProvisionedThroughput: {
-      ReadCapacityUnits: 5,
-      WriteCapacityUnits: 1
-    },
     GlobalSecondaryIndexes: [
       {
         IndexName: process.env.TABLE_GLOBAL_SECONDARY_INDEX_NAME,
         KeySchema: [
           {
-            AttributeName: 'id',
+            AttributeName: 'ipAddress',
             KeyType: 'HASH'
           }
         ],
@@ -48,6 +36,10 @@ module.exports = [
           ReadCapacityUnits: 5
         }
       }
-    ]
+    ],
+    ProvisionedThroughput: {
+      WriteCapacityUnits: 1,
+      ReadCapacityUnits: 5
+    }
   }
 ]
