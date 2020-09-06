@@ -1,11 +1,13 @@
 const path = require('path')
+const nodeExternals = require('webpack-node-externals')
 
-module.exports = (slswEntries, externals) => ({
+module.exports = slswEntries => ({
   target: 'node',
+  mode: 'production',
   entry: slswEntries,
   optimization: { minimize: true },
   performance: { hints: 'error' },
-  externals: [externals()],
+  externals: [nodeExternals()],
   module: {
     rules: [
       {
