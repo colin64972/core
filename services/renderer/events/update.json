@@ -1,0 +1,13 @@
+{
+  "domain": "colin30.com",
+  "path": "/home",
+  "html": {
+    "head": {
+      "title": "Colin30 asdf"
+    },
+    "body": {
+      "heading": "asdf",
+      "copy": "asdf"
+    }
+  }
+}

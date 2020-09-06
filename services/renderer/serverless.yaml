@@ -11,12 +11,16 @@ provider:
   httpApi:
     name: ${env:GATEWAY_NAME}
     payload: '2.0'
-  # iamRoleStatements:
-  #   - Effect: Allow
-  #     Action:
-  #       - dynamodb:Scan
-  #       - dynamodb:PutItem
-  #     Resource: arn:aws:dynamodb:${env:REGION}:*:table/${env:TABLE_NAME}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DeleteItem
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:UpdateItem
+      Resource: arn:aws:dynamodb:${env:REGION}:*:table/${env:TABLE_NAME}
 
 functions:
   createOne:
@@ -49,7 +53,7 @@ functions:
     stage: ${env:STAGE}
     events:
       - httpApi:
-          path: /${env:RESOURCE_NAME}/key
+          path: /${env:RESOURCE_NAME}/{id}
           method: GET
   updateOne:
     name: ${env:SERVICE_NAME}-updateOne
@@ -57,7 +61,7 @@ functions:
     stage: ${env:STAGE}
     events:
       - httpApi:
-          path: /${env:RESOURCE_NAME}/key
+          path: /${env:RESOURCE_NAME}
           method: PUT
 
 configValidationMode: warn
@@ -89,26 +93,35 @@ custom:
     apiType: http
     autoDomain: true
 
-
-package:
-  individually: true
-
-# resources:
-#   Resources:
-#     RendersTable:
-#       Type: AWS::DynamoDB::Table
-#       Properties:
-#         AttributeDefinitions:
-#           -
-#             AttributeName: id
-#             AttributeType: S
-#         KeySchema:
-#           -
-#             AttributeName: id
-#             KeyType: HASH
-#         ProvisionedThroughput:
-#           ReadCapacityUnits: 1
-#           WriteCapacityUnits: 1
-#         StreamSpecification:
-#           StreamViewType: NEW_AND_OLD_IMAGES
-#         TableName: ${env:TABLE_NAME}
+resources:
+  Resources:
+    Renders:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${env:TABLE_NAME}
+        AttributeDefinitions:
+          - AttributeName: domain
+            AttributeType: S
+          - AttributeName: path
+            AttributeType: S
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: domain
+            KeyType: HASH
+          - AttributeName: path
+            KeyType: RANGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 1
+        GlobalSecondaryIndexes:
+          - IndexName: ${env:TABLE_GLOBAL_SECONDARY_INDEX_NAME}
+            KeySchema:
+              - AttributeName: id
+                KeyType: HASH
+            Projection:
+              ProjectionType: KEYS_ONLY
+            ProvisionedThroughput:
+              ReadCapacityUnits: 5
+              WriteCapacityUnits: 1
+          
