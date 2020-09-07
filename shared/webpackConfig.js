@@ -4,10 +4,10 @@ const setConfig = require('@colin30/configs/nodePackages')
 const config = setConfig({
   constants: path.resolve('src', 'constants'),
   helpers: path.resolve('src', 'helpers'),
-  webpack: path.resolve('src', 'webpack')
+  react: path.resolve('src', 'react')
 })
 
-if (process.env.NODE_ENV === 'dev') {
+if (process.env.NODE_ENV === 'development') {
   config.mode = 'development'
   config.devtool = 'nosources-source-map'
   config.optimization.minimize = false

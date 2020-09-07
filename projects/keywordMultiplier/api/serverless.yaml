@@ -4,31 +4,62 @@ service:
 provider:
   name: aws
   runtime: nodejs12.x
-  stage: ${env:STAGE}
+  stage: ${self:custom.stage}
   region: ${env:REGION}
   stackName: ${env:SERVICE_NAME}
   endpointType: regional
+  role: ${env:ACCESS_ROLE}
   httpApi:
     name: ${env:GATEWAY_NAME}
     payload: '2.0'
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DeleteItem
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:UpdateItem
+      Resource:
+        - arn:aws:dynamodb:${env:REGION}:*:table/${env:TABLE_NAME}
 
 functions:
   createOne:
     name: ${env:SERVICE_NAME}-createOne
     handler: index.createOne
-    stage: ${env:STAGE}
     events:
       - httpApi:
           path: /${env:RESOURCE_NAME}
           method: POST
+  deleteOne:
+    name: ${env:SERVICE_NAME}-deleteOne
+    handler: index.deleteOne
+    events:
+      - httpApi:
+          path: /${env:RESOURCE_NAME}/{id}
+          method: DELETE
   getAll:
     name: ${env:SERVICE_NAME}-getAll
     handler: index.getAll
-    stage: ${env:STAGE}
     events:
       - httpApi:
           path: /${env:RESOURCE_NAME}
           method: GET
+  getOne:
+    name: ${env:SERVICE_NAME}-getOne
+    handler: index.getOne
+    events:
+      - httpApi:
+          path: /${env:RESOURCE_NAME}/{id}
+          method: GET
+  updateOne:
+    name: ${env:SERVICE_NAME}-updateOne
+    handler: index.updateOne
+    events:
+      - httpApi:
+          path: /${env:RESOURCE_NAME}/{id}
+          method: PUT
 
 configValidationMode: warn
 
@@ -36,8 +67,14 @@ plugins:
   - serverless-dotenv-plugin
   - serverless-webpack
   - serverless-offline
+  - serverless-domain-manager
 
 custom:
+  stage: ${env:NODE_ENV}
+  domains:
+    production: ${env:DOMAIN}
+    staging: sta-${env:DOMAIN}
+    development: dev-${env:DOMAIN}
   dotenv:
     logging: false
   serverless-offline:
@@ -51,6 +88,27 @@ custom:
       forceExclude:
         - aws-sdk
     keepOutputDirectory: true
+  customDomain:
+    stage: ${self:custom.stage}
+    domainName: ${self:custom.domains.${self:custom.stage}}
+    basePath: ${env:API_BASE_PATH}
+    endpointType: regional
+    apiType: http
+    autoDomain: true
 
-package:
-  individually: true
+resources:
+  Resources:
+    colin30KeywordMultiplierTrials:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${env:TABLE_NAME}
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 1
+

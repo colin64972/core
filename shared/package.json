@@ -8,8 +8,8 @@
   "private": true,
   "prettier": "@colin30/configs/prettier",
   "scripts": {
-    "dev": "NODE_ENV=dev webpack-cli --config webpackConfig.js --progress",
-    "prod": "NODE_ENV=prod webpack-cli --config webpackConfig.js --progress"
+    "dev": "NODE_ENV=development webpack-cli --config webpackConfig.js --progress",
+    "pro": "NODE_ENV=production webpack-cli --config webpackConfig.js --progress"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
