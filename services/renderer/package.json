@@ -14,9 +14,9 @@
     "tableName": "colin30-services-renders"
   },
   "scripts": {
-    "createTable": "node -e 'require(\"@colin30/shared/helpers/dynamoTableManager\").createTable(require(\"./tableSchema\"))'",
-    "deleteTable": "node -e 'require(\"@colin30/shared/helpers/dynamoTableManager\").deleteTable(require(\"./tableSchema\").TableName)'",
-    "listTables": "node -e 'require(\"@colin30/shared/helpers/dynamoTableManager\").listTables()'",
+    "createTable": "node -e 'require(\"@colin30/shared\").helpers.dynamoTableManager.createTable(require(\"./tableSchema\"))'",
+    "deleteTable": "node -e 'require(\"@colin30/shared\").helpers.dynamoTableManager.deleteTable(require(\"./tableSchema\").TableName)'",
+    "listTables": "node -e 'require(\"@colin30/shared\").helpers.dynamoTableManager.listTables()'",
     "resetTable": "yarn deleteTable && yarn createTable"
   },
   "devDependencies": {

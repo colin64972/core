@@ -1,15 +1,14 @@
 import AWS from 'aws-sdk'
-import setDynamoConstants from '@colin30/shared/constants/dynamodb'
-import proxyServiceError from '@colin30/shared/helpers/proxyServiceError'
-import { createHashId } from '@colin30/shared/helpers'
+import { constants, helpers } from '@colin30/shared'
 
-const dynamoConstants = setDynamoConstants()
+const { dynamoDbConstants } = constants
+const { proxyServiceError, createHashId } = helpers
 
 const dbOptions = {}
 
 if (process.env.IS_LOCAL || process.env.IS_OFFLINE) {
-  dbOptions.region = dynamoConstants.LOCAL.REGION
-  dbOptions.endpoint = dynamoConstants.LOCAL.ENDPOINT
+  dbOptions.region = dynamoDbConstants.LOCAL.REGION
+  dbOptions.endpoint = dynamoDbConstants.LOCAL.ENDPOINT
 }
 
 const docClient = new AWS.DynamoDB.DocumentClient(dbOptions)
@@ -64,7 +63,7 @@ const deleteOne = async queryParams => {
         statusCode: 204
       }
     } else {
-      throw Error(dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
+      throw Error(dynamoDbConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
     }
   } catch (error) {
     return proxyServiceError(error)
@@ -105,7 +104,7 @@ const getByCompositeKey = async keyParams => {
         statusCode: 200,
         body: JSON.stringify(result.Item)
       }
-    throw Error(dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
+    throw Error(dynamoDbConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
   } catch (error) {
     return proxyServiceError(error)
   }
@@ -148,7 +147,7 @@ const updateOne = async (queryParams, eventBody) => {
       return {
         statusCode: 204
       }
-    throw Error(dynamoConstants.ERRORS.DYNAMODB.UPDATE_FAIL.ERROR_CODE)
+    throw Error(dynamoDbConstants.ERRORS.DYNAMODB.UPDATE_FAIL.ERROR_CODE)
   } catch (error) {
     return proxyServiceError(error)
   }
@@ -168,8 +167,6 @@ const queryById = async id => {
       KeyConditionExpression: '#id = :id'
     }
 
-    console.log('MY LOG', options)
-
     const result = await docClient.query(options).promise()
 
     if (result?.Count > 0)
@@ -177,7 +174,7 @@ const queryById = async id => {
         domain: result.Items[0].domain,
         path: result.Items[0].path
       })
-    throw Error(dynamoConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
+    throw Error(dynamoDbConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
   } catch (error) {
     return proxyServiceError(error)
   }
