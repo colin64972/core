@@ -1,12 +1,12 @@
-const AWS = require('aws-sdk')
-const setDynamoConstants = require('@colin30/shared/constants/dynamodb')
-
-const dynamoConstants = setDynamoConstants()
+import AWS from 'aws-sdk'
+import fs from 'fs'
+import yaml from 'js-yaml'
+import dynamoDbConstants from '../constants/dynamodb'
 
 const dynamo = new AWS.DynamoDB({
   apiVersion: '2012-08-10',
-  region: dynamoConstants.LOCAL.REGION,
-  endpoint: dynamoConstants.LOCAL.ENDPOINT
+  region: dynamoDbConstants.LOCAL.REGION,
+  endpoint: dynamoDbConstants.LOCAL.ENDPOINT
 })
 
 const createTable = async tableSchema => {
@@ -44,8 +44,25 @@ const listTables = async tableName => {
   }
 }
 
-module.exports = {
+const getEnvValue = value => process.env[value]
+
+const readYaml = filePath => {
+  try {
+    const contents = fs.readFileSync(filePath, 'utf8')
+    const data = yaml.safeLoadAll(contents)
+    return data
+  } catch (error) {
+    console.error('ERROR', error)
+    return process.exit()
+  }
+}
+
+const dynamoTableManager = {
   createTable,
   deleteTable,
-  listTables
+  listTables,
+  getEnvValue,
+  readYaml
 }
+
+export default dynamoTableManager
