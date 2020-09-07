@@ -2,7 +2,7 @@ require('dotenv').config()
 const path = require('path')
 const { helpers } = require('@colin30/shared')
 
-const { readYaml, getEnvValue } = helpers.dynamoTableManager
+const { readYaml, getEnvValue } = helpers.dynamoDbTableManager
 
 const parsedTable = JSON.parse(
   JSON.stringify(
