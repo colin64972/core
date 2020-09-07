@@ -1,9 +1,10 @@
 # folders
-.serverless
 .output
+.serverless
+dist
+media
 node_modules
 static
-media
 
 # files
 .env

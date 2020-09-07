@@ -1,4 +1,4 @@
-const setDynamoConstants = () => {
+const setConstants = () => {
   const state = {
     port: 8000,
     region: 'localhost'
@@ -33,4 +33,6 @@ const setDynamoConstants = () => {
   }
 }
 
-module.exports = setDynamoConstants
+const dynamoDbConstants = setConstants()
+
+export default dynamoDbConstants
