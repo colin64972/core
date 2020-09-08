@@ -2,7 +2,10 @@ import moment from 'moment'
 import { createHashId, optionizeObject } from '@colin30/shared/react/helpers'
 import { LINE_INCLUDES_TLD } from '@colin30/shared/raw/constants/regex'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
-import { takeLastTld } from '@colin30/shared/logic/keywordMultiplier'
+import {
+  takeLastTld,
+  takeKewordsFromTld
+} from '@colin30/shared/logic/keywordMultiplier'
 
 const removeAllButSpaces = line =>
   line
@@ -31,7 +34,12 @@ export const prepSetValue = input => {
   return [...uniqueSet].join('\n').replace(/\n$/, '')
 }
 
-export const formatProductLine = (value, matchType, whiteSpaceCode) => {
+export const formatProductLine = (
+  value,
+  matchType,
+  whiteSpaceCode,
+  tldsHidden
+) => {
   let result = ''
   if (whiteSpaceCode) {
     switch (whiteSpaceCode) {
@@ -52,20 +60,29 @@ export const formatProductLine = (value, matchType, whiteSpaceCode) => {
       result = result.replace(/[-_]+\.+/gi, '.')
     }
   } else {
+    let matchTypeValue = value
+    if (tldsHidden) {
+      matchTypeValue = takeKewordsFromTld(matchTypeValue)
+    }
     switch (matchType) {
       case constants.MATCHTYPES.BROAD_MODIFIER:
-        result = value.replace(/(\w\B\w+)/g, '+$1').replace(/\.\+/, '+.')
+        result = matchTypeValue
+          .replace(/(\w\B\w+)/g, '+$1')
+          .replace(/\.\+/, '+.')
         break
       case constants.MATCHTYPES.PHRASE:
-        result = `"${value}"`
+        result = `"${matchTypeValue}"`
         break
       case constants.MATCHTYPES.EXACT:
-        result = `[${value}]`
+        result = `[${matchTypeValue}]`
         break
       default:
-        result = value
+        result = matchTypeValue
     }
   }
+
+  if (tldsHidden) return takeKewordsFromTld(result)
+
   return result
 }
 

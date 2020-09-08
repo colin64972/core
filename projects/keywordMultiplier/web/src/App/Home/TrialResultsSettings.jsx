@@ -134,6 +134,13 @@ export const TrialResultsSettings = ({ buttonsDisabled }) => {
       selection: event.target.value
     })
 
+  const hideTldsHandler = () =>
+    dispatch({
+      type: types.TOGGLE_HIDE_TLDS
+    })
+
+  const tldsHidden = useSelector(state => state.app.tldsHidden)
+
   return (
     <Grid item xs={12} sm={6} className={classes.manageTrials}>
       <Grid container direction="column">
@@ -198,6 +205,29 @@ export const TrialResultsSettings = ({ buttonsDisabled }) => {
             </FormGroup>
           </Grid>
         </FadeIn>
+        <FadeIn direction="x" position={100}>
+          <Grid container>
+            <FormGroup row>
+              <FormControlLabel
+                className={classes.switchGroupLabel}
+                control={
+                  <CustomSwitch
+                    name="hideTlds"
+                    color="primary"
+                    checked={tldsHidden}
+                    onChange={hideTldsHandler}
+                  />
+                }
+                label={
+                  <Typography variant="body1" className={classes.toggleText}>
+                    Hide TLDs
+                  </Typography>
+                }
+              />
+            </FormGroup>
+          </Grid>
+        </FadeIn>
+
         <Grid container justify="flex-start" alignItems="center">
           <FadeIn direction="x" position={-100}>
             <button

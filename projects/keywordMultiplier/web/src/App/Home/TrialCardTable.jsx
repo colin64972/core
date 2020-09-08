@@ -102,6 +102,8 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
     }
   })
 
+  const tldsHidden = useSelector(state => state.app.tldsHidden)
+
   const VolumeLoadable = loadable(() =>
     import(
       /* webpackChunkName: "chunk-Volume" */
@@ -191,7 +193,12 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
                 component="td"
                 className={classes.tableCellData}
                 scope={constants.VOLUME_DATA.PRODUCT.VALUE}>
-                {formatProductLine(keyword, matchType, whiteSpaceSelection)}
+                {formatProductLine(
+                  keyword,
+                  matchType,
+                  whiteSpaceSelection,
+                  tldsHidden
+                )}
               </TableCell>
               {!volumeUnobtainable && (
                 <TableCell

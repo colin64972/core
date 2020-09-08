@@ -13,9 +13,7 @@ import {
   TableBody,
   TableCell,
   TableHead,
-  TableRow,
-  Typography,
-  Paper
+  TableRow
 } from '@material-ui/core'
 import FindInPageIcon from '@material-ui/icons/FindInPage'
 
