@@ -1,7 +1,7 @@
-import AWS from 'aws-sdk'
-import fs from 'fs'
-import yaml from 'js-yaml'
-import dynamoDbConstants from '../constants/dynamoDb'
+const AWS = require('aws-sdk')
+const fs = require('fs')
+const yaml = require('js-yaml')
+const { dynamoDbConstants } = require('./constants/dynamoDb')
 
 const dynamo = new AWS.DynamoDB({
   apiVersion: '2012-08-10',
@@ -57,12 +57,10 @@ const readYaml = filePath => {
   }
 }
 
-const dynamoDbTableManager = {
+module.exports = {
   createTable,
   deleteTable,
   listTables,
   getEnvValue,
   readYaml
 }
-
-export default dynamoDbTableManager

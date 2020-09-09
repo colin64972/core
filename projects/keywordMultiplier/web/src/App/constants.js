@@ -1,4 +1,4 @@
-const constants = {
+export const constants = {
   SETS_FORM_NAME: 'sets',
   EXCEL_TEXT_QUALIFIER: "'",
   MATCHTYPES: {
@@ -33,5 +33,3 @@ const constants = {
     FEEDBACK: '/feedback'
   }
 }
-
-export default constants

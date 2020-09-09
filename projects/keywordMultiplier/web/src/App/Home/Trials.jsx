@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/styles'
-import FadeIn from '@colin30/shared/react/components/FadeIn'
+import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import { defaultPadding } from '@colin30/shared/react/theming'
-import TrialCard from './TrialCard'
+import { TrialCard } from './TrialCard'
 import { getTrials } from '../../store/selectors'
 
 const useStyles = makeStyles(theme => ({
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const Trials = () => {
+export const Trials = () => {
   const classes = useStyles()
   const trials = useSelector(state => getTrials(state))
   const { items, shown } = trials
@@ -74,5 +74,3 @@ const Trials = () => {
     </Grid>
   )
 }
-
-export default Trials

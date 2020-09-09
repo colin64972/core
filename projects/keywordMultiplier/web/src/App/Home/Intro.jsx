@@ -1,5 +1,5 @@
 import React from 'react'
-import FadeIn from '@colin30/shared/react/components/FadeIn'
+import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import { defaultPadding } from '@colin30/shared/react/theming'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const Intro = () => {
+export const Intro = () => {
   const classes = useStyles()
   return (
     <Grid item xs={12} component="section" className={classes.introSection}>
@@ -79,5 +79,3 @@ const Intro = () => {
     </Grid>
   )
 }
-
-export default Intro

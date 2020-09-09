@@ -33,6 +33,4 @@ const setConstants = () => {
   }
 }
 
-const dynamoDbConstants = setConstants()
-
-export default dynamoDbConstants
+exports.dynamoDbConstants = setConstants()

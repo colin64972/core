@@ -1,14 +1,14 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import FadeIn from '@colin30/shared/react/components/FadeIn'
+import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import { defaultPadding } from '@colin30/shared/react/theming'
 import Grid from '@material-ui/core/Grid'
 import Link from '@material-ui/core/Link'
 import Typography from '@material-ui/core/Typography'
 import InfoIcon from '@material-ui/icons/Info'
 import { makeStyles } from '@material-ui/styles'
-import Footer from './common/Footer'
-import constants from '../App/constants'
+import { Footer } from './common/Footer'
+import { constants } from '../App/constants'
 
 const useStyles = makeStyles(theme => ({
   notFoundSection: {
@@ -112,6 +112,4 @@ const NotFoundComp = props => {
   )
 }
 
-const NotFound = withRouter(NotFoundComp)
-
-export default NotFound
+export const NotFound = withRouter(NotFoundComp)

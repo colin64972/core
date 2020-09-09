@@ -1,9 +1,9 @@
 import gsap from 'gsap'
-import React, { createRef, useEffect, useState } from 'react'
+import React, { createRef, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { makeStyles } from '@material-ui/styles'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   invisible: {
     opacity: 0
   },
@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default ({
+export const FadeIn = ({
   threshold = 0.25,
   delay = Math.random(),
   duration = Math.random() + 0.25,
@@ -22,12 +22,16 @@ export default ({
   className
 }) => {
   const classes = useStyles()
+
   let ref = createRef()
+
   const [inViewRef, inView] = useInView({ threshold, triggerOnce: true })
+
   let timeline = gsap.timeline({
     paused: true,
     delay
   })
+
   useEffect(() => {
     if (inView) {
       timeline
@@ -42,6 +46,7 @@ export default ({
         .play()
     }
   }, [inView])
+
   return (
     <div ref={inViewRef} className={className}>
       <div

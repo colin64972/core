@@ -1,5 +1,5 @@
-import constants from '../../App/constants'
-import types from '../types'
+import { constants } from '../../App/constants'
+import { types } from '../types'
 
 const defaultState = {
   disabled: [],
@@ -23,7 +23,7 @@ const defaultState = {
   ip: null
 }
 
-const app = (state = defaultState, action) => {
+export const app = (state = defaultState, action) => {
   switch (action.type) {
     case types.TOGGLE_SET_STATUS:
       if (state.disabled.includes(action.set)) {
@@ -146,5 +146,3 @@ const app = (state = defaultState, action) => {
       return state
   }
 }
-
-export default app
