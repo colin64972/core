@@ -1,6 +1,6 @@
 import React from 'react'
 import { defaultPadding } from '@colin30/shared/react/theming'
-import { generateKey } from '@colin30/shared/react'
+import { createHashId } from '@colin30/shared/react/helpers'
 import Grid from '@material-ui/core/Grid'
 import Link from '@material-ui/core/Link'
 import Typography from '@material-ui/core/Typography'
@@ -9,7 +9,7 @@ import RateReviewIcon from '@material-ui/icons/RateReview'
 import VpnLockIcon from '@material-ui/icons/VpnLock'
 import WebIcon from '@material-ui/icons/Web'
 import { makeStyles } from '@material-ui/styles'
-import constants from '../constants'
+import { constants } from '../constants'
 import ProfileImage from '../../exports/images/colin30-profile-1000w.jpg'
 
 const useStyles = makeStyles(theme => ({
@@ -103,31 +103,31 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const Footer = () => {
+export const Footer = () => {
   const classes = useStyles()
   const menuItems = [
     {
       label: 'Home',
       href: constants.URLS.HOME,
-      key: generateKey(),
+      key: createHashId(),
       icon: <WebIcon className={classes.menuItemIcon} />
     },
     {
       label: 'Terms of Service',
       href: constants.URLS.TOS,
-      key: generateKey(),
+      key: createHashId(),
       icon: <GavelIcon className={classes.menuItemIcon} />
     },
     {
       label: 'Privacy Policy',
       href: constants.URLS.PP,
-      key: generateKey(),
+      key: createHashId(),
       icon: <VpnLockIcon className={classes.menuItemIcon} />
     },
     {
       label: 'Feedback',
       href: constants.URLS.FEEDBACK,
-      key: generateKey(),
+      key: createHashId(),
       icon: <RateReviewIcon className={classes.menuItemIcon} />
     }
   ]
@@ -179,5 +179,3 @@ const Footer = () => {
     </Grid>
   )
 }
-
-export default Footer

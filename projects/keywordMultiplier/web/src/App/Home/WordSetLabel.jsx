@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import ListIcon from '@material-ui/icons/List'
 import { makeStyles } from '@material-ui/styles'
-import types from '../../store/types'
+import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => {
   const labelBase = {
@@ -49,7 +49,7 @@ const useStyles = makeStyles(theme => {
   }
 })
 
-const WordSetLabel = ({ ...props }) => {
+export const WordSetLabel = ({ ...props }) => {
   const classes = useStyles()
   const dispatch = useDispatch()
   const clickHandler = event => {
@@ -76,5 +76,3 @@ const WordSetLabel = ({ ...props }) => {
     </label>
   )
 }
-
-export default WordSetLabel

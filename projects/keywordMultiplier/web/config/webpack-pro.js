@@ -1,15 +1,15 @@
 const { EnvironmentPlugin } = require('webpack')
 const { merge } = require('webpack-merge')
-const webpack = require('./webpack')
+const { config } = require('./webpack')
 
-webpack.plugins.push(
+config.plugins.push(
   new EnvironmentPlugin({
     DEBUG: false,
     IS_BROWSER: true
   })
 )
 
-module.exports = merge(webpack, {
+module.exports = merge(config, {
   mode: 'production',
   performance: {
     hints: 'error'
