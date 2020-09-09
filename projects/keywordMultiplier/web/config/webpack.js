@@ -1,7 +1,7 @@
 const path = require('path')
-const setReact = require('@colin30/configs/react')
+const { setConfig } = require('@colin30/configs/react')
 
-const webpack = setReact(
+exports.config = setConfig(
   { src: path.resolve('src', 'index') },
   path.resolve('static'),
   path.resolve(
@@ -11,12 +11,10 @@ const webpack = setReact(
     '..',
     '..',
     'shared',
-    'webpack',
+    'react',
     'htmlPluginTemplate.pug'
   ),
   {
     title: process.env.npm_package_config_template_title
   }
 )
-
-module.exports = webpack

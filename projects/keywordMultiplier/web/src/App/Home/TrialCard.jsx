@@ -19,7 +19,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import { makeStyles } from '@material-ui/styles'
 import { formatDomainMode, formatMatchType } from '../logic'
 import { getMatchType, getDomainMode } from '../../store/selectors'
-import types from '../../store/types'
+import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => {
   const button = {
@@ -148,7 +148,7 @@ const useStyles = makeStyles(theme => {
   }
 })
 
-const TrialCard = ({ trial, isShown, isLastShown }) => {
+export const TrialCard = ({ trial, isShown, isLastShown }) => {
   const classes = useStyles()
   const dispatch = useDispatch()
   const copyRef = createRef()
@@ -278,5 +278,3 @@ const TrialCard = ({ trial, isShown, isLastShown }) => {
     </div>
   )
 }
-
-export default TrialCard

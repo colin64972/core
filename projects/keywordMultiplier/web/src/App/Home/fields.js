@@ -1,7 +1,7 @@
-import { generateKey } from '@colin30/shared/react'
-import constants from '../constants'
+import { createHashId } from '@colin30/shared/react/helpers'
+import { constants } from '../constants'
 
-const sets = []
+export const sets = []
 
 for (let i = 1; i <= 5; i += 1) {
   sets.push({
@@ -12,34 +12,29 @@ for (let i = 1; i <= 5; i += 1) {
     rows: 8,
     placeholder: 'Enter words here',
     validations: [],
-    key: generateKey()
+    key: createHashId()
   })
 }
 
-const matchTypes = [
+export const matchTypes = [
   {
-    key: generateKey(),
+    key: createHashId(),
     label: 'Broad',
     value: constants.MATCHTYPES.BROAD
   },
   {
-    key: generateKey(),
+    key: createHashId(),
     label: '+Broad +Modifier',
     value: constants.MATCHTYPES.BROAD_MODIFIER
   },
   {
-    key: generateKey(),
+    key: createHashId(),
     label: '"Phrase"',
     value: constants.MATCHTYPES.PHRASE
   },
   {
-    key: generateKey(),
+    key: createHashId(),
     label: '[Exact]',
     value: constants.MATCHTYPES.EXACT
   }
 ]
-
-export default {
-  sets,
-  matchTypes
-}
