@@ -11,7 +11,7 @@ import { makeStyles } from '@material-ui/styles'
 import { setFields } from './fields'
 import { SetsTextAreaField } from './SetsTextAreaField'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
-import { getSetsWithValues } from '../logic'
+import { getSetsWithValues } from '@colin30/shared/logic/keywordMultiplier'
 import { BackDropScreen } from '@colin30/shared/react/components/BackDropScreen'
 import { types } from '../../store/types'
 

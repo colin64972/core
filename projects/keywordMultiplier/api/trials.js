@@ -4,7 +4,7 @@ import { proxyServiceError } from '@colin30/shared/serverless/proxyServiceError'
 import { createHashId } from '@colin30/shared/react/helpers'
 import { IP_ADDRESS } from '@colin30/shared/raw/constants/regex'
 import { fetchGeoIp } from './fetchers'
-import { processTrial } from './logic'
+import { processTrial } from '@colin30/shared/logic/keywordMultiplier'
 
 const dbOptions = {}
 

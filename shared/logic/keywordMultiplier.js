@@ -1,7 +1,9 @@
-import { formatCentsToDollars } from '../general/formatting'
+import moment from 'moment'
 import { constants } from '../raw/constants/keywordMultiplier'
 import { LINE_INCLUDES_TLD } from '../raw/constants/regex'
+import { createHashId, optionizeObject } from '../react/helpers'
 import { stripe } from '../raw/constants/stripe'
+import { formatCentsToDollars } from '../general/formatting'
 
 export const calculateTrialPrice = itemCount => {
   const result = {}
@@ -155,3 +157,222 @@ export const setInitialCountry = (previousSelection, ipCountry) => {
   if (/^gb$/i.test(ipCountry)) return 'uk'
   return ipCountry.toLowerCase()
 }
+
+const alphaCodeSetKeys = setData =>
+  Object.keys(setData).reduce((acc, cur, ind) => {
+    const temp = acc
+    temp[String.fromCharCode(ind + 97)] = setData[cur].split('\n')
+    return temp
+  }, {})
+
+const setList = setData => {
+  const alphaCoded = alphaCodeSetKeys(setData)
+
+  const list = []
+
+  switch (Object.keys(alphaCoded).length) {
+    case 5:
+      for (let a of alphaCoded.a) {
+        for (let b of alphaCoded.b) {
+          for (let c of alphaCoded.c) {
+            for (let d of alphaCoded.d) {
+              for (let e of alphaCoded.e) {
+                list.push(`${a} ${b} ${c} ${d} ${e}`)
+              }
+            }
+          }
+        }
+      }
+      break
+    case 4:
+      for (let a of alphaCoded.a) {
+        for (let b of alphaCoded.b) {
+          for (let c of alphaCoded.c) {
+            for (let d of alphaCoded.d) {
+              list.push(`${a} ${b} ${c} ${d}`)
+            }
+          }
+        }
+      }
+      break
+    case 3:
+      for (let a of alphaCoded.a) {
+        for (let b of alphaCoded.b) {
+          for (let c of alphaCoded.c) {
+            list.push(`${a} ${b} ${c}`)
+          }
+        }
+      }
+      break
+    default:
+      for (let a of alphaCoded.a) {
+        for (let b of alphaCoded.b) {
+          list.push(`${a} ${b}`)
+        }
+      }
+      break
+  }
+
+  return list
+}
+
+export const processTrial = setData => {
+  const result = {}
+  const wholeList = setList(setData)
+  try {
+    result.heading = Object.keys(setData)
+      .join(' x ')
+      .replace(/setField/gi, '')
+    result.list = wholeList
+    result.billableKeywords = parseBillableKeywords(wholeList)
+  } catch (error) {
+    console.error('error', error)
+  }
+  return result
+}
+
+const removeAllButSpaces = line =>
+  line
+    .toLowerCase()
+    .trim()
+    .split(/\s+/gi)
+    .map(word => word.replace(/[^a-z0-9]+/gi, ''))
+    .join(' ')
+
+export const prepSetValue = input => {
+  const split = input
+    .trim()
+    .replace(/[\n\r]+/gi, '\n')
+    .split(/\n/gi)
+
+  const nonWordsRemoved = split.map(line => {
+    let temp = removeAllButSpaces(line)
+    if (LINE_INCLUDES_TLD.test(line)) {
+      temp = takeLastTld(line)
+    }
+    return temp
+  })
+
+  const uniqueSet = new Set(nonWordsRemoved)
+
+  return [...uniqueSet].join('\n').replace(/\n$/, '')
+}
+
+export const formatProductLine = (
+  value,
+  matchType,
+  whiteSpaceCode,
+  tldsHidden
+) => {
+  let result = ''
+  if (whiteSpaceCode) {
+    switch (whiteSpaceCode) {
+      case constants.WHITESPACE_OPTIONS.NONE.VALUE:
+        result = value.replace(/\s+/g, '')
+        break
+      case constants.WHITESPACE_OPTIONS.HYPHEN.VALUE:
+        result = value.replace(/\s+/g, '-')
+        break
+      case constants.WHITESPACE_OPTIONS.UNDERSCORE.VALUE:
+        result = value.replace(/\s+/g, '_')
+        break
+      default:
+        result = value
+    }
+
+    if (result.match(/^(.*)[-_]+\.+(\w+)$/)) {
+      result = result.replace(/[-_]+\.+/gi, '.')
+    }
+  } else {
+    let matchTypeValue = value
+    if (tldsHidden) {
+      matchTypeValue = takeKewordsFromTld(matchTypeValue)
+    }
+    switch (matchType) {
+      case constants.MATCHTYPES.BROAD_MODIFIER:
+        result = matchTypeValue
+          .replace(/(\w\B\w+)/g, '+$1')
+          .replace(/\.\+/, '+.')
+        break
+      case constants.MATCHTYPES.PHRASE:
+        result = `"${matchTypeValue}"`
+        break
+      case constants.MATCHTYPES.EXACT:
+        result = `[${matchTypeValue}]`
+        break
+      default:
+        result = matchTypeValue
+    }
+  }
+
+  if (tldsHidden) return takeKewordsFromTld(result)
+
+  return result
+}
+
+export const generateNotice = (
+  message,
+  kind = constants.NOTICE.KINDS.SIMPLE
+) => {
+  const result = {
+    id: createHashId(),
+    kind,
+    bg: constants.NOTICE.BGS.PASS,
+    heading: 'Success',
+    message,
+    choice: null,
+    moment: moment()
+  }
+  if (kind !== constants.NOTICE.KINDS.SIMPLE) {
+    result.bg = constants.NOTICE.BGS.WARN
+    result.heading = 'Warning'
+  }
+  return result
+}
+
+export const decorateKeOptions = data => ({
+  countries: optionizeObject(data.countries).map(item => {
+    if (item.label === 'Global') {
+      item.value = 'global'
+    }
+    return item
+  }),
+  currencies: optionizeObject(data.currencies).filter(
+    item => item.value !== ''
+  ),
+  dataSources: optionizeObject({
+    gkp: 'Google Keyword Planner',
+    cli: 'GKP + Clickstream'
+  })
+})
+
+export const decorateTrial = data => ({
+  id: data.id,
+  heading: data.trialProduct.heading,
+  list: data.trialProduct.list,
+  billableKeywords: data.trialProduct.billableKeywords,
+  geoIp: data?.geoIp,
+  updatedAt: data.updatedAt,
+  timestamp: moment(data.updatedAt).format('HH:mm:ss'),
+  metrics: data?.metrics,
+  paymentId: data?.paymentId
+})
+
+export const getSetsWithValues = values =>
+  Object.entries(values).reduce((acc, cur) => {
+    let temp = acc
+    const [key, val] = cur
+    if (val !== '') {
+      temp.push(key)
+    }
+    return temp
+  }, [])
+
+export const findEnabledSets = (filled, disabled, values) =>
+  filled.reduce((acc, cur) => {
+    let temp = acc
+    if (!disabled.includes(cur)) {
+      temp[cur] = values[cur]
+    }
+    return temp
+  }, {})
