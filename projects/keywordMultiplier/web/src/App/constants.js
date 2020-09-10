@@ -7,6 +7,24 @@ export const constants = {
     PHRASE: 'phrase',
     EXACT: 'exact'
   },
+  WHITESPACE_OPTIONS: {
+    DISABLED: {
+      LABEL: 'Disabled',
+      VALUE: 0
+    },
+    NONE: {
+      LABEL: 'No Spaces',
+      VALUE: 1
+    },
+    HYPHEN: {
+      LABEL: 'Hyphen -',
+      VALUE: 2
+    },
+    UNDERSCORE: {
+      LABEL: 'Underscore _',
+      VALUE: 3
+    }
+  },
   NOTICE: {
     TIMEOUT_DELAY: process.env.NODE_ENV === 'development' ? 10000 : 5000,
     TIMEOUT_HEIGHT: 4,

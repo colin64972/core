@@ -38,3 +38,26 @@ export const matchTypes = [
     value: constants.MATCHTYPES.EXACT
   }
 ]
+
+export const whiteSpaceOptions = [
+  {
+    key: createHashId(),
+    label: constants.WHITESPACE_OPTIONS.DISABLED.LABEL,
+    value: constants.WHITESPACE_OPTIONS.DISABLED.VALUE
+  },
+  {
+    key: createHashId(),
+    label: constants.WHITESPACE_OPTIONS.NONE.LABEL,
+    value: constants.WHITESPACE_OPTIONS.NONE.VALUE
+  },
+  {
+    key: createHashId(),
+    label: constants.WHITESPACE_OPTIONS.HYPHEN.LABEL,
+    value: constants.WHITESPACE_OPTIONS.HYPHEN.VALUE
+  },
+  {
+    key: createHashId(),
+    label: constants.WHITESPACE_OPTIONS.UNDERSCORE.LABEL,
+    value: constants.WHITESPACE_OPTIONS.UNDERSCORE.VALUE
+  }
+]
