@@ -5,7 +5,7 @@ import {
   decorateKeOptions,
   decorateTrial,
   generateNotice
-} from '../../App/logic'
+} from '@colin30/shared/logic/keywordMultiplier'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { payloadMock } from '@colin30/shared/react/mocks/keywordMultiplier'
 
