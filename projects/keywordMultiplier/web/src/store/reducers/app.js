@@ -11,10 +11,11 @@ const defaultState = {
     [constants.SETS_FORM_NAME]: false
   },
   matchType: constants.MATCHTYPES.BROAD,
+  matchTypePrev: constants.MATCHTYPES.BROAD,
   copySettings: {
     dataOnly: false
   },
-  domainMode: false,
+  whiteSpaceSelection: constants.WHITESPACE_OPTIONS.DISABLED.VALUE,
   notice: {
     show: false,
     item: null,
@@ -81,7 +82,9 @@ export const app = (state = defaultState, action) => {
     case types.CHANGE_MATCHTYPE:
       return {
         ...state,
-        matchType: action.matchType
+        matchType: action.matchType,
+        matchTypePrev: action.matchType,
+        whiteSpaceSelection: constants.WHITESPACE_OPTIONS.DISABLED.VALUE
       }
     case types.ADD_NOTICE:
       return {
@@ -128,11 +131,14 @@ export const app = (state = defaultState, action) => {
         ...state,
         ip: action.ip
       }
-    case types.TOGGLE_DOMAIN_MODE:
+    case types.CHANGE_WHITESPACE_SELECTION:
       return {
         ...state,
-        domainMode: !state.domainMode,
-        matchType: constants.MATCHTYPES.BROAD
+        whiteSpaceSelection: action.selection,
+        matchType:
+          action.selection === constants.WHITESPACE_OPTIONS.DISABLED.VALUE
+            ? state.matchTypePrev
+            : constants.MATCHTYPES.BROAD
       }
     case types.SET_SPINNER_STATUS:
       return {
