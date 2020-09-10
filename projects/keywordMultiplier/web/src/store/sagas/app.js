@@ -2,14 +2,14 @@ import { call, put, select, take, race, delay } from 'redux-saga/effects'
 import { createTrial, fetchIpAddress } from '../fetchers'
 import { types } from '../types'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
+import { copyToClipboard } from '@colin30/shared/react/helpers'
 import {
   decorateTrial,
   generateNotice,
   getSetsWithValues,
-  findEnabledSets
-} from '../../App/logic'
-import { copyToClipboard } from '@colin30/shared/react/helpers'
-import { buildCopyData } from '@colin30/shared/logic/keywordMultiplier'
+  findEnabledSets,
+  buildCopyData
+} from '@colin30/shared/logic/keywordMultiplier'
 
 export function* multiplySets(action) {
   const notice = generateNotice('Check your results below')

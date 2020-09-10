@@ -5,7 +5,7 @@ import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import Grid from '@material-ui/core/Grid'
 import ListIcon from '@material-ui/icons/List'
 import { makeStyles } from '@material-ui/styles'
-import { prepSetValue } from '../logic'
+import { prepSetValue } from '@colin30/shared/logic/keywordMultiplier'
 import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => ({
