@@ -38,6 +38,11 @@ export const proxyServiceError = error => {
         statusCode: errorConstants.PAYMENT.PRICE_MISMATCH.STATUS_CODE,
         body: setErrorBody(errorConstants.PAYMENT.PRICE_MISMATCH.MESSAGE)
       }
+    case errorConstants.sns.messageFail.ERROR_CODE:
+      return {
+        statusCode: errorConstants.sns.messageFail.STATUS_CODE,
+        body: setErrorBody(errorConstants.sns.messageFail.MESSAGE)
+      }
     default:
       return {
         statusCode:

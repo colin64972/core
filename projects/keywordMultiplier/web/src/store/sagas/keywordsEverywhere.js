@@ -1,5 +1,10 @@
 import { call, put, select, take, race, delay } from 'redux-saga/effects'
-import { fetchKeData, makePreOrder, fetchKeVolumes } from '../fetchers'
+import {
+  fetchKeData,
+  makePreOrder,
+  fetchKeVolumes,
+  postLowCreditAlert
+} from '../fetchers'
 import { types } from '../types'
 import {
   decorateKeOptions,
@@ -35,11 +40,7 @@ export function* getKeCredits() {
     const credits = result?.data.credits[0]
 
     if (credits < constants.LOW_CREDIT_ALERT_THRESHOLD) {
-      console.warn(
-        '%c low credit warning',
-        'color: orange; font-size: large',
-        credits
-      )
+      yield call(postLowCreditAlert, credits)
     }
 
     yield put({

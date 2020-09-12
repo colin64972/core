@@ -5,6 +5,7 @@ import { proxyServiceError } from '@colin30/shared/serverless/proxyServiceError'
 import { fetchKeMeta, fetchKeVolumes } from './fetchers'
 import { getTrialById, updateTrialWithPaymentAndVolumes } from './trials'
 import Stripe from 'stripe'
+import { sendMessage } from '@colin30/shared/serverless/sendSms'
 
 export const getMeta = async queryStringParameters => {
   const { resource } = queryStringParameters
@@ -113,9 +114,25 @@ export const getVolumes = async eventBody => {
       })
     }
   } catch (error) {
-    return {
-      statusCode: 500,
-      error
-    }
+    return proxyServiceError(error)
+  }
+}
+
+export const alertLowCredits = async eventBody => {
+  const { credits } = JSON.parse(eventBody)
+  try {
+    const res = await sendMessage(
+      `ke credits low: ${credits} credits remaining. refill soon.`,
+      process.env.SNS_ARN
+    )
+
+    if (typeof res === 'string')
+      return {
+        statusCode: 202
+      }
+
+    throw Error(errorConstants.sns.messageFail.ERROR_CODE)
+  } catch (error) {
+    return proxyServiceError(error)
   }
 }
