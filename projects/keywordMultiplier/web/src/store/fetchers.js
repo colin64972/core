@@ -87,3 +87,10 @@ export const fetchKeVolumes = async (
 
   if (res.status === 200) return res.data
 }
+
+export const postLowCreditAlert = async credits => {
+  let url = 'http://localhost:2000'
+  const res = await post(`${url}/ke/low-credits`, { credits }, options)
+  if (res.status === 202) return true
+  return false
+}
