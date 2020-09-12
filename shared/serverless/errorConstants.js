@@ -8,5 +8,12 @@ export const errorConstants = {
   },
   THIRD_PARTY: {
     ERROR_CODE: 'zuzsaduged'
+  },
+  sns: {
+    messageFail: {
+      ERROR_CODE: 'jezidepiup',
+      STATUS_CODE: 500,
+      MESSAGE: 'sns message fail'
+    }
   }
 }

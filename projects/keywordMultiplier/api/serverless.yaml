@@ -53,6 +53,16 @@ functions:
       - httpApi:
           path: /ke/pre-order
           method: POST
+  lowCreditsAlertHandler:
+    name: ${env:SERVICE_NAME}-lowCreditsAlertHandler
+    handler: index.lowCreditsAlertHandler
+    events:
+      - httpApi:
+          path: /ke/low-credits
+          method: POST
+      - sns:
+          arn: ${env:SNS_ARN}
+          topicName: ${env:SNS_TOPIC_NAME}
   # deleteOne:
   #   name: ${env:SERVICE_NAME}-deleteOne
   #   handler: index.deleteOne
