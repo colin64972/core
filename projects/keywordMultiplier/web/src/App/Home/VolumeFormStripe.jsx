@@ -9,7 +9,6 @@ import {
   InputLabel
 } from '@material-ui/core'
 import {
-  useElements,
   CardNumberElement,
   CardExpiryElement,
   CardCvcElement
@@ -88,8 +87,6 @@ const useStyles = makeStyles(theme => ({
 export const VolumeFormStripe = () => {
   // console.log('%c formikProps', 'color: yellow; font-size: large', formikProps)
   const classes = useStyles()
-
-  const elements = useElements()
 
   const stripeElementValidator = value => {
     if (!value)
