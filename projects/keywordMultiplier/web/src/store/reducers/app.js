@@ -21,7 +21,7 @@ const defaultState = {
     item: null,
     choice: null
   },
-  ip: null
+  ip: constants.DEFAULT_IP
 }
 
 export const app = (state = defaultState, action) => {
@@ -55,7 +55,7 @@ export const app = (state = defaultState, action) => {
         ...state,
         trials: {
           ...state.trials,
-          shown: [...state.trials.shown, action.slug]
+          shown: [...state.trials.shown, action.id]
         }
       }
     case types.HIDE_TRIAL:
@@ -63,7 +63,7 @@ export const app = (state = defaultState, action) => {
         ...state,
         trials: {
           ...state.trials,
-          shown: state.trials.shown.filter(slug => slug !== action.slug)
+          shown: state.trials.shown.filter(id => id !== action.id)
         }
       }
     case types.DELETE_TRIAL:
@@ -71,7 +71,7 @@ export const app = (state = defaultState, action) => {
         ...state,
         trials: {
           ...state.trials,
-          items: state.trials.items.filter(trial => trial.slug !== action.slug)
+          items: state.trials.items.filter(trial => trial.id !== action.id)
         }
       }
     case types.DELETE_ALL_TRIALS:
