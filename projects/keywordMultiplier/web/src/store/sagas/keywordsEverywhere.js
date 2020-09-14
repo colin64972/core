@@ -39,7 +39,10 @@ export function* getKeCredits() {
     const result = yield call(fetchKeData, Object.keys(constants.ENDPOINTS)[1])
     const credits = result?.data.credits[0]
 
-    if (credits < constants.LOW_CREDIT_ALERT_THRESHOLD) {
+    if (
+      credits < constants.LOW_CREDIT_ALERT_THRESHOLD &&
+      !process.env.USE_MOCKS
+    ) {
       yield call(postLowCreditAlert, credits)
     }
 
