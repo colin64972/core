@@ -60,7 +60,7 @@ exports.constants = {
       VALUE: 'trend'
     }
   },
-  LOW_CREDIT_ALERT_THRESHOLD: 100000 / 2,
+  LOW_CREDIT_ALERT_THRESHOLD: 10000,
   VOLUME_REQUEST_FORM: {
     ACCORDION_PANELS: [1, 2, 3]
   },
