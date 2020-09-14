@@ -21,7 +21,7 @@ export function* multiplySets() {
     })
     const enabled = yield select(state => getEnabledSets(state))
     let ip = yield select(state => getClientIp(state))
-    if (!ip) {
+    if (process.env.NODE_ENV === 'production') {
       ip = yield call(getRequest, 'ip')
     }
     yield put({
@@ -33,11 +33,11 @@ export function* multiplySets() {
         ? yield call(postRequest, 'trials', {
             sets: enabled,
             ip,
-            slug: createHashId()
+            id: createHashId()
           })
         : {
             sets: enabled,
-            slug: createHashId()
+            id: createHashId()
           }
     const trial = yield call(processTrial, posted)
     yield put({
@@ -46,7 +46,7 @@ export function* multiplySets() {
     })
     yield put({
       type: types.SHOW_TRIAL,
-      slug: trial.slug
+      id: trial.id
     })
     yield put({
       type: types.SET_SPINNER_STATUS,
@@ -80,7 +80,7 @@ export function* multiplySets() {
 }
 
 export function* copyTrial(action) {
-  const notice = generateNotice(`Trial ${action.slug} copied to clipboard`)
+  const notice = generateNotice(`Trial ${action.id} copied to clipboard`)
   const copySettings = yield select(state => getCopySettings(state))
   const matchType = yield select(state => getMatchType(state))
   try {
@@ -136,9 +136,9 @@ export function* copyAllTrials() {
 }
 
 export function* askDeleteTrial(action) {
-  const { slug } = action
+  const { id } = action
   const notice = generateNotice(
-    `Are you sure you want to delete trial ${slug}?`,
+    `Are you sure you want to delete trial ${id}?`,
     constants.NOTICE.KINDS.CHOICE
   )
   yield put({
@@ -154,9 +154,9 @@ export function* askDeleteTrial(action) {
     yield put({ type: types.HIDE_NOTICE })
     yield delay(500)
     yield put({ type: types.REMOVE_NOTICE })
-    yield put({ type: types.HIDE_TRIAL, slug })
+    yield put({ type: types.HIDE_TRIAL, id })
     yield delay(250)
-    yield put({ type: types.DELETE_TRIAL, slug })
+    yield put({ type: types.DELETE_TRIAL, id })
   } else {
     yield put({ type: types.HIDE_NOTICE })
     yield delay(500)
