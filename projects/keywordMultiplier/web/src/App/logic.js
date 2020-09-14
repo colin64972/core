@@ -27,7 +27,7 @@ const prepPostedSets = data => {
   }, {})
   result.count = Object.keys(sets).length
   result.heading = headings.join(' x ')
-  result.slug = data.slug
+  result.id = data.id
   return result
 }
 
@@ -35,7 +35,7 @@ const multiplysets = preppedSets => {
   const result = {
     heading: preppedSets.heading,
     list: [],
-    slug: preppedSets.slug
+    id: preppedSets.id
   }
   switch (preppedSets.count) {
     case 5:

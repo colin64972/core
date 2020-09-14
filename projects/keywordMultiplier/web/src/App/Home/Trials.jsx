@@ -64,9 +64,9 @@ export const Trials = () => {
           {items.map(trial => (
             <TrialCard
               trial={trial}
-              isShown={shown.includes(trial.slug)}
+              isShown={shown.includes(trial.id)}
               isLastShown={shown.length === 1}
-              key={trial.slug}
+              key={trial.id}
             />
           ))}
         </Grid>
