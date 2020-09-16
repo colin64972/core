@@ -107,7 +107,8 @@ exports.constants = {
     NOT_FOUND: '*',
     TOS: '/terms-of-service',
     PP: '/privacy-policy',
-    FEEDBACK: '/feedback'
+    FEEDBACK: '/feedback',
+    STRIPE: 'https://stripe.com/'
   },
   ENDPOINTS: {
     options: [countriesPath, currenciesPath],
