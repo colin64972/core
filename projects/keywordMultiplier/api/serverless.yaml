@@ -12,6 +12,17 @@ provider:
   httpApi:
     name: ${env:GATEWAY_NAME}
     payload: '2.0'
+    cors:
+      allowedOrigins:
+        - ${env:LOCAL_ORIGIN}
+      allowedHeaders:
+        - Content-Type
+        - Authorization
+      allowedMethods:
+        - GET
+        - POST
+      allowCredentials: true
+      maxAge: 6000
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -63,34 +74,6 @@ functions:
       - sns:
           arn: ${env:SNS_ARN}
           topicName: ${env:SNS_TOPIC_NAME}
-  # deleteOne:
-  #   name: ${env:SERVICE_NAME}-deleteOne
-  #   handler: index.deleteOne
-  #   events:
-  #     - httpApi:
-  #         path: /${env:RESOURCE_NAME}/{id}
-  #         method: DELETE
-  # getAll:
-  #   name: ${env:SERVICE_NAME}-getAll
-  #   handler: index.getAll
-  #   events:
-  #     - httpApi:
-  #         path: /${env:RESOURCE_NAME}
-  #         method: GET
-  # getOne:
-  #   name: ${env:SERVICE_NAME}-getOne
-  #   handler: index.getOne
-  #   events:
-  #     - httpApi:
-  #         path: /${env:RESOURCE_NAME}/{id}
-  #         method: GET
-  # updateOne:
-  #   name: ${env:SERVICE_NAME}-updateOne
-  #   handler: index.updateOne
-  #   events:
-  #     - httpApi:
-  #         path: /${env:RESOURCE_NAME}/{id}
-  #         method: PUT
 
 configValidationMode: warn
 

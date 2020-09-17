@@ -13,29 +13,43 @@ const checkAuthorization = (authHeader, callback) => {
     })
 }
 
+const addCorsHeaders = res => ({
+  ...res,
+  'Access-Control-Allow-Origin': [process.env.LOCAL_ORIGIN],
+  'Access-Control-Allow-Credentials': true
+})
+
 export const createTrialHandler = async (event, context, callback) => {
-  // checkAuthorization(event.headers?.Authorization, callback)
-  const slsRes = await createTrial(event.body)
+  checkAuthorization(event.headers?.authorization, callback)
+  let slsRes = await createTrial(event.body)
+  slsRes = addCorsHeaders(slsRes)
   return callback(null, slsRes)
 }
 
 export const getMetaHandler = async (event, context, callback) => {
-  // checkAuthorization(event.headers?.Authorization, callback)
-  const slsRes = await getMeta(event.queryStringParameters)
+  checkAuthorization(event.headers?.authorization, callback)
+  let slsRes = await getMeta(event.queryStringParameters)
+  slsRes = addCorsHeaders(slsRes)
   return callback(null, slsRes)
 }
 
 export const preOrderHandler = async (event, context, callback) => {
-  const slsRes = await preOrder(event.body)
+  checkAuthorization(event.headers?.authorization, callback)
+  let slsRes = await preOrder(event.body)
+  slsRes = addCorsHeaders(slsRes)
   return callback(null, slsRes)
 }
 
 export const getVolumesHandler = async (event, context, callback) => {
-  const slsRes = await getVolumes(event.body)
+  checkAuthorization(event.headers?.authorization, callback)
+  let slsRes = await getVolumes(event.body)
+  slsRes = addCorsHeaders(slsRes)
   return callback(null, slsRes)
 }
 
 export const lowCreditsAlertHandler = async (event, context, callback) => {
-  const slsRes = await alertLowCredits(event.body)
+  checkAuthorization(event.headers?.authorization, callback)
+  let slsRes = await alertLowCredits(event.body)
+  slsRes = addCorsHeaders(slsRes)
   return callback(null, slsRes)
 }
