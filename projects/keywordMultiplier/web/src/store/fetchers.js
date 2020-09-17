@@ -17,14 +17,17 @@ export const fetchIpAddress = async () => {
 
 const options = {
   headers: {
-    Authorization: 'secret',
-    Accept: 'application/json'
+    authorization: 'secret',
+    accept: 'application/json'
   }
 }
 
 export const createTrial = async payload => {
   if (process.env.USE_MOCKS) return createTrialMock
   let url = 'http://localhost:2000'
+  if (process.env.NODE_ENV === 'production') {
+    url = 'https://apis.colin30.com/keyword-multiplier'
+  }
   const res = await post(`${url}/trials`, payload, options)
   return res
 }
@@ -39,6 +42,9 @@ export const fetchKeData = async resource => {
     }
   }
   let url = 'http://localhost:2000'
+  if (process.env.NODE_ENV === 'production') {
+    url = 'https://apis.colin30.com/keyword-multiplier'
+  }
   const res = await get(`${url}/ke?resource=${resource}`, options)
   return res
 }
@@ -51,6 +57,9 @@ export const makePreOrder = async (
 ) => {
   if (process.env.USE_MOCKS) return preOrderMock
   let url = 'http://localhost:2000'
+  if (process.env.NODE_ENV === 'production') {
+    url = 'https://apis.colin30.com/keyword-multiplier'
+  }
   const res = await post(
     `${url}/ke/pre-order`,
     {
@@ -73,6 +82,9 @@ export const fetchKeVolumes = async (
 ) => {
   if (process.env.USE_MOCKS) return volumeMock
   let url = 'http://localhost:2000'
+  if (process.env.NODE_ENV === 'production') {
+    url = 'https://apis.colin30.com/keyword-multiplier'
+  }
   const res = await post(
     `${url}/ke`,
     {
@@ -90,6 +102,9 @@ export const fetchKeVolumes = async (
 
 export const postLowCreditAlert = async credits => {
   let url = 'http://localhost:2000'
+  if (process.env.NODE_ENV === 'production') {
+    url = 'https://apis.colin30.com/keyword-multiplier'
+  }
   const res = await post(`${url}/ke/low-credits`, { credits }, options)
   if (res.status === 202) return true
   return false

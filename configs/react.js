@@ -17,6 +17,9 @@ exports.setConfig = (entry, outputPath, template, templateLocals) => ({
       chunks: 'all'
     }
   },
+  performance: {
+    hints: 'warning'
+  },
   devServer: {
     contentBase: outputPath,
     compress: true,
