@@ -60,17 +60,25 @@ const useStyles = makeStyles(theme => {
   }
 })
 
-export const TermsOfService = ({ open, closeHandler }) => {
+export const TermsOfService = ({
+  open,
+  closeHandler,
+  siteName,
+  siteUrl,
+  contactEmail
+}) => {
   const classes = useStyles()
-  const siteLink = () => (
+
+  const setSiteLink = () => (
     <a
-      href={process.env.URL}
+      href={siteUrl}
       _target="blank"
       rel="nofollow"
       className={classes.siteLink}>
-      boldstring.com
+      {siteName}
     </a>
   )
+
   return (
     <Dialog open={open} onClose={closeHandler}>
       <DialogTitle>
@@ -89,29 +97,27 @@ export const TermsOfService = ({ open, closeHandler }) => {
           </Typography>
           <Typography className={classes.copy}>
             By accessing and placing an order with&nbsp;
-            {siteLink()}, you confirm that you are in agreement with and bound
-            by the terms of service contained in the Terms &amp; Conditions
-            outlined below. These terms apply to the entire website and any
-            email or other type of communication between you and&nbsp;
-            {siteLink()}
+            {setSiteLink()}, you confirm that you are in agreement with and
+            bound by the terms of service contained in the Terms &amp;
+            Conditions outlined below. These terms apply to the entire website
+            and any email or other type of communication between you and&nbsp;
+            {setSiteLink()}
           </Typography>
           <Typography className={classes.copy}>
             Under no circumstances shall the&nbsp;
-            {siteLink()}
+            {setSiteLink()}
             &nbsp;team be liable for any direct, indirect, special, incidental
             or consequential damages, including, but not limited to, loss of
             data or profit, arising out of the use, or the inability to use, the
             materials on this site, even if the&nbsp;
-            <a href="#" className={classes.siteLink}>
-              boldstring.com
-            </a>
+            {setSiteLink()}
             &nbsp;team or an authorized representative has been advised of the
             possibility of such damages. If your use of materials from this site
             results in the need for servicing, repair or correction of equipment
             or data, you assume any costs thereof.
           </Typography>
           <Typography className={classes.copy}>
-            {siteLink()}
+            {setSiteLink()}
             &nbsp;will not be responsible for any outcome that may occur during
             the course of usage of our resources. We reserve the rights to
             change prices and revise the resources usage policy in any moment.
@@ -121,17 +127,15 @@ export const TermsOfService = ({ open, closeHandler }) => {
         <section className={classes.section}>
           <Typography className={classes.sectionHeading}>License</Typography>
           <Typography className={classes.copy}>
-            {siteLink()}&nbsp;grants you a revocable, non&endash;exclusive,
-            non&endash;transferable, limited license to download, install and
-            use the website strictly in accordance with the terms of this
-            Agreement. These Terms &amp; Conditions are a contract between you
-            and&nbsp;
-            {siteLink()}
+            {setSiteLink()}&nbsp;grants you a revocable, non&ndash;exclusive,
+            non&ndash;transferable, limited license to download, install and use
+            the website strictly in accordance with the terms of this Agreement.
+            These Terms &amp; Conditions are a contract between you and&nbsp;
+            {setSiteLink()}
             &nbsp;where &#40;&quot;we&quot;, &quot;our&quot;, or
-            &quot;us&quot;&#41; grants you a revocable, non&endash;exclusive,
-            non&endash;transferable, limited license to download, install and
-            use the website strictly in accordance with the terms of this
-            Agreement.
+            &quot;us&quot;&#41; grants you a revocable, non&ndash;exclusive,
+            non&ndash;transferable, limited license to download, install and use
+            the website strictly in accordance with the terms of this Agreement.
           </Typography>
         </section>
 
@@ -153,21 +157,21 @@ export const TermsOfService = ({ open, closeHandler }) => {
               <strong>Company&#58;</strong> when this policy mentions
               &quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or
               &quot;our&quot;, it refers to&nbsp;
-              {siteLink()}
+              {setSiteLink()}
               &nbsp;that is responsible for your information under this Privacy
               Policy.
             </li>
             <li className={classes.listItem}>
               <strong>Country&#58;</strong> where&nbsp;
-              {siteLink()}
+              {setSiteLink()}
               &nbsp;or the owners&frasl;founders of&nbsp;
-              {siteLink()}
+              {setSiteLink()}
               &nbsp;are based, in this case is <a>Canada</a>.
             </li>
             <li className={classes.listItem}>
               <strong>Customer&#58;</strong> refers to the company, organization
               or person that signs up to use the&nbsp;
-              {siteLink()}
+              {setSiteLink()}
               &nbsp;Service to manage the relationships with your consumers or
               service users.
             </li>
@@ -175,7 +179,7 @@ export const TermsOfService = ({ open, closeHandler }) => {
               <strong>Device&#58;</strong> any internet connected device such as
               a phone, tablet, computer or any other device that can be used to
               visit&nbsp;
-              {siteLink()}
+              {setSiteLink()}
               &nbsp;and use the services.
             </li>
             <li className={classes.listItem}>
@@ -188,9 +192,9 @@ export const TermsOfService = ({ open, closeHandler }) => {
             <li className={classes.listItem}>
               <strong>Personnel&#58;</strong> refers to those individuals who
               are employed by&nbsp;
-              {siteLink()}
+              {setSiteLink()}
               &nbsp;or are under contract to perform a service on behalf of one
-              of the parties.
+              of the-parties.
             </li>
             <li className={classes.listItem}>
               <strong>Personal Data&#58;</strong> any information that directly,
@@ -202,27 +206,27 @@ export const TermsOfService = ({ open, closeHandler }) => {
             <li className={classes.listItem}>
               <strong>Service&#58;</strong> refers to the service provided
               by&nbsp;
-              {siteLink()}
+              {setSiteLink()}
               &nbsp;as described in the relative terms &#40;if available&#41;
               and on this platform.
             </li>
             <li className={classes.listItem}>
-              <strong>Third&endash;party service&#58;</strong> refers to
+              <strong>Third&ndash;party service&#58;</strong> refers to
               advertisers, contest sponsors, promotional and marketing partners,
               and others who provide our content or whose products or services
               we think may interest you.
             </li>
             <li className={classes.listItem}>
-              <strong>Website&#58;</strong>&nbsp;{siteLink()}&apos;s site, which
-              can be accessed via this URL:&nbsp;
-              <a href={process.env.URL} className={classes.siteLink}>
-                {process.env.URL}
+              <strong>Website&#58;</strong>&nbsp;{setSiteLink()}&apos;s site,
+              which can be accessed via this URL:&nbsp;
+              <a href={siteUrl} className={classes.siteLink}>
+                {siteUrl}
               </a>
             </li>
             <li className={classes.listItem}>
               <strong>You&#58;</strong> a person or entity that is registered
               with&nbsp;
-              {siteLink()}
+              {setSiteLink()}
               &nbsp;to use the Services.
             </li>
           </ul>
@@ -256,12 +260,12 @@ export const TermsOfService = ({ open, closeHandler }) => {
         <section className={classes.section}>
           <Typography className={classes.sectionHeading}>Payment</Typography>
           <Typography className={classes.copy}>
-            If you pay for any of our one-time payment plans, you agree to pay
-            all fees or charges to your account for the Service in accordance
-            with the fees, charges and billing terms in effect at the time that
-            each fee or charge is due and payable. Your Payment Provider
-            agreement governs your use of the designated credit card account,
-            and you must refer to that agreement and not these Terms to
+            If you pay for any of our one&ndash;ime payment plans, you agree to
+            pay all fees or charges to your account for the Service in
+            accordance with the fees, charges and billing terms in effect at the
+            time that each fee or charge is due and payable. Your Payment
+            Provider agreement governs your use of the designated credit card
+            account, and you must refer to that agreement and not these Terms to
             determine your rights and liabilities with respect to your Payment
             Provider. By providing us with your credit card number and
             associated payment information, you agree that we are authorized to
@@ -271,15 +275,15 @@ export const TermsOfService = ({ open, closeHandler }) => {
             immediately notify us of any change in your billing address or the
             credit card used for payment hereunder. We reserve the right at any
             time to change its prices and billing methods, either immediately
-            upon posting on our Site or by e-mail delivery to your
+            upon posting on our Site or by e&ndash;ail delivery to your
             organization&apos;s administrator&#40;s&#41;. Any attorney fees,
             court costs, or other costs incurred in collection of delinquent
             undisputed amounts shall be the responsibility of and paid for by
             you. No contract will exist between you and us for the Service until
-            we accept your order by a confirmatory e-mail, SMS&frasl;MMS
+            we accept your order by a confirmatory e&ndash;ail, SMS&frasl;MMS
             message, or other appropriate means of communication. You are
-            responsible for any third-party fees that you may incur when using
-            the Service.
+            responsible for any Third&ndash;Party fees that you may incur when
+            using the Service.
           </Typography>
         </section>
 
@@ -357,11 +361,11 @@ export const TermsOfService = ({ open, closeHandler }) => {
             you have visited. A Cookie is a small piece of data stored on your
             computer or mobile device by your web browser. We use Cookies to
             enhance the performance and functionality of our service but are
-            non-essential to their use. However, without these cookies, certain
-            functionality like videos may become unavailable or you would be
-            required to enter your login details every time you visit our
-            platform as we would not be able to remember that you had logged in
-            previously. Most web browsers can be set to disable the use of
+            non&ndash;ssential to their use. However, without these cookies,
+            certain functionality like videos may become unavailable or you
+            would be required to enter your login details every time you visit
+            our platform as we would not be able to remember that you had logged
+            in previously. Most web browsers can be set to disable the use of
             Cookies. However, if you disable Cookies, you may not be able to
             access functionality on our website correctly or at all. We never
             place Personally Identifiable Information in Cookies.
@@ -423,9 +427,9 @@ export const TermsOfService = ({ open, closeHandler }) => {
             Third&ndash;Party Services
           </Typography>
           <Typography className={classes.copy}>
-            We may display, include or make available third&ndash;party content
+            We may display, include or make available Third&ndash;Party content
             &#40;including data, information, applications and other products
-            services&#41; or provide links to third&ndash;party websites or
+            services&#41; or provide links to Third&ndash;Party websites or
             services &#40;&quot;Third&ndash;Party Services&quot;&#41;. You
             acknowledge and agree that we shall not be responsible for any
             Third&ndash;Party Services, including their accuracy, completeness,
@@ -435,7 +439,7 @@ export const TermsOfService = ({ open, closeHandler }) => {
             entity for any Third&ndash;Party Services. Third&ndash;Party
             Services and links thereto are provided solely as a convenience to
             you and you access and use them entirely at your own risk and
-            subject to such third parties&apos; terms and conditions.
+            subject to such Third-Parties&apos; terms and conditions.
           </Typography>
         </section>
 
@@ -507,8 +511,8 @@ export const TermsOfService = ({ open, closeHandler }) => {
             licensors and service providers, expressly disclaims all warranties,
             whether express, implied, statutory or otherwise, with respect to
             the service, including all implied warranties of merchantability,
-            fitness for a particular purpose, title and non- infringement, and
-            warranties that may arise out of course of dealing, course of
+            fitness for a particular purpose, title and non&ndash;infringement,
+            and warranties that may arise out of course of dealing, course of
             performance, usage or trade practice. Without limitation to the
             foregoing, we provide no warranty or undertaking, and makes no
             representation of any kind that the service will meet your
@@ -524,11 +528,11 @@ export const TermsOfService = ({ open, closeHandler }) => {
             &#40;i&#41; as to the operation or availability of the service, or
             the information, content, and materials or products included
             thereon; &#40;ii&#41; that the service will be uninterrupted or
-            error-free; &#40;iii&#41; as to the accuracy, reliability, or
+            error&ndash;free; &#40;iii&#41; as to the accuracy, reliability, or
             currency of any information or content provided through the service;
             or &#40;iv&#41; that the service, its servers, the content, or
-            e-mails sent from or on behalf of us are free of viruses, scripts,
-            trojan horses, worms, malware, timebombs or other harmful
+            e&ndash;mails sent from or on behalf of us are free of viruses,
+            scripts, trojan horses, worms, malware, timebombs or other harmful
             components. Some jurisdictions do not allow the exclusion of or
             limitations on implied warranties or the limitations on the
             applicable statutory rights of a consumer, so some or all of the
@@ -551,11 +555,11 @@ export const TermsOfService = ({ open, closeHandler }) => {
             damages for loss of profits, for loss of data or other information,
             for business interruption, for personal injury, for loss of privacy
             arising out of or in any way related to the use of or inability to
-            use the service, third-party software and&frasl;or third-party
-            hardware used with the service, or otherwise in connection with any
-            provision of this Agreement&#41;, even if we or any supplier has
-            been advised of the possibility of such damages and even if the
-            remedy fails of its essential purpose. Some
+            use the service, Third&ndash;party software and&frasl;or
+            Third&ndash;party hardware used with the service, or otherwise in
+            connection with any provision of this Agreement&#41;, even if we or
+            any supplier has been advised of the possibility of such damages and
+            even if the remedy fails of its essential purpose. Some
             states&frasl;jurisdictions do not allow the exclusion or limitation
             of incidental or consequential damages, so the above limitation or
             exclusion may not apply to you.
@@ -729,7 +733,7 @@ export const TermsOfService = ({ open, closeHandler }) => {
             necessary to protect the party’s rights or property pending the
             completion of arbitration. Any and all legal, accounting, and other
             costs, fees, and expenses incurred by the prevailing party shall be
-            borne by the non-prevailing party.
+            borne by the non&ndash;prevailing party.
           </Typography>
         </section>
 
@@ -836,7 +840,7 @@ export const TermsOfService = ({ open, closeHandler }) => {
             Our Service and its contents are provided &quot;as is&quot; and
             &quot;as available&quot; without any warranty or representations of
             any kind, whether express or implied. We are a distributor and not a
-            publisher of the content supplied by third parties; as such, our
+            publisher of the content supplied by Third-Parties; as such, our
             exercises no editorial control over such content and makes no
             warranty or representation as to the accuracy, reliability or
             currency of any information, content, service or merchandise
@@ -847,7 +851,7 @@ export const TermsOfService = ({ open, closeHandler }) => {
             in the products provided as a part of, or otherwise in connection
             with, our Service, including without limitation any warranties of
             merchantability, fitness for a particular purpose or
-            non&ndash;infringement of third&ndash;party rights. No oral advice
+            non&ndash;infringement of Third&ndash;party rights. No oral advice
             or written information given by us or any of its affiliates,
             employees, officers, directors, agents, or the like will create a
             warranty. Price and availability information is subject to change
@@ -865,7 +869,7 @@ export const TermsOfService = ({ open, closeHandler }) => {
           <ul>
             <li className={classes.listItem}>
               <bold>Via Email&#58;</bold>
-              &nbsp;{process.env.CONTACT_EMAIL}
+              &nbsp;{contactEmail}
             </li>
           </ul>
         </section>
