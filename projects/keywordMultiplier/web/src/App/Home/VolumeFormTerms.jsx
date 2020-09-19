@@ -57,6 +57,7 @@ export const VolumeFormTerms = () => {
 
   const openTermsDialogHandler = event => setTermsDialogStatus(true)
   const closeTermsDialogHandler = event => setTermsDialogStatus(false)
+
   return (
     <Field name="acceptTerms" validate={validator}>
       {fieldProps => {
@@ -95,6 +96,9 @@ export const VolumeFormTerms = () => {
                   <TermsOfService
                     open={termsDialogStatus}
                     closeHandler={closeTermsDialogHandler}
+                    siteName={process.env.SITE_NAME}
+                    siteUrl={process.env.SITE_URL}
+                    contactEmail={process.env.SITE_CONTACT}
                   />
                 </div>
               }
