@@ -1,4 +1,4 @@
-import { FadeIn } from '@colin30/shared/react/components/FadeIn'
+import Loadable from 'react-loadable'
 import { Field } from 'formik'
 import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/styles'
@@ -6,10 +6,10 @@ import {
   FormControl,
   FormHelperText,
   FormControlLabel,
-  Checkbox
+  Checkbox,
+  CircularProgress
 } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search'
-import { TermsOfService } from '@colin30/shared/react/components/TermsOfService'
 
 const useStyles = makeStyles(theme => ({
   formGroup: {
@@ -58,6 +58,17 @@ export const VolumeFormTerms = () => {
   const openTermsDialogHandler = event => setTermsDialogStatus(true)
   const closeTermsDialogHandler = event => setTermsDialogStatus(false)
 
+  const TermsOfServiceLoadable = Loadable({
+    loader: () => import('@colin30/shared/react/components/TermsOfService'),
+    loading: props => {
+      return <CircularProgress />
+    },
+    render: (loaded, props) => {
+      let Component = loaded.TermsOfService
+      return <Component {...props} />
+    }
+  })
+
   return (
     <Field name="acceptTerms" validate={validator}>
       {fieldProps => {
@@ -93,7 +104,7 @@ export const VolumeFormTerms = () => {
                     className={classes.viewTermsButton}>
                     <SearchIcon className={classes.viewTermsButtonIcon} />
                   </button>
-                  <TermsOfService
+                  <TermsOfServiceLoadable
                     open={termsDialogStatus}
                     closeHandler={closeTermsDialogHandler}
                     siteName={process.env.SITE_NAME}
