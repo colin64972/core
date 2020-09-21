@@ -24,7 +24,7 @@ baseConfig.plugins.push(
   new EnvironmentPlugin({
     SITE_NAME: process.env.SITE_NAME,
     SITE_URL: process.env.SITE_URL,
-    SITE_CONTACT: process.env.SITE_CONTACT
+    SITE_CONTACT_EMAIL: process.env.SITE_CONTACT_EMAIL
   })
 )
 

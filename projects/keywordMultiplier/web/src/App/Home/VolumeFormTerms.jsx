@@ -58,8 +58,8 @@ export const VolumeFormTerms = () => {
   const openTermsDialogHandler = event => setTermsDialogStatus(true)
   const closeTermsDialogHandler = event => setTermsDialogStatus(false)
 
-  const TermsOfServiceLoadable = Loadable({
-    loader: () => import('@colin30/shared/react/components/TermsOfService'),
+  const TermsAndConditionsLoadable = Loadable({
+    loader: () => import('@colin30/shared/react/components/TermsAndConditions'),
     loading: props => {
       return <CircularProgress />
     },
@@ -97,19 +97,19 @@ export const VolumeFormTerms = () => {
               }
               label={
                 <div className={classes.checkboxLabel}>
-                  I accept the Terms of Service
+                  I accept the Terms &amp; Conditions
                   <button
                     type="button"
                     onClick={openTermsDialogHandler}
                     className={classes.viewTermsButton}>
                     <SearchIcon className={classes.viewTermsButtonIcon} />
                   </button>
-                  <TermsOfServiceLoadable
+                  <TermsAndConditionsLoadable
                     open={termsDialogStatus}
                     closeHandler={closeTermsDialogHandler}
                     siteName={process.env.SITE_NAME}
                     siteUrl={process.env.SITE_URL}
-                    contactEmail={process.env.SITE_CONTACT}
+                    siteContactEmail={process.env.SITE_CONTACT_EMAIL}
                   />
                 </div>
               }
