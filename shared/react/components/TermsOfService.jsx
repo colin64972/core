@@ -868,7 +868,7 @@ export const TermsOfService = ({
           </Typography>
           <ul>
             <li className={classes.listItem}>
-              <bold>Via Email&#58;</bold>
+              <strong>Via Email&#58;</strong>
               &nbsp;{contactEmail}
             </li>
           </ul>
