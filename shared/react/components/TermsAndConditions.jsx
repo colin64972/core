@@ -65,7 +65,7 @@ export const TermsOfService = ({
   closeHandler,
   siteName,
   siteUrl,
-  contactEmail
+  siteContactEmail
 }) => {
   const classes = useStyles()
 
@@ -86,7 +86,7 @@ export const TermsOfService = ({
           Terms &amp; Conditions
         </Typography>
         <Typography className={classes.subHeading}>
-          Updated October 12th, 2020
+          Updated on October 13th, 2020
         </Typography>
       </DialogTitle>
 
@@ -194,7 +194,7 @@ export const TermsOfService = ({
               are employed by&nbsp;
               {setSiteLink()}
               &nbsp;or are under contract to perform a service on behalf of one
-              of the-parties.
+              of the parties.
             </li>
             <li className={classes.listItem}>
               <strong>Personal Data&#58;</strong> any information that directly,
@@ -211,7 +211,7 @@ export const TermsOfService = ({
               and on this platform.
             </li>
             <li className={classes.listItem}>
-              <strong>Third&ndash;party service&#58;</strong> refers to
+              <strong>Third&ndash;Party Service&#58;</strong> refers to
               advertisers, contest sponsors, promotional and marketing partners,
               and others who provide our content or whose products or services
               we think may interest you.
@@ -260,7 +260,7 @@ export const TermsOfService = ({
         <section className={classes.section}>
           <Typography className={classes.sectionHeading}>Payment</Typography>
           <Typography className={classes.copy}>
-            If you pay for any of our one&ndash;ime payment plans, you agree to
+            If you pay for any of our one&ndash;time payment plans, you agree to
             pay all fees or charges to your account for the Service in
             accordance with the fees, charges and billing terms in effect at the
             time that each fee or charge is due and payable. Your Payment
@@ -275,12 +275,12 @@ export const TermsOfService = ({
             immediately notify us of any change in your billing address or the
             credit card used for payment hereunder. We reserve the right at any
             time to change its prices and billing methods, either immediately
-            upon posting on our Site or by e&ndash;ail delivery to your
+            upon posting on our Site or by e&ndash;mail delivery to your
             organization&apos;s administrator&#40;s&#41;. Any attorney fees,
             court costs, or other costs incurred in collection of delinquent
             undisputed amounts shall be the responsibility of and paid for by
             you. No contract will exist between you and us for the Service until
-            we accept your order by a confirmatory e&ndash;ail, SMS&frasl;MMS
+            we accept your order by a confirmatory e&ndash;mail, SMS&frasl;MMS
             message, or other appropriate means of communication. You are
             responsible for any Third&ndash;Party fees that you may incur when
             using the Service.
@@ -298,11 +298,11 @@ export const TermsOfService = ({
             purchasing our products.
           </Typography>
           <Typography className={classes.copy}>
-            As with any shopping experience, there are terms and conditions that
-            apply to transactions at our company. We&apos;ll be as brief as our
-            attorneys will allow. The main thing to remember is that by placing
-            an order or making a purchase from us, you agree to the terms along
-            with our Privacy Policy.
+            As with any shopping experience, there are Terms &amp; Conditions
+            that apply to transactions at our company. We&apos;ll be as brief as
+            our attorneys will allow. The main thing to remember is that by
+            placing an order or making a purchase from us, you agree to the
+            terms along with our Privacy Policy.
           </Typography>
           <Typography className={classes.copy}>
             If, for any reason, You are not completely satisfied with any good
@@ -347,10 +347,10 @@ export const TermsOfService = ({
             Our service may contain links to other websites that are not
             operated by Us. If You click on a Third&ndash;Party link, You will
             be directed to that Third&ndash;Party&apos;s site. We strongly
-            advise You to review the Terms &amp; Conditions of every site You
+            advise You to review the terms and conditions of every site You
             visit. We have no control over and assume no responsibility for the
-            content, Terms &amp; Conditions or practices of any
-            Third&ndash;Party sites or services.
+            content, terms and conditions or practices of any Third&ndash;Party
+            sites or services.
           </Typography>
         </section>
 
@@ -361,7 +361,7 @@ export const TermsOfService = ({
             you have visited. A Cookie is a small piece of data stored on your
             computer or mobile device by your web browser. We use Cookies to
             enhance the performance and functionality of our service but are
-            non&ndash;ssential to their use. However, without these cookies,
+            non&ndash;essential to their use. However, without these cookies,
             certain functionality like videos may become unavailable or you
             would be required to enter your login details every time you visit
             our platform as we would not be able to remember that you had logged
@@ -439,7 +439,7 @@ export const TermsOfService = ({
             entity for any Third&ndash;Party Services. Third&ndash;Party
             Services and links thereto are provided solely as a convenience to
             you and you access and use them entirely at your own risk and
-            subject to such Third-Parties&apos; terms and conditions.
+            subject to such Third&ndash;Party&apos;s terms and conditions.
           </Typography>
         </section>
 
@@ -555,8 +555,8 @@ export const TermsOfService = ({
             damages for loss of profits, for loss of data or other information,
             for business interruption, for personal injury, for loss of privacy
             arising out of or in any way related to the use of or inability to
-            use the service, Third&ndash;party software and&frasl;or
-            Third&ndash;party hardware used with the service, or otherwise in
+            use the service, Third&ndash;Party software and&frasl;or
+            Third&ndash;Party hardware used with the service, or otherwise in
             connection with any provision of this Agreement&#41;, even if we or
             any supplier has been advised of the possibility of such damages and
             even if the remedy fails of its essential purpose. Some
@@ -639,7 +639,7 @@ export const TermsOfService = ({
             The Agreement constitutes the entire agreement between you and us
             regarding your use of the service and supersedes all prior and
             contemporaneous written or oral agreements between you and us. You
-            may be subject to additional terms and conditions that apply when
+            may be subject to additional Terms &amp; Conditions that apply when
             you use or purchase other services from us, which we will provide to
             you at the time of such use or purchase.
           </Typography>
@@ -707,12 +707,12 @@ export const TermsOfService = ({
             Dispute, which is a written statement that sets forth the name,
             address, and contact information of the party giving it, the facts
             giving rise to the dispute, and the relief requested. You must send
-            any Notice of Dispute via email to: . We will send any Notice of
-            Dispute to you by mail to your address if we have it, or otherwise
-            to your email address. You and us will attempt to resolve any
-            dispute through informal negotiation within sixty &#40;60&#41; days
-            from the date the Notice of Dispute is sent. After sixty
-            &#40;60&#41; days, you or us may commence arbitration.
+            any Notice of Dispute via email to: {siteContactEmail}. We will send
+            any Notice of Dispute to you by mail to your address if we have it,
+            or otherwise to your email address. You and us will attempt to
+            resolve any dispute through informal negotiation within sixty
+            &#40;60&#41; days from the date the Notice of Dispute is sent. After
+            sixty &#40;60&#41; days, you or us may commence arbitration.
           </Typography>
         </section>
 
@@ -769,9 +769,9 @@ export const TermsOfService = ({
             responsible to read all Promotions rules to determine whether or not
             you are eligible to participate. If you enter any Promotion, you
             agree to abide by and to comply with all Promotions Rules.
-            Additional terms and conditions may apply to purchases of goods or
-            services on or through the Services, which terms and conditions are
-            made a part of this Agreement by this reference.
+            Additional Terms &amp; Conditions may apply to purchases of goods or
+            services on or through the Services, which Terms &amp; Conditions
+            are made a part of this Agreement by this reference.
           </Typography>
         </section>
 
@@ -840,8 +840,8 @@ export const TermsOfService = ({
             Our Service and its contents are provided &quot;as is&quot; and
             &quot;as available&quot; without any warranty or representations of
             any kind, whether express or implied. We are a distributor and not a
-            publisher of the content supplied by Third-Parties; as such, our
-            exercises no editorial control over such content and makes no
+            publisher of the content supplied by Third&ndash;Parties; as such,
+            our exercises no editorial control over such content and makes no
             warranty or representation as to the accuracy, reliability or
             currency of any information, content, service or merchandise
             provided through or accessible via our Service. Without limiting the
@@ -851,7 +851,7 @@ export const TermsOfService = ({
             in the products provided as a part of, or otherwise in connection
             with, our Service, including without limitation any warranties of
             merchantability, fitness for a particular purpose or
-            non&ndash;infringement of Third&ndash;party rights. No oral advice
+            non&ndash;infringement of Third&ndash;Party rights. No oral advice
             or written information given by us or any of its affiliates,
             employees, officers, directors, agents, or the like will create a
             warranty. Price and availability information is subject to change
@@ -869,7 +869,7 @@ export const TermsOfService = ({
           <ul>
             <li className={classes.listItem}>
               <strong>Via Email&#58;</strong>
-              &nbsp;{contactEmail}
+              &nbsp;{siteContactEmail}
             </li>
           </ul>
         </section>
