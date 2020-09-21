@@ -215,7 +215,7 @@ export const VolumeForm = ({
       </Paper>
       <Paper className={classNames(classes.gridPosition5, classes.formSection)}>
         <Typography variant="h3" className={classes.formSectionTitle}>
-          Terms and Conditions
+          Terms &amp; Conditions
         </Typography>
         <VolumeFormTerms />
       </Paper>
