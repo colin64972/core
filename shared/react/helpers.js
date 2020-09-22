@@ -6,3 +6,5 @@ export const createHashId = () => {
   hash.update(uuidv4())
   return hash.digest('hex').substr(0, 10)
 }
+
+export const removeSetPrefix = text => text.replace(/set-/gi, '')

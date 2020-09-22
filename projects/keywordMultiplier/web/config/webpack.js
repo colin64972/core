@@ -3,7 +3,7 @@ const { setConfig } = require('@colin30/configs/react')
 
 exports.config = setConfig(
   { src: path.resolve('src', 'index') },
-  path.resolve('static'),
+  path.resolve('dist'),
   path.resolve(
     __dirname,
     '..',

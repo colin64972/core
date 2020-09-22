@@ -16,6 +16,14 @@ exports.setConfig = (entry, outputPath, template, templateLocals) => ({
       chunks: 'all'
     }
   },
+  devServer: {
+    contentBase: outputPath,
+    compress: true,
+    port: 8001,
+    hot: true,
+    writeToDisk: true,
+    historyApiFallback: true
+  },
   resolve: {
     extensions: [
       '.js',
@@ -64,9 +72,12 @@ exports.setConfig = (entry, outputPath, template, templateLocals) => ({
             loader: 'file-loader',
             options: {
               emitFile: true,
-              name: '[name].[ext]',
-              outputPath: 'assets',
-              publicPath: filename => `assets/${filename}`
+              name: '[folder]/[name].[ext]',
+              outputPath: (url, resourcePath, context) => `assets/${url}`,
+              publicPath: (url, resourcePath, context) =>
+                process.env.NODE_ENV === 'development'
+                  ? `assets/${url}`
+                  : `${process.env.npm_package_config_assetsUrl}/${process.env.npm_package_config_assetProjectName}/${process.env.npm_package_config_assetProjectContext}/${url}`
             }
           }
         ]
