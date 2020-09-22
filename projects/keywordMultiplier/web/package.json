@@ -8,17 +8,18 @@
   "private": true,
   "prettier": "@colin30/configs/prettier",
   "config": {
-    "name": "colin30-projects-keyword_multiplier-web",
-    "bucket": "colin30-projects-keyword_multiplier-web-static",
+    "assetBucket": "colin30-assets",
+    "assetProjectName": "keyword-multiplier",
+    "assetProjectContext": "web",
+    "assetsUrl": "https://assets.colin30.com",
     "profile": "default",
     "template_title": "Colin30 Content Marketing Keyword Multiplier"
   },
   "scripts": {
     "start": "lite-server -c config/lite-server.js",
-    "dev": "NODE_ENV=development webpack-cli --config config/webpack-dev.js --progress --watch",
+    "dev": "NODE_ENV=development webpack-dev-server --config config/webpack-dev.js",
     "pro": "NODE_ENV=production webpack-cli --config config/webpack-pro.js --progress",
-    "mb": "aws s3 mb s3://$npm_package_config_bucket --profile $npm_package_config_profile",
-    "sync": "aws s3 sync static s3://$npm_package_config_bucket --acl public-read --profile $npm_package_config_profile",
+    "assets:cp": "aws s3 cp dist/assets s3://$npm_package_config_assetBucket/$npm_package_config_assetProjectName/$npm_package_config_assetProjectContext --profile $npm_package_config_profile --recursive",
     "deploy": "yarn build && yarn sync"
   },
   "devDependencies": {
@@ -55,6 +56,7 @@
     "reselect": "^4.0.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.1.2"
   }
 }
