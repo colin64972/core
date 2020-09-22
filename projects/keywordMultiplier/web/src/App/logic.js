@@ -3,88 +3,22 @@ import { createHashId } from '@colin30/shared/react/helpers'
 import { constants } from './constants'
 
 export const prepSetValue = input => {
-  // TODO update set parsing rules
-  const split = input.replace(/\r|\n/g, 'A1B2C3').split('A1B2C3')
-  return [...new Set(split)].join('\n')
-}
+  const split = input
+    .replace(/[\n\r]+/gi, constants.REPLACEMENT_CODE)
+    .replace(/\s+/gi, '')
+    .split(constants.REPLACEMENT_CODE)
 
-const changeSetNameToLabel = data => data.substr(-1)
-
-export const removeSetPrefix = data => parseInt(data.substr(-1), 10)
-
-const prepPostedSets = data => {
-  const { sets } = data
-  if (typeof sets !== 'object') throw new Error('api did not return data')
-  const headings = []
-  const result = Object.keys(sets).reduce((acc, cur, ind) => {
-    headings.push(changeSetNameToLabel(cur))
-    const temp = acc
-    temp[String.fromCharCode(ind + 97)] = {
-      set: removeSetPrefix(cur),
-      data: sets[cur].split('\n')
+  const nonWordsRemoved = split.map(line => {
+    let temp
+    if (/^\.(\w+)$/.test(line)) {
+      temp = line
+    } else {
+      temp = line.replace(/[-_\W]+/gi, '')
     }
-    return temp
-  }, {})
-  result.count = Object.keys(sets).length
-  result.heading = headings.join(' x ')
-  result.id = data.id
-  return result
-}
-
-const multiplysets = preppedSets => {
-  const result = {
-    heading: preppedSets.heading,
-    list: [],
-    id: preppedSets.id
-  }
-  switch (preppedSets.count) {
-    case 5:
-      for (let a of preppedSets.a.data) {
-        for (let b of preppedSets.b.data) {
-          for (let c of preppedSets.c.data) {
-            for (let d of preppedSets.d.data) {
-              for (let e of preppedSets.e.data) {
-                result.list.push(`${a} ${b} ${c} ${d} ${e}`)
-              }
-            }
-          }
-        }
-      }
-      break
-    case 4:
-      for (let a of preppedSets.a.data) {
-        for (let b of preppedSets.b.data) {
-          for (let c of preppedSets.c.data) {
-            for (let d of preppedSets.d.data) {
-              result.list.push(`${a} ${b} ${c} ${d}`)
-            }
-          }
-        }
-      }
-      break
-    case 3:
-      for (let a of preppedSets.a.data) {
-        for (let b of preppedSets.b.data) {
-          for (let c of preppedSets.c.data) {
-            result.list.push(`${a} ${b} ${c}`)
-          }
-        }
-      }
-      break
-    default:
-      for (let a of preppedSets.a.data) {
-        for (let b of preppedSets.b.data) {
-          result.list.push(`${a} ${b}`)
-        }
-      }
-      break
-  }
-  return result
-}
-
-export const processTrial = postedData => {
-  const preppedSets = prepPostedSets(postedData)
-  return multiplysets(preppedSets)
+    return temp.trim().toLowerCase()
+  })
+  const uniqueSet = new Set(nonWordsRemoved)
+  return [...uniqueSet].join('\n').replace(/\n$/, '')
 }
 
 export const formatProductLine = (value, matchType, whiteSpaceCode) => {
@@ -188,3 +122,9 @@ export const generateNotice = (
   }
   return result
 }
+
+export const decorateTrial = data => ({
+  id: data.id,
+  heading: data.trialProduct.heading,
+  list: data.trialProduct.list
+})
