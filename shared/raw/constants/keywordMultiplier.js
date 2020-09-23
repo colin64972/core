@@ -105,7 +105,7 @@ exports.constants = {
   URLS: {
     HOME: '/',
     NOT_FOUND: '*',
-    TOS: '/terms-of-service',
+    TAndC: '/terms-and-conditions',
     PP: '/privacy-policy',
     FEEDBACK: '/feedback',
     STRIPE: 'https://stripe.com/'
