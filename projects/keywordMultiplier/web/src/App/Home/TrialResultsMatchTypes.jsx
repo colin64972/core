@@ -77,7 +77,7 @@ const useStyles = makeStyles(theme => {
   }
 })
 
-export const MatchTypesPanel = () => {
+export const TrialResultsMatchTypes = () => {
   const classes = useStyles()
 
   const selectedMatchType = useSelector(state => getMatchType(state))
