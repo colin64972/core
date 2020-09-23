@@ -112,8 +112,8 @@ export const Footer = () => {
       icon: <WebIcon className={classes.menuItemIcon} />
     },
     {
-      label: 'Terms of Service',
-      href: constants.URLS.TOS,
+      label: 'Terms & Conditions',
+      href: constants.URLS.TAndC,
       key: createHashId(),
       icon: <GavelIcon className={classes.menuItemIcon} />
     },
