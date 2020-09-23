@@ -1,6 +1,7 @@
 import React from 'react'
 import { defaultPadding } from '@colin30/shared/react/theming'
 import { createHashId } from '@colin30/shared/react/helpers'
+import { ImageHandler } from '@colin30/shared/react/components/ImageHandler'
 import Grid from '@material-ui/core/Grid'
 import Link from '@material-ui/core/Link'
 import Typography from '@material-ui/core/Typography'
@@ -10,7 +11,7 @@ import VpnLockIcon from '@material-ui/icons/VpnLock'
 import WebIcon from '@material-ui/icons/Web'
 import { makeStyles } from '@material-ui/styles'
 import { constants } from '../constants'
-import ProfileImage from '../../exports/images/colin30-profile-1000w.jpg'
+import { ColinProfile } from '../../../assets'
 
 const useStyles = makeStyles(theme => ({
   footerSection: {
@@ -70,19 +71,17 @@ const useStyles = makeStyles(theme => ({
   badgeHeading: {
     textAlign: 'right',
     lineHeight: 1.25,
+    margin: `0 ${theme.custom.setSpace()}px 0 0`,
     [theme.breakpoints.down('xs')]: {
       textAlign: 'left',
       fontSize: theme.custom.setSpace() * 1.5,
-      marginTop: theme.custom.setSpace() / 2
+      margin: `0 0 0 ${theme.custom.setSpace()}px`
     }
   },
-  profileImage: {
-    width: 48,
-    borderRadius: theme.custom.borderRadius,
-    margin: `0 0 0 ${theme.custom.setSpace()}px`,
-    [theme.breakpoints.down('xs')]: {
-      margin: `0 ${theme.custom.setSpace()}px 0 0`
-    }
+  colinProfile: {
+    width: '100%',
+    maxWidth: 48,
+    borderRadius: theme.custom.borderRadius
   },
   badgeSubheading: {
     textAlign: 'right',
@@ -166,7 +165,10 @@ export const Footer = () => {
                 app development?
               </Typography>
             </Link>
-            <img src={ProfileImage} className={classes.profileImage} />
+            <ImageHandler
+              asset={ColinProfile}
+              styleClass={classes.colinProfile}
+            />
           </div>
           <Typography variant="body1" className={classes.badgeSubheading}>
             Available for hire today!

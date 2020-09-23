@@ -1,14 +1,13 @@
 import gsap from 'gsap'
 import React, { createRef, useEffect } from 'react'
+import classnames from 'classnames'
 import { useInView } from 'react-intersection-observer'
 import { makeStyles } from '@material-ui/styles'
 
-const useStyles = makeStyles(() => ({
-  invisible: {
+const useStyles = makeStyles(theme => ({
+  FadeInInner: {
+    ...theme.custom.setFlex(),
     opacity: 0
-  },
-  visible: {
-    opacity: 1
   }
 }))
 
@@ -48,14 +47,13 @@ export const FadeIn = ({
   }, [inView])
 
   return (
-    <div ref={inViewRef} className={className}>
+    <div ref={inViewRef} className={className} name="FadeInOuter">
       <div
         ref={element => {
           ref = element
         }}
-        className={
-          process.env.IS_BROWSER ? classes.invisible : classes.visible
-        }>
+        name="FadeInInner"
+        className={classnames(classes.FadeInInner)}>
         {component}
       </div>
     </div>

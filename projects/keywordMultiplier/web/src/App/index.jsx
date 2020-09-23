@@ -7,16 +7,14 @@ import { constants } from './constants'
 const HomeLoadable = loadable(() =>
   import(
     /* webpackChunkName: "chunk-Home" */
-    /* webpackPrefetch: false */
-    /* webpackPreload: false */
+    /* webpackPrefetch: true */
     './Home'
   )
 )
 const NotFoundLoadable = loadable(() =>
   import(
     /* webpackChunkName: "chunk-NotFound" */
-    /* webpackPrefetch: false */
-    /* webpackPreload: false */
+    /* webpackPrefetch: true */
     './NotFound'
   )
 )
