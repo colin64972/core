@@ -15,11 +15,7 @@ import { withStyles, makeStyles } from '@material-ui/styles'
 import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import { defaultPadding } from '@colin30/shared/react/theming'
 import { whiteSpaceOptions } from './fields'
-import {
-  getTrials,
-  getCopySettings,
-  getWhiteSpaceSelection
-} from '../../store/selectors'
+import { getCopySettings, getWhiteSpaceSelection } from '../../store/selectors'
 import { types } from '../../store/types'
 
 const CustomSwitch = withStyles(theme => ({
@@ -105,13 +101,10 @@ const useStyles = makeStyles(theme => {
   }
 })
 
-export const SettingsPanel = () => {
+export const TrialResultsSettings = ({ buttonsDisabled }) => {
   const classes = useStyles()
 
   const copySettings = useSelector(state => getCopySettings(state))
-
-  const trials = useSelector(state => getTrials(state))
-  const buttonsDisabled = trials.shown.length < 2
 
   const { dataOnly } = copySettings
 
