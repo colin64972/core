@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Loadable from 'react-loadable'
 import { defaultPadding } from '@colin30/shared/react/theming'
 import { createHashId } from '@colin30/shared/react/helpers'
 import { ImageHandler } from '@colin30/shared/react/components/ImageHandler'
 import Grid from '@material-ui/core/Grid'
 import Link from '@material-ui/core/Link'
 import Typography from '@material-ui/core/Typography'
+import { CircularProgress } from '@material-ui/core'
 import GavelIcon from '@material-ui/icons/Gavel'
 import RateReviewIcon from '@material-ui/icons/RateReview'
 import VpnLockIcon from '@material-ui/icons/VpnLock'
@@ -12,6 +14,28 @@ import WebIcon from '@material-ui/icons/Web'
 import { makeStyles } from '@material-ui/styles'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { ColinProfile } from '../../../assets'
+
+const TermsAndConditionsLoadable = Loadable({
+  loader: () => import('@colin30/shared/react/components/TermsAndConditions'),
+  loading: props => {
+    return <CircularProgress />
+  },
+  render: (loaded, props) => {
+    let Component = loaded.TermsOfService
+    return <Component {...props} />
+  }
+})
+
+const PPLoadable = Loadable({
+  loader: () => import('@colin30/shared/react/components/PrivacyPolicy'),
+  loading: props => {
+    return <CircularProgress />
+  },
+  render: (loaded, props) => {
+    let Component = loaded.PrivacyPolicy
+    return <Component {...props} />
+  }
+})
 
 const useStyles = makeStyles(theme => ({
   footerSection: {
@@ -24,7 +48,7 @@ const useStyles = makeStyles(theme => ({
   footerNav: {
     ...theme.custom.setFlex('column nowrap', 'flex-start', 'flex-start')
   },
-  linkButton: {
+  navButton: {
     ...theme.custom.buttons.base,
     'padding': theme.custom.setSpace() / 2,
     'paddingLeft': 0,
@@ -104,34 +128,39 @@ const useStyles = makeStyles(theme => ({
 
 export const Footer = () => {
   const classes = useStyles()
-  const menuItems = [
-    {
-      label: 'Home',
-      href: constants.URLS.HOME,
-      key: createHashId(),
-      icon: <WebIcon className={classes.menuItemIcon} />
-    },
-    {
-      label: 'Terms & Conditions',
-      href: constants.URLS.TAndC,
-      key: createHashId(),
-      icon: <GavelIcon className={classes.menuItemIcon} />
-    },
-    {
-      label: 'Privacy Policy',
-      href: constants.URLS.PP,
-      key: createHashId(),
-      icon: <VpnLockIcon className={classes.menuItemIcon} />
-    },
-    {
-      label: 'Feedback',
-      href: constants.URLS.FEEDBACK,
-      key: createHashId(),
-      icon: <RateReviewIcon className={classes.menuItemIcon} />
-    }
-  ]
+
+  const [TAndCOpen, setTAndCOpen] = useState(false)
+
+  const [PPOpen, setPPOpen] = useState(false)
+
+  const openTAndCHandler = event => setTAndCOpen(true)
+
+  const closeTAndCHandler = () => setTAndCOpen(false)
+
+  const openPPHandler = event => setPPOpen(true)
+
+  const closePPHandler = () => setPPOpen(false)
+
   return (
     <Grid item xs={12} component="section" className={classes.footerSection}>
+      {TAndCOpen && (
+        <TermsAndConditionsLoadable
+          open={TAndCOpen}
+          closeHandler={closeTAndCHandler}
+          siteName={process.env.SITE_NAME}
+          siteUrl={process.env.SITE_URL}
+          siteContactEmail={process.env.SITE_CONTACT_EMAIL}
+        />
+      )}
+      {PPOpen && (
+        <PPLoadable
+          open={PPOpen}
+          closeHandler={closePPHandler}
+          siteName={process.env.SITE_NAME}
+          siteUrl={process.env.SITE_URL}
+          siteContactEmail={process.env.SITE_CONTACT_EMAIL}
+        />
+      )}
       <Grid
         container
         component="footer"
@@ -139,17 +168,28 @@ export const Footer = () => {
         alignItems="flex-start">
         <Grid item xs={12} sm={6}>
           <nav className={classes.footerNav}>
-            {menuItems.map(item => (
-              <Link
-                key={item.key}
-                component="button"
-                onClick={() => {}}
-                href={item.href}
-                className={classes.linkButton}>
-                {item.icon}
-                {item.label}
-              </Link>
-            ))}
+            <Link
+              component="button"
+              href={constants.URLS.HOME}
+              className={classes.navButton}>
+              <WebIcon className={classes.menuItemIcon} />
+              Home
+            </Link>
+            <button className={classes.navButton} onClick={openTAndCHandler}>
+              <GavelIcon className={classes.menuItemIcon} />
+              Terms &amp; Conditions
+            </button>
+            <button className={classes.navButton} onClick={openPPHandler}>
+              <VpnLockIcon className={classes.menuItemIcon} />
+              Privacy Policy
+            </button>
+            <Link
+              component="button"
+              href={constants.URLS.FEEDBACK}
+              className={classes.navButton}>
+              <RateReviewIcon className={classes.menuItemIcon} />
+              Feedback
+            </Link>
           </nav>
         </Grid>
         <Grid item xs={12} sm={6} className={classes.footerRight}>
