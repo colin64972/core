@@ -11,6 +11,17 @@ import {
 } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search'
 
+const TermsAndConditionsLoadable = Loadable({
+  loader: () => import('@colin30/shared/react/components/TermsAndConditions'),
+  loading: props => {
+    return <CircularProgress />
+  },
+  render: (loaded, props) => {
+    let Component = loaded.TermsOfService
+    return <Component {...props} />
+  }
+})
+
 const useStyles = makeStyles(theme => ({
   formGroup: {
     width: '100%',
@@ -57,17 +68,6 @@ export const VolumeFormTerms = () => {
 
   const openTermsDialogHandler = event => setTermsDialogStatus(true)
   const closeTermsDialogHandler = event => setTermsDialogStatus(false)
-
-  const TermsAndConditionsLoadable = Loadable({
-    loader: () => import('@colin30/shared/react/components/TermsAndConditions'),
-    loading: props => {
-      return <CircularProgress />
-    },
-    render: (loaded, props) => {
-      let Component = loaded.TermsOfService
-      return <Component {...props} />
-    }
-  })
 
   return (
     <Field name="acceptTerms" validate={validator}>
