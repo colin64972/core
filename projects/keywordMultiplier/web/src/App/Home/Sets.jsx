@@ -57,32 +57,32 @@ export const Sets = () => {
     <Grid item xs={12} component="section" className={classes.setsSection}>
       <Grid container>
         <Hidden xsDown>
-          <Grid item sm={2} md={3} />
+          <Grid item sm={2} />
         </Hidden>
-        <Grid item xs={12} sm={8} md={6}>
+        <Grid item xs={12} sm={8}>
           <FadeIn direction="y" position={-100}>
-            <Typography variant="subtitle2">Input Sets</Typography>
+            <Typography variant="subtitle2">
+              Explore Search Query Variation
+            </Typography>
           </FadeIn>
           <FadeIn direction="x" position={-100}>
             <Typography variant="h4" className={classes.mainHeading}>
-              Keyword Multiplication
-              <br />
-              to the Max!
+              Improve your Content Marketing Efforts with Precision Targeting
             </Typography>
           </FadeIn>
           <FadeIn direction="x" position={100}>
             <Typography variant="body1">
-              Est voluptua stet ea sadipscing nonumy gubergren eos, nonumy
-              dolore dolore sadipscing est consetetur diam sed. Gubergren sea
-              eirmod ut accusam dolore. Accusam sed sed amet aliquyam amet diam.
-              Dolor ipsum nonumy gubergren gubergren. Takimata et lorem takimata
-              sit sed dolor sit, rebum et gubergren accusam elitr dolores rebum
-              stet.
+              No single person searches for content using the same words;
+              therefore, it is worth your while to explore variations of your
+              consumers&apos; expected search queries to objectively compare and
+              evaluate the keywords that accurately stastify their search
+              intent. Use the textareas below to formulate search query
+              variations.
             </Typography>
           </FadeIn>
         </Grid>
         <Hidden xsDown>
-          <Grid item sm={2} md={3} />
+          <Grid item sm={2} />
         </Hidden>
         <Grid item xs={12}>
           <Formik
