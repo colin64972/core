@@ -51,25 +51,25 @@ export const Intro = () => {
         <Grid item xs={12} sm={6}>
           <FadeIn direction="y" position={-100}>
             <Typography variant="subtitle2" className={classes.subHeading}>
-              Target Acquired
+              Online Visibility Search Optimization Tool
             </Typography>
           </FadeIn>
           <FadeIn direction="x" position={-100}>
             <Typography variant="h4" className={classes.mainHeading}>
-              The Best SEO &amp; PPC Keyword Multiplier
+              Discover the Right Keywords that Satisfy your Audience&apos;s
+              Search Intent
             </Typography>
           </FadeIn>
           <FadeIn direction="y" position={100}>
             <Typography variant="body1" className={classes.body}>
-              Amet sit accusam eos sed consetetur, dolor voluptua dolore sea
-              sit. Justo eirmod dolor gubergren kasd nonumy invidunt at labore
-              invidunt. Sit sea eos ipsum sed, et ipsum sit ut dolor justo vero,
-              sea accusam diam erat vero eos. Accusam sed dolores accusam stet
-              ut sit nonumy at, et eos et consetetur labore et voluptua. Diam
-              diam sea eirmod eos ipsum est kasd erat kasd. Dolores at stet
-              sanctus sanctus elitr est erat dolor ipsum, sed sed et no kasd,
-              sadipscing rebum consetetur ut stet dolore sit. Sea elitr justo at
-              dolor. Vero tempor diam diam ut nonumy amet clita.
+              You produce great content&mdash;whether it be your landing pages,
+              online ads, blog articles, podcasts, YouTube videos or other
+              media&mdash;your audience is waiting to engage with it. But before
+              you hit the publish button, use this simple content marketing tool
+              to help guide your audience to your message. By using this tool,
+              you can easily compare and evaluate variations in search query
+              phrases to find the most compatible combination of keywords that
+              will effectively grab your audience&apos;s attention.
             </Typography>
           </FadeIn>
         </Grid>

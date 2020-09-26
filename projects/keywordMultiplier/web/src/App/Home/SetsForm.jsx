@@ -172,7 +172,7 @@ export const SetsForm = props => {
           ) : (
             <Grid container>
               <ShuffleIcon className={classes.formButtonIcon} />
-              Multiply
+              Formulate Search Queries
             </Grid>
           )}
         </button>
