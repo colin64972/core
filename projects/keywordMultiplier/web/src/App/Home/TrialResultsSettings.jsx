@@ -146,18 +146,18 @@ export const TrialResultsSettings = ({ buttonsDisabled }) => {
       <Grid container direction="column">
         <FadeIn direction="y" position={-100}>
           <Typography variant="subtitle2" className={classes.subHeading}>
-            Settings
+            Display &amp; Output Settings
           </Typography>
         </FadeIn>
         <FadeIn direction="x" position={-100}>
           <Typography variant="h4" className={classes.mainHeading}>
-            Manage your Trials
+            Manage your Search Query Variations
           </Typography>
         </FadeIn>
         <FadeIn direction="y" position={100}>
           <Typography variant="body1" className={classes.settingsCopy}>
-            Est voluptua stet ea sadipscing nonumy gubergren eos, nonumy dolore
-            dolore sadipscing est consetetur diam sed.
+            Use the options here to adjust the display and output settings of
+            your search query variants here.
           </Typography>
         </FadeIn>
         <FadeIn
@@ -198,7 +198,7 @@ export const TrialResultsSettings = ({ buttonsDisabled }) => {
                 }
                 label={
                   <Typography variant="body1" className={classes.toggleText}>
-                    Copy Keywords Only
+                    Copy Variations Only
                   </Typography>
                 }
               />

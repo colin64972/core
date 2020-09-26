@@ -24,10 +24,10 @@ for (let i = 1; i <= 5; i += 1) {
 }
 
 setFields[0].textArea.placeholder = 'best\ngood\nmost popular'
-setFields[1].textArea.placeholder = 'sushi\nsashimi\nraw fish'
-setFields[2].textArea.placeholder = 'Enter Keywords'
-setFields[3].textArea.placeholder = 'restaurant\nplace\nspot'
-setFields[4].textArea.placeholder = 'near me\nclose by\nin my city\ntoronto'
+setFields[1].textArea.placeholder = 'used\nnew\nsecond hand'
+setFields[2].textArea.placeholder = 'cars\nsuvs\ntrucks\nvans'
+setFields[3].textArea.placeholder = 'for sale\nto buy'
+setFields[4].textArea.placeholder = '.com\n.net\n.review'
 
 export const matchTypes = [
   {

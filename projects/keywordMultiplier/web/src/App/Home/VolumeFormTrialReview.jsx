@@ -119,17 +119,17 @@ export const VolumeFormTrialReview = ({ trialId }) => {
                 id="customized-dialog-title"
                 onClose={closeReviewHandler}
                 className={classes.reviewListTitle}>
-                Keyword List Review
+                Variant List Review
               </DialogTitle>
               <DialogContent dividers>
                 <DialogContentText id="alert-dialog-description">
-                  Review your list of keywords to buy volume metrics for here.
-                  You will only be charged for the billable keywords contained
-                  in this list, even if your trial result list included many
-                  more entries with TLD variations!
+                  Here you can review the list of variant keywords to buy volume
+                  metrics for. You will only be charged for the billable
+                  keywords contained in this list, even if your trial result
+                  list included many more entries with TLD variations!
                 </DialogContentText>
                 <DialogContentText id="alert-dialog-description">
-                  If your trial result list did indeed include entries with
+                  If your variant result list did indeed include entries with
                   top-level domain variations&mdash;such as
                   <span className={classes.code}>.com</span>,
                   <span className={classes.code}>.net</span>,

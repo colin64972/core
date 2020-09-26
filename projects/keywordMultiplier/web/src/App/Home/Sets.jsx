@@ -72,12 +72,11 @@ export const Sets = () => {
           </FadeIn>
           <FadeIn direction="x" position={100}>
             <Typography variant="body1">
-              No single person searches for content using the same words;
-              therefore, it is worth your while to explore variations of your
-              consumers&apos; expected search queries to objectively compare and
-              evaluate the keywords that accurately stastify their search
-              intent. Use the textareas below to formulate search query
-              variations.
+              There are many ways to express search intent; therefore, as a
+              content producer, it is worth your while to explore variations of
+              your consumers&apos; expected search queries to objectively
+              evaluate and compare the keywords that will meet their intent. Use
+              the textareas below to formulate search query variations.
             </Typography>
           </FadeIn>
         </Grid>
