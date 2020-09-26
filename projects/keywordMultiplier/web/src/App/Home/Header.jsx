@@ -3,7 +3,7 @@ import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import { makeStyles } from '@material-ui/styles'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
-import VpnKeyIcon from '@material-ui/icons/VpnKey'
+import MultilineChartIcon from '@material-ui/icons/MultilineChart'
 import { defaultPadding } from '@colin30/shared/react/theming'
 
 const useStyles = makeStyles(theme => ({
@@ -34,16 +34,16 @@ export const Header = () => {
   return (
     <Grid item xs={12} component="section" className={classes.headerSection}>
       <FadeIn direction="y" position={-100}>
-        <VpnKeyIcon className={classes.icon} />
+        <MultilineChartIcon className={classes.icon} />
       </FadeIn>
       <FadeIn direction="x" position={-100}>
         <Typography variant="h4" className={classes.mainHeading}>
-          Keyword Multiplier
+          Search Query Interest Evaluator
         </Typography>
       </FadeIn>
       <FadeIn direction="y" position={100}>
         <Typography variant="subtitle2" className={classes.subHeading}>
-          Content Marketing Keyword Multiplying Tool
+          Compare and Evalute Interest in Search Query Variations
         </Typography>
       </FadeIn>
     </Grid>
