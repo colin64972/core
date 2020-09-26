@@ -168,7 +168,7 @@ export const VolumeForm = ({
     <Form className={classes.form}>
       <Paper className={classNames(classes.gridPosition1, classes.formSection)}>
         <Typography variant="h3" className={classes.formSectionTitle}>
-          Trial Review
+          Keyword List Review
         </Typography>
         <VolumeFormTrialReview trialId={trialId} />
       </Paper>

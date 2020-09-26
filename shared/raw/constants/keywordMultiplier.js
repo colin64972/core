@@ -40,8 +40,8 @@ exports.constants = {
       VALUE: 'entry'
     },
     PRODUCT: {
-      LABEL: 'Product',
-      VALUE: 'product'
+      LABEL: 'Variation',
+      VALUE: 'variation'
     },
     VOLUME: {
       LABEL: 'Volume',

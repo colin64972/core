@@ -43,7 +43,7 @@ export const Header = () => {
       </FadeIn>
       <FadeIn direction="y" position={100}>
         <Typography variant="subtitle2" className={classes.subHeading}>
-          Compare and Evalute Interest in Search Query Variations
+          Evalute and Compare Interest in Search Query Variations
         </Typography>
       </FadeIn>
     </Grid>
