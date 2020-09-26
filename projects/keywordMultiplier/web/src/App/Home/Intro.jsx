@@ -40,6 +40,32 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('xs')]: {
       margin: `${theme.custom.setSpace()}px 0 0 0 `
     }
+  },
+  valuePropContainer: {
+    ...theme.custom.borderRadius,
+    backgroundColor: theme.palette.secondary[100],
+    marginTop: theme.custom.setSpace('sm'),
+    padding: theme.custom.setSpace('sm')
+  },
+  valuePropFadeIn: {
+    ...theme.custom.setFlex(),
+    width: '100%'
+  },
+  valuePropTitle: {
+    textAlign: 'center'
+  },
+  valuePropPoint: {
+    fontWeight: 'unset',
+    textTransform: 'unset'
+  },
+  valuePropLeft: {
+    padding: theme.custom.setSpace(),
+    width: '100%'
+  },
+  valuePropRight: {
+    ...theme.custom.border,
+    padding: theme.custom.setSpace(),
+    backgroundColor: theme.palette.secondary[50]
   }
 }))
 
@@ -56,20 +82,17 @@ export const Intro = () => {
           </FadeIn>
           <FadeIn direction="x" position={-100}>
             <Typography variant="h4" className={classes.mainHeading}>
-              Discover the Right Keywords that Satisfy your Audience&apos;s
-              Search Intent
+              Discover Keywords that Satisfy your Audience&apos;s Search Intent
             </Typography>
           </FadeIn>
           <FadeIn direction="y" position={100}>
             <Typography variant="body1" className={classes.body}>
-              You produce great content&mdash;whether it be your landing pages,
-              online ads, blog articles, podcasts, YouTube videos or other
-              media&mdash;your audience is waiting to engage with it. But before
-              you hit the publish button, use this simple content marketing tool
-              to help guide your audience to your message. By using this tool,
-              you can easily compare and evaluate variations in search query
-              phrases to find the most compatible combination of keywords that
-              will effectively grab your audience&apos;s attention.
+              You produce great content and your audience is waiting to engage
+              with it. Whether it be your landing pages, online ads, blog
+              articles, podcasts, YouTube videos or other media&mdash;your
+              content deserves to be seen online. So, before you hit the publish
+              button, make sure you&apos;re using the right keywords and search
+              query language to target your chosen audience.
             </Typography>
           </FadeIn>
         </Grid>
@@ -77,6 +100,38 @@ export const Intro = () => {
           <FadeIn direction="x" position={100}>
             <ImageHandler asset={IntroImage} styleClass={classes.introImage} />
           </FadeIn>
+        </Grid>
+        <Grid item xs={12} className={classes.valuePropContainer}>
+          <Grid container justify="center" alignItems="center">
+            <Grid item xs={12} sm={4} className={classes.valuePropLeft}>
+              <FadeIn
+                direction="y"
+                position={100}
+                className={classes.valuePropFadeIn}>
+                <Typography variant="h3" className={classes.valuePropTitle}>
+                  This content marketing tool
+                  <br />
+                  can help you easily&#58;
+                </Typography>
+              </FadeIn>
+            </Grid>
+            <Grid item xs={12} sm={8} className={classes.valuePropRight}>
+              <ul>
+                <li className={classes.valuePropPoint}>
+                  mulitply and combine keywords to uncover new targeting
+                  opportunities
+                </li>
+                <li className={classes.valuePropPoint}>
+                  look up keyword search volume, CPC and competition metrics
+                </li>
+                <li>evaluate &amp; compare search query keyword variants</li>
+                <li className={classes.valuePropPoint}>
+                  mix &amp; match keywords with domain TLDs to find
+                  keyword&ndash;driven domains
+                </li>
+              </ul>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
     </Grid>

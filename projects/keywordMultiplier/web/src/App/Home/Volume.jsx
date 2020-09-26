@@ -119,10 +119,10 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
       <BackDropScreen isOpen={isSubmitting} spinner />
       <Grid container justify="center" direction="column" alignItems="center">
         <Typography variant="subtitle2" className={classes.subHeading}>
-          Order Form
+          Keyword Metric Order Form
         </Typography>
         <Typography variant="h4" className={classes.mainHeading}>
-          Keyword Volume Metrics
+          Quantify your Search Query Variants
         </Typography>
         <Formik initialValues={initalValues} onSubmit={customSubmitHandler}>
           {formikProps => (
