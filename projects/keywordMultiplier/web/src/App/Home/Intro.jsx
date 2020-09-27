@@ -52,11 +52,13 @@ const useStyles = makeStyles(theme => ({
     width: '100%'
   },
   valuePropTitle: {
-    textAlign: 'center'
+    textAlign: 'center',
+    lineHeight: 1.25
   },
   valuePropPoint: {
     fontWeight: 'unset',
-    textTransform: 'unset'
+    textTransform: 'unset',
+    ...theme.typography.body1
   },
   valuePropLeft: {
     padding: theme.custom.setSpace(),
