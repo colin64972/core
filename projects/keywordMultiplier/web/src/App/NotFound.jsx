@@ -70,40 +70,30 @@ const NotFoundComp = props => {
         className={classes.notFoundSection}>
         <Grid container spacing={1} alignItems="center">
           <Grid item>
-            <FadeIn
-              direction="x"
-              position={-100}
-              component={<InfoIcon className={classes.icon} />}
-            />
+            <FadeIn direction="x" position={-100}>
+              <InfoIcon className={classes.icon} />
+            </FadeIn>
           </Grid>
           <Grid item>
-            <FadeIn
-              direction="x"
-              position={100}
-              component={
-                <Typography variant="h1" className={classes.title}>
-                  Oops, Nothing Here
-                </Typography>
-              }
-            />
-            <FadeIn
-              direction="y"
-              position={100}
-              component={
-                <Typography variant="h4" className={classes.subtitle}>
-                  Back to the{' '}
-                  <Link
-                    className={classes.appLink}
-                    href={constants.URLS.HOME}
-                    onClick={event => {
-                      event.preventDefault()
-                      history.push(constants.URLS.HOME)
-                    }}>
-                    app!
-                  </Link>
-                </Typography>
-              }
-            />
+            <FadeIn direction="x" position={100}>
+              <Typography variant="h1" className={classes.title}>
+                Oops, Nothing Here
+              </Typography>
+            </FadeIn>
+            <FadeIn direction="y" position={100}>
+              <Typography variant="h4" className={classes.subtitle}>
+                Back to the{' '}
+                <Link
+                  className={classes.appLink}
+                  href={constants.URLS.HOME}
+                  onClick={event => {
+                    event.preventDefault()
+                    history.push(constants.URLS.HOME)
+                  }}>
+                  app!
+                </Link>
+              </Typography>
+            </FadeIn>
           </Grid>
         </Grid>
       </Grid>

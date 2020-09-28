@@ -7,4 +7,15 @@ export const createHashId = () => {
   return hash.digest('hex').substr(0, 10)
 }
 
-export const removeSetPrefix = text => text.replace(/set-/gi, '')
+export const optionizeObject = input =>
+  Object.entries(input).reduce(
+    (acc, cur) => [
+      ...acc,
+      {
+        key: createHashId(),
+        value: cur[0],
+        label: cur[1]
+      }
+    ],
+    []
+  )
