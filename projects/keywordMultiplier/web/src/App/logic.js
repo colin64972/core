@@ -1,5 +1,5 @@
 import moment from 'moment'
-import { createHashId } from '@colin30/shared/react/helpers'
+import { createHashId, optionizeObject } from '@colin30/shared/react/helpers'
 import { DOMAIN_WITH_TLD } from '@colin30/shared/raw/constants/regex'
 import { constants } from './constants'
 
@@ -134,8 +134,112 @@ export const generateNotice = (
   return result
 }
 
+export const decorateKeywordsEverywhereOptions = data => ({
+  credits: data.credits[0],
+  countries: optionizeObject(data.countries).map(item => {
+    if (item.label === 'Global') {
+      item.value = 'global'
+    }
+    return item
+  }),
+  currencies: optionizeObject(data.currencies).filter(item => item.value !== '')
+})
+
 export const decorateTrial = data => ({
   id: data.id,
   heading: data.trialProduct.heading,
-  list: data.trialProduct.list
+  list: data.trialProduct.list,
+  volumeData: data?.volumeData
+  // volumeData: [
+  //   {
+  //     vol: 150,
+  //     cpc: {
+  //       currency: '$',
+  //       value: '3.77'
+  //     },
+  //     keyword: 'asdf asdf',
+  //     competition: 0.03,
+  //     trend: [
+  //       {
+  //         month: 'May',
+  //         year: 2019,
+  //         value: 480
+  //       },
+  //       {
+  //         month: 'June',
+  //         year: 2019,
+  //         value: 480
+  //       },
+  //       {
+  //         month: 'July',
+  //         year: 2019,
+  //         value: 390
+  //       },
+  //       {
+  //         month: 'August',
+  //         year: 2019,
+  //         value: 480
+  //       },
+  //       {
+  //         month: 'September',
+  //         year: 2019,
+  //         value: 390
+  //       },
+  //       {
+  //         month: 'October',
+  //         year: 2019,
+  //         value: 390
+  //       },
+  //       {
+  //         month: 'November',
+  //         year: 2019,
+  //         value: 320
+  //       },
+  //       {
+  //         month: 'December',
+  //         year: 2019,
+  //         value: 480
+  //       },
+  //       {
+  //         month: 'January',
+  //         year: 2020,
+  //         value: 390
+  //       },
+  //       {
+  //         month: 'February',
+  //         year: 2020,
+  //         value: 390
+  //       },
+  //       {
+  //         month: 'March',
+  //         year: 2020,
+  //         value: 480
+  //       },
+  //       {
+  //         month: 'April',
+  //         year: 2020,
+  //         value: 480
+  //       }
+  //     ]
+  //   }
+  // ]
 })
+
+export const getSetsWithValues = values =>
+  Object.entries(values).reduce((acc, cur) => {
+    let temp = acc
+    const [key, val] = cur
+    if (val !== '') {
+      temp.push(key)
+    }
+    return temp
+  }, [])
+
+export const findEnabledSets = (filled, disabled, values) =>
+  filled.reduce((acc, cur) => {
+    let temp = acc
+    if (!disabled.includes(cur)) {
+      temp[cur] = values[cur]
+    }
+    return temp
+  }, {})

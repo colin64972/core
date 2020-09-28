@@ -17,8 +17,8 @@ export const FadeIn = ({
   duration = Math.random() + 0.25,
   direction,
   position,
-  component,
-  className
+  className,
+  ...props
 }) => {
   const classes = useStyles()
 
@@ -54,7 +54,7 @@ export const FadeIn = ({
         }}
         name="FadeInInner"
         className={classnames(classes.FadeInInner)}>
-        {component}
+        {props.children}
       </div>
     </div>
   )

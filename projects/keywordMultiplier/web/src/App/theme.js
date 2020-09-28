@@ -49,3 +49,19 @@ theme.shadows.concat([
     theme.custom.setSpace() / 2
   }px ${theme.palette.grey[50]}`
 ])
+
+theme.custom.iconButton = {
+  'border': 'none',
+  'fontSize': theme.custom.setSpace(),
+  'padding': theme.custom.setSpace() / 2,
+  'margin': `0 ${theme.custom.setSpace() / 2}px 0 0`,
+  'borderRadius': theme.custom.borderRadius,
+  'cursor': 'pointer',
+  'display': 'flex',
+  'justifyContent': 'center',
+  'alignItems': 'center',
+  'transition': 'all 250ms ease-out',
+  '&:focus': {
+    outline: 'none'
+  }
+}
