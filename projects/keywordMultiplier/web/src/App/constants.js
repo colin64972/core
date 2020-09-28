@@ -1,6 +1,7 @@
 export const constants = {
-  SETS_FORM_NAME: 'sets',
+  SETS_FORM_NAME: 'setsForm',
   EXCEL_TEXT_QUALIFIER: "'",
+  VOLUME_SPINNER: 'volume',
   MATCHTYPES: {
     BROAD: 'broad',
     BROAD_MODIFIER: 'modifier',
@@ -26,6 +27,26 @@ export const constants = {
     }
   },
   REPLACEMENT_CODE: '#@$@#',
+  VOLUME_DATA: {
+    VOLUME: {
+      LABEL: 'Volume',
+      VALUE: 'vol'
+    },
+    CPC: {
+      LABEL: 'CPC',
+      VALUE: 'cpc'
+    },
+    COMP: {
+      LABEL: 'Comp',
+      VALUE: 'competition'
+    },
+    TREND: {
+      LABEL: 'Trend',
+      VALUE: 'trend'
+    }
+  },
+  DEFAULT_VOLUME_REQUEST_COUNTRY: 'us',
+  DEFAULT_VOLUME_REQUEST_CURRENCY: 'usd',
   NOTICE: {
     TIMEOUT_DELAY: process.env.NODE_ENV === 'development' ? 1000 : 5000,
     TIMEOUT_HEIGHT: 4,

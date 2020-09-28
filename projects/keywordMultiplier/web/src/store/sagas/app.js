@@ -1,16 +1,17 @@
 import { call, put, select, take, race, delay } from 'redux-saga/effects'
 import { getRequest, postRequest } from '@colin30/shared/react/saga'
-import {
-  getCopySettings,
-  getEnabledSets,
-  getMatchType,
-  getClientIp
-} from '../selectors'
+import { getCopySettings, getMatchType, getClientIp } from '../selectors'
 import { types } from '../types'
 import { constants } from '../../App/constants'
-import { decorateTrial, copyToClipboard, generateNotice } from '../../App/logic'
+import {
+  decorateTrial,
+  copyToClipboard,
+  generateNotice,
+  getSetsWithValues,
+  findEnabledSets
+} from '../../App/logic'
 
-export function* multiplySets() {
+export function* multiplySets(action) {
   const notice = generateNotice('Check your results below')
   try {
     yield put({
@@ -18,7 +19,13 @@ export function* multiplySets() {
       spinnerName: constants.SETS_FORM_NAME,
       status: true
     })
-    const enabled = yield select(state => getEnabledSets(state))
+    const setsWithValues = getSetsWithValues(action.values)
+    const setsDisabled = yield select(state => state.app?.disabledSets)
+    const setsEnabled = findEnabledSets(
+      setsWithValues,
+      setsDisabled,
+      action.values
+    )
     let ip = yield select(state => getClientIp(state))
     if (process.env.NODE_ENV === 'production') {
       ip = yield call(getRequest, 'ip')
@@ -28,7 +35,7 @@ export function* multiplySets() {
       ip
     })
     const posted = yield call(postRequest, 'trials', {
-      sets: enabled,
+      sets: setsEnabled,
       ipAddress: ip
     })
     const trial = yield call(decorateTrial, posted.data)
@@ -39,11 +46,6 @@ export function* multiplySets() {
     yield put({
       type: types.SHOW_TRIAL,
       id: trial.id
-    })
-    yield put({
-      type: types.SET_SPINNER_STATUS,
-      spinnerName: constants.SETS_FORM_NAME,
-      status: false
     })
   } catch (error) {
     notice.bg = constants.NOTICE.BGS.FAIL

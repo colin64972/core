@@ -11,7 +11,7 @@ import { getTrials } from '../../store/selectors'
 const TrialResultsLoadable = loadable(() =>
   import(
     /* webpackChunkName: "chunk-TrialResults" */
-    /* webpackPreload: true */
+    /* webpackPrefetch: true */
     './TrialResults'
   )
 )

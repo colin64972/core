@@ -25,41 +25,48 @@ provider:
         - arn:aws:dynamodb:${env:REGION}:*:table/${env:TABLE_NAME}
 
 functions:
-  createOne:
-    name: ${env:SERVICE_NAME}-createOne
-    handler: index.createOne
+  postTrial:
+    name: ${env:SERVICE_NAME}-postTrial
+    handler: index.postTrial
     events:
       - httpApi:
           path: /${env:RESOURCE_NAME}
           method: POST
-  deleteOne:
-    name: ${env:SERVICE_NAME}-deleteOne
-    handler: index.deleteOne
+  optionsRequest:
+    name: ${env:SERVICE_NAME}-optionsRequest
+    handler: index.optionsRequest
     events:
       - httpApi:
-          path: /${env:RESOURCE_NAME}/{id}
-          method: DELETE
-  getAll:
-    name: ${env:SERVICE_NAME}-getAll
-    handler: index.getAll
-    events:
-      - httpApi:
-          path: /${env:RESOURCE_NAME}
+          path: /keywords-everywhere
           method: GET
-  getOne:
-    name: ${env:SERVICE_NAME}-getOne
-    handler: index.getOne
-    events:
-      - httpApi:
-          path: /${env:RESOURCE_NAME}/{id}
-          method: GET
-  updateOne:
-    name: ${env:SERVICE_NAME}-updateOne
-    handler: index.updateOne
-    events:
-      - httpApi:
-          path: /${env:RESOURCE_NAME}/{id}
-          method: PUT
+  # deleteOne:
+  #   name: ${env:SERVICE_NAME}-deleteOne
+  #   handler: index.deleteOne
+  #   events:
+  #     - httpApi:
+  #         path: /${env:RESOURCE_NAME}/{id}
+  #         method: DELETE
+  # getAll:
+  #   name: ${env:SERVICE_NAME}-getAll
+  #   handler: index.getAll
+  #   events:
+  #     - httpApi:
+  #         path: /${env:RESOURCE_NAME}
+  #         method: GET
+  # getOne:
+  #   name: ${env:SERVICE_NAME}-getOne
+  #   handler: index.getOne
+  #   events:
+  #     - httpApi:
+  #         path: /${env:RESOURCE_NAME}/{id}
+  #         method: GET
+  # updateOne:
+  #   name: ${env:SERVICE_NAME}-updateOne
+  #   handler: index.updateOne
+  #   events:
+  #     - httpApi:
+  #         path: /${env:RESOURCE_NAME}/{id}
+  #         method: PUT
 
 configValidationMode: warn
 

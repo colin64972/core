@@ -1,5 +1,3 @@
-import { removeSetPrefix } from '@colin30/shared/react/helpers'
-
 const alphaCodeSetKeys = setData =>
   Object.keys(setData).reduce((acc, cur, ind) => {
     const temp = acc
@@ -61,7 +59,9 @@ const setList = setData => {
 export const processTrial = setData => {
   const result = {}
   try {
-    result.heading = removeSetPrefix(Object.keys(setData).join(' x '))
+    result.heading = Object.keys(setData)
+      .join(' x ')
+      .replace(/setField/gi, '')
     result.list = setList(setData)
   } catch (error) {
     console.log('error', error)

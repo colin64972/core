@@ -34,20 +34,14 @@ export const TrialCardsContainer = ({ trials }) => {
           wrap="nowrap"
           alignItems="flex-start"
           justify="flex-start">
-          <FadeIn
-            direction="y"
-            position={-100}
-            component={<Typography variant="subtitle2">Results</Typography>}
-          />
-          <FadeIn
-            direction="x"
-            position={-100}
-            component={
-              <Typography variant="h4" className={classes.mainHeading}>
-                Trial Card Display
-              </Typography>
-            }
-          />
+          <FadeIn direction="y" position={-100}>
+            <Typography variant="subtitle2">Results</Typography>
+          </FadeIn>
+          <FadeIn direction="x" position={-100}>
+            <Typography variant="h4" className={classes.mainHeading}>
+              Trial Card Display
+            </Typography>
+          </FadeIn>
         </Grid>
       </Grid>
       <Grid

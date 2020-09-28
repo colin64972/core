@@ -135,28 +135,7 @@ export const setCustomTheme = (
           '&:focus': {
             outline: 'none'
           }
-        },
-        form: (disabled, background) => ({
-          'width': '100%',
-          'padding': fontSize,
-          borderRadius,
-          'border': 'none',
-          '&:focus': {
-            outline: 'none'
-          },
-          'color': disabled ? 'rgb(158, 158, 158)' : bodyColor,
-          'cursor': !disabled && 'pointer',
-          'fontFamily': fontFamily,
-          fontSize,
-          'fontWeight': 'bold',
-          'textTransform': 'uppercase',
-          background,
-          'transition': 'all 250ms ease-out',
-          'display': 'flex',
-          'flexFlow': 'row nowrap',
-          'justifyContent': 'center',
-          'alignItems': 'center'
-        })
+        }
       },
       borderRadius
     },
@@ -189,6 +168,9 @@ export const setCustomTheme = (
             fontFamily,
             color: bodyColor,
             backgroundColor: 'white'
+          },
+          '*:focus': {
+            outline: 'none'
           }
         }
       },

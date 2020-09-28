@@ -1,7 +1,7 @@
 const path = require('path')
 const { setConfig } = require('@colin30/configs/react')
 
-exports.config = setConfig(
+const baseConfig = setConfig(
   { src: path.resolve('src', 'index') },
   path.resolve('dist'),
   path.resolve(
@@ -18,3 +18,5 @@ exports.config = setConfig(
     title: process.env.npm_package_config_template_title
   }
 )
+
+exports.config = baseConfig
