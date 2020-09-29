@@ -41,14 +41,16 @@ export const TrialCardsContainer = ({ trials }) => {
           </FadeIn>
           <FadeIn direction="x" position={-100}>
             <Typography variant="h4" className={classes.mainHeading}>
-              Explore your Search Query Variants
+              Explore your Search
+              <br />
+              Query Variants
             </Typography>
           </FadeIn>
         </Grid>
       </Grid>
       <Grid
         container
-        justify="center"
+        justify="flex-start"
         alignItems="flex-start"
         direction="row"
         wrap="wrap"
