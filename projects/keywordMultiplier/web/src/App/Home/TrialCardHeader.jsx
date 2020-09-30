@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import React from 'react'
-import { Chip, Grid, Typography } from '@material-ui/core'
+import { Chip, Grid, Typography, Tooltip } from '@material-ui/core'
 import AssignmentIcon from '@material-ui/icons/Assignment'
 import DeleteIcon from '@material-ui/icons/Delete'
 import { makeStyles } from '@material-ui/styles'
@@ -90,28 +90,40 @@ export const TrialCardHeader = ({
         <Grid container justify="space-between" alignItems="flex-start">
           <Grid item>
             {trial.billableKeywords.length !== trial.list.length && (
+              <Tooltip
+                title="Billable Keyword Count"
+                placement="top-start"
+                arrow>
+                <Chip
+                  label={trial.billableKeywords.length}
+                  className={classNames(
+                    classes.countChip,
+                    classes.billableCount
+                  )}
+                  classes={{
+                    label: classes.chipLabel
+                  }}
+                />
+              </Tooltip>
+            )}
+            <Tooltip title="Total Variations" placement="top-start" arrow>
               <Chip
-                label={trial.billableKeywords.length}
-                className={classNames(classes.countChip, classes.billableCount)}
+                label={trial.list.length}
+                className={classNames(classes.countChip, classes.listCount)}
                 classes={{
                   label: classes.chipLabel
                 }}
               />
-            )}
-            <Chip
-              label={trial.list.length}
-              className={classNames(classes.countChip, classes.listCount)}
-              classes={{
-                label: classes.chipLabel
-              }}
-            />
-            <Chip
-              label={trial.timestamp}
-              className={classes.timestamp}
-              classes={{
-                label: classes.chipLabel
-              }}
-            />
+            </Tooltip>
+            <Tooltip title="Time Created" placement="top-start" arrow>
+              <Chip
+                label={trial.timestamp}
+                className={classes.timestamp}
+                classes={{
+                  label: classes.chipLabel
+                }}
+              />
+            </Tooltip>
             {trial?.metrics && (
               <Chip
                 label="Metrics"
@@ -123,25 +135,33 @@ export const TrialCardHeader = ({
             )}
           </Grid>
           <Grid item className={classes.copyDeleteContainer}>
-            <button onClick={copyHandler} className={classes.copyButton}>
-              <AssignmentIcon className={classes.actionButtonIcon} />
-            </button>
-            <button
-              type="button"
-              onClick={askDeleteTrialHandler}
-              className={classes.deleteButton}>
-              <DeleteIcon className={classes.actionButtonIcon} />
-            </button>
+            <Tooltip title="Copy" placement="top-start" arrow>
+              <button onClick={copyHandler} className={classes.copyButton}>
+                <AssignmentIcon className={classes.actionButtonIcon} />
+              </button>
+            </Tooltip>
+            <Tooltip title="Delete" placement="top-start" arrow>
+              <button
+                type="button"
+                onClick={askDeleteTrialHandler}
+                className={classes.deleteButton}>
+                <DeleteIcon className={classes.actionButtonIcon} />
+              </button>
+            </Tooltip>
           </Grid>
         </Grid>
       </Grid>
       <Grid item xs={10}>
-        <Typography variant="h3" className={classes.trialCardHeading}>
-          {trial.heading}
-        </Typography>
-        <Typography variant="body1" className={classes.trialCardHeadingId}>
-          {trial.id}
-        </Typography>
+        <Tooltip title="Input Sets Used" placement="top-start" arrow>
+          <Typography variant="h3" className={classes.trialCardHeading}>
+            {trial.heading}
+          </Typography>
+        </Tooltip>
+        <Tooltip title="Result ID" placement="bottom-start" arrow>
+          <Typography variant="body1" className={classes.trialCardHeadingId}>
+            {trial.id}
+          </Typography>
+        </Tooltip>
       </Grid>
     </Grid>
   )
