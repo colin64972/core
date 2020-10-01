@@ -3,6 +3,7 @@ import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import { defaultPadding } from '@colin30/shared/react/theming'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
+import CheckIcon from '@material-ui/icons/Check'
 import { makeStyles } from '@material-ui/styles'
 import { ImageHandler } from '@colin30/shared/react/components/ImageHandler'
 import { Intro as IntroImage } from '../../../assets'
@@ -56,18 +57,27 @@ const useStyles = makeStyles(theme => ({
     lineHeight: 1.25
   },
   valuePropPoint: {
+    ...theme.typography.body1,
+    ...theme.custom.setFlex('row', 'flex-start'),
     fontWeight: 'unset',
-    textTransform: 'unset',
-    ...theme.typography.body1
+    textTransform: 'unset'
   },
   valuePropLeft: {
+    ...theme.custom.setFlex(),
     padding: theme.custom.setSpace(),
     width: '100%'
   },
   valuePropRight: {
     ...theme.custom.border,
     padding: theme.custom.setSpace(),
-    backgroundColor: theme.palette.secondary[50]
+    backgroundColor: theme.palette.secondary[50],
+    ...theme.custom.setFlex()
+  },
+  list: {
+    ...theme.custom.cleanList
+  },
+  checkIcon: {
+    marginRight: theme.custom.setSpace()
   }
 }))
 
@@ -111,23 +121,27 @@ export const Intro = () => {
                 position={100}
                 className={classes.valuePropFadeIn}>
                 <Typography variant="h3" className={classes.valuePropTitle}>
-                  This content marketing tool
-                  <br />
-                  can help you easily&#58;
+                  This content marketing tool can help you easily&#58;
                 </Typography>
               </FadeIn>
             </Grid>
             <Grid item xs={12} sm={8} className={classes.valuePropRight}>
-              <ul>
+              <ul className={classes.list}>
                 <li className={classes.valuePropPoint}>
+                  <CheckIcon color="primary" className={classes.checkIcon} />
                   mulitply and combine keywords to uncover new targeting
                   opportunities
                 </li>
                 <li className={classes.valuePropPoint}>
+                  <CheckIcon color="primary" className={classes.checkIcon} />
                   look up keyword search volume, CPC and competition metrics
                 </li>
-                <li>evaluate &amp; compare search query keyword variants</li>
                 <li className={classes.valuePropPoint}>
+                  <CheckIcon color="primary" className={classes.checkIcon} />
+                  evaluate &amp; compare search query keyword variants
+                </li>
+                <li className={classes.valuePropPoint}>
+                  <CheckIcon color="primary" className={classes.checkIcon} />
                   mix &amp; match keywords with domain TLDs to find
                   keyword&ndash;driven domains
                 </li>
