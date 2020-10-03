@@ -161,7 +161,8 @@ export const VolumeForm = ({
   formikProps,
   closeDialogHandler,
   trialId,
-  keOptions
+  keOptions,
+  customResetHandler
 }) => {
   const classes = useStyles()
 
@@ -247,6 +248,9 @@ export const VolumeForm = ({
           <Button
             type="reset"
             variant="contained"
+            onClick={event => {
+              customResetHandler(event, formikProps.setFieldValue)
+            }}
             className={classNames(
               classes.formActionButton,
               classes.formActionButtonReset
