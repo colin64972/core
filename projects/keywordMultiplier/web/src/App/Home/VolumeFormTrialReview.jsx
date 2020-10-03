@@ -64,7 +64,6 @@ export const VolumeFormTrialReview = ({ trialId }) => {
   const trial = useSelector(state =>
     state.app.trials.items.find(trial => trial.id === trialId)
   )
-  // console.log('%c trialId', 'color: yellow; font-size: large', trialId, trial)
   const [reviewModalStatus, setReviewModalStatus] = useState(false)
   const openReviewHandler = event => setReviewModalStatus(true)
   const closeReviewHandler = event => setReviewModalStatus(false)
