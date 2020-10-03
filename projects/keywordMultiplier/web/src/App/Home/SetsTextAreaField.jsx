@@ -64,8 +64,6 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export const SetsTextAreaField = props => {
-  // console.log('%c FORMIK FIELD PROPS', 'color: yellow; font-size: large', props)
-
   const classes = useStyles()
 
   const dispatch = useDispatch()
