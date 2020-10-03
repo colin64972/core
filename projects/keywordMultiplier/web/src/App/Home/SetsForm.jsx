@@ -115,8 +115,6 @@ const useStyles = makeStyles(theme => {
 })
 
 export const SetsForm = props => {
-  // console.log('%c FORMIK PROPS', 'color: yellow; font-size: large', props)
-
   const classes = useStyles()
 
   const dispatch = useDispatch()

@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/styles'
 import {
   FormControl,
   FormHelperText,
-  Input,
+  TextField,
   InputLabel
 } from '@material-ui/core'
 import {
@@ -85,7 +85,6 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export const VolumeFormStripe = () => {
-  // console.log('%c formikProps', 'color: yellow; font-size: large', formikProps)
   const classes = useStyles()
 
   const stripeElementValidator = value => {
@@ -148,204 +147,189 @@ export const VolumeFormStripe = () => {
     <div className={classes.grid}>
       <div className={classes.gridPosition1}>
         <Field name="cardNumber" validate={stripeElementValidator}>
-          {fieldProps => {
-            return (
-              <FormControl
-                fullWidth
-                required
-                error={fieldProps.meta.touched && fieldProps.meta.error?.status}
-                className={classes.formControl}>
-                <InputLabel
-                  htmlFor={`stripe-element-${fieldProps.field.name}`}
-                  className={classNames(classes.inputLabel, {
-                    [classes.inputLabelShrink]: fieldIsDirty(fieldProps.meta)
-                  })}>
-                  Card Number
-                </InputLabel>
-                <CardNumberElement
-                  options={{
-                    style: inputStyle,
-                    classes: {
-                      base: classes.stripeBase,
-                      complete: classes.stripeComplete,
-                      focus: classes.stripeFocus,
-                      invalid: classes.stripeInvalid
-                    }
-                  }}
-                  className={classes.stripeInput}
-                  id={`stripe-element-${fieldProps.field.name}`}
-                  name={fieldProps.field.name}
-                  value={fieldProps.field.value}
-                  onChange={meta =>
-                    setStripeValue(
-                      meta,
-                      fieldProps.field.name,
-                      fieldProps.form.setFieldValue
-                    )
+          {fieldProps => (
+            <FormControl
+              fullWidth
+              required
+              error={fieldProps.meta.touched && fieldProps.meta.error?.status}
+              className={classes.formControl}>
+              <InputLabel
+                htmlFor={`stripe-element-${fieldProps.field.name}`}
+                className={classNames(classes.inputLabel, {
+                  [classes.inputLabelShrink]: fieldIsDirty(fieldProps.meta)
+                })}>
+                Card Number
+              </InputLabel>
+              <CardNumberElement
+                options={{
+                  style: inputStyle,
+                  classes: {
+                    base: classes.stripeBase,
+                    complete: classes.stripeComplete,
+                    focus: classes.stripeFocus,
+                    invalid: classes.stripeInvalid
                   }
-                  onBlur={meta => {
-                    fieldProps.form.setFieldTouched(
-                      fieldProps.field.name,
-                      true,
-                      true
-                    )
-                  }}
-                />
-                {fieldProps.meta.touched && fieldProps.meta.error?.status && (
-                  <FormHelperText
-                    id="component-error-text"
-                    className={classes.formHelperText}>
-                    {fieldProps.meta.error.message}
-                  </FormHelperText>
-                )}
-              </FormControl>
-            )
-          }}
+                }}
+                className={classes.stripeInput}
+                id={`stripe-element-${fieldProps.field.name}`}
+                name={fieldProps.field.name}
+                value={fieldProps.field.value}
+                onChange={meta =>
+                  setStripeValue(
+                    meta,
+                    fieldProps.field.name,
+                    fieldProps.form.setFieldValue
+                  )
+                }
+                onBlur={meta => {
+                  fieldProps.form.setFieldTouched(
+                    fieldProps.field.name,
+                    true,
+                    true
+                  )
+                }}
+              />
+              {fieldProps.meta.touched && fieldProps.meta.error?.status && (
+                <FormHelperText
+                  id="component-error-text"
+                  className={classes.formHelperText}>
+                  {fieldProps.meta.error.message}
+                </FormHelperText>
+              )}
+            </FormControl>
+          )}
         </Field>
       </div>
 
       <div className={classes.gridPosition2}>
         <Field name="cardExpiry" validate={stripeElementValidator}>
-          {fieldProps => {
-            return (
-              <FormControl
-                fullWidth
-                required
-                error={fieldProps.meta.touched && fieldProps.meta.error?.status}
-                className={classes.formControl}>
-                <InputLabel
-                  htmlFor={`stripe-element-${fieldProps.field.name}`}
-                  className={classNames(classes.inputLabel, {
-                    [classes.inputLabelShrink]: fieldIsDirty(fieldProps.meta)
-                  })}>
-                  Card Expiry
-                </InputLabel>
-                <CardExpiryElement
-                  options={{
-                    style: inputStyle,
-                    classes: {
-                      base: classes.stripeBase,
-                      complete: classes.stripeComplete,
-                      focus: classes.stripeFocus,
-                      invalid: classes.stripeInvalid
-                    }
-                  }}
-                  className={classes.stripeInput}
-                  id={`stripe-element-${fieldProps.field.name}`}
-                  name={fieldProps.field.name}
-                  value={fieldProps.field.value}
-                  onChange={meta =>
-                    setStripeValue(
-                      meta,
-                      fieldProps.field.name,
-                      fieldProps.form.setFieldValue
-                    )
+          {fieldProps => (
+            <FormControl
+              fullWidth
+              required
+              error={fieldProps.meta.touched && fieldProps.meta.error?.status}
+              className={classes.formControl}>
+              <InputLabel
+                htmlFor={`stripe-element-${fieldProps.field.name}`}
+                className={classNames(classes.inputLabel, {
+                  [classes.inputLabelShrink]: fieldIsDirty(fieldProps.meta)
+                })}>
+                Card Expiry
+              </InputLabel>
+              <CardExpiryElement
+                options={{
+                  style: inputStyle,
+                  classes: {
+                    base: classes.stripeBase,
+                    complete: classes.stripeComplete,
+                    focus: classes.stripeFocus,
+                    invalid: classes.stripeInvalid
                   }
-                  onBlur={meta => {
-                    fieldProps.form.setFieldTouched(
-                      fieldProps.field.name,
-                      true,
-                      true
-                    )
-                  }}
-                />
-                {fieldProps.meta.touched && fieldProps.meta.error?.status && (
-                  <FormHelperText
-                    id="component-error-text"
-                    className={classes.formHelperText}>
-                    {fieldProps.meta.error.message}
-                  </FormHelperText>
-                )}
-              </FormControl>
-            )
-          }}
+                }}
+                className={classes.stripeInput}
+                id={`stripe-element-${fieldProps.field.name}`}
+                name={fieldProps.field.name}
+                value={fieldProps.field.value}
+                onChange={meta =>
+                  setStripeValue(
+                    meta,
+                    fieldProps.field.name,
+                    fieldProps.form.setFieldValue
+                  )
+                }
+                onBlur={meta => {
+                  fieldProps.form.setFieldTouched(
+                    fieldProps.field.name,
+                    true,
+                    true
+                  )
+                }}
+              />
+              {fieldProps.meta.touched && fieldProps.meta.error?.status && (
+                <FormHelperText
+                  id="component-error-text"
+                  className={classes.formHelperText}>
+                  {fieldProps.meta.error.message}
+                </FormHelperText>
+              )}
+            </FormControl>
+          )}
         </Field>
       </div>
 
       <div className={classes.gridPosition3}>
         <Field name="cardCvc" validate={stripeElementValidator}>
-          {fieldProps => {
-            return (
-              <FormControl
-                fullWidth
-                required
-                error={fieldProps.meta.touched && fieldProps.meta.error?.status}
-                className={classes.formControl}>
-                <InputLabel
-                  htmlFor={`stripe-element-${fieldProps.field.name}`}
-                  className={classNames(classes.inputLabel, {
-                    [classes.inputLabelShrink]: fieldIsDirty(fieldProps.meta)
-                  })}>
-                  Card Cvc
-                </InputLabel>
-                <CardCvcElement
-                  options={{
-                    style: inputStyle,
-                    classes: {
-                      base: classes.stripeBase,
-                      complete: classes.stripeComplete,
-                      focus: classes.stripeFocus,
-                      invalid: classes.stripeInvalid
-                    }
-                  }}
-                  className={classes.stripeInput}
-                  id={`stripe-element-${fieldProps.field.name}`}
-                  name={fieldProps.field.name}
-                  value={fieldProps.field.value}
-                  onChange={meta =>
-                    setStripeValue(
-                      meta,
-                      fieldProps.field.name,
-                      fieldProps.form.setFieldValue
-                    )
+          {fieldProps => (
+            <FormControl
+              fullWidth
+              required
+              error={fieldProps.meta.touched && fieldProps.meta.error?.status}
+              className={classes.formControl}>
+              <InputLabel
+                htmlFor={`stripe-element-${fieldProps.field.name}`}
+                className={classNames(classes.inputLabel, {
+                  [classes.inputLabelShrink]: fieldIsDirty(fieldProps.meta)
+                })}>
+                Card Cvc
+              </InputLabel>
+              <CardCvcElement
+                options={{
+                  style: inputStyle,
+                  classes: {
+                    base: classes.stripeBase,
+                    complete: classes.stripeComplete,
+                    focus: classes.stripeFocus,
+                    invalid: classes.stripeInvalid
                   }
-                  onBlur={meta => {
-                    fieldProps.form.setFieldTouched(
-                      fieldProps.field.name,
-                      true,
-                      true
-                    )
-                  }}
-                />
-                {fieldProps.meta.touched && fieldProps.meta.error?.status && (
-                  <FormHelperText
-                    id="component-error-text"
-                    className={classes.formHelperText}>
-                    {fieldProps.meta.error.message}
-                  </FormHelperText>
-                )}
-              </FormControl>
-            )
-          }}
+                }}
+                className={classes.stripeInput}
+                id={`stripe-element-${fieldProps.field.name}`}
+                name={fieldProps.field.name}
+                value={fieldProps.field.value}
+                onChange={meta =>
+                  setStripeValue(
+                    meta,
+                    fieldProps.field.name,
+                    fieldProps.form.setFieldValue
+                  )
+                }
+                onBlur={meta => {
+                  fieldProps.form.setFieldTouched(
+                    fieldProps.field.name,
+                    true,
+                    true
+                  )
+                }}
+              />
+              {fieldProps.meta.touched && fieldProps.meta.error?.status && (
+                <FormHelperText
+                  id="component-error-text"
+                  className={classes.formHelperText}>
+                  {fieldProps.meta.error.message}
+                </FormHelperText>
+              )}
+            </FormControl>
+          )}
         </Field>
       </div>
 
       <div className={classes.gridPosition4}>
         <Field name="billingEmail" validate={billingEmailValidator}>
-          {fieldProps => {
-            return (
-              <FormControl
-                fullWidth
-                error={
-                  fieldProps.meta.touched && fieldProps.meta.error?.status
-                }>
-                <InputLabel htmlFor={fieldProps.field.name}>
-                  Billing Email Address
-                </InputLabel>
-                <Input
-                  id={fieldProps.field.name}
-                  value={fieldProps.field.value}
-                  onChange={fieldProps.field.onChange}
-                  onBlur={fieldProps.field.onBlur}
-                />
-                <FormHelperText id="component-error-text">
-                  {fieldProps.meta.touched && fieldProps.meta.error?.status
-                    ? 'Invalid email address'
-                    : 'Email address to send receipt. No receipt sent if left blank'}
-                </FormHelperText>
-              </FormControl>
-            )
-          }}
+          {fieldProps => (
+            <TextField
+              fullWidth
+              error={fieldProps.meta.touched && fieldProps.meta.error?.status}
+              id={fieldProps.field.name}
+              label="Billing Email Address"
+              onChange={fieldProps.field.onChange}
+              onBlur={fieldProps.field.onBlur}
+              helperText={
+                fieldProps.meta.touched && fieldProps.meta.error?.status
+                  ? 'Invalid email address'
+                  : 'Email address to send receipt. No receipt sent if left blank'
+              }
+            />
+          )}
         </Field>
       </div>
     </div>

@@ -53,7 +53,6 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export const VolumeFormTerms = () => {
-  // console.log('%c formikProps', 'color: yellow; font-size: large', formikProps)
   const classes = useStyles()
 
   const validator = value => {
@@ -71,55 +70,48 @@ export const VolumeFormTerms = () => {
 
   return (
     <Field name="acceptTerms" validate={validator}>
-      {fieldProps => {
-        // console.log(
-        //   '%c fieldProps',
-        //   'color: lightgreen; font-size: large',
-        //   fieldProps
-        // )
-        return (
-          <FormControl
-            required
-            fullWidth
-            error={fieldProps.meta.touched && fieldProps.meta.error?.status}>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  name={fieldProps.field.name}
-                  checked={fieldProps.field.value}
-                  onChange={fieldProps.field.onChange}
-                  onBlur={fieldProps.field.onBlur}
-                  color="secondary"
-                  classes={{
-                    colorSecondary: classes.checked
-                  }}
+      {fieldProps => (
+        <FormControl
+          required
+          fullWidth
+          error={fieldProps.meta.touched && fieldProps.meta.error?.status}>
+          <FormControlLabel
+            control={
+              <Checkbox
+                name={fieldProps.field.name}
+                checked={fieldProps.field.value}
+                onChange={fieldProps.field.onChange}
+                onBlur={fieldProps.field.onBlur}
+                color="secondary"
+                classes={{
+                  colorSecondary: classes.checked
+                }}
+              />
+            }
+            label={
+              <div className={classes.checkboxLabel}>
+                I accept the Terms &amp; Conditions
+                <button
+                  type="button"
+                  onClick={openTermsDialogHandler}
+                  className={classes.viewTermsButton}>
+                  <SearchIcon className={classes.viewTermsButtonIcon} />
+                </button>
+                <TermsAndConditionsLoadable
+                  open={termsDialogStatus}
+                  closeHandler={closeTermsDialogHandler}
+                  siteName={process.env.SITE_NAME}
+                  siteUrl={process.env.SITE_URL}
+                  siteContactEmail={process.env.SITE_CONTACT_EMAIL}
                 />
-              }
-              label={
-                <div className={classes.checkboxLabel}>
-                  I accept the Terms &amp; Conditions
-                  <button
-                    type="button"
-                    onClick={openTermsDialogHandler}
-                    className={classes.viewTermsButton}>
-                    <SearchIcon className={classes.viewTermsButtonIcon} />
-                  </button>
-                  <TermsAndConditionsLoadable
-                    open={termsDialogStatus}
-                    closeHandler={closeTermsDialogHandler}
-                    siteName={process.env.SITE_NAME}
-                    siteUrl={process.env.SITE_URL}
-                    siteContactEmail={process.env.SITE_CONTACT_EMAIL}
-                  />
-                </div>
-              }
-            />
-            {fieldProps.meta.touched && fieldProps.meta.error?.status && (
-              <FormHelperText>{fieldProps.meta.error.message}</FormHelperText>
-            )}
-          </FormControl>
-        )
-      }}
+              </div>
+            }
+          />
+          {fieldProps.meta.touched && fieldProps.meta.error?.status && (
+            <FormHelperText>{fieldProps.meta.error.message}</FormHelperText>
+          )}
+        </FormControl>
+      )}
     </Field>
   )
 }
