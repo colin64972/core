@@ -106,6 +106,4 @@ const NotFoundComp = props => {
   )
 }
 
-const NotFound = withRouter(NotFoundComp)
-
-export default NotFound
+export const NotFound = withRouter(NotFoundComp)
