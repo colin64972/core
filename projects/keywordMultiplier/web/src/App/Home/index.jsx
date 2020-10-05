@@ -6,7 +6,7 @@ import { Intro } from './Intro'
 import { Notice } from './Notice'
 import { Sets } from './Sets'
 import { Footer } from '../common/Footer'
-import { CircularProgress } from '@material-ui/core'
+import { BackDropScreen } from '@colin30/shared/react/components/BackDropScreen'
 
 const TrialResultsLoadable = Loadable({
   loader: () =>
@@ -15,9 +15,7 @@ const TrialResultsLoadable = Loadable({
       /* webpackPrefetch: true */
       './TrialResults'
     ),
-  loading: props => {
-    return <CircularProgress />
-  },
+  loading: () => <BackDropScreen isOpen spinner />,
   render: (loaded, props) => {
     let Component = loaded.TrialResults
     return <Component {...props} />

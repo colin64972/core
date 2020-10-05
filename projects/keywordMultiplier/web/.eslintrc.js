@@ -1,7 +1,13 @@
 const setEslint = require('@colin30/configs/eslint')
 
-module.exports = setEslint(true, ['plugin:react/recommended'], ['react'], {
-  node: true,
-  browser: true,
-  jest: true
-})
+module.exports = setEslint(
+  true,
+  ['plugin:react/recommended'],
+  ['react'],
+  {
+    node: true,
+    browser: true,
+    jest: true
+  },
+  [{ 'react/display-name': [false, { ignoreTranspilerName: true }] }]
+)
