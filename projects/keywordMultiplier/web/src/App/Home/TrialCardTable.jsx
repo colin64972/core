@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import loadable from '@loadable/component'
+import Loadable from 'react-loadable'
+import { CircularProgress } from '@material-ui/core'
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements } from '@stripe/react-stripe-js'
 import {
@@ -23,6 +24,22 @@ import {
 import { getLabelFromValue } from '@colin30/shared/react/helpers'
 
 const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY)
+
+const VolumeLoadable = Loadable({
+  loader: () =>
+    import(
+      /* webpackChunkName: "chunk-Volume" */
+      /* webpackPrefetch: true */
+      './Volume'
+    ),
+  loading: props => {
+    return <CircularProgress />
+  },
+  render: (loaded, props) => {
+    let Component = loaded.Volume
+    return <Component {...props} />
+  }
+})
 
 const useStyles = makeStyles(theme => ({
   metricDetailsContainer: {
@@ -105,14 +122,6 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
   })
 
   const tldsHidden = useSelector(state => state.app.tldsHidden)
-
-  const VolumeLoadable = loadable(() =>
-    import(
-      /* webpackChunkName: "chunk-Volume" */
-      /* webpackPrefetch: true */
-      './Volume'
-    )
-  )
 
   return (
     <Grid container>
