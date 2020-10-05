@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
 import Loadable from 'react-loadable'
 import { defaultPadding } from '@colin30/shared/react/theming'
-import { createHashId } from '@colin30/shared/react/helpers'
 import { ImageHandler } from '@colin30/shared/react/components/ImageHandler'
 import Grid from '@material-ui/core/Grid'
 import Link from '@material-ui/core/Link'
 import Typography from '@material-ui/core/Typography'
-import { CircularProgress } from '@material-ui/core'
 import GavelIcon from '@material-ui/icons/Gavel'
 import RateReviewIcon from '@material-ui/icons/RateReview'
 import VpnLockIcon from '@material-ui/icons/VpnLock'
@@ -14,23 +12,30 @@ import WebIcon from '@material-ui/icons/Web'
 import { makeStyles } from '@material-ui/styles'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { ColinProfile } from '../../../assets'
+import { BackDropScreen } from '@colin30/shared/react/components/BackDropScreen'
 
 const TermsAndConditionsLoadable = Loadable({
-  loader: () => import('@colin30/shared/react/components/TermsAndConditions'),
-  loading: props => {
-    return <CircularProgress />
-  },
+  loader: () =>
+    import(
+      /* webpackChunkName: "chunk-TermsAndConditions" */
+      /* webpackPrefetch: true */
+      '@colin30/shared/react/components/TermsAndConditions'
+    ),
+  loading: () => <BackDropScreen isOpen spinner />,
   render: (loaded, props) => {
-    let Component = loaded.TermsOfService
+    let Component = loaded.TermsAndConditions
     return <Component {...props} />
   }
 })
 
 const PPLoadable = Loadable({
-  loader: () => import('@colin30/shared/react/components/PrivacyPolicy'),
-  loading: props => {
-    return <CircularProgress />
-  },
+  loader: () =>
+    import(
+      /* webpackChunkName: "chunk-PrivacyPolicy" */
+      /* webpackPrefetch: true */
+      '@colin30/shared/react/components/PrivacyPolicy'
+    ),
+  loading: () => <BackDropScreen isOpen spinner />,
   render: (loaded, props) => {
     let Component = loaded.PrivacyPolicy
     return <Component {...props} />
@@ -197,8 +202,7 @@ export const Footer = () => {
             <Link
               component="button"
               className={classes.badgeButton}
-              href={constants.URLS.NEBOCAT}
-              onClick={() => {}}>
+              href={constants.URLS.NEBOCAT}>
               <Typography variant="h6" className={classes.badgeHeading}>
                 Need help with JavaScript
                 <br />

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import Loadable from 'react-loadable'
-import { CircularProgress } from '@material-ui/core'
+import { BackDropScreen } from '@colin30/shared/react/components/BackDropScreen'
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements } from '@stripe/react-stripe-js'
 import {
@@ -32,9 +32,7 @@ const VolumeLoadable = Loadable({
       /* webpackPrefetch: true */
       './Volume'
     ),
-  loading: props => {
-    return <CircularProgress />
-  },
+  loading: () => <BackDropScreen isOpen spinner />,
   render: (loaded, props) => {
     let Component = loaded.Volume
     return <Component {...props} />

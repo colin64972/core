@@ -6,18 +6,21 @@ import {
   FormControl,
   FormHelperText,
   FormControlLabel,
-  Checkbox,
-  CircularProgress
+  Checkbox
 } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search'
+import { BackDropScreen } from '@colin30/shared/react/components/BackDropScreen'
 
 const TermsAndConditionsLoadable = Loadable({
-  loader: () => import('@colin30/shared/react/components/TermsAndConditions'),
-  loading: props => {
-    return <CircularProgress />
-  },
+  loader: () =>
+    import(
+      /* webpackChunkName: "chunk-TermsAndConditions" */
+      /* webpackPrefetch: true */
+      '@colin30/shared/react/components/TermsAndConditions'
+    ),
+  loading: () => <BackDropScreen isOpen spinner />,
   render: (loaded, props) => {
-    let Component = loaded.TermsOfService
+    let Component = loaded.TermsAndConditions
     return <Component {...props} />
   }
 })

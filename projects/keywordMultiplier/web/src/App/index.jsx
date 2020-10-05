@@ -1,9 +1,9 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Loadable from 'react-loadable'
-import { CircularProgress } from '@material-ui/core'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
+import { BackDropScreen } from '@colin30/shared/react/components/BackDropScreen'
 
 const HomeLoadable = Loadable({
   loader: () =>
@@ -12,9 +12,7 @@ const HomeLoadable = Loadable({
       /* webpackPrefetch: true */
       './Home'
     ),
-  loading: props => {
-    return <CircularProgress />
-  },
+  loading: () => <BackDropScreen isOpen spinner />,
   render: (loaded, props) => {
     let Component = loaded.Home
     return <Component {...props} />
@@ -28,9 +26,7 @@ const NotFoundLoadable = Loadable({
       /* webpackPrefetch: true */
       './NotFound'
     ),
-  loading: props => {
-    return <CircularProgress />
-  },
+  loading: () => <BackDropScreen isOpen spinner />,
   render: (loaded, props) => {
     let Component = loaded.NotFound
     return <Component {...props} />
