@@ -4,7 +4,7 @@ import { proxyServiceError } from '@cjo3/shared/serverless/proxyServiceError'
 import { createHashId } from '@cjo3/shared/react/helpers'
 import { IP_ADDRESS } from '@cjo3/shared/raw/constants/regex'
 import { fetchGeoIp } from './fetchers'
-import { processTrial } from '@cjo3/shared/logic/sqe'
+import { processTrial } from '@cjo3/shared/logic/km'
 
 const dbOptions = {}
 

@@ -6,8 +6,8 @@ import {
   creditsMock,
   preOrderMock,
   volumeMock
-} from '@cjo3/shared/react/mocks/sqe'
-import { constants } from '@cjo3/shared/raw/constants/sqe'
+} from '@cjo3/shared/react/mocks/km'
+import { constants } from '@cjo3/shared/raw/constants/km'
 
 export const fetchIpAddress = async () => {
   if (process.env.USE_MOCKS) return ipMock.data.ip
@@ -26,7 +26,7 @@ export const createTrial = async payload => {
   if (process.env.USE_MOCKS) return createTrialMock
   let url = 'http://localhost:2000'
   if (process.env.NODE_ENV === 'production') {
-    url = 'https://apis.bettermedia.ca/sqe'
+    url = 'https://apis.bettermedia.ca/km'
   }
   const res = await post(`${url}/trials`, payload, options)
   return res
@@ -43,7 +43,7 @@ export const fetchKeData = async resource => {
   }
   let url = 'http://localhost:2000'
   if (process.env.NODE_ENV === 'production') {
-    url = 'https://apis.bettermedia.ca/sqe'
+    url = 'https://apis.bettermedia.ca/km'
   }
   const res = await get(`${url}/ke?resource=${resource}`, options)
   return res
@@ -59,7 +59,7 @@ export const makePreOrder = async (
   if (process.env.USE_MOCKS) return preOrderMock
   let url = 'http://localhost:2000'
   if (process.env.NODE_ENV === 'production') {
-    url = 'https://apis.bettermedia.ca/sqe'
+    url = 'https://apis.bettermedia.ca/km'
   }
   const res = await post(
     `${url}/ke/pre-order`,
@@ -85,7 +85,7 @@ export const fetchKeVolumes = async (
   if (process.env.USE_MOCKS) return volumeMock
   let url = 'http://localhost:2000'
   if (process.env.NODE_ENV === 'production') {
-    url = 'https://apis.bettermedia.ca/sqe'
+    url = 'https://apis.bettermedia.ca/km'
   }
   const res = await post(
     `${url}/ke`,
@@ -105,7 +105,7 @@ export const fetchKeVolumes = async (
 export const postLowCreditAlert = async credits => {
   let url = 'http://localhost:2000'
   if (process.env.NODE_ENV === 'production') {
-    url = 'https://apis.bettermedia.ca/sqe'
+    url = 'https://apis.bettermedia.ca/km'
   }
   const res = await post(`${url}/ke/low-credits`, { credits }, options)
   if (res.status === 202) return true

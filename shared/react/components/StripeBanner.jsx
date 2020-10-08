@@ -1,5 +1,5 @@
 import React from 'react'
-import { constants } from '@cjo3/shared/raw/constants/sqe'
+import { constants } from '@cjo3/shared/raw/constants/km'
 
 export const StripeBanner = ({ fillColor, className, iconClass }) => {
   const clickHandler = event => {

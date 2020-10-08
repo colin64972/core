@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 import { makeStyles } from '@material-ui/styles'
-import { constants } from '@cjo3/shared/raw/constants/sqe'
+import { constants } from '@cjo3/shared/raw/constants/km'
 import {
   Dialog,
   DialogActions,
