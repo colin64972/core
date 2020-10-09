@@ -15,7 +15,6 @@ import { withStyles, makeStyles } from '@material-ui/styles'
 import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import { defaultPadding } from '@colin30/shared/react/theming'
 import { whiteSpaceOptions } from './fields'
-import { getCopySettings, getWhiteSpaceSelection } from '../../store/selectors'
 import { types } from '../../store/types'
 
 const CustomSwitch = withStyles(theme => ({
@@ -112,12 +111,10 @@ const useStyles = makeStyles(theme => {
 export const TrialResultsSettings = ({ buttonsDisabled }) => {
   const classes = useStyles()
 
-  const copySettings = useSelector(state => getCopySettings(state))
+  const keywordsOnly = useSelector(state => state.app.copyKeywordsOnly)
 
-  const { keywordsOnly } = copySettings
-
-  const whiteSpaceSelection = useSelector(state =>
-    getWhiteSpaceSelection(state)
+  const whiteSpaceSelection = useSelector(
+    state => state.app.whiteSpaceSelection
   )
 
   const dispatch = useDispatch()
@@ -128,7 +125,7 @@ export const TrialResultsSettings = ({ buttonsDisabled }) => {
 
   const keywordsOnlyHandler = () =>
     dispatch({
-      type: types.TOGGLE_COPY_DATA_ONLY
+      type: types.TOGGLE_COPY_KEYWORDS_ONLY
     })
 
   const whiteSpaceSelectorHandler = event =>
