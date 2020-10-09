@@ -123,7 +123,7 @@ const stringifyBodyRows = (bodyRows, keywordsOnly, trialId) => {
     rowsArray.push(rowString)
   }
 
-  return '\n' + rowsArray.join('\n')
+  return rowsArray.join('\n')
 }
 
 const stringifyTable = (tableRef, keywordsOnly) => {
@@ -138,7 +138,7 @@ const stringifyTable = (tableRef, keywordsOnly) => {
     if (hasMetrics) {
       result += `Target Country\t${metricOptions.country}\nCPC Currency\t${metricOptions.currency}\nData Source\t${metricOptions.dataSource}\n`
     }
-    result += stringifyHeadCells(tableRef.firstChild.firstChild.children)
+    result += stringifyHeadCells(tableRef.firstChild.firstChild.children) + '\n'
   }
 
   result += stringifyBodyRows(

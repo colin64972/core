@@ -1,6 +1,5 @@
 import { call, put, select, take, race, delay } from 'redux-saga/effects'
 import { createTrial, fetchIpAddress } from '../fetchers'
-import { getCopySettings } from '../selectors'
 import { types } from '../types'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import {
@@ -78,14 +77,10 @@ export function* multiplySets(action) {
 
 export function* copyTrial(action) {
   const notice = generateNotice(`Trial ${action.id} copied to clipboard`)
-  const copySettings = yield select(state => getCopySettings(state))
+  const keywordsOnly = yield select(state => state.app.copyKeywordsOnly)
   try {
     const { tableRef } = action
-    const copyData = yield call(
-      buildCopyData,
-      tableRef,
-      copySettings.keywordsOnly
-    )
+    const copyData = yield call(buildCopyData, tableRef, keywordsOnly)
     copyToClipboard(copyData)
   } catch (error) {
     notice.bg = constants.NOTICE.BGS.FAIL
@@ -108,14 +103,10 @@ export function* copyTrial(action) {
 
 export function* copyAllTrials() {
   const notice = generateNotice('All trials copied to clipboard')
-  const copySettings = yield select(state => getCopySettings(state))
+  const keywordsOnly = yield select(state => state.app.copyKeywordsOnly)
   const tables = document.getElementsByTagName('table')
   try {
-    const copyData = yield call(
-      buildCopyData,
-      tables,
-      copySettings.keywordsOnly
-    )
+    const copyData = yield call(buildCopyData, tables, keywordsOnly)
     copyToClipboard(copyData)
   } catch (error) {
     notice.bg = constants.NOTICE.BGS.FAIL
