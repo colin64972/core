@@ -13,9 +13,7 @@ const defaultState = {
   },
   matchType: constants.MATCHTYPES.BROAD,
   matchTypePrev: constants.MATCHTYPES.BROAD,
-  copySettings: {
-    keywordsOnly: false
-  },
+  copyKeywordsOnly: false,
   whiteSpaceSelection: constants.WHITESPACE_OPTIONS.DISABLED.VALUE,
   notice: {
     show: false,
@@ -120,13 +118,10 @@ export const app = (state = defaultState, action) => {
           item: null
         }
       }
-    case types.TOGGLE_COPY_DATA_ONLY:
+    case types.TOGGLE_COPY_KEYWORDS_ONLY:
       return {
         ...state,
-        copySettings: {
-          ...state.copySettings,
-          keywordsOnly: !state.copySettings.keywordsOnly
-        }
+        copyKeywordsOnly: !state.copyKeywordsOnly
       }
     case types.ADD_GEO_IP:
       return {

@@ -17,7 +17,6 @@ import { makeStyles } from '@material-ui/styles'
 import { volumeDataFields } from './fields'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { formatProductLine } from '../logic'
-import { getMatchType, getWhiteSpaceSelection } from '../../store/selectors'
 import { findMetricFromEntry } from '@colin30/shared/logic/keywordMultiplier'
 import { getLabelFromValue } from '@colin30/shared/react/helpers'
 
@@ -74,10 +73,10 @@ const useStyles = makeStyles(theme => ({
 export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
   const classes = useStyles()
 
-  const matchType = useSelector(state => getMatchType(state))
+  const matchType = useSelector(state => state.app.matchType)
 
-  const whiteSpaceSelection = useSelector(state =>
-    getWhiteSpaceSelection(state)
+  const whiteSpaceSelection = useSelector(
+    state => state.app.whiteSpaceSelection
   )
 
   const [dialogStatus, setDialogStatus] = useState(false)
