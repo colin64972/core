@@ -40,8 +40,8 @@ theme.typography.subtitle1 = {
   }
 }
 
-theme.palette.gradients = {
-  screen: 'linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75))'
+theme.palette.screens = {
+  backdrop: 'rgba(0, 0, 0, 0.5)'
 }
 
 theme.shadows.concat([
@@ -49,6 +49,19 @@ theme.shadows.concat([
     theme.custom.setSpace() / 2
   }px ${theme.palette.grey[50]}`
 ])
+
+theme.custom.formButton = {
+  padding: theme.custom.setSpace(),
+  borderRadius: theme.custom.borderRadius,
+  fontFamily: theme.typography.fontFamily,
+  width: '100%',
+  border: 'none',
+  fontSize: theme.custom.setSpace(),
+  fontWeight: 'bold',
+  textTransform: 'uppercase',
+  transition: 'all 250ms ease-out',
+  color: theme.palette.bodyColor
+}
 
 theme.custom.iconButton = {
   'border': 'none',

@@ -3,31 +3,23 @@ import { Form, Field } from 'formik'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { FadeIn } from '@colin30/shared/react/components/FadeIn'
-import Grid from '@material-ui/core/Grid'
+import { Grid } from '@material-ui/core'
 import RestorePageIcon from '@material-ui/icons/RestorePage'
 import CachedIcon from '@material-ui/icons/Cached'
 import ShuffleIcon from '@material-ui/icons/Shuffle'
 import { makeStyles } from '@material-ui/styles'
 import { setFields } from './fields'
 import { SetsTextAreaField } from './SetsTextAreaField'
-import { constants } from '../constants'
+import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { getSetsWithValues } from '../logic'
+import { BackDropScreen } from '@colin30/shared/react/components/BackDropScreen'
 import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => {
-  const formButton = {
-    padding: theme.custom.setSpace(),
-    borderRadius: theme.custom.borderRadius,
-    fontFamily: theme.typography.fontFamily,
-    width: '100%',
-    border: 'none',
-    fontSize: theme.custom.setSpace(),
-    fontWeight: 'bold',
-    textTransform: 'uppercase',
-    transition: 'all 250ms ease-out',
-    color: theme.palette.bodyColor
-  }
   return {
+    backdrop: {
+      zIndex: theme.zIndex.drawer + 1
+    },
     form: {
       marginTop: theme.custom.setSpace('sm'),
       ...theme.custom.setGrid(5, 'auto', theme.custom.setSpace('sm')),
@@ -92,21 +84,23 @@ const useStyles = makeStyles(theme => {
       }
     },
     submitButton: {
-      ...formButton,
+      ...theme.custom.formButton,
       backgroundColor: theme.palette.grey[400]
     },
     submitEnabled: {
+      'cursor': 'pointer',
       'backgroundColor': theme.palette.pass[500],
       '&:hover': {
         backgroundColor: theme.palette.pass[400]
       }
     },
     resetButton: {
-      ...formButton,
+      ...theme.custom.formButton,
       backgroundColor: theme.palette.grey[400]
     },
     resetEnabled: {
       'backgroundColor': theme.palette.fail[500],
+      'cursor': 'pointer',
       '&:hover': {
         backgroundColor: theme.palette.fail[400]
       }
@@ -121,7 +115,7 @@ const useStyles = makeStyles(theme => {
 })
 
 export const SetsForm = props => {
-  console.log('%c FORMIK PROPS', 'color: yellow; font-size: large', props)
+  // console.log('%c FORMIK PROPS', 'color: yellow; font-size: large', props)
 
   const classes = useStyles()
 
@@ -149,6 +143,7 @@ export const SetsForm = props => {
 
   return (
     <Form className={classes.form}>
+      <BackDropScreen isOpen={isSubmitting} spinner />
       {setFields.map(setField => (
         <div key={setField.key} className={classes[setField.group.className]}>
           <Field

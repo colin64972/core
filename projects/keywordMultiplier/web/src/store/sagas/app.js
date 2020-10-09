@@ -1,15 +1,16 @@
 import { call, put, select, take, race, delay } from 'redux-saga/effects'
-import { getRequest, postRequest } from '@colin30/shared/react/saga'
-import { getCopySettings, getMatchType, getClientIp } from '../selectors'
+import { createTrial, fetchIpAddress } from '../fetchers'
+import { getCopySettings } from '../selectors'
 import { types } from '../types'
-import { constants } from '../../App/constants'
+import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import {
   decorateTrial,
-  copyToClipboard,
   generateNotice,
   getSetsWithValues,
   findEnabledSets
 } from '../../App/logic'
+import { copyToClipboard } from '@colin30/shared/react/helpers'
+import { buildCopyData } from '@colin30/shared/logic/keywordMultiplier'
 
 export function* multiplySets(action) {
   const notice = generateNotice('Check your results below')
@@ -26,19 +27,23 @@ export function* multiplySets(action) {
       setsDisabled,
       action.values
     )
-    let ip = yield select(state => getClientIp(state))
-    if (process.env.NODE_ENV === 'production') {
-      ip = yield call(getRequest, 'ip')
+    const geoIp = yield select(state => state.app.geoIp)
+    let ipAddress = geoIp?.ip
+    if (!ipAddress) {
+      ipAddress = yield call(fetchIpAddress)
     }
-    yield put({
-      type: types.ADD_IP,
-      ip
-    })
-    const posted = yield call(postRequest, 'trials', {
+    const posted = yield call(createTrial, {
       sets: setsEnabled,
-      ipAddress: ip
+      ipAddress,
+      country: geoIp?.country_name
     })
     const trial = yield call(decorateTrial, posted.data)
+    if (!geoIp) {
+      yield put({
+        type: types.ADD_GEO_IP,
+        geoIp: trial.geoIp
+      })
+    }
     yield put({
       type: types.ADD_TRIAL,
       trial
@@ -74,10 +79,14 @@ export function* multiplySets(action) {
 export function* copyTrial(action) {
   const notice = generateNotice(`Trial ${action.id} copied to clipboard`)
   const copySettings = yield select(state => getCopySettings(state))
-  const matchType = yield select(state => getMatchType(state))
   try {
-    const { ref } = action
-    yield call(copyToClipboard, ref, copySettings.dataOnly, matchType)
+    const { tableRef } = action
+    const copyData = yield call(
+      buildCopyData,
+      tableRef,
+      copySettings.keywordsOnly
+    )
+    copyToClipboard(copyData)
   } catch (error) {
     notice.bg = constants.NOTICE.BGS.FAIL
     notice.heading = 'Error'
@@ -100,10 +109,14 @@ export function* copyTrial(action) {
 export function* copyAllTrials() {
   const notice = generateNotice('All trials copied to clipboard')
   const copySettings = yield select(state => getCopySettings(state))
-  const matchType = yield select(state => getMatchType(state))
+  const tables = document.getElementsByTagName('table')
   try {
-    const tbodys = document.getElementsByTagName('tbody')
-    yield call(copyToClipboard, tbodys, copySettings.dataOnly, matchType)
+    const copyData = yield call(
+      buildCopyData,
+      tables,
+      copySettings.keywordsOnly
+    )
+    copyToClipboard(copyData)
   } catch (error) {
     notice.bg = constants.NOTICE.BGS.FAIL
     notice.heading = 'Error'

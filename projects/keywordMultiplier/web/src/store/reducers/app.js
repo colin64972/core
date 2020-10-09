@@ -1,4 +1,4 @@
-import { constants } from '../../App/constants'
+import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { types } from '../types'
 
 const defaultState = {
@@ -14,7 +14,7 @@ const defaultState = {
   matchType: constants.MATCHTYPES.BROAD,
   matchTypePrev: constants.MATCHTYPES.BROAD,
   copySettings: {
-    dataOnly: false
+    keywordsOnly: false
   },
   whiteSpaceSelection: constants.WHITESPACE_OPTIONS.DISABLED.VALUE,
   notice: {
@@ -22,19 +22,19 @@ const defaultState = {
     item: null,
     choice: null
   },
-  ip: constants.DEFAULT_IP
+  geoIp: null
 }
 
 export const app = (state = defaultState, action) => {
   switch (action.type) {
     case types.ADD_DISABLED_SET:
       return {
-        ...defaultState,
+        ...state,
         disabledSets: [...state.disabledSets, action.fieldName]
       }
     case types.REMOVE_DISABLED_SET:
       return {
-        ...defaultState,
+        ...state,
         disabledSets: state.disabledSets.filter(
           setName => setName !== action.fieldName
         )
@@ -125,13 +125,13 @@ export const app = (state = defaultState, action) => {
         ...state,
         copySettings: {
           ...state.copySettings,
-          dataOnly: !state.copySettings.dataOnly
+          keywordsOnly: !state.copySettings.keywordsOnly
         }
       }
-    case types.ADD_IP:
+    case types.ADD_GEO_IP:
       return {
         ...state,
-        ip: action.ip
+        geoIp: action.geoIp
       }
     case types.CHANGE_WHITESPACE_SELECTION:
       return {
@@ -148,6 +148,19 @@ export const app = (state = defaultState, action) => {
         spinnerStatuses: {
           ...state.spinnerStatuses,
           [action.spinnerName]: action.status
+        }
+      }
+    case types.UPDATE_TRIAL:
+      return {
+        ...state,
+        trials: {
+          ...state.trials,
+          items: [
+            ...state.trials.items.filter(
+              item => item.id !== action.updatedTrial.id
+            ),
+            action.updatedTrial
+          ]
         }
       }
     default:

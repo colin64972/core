@@ -114,7 +114,7 @@ export const TrialResultsSettings = ({ buttonsDisabled }) => {
 
   const copySettings = useSelector(state => getCopySettings(state))
 
-  const { dataOnly } = copySettings
+  const { keywordsOnly } = copySettings
 
   const whiteSpaceSelection = useSelector(state =>
     getWhiteSpaceSelection(state)
@@ -126,7 +126,7 @@ export const TrialResultsSettings = ({ buttonsDisabled }) => {
 
   const askDeleteTrials = () => dispatch({ type: types.ASK_DELETE_ALL_TRIALS })
 
-  const dataOnlyHandler = () =>
+  const keywordsOnlyHandler = () =>
     dispatch({
       type: types.TOGGLE_COPY_DATA_ONLY
     })
@@ -186,15 +186,15 @@ export const TrialResultsSettings = ({ buttonsDisabled }) => {
                 className={classes.switchGroupLabel}
                 control={
                   <CustomSwitch
-                    name="copyDataOnly"
+                    name="copykeywordsOnly"
                     color="primary"
-                    checked={dataOnly}
-                    onChange={dataOnlyHandler}
+                    checked={keywordsOnly}
+                    onChange={keywordsOnlyHandler}
                   />
                 }
                 label={
                   <Typography variant="body1" className={classes.toggleText}>
-                    Copy Data Only
+                    Copy Keywords Only
                   </Typography>
                 }
               />

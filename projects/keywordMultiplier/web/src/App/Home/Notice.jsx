@@ -1,11 +1,12 @@
 import gsap from 'gsap'
+import classNames from 'classnames'
 import React, { useRef, useEffect, useLayoutEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import CloseIcon from '@material-ui/icons/Close'
 import DoneIcon from '@material-ui/icons/Done'
 import { makeStyles } from '@material-ui/styles'
-import { PassWarnFailIcon } from './PassWarnFailIcon'
-import { constants } from '../constants'
+import { NoticeIcon } from './NoticeIcon'
+import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { getNotice } from '../../store/selectors'
 import { types } from '../../store/types'
 
@@ -54,7 +55,7 @@ const useStyles = makeStyles(theme => {
       top: 0,
       left: 0,
       opacity: 0,
-      background: theme.palette.gradients.screen
+      background: theme.palette.screens.backdrop
     },
     noticeBar: {
       position: 'fixed',
@@ -163,10 +164,7 @@ export const Notice = () => {
   const timeoutBar = useRef()
   const noticeBar = useRef()
   const { show, item } = useSelector(state => getNotice(state))
-  const [lastY, setLastY] = useState()
   let timeline = gsap.timeline({ paused: true })
-
-  const scrollLock = event => scrollTo(0, lastY)
 
   const responseHandler = (event, choice = null) => {
     if (event) {
@@ -252,16 +250,6 @@ export const Notice = () => {
     }
   }, [show])
 
-  useLayoutEffect(() => {
-    setLastY(window.scrollY)
-    if (show) {
-      document.addEventListener('scroll', scrollLock)
-    }
-    return () => {
-      document.removeEventListener('scroll', scrollLock)
-    }
-  })
-
   useEffect(() => {
     if (item) {
       document.addEventListener('keyup', keyUpHandler)
@@ -279,15 +267,16 @@ export const Notice = () => {
           className={[classes.noticeBar, classes[bg]].join(' ')}
           ref={noticeBar}>
           <div
-            className={[classes.timeoutBar, classes[`${bg}TimeoutBar`]].join(
-              ' '
+            className={classNames(
+              classes.timeoutBar,
+              classes[`${bg}TimeoutBar`]
             )}
             ref={timeoutBar}
           />
           <div className={classes.noticeBarInner}>
             <div className={classes.noticeBarInnerLeft}>
               <div className={classes.heading}>
-                <PassWarnFailIcon bg={bg} className={classes.headingIcon} />
+                <NoticeIcon bg={bg} className={classes.headingIcon} />
                 <h6 className={classes.headingText}>{heading}</h6>
               </div>
               <p className={classes.messageText}>{message}</p>

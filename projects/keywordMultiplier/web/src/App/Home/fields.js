@@ -1,5 +1,5 @@
 import { createHashId } from '@colin30/shared/react/helpers'
-import { constants } from '../constants'
+import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 
 export const setFields = []
 
@@ -80,10 +80,34 @@ export const volumeDataFields = [
     key: createHashId(),
     label: constants.VOLUME_DATA.COMP.LABEL,
     value: constants.VOLUME_DATA.COMP.VALUE
+  }
+  // {
+  //   key: createHashId(),
+  //   label: constants.VOLUME_DATA.TREND.LABEL,
+  //   value: constants.VOLUME_DATA.TREND.VALUE
+  // }
+]
+
+export const kEFields = [
+  {
+    key: createHashId(),
+    name: constants.KE_OPTIONS.COUNTRY.NAME,
+    label: constants.KE_OPTIONS.COUNTRY.LABEL,
+    optionsName: constants.KE_OPTIONS.COUNTRY.OPTIONS_NAME,
+    className: constants.KE_OPTIONS.COUNTRY.CLASSNAME
   },
   {
     key: createHashId(),
-    label: constants.VOLUME_DATA.TREND.LABEL,
-    value: constants.VOLUME_DATA.TREND.VALUE
+    name: constants.KE_OPTIONS.CURRENCY.NAME,
+    label: constants.KE_OPTIONS.CURRENCY.LABEL,
+    optionsName: constants.KE_OPTIONS.CURRENCY.OPTIONS_NAME,
+    className: constants.KE_OPTIONS.CURRENCY.CLASSNAME
+  },
+  {
+    key: createHashId(),
+    name: constants.KE_OPTIONS.DATASOURCE.NAME,
+    label: constants.KE_OPTIONS.DATASOURCE.LABEL,
+    optionsName: constants.KE_OPTIONS.DATASOURCE.OPTIONS_NAME,
+    className: constants.KE_OPTIONS.DATASOURCE.CLASSNAME
   }
 ]

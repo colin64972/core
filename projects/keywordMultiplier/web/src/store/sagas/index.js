@@ -7,7 +7,7 @@ import {
   copyAllTrials,
   askResetAll
 } from './app'
-import { fetchOptions } from './keywordsEverywhere'
+import { getKeCredits, getKeOptions, orderMetrics } from './keywordsEverywhere'
 import { types } from '../types'
 
 export function* sagas() {
@@ -17,5 +17,7 @@ export function* sagas() {
   yield takeLatest(types.ASK_DELETE_TRIAL, askDeleteTrial)
   yield takeLatest(types.ASK_DELETE_ALL_TRIALS, askDeleteAllTrials)
   yield takeLatest(types.ASK_RESET_ALL, askResetAll)
-  yield takeLatest(types.UPDATE_KEYWORDS_EVERYWHERE_OPTIONS, fetchOptions)
+  yield takeLatest(types.GET_KE_CREDITS, getKeCredits)
+  yield takeLatest(types.GET_KE_OPTIONS, getKeOptions)
+  yield takeLatest(types.ORDER_METRICS, orderMetrics)
 }

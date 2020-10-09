@@ -25,20 +25,34 @@ provider:
         - arn:aws:dynamodb:${env:REGION}:*:table/${env:TABLE_NAME}
 
 functions:
-  postTrial:
-    name: ${env:SERVICE_NAME}-postTrial
-    handler: index.postTrial
+  createTrialHandler:
+    name: ${env:SERVICE_NAME}-createTrialHandler
+    handler: index.createTrialHandler
     events:
       - httpApi:
           path: /${env:RESOURCE_NAME}
           method: POST
-  optionsRequest:
-    name: ${env:SERVICE_NAME}-optionsRequest
-    handler: index.optionsRequest
+  getMetaHandler:
+    name: ${env:SERVICE_NAME}-getMetaHandler
+    handler: index.getMetaHandler
     events:
       - httpApi:
-          path: /keywords-everywhere
+          path: /ke
           method: GET
+  getVolumesHandler:
+    name: ${env:SERVICE_NAME}-getVolumesHandler
+    handler: index.getVolumesHandler
+    events:
+      - httpApi:
+          path: /ke
+          method: POST
+  preOrderHandler:
+    name: ${env:SERVICE_NAME}-preOrderHandler
+    handler: index.preOrderHandler
+    events:
+      - httpApi:
+          path: /ke/pre-order
+          method: POST
   # deleteOne:
   #   name: ${env:SERVICE_NAME}-deleteOne
   #   handler: index.deleteOne

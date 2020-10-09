@@ -2,7 +2,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import loadable from '@loadable/component'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import { constants } from './constants'
+import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 
 const HomeLoadable = loadable(() =>
   import(
