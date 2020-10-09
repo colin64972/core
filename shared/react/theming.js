@@ -228,7 +228,28 @@ export const setCustomTheme = (
           }
         }
       }
+      // MuiInputBase: {
+      //   root: {
+      //     fontSize
+      //   }
+      // },
+      // MuiInputLabel: {
+      //   root: {
+      //     fontSize
+      //   }
+      // },
+      // MuiFormHelperText: {
+      //   root: {
+      //     fontSize
+      //   }
+      // },
+      // MuiMenuItem: {
+      //   root: {
+      //     fontSize
+      //   }
+      // }
     }
   })
-  return responsiveFontSizes(muiTheme, { factor })
+  return muiTheme
+  // return responsiveFontSizes(muiTheme, { factor })
 }

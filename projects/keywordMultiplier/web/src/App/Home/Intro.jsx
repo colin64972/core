@@ -28,6 +28,11 @@ const useStyles = makeStyles(theme => ({
       textAlign: 'center'
     }
   },
+  body: {
+    [theme.breakpoints.down('xs')]: {
+      textAlign: 'center'
+    }
+  },
   introImage: {
     width: '100%',
     maxWidth: 600,
@@ -55,7 +60,7 @@ export const Intro = () => {
             </Typography>
           </FadeIn>
           <FadeIn direction="y" position={100}>
-            <Typography variant="body1">
+            <Typography variant="body1" className={classes.body}>
               Amet sit accusam eos sed consetetur, dolor voluptua dolore sea
               sit. Justo eirmod dolor gubergren kasd nonumy invidunt at labore
               invidunt. Sit sea eos ipsum sed, et ipsum sit ut dolor justo vero,

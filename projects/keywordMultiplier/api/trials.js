@@ -2,6 +2,8 @@ import AWS from 'aws-sdk'
 import { dynamoDbConstants } from '@colin30/shared/raw/constants/dynamoDb'
 import { proxyServiceError } from '@colin30/shared/serverless/proxyServiceError'
 import { createHashId } from '@colin30/shared/react/helpers'
+import { IP_ADDRESS } from '@colin30/shared/raw/constants/regex'
+import { fetchGeoIp } from './fetchers'
 import { processTrial } from './logic'
 
 const dbOptions = {}
@@ -13,15 +15,23 @@ if (process.env.IS_LOCAL || process.env.IS_OFFLINE) {
 
 const docClient = new AWS.DynamoDB.DocumentClient(dbOptions)
 
-export const createOne = async eventBody => {
+export const createTrial = async eventBody => {
   try {
     let parsed = JSON.parse(eventBody)
+
+    let { ipAddress, country } = parsed
+
+    let geoIp = ipAddress
+
+    if (IP_ADDRESS.test(ipAddress) && !country) {
+      geoIp = await fetchGeoIp(ipAddress)
+    }
 
     const timestamp = new Date().getTime()
 
     const trialData = {
       id: createHashId(),
-      ipAddress: parsed.ipAddress,
+      geoIp,
       sets: parsed.sets,
       createdAt: timestamp,
       updatedAt: timestamp
@@ -45,6 +55,69 @@ export const createOne = async eventBody => {
     }
   } catch (error) {
     return proxyServiceError(error)
+  }
+}
+
+export const getTrialById = async id => {
+  try {
+    const options = {
+      TableName: process.env.TABLE_NAME,
+      Key: { id }
+    }
+
+    const result = await docClient.get(options).promise()
+
+    if (!result?.Item)
+      throw Error(dynamoDbConstants.ERRORS.DYNAMODB.NO_ITEMS.ERROR_CODE)
+
+    return result.Item
+  } catch (error) {
+    return error
+  }
+}
+
+export const updateTrialWithPaymentAndVolumes = async (
+  trialId,
+  paymentId,
+  country,
+  currency,
+  dataSource,
+  volume
+) => {
+  try {
+    const timestamp = new Date().getTime()
+
+    const options = {
+      TableName: process.env.TABLE_NAME,
+      Key: {
+        id: trialId
+      },
+      ExpressionAttributeNames: {
+        '#m': 'metrics',
+        '#p': 'paymentId',
+        '#u': 'updatedAt'
+      },
+      ExpressionAttributeValues: {
+        ':m': {
+          country,
+          currency,
+          dataSource,
+          volume
+        },
+        ':p': paymentId,
+        ':u': timestamp
+      },
+      ConditionExpression:
+        'attribute_not_exists(#p) AND attribute_not_exists(#m)',
+      UpdateExpression: 'SET #m = :m, #p = :p, #u = :u',
+      ReturnValues: 'UPDATED_NEW'
+    }
+
+    const result = await docClient.update(options).promise()
+
+    if (result?.Attributes.updatedAt === timestamp) return result.Attributes
+  } catch (error) {
+    return error
   }
 }
 

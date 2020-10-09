@@ -10,7 +10,7 @@ import RateReviewIcon from '@material-ui/icons/RateReview'
 import VpnLockIcon from '@material-ui/icons/VpnLock'
 import WebIcon from '@material-ui/icons/Web'
 import { makeStyles } from '@material-ui/styles'
-import { constants } from '../constants'
+import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { ColinProfile } from '../../../assets'
 
 const useStyles = makeStyles(theme => ({
@@ -71,10 +71,10 @@ const useStyles = makeStyles(theme => ({
   badgeHeading: {
     textAlign: 'right',
     lineHeight: 1.25,
+    fontSize: theme.custom.setSpace() * 1.5,
     margin: `0 ${theme.custom.setSpace()}px 0 0`,
     [theme.breakpoints.down('xs')]: {
       textAlign: 'left',
-      fontSize: theme.custom.setSpace() * 1.5,
       margin: `0 0 0 ${theme.custom.setSpace()}px`
     }
   },

@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/styles'
 import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import { defaultPadding } from '@colin30/shared/react/theming'
 import { TrialCard } from './TrialCard'
+import { mergeSort } from '@colin30/shared/general/sorting'
 
 const useStyles = makeStyles(theme => ({
   trialsSection: {
@@ -25,6 +26,7 @@ const useStyles = makeStyles(theme => ({
 
 export const TrialCardsContainer = ({ trials }) => {
   const classes = useStyles()
+  const sortedItems = mergeSort(trials.items, 'updatedAt', 'down')
   return (
     <Grid container component="section" className={classes.trialsSection}>
       <Grid item xs={12}>
@@ -46,16 +48,20 @@ export const TrialCardsContainer = ({ trials }) => {
       </Grid>
       <Grid
         container
+        justify="center"
+        alignItems="flex-start"
         direction="row"
         wrap="wrap"
+        spacing={3}
         className={classes.trialsContainer}>
-        {trials.items.map(trial => (
-          <TrialCard
-            trial={trial}
-            isShown={trials.shown.includes(trial.id)}
-            isLastShown={trials.shown.length === 1}
-            key={trial.id}
-          />
+        {sortedItems.map(trial => (
+          <Grid item xs={12} md={6} lg={4} xl={3} key={trial.id}>
+            <TrialCard
+              trial={trial}
+              isShown={trials.shown.includes(trial.id)}
+              isLastShown={trials.shown.length === 1}
+            />
+          </Grid>
         ))}
       </Grid>
     </Grid>
