@@ -1,7 +1,8 @@
 import moment from 'moment'
 import { createHashId, optionizeObject } from '@colin30/shared/react/helpers'
-import { DOMAIN_WITH_TLD } from '@colin30/shared/raw/constants/regex'
-import { constants } from './constants'
+import { LINE_INCLUDES_TLD } from '@colin30/shared/raw/constants/regex'
+import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
+import { takeLastTld } from '@colin30/shared/logic/keywordMultiplier'
 
 const removeAllButSpaces = line =>
   line
@@ -11,8 +12,6 @@ const removeAllButSpaces = line =>
     .map(word => word.replace(/[^a-z0-9]+/gi, ''))
     .join(' ')
 
-const removeAllButTld = line => line.replace(DOMAIN_WITH_TLD, '$2')
-
 export const prepSetValue = input => {
   const split = input
     .trim()
@@ -21,8 +20,8 @@ export const prepSetValue = input => {
 
   const nonWordsRemoved = split.map(line => {
     let temp = removeAllButSpaces(line)
-    if (DOMAIN_WITH_TLD.test(line)) {
-      temp = removeAllButTld(line)
+    if (LINE_INCLUDES_TLD.test(line)) {
+      temp = takeLastTld(line)
     }
     return temp
   })
@@ -70,50 +69,6 @@ export const formatProductLine = (value, matchType, whiteSpaceCode) => {
   return result
 }
 
-const buildCopyData = (tableBody, dataOnly, matchType) => {
-  let result = ''
-  const tableRows = tableBody.children
-  for (let row of tableRows) {
-    if (dataOnly) {
-      result += `${row.firstChild.nextSibling.innerHTML}\n`
-    } else {
-      if (matchType === constants.MATCHTYPES.BROAD_MODIFIER) {
-        result += `${tableBody.id}\t${row.firstChild.innerHTML}\t${constants.EXCEL_TEXT_QUALIFIER}${row.firstChild.nextSibling.innerHTML}\n`
-      } else {
-        result += `${tableBody.id}\t${row.firstChild.innerHTML}\t${row.firstChild.nextSibling.innerHTML}\n`
-      }
-    }
-  }
-  return result
-}
-
-const setCopyValue = (input, dataOnly, matchType) => {
-  let result = ''
-  try {
-    for (let tableBody of input) {
-      result += buildCopyData(tableBody, dataOnly, matchType)
-    }
-  } catch {
-    result += buildCopyData(input, dataOnly, matchType)
-  }
-  return result
-}
-
-export const copyToClipboard = (input, dataOnly, matchType) => {
-  let value = dataOnly ? '' : `Trial ID\tEntry\tProduct\n`
-  try {
-    let container = document.createElement('textarea')
-    container.value = value + setCopyValue(input, dataOnly, matchType)
-    document.body.appendChild(container)
-    container.select()
-    document.execCommand('copy')
-    document.body.removeChild(container)
-  } catch (error) {
-    console.error('%c error', 'color: yellow; font-size: large', error.message)
-    throw error
-  }
-}
-
 export const generateNotice = (
   message,
   kind = constants.NOTICE.KINDS.SIMPLE
@@ -134,95 +89,32 @@ export const generateNotice = (
   return result
 }
 
-export const decorateKeywordsEverywhereOptions = data => ({
-  credits: data.credits[0],
+export const decorateKeOptions = data => ({
   countries: optionizeObject(data.countries).map(item => {
     if (item.label === 'Global') {
       item.value = 'global'
     }
     return item
   }),
-  currencies: optionizeObject(data.currencies).filter(item => item.value !== '')
+  currencies: optionizeObject(data.currencies).filter(
+    item => item.value !== ''
+  ),
+  dataSources: optionizeObject({
+    gkp: 'Google Keyword Planner',
+    cli: 'GKP + Clickstream'
+  })
 })
 
 export const decorateTrial = data => ({
   id: data.id,
   heading: data.trialProduct.heading,
   list: data.trialProduct.list,
-  volumeData: data?.volumeData
-  // volumeData: [
-  //   {
-  //     vol: 150,
-  //     cpc: {
-  //       currency: '$',
-  //       value: '3.77'
-  //     },
-  //     keyword: 'asdf asdf',
-  //     competition: 0.03,
-  //     trend: [
-  //       {
-  //         month: 'May',
-  //         year: 2019,
-  //         value: 480
-  //       },
-  //       {
-  //         month: 'June',
-  //         year: 2019,
-  //         value: 480
-  //       },
-  //       {
-  //         month: 'July',
-  //         year: 2019,
-  //         value: 390
-  //       },
-  //       {
-  //         month: 'August',
-  //         year: 2019,
-  //         value: 480
-  //       },
-  //       {
-  //         month: 'September',
-  //         year: 2019,
-  //         value: 390
-  //       },
-  //       {
-  //         month: 'October',
-  //         year: 2019,
-  //         value: 390
-  //       },
-  //       {
-  //         month: 'November',
-  //         year: 2019,
-  //         value: 320
-  //       },
-  //       {
-  //         month: 'December',
-  //         year: 2019,
-  //         value: 480
-  //       },
-  //       {
-  //         month: 'January',
-  //         year: 2020,
-  //         value: 390
-  //       },
-  //       {
-  //         month: 'February',
-  //         year: 2020,
-  //         value: 390
-  //       },
-  //       {
-  //         month: 'March',
-  //         year: 2020,
-  //         value: 480
-  //       },
-  //       {
-  //         month: 'April',
-  //         year: 2020,
-  //         value: 480
-  //       }
-  //     ]
-  //   }
-  // ]
+  billableKeywords: data.trialProduct.billableKeywords,
+  geoIp: data?.geoIp,
+  updatedAt: data.updatedAt,
+  timestamp: moment(data.updatedAt).format('HH:mm:ss'),
+  metrics: data?.metrics,
+  paymentId: data?.paymentId
 })
 
 export const getSetsWithValues = values =>

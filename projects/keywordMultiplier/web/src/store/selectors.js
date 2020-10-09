@@ -1,6 +1,6 @@
 import { get } from 'lodash'
 import { createSelector } from 'reselect'
-import { constants } from '../App/constants'
+import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 
 const setsWithValuesSelector = state =>
   get(state, `form.${constants.SETS_FORM_NAME}.values`, {})

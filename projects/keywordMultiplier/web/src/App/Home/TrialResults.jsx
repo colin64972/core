@@ -1,9 +1,11 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { makeStyles } from '@material-ui/styles'
 import Grid from '@material-ui/core/Grid'
 import { TrialResultsMatchTypes } from './TrialResultsMatchTypes'
 import { TrialResultsSettings } from './TrialResultsSettings'
 import { TrialCardsContainer } from './TrialCardsContainer'
+import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => ({
   settingsSection: {
@@ -13,6 +15,15 @@ const useStyles = makeStyles(theme => ({
 
 const TrialResults = ({ trials }) => {
   const classes = useStyles()
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch({
+      type: types.GET_KE_OPTIONS
+    })
+  }, [])
+
   return (
     <Fragment>
       <Grid

@@ -1,4 +1,5 @@
 import { dynamoDbConstants } from '../raw/constants/dynamoDb'
+import { errorConstants } from './errorConstants'
 
 const setErrorBody = (message, errorObject = null) => {
   let builtError = {
@@ -31,6 +32,11 @@ export const proxyServiceError = error => {
         body: setErrorBody(
           dynamoDbConstants.ERRORS.DYNAMODB.UPDATE_FAIL.MESSAGE
         )
+      }
+    case errorConstants.PAYMENT.PRICE_MISMATCH.ERROR_CODE:
+      return {
+        statusCode: errorConstants.PAYMENT.PRICE_MISMATCH.STATUS_CODE,
+        body: setErrorBody(errorConstants.PAYMENT.PRICE_MISMATCH.MESSAGE)
       }
     default:
       return {

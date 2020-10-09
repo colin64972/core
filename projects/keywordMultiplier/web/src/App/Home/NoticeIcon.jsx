@@ -3,7 +3,7 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle'
 import ErrorIcon from '@material-ui/icons/Error'
 import WarningIcon from '@material-ui/icons/Warning'
 import { makeStyles } from '@material-ui/styles'
-import { constants } from '../constants'
+import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 
 const useStyles = makeStyles(theme => ({
   icon: {
@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export const PassWarnFailIcon = ({ bg }) => {
+export const NoticeIcon = ({ bg }) => {
   const classes = useStyles()
   switch (bg) {
     case constants.NOTICE.BGS.WARN:

@@ -14,10 +14,12 @@ import { types } from '../../store/types'
 const useStyles = makeStyles(theme => ({
   setsSection: {
     backgroundColor: theme.palette.grey[500],
-    minHeight: '100vh',
     ...theme.custom.setFlex('column nowrap'),
     ...defaultPadding(theme.breakpoints, theme.custom.setSpace),
     textAlign: 'center'
+  },
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1
   },
   mainHeading: theme.typography.mainHeading
 }))
@@ -27,7 +29,7 @@ export const Sets = () => {
 
   const dispatch = useDispatch()
 
-  const initialValues = {
+  let initialValues = {
     ...setFields.reduce((acc, cur) => {
       let temp = acc
       temp[cur.textArea.setName] = ''
@@ -35,18 +37,21 @@ export const Sets = () => {
     }, {})
   }
 
-  const customSubmitHandler = (values, actions) => {
-    // console.log(
-    //   '%c customSubmitHandler',
-    //   'color: yellow; font-size: large',
-    //   values,
-    //   actions
-    // )
-    return dispatch({
+  if (process.env.USE_MOCKS) {
+    initialValues = {
+      setField1: 'good\nfast\nsuper',
+      setField2: '',
+      setField3: 'cars\nautos\nvehicles',
+      setField4: '.com\n.ca\n.net',
+      setField5: ''
+    }
+  }
+
+  const customSubmitHandler = (values, actions) =>
+    dispatch({
       type: types.MULTIPLY_SETS,
       values
     })
-  }
 
   return (
     <Grid item xs={12} component="section" className={classes.setsSection}>

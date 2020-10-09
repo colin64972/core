@@ -85,7 +85,9 @@ export const SetsTextAreaField = props => {
   }
 
   return (
-    <FadeIn direction="y" position={Math.random() > 0.5 ? 100 : -100}>
+    <FadeIn
+      direction={window.innerWidth < 600 ? 'x' : 'y'}
+      position={Math.random() > 0.5 ? 100 : -100}>
       <Grid container>
         <label
           id={props.setField.label.id}
