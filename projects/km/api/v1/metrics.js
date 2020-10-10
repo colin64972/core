@@ -52,15 +52,13 @@ export const preOrder = async eventBody => {
   }
 
   try {
-    const body = JSON.parse(eventBody)
-
-    const trial = await getTrialById(body.orderRequest.trialId)
+    const trial = await getTrialById(eventBody.orderRequest.trialId)
 
     const billableCount = trial.trialProduct.billableKeywords.length
 
     const serverPrice = calculateTrialPrice(billableCount)
 
-    if (serverPrice.total !== body.orderRequest.price.total)
+    if (serverPrice.total !== eventBody.orderRequest.price.total)
       throw Error(errorConstants.PAYMENT.PRICE_MISMATCH.ERROR_CODE)
 
     const { paymentIntents } = new Stripe(stripeSecret)
@@ -76,9 +74,9 @@ export const preOrder = async eventBody => {
       metadata: {
         billableCount,
         billableKeywords: JSON.stringify(trial.trialProduct.billableKeywords),
-        country: body.readableKeOptions.country,
-        currency: body.readableKeOptions.currency,
-        dataSource: body.readableKeOptions.dataSource,
+        country: eventBody.readableKeOptions.country,
+        currency: eventBody.readableKeOptions.currency,
+        dataSource: eventBody.readableKeOptions.dataSource,
         resultId: trial.id
       }
     })
@@ -94,14 +92,12 @@ export const preOrder = async eventBody => {
 
 export const getVolumes = async eventBody => {
   try {
-    const body = JSON.parse(eventBody)
-
-    const trial = await getTrialById(body.trialId)
+    const trial = await getTrialById(eventBody.trialId)
 
     const metrics = await fetchKeVolumes(
-      body.country,
-      body.currency,
-      body.dataSource,
+      eventBody.country,
+      eventBody.currency,
+      eventBody.dataSource,
       trial.trialProduct.billableKeywords
     )
 
@@ -109,10 +105,10 @@ export const getVolumes = async eventBody => {
 
     const update = await updateTrialWithPaymentAndVolumes(
       trial.id,
-      body.paymentId,
-      body.country,
-      body.currency,
-      body.dataSource,
+      eventBody.paymentId,
+      eventBody.country,
+      eventBody.currency,
+      eventBody.dataSource,
       metrics.data
     )
 
@@ -132,8 +128,9 @@ export const getVolumes = async eventBody => {
 }
 
 export const alertLowCredits = async eventBody => {
-  const { credits } = JSON.parse(eventBody)
   try {
+    const { credits } = eventBody
+
     const res = await sendMessage(
       `ke credits low: ${credits} credits remaining. refill soon.`,
       process.env.SNS_ARN

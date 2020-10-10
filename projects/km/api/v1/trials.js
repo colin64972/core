@@ -17,9 +17,7 @@ const docClient = new AWS.DynamoDB.DocumentClient(dbOptions)
 
 export const createTrial = async eventBody => {
   try {
-    let parsed = JSON.parse(eventBody)
-
-    let { ipAddress, country } = parsed
+    let { ipAddress, country, sets } = eventBody
 
     let geoIp = ipAddress
 
@@ -32,7 +30,7 @@ export const createTrial = async eventBody => {
     const trialData = {
       id: createHashId(),
       geoIp,
-      sets: parsed.sets,
+      sets,
       createdAt: timestamp,
       updatedAt: timestamp
     }
