@@ -1,10 +1,5 @@
 import { createTrial } from './trials'
-import {
-  getMeta,
-  preOrder,
-  getVolumes,
-  alertLowCredits
-} from './keywordsEverywhere'
+import { getMeta, preOrder, getVolumes, alertLowCredits } from './metrics'
 
 const checkAuthorization = (authHeader, callback) => {
   if (authHeader !== 'secret')
@@ -15,7 +10,7 @@ const checkAuthorization = (authHeader, callback) => {
 
 const addCorsHeaders = res => ({
   ...res,
-  'Access-Control-Allow-Origin': [process.env.LOCAL_ORIGIN],
+  'Access-Control-Allow-Origin': [process.env.CORS_LOCAL_ORIGIN],
   'Access-Control-Allow-Credentials': true
 })
 

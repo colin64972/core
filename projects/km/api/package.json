@@ -14,8 +14,8 @@
     "deploy:dev": "NODE_ENV=development sls deploy",
     "deploy:sta": "NODE_ENV=staging sls deploy",
     "deploy:pro": "NODE_ENV=production sls deploy",
-    "createTable": "node -e 'require(\"@cjo3/shared/raw/dynamoDbTableManager\").createTable(require(\"./tableSchema\"))'",
-    "deleteTable": "node -e 'require(\"@cjo3/shared/raw/dynamoDbTableManager\").deleteTable(require(\"./tableSchema\").TableName)'",
+    "createTable": "node -e 'require(\"@cjo3/shared/raw/dynamoDbTableManager\").createTable(require(\"./tableSettings\"))'",
+    "deleteTable": "node -e 'require(\"@cjo3/shared/raw/dynamoDbTableManager\").deleteTable(require(\"./tableSettings\").TableName)'",
     "listTables": "node -e 'require(\"@cjo3/shared/raw/dynamoDbTableManager\").listTables()'",
     "resetTable": "yarn deleteTable && yarn createTable"
   },

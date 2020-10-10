@@ -33,6 +33,11 @@ export const proxyServiceError = error => {
           dynamoDbConstants.ERRORS.DYNAMODB.UPDATE_FAIL.MESSAGE
         )
       }
+    case errorConstants.KE.ERROR_CODE:
+      return {
+        statusCode: errorConstants.KE.STATUS_CODE,
+        body: setErrorBody(errorConstants.KE.MESSAGE)
+      }
     case errorConstants.PAYMENT.PRICE_MISMATCH.ERROR_CODE:
       return {
         statusCode: errorConstants.PAYMENT.PRICE_MISMATCH.STATUS_CODE,

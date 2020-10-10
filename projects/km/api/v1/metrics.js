@@ -1,11 +1,11 @@
+import Stripe from 'stripe'
 import { calculateTrialPrice } from '@cjo3/shared/logic/km'
 import { constants } from '@cjo3/shared/raw/constants/km'
 import { errorConstants } from '@cjo3/shared/serverless/errorConstants'
 import { proxyServiceError } from '@cjo3/shared/serverless/proxyServiceError'
+import { sendMessage } from '@cjo3/shared/serverless/sendSms'
 import { fetchKeMeta, fetchKeVolumes } from './fetchers'
 import { getTrialById, updateTrialWithPaymentAndVolumes } from './trials'
-import Stripe from 'stripe'
-import { sendMessage } from '@cjo3/shared/serverless/sendSms'
 
 export const getMeta = async queryStringParameters => {
   const { resource } = queryStringParameters
@@ -68,7 +68,9 @@ export const preOrder = async eventBody => {
     const paymentIntent = await paymentIntents.create({
       amount: parseInt(serverPrice.total * 100),
       currency: 'cad',
-      description: `Search Query Evaluator purchase of ${billableCount} billable keyword metric${
+      description: `${
+        process.env.READABLE_PROJECT_NAME
+      } purchase of ${billableCount} billable keyword metric${
         billableCount > 1 ? 's' : ''
       }`,
       metadata: {
@@ -103,7 +105,7 @@ export const getVolumes = async eventBody => {
       trial.trialProduct.billableKeywords
     )
 
-    if (!metrics.credits) throw Error('order fail')
+    if (!metrics.credits) throw Error(errorConstants.KE.ERROR_CODE)
 
     const update = await updateTrialWithPaymentAndVolumes(
       trial.id,
