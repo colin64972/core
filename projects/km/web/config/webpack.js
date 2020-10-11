@@ -1,5 +1,10 @@
+require('dotenv').config()
 const path = require('path')
 const { setConfig } = require('@cjo3/configs/react')
+const {
+  setFileOutputPath,
+  setFilePublicPath
+} = require('@cjo3/shared/raw/general')
 const { EnvironmentPlugin } = require('webpack')
 
 const baseConfig = setConfig(
@@ -17,7 +22,9 @@ const baseConfig = setConfig(
   ),
   {
     title: process.env.TEMPLATE_TITLE
-  }
+  },
+  setFileOutputPath,
+  setFilePublicPath
 )
 
 baseConfig.plugins.push(
