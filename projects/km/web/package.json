@@ -10,7 +10,10 @@
   "scripts": {
     "start": "lite-server -c config/lite-server.js",
     "dev": "NODE_ENV=development webpack-dev-server --config config/webpack-dev.js",
-    "pro": "NODE_ENV=production webpack-cli --config config/webpack-pro.js --progress"
+    "pro": "NODE_ENV=production webpack-cli --config config/webpack-pro.js --progress",
+    "cb": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").create(require(\"./bucketSettings\").createParams)'",
+    "db": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").destroy(require(\"./bucketSettings\").deleteParams)'"
+
   },
   "devDependencies": {
     "@cjo3/configs": "0.0.1",
