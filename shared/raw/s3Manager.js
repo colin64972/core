@@ -1,32 +1,45 @@
-const AWS = require('aws-sdk')
+const awsCli = require('aws-cli-js')
+const Aws = awsCli.Aws
 
-const s3 = new AWS.S3({
-  apiVersion: '2006-03-01'
-})
+const aws = new Aws()
 
-const create = async params => {
+const create = async ({ bucketName, region, acl }) => {
   try {
-    const res = await s3.createBucket(params).promise()
-    console.log('create', res)
+    let params = `s3api create-bucket --bucket ${bucketName} --region ${region} --create-bucket-configuration LocationConstraint=${region} --acl ${acl}`
+    const result = await aws.command(params)
+    if (!result.raw) throw Error('no raw results')
+    console.log('PASS', result.object)
   } catch (error) {
-    console.error('create', error)
     return process.exit()
   }
 }
 
-const destroy = async params => {
+const destroy = async ({ bucketName, region }) => {
   try {
-    const res = await s3.deleteBucket(params).promise()
-    console.log('destroy', res)
+    let params = `s3api delete-bucket --bucket ${bucketName} --region ${region}`
+    const result = await aws.command(params)
+    console.log('PASS', result.raw)
   } catch (error) {
-    console.error('destroy', error)
     return process.exit()
   }
 }
 
-const sync = async (src, dest) => {}
+const sync = async ({ srcPath, s3Path, dryrun = false }) => {
+  try {
+    let params = `s3 sync ${srcPath} s3://${s3Path}`
+    if (dryrun) {
+      params += ' --dryrun'
+    }
+    const result = await aws.command(params)
+    if (!result.raw) throw Error('no raw results')
+    console.log('PASS', result.raw)
+  } catch (error) {
+    return process.exit()
+  }
+}
 
 module.exports = {
   create,
-  destroy
+  destroy,
+  sync
 }
