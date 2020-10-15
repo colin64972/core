@@ -41,7 +41,7 @@ export const fetchKeVolumes = async (
     if (res.status === 200) return res.data
     throw Error(res)
   } catch (error) {
-    // console.log('error', error)
+    console.log('error', error)
     if (error?.response) throw Error(errorConstants.THIRD_PARTY.ERROR_CODE)
   }
 }

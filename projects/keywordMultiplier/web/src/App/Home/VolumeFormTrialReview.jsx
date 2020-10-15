@@ -13,9 +13,7 @@ import {
   TableBody,
   TableCell,
   TableHead,
-  TableRow,
-  Typography,
-  Paper
+  TableRow
 } from '@material-ui/core'
 import FindInPageIcon from '@material-ui/icons/FindInPage'
 
@@ -66,7 +64,6 @@ export const VolumeFormTrialReview = ({ trialId }) => {
   const trial = useSelector(state =>
     state.app.trials.items.find(trial => trial.id === trialId)
   )
-  // console.log('%c trialId', 'color: yellow; font-size: large', trialId, trial)
   const [reviewModalStatus, setReviewModalStatus] = useState(false)
   const openReviewHandler = event => setReviewModalStatus(true)
   const closeReviewHandler = event => setReviewModalStatus(false)
@@ -75,13 +72,13 @@ export const VolumeFormTrialReview = ({ trialId }) => {
       <TableHead>
         <TableRow>
           <TableCell component="th" className={classes.headCell}>
-            ID
+            Search Query Result ID
           </TableCell>
           <TableCell variant="body">{trial.id}</TableCell>
         </TableRow>
         <TableRow>
           <TableCell component="th" className={classes.headCell}>
-            Set Fields
+            Input Set
           </TableCell>
           <TableCell variant="body">{trial.heading}</TableCell>
         </TableRow>
@@ -125,14 +122,15 @@ export const VolumeFormTrialReview = ({ trialId }) => {
               </DialogTitle>
               <DialogContent dividers>
                 <DialogContentText id="alert-dialog-description">
-                  Review your list of keywords to buy volume metrics for here.
-                  You will only be charged for the billable keywords contained
-                  in this list, even if your trial result list included many
-                  more entries with TLD variations!
+                  Here you can review the list of keywords variations to buy
+                  volume metrics for. You will only be charged for the billable
+                  keywords contained in this list, even if your search query
+                  result list included many more entries with top-level-domain
+                  variations.
                 </DialogContentText>
                 <DialogContentText id="alert-dialog-description">
-                  If your trial result list did indeed include entries with
-                  top-level domain variations&mdash;such as
+                  If your search query result list did indeed include entries
+                  with TLD variations&mdash;such as
                   <span className={classes.code}>.com</span>,
                   <span className={classes.code}>.net</span>,
                   <span className={classes.code}>.club</span>, etc.&mdash;such

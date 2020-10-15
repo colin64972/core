@@ -11,7 +11,7 @@ import { makeStyles } from '@material-ui/styles'
 import { setFields } from './fields'
 import { SetsTextAreaField } from './SetsTextAreaField'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
-import { getSetsWithValues } from '../logic'
+import { getSetsWithValues } from '@colin30/shared/logic/keywordMultiplier'
 import { BackDropScreen } from '@colin30/shared/react/components/BackDropScreen'
 import { types } from '../../store/types'
 
@@ -115,8 +115,6 @@ const useStyles = makeStyles(theme => {
 })
 
 export const SetsForm = props => {
-  // console.log('%c FORMIK PROPS', 'color: yellow; font-size: large', props)
-
   const classes = useStyles()
 
   const dispatch = useDispatch()
@@ -172,7 +170,7 @@ export const SetsForm = props => {
           ) : (
             <Grid container>
               <ShuffleIcon className={classes.formButtonIcon} />
-              Multiply
+              Formulate Search Queries
             </Grid>
           )}
         </button>

@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import { Form } from 'formik'
 import React from 'react'
-import { Button, Paper, Typography } from '@material-ui/core'
+import { Button, Grid, Paper, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import { FadeIn } from '@colin30/shared/react/components/FadeIn'
 import { VolumeFormKEOptions } from './VolumeFormKEOptions'
@@ -9,10 +9,12 @@ import { VolumeFormPricing } from './VolumeFormPricing'
 import { VolumeFormTrialReview } from './VolumeFormTrialReview'
 import { VolumeFormTerms } from './VolumeFormTerms'
 import { VolumeFormStripe } from './VolumeFormStripe'
+import HttpsIcon from '@material-ui/icons/Https'
 import RestorePageIcon from '@material-ui/icons/RestorePage'
 import CloseIcon from '@material-ui/icons/Close'
 import PaymentIcon from '@material-ui/icons/Payment'
 import CachedIcon from '@material-ui/icons/Cached'
+import { StripeBanner } from '@colin30/shared/react/components/StripeBanner'
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -129,6 +131,29 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.custom.setSpace() / 2,
     position: 'relative',
     top: -1
+  },
+  lockIcon: {
+    fontSize: theme.custom.setSpace('sm'),
+    position: 'relative',
+    top: 3
+  },
+  stripeButton: {
+    ...theme.custom.setFlex(),
+    'border': 'none',
+    'padding': 0,
+    'margin': 0,
+    'backgroundColor': 'white',
+    'transition': 'background-color 250ms ease-out',
+    '&:hover': {
+      cursor: 'pointer',
+      backgroundColor: theme.palette.primary[50]
+    }
+  },
+  stripeIcon: {
+    height: theme.custom.setSpace('sm') * 1.33,
+    [theme.breakpoints.down('xs')]: {
+      marginTop: theme.custom.setSpace()
+    }
   }
 }))
 
@@ -136,7 +161,8 @@ export const VolumeForm = ({
   formikProps,
   closeDialogHandler,
   trialId,
-  keOptions
+  keOptions,
+  customResetHandler
 }) => {
   const classes = useStyles()
 
@@ -146,7 +172,7 @@ export const VolumeForm = ({
     <Form className={classes.form}>
       <Paper className={classNames(classes.gridPosition1, classes.formSection)}>
         <Typography variant="h3" className={classes.formSectionTitle}>
-          Trial Review
+          Keyword List Review
         </Typography>
         <VolumeFormTrialReview trialId={trialId} />
       </Paper>
@@ -157,9 +183,20 @@ export const VolumeForm = ({
         <VolumeFormKEOptions keOptions={keOptions} />
       </Paper>
       <Paper className={classNames(classes.gridPosition3, classes.formSection)}>
-        <Typography variant="h3" className={classes.formSectionTitle}>
-          Payment Info
-        </Typography>
+        <Grid
+          container
+          justify="space-between"
+          alignItems="center"
+          className={classes.formSectionTitle}>
+          <Typography variant="h3">
+            Payment Info <HttpsIcon className={classes.lockIcon} />
+          </Typography>
+          <StripeBanner
+            fillColor="#00bcd4"
+            className={classes.stripeButton}
+            iconClass={classes.stripeIcon}
+          />
+        </Grid>
         <VolumeFormStripe />
       </Paper>
       <Paper
@@ -182,7 +219,7 @@ export const VolumeForm = ({
       </Paper>
       <Paper className={classNames(classes.gridPosition5, classes.formSection)}>
         <Typography variant="h3" className={classes.formSectionTitle}>
-          Terms and Conditions
+          Terms &amp; Conditions
         </Typography>
         <VolumeFormTerms />
       </Paper>
@@ -211,6 +248,9 @@ export const VolumeForm = ({
           <Button
             type="reset"
             variant="contained"
+            onClick={event => {
+              customResetHandler(event, formikProps.setFieldValue)
+            }}
             className={classNames(
               classes.formActionButton,
               classes.formActionButtonReset

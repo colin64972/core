@@ -50,7 +50,6 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export const VolumeFormKEOptions = ({ keOptions }) => {
-  // console.log('%c formikProps', 'color: yellow; font-size: large', formikProps)
   const classes = useStyles()
 
   const validator = value => {
@@ -66,43 +65,36 @@ export const VolumeFormKEOptions = ({ keOptions }) => {
       {kEFields.map(kEField => (
         <div className={classes[kEField.className]} key={kEField.key}>
           <Field name={kEField.name} validate={validator}>
-            {fieldProps => {
-              // console.log(
-              //   '%c fieldProps',
-              //   'color: yellow; font-size: large',
-              //   fieldProps
-              // )
-              return (
-                <FormControl
-                  required
-                  fullWidth
-                  error={
-                    fieldProps.meta.touched && fieldProps.meta.error?.status
-                  }>
-                  <InputLabel id={fieldProps.field.name}>
-                    {kEField.label}
-                  </InputLabel>
-                  <Select
-                    labelId={fieldProps.field.name}
-                    id={fieldProps.field.name}
-                    name={fieldProps.field.name}
-                    value={fieldProps.field.value}
-                    onChange={fieldProps.field.onChange}
-                    onBlur={fieldProps.field.onBlur}>
-                    {keOptions[kEField.optionsName].map(option => (
-                      <MenuItem key={option.key} value={option.value}>
-                        {option.label}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                  <FormHelperText>
-                    {fieldProps.meta.touched && fieldProps.meta.error?.status
-                      ? fieldProps.meta.error.message
-                      : kEField?.helperText}
-                  </FormHelperText>
-                </FormControl>
-              )
-            }}
+            {fieldProps => (
+              <FormControl
+                required
+                fullWidth
+                error={
+                  fieldProps.meta.touched && fieldProps.meta.error?.status
+                }>
+                <InputLabel id={`${fieldProps.field.name}-label`}>
+                  {kEField.label}
+                </InputLabel>
+                <Select
+                  labelId={`${fieldProps.field.name}-label`}
+                  id={`${fieldProps.field.name}-input`}
+                  name={fieldProps.field.name}
+                  value={fieldProps.field.value}
+                  onChange={fieldProps.field.onChange}
+                  onBlur={fieldProps.field.onBlur}>
+                  {keOptions[kEField.optionsName].map(option => (
+                    <MenuItem key={option.key} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </Select>
+                <FormHelperText>
+                  {fieldProps.meta.touched && fieldProps.meta.error?.status
+                    ? fieldProps.meta.error.message
+                    : kEField?.helperText}
+                </FormHelperText>
+              </FormControl>
+            )}
           </Field>
         </div>
       ))}
