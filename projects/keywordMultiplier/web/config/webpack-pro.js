@@ -12,8 +12,5 @@ config.plugins.push(
 )
 
 module.exports = merge(config, {
-  mode: 'production',
-  performance: {
-    hints: 'error'
-  }
+  mode: 'production'
 })

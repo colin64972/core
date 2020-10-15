@@ -16,8 +16,10 @@ import SearchIcon from '@material-ui/icons/Search'
 import { makeStyles } from '@material-ui/styles'
 import { volumeDataFields } from './fields'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
-import { formatProductLine } from '../logic'
-import { findMetricFromEntry } from '@colin30/shared/logic/keywordMultiplier'
+import {
+  findMetricFromEntry,
+  formatProductLine
+} from '@colin30/shared/logic/keywordMultiplier'
 import { getLabelFromValue } from '@colin30/shared/react/helpers'
 
 const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY)
@@ -101,6 +103,8 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
       ...metricOptionLabels
     }
   })
+
+  const tldsHidden = useSelector(state => state.app.tldsHidden)
 
   const VolumeLoadable = loadable(() =>
     import(
@@ -191,7 +195,12 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
                 component="td"
                 className={classes.tableCellData}
                 scope={constants.VOLUME_DATA.PRODUCT.VALUE}>
-                {formatProductLine(keyword, matchType, whiteSpaceSelection)}
+                {formatProductLine(
+                  keyword,
+                  matchType,
+                  whiteSpaceSelection,
+                  tldsHidden
+                )}
               </TableCell>
               {!volumeUnobtainable && (
                 <TableCell

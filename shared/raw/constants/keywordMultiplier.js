@@ -40,8 +40,8 @@ exports.constants = {
       VALUE: 'entry'
     },
     PRODUCT: {
-      LABEL: 'Product',
-      VALUE: 'product'
+      LABEL: 'Variation',
+      VALUE: 'variation'
     },
     VOLUME: {
       LABEL: 'Volume',
@@ -60,7 +60,7 @@ exports.constants = {
       VALUE: 'trend'
     }
   },
-  LOW_CREDIT_ALERT_THRESHOLD: 100000 / 2,
+  LOW_CREDIT_ALERT_THRESHOLD: 10000,
   VOLUME_REQUEST_FORM: {
     ACCORDION_PANELS: [1, 2, 3]
   },
@@ -105,9 +105,10 @@ exports.constants = {
   URLS: {
     HOME: '/',
     NOT_FOUND: '*',
-    TOS: '/terms-of-service',
+    TAndC: '/terms-and-conditions',
     PP: '/privacy-policy',
-    FEEDBACK: '/feedback'
+    FEEDBACK: '/feedback',
+    STRIPE: 'https://stripe.com/'
   },
   ENDPOINTS: {
     options: [countriesPath, currenciesPath],

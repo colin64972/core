@@ -14,8 +14,5 @@ config.plugins.push(
 
 module.exports = merge(config, {
   mode: 'development',
-  devtool: 'source-map',
-  performance: {
-    hints: 'warning'
-  }
+  devtool: 'source-map'
 })

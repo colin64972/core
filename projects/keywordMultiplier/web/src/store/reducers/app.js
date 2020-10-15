@@ -11,6 +11,7 @@ const defaultState = {
     [constants.SETS_FORM_NAME]: false,
     [constants.VOLUME_SPINNER]: false
   },
+  tldsHidden: false,
   matchType: constants.MATCHTYPES.BROAD,
   matchTypePrev: constants.MATCHTYPES.BROAD,
   copyKeywordsOnly: false,
@@ -157,6 +158,11 @@ export const app = (state = defaultState, action) => {
             action.updatedTrial
           ]
         }
+      }
+    case types.TOGGLE_HIDE_TLDS:
+      return {
+        ...state,
+        tldsHidden: !state.tldsHidden
       }
     default:
       return state

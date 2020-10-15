@@ -1,11 +1,16 @@
 import { call, put, select, take, race, delay } from 'redux-saga/effects'
-import { fetchKeData, makePreOrder, fetchKeVolumes } from '../fetchers'
+import {
+  fetchKeData,
+  makePreOrder,
+  fetchKeVolumes,
+  postLowCreditAlert
+} from '../fetchers'
 import { types } from '../types'
 import {
   decorateKeOptions,
   decorateTrial,
   generateNotice
-} from '../../App/logic'
+} from '@colin30/shared/logic/keywordMultiplier'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
 import { payloadMock } from '@colin30/shared/react/mocks/keywordMultiplier'
 
@@ -34,12 +39,11 @@ export function* getKeCredits() {
     const result = yield call(fetchKeData, Object.keys(constants.ENDPOINTS)[1])
     const credits = result?.data.credits[0]
 
-    if (credits < constants.LOW_CREDIT_ALERT_THRESHOLD) {
-      console.warn(
-        '%c low credit warning',
-        'color: orange; font-size: large',
-        credits
-      )
+    if (
+      credits < constants.LOW_CREDIT_ALERT_THRESHOLD &&
+      !process.env.USE_MOCKS
+    ) {
+      yield call(postLowCreditAlert, credits)
     }
 
     yield put({

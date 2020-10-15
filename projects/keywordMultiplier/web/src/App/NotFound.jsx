@@ -33,15 +33,16 @@ const useStyles = makeStyles(theme => ({
       fontSize: theme.custom.setSpace() * 1.5
     }
   },
+  subtitleFadeIn: {
+    ...theme.custom.setFlex('row', 'flex-start')
+  },
   subtitle: {
-    fontSize: theme.custom.setSpace('sm') * 0.9,
+    fontSize: theme.custom.setSpace() * 1.5,
+    marginTop: theme.custom.setSpace() / 2,
     color: theme.palette.secondary[100],
     textAlign: 'left',
     textTransform: 'unset',
-    fontWeight: 'unset',
-    [theme.breakpoints.down('xs')]: {
-      fontSize: theme.custom.setSpace() * 1.5
-    }
+    fontWeight: 'unset'
   },
   appLink: {
     'color': theme.palette.primary.main,
@@ -80,9 +81,12 @@ const NotFoundComp = props => {
                 Oops, Nothing Here
               </Typography>
             </FadeIn>
-            <FadeIn direction="y" position={100}>
+            <FadeIn
+              direction="y"
+              position={100}
+              className={classes.subtitleFadeIn}>
               <Typography variant="h4" className={classes.subtitle}>
-                Back to the{' '}
+                Back to the&nbsp;
                 <Link
                   className={classes.appLink}
                   href={constants.URLS.HOME}

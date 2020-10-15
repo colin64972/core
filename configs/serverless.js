@@ -6,7 +6,7 @@ module.exports = slswEntries => ({
   mode: 'production',
   entry: slswEntries,
   optimization: { minimize: true },
-  performance: { hints: 'error' },
+  performance: { hints: 'warning' },
   externals: [nodeExternals()],
   module: {
     rules: [

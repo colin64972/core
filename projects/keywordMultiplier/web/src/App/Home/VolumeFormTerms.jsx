@@ -1,4 +1,4 @@
-import { FadeIn } from '@colin30/shared/react/components/FadeIn'
+import Loadable from 'react-loadable'
 import { Field } from 'formik'
 import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/styles'
@@ -6,10 +6,21 @@ import {
   FormControl,
   FormHelperText,
   FormControlLabel,
-  Checkbox
+  Checkbox,
+  CircularProgress
 } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search'
-import { TermsOfService } from '@colin30/shared/react/components/TermsOfService'
+
+const TermsAndConditionsLoadable = Loadable({
+  loader: () => import('@colin30/shared/react/components/TermsAndConditions'),
+  loading: props => {
+    return <CircularProgress />
+  },
+  render: (loaded, props) => {
+    let Component = loaded.TermsOfService
+    return <Component {...props} />
+  }
+})
 
 const useStyles = makeStyles(theme => ({
   formGroup: {
@@ -42,7 +53,6 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export const VolumeFormTerms = () => {
-  // console.log('%c formikProps', 'color: yellow; font-size: large', formikProps)
   const classes = useStyles()
 
   const validator = value => {
@@ -57,54 +67,51 @@ export const VolumeFormTerms = () => {
 
   const openTermsDialogHandler = event => setTermsDialogStatus(true)
   const closeTermsDialogHandler = event => setTermsDialogStatus(false)
+
   return (
     <Field name="acceptTerms" validate={validator}>
-      {fieldProps => {
-        // console.log(
-        //   '%c fieldProps',
-        //   'color: lightgreen; font-size: large',
-        //   fieldProps
-        // )
-        return (
-          <FormControl
-            required
-            fullWidth
-            error={fieldProps.meta.touched && fieldProps.meta.error?.status}>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  name={fieldProps.field.name}
-                  checked={fieldProps.field.value}
-                  onChange={fieldProps.field.onChange}
-                  onBlur={fieldProps.field.onBlur}
-                  color="secondary"
-                  classes={{
-                    colorSecondary: classes.checked
-                  }}
+      {fieldProps => (
+        <FormControl
+          required
+          fullWidth
+          error={fieldProps.meta.touched && fieldProps.meta.error?.status}>
+          <FormControlLabel
+            control={
+              <Checkbox
+                name={fieldProps.field.name}
+                checked={fieldProps.field.value}
+                onChange={fieldProps.field.onChange}
+                onBlur={fieldProps.field.onBlur}
+                color="secondary"
+                classes={{
+                  colorSecondary: classes.checked
+                }}
+              />
+            }
+            label={
+              <div className={classes.checkboxLabel}>
+                I accept the Terms &amp; Conditions
+                <button
+                  type="button"
+                  onClick={openTermsDialogHandler}
+                  className={classes.viewTermsButton}>
+                  <SearchIcon className={classes.viewTermsButtonIcon} />
+                </button>
+                <TermsAndConditionsLoadable
+                  open={termsDialogStatus}
+                  closeHandler={closeTermsDialogHandler}
+                  siteName={process.env.SITE_NAME}
+                  siteUrl={process.env.SITE_URL}
+                  siteContactEmail={process.env.SITE_CONTACT_EMAIL}
                 />
-              }
-              label={
-                <div className={classes.checkboxLabel}>
-                  I accept the Terms of Service
-                  <button
-                    type="button"
-                    onClick={openTermsDialogHandler}
-                    className={classes.viewTermsButton}>
-                    <SearchIcon className={classes.viewTermsButtonIcon} />
-                  </button>
-                  <TermsOfService
-                    open={termsDialogStatus}
-                    closeHandler={closeTermsDialogHandler}
-                  />
-                </div>
-              }
-            />
-            {fieldProps.meta.touched && fieldProps.meta.error?.status && (
-              <FormHelperText>{fieldProps.meta.error.message}</FormHelperText>
-            )}
-          </FormControl>
-        )
-      }}
+              </div>
+            }
+          />
+          {fieldProps.meta.touched && fieldProps.meta.error?.status && (
+            <FormHelperText>{fieldProps.meta.error.message}</FormHelperText>
+          )}
+        </FormControl>
+      )}
     </Field>
   )
 }

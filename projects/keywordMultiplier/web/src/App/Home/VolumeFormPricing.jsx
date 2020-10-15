@@ -43,7 +43,6 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export const VolumeFormPricing = ({ trialId }) => {
-  // console.log('%c formikProps', 'color: yellow; font-size: large', formikProps)
   const classes = useStyles()
   const trial = useSelector(state =>
     state.app.trials.items.find(trial => trial.id === trialId)

@@ -84,11 +84,11 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
     }
   }
 
-  const customSubmitHandler = (values, actions) => {
-    const cardNumberElement = elements.getElement('cardNumber')
-    const cardExpiryElement = elements.getElement('cardExpiry')
-    const cardCvcElement = elements.getElement('cardCvc')
+  const cardNumberElement = elements.getElement('cardNumber')
+  const cardExpiryElement = elements.getElement('cardExpiry')
+  const cardCvcElement = elements.getElement('cardCvc')
 
+  const customSubmitHandler = (values, actions) =>
     dispatch({
       type: types.ORDER_METRICS,
       values,
@@ -98,6 +98,13 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
       confirmCardPaymentHandler: stripe.confirmCardPayment,
       closeDialogHandler
     })
+
+  const customResetHandler = (event, setFieldValueHandler) => {
+    if (!elements) return null
+    elements?._elements.forEach(element => element.clear())
+    Object.entries(initalValues).forEach(([key, val]) =>
+      setFieldValueHandler(key, val, false)
+    )
   }
 
   const isSubmitting = useSelector(
@@ -119,10 +126,12 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
       <BackDropScreen isOpen={isSubmitting} spinner />
       <Grid container justify="center" direction="column" alignItems="center">
         <Typography variant="subtitle2" className={classes.subHeading}>
-          Order Form
+          Keyword Metric Order Form
         </Typography>
         <Typography variant="h4" className={classes.mainHeading}>
-          Keyword Volume Metrics
+          Quantify your Search
+          <br />
+          Query Variations
         </Typography>
         <Formik initialValues={initalValues} onSubmit={customSubmitHandler}>
           {formikProps => (
@@ -131,6 +140,7 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
               closeDialogHandler={closeDialogHandler}
               trialId={trialId}
               keOptions={keOptions}
+              customResetHandler={customResetHandler}
             />
           )}
         </Formik>
