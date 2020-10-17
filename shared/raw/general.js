@@ -10,5 +10,5 @@ exports.setFileOutputPath = (url, resourcePath, context) =>
 
 exports.setFilePublicPath = (url, resourcePath, context) =>
   process.env.NODE_ENV === 'production'
-    ? `${process.env.CDN_URL}/${process.env.FIRST_CHILD}/${url}`
+    ? `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/${url}`
     : `${assetFolderPath}/${url}`

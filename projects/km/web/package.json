@@ -11,9 +11,12 @@
     "start": "lite-server -c config/lite-server.js",
     "dev": "NODE_ENV=development webpack-dev-server --config config/webpack-dev.js",
     "pro": "NODE_ENV=production webpack-cli --config config/webpack-pro.js --progress",
-    "createBucket": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").create(require(\"./s3Params\").createParams)'",
-    "deleteBucket": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").destroy(require(\"./s3Params\").deleteParams)'",
-    "syncBucket": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./s3Params\").syncParams)'"
+    "create:media": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").create(require(\"./s3Params\").createMedia)'",
+    "delete:media": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").destroy(require(\"./s3Params\").deleteMedia)'",
+    "sync:media": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./s3Params\").syncMedia)'",
+    "create:static": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").create(require(\"./s3Params\").createStatic)'",
+    "delete:static": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").destroy(require(\"./s3Params\").deleteStatic)'",
+    "sync:deploy": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./s3Params\").syncStatic)'"
   },
   "devDependencies": {
     "@cjo3/configs": "0.0.1",

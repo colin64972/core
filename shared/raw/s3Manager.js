@@ -24,14 +24,37 @@ const destroy = async ({ bucketName, region }) => {
   }
 }
 
-const sync = async ({ srcPath, s3Path, dryrun = false }) => {
+const sync = async ({
+  srcPath,
+  s3Path,
+  dryrun = false,
+  recursive = false,
+  includes = [],
+  excludes = []
+}) => {
   try {
     let params = `s3 sync ${srcPath} s3://${s3Path}`
+
+    if (excludes.length > 0) {
+      excludes.forEach(pattern => (params += ` --exclude "${pattern}"`))
+    }
+
+    if (includes.length > 0) {
+      includes.forEach(pattern => (params += ` --include "${pattern}"`))
+    }
+
     if (dryrun) {
       params += ' --dryrun'
     }
+
+    if (recursive) {
+      params += ' --recursive'
+    }
+
     const result = await aws.command(params)
+
     if (!result.raw) throw Error('no raw results')
+
     console.log('PASS', result.raw)
   } catch (error) {
     return process.exit()
