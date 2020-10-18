@@ -60,7 +60,7 @@ const useStyles = makeStyles(theme => {
   }
 })
 
-export const TermsOfService = ({
+export const TermsAndConditions = ({
   open,
   closeHandler,
   siteName,

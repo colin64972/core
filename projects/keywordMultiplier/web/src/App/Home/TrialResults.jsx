@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const TrialResults = ({ trials }) => {
+export const TrialResults = ({ trials }) => {
   const classes = useStyles()
 
   const dispatch = useDispatch()
@@ -40,5 +40,3 @@ const TrialResults = ({ trials }) => {
     </Fragment>
   )
 }
-
-export default TrialResults

@@ -1,23 +1,37 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import loadable from '@loadable/component'
+import Loadable from 'react-loadable'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { constants } from '@colin30/shared/raw/constants/keywordMultiplier'
+import { BackDropScreen } from '@colin30/shared/react/components/BackDropScreen'
 
-const HomeLoadable = loadable(() =>
-  import(
-    /* webpackChunkName: "chunk-Home" */
-    /* webpackPrefetch: true */
-    './Home'
-  )
-)
-const NotFoundLoadable = loadable(() =>
-  import(
-    /* webpackChunkName: "chunk-NotFound" */
-    /* webpackPrefetch: true */
-    './NotFound'
-  )
-)
+const HomeLoadable = Loadable({
+  loader: () =>
+    import(
+      /* webpackChunkName: "chunk-Home" */
+      /* webpackPrefetch: true */
+      './Home'
+    ),
+  loading: () => <BackDropScreen isOpen spinner />,
+  render: (loaded, props) => {
+    let Component = loaded.Home
+    return <Component {...props} />
+  }
+})
+
+const NotFoundLoadable = Loadable({
+  loader: () =>
+    import(
+      /* webpackChunkName: "chunk-NotFound" */
+      /* webpackPrefetch: true */
+      './NotFound'
+    ),
+  loading: () => <BackDropScreen isOpen spinner />,
+  render: (loaded, props) => {
+    let Component = loaded.NotFound
+    return <Component {...props} />
+  }
+})
 
 export const App = () => (
   <CssBaseline>

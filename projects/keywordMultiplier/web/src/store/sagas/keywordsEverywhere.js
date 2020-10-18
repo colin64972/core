@@ -126,13 +126,11 @@ export function* orderMetrics(action) {
     })
     return action.closeDialogHandler()
   } catch (error) {
-    console.error('%c FAIL', 'color: red; font-size: large', error)
+    console.error('%c FAIL', 'color: red; font-size: large', error, stripeError)
     action.closeDialogHandler()
     notice.bg = constants.NOTICE.BGS.FAIL
     notice.heading = 'Payment Error'
-    if (error.message === 'stripeError') {
-      notice.message = stripeError.message
-    }
+    notice.message = 'Please try again later'
   } finally {
     yield put({
       type: types.ADD_USER_KE_SELECTIONS,
