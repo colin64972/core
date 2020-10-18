@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
+export const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
   const classes = useStyles()
 
   const dispatch = useDispatch()
@@ -84,20 +84,17 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
     }
   }
 
-  const cardNumberElement = elements.getElement('cardNumber')
-  const cardExpiryElement = elements.getElement('cardExpiry')
-  const cardCvcElement = elements.getElement('cardCvc')
-
-  const customSubmitHandler = (values, actions) =>
+  const customSubmitHandler = (values, actions) => {
+    const cardNumberElement = elements.getElement('cardNumber')
+    if (!cardNumberElement) return null
     dispatch({
       type: types.ORDER_METRICS,
       values,
       cardNumberElement,
-      cardExpiryElement,
-      cardCvcElement,
       confirmCardPaymentHandler: stripe.confirmCardPayment,
       closeDialogHandler
     })
+  }
 
   const customResetHandler = (event, setFieldValueHandler) => {
     if (!elements) return null
@@ -148,5 +145,3 @@ const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
     </Dialog>
   )
 }
-
-export default Volume

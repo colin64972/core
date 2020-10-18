@@ -2,7 +2,8 @@ module.exports = setEslint = (
   ecmaFeaturesJsx = false,
   customExts = [],
   customPlugs = [],
-  customEnvs = {}
+  customEnvs = {},
+  customRules = []
 ) => ({
   parserOptions: {
     sourceType: 'module',
@@ -15,7 +16,8 @@ module.exports = setEslint = (
   extends: [...customExts, 'eslint:recommended', 'prettier'],
   plugins: [...customPlugs, 'prettier'],
   rules: {
-    'prettier/prettier': ['error']
+    'prettier/prettier': ['error'],
+    ...customRules
   },
   env: {
     es2020: true,
