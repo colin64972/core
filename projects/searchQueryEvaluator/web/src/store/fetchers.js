@@ -6,8 +6,8 @@ import {
   creditsMock,
   preOrderMock,
   volumeMock
-} from '@northtrend/shared/react/mocks/searchQueryEvaluator'
-import { constants } from '@northtrend/shared/raw/constants/searchQueryEvaluator'
+} from '@cjo3/shared/react/mocks/searchQueryEvaluator'
+import { constants } from '@cjo3/shared/raw/constants/searchQueryEvaluator'
 
 export const fetchIpAddress = async () => {
   if (process.env.USE_MOCKS) return ipMock.data.ip

@@ -13,7 +13,7 @@ import {
   CardExpiryElement,
   CardCvcElement
 } from '@stripe/react-stripe-js'
-import { EMAIL_ADDRESS } from '@northtrend/shared/raw/constants/regex'
+import { EMAIL_ADDRESS } from '@cjo3/shared/raw/constants/regex'
 
 const useStyles = makeStyles(theme => ({
   grid: {

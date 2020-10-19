@@ -1,4 +1,4 @@
-const setEslint = require('@northtrend/configs/eslint')
+const setEslint = require('@cjo3/configs/eslint')
 
 module.exports = setEslint(
   true,

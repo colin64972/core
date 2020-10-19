@@ -1,10 +1,10 @@
 import AWS from 'aws-sdk'
-import { dynamoDbConstants } from '@northtrend/shared/raw/constants/dynamoDb'
-import { proxyServiceError } from '@northtrend/shared/serverless/proxyServiceError'
-import { createHashId } from '@northtrend/shared/react/helpers'
-import { IP_ADDRESS } from '@northtrend/shared/raw/constants/regex'
+import { dynamoDbConstants } from '@cjo3/shared/raw/constants/dynamoDb'
+import { proxyServiceError } from '@cjo3/shared/serverless/proxyServiceError'
+import { createHashId } from '@cjo3/shared/react/helpers'
+import { IP_ADDRESS } from '@cjo3/shared/raw/constants/regex'
 import { fetchGeoIp } from './fetchers'
-import { processTrial } from '@northtrend/shared/logic/searchQueryEvaluator'
+import { processTrial } from '@cjo3/shared/logic/searchQueryEvaluator'
 
 const dbOptions = {}
 

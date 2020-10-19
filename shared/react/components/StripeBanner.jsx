@@ -1,5 +1,5 @@
 import React from 'react'
-import { constants } from '@northtrend/shared/raw/constants/searchQueryEvaluator'
+import { constants } from '@cjo3/shared/raw/constants/searchQueryEvaluator'
 
 export const StripeBanner = ({ fillColor, className, iconClass }) => {
   const clickHandler = event => {

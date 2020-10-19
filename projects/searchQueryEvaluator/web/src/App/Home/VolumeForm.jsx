@@ -3,7 +3,7 @@ import { Form } from 'formik'
 import React from 'react'
 import { Button, Grid, Paper, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
-import { FadeIn } from '@northtrend/shared/react/components/FadeIn'
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 import { VolumeFormKEOptions } from './VolumeFormKEOptions'
 import { VolumeFormPricing } from './VolumeFormPricing'
 import { VolumeFormTrialReview } from './VolumeFormTrialReview'
@@ -14,7 +14,7 @@ import RestorePageIcon from '@material-ui/icons/RestorePage'
 import CloseIcon from '@material-ui/icons/Close'
 import PaymentIcon from '@material-ui/icons/Payment'
 import CachedIcon from '@material-ui/icons/Cached'
-import { StripeBanner } from '@northtrend/shared/react/components/StripeBanner'
+import { StripeBanner } from '@cjo3/shared/react/components/StripeBanner'
 
 const useStyles = makeStyles(theme => ({
   form: {

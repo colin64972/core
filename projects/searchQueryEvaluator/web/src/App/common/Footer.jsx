@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Loadable from 'react-loadable'
-import { defaultPadding } from '@northtrend/shared/react/theming'
-import { ImageHandler } from '@northtrend/shared/react/components/ImageHandler'
+import { defaultPadding } from '@cjo3/shared/react/theming'
+import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
 import Grid from '@material-ui/core/Grid'
 import Link from '@material-ui/core/Link'
 import Typography from '@material-ui/core/Typography'
@@ -10,16 +10,16 @@ import RateReviewIcon from '@material-ui/icons/RateReview'
 import VpnLockIcon from '@material-ui/icons/VpnLock'
 import WebIcon from '@material-ui/icons/Web'
 import { makeStyles } from '@material-ui/styles'
-import { constants } from '@northtrend/shared/raw/constants/searchQueryEvaluator'
+import { constants } from '@cjo3/shared/raw/constants/searchQueryEvaluator'
 import { ColinProfile } from '../../../assets'
-import { BackDropScreen } from '@northtrend/shared/react/components/BackDropScreen'
+import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 
 const TermsAndConditionsLoadable = Loadable({
   loader: () =>
     import(
       /* webpackChunkName: "chunk-TermsAndConditions" */
       /* webpackPrefetch: true */
-      '@northtrend/shared/react/components/TermsAndConditions'
+      '@cjo3/shared/react/components/TermsAndConditions'
     ),
   loading: () => <BackDropScreen isOpen spinner />,
   render: (loaded, props) => {
@@ -33,7 +33,7 @@ const PPLoadable = Loadable({
     import(
       /* webpackChunkName: "chunk-PrivacyPolicy" */
       /* webpackPrefetch: true */
-      '@northtrend/shared/react/components/PrivacyPolicy'
+      '@cjo3/shared/react/components/PrivacyPolicy'
     ),
   loading: () => <BackDropScreen isOpen spinner />,
   render: (loaded, props) => {

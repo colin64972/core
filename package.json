@@ -1,9 +1,9 @@
 {
-  "name": "northtrend",
+  "name": "cjo3",
   "version": "0.0.1",
   "main": "index.js",
-  "repository": "git@github.com:colin64972/northtrend.git",
-  "author": "colin64972",
+  "repository": "git@github.com:cjo3/primary.git",
+  "author": "cjo3",
   "license": "MIT",
   "private": true,
   "workspaces": {

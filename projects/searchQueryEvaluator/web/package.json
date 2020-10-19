@@ -1,20 +1,20 @@
 {
-  "name": "@northtrend/projects-searchQueryEvaluator-web",
+  "name": "@cjo3/projects-sqe-web",
   "version": "0.0.1",
   "main": "src/index.js",
   "license": "MIT",
-  "repository": "git@github.com:colin64972/northtrend.git",
-  "author": "colin64972",
+  "repository": "git@github.com:cjo3/primary.git",
+  "author": "cjo3",
   "private": true,
-  "prettier": "@northtrend/configs/prettier",
+  "prettier": "@cjo3/configs/prettier",
   "scripts": {
     "start": "lite-server -c config/lite-server.js",
     "dev": "NODE_ENV=development webpack-dev-server --config config/webpack-dev.js",
     "pro": "NODE_ENV=production webpack-cli --config config/webpack-pro.js --progress"
   },
   "devDependencies": {
-    "@northtrend/configs": "0.0.1",
-    "@northtrend/shared": "0.0.1",
+    "@cjo3/configs": "0.0.1",
+    "@cjo3/shared": "0.0.1",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/styles": "^4.10.0",

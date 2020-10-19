@@ -1,11 +1,11 @@
-import { calculateTrialPrice } from '@northtrend/shared/logic/searchQueryEvaluator'
-import { constants } from '@northtrend/shared/raw/constants/searchQueryEvaluator'
-import { errorConstants } from '@northtrend/shared/serverless/errorConstants'
-import { proxyServiceError } from '@northtrend/shared/serverless/proxyServiceError'
+import { calculateTrialPrice } from '@cjo3/shared/logic/searchQueryEvaluator'
+import { constants } from '@cjo3/shared/raw/constants/searchQueryEvaluator'
+import { errorConstants } from '@cjo3/shared/serverless/errorConstants'
+import { proxyServiceError } from '@cjo3/shared/serverless/proxyServiceError'
 import { fetchKeMeta, fetchKeVolumes } from './fetchers'
 import { getTrialById, updateTrialWithPaymentAndVolumes } from './trials'
 import Stripe from 'stripe'
-import { sendMessage } from '@northtrend/shared/serverless/sendSms'
+import { sendMessage } from '@cjo3/shared/serverless/sendSms'
 
 export const getMeta = async queryStringParameters => {
   const { resource } = queryStringParameters

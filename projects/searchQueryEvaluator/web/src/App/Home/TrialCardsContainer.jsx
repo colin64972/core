@@ -2,10 +2,10 @@ import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/styles'
-import { FadeIn } from '@northtrend/shared/react/components/FadeIn'
-import { defaultPadding } from '@northtrend/shared/react/theming'
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
+import { defaultPadding } from '@cjo3/shared/react/theming'
 import { TrialCard } from './TrialCard'
-import { mergeSort } from '@northtrend/shared/general/sorting'
+import { mergeSort } from '@cjo3/shared/general/sorting'
 
 const useStyles = makeStyles(theme => ({
   trialsSection: {
