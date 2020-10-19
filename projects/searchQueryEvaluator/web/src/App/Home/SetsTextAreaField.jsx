@@ -1,11 +1,11 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import classNames from 'classnames'
-import { FadeIn } from '@colin30/shared/react/components/FadeIn'
+import { FadeIn } from '@northtrend/shared/react/components/FadeIn'
 import Grid from '@material-ui/core/Grid'
 import ListIcon from '@material-ui/icons/List'
 import { makeStyles } from '@material-ui/styles'
-import { prepSetValue } from '@colin30/shared/logic/searchQueryEvaluator'
+import { prepSetValue } from '@northtrend/shared/logic/searchQueryEvaluator'
 import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => ({

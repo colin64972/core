@@ -1,4 +1,4 @@
-import { FadeIn } from '@colin30/shared/react/components/FadeIn'
+import { FadeIn } from '@northtrend/shared/react/components/FadeIn'
 import { Field } from 'formik'
 import React from 'react'
 import { useSelector } from 'react-redux'
@@ -14,7 +14,7 @@ import {
 } from '@material-ui/core'
 import { kEFields } from './fields'
 
-import { countryCodesList } from '@colin30/shared/raw/constants/countryCodes'
+import { countryCodesList } from '@northtrend/shared/raw/constants/countryCodes'
 
 const useStyles = makeStyles(theme => ({
   grid: {

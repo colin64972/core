@@ -1,15 +1,15 @@
 import { call, put, select, take, race, delay } from 'redux-saga/effects'
 import { createTrial, fetchIpAddress } from '../fetchers'
 import { types } from '../types'
-import { constants } from '@colin30/shared/raw/constants/searchQueryEvaluator'
-import { copyToClipboard } from '@colin30/shared/react/helpers'
+import { constants } from '@northtrend/shared/raw/constants/searchQueryEvaluator'
+import { copyToClipboard } from '@northtrend/shared/react/helpers'
 import {
   decorateTrial,
   generateNotice,
   getSetsWithValues,
   findEnabledSets,
   buildCopyData
-} from '@colin30/shared/logic/searchQueryEvaluator'
+} from '@northtrend/shared/logic/searchQueryEvaluator'
 
 export function* multiplySets(action) {
   const notice = generateNotice('Check your results below')

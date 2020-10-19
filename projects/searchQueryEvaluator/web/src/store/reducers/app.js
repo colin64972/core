@@ -1,4 +1,4 @@
-import { constants } from '@colin30/shared/raw/constants/searchQueryEvaluator'
+import { constants } from '@northtrend/shared/raw/constants/searchQueryEvaluator'
 import { types } from '../types'
 
 const defaultState = {

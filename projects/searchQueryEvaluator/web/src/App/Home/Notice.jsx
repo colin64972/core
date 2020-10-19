@@ -6,7 +6,7 @@ import CloseIcon from '@material-ui/icons/Close'
 import DoneIcon from '@material-ui/icons/Done'
 import { makeStyles } from '@material-ui/styles'
 import { NoticeIcon } from './NoticeIcon'
-import { constants } from '@colin30/shared/raw/constants/searchQueryEvaluator'
+import { constants } from '@northtrend/shared/raw/constants/searchQueryEvaluator'
 import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => {

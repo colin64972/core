@@ -1,17 +1,17 @@
 {
-  "name": "@colin30/projects-colin30-web",
+  "name": "@northtrend/projects-northtrend-web",
   "version": "0.0.1",
   "main": "src/index.js",
   "license": "MIT",
-  "repository": "git@github.com:colin30/core.git",
-  "author": "colin30 <colin30@post.com>",
+  "repository": "git@github.com:colin64972/northtrend.git",
+  "author": "colin64972",
   "private": true,
-  "prettier": "@colin30/configs/prettier",
+  "prettier": "@northtrend/configs/prettier",
   "config": {
-    "name": "colin30-projects-colin30-web",
-    "bucket": "colin30-projects-colin30-web-static",
+    "name": "northtrend-projects-northtrend-web",
+    "bucket": "northtrend-projects-northtrend-web-static",
     "profile": "default",
-    "template_title": "Colin30 JavaScript App Development"
+    "template_title": "northtrend JavaScript App Development"
   },
   "scripts": {
     "start": "lite-server -c config/lite-server.js",
@@ -22,8 +22,8 @@
     "deploy": "yarn build && yarn sync"
   },
   "devDependencies": {
-    "@colin30/configs": "0.0.1",
-    "@colin30/shared": "0.0.1",
+    "@northtrend/configs": "0.0.1",
+    "@northtrend/shared": "0.0.1",
     "@babel/core": "^7.11.4",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
