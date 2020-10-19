@@ -1,4 +1,4 @@
-import { setCustomTheme } from '@colin30/shared/react/theming'
+import { setCustomTheme } from '@northtrend/shared/react/theming'
 import primary from '@material-ui/core/colors/cyan'
 import secondary from '@material-ui/core/colors/indigo'
 

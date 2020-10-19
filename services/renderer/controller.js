@@ -1,5 +1,5 @@
 import AWS from 'aws-sdk'
-import { constants, helpers } from '@colin30/shared'
+import { constants, helpers } from '@northtrend/shared'
 
 const { dynamoDbConstants } = constants
 const { proxyServiceError, createHashId } = helpers

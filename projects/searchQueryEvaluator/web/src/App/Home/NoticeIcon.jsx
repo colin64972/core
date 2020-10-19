@@ -3,7 +3,7 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle'
 import ErrorIcon from '@material-ui/icons/Error'
 import WarningIcon from '@material-ui/icons/Warning'
 import { makeStyles } from '@material-ui/styles'
-import { constants } from '@colin30/shared/raw/constants/searchQueryEvaluator'
+import { constants } from '@northtrend/shared/raw/constants/searchQueryEvaluator'
 
 const useStyles = makeStyles(theme => ({
   icon: {

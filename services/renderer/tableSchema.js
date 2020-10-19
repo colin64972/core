@@ -3,7 +3,7 @@ const path = require('path')
 const {
   readYaml,
   getEnvValue
-} = require('@colin30/shared/raw/dynamoDbTableManager')
+} = require('@northtrend/shared/raw/dynamoDbTableManager')
 
 const parsedTable = JSON.parse(
   JSON.stringify(

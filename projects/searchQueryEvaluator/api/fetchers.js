@@ -1,5 +1,5 @@
 import { get, post } from 'axios'
-import { errorConstants } from '@colin30/shared/serverless/errorConstants'
+import { errorConstants } from '@northtrend/shared/serverless/errorConstants'
 
 export const fetchGeoIp = async ipAddress => {
   try {
