@@ -5,8 +5,6 @@ const { config } = require('./webpack')
 
 config.plugins.push(
   new EnvironmentPlugin({
-    DEBUG: true,
-    IS_BROWSER: true,
     STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY_TEST,
     USE_MOCKS: process.env.USE_MOCKS
   })

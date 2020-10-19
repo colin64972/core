@@ -7,19 +7,10 @@
   "author": "colin64972",
   "private": true,
   "prettier": "@northtrend/configs/prettier",
-  "config": {
-    "assetBucket": "northtrend-assets",
-    "assetProjectName": "searchQueryEvaluator",
-    "assetsUrl": "https://assets.northtrend.ca",
-    "profile": "default",
-    "template_title": "Search Query Evaluator"
-  },
   "scripts": {
     "start": "lite-server -c config/lite-server.js",
     "dev": "NODE_ENV=development webpack-dev-server --config config/webpack-dev.js",
-    "pro": "NODE_ENV=production webpack-cli --config config/webpack-pro.js --progress",
-    "sync": "aws s3 sync dist/assets s3://$npm_package_config_assetBucket/$npm_package_config_assetProjectName --profile $npm_package_config_profile",
-    "deploy": "yarn pro && yarn sync"
+    "pro": "NODE_ENV=production webpack-cli --config config/webpack-pro.js --progress"
   },
   "devDependencies": {
     "@northtrend/configs": "0.0.1",
