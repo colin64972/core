@@ -1,5 +1,5 @@
 const path = require('path')
-const setReact = require('@colin30/configs/react')
+const setReact = require('@northtrend/configs/react')
 
 const webpack = setReact(
   { src: path.resolve('src', 'index') },

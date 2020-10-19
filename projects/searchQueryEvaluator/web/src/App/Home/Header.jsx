@@ -1,10 +1,10 @@
 import React from 'react'
-import { FadeIn } from '@colin30/shared/react/components/FadeIn'
+import { FadeIn } from '@northtrend/shared/react/components/FadeIn'
 import { makeStyles } from '@material-ui/styles'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import MultilineChartIcon from '@material-ui/icons/MultilineChart'
-import { defaultPadding } from '@colin30/shared/react/theming'
+import { defaultPadding } from '@northtrend/shared/react/theming'
 
 const useStyles = makeStyles(theme => ({
   headerSection: {

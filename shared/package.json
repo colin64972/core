@@ -1,13 +1,13 @@
 {
-  "name": "@colin30/shared",
+  "name": "@northtrend/shared",
   "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
-  "repository": "git@github.com:colin30/core.git",
-  "author": "colin30 <colin30@post.com>",
+  "repository": "git@github.com:colin64972/northtrend.git",
+  "author": "colin64972",
   "private": true,
-  "prettier": "@colin30/configs/prettier",
+  "prettier": "@northtrend/configs/prettier",
   "devDependencies": {
-    "@colin30/configs": "0.0.1"
+    "@northtrend/configs": "0.0.1"
   }
 }

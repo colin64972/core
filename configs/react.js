@@ -1,7 +1,7 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
-const { setTemplateLocals } = require('@colin30/shared/raw/general')
+const { setTemplateLocals } = require('@northtrend/shared/raw/general')
 
 const babelLoaderPlugins =
   process.env.NODE_ENV === 'production' ? ['transform-remove-console'] : []

@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import React, { useEffect } from 'react'
 import { makeStyles } from '@material-ui/styles'
 import { Table, TableBody, TableCell, TableRow } from '@material-ui/core'
-import { calculateTrialPrice } from '@colin30/shared/logic/searchQueryEvaluator'
-import { constants } from '@colin30/shared/raw/constants/searchQueryEvaluator'
+import { calculateTrialPrice } from '@northtrend/shared/logic/searchQueryEvaluator'
+import { constants } from '@northtrend/shared/raw/constants/searchQueryEvaluator'
 import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => ({
