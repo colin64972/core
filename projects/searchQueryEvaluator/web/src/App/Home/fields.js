@@ -1,5 +1,5 @@
-import { createHashId } from '@northtrend/shared/react/helpers'
-import { constants } from '@northtrend/shared/raw/constants/searchQueryEvaluator'
+import { createHashId } from '@cjo3/shared/react/helpers'
+import { constants } from '@cjo3/shared/raw/constants/searchQueryEvaluator'
 
 export const setFields = []
 

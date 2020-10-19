@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import Loadable from 'react-loadable'
-import { BackDropScreen } from '@northtrend/shared/react/components/BackDropScreen'
+import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements } from '@stripe/react-stripe-js'
 import {
@@ -16,12 +16,12 @@ import {
 import SearchIcon from '@material-ui/icons/Search'
 import { makeStyles } from '@material-ui/styles'
 import { volumeDataFields } from './fields'
-import { constants } from '@northtrend/shared/raw/constants/searchQueryEvaluator'
+import { constants } from '@cjo3/shared/raw/constants/searchQueryEvaluator'
 import {
   findMetricFromEntry,
   formatProductLine
-} from '@northtrend/shared/logic/searchQueryEvaluator'
-import { getLabelFromValue } from '@northtrend/shared/react/helpers'
+} from '@cjo3/shared/logic/searchQueryEvaluator'
+import { getLabelFromValue } from '@cjo3/shared/react/helpers'
 
 const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY)
 

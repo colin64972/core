@@ -1,14 +1,14 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import { FadeIn } from '@northtrend/shared/react/components/FadeIn'
-import { defaultPadding } from '@northtrend/shared/react/theming'
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
+import { defaultPadding } from '@cjo3/shared/react/theming'
 import Grid from '@material-ui/core/Grid'
 import Link from '@material-ui/core/Link'
 import Typography from '@material-ui/core/Typography'
 import InfoIcon from '@material-ui/icons/Info'
 import { makeStyles } from '@material-ui/styles'
 import { Footer } from './common/Footer'
-import { constants } from '@northtrend/shared/raw/constants/searchQueryEvaluator'
+import { constants } from '@cjo3/shared/raw/constants/searchQueryEvaluator'
 
 const useStyles = makeStyles(theme => ({
   notFoundSection: {

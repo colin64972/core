@@ -10,9 +10,9 @@ import {
   decorateKeOptions,
   decorateTrial,
   generateNotice
-} from '@northtrend/shared/logic/searchQueryEvaluator'
-import { constants } from '@northtrend/shared/raw/constants/searchQueryEvaluator'
-import { payloadMock } from '@northtrend/shared/react/mocks/searchQueryEvaluator'
+} from '@cjo3/shared/logic/searchQueryEvaluator'
+import { constants } from '@cjo3/shared/raw/constants/searchQueryEvaluator'
+import { payloadMock } from '@cjo3/shared/react/mocks/searchQueryEvaluator'
 
 export function* getKeOptions() {
   try {

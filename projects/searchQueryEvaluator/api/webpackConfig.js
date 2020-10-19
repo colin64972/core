@@ -1,6 +1,6 @@
 require('dotenv').config()
 const slsw = require('serverless-webpack')
-const setServerlessConfig = require('@northtrend/configs/serverless')
+const setServerlessConfig = require('@cjo3/configs/serverless')
 
 const serverlessConfig = setServerlessConfig(slsw.lib.entries)
 

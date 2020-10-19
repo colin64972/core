@@ -9,14 +9,14 @@ import {
   Checkbox
 } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search'
-import { BackDropScreen } from '@northtrend/shared/react/components/BackDropScreen'
+import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 
 const TermsAndConditionsLoadable = Loadable({
   loader: () =>
     import(
       /* webpackChunkName: "chunk-TermsAndConditions" */
       /* webpackPrefetch: true */
-      '@northtrend/shared/react/components/TermsAndConditions'
+      '@cjo3/shared/react/components/TermsAndConditions'
     ),
   loading: () => <BackDropScreen isOpen spinner />,
   render: (loaded, props) => {

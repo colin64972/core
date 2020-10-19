@@ -36,7 +36,7 @@ module.exports = slswEntries => ({
   },
   output: {
     libraryTarget: 'commonjs2',
-    path: path.resolve('.output'),
+    path: path.resolve('dist'),
     filename: '[name].js'
   }
 })

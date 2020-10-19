@@ -6,7 +6,7 @@ import { Intro } from './Intro'
 import { Notice } from './Notice'
 import { Sets } from './Sets'
 import { Footer } from '../common/Footer'
-import { BackDropScreen } from '@northtrend/shared/react/components/BackDropScreen'
+import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 
 const TrialResultsLoadable = Loadable({
   loader: () =>

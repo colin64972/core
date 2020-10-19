@@ -1,5 +1,5 @@
 const path = require('path')
-const { setConfig } = require('@northtrend/configs/react')
+const { setConfig } = require('@cjo3/configs/react')
 const { EnvironmentPlugin } = require('webpack')
 
 const baseConfig = setConfig(

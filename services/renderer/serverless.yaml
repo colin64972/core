@@ -98,7 +98,7 @@ custom:
 
 resources:
   Resources:
-    northtrendServicesRenders:
+    primaryServicesRenders:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: ${env:TABLE_NAME}
