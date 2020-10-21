@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography'
 import InfoIcon from '@material-ui/icons/Info'
 import { makeStyles } from '@material-ui/styles'
 import { Footer } from './common/Footer'
-import { constants } from '@cjo3/shared/raw/constants/sqe'
+import { constants } from '@cjo3/shared/raw/constants/km'
 
 const useStyles = makeStyles(theme => ({
   notFoundSection: {

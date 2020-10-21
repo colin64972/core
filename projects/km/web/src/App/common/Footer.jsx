@@ -10,7 +10,7 @@ import RateReviewIcon from '@material-ui/icons/RateReview'
 import VpnLockIcon from '@material-ui/icons/VpnLock'
 import WebIcon from '@material-ui/icons/Web'
 import { makeStyles } from '@material-ui/styles'
-import { constants } from '@cjo3/shared/raw/constants/sqe'
+import { constants } from '@cjo3/shared/raw/constants/km'
 import { ColinProfile } from '../../../assets'
 import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 

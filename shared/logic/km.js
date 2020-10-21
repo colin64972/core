@@ -1,5 +1,5 @@
 import moment from 'moment'
-import { constants } from '../raw/constants/sqe'
+import { constants } from '../raw/constants/km'
 import { LINE_INCLUDES_TLD } from '../raw/constants/regex'
 import { createHashId, optionizeObject } from '../react/helpers'
 import { stripe } from '../raw/constants/stripe'

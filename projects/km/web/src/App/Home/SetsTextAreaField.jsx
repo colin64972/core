@@ -5,7 +5,7 @@ import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 import Grid from '@material-ui/core/Grid'
 import ListIcon from '@material-ui/icons/List'
 import { makeStyles } from '@material-ui/styles'
-import { prepSetValue } from '@cjo3/shared/logic/sqe'
+import { prepSetValue } from '@cjo3/shared/logic/km'
 import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => ({

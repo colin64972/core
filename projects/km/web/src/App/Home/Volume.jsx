@@ -7,8 +7,8 @@ import { makeStyles } from '@material-ui/styles'
 import { VolumeForm } from './VolumeForm'
 import { countryCodesList } from '@cjo3/shared/raw/constants/countryCodes'
 import { types } from '../../store/types'
-import { setInitialCountry } from '@cjo3/shared/logic/sqe'
-import { constants } from '@cjo3/shared/raw/constants/sqe'
+import { setInitialCountry } from '@cjo3/shared/logic/km'
+import { constants } from '@cjo3/shared/raw/constants/km'
 import { useStripe, useElements } from '@stripe/react-stripe-js'
 
 const useStyles = makeStyles(theme => ({
