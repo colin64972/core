@@ -1,5 +1,6 @@
 import Root from './templates/root.pug'
 import NotFound from './templates/notFound.pug'
+import { serveAppPage } from './apps'
 
 const serveRootPage = path => {
   const shared = {
@@ -34,18 +35,12 @@ const serveRootPage = path => {
   }
 }
 
-export const rootHandler = async (event, context, callback) => {
-  console.log('rootHandler', event.requestContext.http.path)
-  return serveRootPage(event.requestContext.http.path)
-}
+export const rootHandler = async (event, context, callback) =>
+  serveRootPage(event.requestContext.http.path)
 
 export const appsHandler = async (event, context, callback) => {
   const { path } = event.requestContext.http
-  console.log('appsHandler', path)
   if (path.length < 7) return serveRootPage(path)
   const requestedApp = path.replace(/\/apps\/(.*)$/i, '$1')
-  return {
-    statusCode: 200,
-    body: JSON.stringify(event.requestContext)
-  }
+  return serveAppPage(requestedApp)
 }
