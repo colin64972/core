@@ -21,19 +21,19 @@ provider:
         - arn:aws:s3:${env:CDN_BUCKET_NAME}
 
 functions:
-  serveRootHandler:
-    name: ${env:SLS_SERVICE_NAME}-serveRootHandler
-    handler: v1/handlers.servePageHandler
-    events:
-      - httpApi:
-          path: /
-          method: GET
-  serveProxyHandler:
-    name: ${env:SLS_SERVICE_NAME}-serveProxyHandler
-    handler: v1/handlers.servePageHandler
+  rootHandler:
+    name: ${env:SLS_SERVICE_NAME}-rootHandler
+    handler: v1/handlers.rootHandler
     events:
       - httpApi:
           path: /{proxy+}
+          method: GET
+  appsHandler:
+    name: ${env:SLS_SERVICE_NAME}-appsHandler
+    handler: v1/handlers.appsHandler
+    events:
+      - httpApi:
+          path: /apps/{proxy+}
           method: GET
 
 configValidationMode: warn

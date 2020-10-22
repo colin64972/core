@@ -1,9 +1,7 @@
-import setHome from './templates/home.pug'
-import setNotFound from './templates/notFound.pug'
+import Root from './templates/root.pug'
+import NotFound from './templates/notFound.pug'
 
-export const servePageHandler = async (event, context, callback) => {
-  console.log('servePageHandler', event.requestContext)
-
+const serveRootPage = path => {
   const shared = {
     iconSrc: `${process.env.CDN_URL}/favicon.ico`,
     styleSrc: `${process.env.CDN_URL}/style.css`
@@ -21,10 +19,10 @@ export const servePageHandler = async (event, context, callback) => {
     }
   }
 
-  let html = setNotFound(locals.notFound)
+  let html = NotFound(locals.notFound)
 
-  if (event.requestContext.http.path === '/') {
-    html = setHome(locals.home)
+  if (path.length < 2) {
+    html = Root(locals.home)
   }
 
   return {
@@ -33,5 +31,21 @@ export const servePageHandler = async (event, context, callback) => {
       'content-type': 'text/html'
     },
     body: html
+  }
+}
+
+export const rootHandler = async (event, context, callback) => {
+  console.log('rootHandler', event.requestContext.http.path)
+  return serveRootPage(event.requestContext.http.path)
+}
+
+export const appsHandler = async (event, context, callback) => {
+  const { path } = event.requestContext.http
+  console.log('appsHandler', path)
+  if (path.length < 7) return serveRootPage(path)
+  const requestedApp = path.replace(/\/apps\/(.*)$/i, '$1')
+  return {
+    statusCode: 200,
+    body: JSON.stringify(event.requestContext)
   }
 }
