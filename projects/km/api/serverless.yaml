@@ -1,20 +1,20 @@
 service:
-  name: ${env:SERVICE_NAME}
+  name: ${env:SLS_SERVICE_NAME}
 
 provider:
   name: aws
   runtime: nodejs12.x
   stage: ${self:custom.stage}
-  region: ${env:REGION}
-  stackName: ${env:SERVICE_NAME}Stack
+  region: ${env:AWS_REGION}
+  stackName: ${env:SLS_SERVICE_NAME}Stack
   endpointType: regional
-  role: ${env:ACCESS_ROLE}
+  role: ${env:AWS_ACCESS_ROLE}
   httpApi:
-    name: ${env:GATEWAY_NAME}
+    name: ${env:AWS_HTTPAPI_NAME}
     payload: '2.0'
     cors:
       allowedOrigins:
-        - ${env:LOCAL_ORIGIN}
+        - ${env:CORS_LOCAL_ORIGIN}
       allowedHeaders:
         - Content-Type
         - Authorization
@@ -33,40 +33,40 @@ provider:
         - dynamodb:Scan
         - dynamodb:UpdateItem
       Resource:
-        - arn:aws:dynamodb:${env:REGION}:*:table/${env:TABLE_NAME}
+        - arn:aws:dynamodb:${env:AWS_REGION}:*:table/${env:TRIALS_TABLE_NAME}
 
 functions:
   createTrialHandler:
-    name: ${env:SERVICE_NAME}-createTrialHandler
-    handler: index.createTrialHandler
+    name: ${env:SLS_SERVICE_NAME}-createTrialHandler
+    handler: v1/index.createTrialHandler
     events:
       - httpApi:
-          path: /${env:RESOURCE_NAME}
+          path: ${env:TRIALS_PATH}
           method: POST
   getMetaHandler:
-    name: ${env:SERVICE_NAME}-getMetaHandler
-    handler: index.getMetaHandler
+    name: ${env:SLS_SERVICE_NAME}-getMetaHandler
+    handler: v1/index.getMetaHandler
     events:
       - httpApi:
           path: /ke
           method: GET
   getVolumesHandler:
-    name: ${env:SERVICE_NAME}-getVolumesHandler
-    handler: index.getVolumesHandler
+    name: ${env:SLS_SERVICE_NAME}-getVolumesHandler
+    handler: v1/index.getVolumesHandler
     events:
       - httpApi:
           path: /ke
           method: POST
   preOrderHandler:
-    name: ${env:SERVICE_NAME}-preOrderHandler
-    handler: index.preOrderHandler
+    name: ${env:SLS_SERVICE_NAME}-preOrderHandler
+    handler: v1/index.preOrderHandler
     events:
       - httpApi:
           path: /ke/pre-order
           method: POST
   lowCreditsAlertHandler:
-    name: ${env:SERVICE_NAME}-lowCreditsAlertHandler
-    handler: index.lowCreditsAlertHandler
+    name: ${env:SLS_SERVICE_NAME}-lowCreditsAlertHandler
+    handler: v1/index.lowCreditsAlertHandler
     events:
       - httpApi:
           path: /ke/low-credits
@@ -85,13 +85,13 @@ plugins:
 custom:
   stage: ${env:NODE_ENV}
   domains:
-    production: ${env:DOMAIN}
-    staging: sta-${env:DOMAIN}
-    development: dev-${env:DOMAIN}
+    production: ${env:BASE_URL}
+    staging: sta-${env:BASE_URL}
+    development: dev-${env:BASE_URL}
   dotenv:
     logging: false
   serverless-offline:
-    httpPort: ${env:LOCAL_SLS_PORT}
+    httpPort: ${env:SLS_OFFLINE_PORT}
     noPrependStageInUrl: true
     resourceRoutes: true
   webpack:
@@ -104,7 +104,7 @@ custom:
   customDomain:
     stage: ${self:custom.stage}
     domainName: ${self:custom.domains.${self:custom.stage}}
-    basePath: ${env:API_BASE_PATH}
+    basePath: ${env:BASE_API_URL}
     endpointType: regional
     apiType: http
     autoDomain: true
@@ -114,7 +114,7 @@ resources:
     kmTrials:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: ${env:TABLE_NAME}
+        TableName: ${env:TRIALS_TABLE_NAME}
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: S

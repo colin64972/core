@@ -6,7 +6,14 @@ const { setTemplateLocals } = require('@cjo3/shared/raw/general')
 const babelLoaderPlugins =
   process.env.NODE_ENV === 'production' ? ['transform-remove-console'] : []
 
-exports.setConfig = (entry, outputPath, template, templateLocals) => ({
+exports.setConfig = (
+  entry,
+  outputPath,
+  template,
+  templateLocals,
+  setFileOutputPath,
+  setFilePublicPath
+) => ({
   entry,
   output: {
     path: outputPath,
@@ -77,11 +84,8 @@ exports.setConfig = (entry, outputPath, template, templateLocals) => ({
             options: {
               emitFile: true,
               name: '[folder]/[name].[ext]',
-              outputPath: (url, resourcePath, context) => `assets/${url}`,
-              publicPath: (url, resourcePath, context) =>
-                process.env.NODE_ENV === 'development'
-                  ? `assets/${url}`
-                  : `${process.env.npm_package_config_assetsUrl}/${process.env.npm_package_config_assetProjectName}/${url}`
+              outputPath: setFileOutputPath,
+              publicPath: setFilePublicPath
             }
           }
         ]

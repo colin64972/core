@@ -6,8 +6,10 @@ export const errorConstants = {
       MESSAGE: 'price mismatch'
     }
   },
-  THIRD_PARTY: {
-    ERROR_CODE: 'zuzsaduged'
+  KE: {
+    ERROR_CODE: 'zuzsaduged',
+    STATUS_CODE: 400,
+    MESSAGE: 'keywords everywhere api fail'
   },
   sns: {
     messageFail: {

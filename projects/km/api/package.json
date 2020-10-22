@@ -14,8 +14,8 @@
     "deploy:dev": "NODE_ENV=development sls deploy",
     "deploy:sta": "NODE_ENV=staging sls deploy",
     "deploy:pro": "NODE_ENV=production sls deploy",
-    "createTable": "node -e 'require(\"@cjo3/shared/raw/dynamoDbTableManager\").createTable(require(\"./tableSchema\"))'",
-    "deleteTable": "node -e 'require(\"@cjo3/shared/raw/dynamoDbTableManager\").deleteTable(require(\"./tableSchema\").TableName)'",
+    "createTable": "node -e 'require(\"@cjo3/shared/raw/dynamoDbTableManager\").createTable(require(\"./tableSettings\"))'",
+    "deleteTable": "node -e 'require(\"@cjo3/shared/raw/dynamoDbTableManager\").deleteTable(require(\"./tableSettings\").TableName)'",
     "listTables": "node -e 'require(\"@cjo3/shared/raw/dynamoDbTableManager\").listTables()'",
     "resetTable": "yarn deleteTable && yarn createTable"
   },
@@ -24,7 +24,10 @@
     "@babel/preset-env": "^7.11.5",
     "@cjo3/configs": "0.0.1",
     "@cjo3/shared": "0.0.1",
+    "@middy/core": "^1.4.0",
+    "@middy/http-json-body-parser": "^1.4.0",
     "aws-sdk": "^2.745.0",
+    "axios": "^0.20.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-source-map-support": "^2.1.3",
     "dotenv": "^8.2.0",
@@ -35,7 +38,6 @@
     "serverless-webpack": "^5.3.4",
     "stripe": "^8.107.0",
     "webpack": "^4.44.1",
-    "webpack-node-externals": "^2.5.2",
-    "axios": "^0.20.0"
+    "webpack-node-externals": "^2.5.2"
   }
 }

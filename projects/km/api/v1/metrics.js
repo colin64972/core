@@ -1,11 +1,11 @@
+import Stripe from 'stripe'
 import { calculateTrialPrice } from '@cjo3/shared/logic/km'
 import { constants } from '@cjo3/shared/raw/constants/km'
 import { errorConstants } from '@cjo3/shared/serverless/errorConstants'
 import { proxyServiceError } from '@cjo3/shared/serverless/proxyServiceError'
+import { sendMessage } from '@cjo3/shared/serverless/sendSms'
 import { fetchKeMeta, fetchKeVolumes } from './fetchers'
 import { getTrialById, updateTrialWithPaymentAndVolumes } from './trials'
-import Stripe from 'stripe'
-import { sendMessage } from '@cjo3/shared/serverless/sendSms'
 
 export const getMeta = async queryStringParameters => {
   const { resource } = queryStringParameters
@@ -52,15 +52,13 @@ export const preOrder = async eventBody => {
   }
 
   try {
-    const body = JSON.parse(eventBody)
-
-    const trial = await getTrialById(body.orderRequest.trialId)
+    const trial = await getTrialById(eventBody.orderRequest.trialId)
 
     const billableCount = trial.trialProduct.billableKeywords.length
 
     const serverPrice = calculateTrialPrice(billableCount)
 
-    if (serverPrice.total !== body.orderRequest.price.total)
+    if (serverPrice.total !== eventBody.orderRequest.price.total)
       throw Error(errorConstants.PAYMENT.PRICE_MISMATCH.ERROR_CODE)
 
     const { paymentIntents } = new Stripe(stripeSecret)
@@ -68,15 +66,17 @@ export const preOrder = async eventBody => {
     const paymentIntent = await paymentIntents.create({
       amount: parseInt(serverPrice.total * 100),
       currency: 'cad',
-      description: `Search Query Evaluator purchase of ${billableCount} billable keyword metric${
+      description: `${
+        process.env.READABLE_PROJECT_NAME
+      } purchase of ${billableCount} billable keyword metric${
         billableCount > 1 ? 's' : ''
       }`,
       metadata: {
         billableCount,
         billableKeywords: JSON.stringify(trial.trialProduct.billableKeywords),
-        country: body.readableKeOptions.country,
-        currency: body.readableKeOptions.currency,
-        dataSource: body.readableKeOptions.dataSource,
+        country: eventBody.readableKeOptions.country,
+        currency: eventBody.readableKeOptions.currency,
+        dataSource: eventBody.readableKeOptions.dataSource,
         resultId: trial.id
       }
     })
@@ -92,25 +92,23 @@ export const preOrder = async eventBody => {
 
 export const getVolumes = async eventBody => {
   try {
-    const body = JSON.parse(eventBody)
-
-    const trial = await getTrialById(body.trialId)
+    const trial = await getTrialById(eventBody.trialId)
 
     const metrics = await fetchKeVolumes(
-      body.country,
-      body.currency,
-      body.dataSource,
+      eventBody.country,
+      eventBody.currency,
+      eventBody.dataSource,
       trial.trialProduct.billableKeywords
     )
 
-    if (!metrics.credits) throw Error('order fail')
+    if (!metrics.credits) throw Error(errorConstants.KE.ERROR_CODE)
 
     const update = await updateTrialWithPaymentAndVolumes(
       trial.id,
-      body.paymentId,
-      body.country,
-      body.currency,
-      body.dataSource,
+      eventBody.paymentId,
+      eventBody.country,
+      eventBody.currency,
+      eventBody.dataSource,
       metrics.data
     )
 
@@ -130,8 +128,9 @@ export const getVolumes = async eventBody => {
 }
 
 export const alertLowCredits = async eventBody => {
-  const { credits } = JSON.parse(eventBody)
   try {
+    const { credits } = eventBody
+
     const res = await sendMessage(
       `ke credits low: ${credits} credits remaining. refill soon.`,
       process.env.SNS_ARN
