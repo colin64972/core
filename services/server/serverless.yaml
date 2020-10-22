@@ -1,0 +1,58 @@
+service:
+  name: ${env:SLS_SERVICE_NAME}
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${self:custom.stage}
+  region: ${env:AWS_REGION}
+  stackName: ${env:SLS_SERVICE_NAME}Stack
+  endpointType: regional
+  role: ${env:AWS_ACCESS_ROLE}
+  httpApi:
+    name: ${env:AWS_HTTPAPI_NAME}
+    payload: '2.0'
+
+functions:
+  serveRoot:
+    name: ${env:SLS_SERVICE_NAME}-serveRoot
+    handler: v1/handlers.serveRoot
+    events:
+      - httpApi:
+          path: /
+          method: GET
+
+configValidationMode: warn
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-webpack
+  - serverless-offline
+  - serverless-domain-manager
+
+custom:
+  stage: ${env:NODE_ENV}
+  domains:
+    production: ${env:BASE_URL}
+    staging: sta-${env:BASE_URL}
+    development: dev-${env:BASE_URL}
+  dotenv:
+    logging: false
+  serverless-offline:
+    httpPort: ${env:SLS_OFFLINE_PORT}
+    noPrependStageInUrl: true
+    resourceRoutes: false
+  webpack:
+    webpackConfig: webpackConfig.js
+    packager: yarn
+    includeModules:
+      forceExclude:
+        - aws-sdk
+    keepOutputDirectory: true
+  customDomain:
+    stage: ${self:custom.stage}
+    domainName: ${self:custom.domains.${self:custom.stage}}
+    basePath: ${env:BASE_API_URL}
+    endpointType: regional
+    apiType: http
+    autoDomain: true
