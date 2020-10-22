@@ -1,48 +1,37 @@
-import AWS from 'aws-sdk'
-
-const s3 = new AWS.S3({
-  apiVersion: '2006-03-01',
-  region: process.env.REGION,
-  sslEnabled: true
-})
-
-const fetchAndRenderPage = async routeKey => {
-  console.log('fetchAndRenderPage', routeKey)
-
-  try {
-    const objectListRes = await s3
-      .listObjectsV2({
-        Bucket: process.env.CDN_BUCKET_NAME
-      })
-      .promise()
-
-    const indexObject = await s3
-      .getObject({
-        Bucket: process.env.CDN_BUCKET_NAME,
-        Key: 'index.html'
-      })
-      .promise()
-
-    const html = indexObject.Body.toString()
-
-    return {
-      statusCode: 200,
-      headers: {
-        'content-type': 'text/html'
-      },
-      body: html
-    }
-  } catch (error) {
-    console.error('fetchAndRenderPage', 'FAIL', error)
-    return {
-      status: 500,
-      body: JSON.stringify(error)
-    }
-  }
-}
+import setHome from './templates/home.pug'
+import setNotFound from './templates/notFound.pug'
 
 export const servePageHandler = async (event, context, callback) => {
-  const html = await fetchAndRenderPage(event.routeKey)
-  return context.succeed(html)
-  return callback(null, slsRes)
+  console.log('servePageHandler', event.requestContext)
+
+  const shared = {
+    iconSrc: `${process.env.CDN_URL}/favicon.ico`,
+    styleSrc: `${process.env.CDN_URL}/style.css`
+  }
+
+  const locals = {
+    home: {
+      ...shared,
+      title: process.env.HOME_TITLE,
+      logoSrc: `${process.env.CDN_URL}/logo.svg`
+    },
+    notFound: {
+      ...shared,
+      title: 'Error :('
+    }
+  }
+
+  let html = setNotFound(locals.notFound)
+
+  if (event.requestContext.http.path === '/') {
+    html = setHome(locals.home)
+  }
+
+  return {
+    statusCode: 200,
+    headers: {
+      'content-type': 'text/html'
+    },
+    body: html
+  }
 }

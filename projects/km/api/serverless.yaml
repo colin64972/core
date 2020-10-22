@@ -85,9 +85,9 @@ plugins:
 custom:
   stage: ${env:NODE_ENV}
   domains:
-    production: ${env:BASE_URL}
-    staging: sta-${env:BASE_URL}
-    development: dev-${env:BASE_URL}
+    production: ${env:BASE_DOMAIN}
+    staging: sta-${env:BASE_DOMAIN}
+    development: dev-${env:BASE_DOMAIN}
   dotenv:
     logging: false
   serverless-offline:

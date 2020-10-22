@@ -21,20 +21,20 @@ provider:
         - arn:aws:s3:${env:CDN_BUCKET_NAME}
 
 functions:
-  serveBaseHandler:
-    name: ${env:SLS_SERVICE_NAME}-serveBaseHandler
+  serveRootHandler:
+    name: ${env:SLS_SERVICE_NAME}-serveRootHandler
     handler: v1/handlers.servePageHandler
     events:
       - httpApi:
           path: /
           method: GET
-  # servePathHandler:
-  #   name: ${env:SLS_SERVICE_NAME}-servePathHandler
-  #   handler: v1/handlers.servePageHandler
-  #   events:
-  #     - httpApi:
-  #         path: /{proxy+}
-  #         method: GET
+  serveProxyHandler:
+    name: ${env:SLS_SERVICE_NAME}-serveProxyHandler
+    handler: v1/handlers.servePageHandler
+    events:
+      - httpApi:
+          path: /{proxy+}
+          method: GET
 
 configValidationMode: warn
 
@@ -47,14 +47,14 @@ plugins:
 custom:
   stage: ${env:NODE_ENV}
   domains:
-    production: ${env:BASE_URL}
-    staging: sta-${env:BASE_URL}
-    development: dev-${env:BASE_URL}
+    production: ${env:BASE_DOMAIN}
+    staging: sta-${env:BASE_DOMAIN}
+    development: dev-${env:BASE_DOMAIN}
   dotenv:
     logging: false
   serverless-offline:
     httpPort: ${env:SLS_OFFLINE_PORT}
-    noPrependStageInUrl: true
+    noPrependStageInUrl: false
     resourceRoutes: false
   webpack:
     webpackConfig: webpackConfig.js
@@ -65,7 +65,7 @@ custom:
     keepOutputDirectory: true
   customDomain:
     domainName: ${self:custom.domains.${self:custom.stage}}
-    stage: ${self:custom.stage}
+    stage: ${env:NODE_ENV}
     endpointType: regional
     apiType: http
     autoDomain: true
