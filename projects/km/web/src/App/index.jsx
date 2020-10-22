@@ -3,27 +3,14 @@ import { Switch, Route } from 'react-router-dom'
 import Loadable from 'react-loadable'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { constants } from '@cjo3/shared/raw/constants/km'
+import { Home } from './Home'
 import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
-
-const HomeLoadable = Loadable({
-  loader: () =>
-    import(
-      /* webpackChunkName: "chunk-Home" */
-      /* webpackPrefetch: true */
-      './Home'
-    ),
-  loading: () => <BackDropScreen isOpen spinner />,
-  render: (loaded, props) => {
-    let Component = loaded.Home
-    return <Component {...props} />
-  }
-})
 
 const NotFoundLoadable = Loadable({
   loader: () =>
     import(
       /* webpackChunkName: "chunk-NotFound" */
-      /* webpackPrefetch: true */
+      /* webpackPrefetch: false */
       './NotFound'
     ),
   loading: () => <BackDropScreen isOpen spinner />,
@@ -36,7 +23,7 @@ const NotFoundLoadable = Loadable({
 export const App = () => (
   <CssBaseline>
     <Switch>
-      <Route path={constants.URLS.HOME} exact={true} component={HomeLoadable} />
+      <Route path={constants.URLS.HOME} exact={true} component={Home} />
       <Route
         path={constants.URLS.NOT_FOUND}
         exact={false}

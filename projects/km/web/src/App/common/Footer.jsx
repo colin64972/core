@@ -18,7 +18,7 @@ const TermsAndConditionsLoadable = Loadable({
   loader: () =>
     import(
       /* webpackChunkName: "chunk-TermsAndConditions" */
-      /* webpackPrefetch: true */
+      /* webpackPrefetch: false */
       '@cjo3/shared/react/components/TermsAndConditions'
     ),
   loading: () => <BackDropScreen isOpen spinner />,
@@ -32,7 +32,7 @@ const PPLoadable = Loadable({
   loader: () =>
     import(
       /* webpackChunkName: "chunk-PrivacyPolicy" */
-      /* webpackPrefetch: true */
+      /* webpackPrefetch: false */
       '@cjo3/shared/react/components/PrivacyPolicy'
     ),
   loading: () => <BackDropScreen isOpen spinner />,
