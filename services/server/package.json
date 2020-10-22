@@ -9,7 +9,9 @@
   "prettier": "@cjo3/configs/prettier",
   "scripts": {
     "debug": "NODE_ENV=development SLS_DEBUG=* sls offline",
-    "dev": "NODE_ENV=development sls offline"
+    "dev": "NODE_ENV=development sls offline",
+    "deploy:dev": "NODE_ENV=development sls deploy",
+    "deploy:pro": "NODE_ENV=production sls deploy"
   },
   "devDependencies": {
     "@babel/core": "^7.11.5",

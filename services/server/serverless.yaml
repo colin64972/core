@@ -5,22 +5,36 @@ provider:
   name: aws
   runtime: nodejs12.x
   stage: ${self:custom.stage}
-  region: ${env:AWS_REGION}
+  region: ${env:REGION}
   stackName: ${env:SLS_SERVICE_NAME}Stack
   endpointType: regional
-  role: ${env:AWS_ACCESS_ROLE}
+  role: ${env:ACCESS_ROLE}
   httpApi:
-    name: ${env:AWS_HTTPAPI_NAME}
+    name: ${env:HTTPAPI_NAME}
     payload: '2.0'
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - s3.ListObjects
+        - s3:GetObject
+      Resource:
+        - arn:aws:s3:${env:CDN_BUCKET_NAME}
 
 functions:
-  serveRoot:
-    name: ${env:SLS_SERVICE_NAME}-serveRoot
-    handler: v1/handlers.serveRoot
+  serveBaseHandler:
+    name: ${env:SLS_SERVICE_NAME}-serveBaseHandler
+    handler: v1/handlers.servePageHandler
     events:
       - httpApi:
           path: /
           method: GET
+  # servePathHandler:
+  #   name: ${env:SLS_SERVICE_NAME}-servePathHandler
+  #   handler: v1/handlers.servePageHandler
+  #   events:
+  #     - httpApi:
+  #         path: /{proxy+}
+  #         method: GET
 
 configValidationMode: warn
 
@@ -50,9 +64,8 @@ custom:
         - aws-sdk
     keepOutputDirectory: true
   customDomain:
-    stage: ${self:custom.stage}
     domainName: ${self:custom.domains.${self:custom.stage}}
-    basePath: ${env:BASE_API_URL}
+    stage: ${self:custom.stage}
     endpointType: regional
     apiType: http
     autoDomain: true
