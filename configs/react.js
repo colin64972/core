@@ -2,14 +2,15 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
 const { setTemplateLocals } = require('@cjo3/shared/raw/general')
+const nodeExternals = require('webpack-node-externals')
 
-const babelLoaderPlugins =
-  process.env.NODE_ENV === 'production' ? ['transform-remove-console'] : []
+const babelLoaderPlugins = []
+// process.env.NODE_ENV === 'production' ? ['transform-remove-console'] : []
 
-exports.setConfig = (
+exports.setWebConfig = (
   entry,
   outputPath,
-  template,
+  templatePath,
   templateLocals,
   setFileOutputPath,
   setFilePublicPath
@@ -95,7 +96,7 @@ exports.setConfig = (
   plugins: [
     new CleanWebpackPlugin({ verbose: true }),
     new HtmlWebpackPlugin({
-      template,
+      template: templatePath,
       inject: true,
       scriptLoading: 'defer',
       cache: false,
@@ -116,4 +117,70 @@ exports.setConfig = (
       strict: true
     })
   ]
+})
+
+exports.setNodeconfig = (entry, outputPath, setFilePublicPath) => ({
+  entry,
+  output: {
+    path: outputPath,
+    filename: '[name].js',
+    libraryTarget: 'commonjs2'
+  },
+  target: 'node',
+  // optimization: { minimize: true },
+  performance: { hints: 'warning' },
+  resolve: {
+    extensions: [
+      '.js',
+      '.jsx',
+      '.json',
+      '.sass',
+      '.css',
+      '.png',
+      '.jpg',
+      '.svg',
+      '.gif'
+    ]
+  },
+  externals: [nodeExternals(), 'react', 'react-dom'],
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              [
+                '@babel/preset-env',
+                {
+                  targets: {
+                    node: 'current'
+                  },
+                  modules: 'commonjs'
+                }
+              ],
+              '@babel/preset-react'
+            ],
+            plugins: babelLoaderPlugins
+          }
+        }
+      },
+      {
+        test: /\.(woff(2)?|jpg|gif|png|svg|ico)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              emitFile: false,
+              name: '[folder]/[name].[ext]',
+              publicPath: setFilePublicPath
+            }
+          }
+        ]
+      }
+    ]
+  },
+  plugins: [new CleanWebpackPlugin({ verbose: true })]
 })

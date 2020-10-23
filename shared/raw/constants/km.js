@@ -103,11 +103,8 @@ exports.constants = {
     }
   },
   URLS: {
-    HOME: '/',
-    NOT_FOUND: '*',
-    TAndC: '/terms-and-conditions',
-    PP: '/privacy-policy',
-    FEEDBACK: '/feedback',
+    HOME: '/apps/keyword-multiplier',
+    NOT_FOUND: '/apps/keyword-multiplier/*',
     STRIPE: 'https://stripe.com/',
     ROOT: '/'
   },

@@ -15,7 +15,7 @@ const TermsAndConditionsLoadable = Loadable({
   loader: () =>
     import(
       /* webpackChunkName: "chunk-TermsAndConditions" */
-      /* webpackPrefetch: false */
+      /* webpackPrefetch: true */
       '@cjo3/shared/react/components/TermsAndConditions'
     ),
   loading: () => <BackDropScreen isOpen spinner />,

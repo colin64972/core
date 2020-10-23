@@ -9,6 +9,7 @@
   "prettier": "@cjo3/configs/prettier",
   "devDependencies": {
     "@cjo3/configs": "0.0.1",
-    "aws-cli-js": "^2.0.6"
+    "aws-cli-js": "^2.0.6",
+    "dotenv": "^8.2.0"
   }
 }

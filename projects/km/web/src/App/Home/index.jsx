@@ -12,7 +12,7 @@ const TrialResultsLoadable = Loadable({
   loader: () =>
     import(
       /* webpackChunkName: "chunk-TrialResults" */
-      /* webpackPrefetch: false */
+      /* webpackPrefetch: true */
       './TrialResults'
     ),
   loading: () => <BackDropScreen isOpen spinner />,

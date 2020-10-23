@@ -26,7 +26,7 @@ const VolumeLoadable = Loadable({
   loader: () =>
     import(
       /* webpackChunkName: "chunk-Volume" */
-      /* webpackPrefetch: false */
+      /* webpackPrefetch: true */
       './Volume'
     ),
   loading: () => <BackDropScreen isOpen spinner />,

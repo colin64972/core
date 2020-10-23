@@ -23,7 +23,7 @@ module.exports = (slswEntries, addPug = false) => {
                     '@babel/preset-env',
                     {
                       targets: {
-                        node: true
+                        node: 'current'
                       },
                       modules: 'commonjs'
                     }

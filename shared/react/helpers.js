@@ -20,41 +20,6 @@ export const optionizeObject = input =>
     []
   )
 
-export const setExpMonthOptions = () => {
-  const months = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec'
-  ]
-  return months.map((month, ind) => ({
-    key: createHashId(),
-    label: month,
-    value: ind + 1
-  }))
-}
-
-export const setExpYearOptions = () => {
-  const minYear = new Date().getFullYear()
-  const options = []
-  for (let i = minYear; i < minYear + 10; i += 1) {
-    options.push({
-      key: createHashId(),
-      label: i,
-      value: i
-    })
-  }
-  return options
-}
-
 export const getLabelFromValue = (value, source) => {
   if (source && Array.isArray(source)) {
     const found = source.find(item => item.value === value)
@@ -76,3 +41,6 @@ export const copyToClipboard = data => {
     throw error
   }
 }
+
+export const setChunkPublicPath = path =>
+  process.env.NODE_ENV === 'production' ? path : ''
