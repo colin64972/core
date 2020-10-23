@@ -4,6 +4,7 @@ import Loadable from 'react-loadable'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { Home } from './Home'
 import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
+import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 
 const NotFoundLoadable = Loadable({
   loader: () =>
@@ -22,9 +23,13 @@ const NotFoundLoadable = Loadable({
 export const App = () => (
   <CssBaseline>
     <Switch>
-      <Route path={process.env.APP_ROOT_PATH} exact={true} component={Home} />
       <Route
-        path={`${process.env.APP_ROOT_PATH}/*`}
+        path={switchLinkRoutePath('/', process.env.APP_ROOT_PATH)}
+        exact={true}
+        component={Home}
+      />
+      <Route
+        path={switchLinkRoutePath('/*', `${process.env.APP_ROOT_PATH}/*`)}
         exact={false}
         component={NotFoundLoadable}
       />
