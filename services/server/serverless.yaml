@@ -54,7 +54,7 @@ custom:
     logging: false
   serverless-offline:
     httpPort: ${env:SLS_OFFLINE_PORT}
-    noPrependStageInUrl: false
+    noPrependStageInUrl: true
     resourceRoutes: false
   webpack:
     webpackConfig: webpackConfig.js

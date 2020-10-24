@@ -11,3 +11,6 @@ export const parsePathRequest = path => {
   }
   return result
 }
+
+export const findMatchingApp = (name, appsList) =>
+  appsList.split(',').some(app => app === name)

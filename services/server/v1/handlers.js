@@ -1,10 +1,10 @@
 import Root from './templates/root.pug'
 import NotFound from './templates/notFound.pug'
 import { renderAppPage } from './apps'
-import { parsePathRequest } from '@cjo3/shared/serverless/helpers'
-import { setAppsList } from '@cjo3/shared/general/repoDetails'
-
-const appsList = setAppsList()
+import {
+  parsePathRequest,
+  findMatchingApp
+} from '@cjo3/shared/serverless/helpers'
 
 const serveRootPage = path => {
   const shared = {
@@ -44,9 +44,10 @@ export const rootHandler = async (event, context, callback) =>
 
 export const appsHandler = async (event, context, callback) => {
   const { path } = event.requestContext.http
-  if (path.length < 7) return serveRootPage(path)
+  if (path === '/apps') return serveRootPage(path)
   const { requestedApp, requestedPath } = parsePathRequest(path)
-  if (!appsList.includes(requestedApp)) return serveRootPage(path)
+  if (!findMatchingApp(requestedApp, process.env.APPS_LIST))
+    return serveRootPage(path)
   const html = await renderAppPage(requestedApp, requestedPath)
   return {
     statusCode: 200,
