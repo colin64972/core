@@ -21,7 +21,8 @@ const defaultState = {
     item: null,
     choice: null
   },
-  geoIp: null
+  geoIp: null,
+  tracker: null
 }
 
 export const app = (state = defaultState, action) => {
@@ -163,6 +164,11 @@ export const app = (state = defaultState, action) => {
       return {
         ...state,
         tldsHidden: !state.tldsHidden
+      }
+    case types.ADD_TRACKER:
+      return {
+        ...state,
+        tracker: action.tracker
       }
     default:
       return state

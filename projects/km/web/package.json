@@ -11,7 +11,8 @@
     "start": "lite-server -c config/lite-server.js",
     "dev": "NODE_ENV=development webpack-dev-server --config config/webpack-dev.js",
     "pro": "NODE_ENV=production webpack-cli --config config/webpack-pro.js --progress",
-    "sync": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./s3Params\").syncParams)'"
+    "sync": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./s3Params\").syncParams)'",
+    "rm:key": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").rm(require(\"./s3Params\").deleteParams)'"
   },
   "devDependencies": {
     "@cjo3/configs": "0.0.1",
@@ -28,6 +29,7 @@
     "moment": "^2.27.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-ga": "^3.2.0",
     "react-intersection-observer": "^8.27.1",
     "react-loadable": "^5.5.0",
     "react-redux": "^7.2.1",

@@ -7,8 +7,13 @@ exports.createParams = {
 }
 
 exports.syncParams = {
+  // dryrun: false,
   srcPath: 'dist',
   s3Path: `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}`,
-  // dryrun: false,
   excludes: ['*.html']
+}
+
+exports.deleteParams = {
+  // dryrun: false,
+  keyPath: `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}`
 }

@@ -1,4 +1,5 @@
 import crypto from 'crypto'
+import ReactGA from 'react-ga'
 import { v4 as uuidv4 } from 'uuid'
 
 export const createHashId = () => {
@@ -47,3 +48,34 @@ export const setChunkPublicPath = path =>
 
 export const switchLinkRoutePath = (devPath, prodPath) =>
   process.env.NODE_ENV === 'production' ? prodPath : devPath
+
+export const removeAppUrlPrefix = (path, prefix) => {
+  let result = path.replace(prefix, '')
+  if (result === '') return '/'
+  return result
+}
+
+export const setTracker = gaTag => {
+  let tracker = {
+    initialize: () => {},
+    pageHit: () => {},
+    eventHit: () => {}
+  }
+  if (!gaTag) return tracker
+
+  const config = {
+    gaTag
+  }
+
+  tracker.initialize = () => ReactGA.initialize(config.gaTag)
+  tracker.pageHit = (location, rootPath) => {
+    const { pathname, search } = location
+    const path = removeAppUrlPrefix(pathname, rootPath)
+    console.log('%c pageHit', 'color: yellow; font-size: large', path, search)
+    ReactGA.pageview(`${path}${search}`)
+  }
+  tracker.eventHit = () => {
+    console.log('%c ga eventHit', 'color: yellow; font-size: large')
+  }
+  return tracker
+}

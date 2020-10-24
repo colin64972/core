@@ -5,7 +5,8 @@ const { webConfig } = require('./webpack')
 
 webConfig.plugins.push(
   new EnvironmentPlugin({
-    STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY_LIVE
+    STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY_LIVE,
+    GA_TAG: process.env.GA_TAG
   })
 )
 

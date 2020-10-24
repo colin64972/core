@@ -4,8 +4,8 @@ const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
 const { setTemplateLocals } = require('@cjo3/shared/raw/general')
 const nodeExternals = require('webpack-node-externals')
 
-const babelLoaderPlugins =
-  process.env.NODE_ENV === 'production' ? ['transform-remove-console'] : []
+const babelLoaderPlugins = []
+// process.env.NODE_ENV === 'production' ? ['transform-remove-console'] : []
 
 exports.setWebConfig = (
   entry,
