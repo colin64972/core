@@ -103,8 +103,7 @@ exports.constants = {
     }
   },
   URLS: {
-    STRIPE: 'https://stripe.com/',
-    ROOT: '/'
+    STRIPE: 'https://stripe.com/'
   },
   ENDPOINTS: {
     options: [countriesPath, currenciesPath],
