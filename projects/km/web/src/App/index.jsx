@@ -2,22 +2,9 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Loadable from 'react-loadable'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import { constants } from '@cjo3/shared/raw/constants/km'
+import { Home } from './Home'
 import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
-
-const HomeLoadable = Loadable({
-  loader: () =>
-    import(
-      /* webpackChunkName: "chunk-Home" */
-      /* webpackPrefetch: true */
-      './Home'
-    ),
-  loading: () => <BackDropScreen isOpen spinner />,
-  render: (loaded, props) => {
-    let Component = loaded.Home
-    return <Component {...props} />
-  }
-})
+import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 
 const NotFoundLoadable = Loadable({
   loader: () =>
@@ -36,9 +23,13 @@ const NotFoundLoadable = Loadable({
 export const App = () => (
   <CssBaseline>
     <Switch>
-      <Route path={constants.URLS.HOME} exact={true} component={HomeLoadable} />
       <Route
-        path={constants.URLS.NOT_FOUND}
+        path={switchLinkRoutePath('/', process.env.APP_ROOT_PATH)}
+        exact={true}
+        component={Home}
+      />
+      <Route
+        path={switchLinkRoutePath('/*', `${process.env.APP_ROOT_PATH}/*`)}
         exact={false}
         component={NotFoundLoadable}
       />

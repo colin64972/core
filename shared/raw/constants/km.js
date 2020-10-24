@@ -103,13 +103,7 @@ exports.constants = {
     }
   },
   URLS: {
-    HOME: '/',
-    NOT_FOUND: '*',
-    TAndC: '/terms-and-conditions',
-    PP: '/privacy-policy',
-    FEEDBACK: '/feedback',
-    STRIPE: 'https://stripe.com/',
-    ROOT: '/'
+    STRIPE: 'https://stripe.com/'
   },
   ENDPOINTS: {
     options: [countriesPath, currenciesPath],

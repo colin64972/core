@@ -59,8 +59,12 @@ const useStyles = makeStyles(theme => ({
   valuePropPoint: {
     ...theme.typography.body1,
     ...theme.custom.setFlex('row', 'flex-start'),
-    fontWeight: 'unset',
-    textTransform: 'unset'
+    'fontWeight': 'unset',
+    'textTransform': 'unset',
+    'marginTop': theme.custom.setSpace(),
+    '&:first-child  ': {
+      marginTop: 0
+    }
   },
   valuePropLeft: {
     ...theme.custom.setFlex(),
@@ -126,26 +130,48 @@ export const Intro = () => {
               </FadeIn>
             </Grid>
             <Grid item xs={12} sm={8} className={classes.valuePropRight}>
-              <ul className={classes.list}>
-                <li className={classes.valuePropPoint}>
-                  <CheckIcon color="primary" className={classes.checkIcon} />
-                  mulitply and combine keywords to uncover new targeting
-                  opportunities
-                </li>
-                <li className={classes.valuePropPoint}>
-                  <CheckIcon color="primary" className={classes.checkIcon} />
-                  look up keyword search volume, CPC and competition metrics
-                </li>
-                <li className={classes.valuePropPoint}>
-                  <CheckIcon color="primary" className={classes.checkIcon} />
-                  evaluate and compare keyword variations
-                </li>
-                <li className={classes.valuePropPoint}>
-                  <CheckIcon color="primary" className={classes.checkIcon} />
-                  mix and match keywords with domain TLDs to find
-                  keyword&ndash;driven domains
-                </li>
-              </ul>
+              <FadeIn>
+                <ul className={classes.list}>
+                  <li className={classes.valuePropPoint}>
+                    <FadeIn direction="x" position={-100}>
+                      <CheckIcon
+                        color="primary"
+                        className={classes.checkIcon}
+                      />
+                      mulitply and combine keywords to uncover new targeting
+                      opportunities
+                    </FadeIn>
+                  </li>
+                  <li className={classes.valuePropPoint}>
+                    <FadeIn direction="x" position={-100}>
+                      <CheckIcon
+                        color="primary"
+                        className={classes.checkIcon}
+                      />
+                      look up keyword search volume, CPC and competition metrics
+                    </FadeIn>
+                  </li>
+                  <li className={classes.valuePropPoint}>
+                    <FadeIn direction="x" position={-100}>
+                      <CheckIcon
+                        color="primary"
+                        className={classes.checkIcon}
+                      />
+                      evaluate and compare keyword variations
+                    </FadeIn>
+                  </li>
+                  <li className={classes.valuePropPoint}>
+                    <FadeIn direction="x" position={-100}>
+                      <CheckIcon
+                        color="primary"
+                        className={classes.checkIcon}
+                      />
+                      mix and match keywords with domain TLDs to find
+                      keyword&ndash;driven domains
+                    </FadeIn>
+                  </li>
+                </ul>
+              </FadeIn>
             </Grid>
           </Grid>
         </Grid>

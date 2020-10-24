@@ -9,6 +9,7 @@ import InfoIcon from '@material-ui/icons/Info'
 import { makeStyles } from '@material-ui/styles'
 import { Footer } from './common/Footer'
 import { constants } from '@cjo3/shared/raw/constants/km'
+import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 
 const useStyles = makeStyles(theme => ({
   notFoundSection: {
@@ -89,11 +90,7 @@ const NotFoundComp = props => {
                 Back to the&nbsp;
                 <Link
                   className={classes.appLink}
-                  href={constants.URLS.HOME}
-                  onClick={event => {
-                    event.preventDefault()
-                    history.push(constants.URLS.HOME)
-                  }}>
+                  href={switchLinkRoutePath('/', process.env.APP_ROOT_PATH)}>
                   app!
                 </Link>
               </Typography>

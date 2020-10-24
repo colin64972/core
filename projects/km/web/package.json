@@ -11,12 +11,7 @@
     "start": "lite-server -c config/lite-server.js",
     "dev": "NODE_ENV=development webpack-dev-server --config config/webpack-dev.js",
     "pro": "NODE_ENV=production webpack-cli --config config/webpack-pro.js --progress",
-    "create:media": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").create(require(\"./s3Params\").createMedia)'",
-    "delete:media": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").destroy(require(\"./s3Params\").deleteMedia)'",
-    "sync:media": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./s3Params\").syncMedia)'",
-    "create:static": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").create(require(\"./s3Params\").createStatic)'",
-    "delete:static": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").destroy(require(\"./s3Params\").deleteStatic)'",
-    "sync:deploy": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./s3Params\").syncStatic)'"
+    "sync": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./s3Params\").syncParams)'"
   },
   "devDependencies": {
     "@cjo3/configs": "0.0.1",
@@ -30,7 +25,6 @@
     "dotenv": "^8.2.0",
     "formik": "^2.1.5",
     "gsap": "^3.5.0",
-    "lite-server": "^2.5.4",
     "moment": "^2.27.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -43,6 +37,7 @@
     "redux-saga": "^1.1.3",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
-    "webpack-merge": "^5.1.2"
+    "webpack-merge": "^5.1.2",
+    "webpack-node-externals": "^2.5.2"
   }
 }

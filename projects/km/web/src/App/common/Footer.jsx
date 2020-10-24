@@ -13,6 +13,7 @@ import { makeStyles } from '@material-ui/styles'
 import { constants } from '@cjo3/shared/raw/constants/km'
 import { ProfilePic } from '../../../assets'
 import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
+import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 
 const TermsAndConditionsLoadable = Loadable({
   loader: () =>
@@ -174,8 +175,7 @@ export const Footer = () => {
         <Grid item xs={12} sm={6}>
           <nav className={classes.footerNav}>
             <Link
-              component="button"
-              href={constants.URLS.HOME}
+              href={switchLinkRoutePath('/', process.env.APP_ROOT_PATH)}
               className={classes.navButton}>
               <WebIcon className={classes.menuItemIcon} />
               Home
@@ -188,21 +188,11 @@ export const Footer = () => {
               <VpnLockIcon className={classes.menuItemIcon} />
               Privacy Policy
             </button>
-            <Link
-              component="button"
-              href={constants.URLS.FEEDBACK}
-              className={classes.navButton}>
-              <RateReviewIcon className={classes.menuItemIcon} />
-              Feedback
-            </Link>
           </nav>
         </Grid>
         <Grid item xs={12} sm={6} className={classes.footerRight}>
           <div className={classes.badgeTop}>
-            <Link
-              component="button"
-              className={classes.badgeButton}
-              href={constants.URLS.ROOT}>
+            <Link className={classes.badgeButton} href={process.env.SITE_URL}>
               <Typography variant="h6" className={classes.badgeHeading}>
                 Need help with JavaScript
                 <br />
