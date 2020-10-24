@@ -32,8 +32,5 @@
     "serverless-webpack": "^5.3.4",
     "webpack": "^4.44.1",
     "webpack-node-externals": "^2.5.2"
-  },
-  "dependencies": {
-    "colors": "^1.4.0"
   }
 }

@@ -10,32 +10,42 @@ if (process.env.IS_LOCAL || process.env.IS_OFFLINE) {
   dbOptions.endpoint = dynamoDbConstants.LOCAL.ENDPOINT
 }
 
+const s3 = new AWS.S3({
+  apiVersion: '2006-03-01',
+  region: process.env.REGION,
+  sslEnabled: true
+})
+
 const docClient = new AWS.DynamoDB.DocumentClient(dbOptions)
 
 export const createRender = async eventBody => {
   try {
-    const { app, path, head, body } = eventBody
+    const { app, path } = eventBody
 
-    const timestamp = new Date().getTime()
+    console.log('XXX', app, path)
 
-    const options = {
-      TableName: process.env.RENDERS_TABLE_NAME,
-      Item: {
-        app,
-        path,
-        head,
-        body,
-        createdAt: timestamp,
-        updatedAt: timestamp
-      }
-    }
+    // const timestamp = new Date().getTime()
 
-    await docClient.put(options).promise()
+    // const options = {
+    //   TableName: process.env.RENDERS_TABLE_NAME,
+    //   Item: {
+    //     app,
+    //     path,
+    //     createdAt: timestamp,
+    //     updatedAt: timestamp
+    //   }
+    // }
+
+    // await docClient.put(options).promise()
 
     return {
-      statusCode: 201,
-      body: JSON.stringify(options.Item)
+      statusCode: 200
     }
+
+    // return {
+    //   statusCode: 201,
+    //   body: JSON.stringify(options.Item)
+    // }
   } catch (error) {
     console.error('createRender', error)
   }
