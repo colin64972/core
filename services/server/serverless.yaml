@@ -6,11 +6,11 @@ provider:
   runtime: nodejs12.x
   stage: ${self:custom.stage}
   region: ${env:REGION}
-  stackName: ${env:SLS_SERVICE_NAME}Stack
+  stackName: ${env:SLS_SERVICE_NAME}-stack
   endpointType: regional
   role: ${env:ACCESS_ROLE}
   httpApi:
-    name: ${env:HTTPAPI_NAME}
+    name: ${env:SLS_SERVICE_NAME}-httpapi
     payload: '2.0'
   iamRoleStatements:
     - Effect: Allow
