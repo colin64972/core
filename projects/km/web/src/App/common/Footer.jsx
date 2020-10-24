@@ -175,7 +175,7 @@ export const Footer = () => {
           <nav className={classes.footerNav}>
             <Link
               component="button"
-              href={constants.URLS.HOME}
+              href={process.env.APP_ROOT_PATH}
               className={classes.navButton}>
               <WebIcon className={classes.menuItemIcon} />
               Home

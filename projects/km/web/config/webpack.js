@@ -37,7 +37,8 @@ webConfig.plugins.push(
     SITE_CONTACT_EMAIL: process.env.SITE_CONTACT_EMAIL,
     COPYRIGHT_ENTITY: process.env.COPYRIGHT_ENTITY,
     CDN_URL: process.env.CDN_URL,
-    CDN_APP_FOLDER: process.env.CDN_APP_FOLDER
+    CDN_APP_FOLDER: process.env.CDN_APP_FOLDER,
+    APP_ROOT_PATH: process.env.APP_ROOT_PATH
   })
 )
 

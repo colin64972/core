@@ -103,8 +103,6 @@ exports.constants = {
     }
   },
   URLS: {
-    HOME: '/apps/keyword-multiplier',
-    NOT_FOUND: '/apps/keyword-multiplier/*',
     STRIPE: 'https://stripe.com/',
     ROOT: '/'
   },
