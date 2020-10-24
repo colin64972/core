@@ -14,9 +14,12 @@ const create = async ({ bucketName, region, acl }) => {
   }
 }
 
-const destroy = async ({ bucketName, region }) => {
+const rm = async ({ keyPath, dryrun = true }) => {
   try {
-    let params = `s3api delete-bucket --bucket ${bucketName} --region ${region}`
+    let params = `s3 rm s3://${keyPath} --recursive`
+    if (dryrun) {
+      params += ' --dryrun'
+    }
     const result = await aws.command(params)
     console.log('PASS', result.raw)
   } catch (error) {
@@ -48,6 +51,6 @@ const sync = async ({ srcPath, s3Path, dryrun = true, excludes = [] }) => {
 
 module.exports = {
   create,
-  destroy,
+  rm,
   sync
 }
