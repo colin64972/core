@@ -119,7 +119,7 @@ exports.setWebConfig = (
   ]
 })
 
-exports.setNodeconfig = (entry, outputPath, setFilePublicPath) => ({
+exports.setNodeConfig = (entry, outputPath, setFilePublicPath) => ({
   entry,
   output: {
     path: outputPath,

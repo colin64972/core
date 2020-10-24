@@ -1,4 +1,7 @@
 import AWS from 'aws-sdk'
+import { createElement } from 'react'
+import ReactDOMServer from 'react-dom/server'
+import { StaticRouter } from 'react-router-dom'
 import { dynamoDbConstants } from '@cjo3/shared/raw/constants/dynamoDb'
 
 const dbOptions = {
@@ -10,11 +13,11 @@ if (process.env.IS_LOCAL || process.env.IS_OFFLINE) {
   dbOptions.endpoint = dynamoDbConstants.LOCAL.ENDPOINT
 }
 
-const s3 = new AWS.S3({
-  apiVersion: '2006-03-01',
-  region: process.env.REGION,
-  sslEnabled: true
-})
+// const s3 = new AWS.S3({
+//   apiVersion: '2006-03-01',
+//   region: process.env.REGION,
+//   sslEnabled: true
+// })
 
 const docClient = new AWS.DynamoDB.DocumentClient(dbOptions)
 
@@ -22,7 +25,35 @@ export const createRender = async eventBody => {
   try {
     const { app, path } = eventBody
 
-    console.log('XXX', app, path)
+    // const bucketContents = await s3
+    //   .listObjectsV2({
+    //     Bucket: process.env.CDN_BUCKET_NAME,
+    //     Prefix: `${app}/node`
+    //   })
+    //   .promise()
+
+    // console.log('bucketContents', bucketContents)
+
+    // const appFile = await s3
+    //   .getObject({
+    //     Bucket: process.env.CDN_BUCKET_NAME,
+    //     Key: `${app}/node/App.js`
+    //   })
+    //   .promise()
+
+    // const { App } = eval(appFile.Body.toString())
+
+    // const AppWithRouter = createElement(
+    //   StaticRouter,
+    //   {
+    //     location: '/',
+    //     context: {}
+    //   },
+    //   createElement(App)
+    // )
+
+    // const markup = ReactDOMServer.renderToString(AppWithRouter)
+    // console.log('markup', markup)
 
     // const timestamp = new Date().getTime()
 
@@ -37,10 +68,6 @@ export const createRender = async eventBody => {
     // }
 
     // await docClient.put(options).promise()
-
-    return {
-      statusCode: 200
-    }
 
     // return {
     //   statusCode: 201,
