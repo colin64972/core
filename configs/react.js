@@ -128,6 +128,14 @@ exports.setNodeConfig = (entry, outputPath, setFilePublicPath) => ({
   },
   target: 'node',
   // optimization: { minimize: true },
+  devServer: {
+    contentBase: outputPath,
+    compress: true,
+    port: 8002,
+    hot: true,
+    writeToDisk: true,
+    historyApiFallback: true
+  },
   performance: { hints: 'warning' },
   resolve: {
     extensions: [

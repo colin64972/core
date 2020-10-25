@@ -12,13 +12,12 @@ const devVars = new EnvironmentPlugin({
 webConfig.plugins.push(devVars)
 nodeConfig.plugins.push(devVars)
 
-module.exports = [
-  merge(webConfig, {
-    mode: 'development',
-    devtool: 'source-map'
-  }),
-  merge(nodeConfig, {
-    mode: 'development',
-    devtool: 'source-map'
-  })
-]
+const configs = {
+  webConfig,
+  nodeConfig
+}
+
+module.exports = merge(configs[`${process.env.CONFIG_VER}Config`], {
+  mode: 'development',
+  devtool: 'source-map'
+})
