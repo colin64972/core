@@ -127,7 +127,7 @@ exports.setNodeConfig = (entry, outputPath, setFilePublicPath) => ({
     libraryTarget: 'commonjs2'
   },
   target: 'node',
-  // optimization: { minimize: true },
+  optimization: { minimize: process.env.NODE_ENV === 'production' },
   devServer: {
     contentBase: outputPath,
     compress: true,
@@ -150,7 +150,7 @@ exports.setNodeConfig = (entry, outputPath, setFilePublicPath) => ({
       '.gif'
     ]
   },
-  externals: [nodeExternals(), 'react', 'react-dom'],
+  externals: [nodeExternals(), 'react', 'react-dom', '@material-ui/core'],
   module: {
     rules: [
       {
