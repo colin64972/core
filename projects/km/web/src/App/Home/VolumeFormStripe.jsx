@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import { Field } from 'formik'
 import React from 'react'
-import { makeStyles } from '@material-ui/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import {
   FormControl,
   FormHelperText,

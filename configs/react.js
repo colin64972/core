@@ -2,10 +2,11 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
 const { setTemplateLocals } = require('@cjo3/shared/raw/general')
-const nodeExternals = require('webpack-node-externals')
+// const nodeExternals = require('webpack-node-externals')
+const { EnvironmentPlugin } = require('webpack')
 
-const babelLoaderPlugins = []
-// process.env.NODE_ENV === 'production' ? ['transform-remove-console'] : []
+const babelLoaderPlugins =
+  process.env.NODE_ENV === 'production' ? ['transform-remove-console'] : []
 
 exports.setWebConfig = (
   entry,
@@ -119,7 +120,7 @@ exports.setWebConfig = (
   ]
 })
 
-exports.setNodeconfig = (entry, outputPath, setFilePublicPath) => ({
+exports.setNodeConfig = (entry, outputPath, setFilePublicPath) => ({
   entry,
   output: {
     path: outputPath,
@@ -127,7 +128,13 @@ exports.setNodeconfig = (entry, outputPath, setFilePublicPath) => ({
     libraryTarget: 'commonjs2'
   },
   target: 'node',
-  // optimization: { minimize: true },
+  optimization: { minimize: process.env.NODE_ENV === 'production' },
+  devServer: {
+    contentBase: outputPath,
+    compress: true,
+    port: 8002,
+    writeToDisk: true
+  },
   performance: { hints: 'warning' },
   resolve: {
     extensions: [
@@ -142,7 +149,7 @@ exports.setNodeconfig = (entry, outputPath, setFilePublicPath) => ({
       '.gif'
     ]
   },
-  externals: [nodeExternals(), 'react', 'react-dom'],
+  // externals: [nodeExternals()],
   module: {
     rules: [
       {
@@ -182,5 +189,10 @@ exports.setNodeconfig = (entry, outputPath, setFilePublicPath) => ({
       }
     ]
   },
-  plugins: [new CleanWebpackPlugin({ verbose: true })]
+  plugins: [
+    new CleanWebpackPlugin({ verbose: true }),
+    new EnvironmentPlugin({
+      IS_SERVER: true
+    })
+  ]
 })

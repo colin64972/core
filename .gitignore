@@ -1,6 +1,7 @@
 # folders
 .serverless
 dist
+distNode
 node_modules
 
 # files

@@ -8,10 +8,13 @@
   "private": true,
   "prettier": "@cjo3/configs/prettier",
   "scripts": {
-    "start": "lite-server -c config/lite-server.js",
-    "dev": "NODE_ENV=development webpack-dev-server --config config/webpack-dev.js",
-    "pro": "NODE_ENV=production webpack-cli --config config/webpack-pro.js --progress",
-    "sync": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./s3Params\").syncParams)'",
+    "dev": "NODE_ENV=development CONFIG_VER=web webpack-dev-server --config config/webpack-dev.js",
+    "dev:node": "NODE_ENV=development CONFIG_VER=node webpack-dev-server --config config/webpack-dev.js",
+    "build": "NODE_ENV=development CONFIG_VER=node webpack-cli --config config/webpack-dev.js --progress",
+    "pro": "NODE_ENV=production CONFIG_VER=web webpack-cli --config config/webpack-pro.js --progress",
+    "pro:node": "NODE_ENV=production CONFIG_VER=node webpack-cli --config config/webpack-pro.js --progress",
+    "sync:web": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./s3Params\").webParams)'",
+    "sync:node": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./s3Params\").nodeParams)'",
     "rm:key": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").rm(require(\"./s3Params\").deleteParams)'"
   },
   "devDependencies": {
@@ -19,7 +22,6 @@
     "@cjo3/shared": "0.0.1",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
-    "@material-ui/styles": "^4.10.0",
     "@stripe/react-stripe-js": "^1.1.2",
     "@stripe/stripe-js": "^1.9.0",
     "classnames": "^2.2.6",
@@ -33,7 +35,6 @@
     "react-intersection-observer": "^8.27.1",
     "react-loadable": "^5.5.0",
     "react-redux": "^7.2.1",
-    "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-saga": "^1.1.3",

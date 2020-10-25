@@ -68,10 +68,8 @@ export const setTracker = gaTag => {
   }
 
   tracker.initialize = () => ReactGA.initialize(config.gaTag)
-  tracker.pageHit = (location, rootPath) => {
-    const { pathname, search } = location
+  tracker.pageHit = (pathname, search, rootPath) => {
     const path = removeAppUrlPrefix(pathname, rootPath)
-    console.log('%c pageHit', 'color: yellow; font-size: large', path, search)
     ReactGA.pageview(`${path}${search}`)
   }
   tracker.eventHit = () => {

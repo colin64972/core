@@ -2,7 +2,7 @@ import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 import { Field } from 'formik'
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { makeStyles } from '@material-ui/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import {
   FormControl,
   FormHelperText,

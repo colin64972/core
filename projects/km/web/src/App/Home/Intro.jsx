@@ -4,7 +4,7 @@ import { defaultPadding } from '@cjo3/shared/react/theming'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import CheckIcon from '@material-ui/icons/Check'
-import { makeStyles } from '@material-ui/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
 import { Intro as IntroImage } from '../../../assets'
 

@@ -1,4 +1,5 @@
 import { APP_PATH_MATCH } from '../raw/constants/regex'
+import { fetchBundleFile } from './fetchers'
 
 export const parsePathRequest = path => {
   const appName = path.replace(APP_PATH_MATCH, '$2')

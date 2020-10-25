@@ -14,7 +14,7 @@ import {
   TableRow
 } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search'
-import { makeStyles } from '@material-ui/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import { volumeDataFields } from './fields'
 import { constants } from '@cjo3/shared/raw/constants/km'
 import { findMetricFromEntry, formatProductLine } from '@cjo3/shared/logic/km'

@@ -37,7 +37,7 @@ export const FadeIn = ({
   }
 
   useEffect(() => {
-    if (inView) {
+    if (!process.env.IS_SERVER && inView) {
       timeline
         .add(gsap.to(ref, envDuration, { opacity: 1 }))
         .add(

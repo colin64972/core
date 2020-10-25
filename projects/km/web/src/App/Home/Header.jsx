@@ -1,6 +1,6 @@
 import React from 'react'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
-import { makeStyles } from '@material-ui/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import MultilineChartIcon from '@material-ui/icons/MultilineChart'

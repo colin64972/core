@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { makeStyles } from '@material-ui/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import { TrialResultsMatchTypes } from './TrialResultsMatchTypes'
 import { TrialResultsSettings } from './TrialResultsSettings'

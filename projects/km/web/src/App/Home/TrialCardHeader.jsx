@@ -3,7 +3,7 @@ import React from 'react'
 import { Chip, Grid, Typography, Tooltip } from '@material-ui/core'
 import AssignmentIcon from '@material-ui/icons/Assignment'
 import DeleteIcon from '@material-ui/icons/Delete'
-import { makeStyles } from '@material-ui/styles'
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
   trialCardHeading: {

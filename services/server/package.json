@@ -12,7 +12,8 @@
     "dev": "NODE_ENV=development sls offline",
     "pro": "NODE_ENV=production sls offline",
     "deploy:dev": "NODE_ENV=development sls deploy",
-    "deploy:pro": "NODE_ENV=production sls deploy"
+    "deploy:pro": "NODE_ENV=production sls deploy",
+    "undeploy:pro": "NODE_ENV=production sls remove"
   },
   "devDependencies": {
     "@babel/core": "^7.11.5",
