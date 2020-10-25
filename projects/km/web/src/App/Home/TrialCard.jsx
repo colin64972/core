@@ -7,7 +7,7 @@ import {
   AccordionSummary
 } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import { makeStyles } from '@material-ui/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import { TrialCardHeader } from './TrialCardHeader'
 import { TrialCardTable } from './TrialCardTable'
 import { types } from '../../store/types'

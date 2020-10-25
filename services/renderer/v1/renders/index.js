@@ -1,13 +1,10 @@
 import AWS from 'aws-sdk'
-import { createElement } from 'react'
-import ReactDOMServer from 'react-dom/server'
-import { StaticRouter } from 'react-router-dom'
+import { createElement, createContext } from 'react'
+import { renderToString } from 'react-dom/server'
+import { Provider } from 'react-redux'
 import { ServerStyleSheets, ThemeProvider } from '@material-ui/core/styles'
 import { dynamoDbConstants } from '@cjo3/shared/raw/constants/dynamoDb'
-import {
-  getLocalBundleFile,
-  evalScriptString
-} from '@cjo3/shared/serverless/helpers'
+import { fetchBundleFile } from '@cjo3/shared/serverless/fetchers'
 
 const dbOptions = {
   dynamodb: '2012-08-10'
@@ -30,11 +27,13 @@ export const createRender = async eventBody => {
   try {
     const { app, path } = eventBody
 
-    let appCode, themeCode
+    let appCode, themeCode, storeCode, renderRootCode
 
     if (process.env.IS_OFFLINE) {
-      appCode = await getLocalBundleFile('App')
-      themeCode = await getLocalBundleFile('theme')
+      renderRootCode = await fetchBundleFile('setRenderRoot')
+      // appCode = await fetchBundleFile('App')
+      // themeCode = await fetchBundleFile('theme')
+      // storeCode = await fetchBundleFile('store')
     } else {
       const appFile = await s3
         .getObject({
@@ -50,30 +49,44 @@ export const createRender = async eventBody => {
         })
         .promise()
 
-      appCode = evalScriptString(appFile.Body.toString(), 'App')
-      themeCode = evalScriptString(themeFile.Body.toString(), 'theme')
+      const storeFile = await s3
+        .getObject({
+          Bucket: process.env.CDN_BUCKET,
+          Key: `${app}/node/theme.js`
+        })
+        .promise()
+
+      appCode = appFile.Body.toString()
+      themeCode = themeFile.Body.toString()
+      storeCode = storeFile.Body.toString()
     }
 
-    // const AppWithTheme = createElement(
-    //   ThemeProvider,
-    //   {
-    //     theme: themeCode
-    //   },
-    //   createElement(appCode)
+    const sheets = new ServerStyleSheets()
+
+    // const store = eval(storeCode).setStore()
+
+    // const AppWithStore = createElement(
+    //   Provider,
+    //   { store, context: createContext({ asdf: true }) },
+    //   createElement(
+    //     ThemeProvider,
+    //     { theme: eval(themeCode).theme },
+    //     createElement(eval(appCode).App, { reqPath: path })
+    //   )
     // )
 
-    // console.log('XXX', AppWithTheme)
+    // const markup = renderToString(eval(renderRootCode).setRenderRoot())
 
-    // const AppWithRouter = createElement(
-    //   StaticRouter,
-    //   {
-    //     location: '/',
-    //     context: {}
-    //   },
-    //   createElement(App)
+    // sheets.collect(markup)
+
+    // const css = sheets.toString()
+
+    console.log('markup', eval(renderRootCode).setRenderRoot())
+
+    // const markup = renderToString(
+    //   createElement(eval(appCode).App, { reqPath: path })
     // )
 
-    // const markup = ReactDOMServer.renderToString(AppWithRouter)
     // console.log('markup', markup)
 
     // const timestamp = new Date().getTime()
@@ -95,7 +108,11 @@ export const createRender = async eventBody => {
     //   body: JSON.stringify(options.Item)
     // }
   } catch (error) {
-    console.error('createRender', error)
+    console.error(error)
+    return {
+      statusCode: 500,
+      body: JSON.stringify(error.message)
+    }
   }
 }
 

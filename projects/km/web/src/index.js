@@ -1,8 +1,8 @@
 import { createElement } from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { ThemeProvider } from '@material-ui/styles'
-import { theme } from './App/theme'
+import { ThemeProvider } from '@material-ui/core/styles'
+import { theme } from './theme'
 import Loadable from 'react-loadable'
 import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 import { setStore } from './store'
@@ -11,8 +11,6 @@ import { setChunkPublicPath } from '@cjo3/shared/react/helpers'
 __webpack_public_path__ = setChunkPublicPath(
   `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/`
 )
-
-console.log('%c theme', 'color: lightyellow; font-size: large', theme)
 
 const store = setStore()
 

@@ -2,10 +2,11 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
 const { setTemplateLocals } = require('@cjo3/shared/raw/general')
-const nodeExternals = require('webpack-node-externals')
+// const nodeExternals = require('webpack-node-externals')
+const { EnvironmentPlugin } = require('webpack')
 
-const babelLoaderPlugins = []
-// process.env.NODE_ENV === 'production' ? ['transform-remove-console'] : []
+const babelLoaderPlugins =
+  process.env.NODE_ENV === 'production' ? ['transform-remove-console'] : []
 
 exports.setWebConfig = (
   entry,
@@ -132,9 +133,7 @@ exports.setNodeConfig = (entry, outputPath, setFilePublicPath) => ({
     contentBase: outputPath,
     compress: true,
     port: 8002,
-    hot: true,
-    writeToDisk: true,
-    historyApiFallback: true
+    writeToDisk: true
   },
   performance: { hints: 'warning' },
   resolve: {
@@ -150,7 +149,7 @@ exports.setNodeConfig = (entry, outputPath, setFilePublicPath) => ({
       '.gif'
     ]
   },
-  externals: [nodeExternals(), 'react', 'react-dom', '@material-ui/core'],
+  // externals: [nodeExternals()],
   module: {
     rules: [
       {
@@ -190,5 +189,10 @@ exports.setNodeConfig = (entry, outputPath, setFilePublicPath) => ({
       }
     ]
   },
-  plugins: [new CleanWebpackPlugin({ verbose: true })]
+  plugins: [
+    new CleanWebpackPlugin({ verbose: true }),
+    new EnvironmentPlugin({
+      IS_SERVER: true
+    })
+  ]
 })

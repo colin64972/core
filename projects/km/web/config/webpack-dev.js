@@ -6,7 +6,8 @@ const { webConfig, nodeConfig } = require('./webpack')
 const devVars = new EnvironmentPlugin({
   STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY_TEST,
   USE_MOCKS: process.env.USE_MOCKS,
-  GA_TAG: process.env.GA_TAG
+  // GA_TAG: process.env.GA_TAG,
+  API_URL: process.env.API_URL_DEV
 })
 
 webConfig.plugins.push(devVars)

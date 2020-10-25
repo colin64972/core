@@ -2,7 +2,7 @@ import { setCustomTheme } from '@cjo3/shared/react/theming'
 import primary from '@material-ui/core/colors/cyan'
 import secondary from '@material-ui/core/colors/indigo'
 
-export const theme = setCustomTheme(
+const customTheme = setCustomTheme(
   12,
   'Heebo',
   [
@@ -33,42 +33,42 @@ export const theme = setCustomTheme(
   3
 )
 
-theme.typography.subtitle1 = {
-  [theme.breakpoints.down('xs')]: {
+customTheme.typography.subtitle1 = {
+  [customTheme.breakpoints.down('xs')]: {
     color: 'red',
-    fontSize: theme.custom.setSpace()
+    fontSize: customTheme.custom.setSpace()
   }
 }
 
-theme.palette.screens = {
+customTheme.palette.screens = {
   backdrop: 'rgba(0, 0, 0, 0.5)'
 }
 
-theme.shadows.concat([
-  `inset ${theme.custom.setSpace() / 2}px ${theme.custom.setSpace() / 2}px ${
-    theme.custom.setSpace() / 2
-  }px ${theme.palette.grey[50]}`
+customTheme.shadows.concat([
+  `inset ${customTheme.custom.setSpace() / 2}px ${
+    customTheme.custom.setSpace() / 2
+  }px ${customTheme.custom.setSpace() / 2}px ${customTheme.palette.grey[50]}`
 ])
 
-theme.custom.formButton = {
-  padding: theme.custom.setSpace(),
-  borderRadius: theme.custom.borderRadius,
-  fontFamily: theme.typography.fontFamily,
+customTheme.custom.formButton = {
+  padding: customTheme.custom.setSpace(),
+  borderRadius: customTheme.custom.borderRadius,
+  fontFamily: customTheme.typography.fontFamily,
   width: '100%',
   border: 'none',
-  fontSize: theme.custom.setSpace(),
+  fontSize: customTheme.custom.setSpace(),
   fontWeight: 'bold',
   textTransform: 'uppercase',
   transition: 'all 250ms ease-out',
-  color: theme.palette.bodyColor
+  color: customTheme.palette.bodyColor
 }
 
-theme.custom.iconButton = {
+customTheme.custom.iconButton = {
   'border': 'none',
-  'fontSize': theme.custom.setSpace(),
-  'padding': theme.custom.setSpace() / 2,
-  'margin': `0 ${theme.custom.setSpace() / 2}px 0 0`,
-  'borderRadius': theme.custom.borderRadius,
+  'fontSize': customTheme.custom.setSpace(),
+  'padding': customTheme.custom.setSpace() / 2,
+  'margin': `0 ${customTheme.custom.setSpace() / 2}px 0 0`,
+  'borderRadius': customTheme.custom.borderRadius,
   'cursor': 'pointer',
   'display': 'flex',
   'justifyContent': 'center',
@@ -78,3 +78,5 @@ theme.custom.iconButton = {
     outline: 'none'
   }
 }
+
+export const theme = customTheme

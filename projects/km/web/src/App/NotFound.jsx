@@ -1,14 +1,12 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 import { defaultPadding } from '@cjo3/shared/react/theming'
 import Grid from '@material-ui/core/Grid'
 import Link from '@material-ui/core/Link'
 import Typography from '@material-ui/core/Typography'
 import InfoIcon from '@material-ui/icons/Info'
-import { makeStyles } from '@material-ui/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import { Footer } from './common/Footer'
-import { constants } from '@cjo3/shared/raw/constants/km'
 import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 
 const useStyles = makeStyles(theme => ({
@@ -56,9 +54,8 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const NotFoundComp = props => {
+export const NotFound = () => {
   const classes = useStyles()
-  const { history } = props
   return (
     <Grid
       container
@@ -102,5 +99,3 @@ const NotFoundComp = props => {
     </Grid>
   )
 }
-
-export const NotFound = withRouter(NotFoundComp)

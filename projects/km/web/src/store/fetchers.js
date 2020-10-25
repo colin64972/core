@@ -24,11 +24,7 @@ const options = {
 
 export const createTrial = async payload => {
   if (process.env.USE_MOCKS) return createTrialMock
-  let url = 'http://localhost:2000'
-  if (process.env.NODE_ENV === 'production') {
-    url = 'https://apis.bettermedia.ca/km'
-  }
-  const res = await post(`${url}/trials`, payload, options)
+  const res = await post(`${process.env.API_URL}/trials`, payload, options)
   return res
 }
 
@@ -41,11 +37,10 @@ export const fetchKeData = async resource => {
         return optionsMock
     }
   }
-  let url = 'http://localhost:2000'
-  if (process.env.NODE_ENV === 'production') {
-    url = 'https://apis.bettermedia.ca/km'
-  }
-  const res = await get(`${url}/ke?resource=${resource}`, options)
+  const res = await get(
+    `${process.env.API_URL}/ke?resource=${resource}`,
+    options
+  )
   return res
 }
 
@@ -57,12 +52,8 @@ export const makePreOrder = async (
   readableKeOptions
 ) => {
   if (process.env.USE_MOCKS) return preOrderMock
-  let url = 'http://localhost:2000'
-  if (process.env.NODE_ENV === 'production') {
-    url = 'https://apis.bettermedia.ca/km'
-  }
   const res = await post(
-    `${url}/ke/pre-order`,
+    `${process.env.API_URL}/ke/pre-order`,
     {
       orderRequest,
       country,
@@ -83,12 +74,8 @@ export const fetchKeVolumes = async (
   dataSource
 ) => {
   if (process.env.USE_MOCKS) return volumeMock
-  let url = 'http://localhost:2000'
-  if (process.env.NODE_ENV === 'production') {
-    url = 'https://apis.bettermedia.ca/km'
-  }
   const res = await post(
-    `${url}/ke`,
+    `${process.env.API_URL}/ke`,
     {
       trialId,
       paymentId,
@@ -103,11 +90,11 @@ export const fetchKeVolumes = async (
 }
 
 export const postLowCreditAlert = async credits => {
-  let url = 'http://localhost:2000'
-  if (process.env.NODE_ENV === 'production') {
-    url = 'https://apis.bettermedia.ca/km'
-  }
-  const res = await post(`${url}/ke/low-credits`, { credits }, options)
+  const res = await post(
+    `${process.env.API_URL}/ke/low-credits`,
+    { credits },
+    options
+  )
   if (res.status === 202) return true
   return false
 }

@@ -15,17 +15,3 @@ export const parsePathRequest = path => {
 
 export const findMatchingApp = (name, appsList) =>
   appsList.split(',').some(app => app === name)
-
-export const evalScriptString = (code, fileName) => {
-  const result = eval(code)
-  if (result[fileName]) return result[fileName]
-}
-
-export const getLocalBundleFile = async fileName => {
-  try {
-    let evaledCode = await fetchBundleFile(fileName)
-    return evaledCode
-  } catch (error) {
-    console.error('getLocalBundleFile', error)
-  }
-}

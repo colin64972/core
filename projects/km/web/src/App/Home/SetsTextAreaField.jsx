@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 import Grid from '@material-ui/core/Grid'
 import ListIcon from '@material-ui/icons/List'
-import { makeStyles } from '@material-ui/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import { prepSetValue } from '@cjo3/shared/logic/km'
 import { types } from '../../store/types'
 
@@ -82,9 +82,16 @@ export const SetsTextAreaField = props => {
     return null
   }
 
+  const setFadeInDirection = () => {
+    if (process.env.IS_SERVER) {
+      return window.innerWidth < 600 ? 'x' : 'y'
+    }
+    return 'x'
+  }
+
   return (
     <FadeIn
-      direction={window.innerWidth < 600 ? 'x' : 'y'}
+      direction={setFadeInDirection()}
       position={Math.random() > 0.5 ? 100 : -100}>
       <Grid container>
         <label

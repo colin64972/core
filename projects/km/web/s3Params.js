@@ -7,7 +7,7 @@ exports.createParams = {
   acl: 'public-read'
 }
 
-exports.staticParams = {
+exports.webParams = {
   // dryrun: false,
   srcPath: 'dist',
   s3Path: `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}`,
