@@ -1,9 +1,5 @@
 import { get } from 'axios'
-
-const evalScriptString = (code, fileName) => {
-  const result = eval(code)
-  if (result[fileName]) return result[fileName]
-}
+import { evalScriptString } from './helpers'
 
 export const fetchBundleFile = async fileName => {
   try {

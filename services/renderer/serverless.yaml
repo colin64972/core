@@ -18,7 +18,7 @@ provider:
         - s3.ListObjects
         - s3:GetObject
       Resource:
-        - arn:aws:s3:${env:CDN_BUCKET_NAME}
+        - arn:aws:s3:${env:CDN_BUCKET}
     - Effect: Allow
       Action:
         - dynamodb:DeleteItem
