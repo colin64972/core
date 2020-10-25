@@ -3,6 +3,7 @@ import { createElement } from 'react'
 import ReactDOMServer from 'react-dom/server'
 import { StaticRouter } from 'react-router-dom'
 import { dynamoDbConstants } from '@cjo3/shared/raw/constants/dynamoDb'
+import { getNodeBundleFile } from '@cjo3/shared/serverless/helpers'
 
 const dbOptions = {
   dynamodb: '2012-08-10'
@@ -13,11 +14,11 @@ if (process.env.IS_LOCAL || process.env.IS_OFFLINE) {
   dbOptions.endpoint = dynamoDbConstants.LOCAL.ENDPOINT
 }
 
-// const s3 = new AWS.S3({
-//   apiVersion: '2006-03-01',
-//   region: process.env.REGION,
-//   sslEnabled: true
-// })
+const s3 = new AWS.S3({
+  apiVersion: '2006-03-01',
+  region: process.env.REGION,
+  sslEnabled: true
+})
 
 const docClient = new AWS.DynamoDB.DocumentClient(dbOptions)
 
@@ -34,14 +35,12 @@ export const createRender = async eventBody => {
 
     // console.log('bucketContents', bucketContents)
 
-    // const appFile = await s3
-    //   .getObject({
-    //     Bucket: process.env.CDN_BUCKET_NAME,
-    //     Key: `${app}/node/App.js`
-    //   })
-    //   .promise()
+    let appCode, themeCode
 
-    // const { App } = eval(appFile.Body.toString())
+    appCode = await getNodeBundleFile(process.env.NODE_ENV, app, 'App')
+    themeCode = await getNodeBundleFile(process.env.NODE_ENV, app, 'theme')
+
+    console.log('XXX', appCode, themeCode)
 
     // const AppWithRouter = createElement(
     //   StaticRouter,
