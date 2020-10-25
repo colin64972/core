@@ -1,7 +1,6 @@
 import { createElement } from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from '@material-ui/styles'
 import { theme } from './App/theme'
 import Loadable from 'react-loadable'
@@ -26,6 +25,7 @@ const AppLoadable = Loadable({
     ),
   loading: () =>
     createElement(BackDropScreen, {
+      backdrop: false,
       isOpen: true,
       spinner: true
     }),
@@ -39,11 +39,7 @@ render(
   createElement(
     Provider,
     { store },
-    createElement(
-      BrowserRouter,
-      {},
-      createElement(ThemeProvider, { theme }, createElement(AppLoadable))
-    )
+    createElement(ThemeProvider, { theme }, createElement(AppLoadable))
   ),
   document.getElementById('app')
 )

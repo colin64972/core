@@ -23,40 +23,29 @@ const NotFoundLoadable = Loadable({
 })
 
 export const App = () => {
-  const location = useLocation()
-  const dispatch = useDispatch()
+  let location = {
+    pathname: window.location.pathname,
+    search: window.location.search
+  }
+  // console.log('%c XXX', 'color: yellow; font-size: large', location)
+  // const dispatch = useDispatch()
 
-  let tracker = useSelector(state => state.app.tracker)
+  // let tracker = useSelector(state => state.app.tracker)
 
-  useEffect(() => {
-    if (!tracker) {
-      tracker = setTracker(process.env.GA_TAG)
-      tracker.initialize()
-      dispatch({
-        type: types.ADD_TRACKER,
-        tracker
-      })
-    }
-  }, [tracker])
+  // useEffect(() => {
+  //   if (!tracker) {
+  //     tracker = setTracker(process.env.GA_TAG)
+  //     tracker.initialize()
+  //     dispatch({
+  //       type: types.ADD_TRACKER,
+  //       tracker
+  //     })
+  //   }
+  // }, [tracker])
 
-  useEffect(() => {
-    tracker.pageHit(location, process.env.APP_ROOT_PATH)
-  }, [location])
+  // useEffect(() => {
+  //   tracker.pageHit(location, process.env.APP_ROOT_PATH)
+  // }, [location])
 
-  return (
-    <CssBaseline>
-      <Switch>
-        <Route
-          path={switchLinkRoutePath('/', process.env.APP_ROOT_PATH)}
-          exact={true}
-          component={Home}
-        />
-        <Route
-          path={switchLinkRoutePath('/*', `${process.env.APP_ROOT_PATH}/*`)}
-          exact={false}
-          component={NotFoundLoadable}
-        />
-      </Switch>
-    </CssBaseline>
-  )
+  return <CssBaseline></CssBaseline>
 }
