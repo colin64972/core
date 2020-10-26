@@ -34,7 +34,7 @@ export const Header = () => {
   const classes = useStyles()
   return (
     <Grid item xs={12} component="section" className={classes.headerSection}>
-      <FadeIn direction="y" position={-100} className={classes.iconContainer}>
+      <FadeIn direction="y" position={-100} outerClass={classes.iconContainer}>
         <MultilineChartIcon className={classes.icon} />
       </FadeIn>
       <FadeIn direction="x" position={-100}>

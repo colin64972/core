@@ -225,7 +225,7 @@ export const VolumeForm = ({
         <FadeIn
           direction="y"
           position={100}
-          className={classes.formActionButtons}>
+          outerClass={classes.formActionButtons}>
           <Button
             type="submit"
             variant="contained"

@@ -155,7 +155,7 @@ export const SetsForm = props => {
       <FadeIn
         direction="x"
         position={-100}
-        className={classes.submitGridPosition}>
+        outerClass={classes.submitGridPosition}>
         <button
           type="submit"
           disabled={!submitEnabled}
@@ -178,7 +178,7 @@ export const SetsForm = props => {
       <FadeIn
         direction="x"
         position={100}
-        className={classes.resetGridPosition}>
+        outerClass={classes.resetGridPosition}>
         <button
           type="button"
           onClick={customResetHandler}

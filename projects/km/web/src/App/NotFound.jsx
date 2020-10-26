@@ -82,7 +82,7 @@ export const NotFound = () => {
             <FadeIn
               direction="y"
               position={100}
-              className={classes.subtitleFadeIn}>
+              outerClass={classes.subtitleFadeIn}>
               <Typography variant="h4" className={classes.subtitle}>
                 Back to the&nbsp;
                 <Link

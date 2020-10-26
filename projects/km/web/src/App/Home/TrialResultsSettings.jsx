@@ -162,7 +162,7 @@ export const TrialResultsSettings = ({ buttonsDisabled }) => {
         <FadeIn
           direction="x"
           position={100}
-          className={classes.whiteSpaceSelector}>
+          outerClass={classes.whiteSpaceSelector}>
           <FormControl fullWidth>
             <InputLabel>Whitespace Replacement</InputLabel>
             <Select
