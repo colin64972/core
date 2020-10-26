@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 import { makeStyles } from '@material-ui/styles'
-import { constants } from '@cjo3/shared/raw/constants/km'
+import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
 import {
   Dialog,
   DialogActions,
@@ -93,7 +93,7 @@ export const PrivacyPolicy = ({
     </a>
   )
   return (
-    <Dialog open={open} onClose={closeHandler}>
+    <Dialog open={open} onClose={closeHandler} maxWidth={false}>
       <DialogTitle>
         <Typography className={classes.mainHeading}>Privacy Policy</Typography>
         <Typography className={classes.subHeading}>

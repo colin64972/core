@@ -1,4 +1,4 @@
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
+import { createMuiTheme } from '@material-ui/core/styles'
 import warn from '@material-ui/core/colors/amber'
 import pass from '@material-ui/core/colors/lime'
 import fail from '@material-ui/core/colors/red'
@@ -44,8 +44,7 @@ export const setCustomTheme = (
   primary,
   secondary,
   bodyColor,
-  borderRadius,
-  factor = 3
+  borderRadius
 ) => {
   const fontFamily = [
     fontFamilyName,
@@ -53,11 +52,13 @@ export const setCustomTheme = (
     'Arial',
     'serif'
   ].join(',')
+
   const headingStyle = {
     fontWeight: 'bold',
     textTransform: 'uppercase',
     lineHeight: 1
   }
+
   const muiTheme = createMuiTheme({
     palette: {
       primary,
@@ -80,11 +81,6 @@ export const setCustomTheme = (
       boldItalic: {
         fontWeight: 'bold',
         fontStyle: 'italic'
-      },
-      mainHeading: {
-        ...headingStyle,
-        fontSize: fontSize * 3,
-        margin: `${fontSize}px 0 ${fontSize * 0.75}px 0`
       }
     },
     custom: {
@@ -154,9 +150,7 @@ export const setCustomTheme = (
           h5: 'h5',
           h6: 'h6',
           subtitle1: 'h2',
-          subtitle2: 'h2',
-          body1: 'p',
-          body2: 'p'
+          body1: 'p'
         }
       }
     },
@@ -167,7 +161,8 @@ export const setCustomTheme = (
           'body': {
             fontFamily,
             color: bodyColor,
-            backgroundColor: 'white'
+            backgroundColor: 'white',
+            height: 'unset'
           },
           '*:focus': {
             outline: 'none'
@@ -198,15 +193,6 @@ export const setCustomTheme = (
         h6: {
           fontSize,
           ...headingStyle
-        },
-        subtitle1: {
-          fontSize: fontSize * 2,
-          lineHeight: 1
-        },
-        subtitle2: {
-          fontSize: fontSize * 2,
-          lineHeight: 1,
-          fontStyle: 'italic'
         }
       },
       MuiTableRow: {
@@ -228,28 +214,7 @@ export const setCustomTheme = (
           }
         }
       }
-      // MuiInputBase: {
-      //   root: {
-      //     fontSize
-      //   }
-      // },
-      // MuiInputLabel: {
-      //   root: {
-      //     fontSize
-      //   }
-      // },
-      // MuiFormHelperText: {
-      //   root: {
-      //     fontSize
-      //   }
-      // },
-      // MuiMenuItem: {
-      //   root: {
-      //     fontSize
-      //   }
-      // }
     }
   })
   return muiTheme
-  // return responsiveFontSizes(muiTheme, { factor })
 }

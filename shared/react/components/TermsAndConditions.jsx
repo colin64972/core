@@ -80,7 +80,7 @@ export const TermsAndConditions = ({
   )
 
   return (
-    <Dialog open={open} onClose={closeHandler}>
+    <Dialog open={open} onClose={closeHandler} maxWidth={false}>
       <DialogTitle>
         <Typography className={classes.mainHeading}>
           Terms &amp; Conditions

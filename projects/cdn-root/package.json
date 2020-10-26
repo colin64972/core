@@ -1,0 +1,19 @@
+{
+  "name": "@cjo3/cdn-root-web",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "license": "MIT",
+  "repository": "git@github.com:cjo3/primary.git",
+  "author": "cjo3",
+  "private": true,
+  "prettier": "@cjo3/configs/prettier",
+  "scripts": {
+  },
+  "devDependencies": {
+    "@cjo3/configs": "0.0.1",
+    "@cjo3/shared": "0.0.1",
+    "dotenv": "^8.2.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
