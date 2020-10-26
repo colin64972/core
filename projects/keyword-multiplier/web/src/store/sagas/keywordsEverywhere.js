@@ -10,9 +10,9 @@ import {
   decorateKeOptions,
   decorateTrial,
   generateNotice
-} from '@cjo3/shared/logic/km'
-import { constants } from '@cjo3/shared/raw/constants/km'
-import { payloadMock } from '@cjo3/shared/react/mocks/km'
+} from '@cjo3/shared/logic/keyword-multiplier'
+import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+import { payloadMock } from '@cjo3/shared/react/mocks/keyword-multiplier'
 import { getLabelFromValue } from '@cjo3/shared/react/helpers'
 
 export function* getKeOptions() {

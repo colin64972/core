@@ -1,5 +1,5 @@
 {
-  "name": "@cjo3/km-web",
+  "name": "@cjo3/keyword-multiplier-web",
   "version": "0.0.1",
   "main": "src/index.js",
   "license": "MIT",

@@ -6,8 +6,8 @@ import {
   creditsMock,
   preOrderMock,
   volumeMock
-} from '@cjo3/shared/react/mocks/km'
-import { constants } from '@cjo3/shared/raw/constants/km'
+} from '@cjo3/shared/react/mocks/keyword-multiplier'
+import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
 
 export const fetchIpAddress = async () => {
   if (process.env.USE_MOCKS) return ipMock.data.ip

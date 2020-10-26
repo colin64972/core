@@ -3,7 +3,7 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle'
 import ErrorIcon from '@material-ui/icons/Error'
 import WarningIcon from '@material-ui/icons/Warning'
 import { makeStyles } from '@material-ui/core/styles'
-import { constants } from '@cjo3/shared/raw/constants/km'
+import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
 
 const useStyles = makeStyles(theme => ({
   icon: {

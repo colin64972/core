@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import React, { useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Table, TableBody, TableCell, TableRow } from '@material-ui/core'
-import { calculateTrialPrice } from '@cjo3/shared/logic/km'
-import { constants } from '@cjo3/shared/raw/constants/km'
+import { calculateTrialPrice } from '@cjo3/shared/logic/keyword-multiplier'
+import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
 import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => ({

@@ -16,8 +16,11 @@ import {
 import SearchIcon from '@material-ui/icons/Search'
 import { makeStyles } from '@material-ui/core/styles'
 import { volumeDataFields } from './fields'
-import { constants } from '@cjo3/shared/raw/constants/km'
-import { findMetricFromEntry, formatProductLine } from '@cjo3/shared/logic/km'
+import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+import {
+  findMetricFromEntry,
+  formatProductLine
+} from '@cjo3/shared/logic/keyword-multiplier'
 import { getLabelFromValue } from '@cjo3/shared/react/helpers'
 
 const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY)

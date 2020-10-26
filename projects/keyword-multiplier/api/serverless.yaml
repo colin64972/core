@@ -112,7 +112,7 @@ custom:
 
 resources:
   Resources:
-    kmTrials:
+    keywordMultiplierTrials:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: ${env:TRIALS_TABLE_NAME}
