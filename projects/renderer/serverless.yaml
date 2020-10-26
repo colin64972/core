@@ -76,7 +76,7 @@ custom:
   customDomain:
     domainName: ${self:custom.domains.${self:custom.stage}}
     stage: ${env:NODE_ENV}
-    basePath: ${env:API_BASE_PATH}
+    basePath: ${env:SLS_SERVICE_NAME}
     endpointType: regional
     apiType: http
     autoDomain: true

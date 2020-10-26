@@ -1,5 +1,5 @@
 {
-  "name": "@cjo3/services-renderer",
+  "name": "@cjo3/server",
   "version": "0.0.1",
   "main": "index.js",
   "repository": "git@github.com:cjo3/primary.git",
@@ -10,15 +10,16 @@
   "scripts": {
     "debug": "NODE_ENV=development SLS_DEBUG=* sls offline",
     "dev": "NODE_ENV=development sls offline",
-    "createTable:renders": "node -e 'require(\"@cjo3/shared/raw/dynamoDbTableManager\").createTable(require(\"./v1/renders/schema\"))'",
-    "deleteTable:renders": "node -e 'require(\"@cjo3/shared/raw/dynamoDbTableManager\").deleteTable(require(\"./v1/renders/schema\").TableName)'"
+    "pro": "NODE_ENV=production sls offline",
+    "deploy:dev": "NODE_ENV=development sls deploy",
+    "deploy:pro": "NODE_ENV=production sls deploy",
+    "undeploy:pro": "NODE_ENV=production sls remove"
   },
   "devDependencies": {
     "@babel/core": "^7.11.5",
     "@babel/preset-env": "^7.11.5",
     "@cjo3/configs": "0.0.1",
     "@cjo3/shared": "0.0.1",
-    "@material-ui/core": "^4.11.0",
     "@middy/core": "^1.4.0",
     "@middy/http-json-body-parser": "^1.4.0",
     "aws-sdk": "^2.745.0",
@@ -27,10 +28,6 @@
     "dotenv": "^8.2.0",
     "pug": "^3.0.0",
     "pug-loader": "^2.4.0",
-    "react": "^17.0.1",
-    "react-redux": "^7.2.1",
-    "react-router-dom": "^5.2.0",
-    "redux": "^4.0.5",
     "serverless-domain-manager": "^4.2.0",
     "serverless-dotenv-plugin": "^3.0.0",
     "serverless-offline": "^6.7.0",
