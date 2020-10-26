@@ -8,12 +8,15 @@
   "private": true,
   "prettier": "@cjo3/configs/prettier",
   "scripts": {
+    "render": "node src/renderSite.js"
   },
   "devDependencies": {
     "@cjo3/configs": "0.0.1",
     "@cjo3/shared": "0.0.1",
     "dotenv": "^8.2.0",
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
+    "pug": "^3.0.0"
+  },
+  "dependencies": {
+    "colors": "^1.4.0"
   }
 }
