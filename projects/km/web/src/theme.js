@@ -33,11 +33,19 @@ const customTheme = setCustomTheme(
   3
 )
 
-customTheme.typography.subtitle1 = {
-  [customTheme.breakpoints.down('xs')]: {
-    color: 'red',
-    fontSize: customTheme.custom.setSpace()
-  }
+customTheme.typography.mainHeading = {
+  ...customTheme.typography.bold,
+  width: '100%',
+  fontSize: customTheme.typography.fontSize * 3,
+  textTransform: 'uppercase',
+  lineHeight: 1.125,
+  margin: '0.5rem 0'
+}
+customTheme.typography.subHeading = {
+  ...customTheme.typography.italic,
+  width: '100%',
+  fontSize: customTheme.typography.fontSize * 2,
+  lineHeight: 1.125
 }
 
 customTheme.palette.screens = {

@@ -35,7 +35,11 @@ const useStyles = makeStyles(theme => {
   return {
     mainHeading: {
       ...theme.typography.mainHeading,
-      marginBottom: 0
+      textAlign: 'center'
+    },
+    subHeading: {
+      ...theme.typography.subHeading,
+      textAlign: 'center'
     },
     matchTypeSelection: {
       height: '100%',
@@ -94,13 +98,12 @@ export const TrialResultsMatchTypes = () => {
       <Grid container className={classes.matchTypeSelection}>
         <Grid item xs={12} className={classes.matchTypeSelectionHeading}>
           <FadeIn direction="y" position={-100}>
-            <Typography variant="subtitle2">Google Adwords</Typography>
+            <Typography component="h4" className={classes.subHeading}>
+              Google Adwords
+            </Typography>
           </FadeIn>
           <FadeIn direction="x" position={-100}>
-            <Typography
-              variant="h4"
-              className={classes.mainHeading}
-              align="center">
+            <Typography component="h3" className={classes.mainHeading}>
               Add a Match Type
             </Typography>
           </FadeIn>

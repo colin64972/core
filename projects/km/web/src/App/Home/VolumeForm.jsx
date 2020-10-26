@@ -91,6 +91,8 @@ const useStyles = makeStyles(theme => ({
     overflow: 'hidden'
   },
   formSectionTitle: {
+    ...theme.typography.bold,
+    textTransform: 'uppercase',
     color: theme.palette.primary[200],
     marginBottom: theme.custom.setSpace()
   },
@@ -171,24 +173,20 @@ export const VolumeForm = ({
   return (
     <Form className={classes.form}>
       <Paper className={classNames(classes.gridPosition1, classes.formSection)}>
-        <Typography variant="h3" className={classes.formSectionTitle}>
+        <Typography component="h5" className={classes.formSectionTitle}>
           Keyword List Review
         </Typography>
         <VolumeFormTrialReview trialId={trialId} />
       </Paper>
       <Paper className={classNames(classes.gridPosition2, classes.formSection)}>
-        <Typography variant="h3" className={classes.formSectionTitle}>
+        <Typography component="h5" className={classes.formSectionTitle}>
           Keyword Metric Options
         </Typography>
         <VolumeFormKEOptions keOptions={keOptions} />
       </Paper>
       <Paper className={classNames(classes.gridPosition3, classes.formSection)}>
-        <Grid
-          container
-          justify="space-between"
-          alignItems="center"
-          className={classes.formSectionTitle}>
-          <Typography variant="h3">
+        <Grid container justify="space-between" alignItems="center">
+          <Typography component="h5" className={classes.formSectionTitle}>
             Payment Info <HttpsIcon className={classes.lockIcon} />
           </Typography>
           <StripeBanner
@@ -207,7 +205,7 @@ export const VolumeForm = ({
         )}>
         <div className={classes.pricingSticky}>
           <Typography
-            variant="h3"
+            component="h5"
             className={classNames(
               classes.formSectionTitle,
               classes.pricingTitle
@@ -218,7 +216,7 @@ export const VolumeForm = ({
         </div>
       </Paper>
       <Paper className={classNames(classes.gridPosition5, classes.formSection)}>
-        <Typography variant="h3" className={classes.formSectionTitle}>
+        <Typography component="h5" className={classes.formSectionTitle}>
           Terms &amp; Conditions
         </Typography>
         <VolumeFormTerms />

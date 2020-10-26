@@ -16,15 +16,14 @@ const useStyles = makeStyles(theme => ({
   icon: {
     fontSize: theme.custom.setSpace('xl')
   },
-  subHeading: {
-    width: '100%',
+  mainHeading: {
+    ...theme.typography.mainHeading,
     [theme.breakpoints.down('xs')]: {
       textAlign: 'center'
     }
   },
-  mainHeading: {
-    width: '100%',
-    ...theme.typography.mainHeading,
+  subHeading: {
+    ...theme.typography.subHeading,
     [theme.breakpoints.down('xs')]: {
       textAlign: 'center'
     }
@@ -43,7 +42,6 @@ const useStyles = makeStyles(theme => ({
     }
   },
   valuePropContainer: {
-    ...theme.custom.borderRadius,
     backgroundColor: theme.palette.secondary[100],
     marginTop: theme.custom.setSpace('sm'),
     padding: theme.custom.setSpace('sm')
@@ -53,12 +51,18 @@ const useStyles = makeStyles(theme => ({
     width: '100%'
   },
   valuePropTitle: {
+    ...theme.typography.bold,
     textAlign: 'center',
-    lineHeight: 1.25
+    lineHeight: 1.25,
+    fontSize: theme.typography.fontSize * 1.5,
+    textTransform: 'uppercase'
   },
   valuePropPoint: {
     ...theme.typography.body1,
+    ...theme.custom.borderRadius,
     ...theme.custom.setFlex('row', 'flex-start'),
+    'backgroundColor': theme.palette.secondary[50],
+    'padding': theme.custom.setSpace(),
     'fontWeight': 'unset',
     'textTransform': 'unset',
     'marginTop': theme.custom.setSpace(),
@@ -74,7 +78,6 @@ const useStyles = makeStyles(theme => ({
   valuePropRight: {
     ...theme.custom.border,
     padding: theme.custom.setSpace(),
-    backgroundColor: theme.palette.secondary[50],
     ...theme.custom.setFlex()
   },
   list: {
@@ -92,12 +95,12 @@ export const Intro = () => {
       <Grid container alignItems="center">
         <Grid item xs={12} sm={6}>
           <FadeIn direction="y" position={-100}>
-            <Typography variant="subtitle2" className={classes.subHeading}>
+            <Typography component="h4" className={classes.subHeading}>
               Keyword Optimization Tool
             </Typography>
           </FadeIn>
           <FadeIn direction="x" position={-100}>
-            <Typography variant="h4" className={classes.mainHeading}>
+            <Typography component="h3" className={classes.mainHeading}>
               Discover Keywords that Satisfy your Audience&apos;s Search Intent
             </Typography>
           </FadeIn>
@@ -124,7 +127,7 @@ export const Intro = () => {
                 direction="y"
                 position={100}
                 className={classes.valuePropFadeIn}>
-                <Typography variant="h3" className={classes.valuePropTitle}>
+                <Typography component="h4" className={classes.valuePropTitle}>
                   This online marketing tool can help you&#58;
                 </Typography>
               </FadeIn>

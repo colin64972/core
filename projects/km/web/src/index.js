@@ -8,6 +8,8 @@ import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 import { setStore } from './store'
 import { setChunkPublicPath } from '@cjo3/shared/react/helpers'
 
+console.log('%c theme', 'color: yellow; font-size: large', theme)
+
 __webpack_public_path__ = setChunkPublicPath(
   `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/`
 )

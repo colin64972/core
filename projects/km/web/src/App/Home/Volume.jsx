@@ -24,15 +24,8 @@ const useStyles = makeStyles(theme => ({
       padding: theme.custom.setSpace()
     }
   },
-  subHeading: {
-    width: '100%',
-    textAlign: 'left'
-  },
-  mainHeading: {
-    ...theme.typography.mainHeading,
-    width: '100%',
-    textAlign: 'left'
-  }
+  mainHeading: theme.typography.mainHeading,
+  subHeading: theme.typography.subHeading
 }))
 
 export const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
@@ -122,10 +115,10 @@ export const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
       }}>
       <BackDropScreen isOpen={isSubmitting} spinner />
       <Grid container justify="center" direction="column" alignItems="center">
-        <Typography variant="subtitle2" className={classes.subHeading}>
+        <Typography component="h4" className={classes.subHeading}>
           Keyword Metric Order Form
         </Typography>
-        <Typography variant="h4" className={classes.mainHeading}>
+        <Typography component="h3" className={classes.mainHeading}>
           Quantify your Keyword Variation Trial
         </Typography>
         <Formik initialValues={initalValues} onSubmit={customSubmitHandler}>

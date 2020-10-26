@@ -5,16 +5,17 @@ provider:
   name: aws
   runtime: nodejs12.x
   stage: ${self:custom.stage}
-  region: ${env:AWS_REGION}
-  stackName: ${env:SLS_SERVICE_NAME}Stack
+  region: ${env:REGION}
+  stackName: ${env:SLS_SERVICE_NAME}-stack
   endpointType: regional
-  role: ${env:AWS_ACCESS_ROLE}
+  role: ${env:ACCESS_ROLE}
   httpApi:
-    name: ${env:AWS_HTTPAPI_NAME}
+    name: ${env:SLS_SERVICE_NAME}-httpapi
     payload: '2.0'
     cors:
       allowedOrigins:
         - ${env:CORS_LOCAL_ORIGIN}
+        - ${env:CORS_LIVE_ORIGIN}
       allowedHeaders:
         - Content-Type
         - Authorization
@@ -33,7 +34,7 @@ provider:
         - dynamodb:Scan
         - dynamodb:UpdateItem
       Resource:
-        - arn:aws:dynamodb:${env:AWS_REGION}:*:table/${env:TRIALS_TABLE_NAME}
+        - arn:aws:dynamodb:${env:REGION}:*:table/${env:TRIALS_TABLE_NAME}
 
 functions:
   createTrialHandler:
@@ -41,7 +42,7 @@ functions:
     handler: v1/index.createTrialHandler
     events:
       - httpApi:
-          path: ${env:TRIALS_PATH}
+          path: /trials
           method: POST
   getMetaHandler:
     name: ${env:SLS_SERVICE_NAME}-getMetaHandler

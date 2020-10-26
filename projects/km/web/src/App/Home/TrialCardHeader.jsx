@@ -153,7 +153,10 @@ export const TrialCardHeader = ({
       </Grid>
       <Grid item xs={10}>
         <Tooltip title="Input Sets Used" placement="top-start" arrow>
-          <Typography variant="h3" className={classes.trialCardHeading}>
+          <Typography
+            variant="h3"
+            component="h5"
+            className={classes.trialCardHeading}>
             {trial.heading}
           </Typography>
         </Tooltip>

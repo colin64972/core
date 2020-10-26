@@ -21,7 +21,8 @@ const useStyles = makeStyles(theme => ({
   mainHeading: {
     ...theme.typography.mainHeading,
     marginBottom: 0
-  }
+  },
+  subHeading: theme.typography.subHeading
 }))
 
 export const TrialCardsContainer = ({ trials }) => {
@@ -37,12 +38,12 @@ export const TrialCardsContainer = ({ trials }) => {
           alignItems="flex-start"
           justify="flex-start">
           <FadeIn direction="y" position={-100}>
-            <Typography variant="subtitle2">
+            <Typography component="h4" className={classes.subHeading}>
               &#8230;And the Results are In
             </Typography>
           </FadeIn>
           <FadeIn direction="x" position={-100}>
-            <Typography variant="h4" className={classes.mainHeading}>
+            <Typography component="h3" className={classes.mainHeading}>
               Keyword Variation Trial Cards
             </Typography>
           </FadeIn>

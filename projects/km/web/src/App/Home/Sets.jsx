@@ -21,7 +21,8 @@ const useStyles = makeStyles(theme => ({
   backdrop: {
     zIndex: theme.zIndex.drawer + 1
   },
-  mainHeading: theme.typography.mainHeading
+  mainHeading: theme.typography.mainHeading,
+  subHeading: theme.typography.subHeading
 }))
 
 export const Sets = () => {
@@ -61,12 +62,12 @@ export const Sets = () => {
         </Hidden>
         <Grid item xs={12} sm={8}>
           <FadeIn direction="y" position={-100}>
-            <Typography variant="subtitle2">
+            <Typography component="h4" className={classes.subHeading}>
               Create Keyword Variations with Ease
             </Typography>
           </FadeIn>
           <FadeIn direction="x" position={-100}>
-            <Typography variant="h4" className={classes.mainHeading}>
+            <Typography component="h3" className={classes.mainHeading}>
               Improve your Content Marketing Efforts with Precision Targeting
             </Typography>
           </FadeIn>

@@ -11,7 +11,7 @@ import VpnLockIcon from '@material-ui/icons/VpnLock'
 import WebIcon from '@material-ui/icons/Web'
 import { makeStyles } from '@material-ui/core/styles'
 import { constants } from '@cjo3/shared/raw/constants/km'
-import { ProfilePic } from '../../../assets'
+import { ProfilePic } from '../../assets'
 import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 
@@ -99,9 +99,11 @@ const useStyles = makeStyles(theme => ({
     }
   },
   badgeHeading: {
+    ...theme.typography.bold,
+    textTransform: 'uppercase',
     textAlign: 'right',
-    lineHeight: 1.25,
-    fontSize: theme.custom.setSpace() * 1.5,
+    lineHeight: 1.125,
+    fontSize: theme.typography.fontSize * 1.5,
     margin: `0 ${theme.custom.setSpace()}px 0 0`,
     [theme.breakpoints.down('xs')]: {
       textAlign: 'left',
@@ -193,7 +195,7 @@ export const Footer = () => {
         <Grid item xs={12} sm={6} className={classes.footerRight}>
           <div className={classes.badgeTop}>
             <Link className={classes.badgeButton} href={process.env.SITE_URL}>
-              <Typography variant="h6" className={classes.badgeHeading}>
+              <Typography component="h5" className={classes.badgeHeading}>
                 Need help with JavaScript
                 <br />
                 app development?

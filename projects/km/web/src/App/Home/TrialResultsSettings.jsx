@@ -48,15 +48,8 @@ const useStyles = makeStyles(theme => {
   }
 
   return {
-    subHeading: {
-      width: '100%',
-      textAlign: 'left'
-    },
-    mainHeading: {
-      ...theme.typography.mainHeading,
-      width: '100%',
-      textAlign: 'left'
-    },
+    mainHeading: theme.typography.mainHeading,
+    subHeading: theme.typography.subHeading,
     manageTrials: {
       ...defaultPadding(theme.breakpoints, theme.custom.setSpace)
     },
@@ -145,12 +138,18 @@ export const TrialResultsSettings = ({ buttonsDisabled }) => {
     <Grid item xs={12} sm={6} className={classes.manageTrials}>
       <Grid container direction="column">
         <FadeIn direction="y" position={-100}>
-          <Typography variant="subtitle2" className={classes.subHeading}>
+          <Typography
+            component="h4"
+            variant="subtitle2"
+            className={classes.subHeading}>
             Display &amp; Output Settings
           </Typography>
         </FadeIn>
         <FadeIn direction="x" position={-100}>
-          <Typography variant="h4" className={classes.mainHeading}>
+          <Typography
+            variant="h4"
+            component="h3"
+            className={classes.mainHeading}>
             Manage your Trial Results
           </Typography>
         </FadeIn>

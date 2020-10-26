@@ -13,19 +13,20 @@ const useStyles = makeStyles(theme => ({
     width: '100vw',
     minHeight: '75vh'
   },
+  iconContainer: {
+    ...theme.custom.setFlex()
+  },
   icon: {
     fontSize: theme.custom.setSpace('md')
   },
   mainHeading: {
     ...theme.typography.mainHeading,
-    width: '100%',
-    textAlign: 'center',
-    color: theme.palette.primary.main
+    color: theme.palette.primary.main,
+    textAlign: 'center'
   },
   subHeading: {
-    width: '100%',
-    textAlign: 'center',
-    lineHeight: 1.25
+    ...theme.typography.subHeading,
+    textAlign: 'center'
   }
 }))
 
@@ -33,16 +34,16 @@ export const Header = () => {
   const classes = useStyles()
   return (
     <Grid item xs={12} component="section" className={classes.headerSection}>
-      <FadeIn direction="y" position={-100}>
+      <FadeIn direction="y" position={-100} className={classes.iconContainer}>
         <MultilineChartIcon className={classes.icon} />
       </FadeIn>
       <FadeIn direction="x" position={-100}>
-        <Typography variant="h4" className={classes.mainHeading}>
+        <Typography component="h1" className={classes.mainHeading}>
           Keyword Multiplier
         </Typography>
       </FadeIn>
       <FadeIn direction="y" position={100}>
-        <Typography variant="subtitle2" className={classes.subHeading}>
+        <Typography component="h2" className={classes.subHeading}>
           Compare Metrics of Keyword Variations
         </Typography>
       </FadeIn>

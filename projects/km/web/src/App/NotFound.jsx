@@ -6,7 +6,7 @@ import Link from '@material-ui/core/Link'
 import Typography from '@material-ui/core/Typography'
 import InfoIcon from '@material-ui/icons/Info'
 import { makeStyles } from '@material-ui/core/styles'
-import { Footer } from './common/Footer'
+import { Footer } from './Footer'
 import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 
 const useStyles = makeStyles(theme => ({

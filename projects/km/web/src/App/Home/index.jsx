@@ -5,7 +5,7 @@ import { Header } from './Header'
 import { Intro } from './Intro'
 import { Notice } from './Notice'
 import { Sets } from './Sets'
-import { Footer } from '../common/Footer'
+import { Footer } from '../Footer'
 import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 
 const TrialResultsLoadable = Loadable({
