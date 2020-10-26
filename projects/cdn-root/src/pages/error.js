@@ -1,3 +1,4 @@
+require('dotenv').config()
 const path = require('path')
 
 module.exports = {
@@ -5,7 +6,7 @@ module.exports = {
   templatePath: path.resolve('src', 'templates', 'error.pug'),
   locals: {
     title: 'Error',
-    heading: 'Error',
+    heading: `Error - ${process.env.BRAND_NAME}`,
     copy: 'Sorry, something went wrong'
   }
 }
