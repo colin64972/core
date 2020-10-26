@@ -2,7 +2,7 @@ const setEslint = require('@cjo3/configs/eslint')
 
 module.exports = setEslint(
   true,
-  ['plugin:react/recommended', 'plugin/reac-hooks/recommended'],
+  ['plugin:react/recommended', 'plugin/react-hooks/recommended'],
   ['react'],
   {
     node: true,
