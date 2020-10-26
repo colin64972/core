@@ -68,7 +68,7 @@ export const preOrder = async eventBody => {
       currency: 'cad',
       description: `${
         process.env.READABLE_PROJECT_NAME
-      } purchase of ${billableCount} billable keyword metric${
+      } purchase of ${billableCount} keyword metric${
         billableCount > 1 ? 's' : ''
       }`,
       metadata: {

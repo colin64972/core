@@ -1,8 +1,7 @@
 import React from 'react'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 import { defaultPadding } from '@cjo3/shared/react/theming'
-import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
+import { Grid, Hidden, Typography } from '@material-ui/core'
 import CheckIcon from '@material-ui/icons/Check'
 import { makeStyles } from '@material-ui/core/styles'
 import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
@@ -10,8 +9,8 @@ import { Intro as IntroImage } from '../../../assets'
 
 const useStyles = makeStyles(theme => ({
   introSection: {
-    backgroundColor: theme.palette.grey[100],
-    ...defaultPadding(theme.breakpoints, theme.custom.setSpace)
+    ...defaultPadding(theme.breakpoints, theme.custom.setSpace),
+    backgroundColor: theme.palette.grey[100]
   },
   icon: {
     fontSize: theme.custom.setSpace('xl')
@@ -42,7 +41,8 @@ const useStyles = makeStyles(theme => ({
     }
   },
   valuePropContainer: {
-    backgroundColor: theme.palette.secondary[100],
+    borderRadius: theme.custom.setSpace() / 2,
+    background: `linear-gradient(to bottom, ${theme.palette.secondary[200]}, ${theme.palette.secondary[50]})`,
     marginTop: theme.custom.setSpace('sm'),
     padding: theme.custom.setSpace('sm')
   },
@@ -59,9 +59,9 @@ const useStyles = makeStyles(theme => ({
   },
   valuePropPoint: {
     ...theme.typography.body1,
-    ...theme.custom.borderRadius,
     ...theme.custom.setFlex('row', 'flex-start'),
-    'backgroundColor': theme.palette.secondary[50],
+    'borderRadius': theme.custom.setSpace() / 2,
+    'backgroundColor': theme.palette.grey[50],
     'padding': theme.custom.setSpace(),
     'fontWeight': 'unset',
     'textTransform': 'unset',
@@ -76,12 +76,13 @@ const useStyles = makeStyles(theme => ({
     width: '100%'
   },
   valuePropRight: {
-    ...theme.custom.border,
-    padding: theme.custom.setSpace(),
-    ...theme.custom.setFlex()
+    ...theme.custom.setFlex(),
+    width: '100%',
+    padding: theme.custom.setSpace()
   },
   list: {
-    ...theme.custom.cleanList
+    ...theme.custom.cleanList,
+    width: '100%'
   },
   checkIcon: {
     marginRight: theme.custom.setSpace()
@@ -92,7 +93,7 @@ export const Intro = () => {
   const classes = useStyles()
   return (
     <Grid item xs={12} component="section" className={classes.introSection}>
-      <Grid container alignItems="center">
+      <Grid container>
         <Grid item xs={12} sm={6}>
           <FadeIn direction="y" position={-100}>
             <Typography component="h4" className={classes.subHeading}>
@@ -120,9 +121,11 @@ export const Intro = () => {
             <ImageHandler asset={IntroImage} styleClass={classes.introImage} />
           </FadeIn>
         </Grid>
-        <Grid item xs={12} className={classes.valuePropContainer}>
-          <Grid container justify="center" alignItems="center">
-            <Grid item xs={12} sm={4} className={classes.valuePropLeft}>
+      </Grid>
+      <Grid container className={classes.valuePropContainer} justify="center">
+        <Grid item xs={12}>
+          <Grid container>
+            <Grid item xs={12} sm={6} className={classes.valuePropLeft}>
               <FadeIn
                 direction="y"
                 position={100}
@@ -132,49 +135,35 @@ export const Intro = () => {
                 </Typography>
               </FadeIn>
             </Grid>
-            <Grid item xs={12} sm={8} className={classes.valuePropRight}>
-              <FadeIn>
-                <ul className={classes.list}>
-                  <li className={classes.valuePropPoint}>
-                    <FadeIn direction="x" position={-100}>
-                      <CheckIcon
-                        color="primary"
-                        className={classes.checkIcon}
-                      />
-                      mulitply and combine keywords to uncover new targeting
-                      opportunities
-                    </FadeIn>
-                  </li>
-                  <li className={classes.valuePropPoint}>
-                    <FadeIn direction="x" position={-100}>
-                      <CheckIcon
-                        color="primary"
-                        className={classes.checkIcon}
-                      />
-                      look up keyword search volume, CPC and competition metrics
-                    </FadeIn>
-                  </li>
-                  <li className={classes.valuePropPoint}>
-                    <FadeIn direction="x" position={-100}>
-                      <CheckIcon
-                        color="primary"
-                        className={classes.checkIcon}
-                      />
-                      evaluate and compare keyword variations
-                    </FadeIn>
-                  </li>
-                  <li className={classes.valuePropPoint}>
-                    <FadeIn direction="x" position={-100}>
-                      <CheckIcon
-                        color="primary"
-                        className={classes.checkIcon}
-                      />
-                      mix and match keywords with domain TLDs to find
-                      keyword&ndash;driven domains
-                    </FadeIn>
-                  </li>
-                </ul>
-              </FadeIn>
+            <Grid item xs={12} sm={6} className={classes.valuePropRight}>
+              <ul className={classes.list}>
+                <li className={classes.valuePropPoint}>
+                  <FadeIn direction="x" position={-100}>
+                    <CheckIcon color="primary" className={classes.checkIcon} />
+                    mulitply and combine keywords to uncover new targeting
+                    opportunities
+                  </FadeIn>
+                </li>
+                <li className={classes.valuePropPoint}>
+                  <FadeIn direction="x" position={-100}>
+                    <CheckIcon color="primary" className={classes.checkIcon} />
+                    look up keyword search volume, CPC and competition metrics
+                  </FadeIn>
+                </li>
+                <li className={classes.valuePropPoint}>
+                  <FadeIn direction="x" position={-100}>
+                    <CheckIcon color="primary" className={classes.checkIcon} />
+                    evaluate and compare keyword variations
+                  </FadeIn>
+                </li>
+                <li className={classes.valuePropPoint}>
+                  <FadeIn direction="x" position={-100}>
+                    <CheckIcon color="primary" className={classes.checkIcon} />
+                    mix and match keywords with domain TLDs to find
+                    keyword&ndash;driven domains
+                  </FadeIn>
+                </li>
+              </ul>
             </Grid>
           </Grid>
         </Grid>

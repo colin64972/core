@@ -57,10 +57,10 @@ export const Sets = () => {
   return (
     <Grid item xs={12} component="section" className={classes.setsSection}>
       <Grid container>
-        <Hidden xsDown>
-          <Grid item sm={2} />
+        <Hidden smDown>
+          <Grid item md={1} lg={2} />
         </Hidden>
-        <Grid item xs={12} sm={8}>
+        <Grid item xs={12} md={10} lg={8}>
           <FadeIn direction="y" position={-100}>
             <Typography component="h4" className={classes.subHeading}>
               Create Keyword Variations with Ease
@@ -82,15 +82,23 @@ export const Sets = () => {
             </Typography>
           </FadeIn>
         </Grid>
-        <Hidden xsDown>
-          <Grid item sm={2} />
+        <Hidden smDown>
+          <Grid item md={1} lg={2} />
         </Hidden>
-        <Grid item xs={12}>
-          <Formik
-            component={SetsForm}
-            initialValues={initialValues}
-            onSubmit={customSubmitHandler}
-          />
+        <Grid container>
+          <Hidden smDown>
+            <Grid item md={1} lg={2} />
+          </Hidden>
+          <Grid item xs={12} md={10} lg={8}>
+            <Formik
+              component={SetsForm}
+              initialValues={initialValues}
+              onSubmit={customSubmitHandler}
+            />
+          </Grid>
+          <Hidden smDown>
+            <Grid item md={1} lg={2} />
+          </Hidden>
         </Grid>
       </Grid>
     </Grid>
