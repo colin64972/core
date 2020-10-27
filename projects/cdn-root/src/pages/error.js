@@ -6,7 +6,8 @@ module.exports = {
   templatePath: path.resolve('src', 'templates', 'error.pug'),
   locals: {
     title: 'Error',
-    heading: `Error - ${process.env.BRAND_NAME}`,
+    cdnUrl: process.env.CDN_URL,
+    heading: `Error`,
     copy: 'Sorry, something went wrong'
   }
 }
