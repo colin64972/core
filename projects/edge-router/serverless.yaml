@@ -1,0 +1,35 @@
+service:
+  name: ${env:SLS_SERVICE_NAME}
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${self:custom.stage}
+  region: ${env:REGION}
+  stackName: ${env:SLS_SERVICE_NAME}
+  role: ${env:ACCESS_ROLE}
+
+functions:
+  rootHandler:
+    name: ${env:SLS_SERVICE_NAME}-rootHandler
+    handler: v1/handlers.rootHandler
+    memorySize: 128
+    timeout: 5    
+
+configValidationMode: warn
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-webpack
+
+custom:
+  stage: ${env:NODE_ENV}
+  dotenv:
+    logging: false
+  webpack:
+    webpackConfig: webpackConfig.js
+    packager: yarn
+    includeModules:
+      forceExclude:
+        - aws-sdk
+    keepOutputDirectory: true
