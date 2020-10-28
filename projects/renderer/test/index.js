@@ -1,19 +1,27 @@
 import colors from 'colors'
 import middy from '@middy/core'
 import jsonBodyParser from '@middy/http-json-body-parser'
+import { minify } from 'html-minifier'
 import { fetchBundleFile } from '@cjo3/shared/serverless/fetchers'
-import { renderToString } from 'react-dom/server'
-import { createElement } from 'react'
+import renderedReact from './templates/renderedReact.pug'
+
+const renderMarkup = (html, css) => {
+  const locals = {
+    title: 'SSR Rendered App Page',
+    appStyle: css,
+    appMarkup: html
+  }
+  const markup = renderedReact(locals)
+  return markup
+}
 
 const renderApp = async (app, page) => {
   try {
-    const appFile = await fetchBundleFile(app, 'App.js')
+    const renderFile = await fetchBundleFile(app, 'render.js')
 
-    const { App } = eval(appFile)
+    const { html, css } = eval(renderFile)
 
-    const result = renderToString(createElement(App))
-
-    return result
+    return renderMarkup(html, css)
   } catch (error) {
     console.error('ERROR renderPage'.red, error)
     throw error
@@ -26,11 +34,17 @@ const handler = async (event, context, callback) => {
   try {
     const { body } = event
 
-    const markup = await renderApp(body.app, body.page)
+    const content = await renderApp(body.app, body.page)
 
     res = {
       statusCode: 200,
-      body: JSON.stringify(markup)
+      headers: {
+        'cache-control': 'max-age=100',
+        'content-type': 'text/html'
+      },
+      body: minify(content, {
+        minifyCSS: true
+      })
     }
   } catch (error) {
     res = {

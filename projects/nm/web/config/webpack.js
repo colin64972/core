@@ -29,7 +29,7 @@ const webConfig = setWebConfig(
 
 const nodeConfig = setNodeConfig(
   {
-    App: path.resolve('src', 'App', 'index')
+    render: path.resolve('src', 'render')
   },
   path.resolve('distNode'),
   setFilePublicPath

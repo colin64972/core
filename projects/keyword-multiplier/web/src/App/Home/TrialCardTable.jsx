@@ -73,7 +73,7 @@ const useStyles = makeStyles(theme => ({
     wordBreak: 'break-all'
   },
   requestVolumeButton: {
-    ...theme.custom.iconButton,
+    ...theme.custom.buttons.iconButton,
     'color': theme.palette.primary[50],
     'backgroundColor': theme.palette.primary[200],
     'margin': '0 auto',

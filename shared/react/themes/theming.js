@@ -55,7 +55,6 @@ export const setCustomTheme = (
 
   const headingStyle = {
     fontWeight: 'bold',
-    textTransform: 'uppercase',
     lineHeight: 1
   }
 
@@ -117,22 +116,6 @@ export const setCustomTheme = (
         justifyContent: justify,
         alignItems: align
       }),
-      buttons: {
-        base: {
-          'border': 'none',
-          'backgroundColor': 'transparent',
-          'color': bodyColor,
-          'padding': 0,
-          'margin': 0,
-          'cursor': 'pointer',
-          'fontFamily': fontFamily,
-          fontSize,
-          'transition': 'all 250ms ease-out',
-          '&:focus': {
-            outline: 'none'
-          }
-        }
-      },
       borderRadius
     },
     debug: {
@@ -149,7 +132,6 @@ export const setCustomTheme = (
           h4: 'h4',
           h5: 'h5',
           h6: 'h6',
-          subtitle1: 'h2',
           body1: 'p'
         }
       }
@@ -158,8 +140,17 @@ export const setCustomTheme = (
       MuiCssBaseline: {
         '@global': {
           '@font-face': fontFaces,
-          'body': {
+          '*': {
+            margin: 0,
+            padding: 0,
+            boxSizing: 'border-box'
+          },
+          'html': {
+            fontSize,
             fontFamily,
+            lineHeight: 1
+          },
+          'body': {
             color: bodyColor,
             backgroundColor: 'white',
             height: 'unset'
@@ -193,25 +184,6 @@ export const setCustomTheme = (
         h6: {
           fontSize,
           ...headingStyle
-        }
-      },
-      MuiTableRow: {
-        root: {
-          'borderTop': `1px solid ${secondary[100]}`,
-          'thead &': {
-            border: 'none'
-          }
-        }
-      },
-      MuiTableCell: {
-        sizeSmall: {
-          'textAlign': 'center',
-          'color': bodyColor,
-          'border': 'none',
-          'padding': fontSize / 2,
-          '&:last-child': {
-            paddingRight: fontSize / 2
-          }
         }
       }
     }

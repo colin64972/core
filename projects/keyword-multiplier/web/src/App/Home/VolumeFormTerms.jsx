@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
     lineHeight: 1.25
   },
   viewTermsButton: {
-    ...theme.custom.iconButton,
+    ...theme.custom.buttons.iconButton,
     'color': theme.palette.secondary[50],
     'backgroundColor': theme.palette.secondary[200],
     'margin': `0 0 0 ${theme.custom.setSpace()}px`,

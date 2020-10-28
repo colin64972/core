@@ -103,7 +103,7 @@ const useStyles = makeStyles(theme => ({
     ...theme.custom.setFlex('row nowrap', 'flex-start')
   },
   formActionButton: {
-    ...theme.custom.formButton,
+    ...theme.custom.buttons.formButton,
     ...theme.custom.setFlex(),
     'margin': `0 ${theme.custom.setSpace()}px 0 0`,
     '&:last-of-type': {

@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     right: -33
   },
   copyButton: {
-    ...theme.custom.iconButton,
+    ...theme.custom.buttons.iconButton,
     'margin': `0 ${theme.custom.setSpace() / 2}px 0 0`,
     'color': theme.palette.primary[50],
     'backgroundColor': theme.palette.primary[200],
@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   deleteButton: {
-    ...theme.custom.iconButton,
+    ...theme.custom.buttons.iconButton,
     'margin': 0,
     'color': theme.palette.secondary[50],
     'backgroundColor': theme.palette.secondary[200],

@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import { makeStyles } from '@material-ui/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
 import {
   Dialog,
