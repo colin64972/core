@@ -1,8 +1,8 @@
 import { createElement } from 'react'
-import { render } from 'react-dom'
+import { hydrate, render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { setChunkPublicPath } from '@cjo3/shared/react/helpers'
 import { BrowserRouter } from 'react-router-dom'
+import { setChunkPublicPath } from '@cjo3/shared/react/helpers'
 import { AppElement } from './AppElement'
 import { setStore } from './store'
 
@@ -10,9 +10,18 @@ import { setStore } from './store'
 //   `https://${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/`
 // )
 
-export const store = setStore()
+const preloadedState = window?.__PRELOADED_STATE__
 
-render(
+let renderMethod = render
+let store = setStore()
+
+if (preloadedState) {
+  delete window.__PRELOADED_STATE__
+  renderMethod = hydrate
+  store = setStore(preloadedState)
+}
+
+renderMethod(
   createElement(
     Provider,
     { store },
