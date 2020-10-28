@@ -1,8 +1,8 @@
 import React from 'react'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { makeStyles } from '@material-ui/core/styles'
-import { Grid, Typography } from '@material-ui/core'
-import { Switch, Route } from 'react-router-dom'
+import { Grid } from '@material-ui/core'
+import { Switch, Route, useLocation } from 'react-router-dom'
 import { Home } from './Home'
 import { Feedback } from './Feedback'
 import { Error } from './Error'
@@ -16,6 +16,8 @@ const useStyles = makeStyles(theme => ({
 
 export const App = () => {
   const classes = useStyles()
+  const location = useLocation()
+  console.log('IS_SERVER', process.env.IS_SERVER)
   return (
     <CssBaseline>
       <Grid container className={classes.pageContainer}>

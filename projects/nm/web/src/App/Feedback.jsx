@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
 import { Grid, Typography } from '@material-ui/core'
@@ -19,6 +19,9 @@ const useStyles = makeStyles(theme => ({
 
 export const Feedback = () => {
   const classes = useStyles()
+  const [count, setCount] = useState(0)
+  const increaseCount = event => setCount(count + 1)
+  const decreaseCount = event => setCount(count - 1)
   return (
     <Grid item xs={12}>
       <Grid
@@ -28,13 +31,19 @@ export const Feedback = () => {
         <Grid item xs={12}>
           <FadeIn directio="x" position={-100}>
             <Typography variant="h1" className={classes.heading1}>
-              Feedback
+              Feedback {count}
             </Typography>
           </FadeIn>
           <Typography variant="body1">
-            Invidunt et dolor kasd lorem magna. Dolor kasd ea et et lorem
-            sanctus, sea dolore est et diam. Invidunt voluptua.
+            {count}&nbsp;Invidunt et dolor kasd lorem magna. Dolor kasd ea et et
+            lorem sanctus, sea dolore est et diam. Invidunt voluptua.
           </Typography>
+          <button type="button" onClick={increaseCount}>
+            Increase
+          </button>
+          <button type="button" onClick={decreaseCount}>
+            Decrease
+          </button>
         </Grid>
       </Grid>
     </Grid>
