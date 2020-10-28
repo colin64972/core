@@ -1,6 +1,6 @@
 import { setCustomTheme } from './theming'
-import primary from '@material-ui/core/colors/cyan'
-import secondary from '@material-ui/core/colors/indigo'
+import primary from '@material-ui/core/colors/blue'
+import secondary from '@material-ui/core/colors/purple'
 
 const customTheme = setCustomTheme(
   16,

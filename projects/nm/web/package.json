@@ -16,17 +16,5 @@
     "sync:web": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./s3Params\").webParams)'",
     "sync:node": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./s3Params\").nodeParams)'",
     "rm:key": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").rm(require(\"./s3Params\").deleteParams)'"
-  },
-  "devDependencies": {
-    "@cjo3/configs": "0.0.1",
-    "@cjo3/shared": "0.0.1",
-    "@material-ui/core": "4.11.0",
-    "colors": "^1.4.0",
-    "dotenv": "^8.2.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12",
-    "webpack-merge": "^5.1.2"
   }
 }

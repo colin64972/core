@@ -15,13 +15,13 @@ const renderMarkup = (html, css) => {
   return markup
 }
 
-const renderApp = async (app, page) => {
+const renderApp = async (app, page, path) => {
   try {
     const renderFile = await fetchBundleFile(app, 'render.js')
 
-    const { html, css } = eval(renderFile)
+    const preRenders = eval(renderFile).default
 
-    return renderMarkup(html, css)
+    return renderMarkup(preRenders[page].html, preRenders[page].css)
   } catch (error) {
     console.error('ERROR renderPage'.red, error)
     throw error
@@ -34,7 +34,7 @@ const handler = async (event, context, callback) => {
   try {
     const { body } = event
 
-    const content = await renderApp(body.app, body.page)
+    const content = await renderApp(body.app, body.page, body.path)
 
     res = {
       statusCode: 200,
