@@ -31,20 +31,27 @@ provider:
         - arn:aws:dynamodb:${env:REGION}:*:table/${env:RENDERS_TABLE_NAME}
 
 functions:
-  createRenderHandler:
-    name: ${env:SLS_SERVICE_NAME}-createRenderHandler
-    handler: v1/handlers.createRenderHandler
+  # createRenderHandler:
+  #   name: ${env:SLS_SERVICE_NAME}-createRenderHandler
+  #   handler: v1/handlers.createRenderHandler
+  #   events:
+  #     - httpApi:
+  #         path: /
+  #         method: POST
+  # getRendersHandler:
+  #   name: ${env:SLS_SERVICE_NAME}-getRendersHandler
+  #   handler: v1/handlers.getRendersHandler
+  #   events:
+  #     - httpApi:
+  #         path: /
+  #         method: GET
+  testHandler:
+    name: ${env:SLS_SERVICE_NAME}-testHandler
+    handler: test/index.testHandler
     events:
       - httpApi:
           path: /
           method: POST
-  getRendersHandler:
-    name: ${env:SLS_SERVICE_NAME}-getRendersHandler
-    handler: v1/handlers.getRendersHandler
-    events:
-      - httpApi:
-          path: /
-          method: GET
 
 configValidationMode: warn
 

@@ -2,7 +2,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
 const { setTemplateLocals } = require('@cjo3/shared/raw/general')
-// const nodeExternals = require('webpack-node-externals')
+const nodeExternals = require('webpack-node-externals')
 const { EnvironmentPlugin } = require('webpack')
 
 const babelLoaderPlugins =
@@ -149,7 +149,7 @@ exports.setNodeConfig = (entry, outputPath, setFilePublicPath) => ({
       '.gif'
     ]
   },
-  // externals: [nodeExternals()],
+  externals: [nodeExternals()],
   module: {
     rules: [
       {

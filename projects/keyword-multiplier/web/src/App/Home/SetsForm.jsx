@@ -84,7 +84,7 @@ const useStyles = makeStyles(theme => {
       }
     },
     submitButton: {
-      ...theme.custom.formButton,
+      ...theme.custom.buttons.formButton,
       backgroundColor: theme.palette.grey[400]
     },
     submitEnabled: {
@@ -95,7 +95,7 @@ const useStyles = makeStyles(theme => {
       }
     },
     resetButton: {
-      ...theme.custom.formButton,
+      ...theme.custom.buttons.formButton,
       backgroundColor: theme.palette.grey[400]
     },
     resetEnabled: {

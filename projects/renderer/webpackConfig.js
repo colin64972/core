@@ -7,7 +7,7 @@ const sharedEnv = require('dotenv').config({
   path: path.resolve('..', '..', 'shared', '.env')
 })
 
-const serverlessConfig = setServerlessConfig(slsw.lib.entries)
+const serverlessConfig = setServerlessConfig(slsw.lib.entries, true)
 
 serverlessConfig.plugins = [
   new EnvironmentPlugin({

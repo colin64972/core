@@ -1,9 +1,9 @@
-import { setCustomTheme } from '@cjo3/shared/react/theming'
+import { setCustomTheme } from './theming'
 import primary from '@material-ui/core/colors/cyan'
 import secondary from '@material-ui/core/colors/indigo'
 
 const customTheme = setCustomTheme(
-  12,
+  14,
   'Heebo',
   [
     {
@@ -33,6 +33,23 @@ const customTheme = setCustomTheme(
   3
 )
 
+customTheme.custom.buttons = {
+  base: {
+    'border': 'none',
+    'backgroundColor': 'transparent',
+    'color': customTheme.palette.bodyColor,
+    'padding': 0,
+    'margin': 0,
+    'cursor': 'pointer',
+    'fontFamily': customTheme.typography.fontFamily,
+    'fontSize': customTheme.typography.fontSize,
+    'transition': 'all 250ms ease-out',
+    '&:focus': {
+      outline: 'none'
+    }
+  }
+}
+
 customTheme.typography.mainHeading = {
   ...customTheme.typography.bold,
   width: '100%',
@@ -58,7 +75,7 @@ customTheme.shadows.concat([
   }px ${customTheme.custom.setSpace() / 2}px ${customTheme.palette.grey[50]}`
 ])
 
-customTheme.custom.formButton = {
+customTheme.custom.buttons.formButton = {
   padding: customTheme.custom.setSpace(),
   borderRadius: customTheme.custom.borderRadius,
   fontFamily: customTheme.typography.fontFamily,
@@ -71,7 +88,7 @@ customTheme.custom.formButton = {
   color: customTheme.palette.bodyColor
 }
 
-customTheme.custom.iconButton = {
+customTheme.custom.buttons.iconButton = {
   'border': 'none',
   'fontSize': customTheme.custom.setSpace(),
   'padding': customTheme.custom.setSpace() / 2,
@@ -84,6 +101,27 @@ customTheme.custom.iconButton = {
   'transition': 'all 250ms ease-out',
   '&:focus': {
     outline: 'none'
+  }
+}
+
+customTheme.overrides.MuiTableRow = {
+  root: {
+    'borderTop': `1px solid ${secondary[100]}`,
+    'thead &': {
+      border: 'none'
+    }
+  }
+}
+
+customTheme.overrides.MuiTableCell = {
+  sizeSmall: {
+    'textAlign': 'center',
+    'color': customTheme.palette.bodyColor,
+    'border': 'none',
+    'padding': customTheme.typography.fontSize / 2,
+    '&:last-child': {
+      paddingRight: customTheme.typography.fontSize / 2
+    }
   }
 }
 
