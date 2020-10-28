@@ -1,3 +1,7 @@
+import { createElement } from 'react'
+import { renderToString } from 'react-dom/server'
+import { StaticRouter } from 'react-router-dom'
+import { ServerStyleSheets } from '@material-ui/core/styles'
 import crypto from 'crypto'
 import ReactGA from 'react-ga'
 import { v4 as uuidv4 } from 'uuid'
@@ -77,3 +81,38 @@ export const setTracker = gaTag => {
   }
   return tracker
 }
+
+const renderPage = (path, app) => {
+  const sheets = new ServerStyleSheets()
+
+  const render = renderToString(
+    sheets.collect(
+      createElement(
+        StaticRouter,
+        {
+          location: path,
+          context: {}
+        },
+        app
+      )
+    )
+  )
+
+  const html = render
+  const css = sheets.toString()
+
+  return { html, css }
+}
+
+export const generatePreRenders = (pages, app) =>
+  pages.reduce((acc, cur) => {
+    let temp = acc
+
+    const renderedPage = renderPage(cur, app)
+
+    temp[cur] = {
+      html: renderedPage.html,
+      css: renderedPage.css
+    }
+    return temp
+  }, {})
