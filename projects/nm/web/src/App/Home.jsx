@@ -2,6 +2,7 @@ import React from 'react'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
 import { Grid, Typography } from '@material-ui/core'
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 
 const useStyles = makeStyles(theme => ({
   sectionPadding: {
@@ -11,12 +12,14 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.primary[50]
   },
   heading1: {
+    width: '100%',
     color: theme.palette.primary.main
   },
   section2: {
     backgroundColor: theme.palette.primary.main
   },
   heading2: {
+    width: '100%',
     color: 'white'
   },
   copy2: {
@@ -33,9 +36,11 @@ export const Home = () => {
         component="section"
         className={clsx(classes.sectionPadding, classes.section1)}>
         <Grid item xs={12}>
-          <Typography variant="h1" className={classes.heading1}>
-            Home
-          </Typography>
+          <FadeIn direction="x" position={-100}>
+            <Typography variant="h1" className={classes.heading1}>
+              Home
+            </Typography>
+          </FadeIn>
           <Typography variant="body1">
             Sea et diam labore dolore tempor dolor et sea, sadipscing sit vero
             ea nonumy amet justo sed ea tempor, amet sed consetetur dolore et ut
@@ -50,9 +55,11 @@ export const Home = () => {
         component="section"
         className={clsx(classes.sectionPadding, classes.section2)}>
         <Grid item xs={12}>
-          <Typography variant="h1" className={classes.heading2}>
-            About
-          </Typography>
+          <FadeIn direction="x" postion={100}>
+            <Typography variant="h1" className={classes.heading2}>
+              About
+            </Typography>
+          </FadeIn>
           <Typography variant="body1" className={classes.copy2}>
             Labore sit est sadipscing eirmod et eirmod lorem. Kasd vero kasd
             eirmod sanctus. Et voluptua vero invidunt at rebum, lorem amet

@@ -26,19 +26,14 @@ const renderPage = path => {
   return { html, css }
 }
 
-const pages = [
-  { page: 'home', path: '/' },
-  { page: 'feedback', path: '/feedback' },
-  { page: 'error', path: '/*' }
-]
+const pages = ['/', '/feedback', '/*']
 
 const preRenders = pages.reduce((acc, cur) => {
   let temp = acc
 
-  const renderedPage = renderPage(cur.path)
+  const renderedPage = renderPage(cur)
 
-  temp[cur.page] = {
-    path: cur.path,
+  temp[cur] = {
     html: renderedPage.html,
     css: renderedPage.css
   }
