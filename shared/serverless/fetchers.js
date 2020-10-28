@@ -1,11 +1,21 @@
 import { get } from 'axios'
 
-export const fetchBundleFile = async fileName => {
+export const fetchBundleFile = async (app, file) => {
+  const filePath = file.toLowerCase()
+
   try {
-    const res = await get(`http://localhost:8002/${fileName.toLowerCase()}.js`)
+    let uri = `http://localhost:8002/${filePath}`
+
+    if (process.env.NODE_ENV === 'production') {
+      uri = `https://${process.env.CDN_DOMAIN}/${app}/${filePath}`
+    }
+
+    const res = await get(uri)
+
     return res.data
   } catch (error) {
-    console.error('fetchBundleFile', error)
+    console.error('ERROR fetchBundleFile'.red, error)
+    throw error
   }
 }
 
