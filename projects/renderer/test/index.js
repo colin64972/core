@@ -5,13 +5,16 @@ import { minify } from 'html-minifier'
 import { fetchBundleFile } from '@cjo3/shared/serverless/fetchers'
 import renderedReact from './templates/renderedReact.pug'
 
-const renderMarkup = (html, css) => {
+const renderMarkup = (html, css, state) => {
   const locals = {
     title: 'SSR Rendered App Page',
     appStyle: css,
-    appMarkup: html
+    appMarkup: html,
+    appState: state
   }
+
   const markup = renderedReact(locals)
+
   return markup
 }
 
@@ -21,7 +24,9 @@ const renderApp = async (app, path) => {
 
     const { preRenders } = eval(renderFile)
 
-    return renderMarkup(preRenders[path].html, preRenders[path].css)
+    const { html, css, state } = preRenders[path]
+
+    return renderMarkup(html, css, state)
   } catch (error) {
     console.error('ERROR renderPage'.red, error)
     throw error

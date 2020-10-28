@@ -10,7 +10,7 @@ import { setStore } from './store'
 //   `https://${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/`
 // )
 
-const store = setStore()
+export const store = setStore()
 
 render(
   createElement(
