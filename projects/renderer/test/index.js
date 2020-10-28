@@ -17,9 +17,9 @@ const renderMarkup = (html, css) => {
 
 const renderApp = async (app, path) => {
   try {
-    const renderFile = await fetchBundleFile(app, 'render.js')
+    const renderFile = await fetchBundleFile(app, 'preRenders.js')
 
-    const preRenders = eval(renderFile).default
+    const { preRenders } = eval(renderFile)
 
     return renderMarkup(preRenders[path].html, preRenders[path].css)
   } catch (error) {

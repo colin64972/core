@@ -2,7 +2,7 @@ import React from 'react'
 import clsx from 'clsx'
 import Loadable from 'react-loadable'
 import { makeStyles } from '@material-ui/core/styles'
-import { Grid, Typography } from '@material-ui/core'
+import { CircularProgress, Grid, Typography } from '@material-ui/core'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 
 const useStyles = makeStyles(theme => ({
@@ -35,7 +35,11 @@ const Section2Loadable = Loadable({
       /* webpackPrefetch: false */
       './Section2'
     ),
-  loading: () => <p>LOADING...</p>,
+  loading: () => (
+    <FadeIn>
+      <p>LOADING...</p>
+    </FadeIn>
+  ),
   render: (loaded, props) => {
     let Component = loaded.Section2
     return <Component {...props} />
@@ -46,26 +50,32 @@ export const Home = () => {
   const classes = useStyles()
   return (
     <Grid item xs={12}>
-      <Grid
-        container
-        component="section"
-        className={clsx(classes.sectionPadding, classes.section1)}>
-        <Grid item xs={12}>
-          <FadeIn direction="x" position={-100}>
-            <Typography variant="h1" className={classes.heading1}>
-              Home
-            </Typography>
-          </FadeIn>
-          <Typography variant="body1">
-            Sea et diam labore dolore tempor dolor et sea, sadipscing sit vero
-            ea nonumy amet justo sed ea tempor, amet sed consetetur dolore et ut
-            sea et amet, rebum stet dolor kasd et, accusam dolore sit eirmod
-            rebum erat gubergren. Justo amet et tempor gubergren labore ipsum,
-            et et gubergren.
-          </Typography>
+      <FadeIn>
+        <Grid
+          container
+          component="section"
+          className={clsx(classes.sectionPadding, classes.section1)}>
+          <Grid item xs={12}>
+            <FadeIn direction="x" position={-100}>
+              <Typography variant="h1" className={classes.heading1}>
+                Home
+              </Typography>
+            </FadeIn>
+            <FadeIn>
+              <Typography variant="body1">
+                Sea et diam labore dolore tempor dolor et sea, sadipscing sit
+                vero ea nonumy amet justo sed ea tempor, amet sed consetetur
+                dolore et ut sea et amet, rebum stet dolor kasd et, accusam
+                dolore sit eirmod rebum erat gubergren. Justo amet et tempor
+                gubergren labore ipsum, et et gubergren.
+              </Typography>
+            </FadeIn>
+          </Grid>
         </Grid>
-      </Grid>
-      <Section2Loadable />
+      </FadeIn>
+      <FadeIn>
+        <Section2Loadable />
+      </FadeIn>
     </Grid>
   )
 }
