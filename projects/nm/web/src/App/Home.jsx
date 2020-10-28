@@ -1,5 +1,6 @@
 import React from 'react'
 import clsx from 'clsx'
+import Loadable from 'react-loadable'
 import { makeStyles } from '@material-ui/core/styles'
 import { Grid, Typography } from '@material-ui/core'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
@@ -27,6 +28,20 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
+const Section2Loadable = Loadable({
+  loader: () =>
+    import(
+      /* webpackChunkName: "chunk-Section2" */
+      /* webpackPrefetch: false */
+      './Section2'
+    ),
+  loading: () => <p>LOADING...</p>,
+  render: (loaded, props) => {
+    let Component = loaded.Section2
+    return <Component {...props} />
+  }
+})
+
 export const Home = () => {
   const classes = useStyles()
   return (
@@ -50,30 +65,7 @@ export const Home = () => {
           </Typography>
         </Grid>
       </Grid>
-      <Grid
-        container
-        component="section"
-        className={clsx(classes.sectionPadding, classes.section2)}>
-        <Grid item xs={12}>
-          <FadeIn direction="x" postion={100}>
-            <Typography variant="h1" className={classes.heading2}>
-              About
-            </Typography>
-          </FadeIn>
-          <Typography variant="body1" className={classes.copy2}>
-            Labore sit est sadipscing eirmod et eirmod lorem. Kasd vero kasd
-            eirmod sanctus. Et voluptua vero invidunt at rebum, lorem amet
-            takimata et aliquyam, sadipscing amet vero elitr diam no. Nonumy no
-            lorem et eos stet diam diam, eos nonumy diam consetetur sit, lorem
-            lorem sanctus eirmod invidunt et ea.
-          </Typography>
-          <Typography variant="body1" className={classes.copy2}>
-            Lorem sea dolor labore at gubergren sea consetetur amet, gubergren
-            duo magna ipsum duo takimata dolor ut eirmod ea, et aliquyam est eos
-            dolor dolore. Kasd dolore est dolore et.
-          </Typography>
-        </Grid>
-      </Grid>
+      <Section2Loadable />
     </Grid>
   )
 }
