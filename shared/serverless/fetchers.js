@@ -8,3 +8,11 @@ export const fetchBundleFile = async fileName => {
     console.error('fetchBundleFile', error)
   }
 }
+
+export const fetchPage = async (host, uri, querystring) => {
+  try {
+    console.log('LOG fetchPage', host, uri, querystring, method)
+  } catch (error) {
+    console.error('ERROR fetchPage')
+  }
+}

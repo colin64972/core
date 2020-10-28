@@ -2,6 +2,7 @@
 .serverless
 dist
 distNode
+server2
 node_modules
 
 # files

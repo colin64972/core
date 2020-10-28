@@ -2,15 +2,13 @@ const path = require('path')
 const slsw = require('serverless-webpack')
 const setServerlessConfig = require('@cjo3/configs/serverless')
 const { EnvironmentPlugin } = require('webpack')
-const sharedEnv = require('dotenv').config({
-  path: path.resolve('..', '..', 'shared', '.env')
-})
+const localEnv = require('dotenv').config()
 
 const serverlessConfig = setServerlessConfig(slsw.lib.entries, true)
 
 serverlessConfig.plugins = [
   new EnvironmentPlugin({
-    APPS_LIST: sharedEnv.parsed.APPS_LIST
+    HOST: localEnv.parsed.HOST
   })
 ]
 
