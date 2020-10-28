@@ -17,7 +17,9 @@ export const rootHandler = async (event, context, callback) => {
         location: [
           {
             key: 'Location',
-            value: `https://${process.env.HOST}${uri}`
+            value: `https://${process.env.HOST}${uri}${
+              querystring.length ? `?${querystring}` : ''
+            }`
           }
         ]
       }
@@ -32,10 +34,10 @@ export const rootHandler = async (event, context, callback) => {
       </head>
       <body>
         <h1>Req Params</h1>
-        <p><strong>method</strong>${method}</p>
-        <p><strong>host</strong>${host}</p>
-        <p><strong>uri</strong>${uri}</p>
-        <p><strong>querystring</strong>${querystring}</p>
+        <p><strong>method</strong> ${method}</p>
+        <p><strong>host</strong> ${host}</p>
+        <p><strong>uri</strong> ${uri}</p>
+        <p><strong>querystring</strong> ${querystring}</p>
       </body>
     </html>
     `
