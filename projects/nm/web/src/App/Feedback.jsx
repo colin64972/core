@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
-import { Grid, Typography } from '@material-ui/core'
+import { Button, Grid, TextField, Typography } from '@material-ui/core'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
+import { types } from '../store/types'
 
 const useStyles = makeStyles(theme => ({
   sectionPadding: {
@@ -22,6 +24,14 @@ export const Feedback = () => {
   const [count, setCount] = useState(0)
   const increaseCount = event => setCount(count + 1)
   const decreaseCount = event => setCount(count - 1)
+  const name = useSelector(state => state.app?.name)
+  const dispatch = useDispatch()
+  const blurName = event =>
+    dispatch({
+      type: types.SET_NAME,
+      name: event.target.value
+    })
+
   return (
     <Grid item xs={12}>
       <Grid
@@ -31,19 +41,40 @@ export const Feedback = () => {
         <Grid item xs={12}>
           <FadeIn directio="x" position={-100}>
             <Typography variant="h1" className={classes.heading1}>
-              Feedback {count}
+              Feedback {count} {name}
             </Typography>
           </FadeIn>
           <Typography variant="body1">
-            {count}&nbsp;Invidunt et dolor kasd lorem magna. Dolor kasd ea et et
-            lorem sanctus, sea dolore est et diam. Invidunt voluptua.
+            {count}&nbsp;{name}&nbsp;Invidunt et dolor kasd lorem magna. Dolor
+            kasd ea et et lorem sanctus, sea dolore est et diam. Invidunt
+            voluptua.
           </Typography>
-          <button type="button" onClick={increaseCount}>
+          <br />
+          <Button
+            type="button"
+            variant="contained"
+            color="primary"
+            onClick={increaseCount}>
             Increase
-          </button>
-          <button type="button" onClick={decreaseCount}>
+          </Button>
+          &emsp;
+          <Button
+            type="button"
+            variant="outlined"
+            color="secondary"
+            onClick={decreaseCount}>
             Decrease
-          </button>
+          </Button>
+          &emsp;
+          <TextField
+            // error={validate}
+            id="filled-error-helper-text"
+            label="Name"
+            defaultValue={name}
+            onBlur={blurName}
+            // helperText="Incorrect entry."
+            variant="outlined"
+          />
         </Grid>
       </Grid>
     </Grid>
