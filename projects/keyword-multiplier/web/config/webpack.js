@@ -30,7 +30,7 @@ const webConfig = setWebConfig(
 
 const nodeConfig = setNodeConfig(
   {
-    preRenders: path.resolve('src', 'preRenders')
+    index: path.resolve('src', 'preRenders')
   },
   path.resolve('distPreRenders'),
   setPreRenderFilePublicPath

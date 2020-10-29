@@ -9,19 +9,15 @@ export const generateAppPageHandler = middy(
     try {
       const { body } = event
 
-      const content = await buildFromPreRender(
+      const uploadPassEtag = await buildFromPreRender(
         body.appDir,
-        body.pagePath,
+        body.pagePath.replace('root', '/'),
         body.templateLocals
       )
 
       res = {
         statusCode: 200,
-        headers: {
-          'cache-control': 'max-age=100',
-          'content-type': 'text/html'
-        },
-        body: content
+        body: uploadPassEtag
       }
     } catch (error) {
       res = {

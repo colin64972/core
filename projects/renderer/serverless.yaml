@@ -17,6 +17,7 @@ provider:
       Action:
         - s3.ListObjects
         - s3:GetObject
+        - s3:PutObject
       Resource:
         - arn:aws:s3:${env:CDN_BUCKET}
     # - Effect: Allow
