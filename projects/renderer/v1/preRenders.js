@@ -26,20 +26,6 @@ const uploadToCdn = async (binaryString, app, page) => {
   }
 }
 
-// const writeToTemp = (fileName, data) =>
-//   new Promise((resolve, reject) => {
-//     const bufferData = new Uint8Array(Buffer.from(data))
-//     const dirName = fs.mkdtemp('my-temp-', (error, dirName) => {
-//       if (error) return reject(error)
-//       const savePath = `${dirName}/${fileName}`
-//       fs.writeFile(savePath, bufferData, error => {
-//         if (error) return reject(error)
-//         return resolve(savePath)
-//       })
-//     })
-//     console.log('dirName'.yellow, dirName)
-//   })
-
 export const buildFromPreRender = async (app, page, templateLocals) => {
   try {
     let rendersFile, preRenderedPages
@@ -78,12 +64,7 @@ export const buildFromPreRender = async (app, page, templateLocals) => {
       minifyCSS: true
     })
 
-    // const tempPath = await writeToTemp(
-    //   `${app}-${page.replace('/', 'root')}.html`,
-    //   compressed
-    // )
-
-    const etag = await uploadToCdn(compressed, app, page.replace('/', 'root'))
+    const etag = await uploadToCdn(compressed, app, page)
 
     return etag
   } catch (error) {

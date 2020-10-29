@@ -122,7 +122,8 @@ export const generatePreRenders = (pages, app, store) =>
 
     const renderedPage = renderPage(cur, app, store)
 
-    temp[cur] = {
+    temp[cur.name] = {
+      path: cur.path,
       html: renderedPage.html,
       css: renderedPage.css,
       state: renderedPage.state
