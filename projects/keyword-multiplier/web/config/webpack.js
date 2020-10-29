@@ -1,6 +1,6 @@
 require('dotenv').config()
 const path = require('path')
-const { setWebConfig, setNodeConfig } = require('@cjo3/configs/react')
+const { setWebConfig, setPreRenderConfig } = require('@cjo3/configs/react')
 const {
   setFileOutputPath,
   setFilePublicPath,
@@ -28,7 +28,7 @@ const webConfig = setWebConfig(
   setFilePublicPath
 )
 
-const nodeConfig = setNodeConfig(
+const preRendersConfig = setPreRenderConfig(
   {
     [process.env.CDN_APP_FOLDER]: path.resolve('src', 'preRenders')
   },
@@ -50,7 +50,7 @@ const envVars = new EnvironmentPlugin({
 })
 
 webConfig.plugins.push(envVars)
-nodeConfig.plugins.push(envVars)
+preRendersConfig.plugins.push(envVars)
 
 exports.webConfig = webConfig
-exports.nodeConfig = nodeConfig
+exports.preRendersConfig = preRendersConfig

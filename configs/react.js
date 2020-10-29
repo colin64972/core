@@ -120,7 +120,7 @@ exports.setWebConfig = (
   ]
 })
 
-exports.setNodeConfig = (entry, outputPath, setFilePublicPath) => ({
+exports.setPreRenderConfig = (entry, outputPath, setFilePublicPath) => ({
   entry,
   output: {
     path: outputPath,
