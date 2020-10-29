@@ -30,7 +30,7 @@ const webConfig = setWebConfig(
 
 const nodeConfig = setNodeConfig(
   {
-    index: path.resolve('src', 'preRenders')
+    [process.env.CDN_APP_FOLDER]: path.resolve('src', 'preRenders')
   },
   path.resolve('distPreRenders'),
   setPreRenderFilePublicPath

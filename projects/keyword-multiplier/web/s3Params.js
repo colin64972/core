@@ -22,6 +22,6 @@ exports.deleteParams = {
 exports.preRendersParams = {
   // dryrun: false,
   srcPath: 'distPreRenders',
-  s3Path: `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/assets/pre-renders`,
+  s3Path: `${process.env.PRERENDERS_BUCKET}`,
   includes: ['*.js']
 }
