@@ -1,20 +1,15 @@
 import { get } from 'axios'
 
-export const fetchBundleFile = async (app, file) => {
-  const filePath = file.toLowerCase()
+export const fetchPreRendersFile = async appName => {
+  const requestedApp = appName.toLowerCase()
 
   try {
-    let uri = `http://localhost:8002/${filePath}`
-
-    if (process.env.NODE_ENV === 'production') {
-      uri = `https://${process.env.CDN_DOMAIN}/${app}/${filePath}`
-    }
-
-    const res = await get(uri)
-
+    const res = await get(
+      `${process.env.CDN_URL}/${requestedApp}/preRenders.js`
+    )
     return res.data
   } catch (error) {
-    console.error('ERROR fetchBundleFile'.red, error)
+    console.error('ERROR fetchPreRendersFile'.red, error)
     throw error
   }
 }

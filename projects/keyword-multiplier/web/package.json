@@ -12,12 +12,13 @@
     "dev:n": "NODE_ENV=development CONFIG_VER=node webpack-dev-server --config config/webpack-dev.js",
     "pro:w": "NODE_ENV=production CONFIG_VER=web webpack --config config/webpack-pro.js --progress",
     "pro:n": "NODE_ENV=production CONFIG_VER=node webpack --config config/webpack-pro.js --progress",
-    "sync:web": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./s3Params\").webParams)'",
-    "sync:node": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./s3Params\").nodeParams)'",
+    "sync:w": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./s3Params\").webParams)'",
+    "sync:n": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./s3Params\").preRendersParams)'",
     "rm:key": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").rm(require(\"./s3Params\").deleteParams)'"
   },
   "devDependencies": {
     "@cjo3/configs": "0.0.1",
+    "aws-cli-js": "^2.0.6",
     "redux-logger": "^3.0.6",
     "webpack-merge": "5.2.0"
   },

@@ -9,5 +9,6 @@ html(lang="en")
   body
     #app !{appMarkup}
     include noScript.pug
-
 script window.__PRELOADED_STATE__ = !{JSON.stringify(appState)}
+each bundle in bundles
+  script(src=bundle defer)

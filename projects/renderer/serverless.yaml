@@ -6,11 +6,11 @@ provider:
   runtime: nodejs12.x
   stage: ${self:custom.stage}
   region: ${env:REGION}
-  stackName: ${env:SLS_SERVICE_NAME}-stack
+  stackName: ${env:SLS_SERVICE_NAME}
   endpointType: regional
   role: ${env:ACCESS_ROLE}
   httpApi:
-    name: ${env:SLS_SERVICE_NAME}-httpapi
+    name: ${env:SLS_SERVICE_NAME}
     payload: '2.0'
   iamRoleStatements:
     - Effect: Allow
@@ -19,35 +19,21 @@ provider:
         - s3:GetObject
       Resource:
         - arn:aws:s3:${env:CDN_BUCKET}
-    - Effect: Allow
-      Action:
-        - dynamodb:DeleteItem
-        - dynamodb:GetItem
-        - dynamodb:PutItem
-        - dynamodb:Query
-        - dynamodb:Scan
-        - dynamodb:UpdateItem
-      Resource:
-        - arn:aws:dynamodb:${env:REGION}:*:table/${env:RENDERS_TABLE_NAME}
+    # - Effect: Allow
+    #   Action:
+    #     - dynamodb:DeleteItem
+    #     - dynamodb:GetItem
+    #     - dynamodb:PutItem
+    #     - dynamodb:Query
+    #     - dynamodb:Scan
+    #     - dynamodb:UpdateItem
+    #   Resource:
+    #     - arn:aws:dynamodb:${env:REGION}:*:table/${env:RENDERS_TABLE_NAME}
 
 functions:
-  # createRenderHandler:
-  #   name: ${env:SLS_SERVICE_NAME}-createRenderHandler
-  #   handler: v1/handlers.createRenderHandler
-  #   events:
-  #     - httpApi:
-  #         path: /
-  #         method: POST
-  # getRendersHandler:
-  #   name: ${env:SLS_SERVICE_NAME}-getRendersHandler
-  #   handler: v1/handlers.getRendersHandler
-  #   events:
-  #     - httpApi:
-  #         path: /
-  #         method: GET
-  testHandler:
-    name: ${env:SLS_SERVICE_NAME}-testHandler
-    handler: test/index.testHandler
+  generateAppPageHandler:
+    name: ${env:SLS_SERVICE_NAME}-generateAppPageHandler
+    handler: v1/handlers.generateAppPageHandler
     events:
       - httpApi:
           path: /
@@ -88,22 +74,22 @@ custom:
     apiType: http
     autoDomain: true
 
-resources:
-  Resources:
-    renders:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: ${env:RENDERS_TABLE_NAME}
-        AttributeDefinitions:
-          - AttributeName: app
-            AttributeType: S
-          - AttributeName: path
-            AttributeType: S
-        KeySchema:
-          - AttributeName: app
-            KeyType: HASH
-          - AttributeName: path
-            KeyType: range
-        ProvisionedThroughput:
-          ReadCapacityUnits: 5
-          WriteCapacityUnits: 1
+# resources:
+#   Resources:
+#     renders:
+#       Type: AWS::DynamoDB::Table
+#       Properties:
+#         TableName: ${env:RENDERS_TABLE_NAME}
+#         AttributeDefinitions:
+#           - AttributeName: app
+#             AttributeType: S
+#           - AttributeName: path
+#             AttributeType: S
+#         KeySchema:
+#           - AttributeName: app
+#             KeyType: HASH
+#           - AttributeName: path
+#             KeyType: range
+#         ProvisionedThroughput:
+#           ReadCapacityUnits: 5
+#           WriteCapacityUnits: 1

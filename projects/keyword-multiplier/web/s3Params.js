@@ -14,14 +14,14 @@ exports.webParams = {
   excludes: ['*.html']
 }
 
-exports.nodeParams = {
-  // dryrun: false,
-  srcPath: 'distNode',
-  s3Path: `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/node`,
-  excludes: ['*.html']
-}
-
 exports.deleteParams = {
   // dryrun: false,
   keyPath: `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}`
+}
+
+exports.preRendersParams = {
+  // dryrun: false,
+  srcPath: 'distPreRenders',
+  s3Path: `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}`,
+  includes: ['*.js']
 }
