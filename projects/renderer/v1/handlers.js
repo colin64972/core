@@ -10,7 +10,7 @@ export const generateAppPageHandler = middy(
       const { body } = event
 
       const content = await buildFromPreRender(
-        body.appName,
+        body.appDir,
         body.pagePath,
         body.templateLocals
       )

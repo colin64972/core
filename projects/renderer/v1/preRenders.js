@@ -5,20 +5,20 @@ import { minify } from 'html-minifier'
 import compileReactPage from './templates/compileReactPage.pug'
 import { fetchPreRendersFile } from '@cjo3/shared/serverless/fetchers'
 
-export const buildFromPreRender = async (appName, pagePath, templateLocals) => {
+export const buildFromPreRender = async (appDir, pagePath, templateLocals) => {
   try {
     let rendersFile, preRenderedPages
 
     if (process.env.IS_OFFLINE) {
       const localFilePath = path.resolve(
-        `../${appName}/web/distPreRenders/preRenders.js`
+        `../${appDir}/web/distPreRenders/preRenders.js`
       )
 
       rendersFile = fs.readFileSync(localFilePath).toString()
 
       preRenderedPages = eval(rendersFile.toString()).preRenders
     } else {
-      rendersFile = await fetchPreRendersFile(appName)
+      rendersFile = await fetchPreRendersFile(appDir)
 
       preRenderedPages = eval(rendersFile).preRenders
     }
