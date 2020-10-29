@@ -10,7 +10,7 @@ export const generateAppPageHandler = middy(
       const { body } = event
 
       const uploadPassEtag = await buildFromPreRender(
-        body.appDir,
+        body.app,
         body.pagePath.replace('root', '/'),
         body.templateLocals
       )

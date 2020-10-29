@@ -3,7 +3,6 @@ import path from 'path'
 import fs from 'fs'
 import { minify } from 'html-minifier'
 import compileReactPage from './templates/compileReactPage.pug'
-import { fetchPreRendersFile } from '@cjo3/shared/serverless/fetchers'
 import AWS from 'aws-sdk'
 
 const s3 = new AWS.S3({
@@ -12,12 +11,12 @@ const s3 = new AWS.S3({
   sslEnabled: true
 })
 
-const uploadToCdn = async (binaryString, subFolder, pagePath) => {
+const uploadToCdn = async (binaryString, app, page) => {
   try {
     const params = {
       Body: binaryString,
       Bucket: process.env.CDN_BUCKET,
-      Key: `${subFolder}/assets/pre-renders/${pagePath}.html`
+      Key: `${app}/assets/pre-renders/${page}.html`
     }
     const res = await s3.putObject(params).promise()
     if (!res.ETag) throw new Error('upload to cdn failed')
@@ -41,25 +40,32 @@ const uploadToCdn = async (binaryString, subFolder, pagePath) => {
 //     console.log('dirName'.yellow, dirName)
 //   })
 
-export const buildFromPreRender = async (appDir, pagePath, templateLocals) => {
+export const buildFromPreRender = async (app, page, templateLocals) => {
   try {
     let rendersFile, preRenderedPages
 
     if (process.env.IS_OFFLINE) {
       const localFilePath = path.resolve(
-        `../${appDir}/web/distPreRenders/index.js`
+        `../${app}/web/distPreRenders/${app}.js`
       )
 
       rendersFile = fs.readFileSync(localFilePath).toString()
 
       preRenderedPages = eval(rendersFile.toString()).preRenders
     } else {
-      rendersFile = await fetchPreRendersFile(appDir)
+      const s3Req = await s3
+        .getObject({
+          Bucket: process.env.PRERENDERS_BUCKET,
+          Key: `${app}.js`
+        })
+        .promise()
+
+      rendersFile = s3Req.Body.toString()
 
       preRenderedPages = eval(rendersFile).preRenders
     }
 
-    const { html, css, state } = preRenderedPages[pagePath]
+    const { html, css, state } = preRenderedPages[page]
 
     const pageContent = compileReactPage({
       ...templateLocals,
@@ -73,15 +79,11 @@ export const buildFromPreRender = async (appDir, pagePath, templateLocals) => {
     })
 
     // const tempPath = await writeToTemp(
-    //   `${appDir}-${pagePath.replace('/', 'root')}.html`,
+    //   `${app}-${page.replace('/', 'root')}.html`,
     //   compressed
     // )
 
-    const etag = await uploadToCdn(
-      compressed,
-      appDir,
-      pagePath.replace('/', 'root')
-    )
+    const etag = await uploadToCdn(compressed, app, page.replace('/', 'root'))
 
     return etag
   } catch (error) {
