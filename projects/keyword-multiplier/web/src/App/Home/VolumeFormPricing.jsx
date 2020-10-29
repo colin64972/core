@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import clsx from 'clsx'
 import { useSelector, useDispatch } from 'react-redux'
 import React, { useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
@@ -113,7 +113,7 @@ export const VolumeFormPricing = ({ trialId }) => {
           <TableCell
             component="th"
             align="left"
-            className={classNames(classes.headCell)}>
+            className={clsx(classes.headCell)}>
             Total
           </TableCell>
           <TableCell className={classes.dataCell} align="right">

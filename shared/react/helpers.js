@@ -1,3 +1,8 @@
+import { createElement } from 'react'
+import { renderToString } from 'react-dom/server'
+import { Provider } from 'react-redux'
+import { StaticRouter } from 'react-router-dom'
+import { ServerStyleSheets } from '@material-ui/core/styles'
 import crypto from 'crypto'
 import ReactGA from 'react-ga'
 import { v4 as uuidv4 } from 'uuid'
@@ -46,8 +51,10 @@ export const copyToClipboard = data => {
 export const setChunkPublicPath = path =>
   process.env.NODE_ENV === 'production' ? path : ''
 
-export const switchLinkRoutePath = (devPath, prodPath) =>
-  process.env.NODE_ENV === 'production' ? prodPath : devPath
+export const switchLinkRoutePath = (devPath, prodPath) => {
+  if (process.env.IS_SERVER) return devPath
+  return process.env.NODE_ENV === 'production' ? prodPath : devPath
+}
 
 export const removeAppUrlPrefix = (path, prefix) => {
   let result = path.replace(prefix, '')
@@ -77,3 +84,48 @@ export const setTracker = gaTag => {
   }
   return tracker
 }
+
+const renderPage = (path, app, store) => {
+  const sheets = new ServerStyleSheets()
+
+  const render = renderToString(
+    sheets.collect(
+      createElement(
+        Provider,
+        {
+          store
+        },
+        createElement(
+          StaticRouter,
+          {
+            location: path,
+            context: {}
+          },
+          app
+        )
+      )
+    )
+  )
+
+  console.log('----------------->', render)
+
+  const html = render
+  const css = sheets.toString()
+  const state = store.getState()
+
+  return { html, css, state }
+}
+
+export const generatePreRenders = (pages, app, store) =>
+  pages.reduce((acc, cur) => {
+    let temp = acc
+
+    const renderedPage = renderPage(cur, app, store)
+
+    temp[cur] = {
+      html: renderedPage.html,
+      css: renderedPage.css,
+      state: renderedPage.state
+    }
+    return temp
+  }, {})

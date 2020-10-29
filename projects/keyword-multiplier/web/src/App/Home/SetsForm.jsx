@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import clsx from 'clsx'
 import { Form, Field } from 'formik'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -159,7 +159,7 @@ export const SetsForm = props => {
         <button
           type="submit"
           disabled={!submitEnabled}
-          className={classNames(classes.submitButton, {
+          className={clsx(classes.submitButton, {
             [classes.submitEnabled]: submitEnabled
           })}>
           {isSubmitting ? (
@@ -183,7 +183,7 @@ export const SetsForm = props => {
           type="button"
           onClick={customResetHandler}
           disabled={!resetEnabled}
-          className={classNames(classes.resetButton, {
+          className={clsx(classes.resetButton, {
             [classes.resetEnabled]: resetEnabled
           })}>
           <Grid container>

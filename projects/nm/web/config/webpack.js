@@ -3,7 +3,8 @@ const path = require('path')
 const { setWebConfig, setNodeConfig } = require('@cjo3/configs/react')
 const {
   setFileOutputPath,
-  setFilePublicPath
+  setFilePublicPath,
+  setPreRenderFilePublicPath
 } = require('@cjo3/shared/raw/general')
 const { EnvironmentPlugin } = require('webpack')
 
@@ -29,10 +30,10 @@ const webConfig = setWebConfig(
 
 const nodeConfig = setNodeConfig(
   {
-    render: path.resolve('src', 'render')
+    preRenders: path.resolve('src', 'preRenders')
   },
-  path.resolve('distNode'),
-  setFilePublicPath
+  path.resolve('distPreRenders'),
+  setPreRenderFilePublicPath
 )
 
 const envVars = new EnvironmentPlugin({

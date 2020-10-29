@@ -1,13 +1,31 @@
 import middy from '@middy/core'
 import jsonBodyParser from '@middy/http-json-body-parser'
-import { createRender, getRenders } from './renders'
+import { buildFromPreRender } from './preRenders'
 
-export const createRenderHandler = middy(async (event, context, callback) => {
-  let slsRes = await createRender(event.body)
-  return callback(null, slsRes)
-}).use(jsonBodyParser())
+export const generateAppPageHandler = middy(
+  async (event, context, callback) => {
+    let res = {}
 
-export const getRendersHandler = async (event, context, callback) => {
-  let slsRes = await getRenders()
-  return callback(null, slsRes)
-}
+    try {
+      const { body } = event
+
+      const uploadPassEtag = await buildFromPreRender(
+        body.appDir,
+        body.pagePath.replace('root', '/'),
+        body.templateLocals
+      )
+
+      res = {
+        statusCode: 200,
+        body: uploadPassEtag
+      }
+    } catch (error) {
+      res = {
+        statusCode: 500,
+        body: JSON.stringify(error.message, null, 2)
+      }
+    } finally {
+      return callback(null, res)
+    }
+  }
+).use(jsonBodyParser())

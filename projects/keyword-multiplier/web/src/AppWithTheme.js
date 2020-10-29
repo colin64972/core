@@ -1,9 +1,9 @@
 import { createElement } from 'react'
 import { ThemeProvider } from '@material-ui/core/styles'
-import { theme } from '@cjo3/shared/react/themes/nm'
+import { theme } from '@cjo3/shared/react/themes/keyword-multiplier'
 import { App } from './App'
 
-export const AppElement = createElement(
+export const AppWithTheme = createElement(
   ThemeProvider,
   { theme },
   createElement(App)

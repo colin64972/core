@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
-import { defaultPadding } from '@cjo3/shared/react/theming'
+import { defaultPadding } from '@cjo3/shared/react/themes/theming'
 import { TrialCard } from './TrialCard'
 import { mergeSort } from '@cjo3/shared/general/sorting'
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import classnames from 'classnames'
+import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
 
 const setSrcSet = (paths, format = null) =>
@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
 export const ImageHandler = ({ asset, styleClass }) => {
   const classes = useStyles()
   return (
-    <picture className={classnames(classes.picture, styleClass)}>
+    <picture className={clsx(classes.picture, styleClass)}>
       <source srcSet={setSrcSet(asset.paths, 'webp')} type="image/webp" />
       <img
         className={styleClass}

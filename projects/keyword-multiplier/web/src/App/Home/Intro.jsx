@@ -1,6 +1,6 @@
 import React from 'react'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
-import { defaultPadding } from '@cjo3/shared/react/theming'
+import { defaultPadding } from '@cjo3/shared/react/themes/theming'
 import { Grid, Typography } from '@material-ui/core'
 import CheckIcon from '@material-ui/icons/Check'
 import { makeStyles } from '@material-ui/core/styles'
@@ -45,8 +45,8 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 500
   },
   valuePropContainer: {
-    borderRadius: theme.custom.setSpace() / 2,
     marginTop: theme.custom.setSpace('sm'),
+    borderRadius: theme.custom.setSpace() / 2,
     padding: theme.custom.setSpace('sm'),
     background: `linear-gradient(0deg, ${theme.palette.grey[100]}, ${theme.palette.secondary[100]})`
   },
@@ -129,62 +129,76 @@ export const Intro = () => {
         </Grid>
       </Grid>
 
-      <Grid container className={classes.valuePropContainer} justify="center">
-        <Grid item xs={12}>
-          <Grid container>
-            <Grid item xs={12} sm={6} className={classes.valuePropLeft}>
-              <FadeIn direction="y" position={100}>
-                <Typography component="h4" className={classes.valuePropTitle}>
-                  This online marketing
-                  <br />
-                  tool can help you&#58;
-                </Typography>
-              </FadeIn>
-            </Grid>
-            <Grid item xs={12} sm={6} className={classes.valuePropRight}>
-              <ul className={classes.list}>
-                <FadeIn
-                  direction="x"
-                  position={100}
-                  outerClass={classes.itemFadeIn}>
-                  <li className={classes.valuePropPoint}>
-                    <CheckIcon color="primary" className={classes.checkIcon} />
-                    mulitply and combine keywords to uncover new targeting
-                    opportunities
-                  </li>
+      <Grid container justify="center">
+        <FadeIn>
+          <Grid item xs={12} className={classes.valuePropContainer}>
+            <Grid container>
+              <Grid item xs={12} sm={6} className={classes.valuePropLeft}>
+                <FadeIn direction="y" position={100}>
+                  <Typography component="h4" className={classes.valuePropTitle}>
+                    This online marketing
+                    <br />
+                    tool can help you&#58;
+                  </Typography>
                 </FadeIn>
-                <FadeIn
-                  direction="x"
-                  position={100}
-                  outerClass={classes.itemFadeIn}>
-                  <li className={classes.valuePropPoint}>
-                    <CheckIcon color="primary" className={classes.checkIcon} />
-                    look up keyword search volume, CPC and competition metrics
-                  </li>
-                </FadeIn>
-                <FadeIn
-                  direction="x"
-                  position={100}
-                  outerClass={classes.itemFadeIn}>
-                  <li className={classes.valuePropPoint}>
-                    <CheckIcon color="primary" className={classes.checkIcon} />
-                    evaluate and compare keyword variations
-                  </li>
-                </FadeIn>
-                <FadeIn
-                  direction="x"
-                  position={100}
-                  outerClass={classes.itemFadeIn}>
-                  <li className={classes.valuePropPoint}>
-                    <CheckIcon color="primary" className={classes.checkIcon} />
-                    mix and match keywords with domain TLDs to find
-                    keyword&ndash;driven domains
-                  </li>
-                </FadeIn>
-              </ul>
+              </Grid>
+              <Grid item xs={12} sm={6} className={classes.valuePropRight}>
+                <ul className={classes.list}>
+                  <FadeIn
+                    direction="x"
+                    position={100}
+                    outerClass={classes.itemFadeIn}>
+                    <li className={classes.valuePropPoint}>
+                      <CheckIcon
+                        color="primary"
+                        className={classes.checkIcon}
+                      />
+                      mulitply and combine keywords to uncover new targeting
+                      opportunities
+                    </li>
+                  </FadeIn>
+                  <FadeIn
+                    direction="x"
+                    position={100}
+                    outerClass={classes.itemFadeIn}>
+                    <li className={classes.valuePropPoint}>
+                      <CheckIcon
+                        color="primary"
+                        className={classes.checkIcon}
+                      />
+                      look up keyword search volume, CPC and competition metrics
+                    </li>
+                  </FadeIn>
+                  <FadeIn
+                    direction="x"
+                    position={100}
+                    outerClass={classes.itemFadeIn}>
+                    <li className={classes.valuePropPoint}>
+                      <CheckIcon
+                        color="primary"
+                        className={classes.checkIcon}
+                      />
+                      evaluate and compare keyword variations
+                    </li>
+                  </FadeIn>
+                  <FadeIn
+                    direction="x"
+                    position={100}
+                    outerClass={classes.itemFadeIn}>
+                    <li className={classes.valuePropPoint}>
+                      <CheckIcon
+                        color="primary"
+                        className={classes.checkIcon}
+                      />
+                      mix and match keywords with domain TLDs to find
+                      keyword&ndash;driven domains
+                    </li>
+                  </FadeIn>
+                </ul>
+              </Grid>
             </Grid>
           </Grid>
-        </Grid>
+        </FadeIn>
       </Grid>
     </Grid>
   )

@@ -27,7 +27,8 @@
     "pug": "^3.0.0",
     "pug-loader": "^2.4.0",
     "regenerator-runtime": "^0.13.7",
-    "webpack-dev-server": "^3.11.0",
-    "webpack-node-externals": "^2.5.2"
+    "webpack": "4.44.2",
+    "webpack-cli": "3.3.12",
+    "webpack-dev-server": "3.11.0"
   }
 }
