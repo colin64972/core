@@ -13,3 +13,8 @@ exports.preRenders = {
   s3Path: `${process.env.PRERENDERS_BUCKET}`,
   includes: ['*.js']
 }
+
+exports.invalidate = {
+  id: process.env.CDN_ID,
+  paths: '/*'
+}
