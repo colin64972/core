@@ -12,7 +12,7 @@ export const generateAppPageHandler = middy(
       const content = await buildFromPreRender(
         body.appName,
         body.pagePath,
-        body.metaData
+        body.templateLocals
       )
 
       res = {

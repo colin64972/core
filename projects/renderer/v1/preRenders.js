@@ -5,7 +5,7 @@ import { minify } from 'html-minifier'
 import compileReactPage from './templates/compileReactPage.pug'
 import { fetchPreRendersFile } from '@cjo3/shared/serverless/fetchers'
 
-export const buildFromPreRender = async (appName, pagePath, metaData) => {
+export const buildFromPreRender = async (appName, pagePath, templateLocals) => {
   try {
     let rendersFile, preRenderedPages
 
@@ -26,7 +26,7 @@ export const buildFromPreRender = async (appName, pagePath, metaData) => {
     const { html, css, state } = preRenderedPages[pagePath]
 
     const pageContent = compileReactPage({
-      ...metaData,
+      ...templateLocals,
       appStyle: css,
       appMarkup: html,
       appState: state
