@@ -1,6 +1,6 @@
 import React from 'react'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
-import { defaultPadding } from '@cjo3/shared/react/theming'
+import { defaultPadding } from '@cjo3/shared/react/themes/theming'
 import Grid from '@material-ui/core/Grid'
 import Link from '@material-ui/core/Link'
 import Typography from '@material-ui/core/Typography'
@@ -25,6 +25,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   title: {
+    textTransform: 'uppercase',
     color: theme.palette.secondary[50],
     textAlign: 'left',
     fontSize: theme.custom.setSpace('sm'),
@@ -36,6 +37,7 @@ const useStyles = makeStyles(theme => ({
     ...theme.custom.setFlex('row', 'flex-start')
   },
   subtitle: {
+    width: '100%',
     fontSize: theme.custom.setSpace() * 1.5,
     marginTop: theme.custom.setSpace() / 2,
     color: theme.palette.secondary[100],
@@ -76,7 +78,7 @@ export const NotFound = () => {
           <Grid item>
             <FadeIn direction="x" position={100}>
               <Typography variant="h1" className={classes.title}>
-                Oops, Nothing Here
+                Sorry, Nothing Here
               </Typography>
             </FadeIn>
             <FadeIn

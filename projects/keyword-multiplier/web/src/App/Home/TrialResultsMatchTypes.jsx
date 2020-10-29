@@ -6,7 +6,7 @@ import CloseIcon from '@material-ui/icons/Close'
 import DoneIcon from '@material-ui/icons/Done'
 import { makeStyles } from '@material-ui/core/styles'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
-import { defaultPadding } from '@cjo3/shared/react/theming'
+import { defaultPadding } from '@cjo3/shared/react/themes/theming'
 import { matchTypes } from './fields'
 import { types } from '../../store/types'
 

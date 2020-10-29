@@ -3,7 +3,7 @@ import { hydrate, render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { setChunkPublicPath } from '@cjo3/shared/react/helpers'
-import { AppElement } from './AppElement'
+import { AppWithTheme } from './AppWithTheme'
 import { setStore } from './store'
 
 // __webpack_public_path__ = setChunkPublicPath(
@@ -25,7 +25,7 @@ renderMethod(
   createElement(
     Provider,
     { store },
-    createElement(BrowserRouter, {}, AppElement)
+    createElement(BrowserRouter, {}, AppWithTheme)
   ),
   document.getElementById('app')
 )

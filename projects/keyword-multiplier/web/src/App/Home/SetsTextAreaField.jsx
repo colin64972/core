@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import classNames from 'classnames'
+import clsx from 'clsx'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 import Grid from '@material-ui/core/Grid'
 import ListIcon from '@material-ui/icons/List'
@@ -83,9 +83,7 @@ export const SetsTextAreaField = props => {
   }
 
   const setFadeInDirection = () => {
-    if (process.env.IS_SERVER) {
-      return window.innerWidth < 600 ? 'x' : 'y'
-    }
+    if (!process.env.IS_SERVER) return window.innerWidth < 600 ? 'x' : 'y'
     return 'x'
   }
 
@@ -103,7 +101,7 @@ export const SetsTextAreaField = props => {
             onClick={event =>
               toggleDisabledSet(props.field.name, props.field.value)
             }
-            className={classNames(classes.labelButton, {
+            className={clsx(classes.labelButton, {
               [classes.labelDisabled]: props.disabled,
               [classes.labelWithValue]: !props.disabled && props.field.value
             })}>
@@ -112,7 +110,7 @@ export const SetsTextAreaField = props => {
           </button>
         </label>
         <textarea
-          className={classNames(classes.textArea, {
+          className={clsx(classes.textArea, {
             [classes.textAreaDisabled]: props.disabled
           })}
           onChange={props.field.onChange}

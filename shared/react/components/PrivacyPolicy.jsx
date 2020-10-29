@@ -1,5 +1,5 @@
 import React from 'react'
-import classNames from 'classnames'
+import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
 import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
 import {
@@ -601,12 +601,9 @@ export const PrivacyPolicy = ({
           </Typography>
         </section>
 
-        <section className={classNames(classes.section, classes.secionSub)}>
+        <section className={clsx(classes.section, classes.secionSub)}>
           <Typography
-            className={classNames(
-              classes.sectionHeading,
-              classes.sectionSubHeading
-            )}>
+            className={clsx(classes.sectionHeading, classes.sectionSubHeading)}>
             Information about General Data Protection Regulation &#40;GDPR&#41;
           </Typography>
           <Typography className={classes.copy}>
@@ -617,10 +614,7 @@ export const PrivacyPolicy = ({
             being replicated or used in the wrong way.
           </Typography>
           <Typography
-            className={classNames(
-              classes.sectionHeading,
-              classes.sectionSubHeading
-            )}>
+            className={clsx(classes.sectionHeading, classes.sectionSubHeading)}>
             What is GDPR?
           </Typography>
           <Typography className={classes.copy}>
@@ -630,10 +624,7 @@ export const PrivacyPolicy = ({
             data.
           </Typography>
           <Typography
-            className={classNames(
-              classes.sectionHeading,
-              classes.sectionSubHeading
-            )}>
+            className={clsx(classes.sectionHeading, classes.sectionSubHeading)}>
             What is personal data?
           </Typography>
           <Typography className={classes.copy}>
@@ -669,10 +660,7 @@ export const PrivacyPolicy = ({
             </li>
           </ul>
           <Typography
-            className={classNames(
-              classes.sectionHeading,
-              classes.sectionSubHeading
-            )}>
+            className={clsx(classes.sectionHeading, classes.sectionSubHeading)}>
             Why is GDPR important?
           </Typography>
           <Typography className={classes.copy}>
@@ -686,10 +674,7 @@ export const PrivacyPolicy = ({
             beyond the requirements of this new regulation.
           </Typography>
           <Typography
-            className={classNames(
-              classes.sectionHeading,
-              classes.sectionSubHeading
-            )}>
+            className={clsx(classes.sectionHeading, classes.sectionSubHeading)}>
             Individual Data Subject&apos;s Rights &ndash; Data Access,
             Portability and Deletion
           </Typography>
@@ -712,12 +697,9 @@ export const PrivacyPolicy = ({
           </Typography>
         </section>
 
-        <section className={classNames(classes.section, classes.secionSub)}>
+        <section className={clsx(classes.section, classes.secionSub)}>
           <Typography
-            className={classNames(
-              classes.sectionHeading,
-              classes.sectionSubHeading
-            )}>
+            className={clsx(classes.sectionHeading, classes.sectionSubHeading)}>
             California Residents
           </Typography>
           <Typography className={classes.copy}>
@@ -768,12 +750,9 @@ export const PrivacyPolicy = ({
           </Typography>
         </section>
 
-        <section className={classNames(classes.section, classes.secionSub)}>
+        <section className={clsx(classes.section, classes.secionSub)}>
           <Typography
-            className={classNames(
-              classes.sectionHeading,
-              classes.sectionSubHeading
-            )}>
+            className={clsx(classes.sectionHeading, classes.sectionSubHeading)}>
             California Online Privacy Protection Act &#40;CalOPPA&#41;
           </Typography>
           <Typography className={classes.copy}>

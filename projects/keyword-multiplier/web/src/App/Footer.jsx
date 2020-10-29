@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Loadable from 'react-loadable'
-import { defaultPadding } from '@cjo3/shared/react/theming'
+import { defaultPadding } from '@cjo3/shared/react/themes/theming'
 import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
 import Grid from '@material-ui/core/Grid'
 import Link from '@material-ui/core/Link'

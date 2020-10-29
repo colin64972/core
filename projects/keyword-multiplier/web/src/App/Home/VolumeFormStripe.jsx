@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import clsx from 'clsx'
 import { Field } from 'formik'
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
@@ -155,7 +155,7 @@ export const VolumeFormStripe = () => {
               className={classes.formControl}>
               <InputLabel
                 htmlFor={`stripe-element-${fieldProps.field.name}`}
-                className={classNames(classes.inputLabel, {
+                className={clsx(classes.inputLabel, {
                   [classes.inputLabelShrink]: fieldIsDirty(fieldProps.meta)
                 })}>
                 Card Number
@@ -211,7 +211,7 @@ export const VolumeFormStripe = () => {
               className={classes.formControl}>
               <InputLabel
                 htmlFor={`stripe-element-${fieldProps.field.name}`}
-                className={classNames(classes.inputLabel, {
+                className={clsx(classes.inputLabel, {
                   [classes.inputLabelShrink]: fieldIsDirty(fieldProps.meta)
                 })}>
                 Card Expiry
@@ -267,7 +267,7 @@ export const VolumeFormStripe = () => {
               className={classes.formControl}>
               <InputLabel
                 htmlFor={`stripe-element-${fieldProps.field.name}`}
-                className={classNames(classes.inputLabel, {
+                className={clsx(classes.inputLabel, {
                   [classes.inputLabelShrink]: fieldIsDirty(fieldProps.meta)
                 })}>
                 Card Cvc

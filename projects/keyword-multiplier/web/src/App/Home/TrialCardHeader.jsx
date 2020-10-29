@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import clsx from 'clsx'
 import React from 'react'
 import { Chip, Grid, Typography, Tooltip } from '@material-ui/core'
 import AssignmentIcon from '@material-ui/icons/Assignment'
@@ -96,10 +96,7 @@ export const TrialCardHeader = ({
                 arrow>
                 <Chip
                   label={trial.billableKeywords.length}
-                  className={classNames(
-                    classes.countChip,
-                    classes.billableCount
-                  )}
+                  className={clsx(classes.countChip, classes.billableCount)}
                   classes={{
                     label: classes.chipLabel
                   }}
@@ -109,7 +106,7 @@ export const TrialCardHeader = ({
             <Tooltip title="Total Variations" placement="top-start" arrow>
               <Chip
                 label={trial.list.length}
-                className={classNames(classes.countChip, classes.listCount)}
+                className={clsx(classes.countChip, classes.listCount)}
                 classes={{
                   label: classes.chipLabel
                 }}
@@ -127,7 +124,7 @@ export const TrialCardHeader = ({
             {trial?.metrics && (
               <Chip
                 label="Metrics"
-                className={classNames(classes.countChip, classes.metricsChip)}
+                className={clsx(classes.countChip, classes.metricsChip)}
                 classes={{
                   label: classes.chipLabel
                 }}

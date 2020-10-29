@@ -1,5 +1,5 @@
 import gsap from 'gsap'
-import classNames from 'classnames'
+import clsx from 'clsx'
 import React, { useRef, useEffect, useLayoutEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import CloseIcon from '@material-ui/icons/Close'
@@ -266,10 +266,7 @@ export const Notice = () => {
           className={[classes.noticeBar, classes[bg]].join(' ')}
           ref={noticeBar}>
           <div
-            className={classNames(
-              classes.timeoutBar,
-              classes[`${bg}TimeoutBar`]
-            )}
+            className={clsx(classes.timeoutBar, classes[`${bg}TimeoutBar`])}
             ref={timeoutBar}
           />
           <div className={classes.noticeBarInner}>

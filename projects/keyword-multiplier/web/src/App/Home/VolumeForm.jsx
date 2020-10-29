@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import clsx from 'clsx'
 import { Form } from 'formik'
 import React from 'react'
 import { Button, Grid, Paper, Typography } from '@material-ui/core'
@@ -172,19 +172,19 @@ export const VolumeForm = ({
 
   return (
     <Form className={classes.form}>
-      <Paper className={classNames(classes.gridPosition1, classes.formSection)}>
+      <Paper className={clsx(classes.gridPosition1, classes.formSection)}>
         <Typography component="h5" className={classes.formSectionTitle}>
           Keyword List Review
         </Typography>
         <VolumeFormTrialReview trialId={trialId} />
       </Paper>
-      <Paper className={classNames(classes.gridPosition2, classes.formSection)}>
+      <Paper className={clsx(classes.gridPosition2, classes.formSection)}>
         <Typography component="h5" className={classes.formSectionTitle}>
           Keyword Metric Options
         </Typography>
         <VolumeFormKEOptions keOptions={keOptions} />
       </Paper>
-      <Paper className={classNames(classes.gridPosition3, classes.formSection)}>
+      <Paper className={clsx(classes.gridPosition3, classes.formSection)}>
         <Grid container justify="space-between" alignItems="center">
           <Typography component="h5" className={classes.formSectionTitle}>
             Payment Info <HttpsIcon className={classes.lockIcon} />
@@ -198,7 +198,7 @@ export const VolumeForm = ({
         <VolumeFormStripe />
       </Paper>
       <Paper
-        className={classNames(
+        className={clsx(
           classes.gridPosition4,
           classes.formSection,
           classes.pricingSection
@@ -206,16 +206,13 @@ export const VolumeForm = ({
         <div className={classes.pricingSticky}>
           <Typography
             component="h5"
-            className={classNames(
-              classes.formSectionTitle,
-              classes.pricingTitle
-            )}>
+            className={clsx(classes.formSectionTitle, classes.pricingTitle)}>
             Pricing
           </Typography>
           <VolumeFormPricing trialId={trialId} />
         </div>
       </Paper>
-      <Paper className={classNames(classes.gridPosition5, classes.formSection)}>
+      <Paper className={clsx(classes.gridPosition5, classes.formSection)}>
         <Typography component="h5" className={classes.formSectionTitle}>
           Terms &amp; Conditions
         </Typography>
@@ -232,7 +229,7 @@ export const VolumeForm = ({
             disabled={
               !formikProps.isValid || checkIfPristine(formikProps.touched)
             }
-            className={classNames(
+            className={clsx(
               classes.formActionButton,
               classes.formActionButtonSubmit
             )}>
@@ -249,7 +246,7 @@ export const VolumeForm = ({
             onClick={event => {
               customResetHandler(event, formikProps.setFieldValue)
             }}
-            className={classNames(
+            className={clsx(
               classes.formActionButton,
               classes.formActionButtonReset
             )}
@@ -261,7 +258,7 @@ export const VolumeForm = ({
             type="button"
             variant="contained"
             onClick={closeDialogHandler}
-            className={classNames(
+            className={clsx(
               classes.formActionButton,
               classes.formActionButtonClose
             )}>

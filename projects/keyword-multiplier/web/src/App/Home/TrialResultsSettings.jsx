@@ -13,7 +13,7 @@ import DeleteSweepIcon from '@material-ui/icons/DeleteSweep'
 import FileCopyIcon from '@material-ui/icons/FileCopy'
 import { withStyles, makeStyles } from '@material-ui/core/styles'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
-import { defaultPadding } from '@cjo3/shared/react/theming'
+import { defaultPadding } from '@cjo3/shared/react/themes/theming'
 import { whiteSpaceOptions } from './fields'
 import { types } from '../../store/types'
 

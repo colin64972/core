@@ -1,7 +1,7 @@
 import React from 'react'
 import { Formik } from 'formik'
 import { useDispatch } from 'react-redux'
-import { defaultPadding } from '@cjo3/shared/react/theming'
+import { defaultPadding } from '@cjo3/shared/react/themes/theming'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 import Hidden from '@material-ui/core/Hidden'
 import Grid from '@material-ui/core/Grid'

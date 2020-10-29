@@ -128,7 +128,7 @@ exports.setNodeConfig = (entry, outputPath, setFilePublicPath) => ({
     libraryTarget: 'commonjs2'
   },
   target: 'node',
-  optimization: { minimize: process.env.NODE_ENV === 'production' },
+  // optimization: { minimize: process.env.NODE_ENV === 'production' },
   devServer: {
     contentBase: outputPath,
     compress: true,

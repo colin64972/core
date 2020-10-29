@@ -1,45 +1,31 @@
 import { createElement } from 'react'
-import { render } from 'react-dom'
+import { hydrate, render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { ThemeProvider } from '@material-ui/core/styles'
-import { theme } from '@cjo3/shared/react/themes/keyword-multiplier'
-import Loadable from 'react-loadable'
-import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
-import { setStore } from './store'
+import { BrowserRouter } from 'react-router-dom'
 import { setChunkPublicPath } from '@cjo3/shared/react/helpers'
+import { AppWithTheme } from './AppWithTheme'
+import { setStore } from './store'
 
-console.log('%c theme', 'color: yellow; font-size: large', theme)
+// __webpack_public_path__ = setChunkPublicPath(
+//   `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/`
+// )
 
-__webpack_public_path__ = setChunkPublicPath(
-  `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/`
-)
+const preloadedState = window?.__PRELOADED_STATE__
 
-const store = setStore()
+let renderMethod = render
+let store = setStore()
 
-const AppLoadable = Loadable({
-  loader: () =>
-    import(
-      /* webpackChunkName: "chunk-App" */
-      /* webpackPrefetch: true */
-      './App'
-    ),
-  loading: () =>
-    createElement(BackDropScreen, {
-      backdrop: false,
-      isOpen: true,
-      spinner: true
-    }),
-  render: (loaded, props) => {
-    let Component = loaded.App
-    return createElement(Component, { ...props })
-  }
-})
+if (preloadedState) {
+  delete window.__PRELOADED_STATE__
+  renderMethod = hydrate
+  store = setStore(preloadedState)
+}
 
-render(
+renderMethod(
   createElement(
     Provider,
     { store },
-    createElement(ThemeProvider, { theme }, createElement(AppLoadable))
+    createElement(BrowserRouter, {}, AppWithTheme)
   ),
   document.getElementById('app')
 )
