@@ -1,66 +1,52 @@
+import colors from 'colors'
 import { WWW_HOST } from '@cjo3/shared/raw/constants/regex'
+import { issueRedirect, getPreRender, buildHtmlRes } from './helpers'
 
-export const rootHandler = async (event, context, callback) => {
-  const { method, querystring, uri } = event.Records[0].cf.request
+export const viewerRequest = async (event, context, callback) => {
+  console.log('LOG viewerRequest'.yellow, event.Records[0].cf.request)
+
+  const { method, uri, querystring } = event.Records[0].cf.request
 
   let { host } = event.Records[0].cf.request.headers
 
   host = host[0].value
 
-  console.log('LOG rootHandler', host, uri, querystring, method)
+  let markup, htmlRes, res
 
-  if (WWW_HOST.test(host))
-    return callback(null, {
-      status: '301',
-      statusDescription: 'redirect',
-      headers: {
-        location: [
-          {
-            key: 'Location',
-            value: `https://${process.env.HOST}${uri}${
-              querystring.length ? `?${querystring}` : ''
-            }`
-          }
-        ]
-      }
-    })
-
-  const content = `
-    <\!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="utf-8">
-        <title>Simple Lambda@Edge Static Content Response</title>
-      </head>
-      <body>
-        <h1>Req Params</h1>
-        <p><strong>method</strong> ${method}</p>
-        <p><strong>host</strong> ${host}</p>
-        <p><strong>uri</strong> ${uri}</p>
-        <p><strong>querystring</strong> ${querystring}</p>
-      </body>
-    </html>
-    `
-
-  const response = {
-    status: '200',
-    statusDescription: 'OK',
-    headers: {
-      'cache-control': [
-        {
-          key: 'Cache-Control',
-          value: 'max-age=100'
-        }
-      ],
-      'content-type': [
-        {
-          key: 'Content-Type',
-          value: 'text/html'
-        }
-      ]
-    },
-    body: content
+  if (WWW_HOST.test(host)) {
+    context.callbackWaitsForEmptyEventLoop = false
+    res = issueRedirect(method, uri, querystring)
+    return callback(null, res)
   }
 
-  return callback(null, response)
+  if (!uri.includes('/apps')) {
+    context.callbackWaitsForEmptyEventLoop = false
+    markup = `
+      <html>
+        <head>
+          <title>Request Details</title>
+        </head>
+        <body>
+          <h1>Request Details</h1>
+          <p><bold>Method</bold>&nbsp;${method}</p>
+          <p><bold>Host</bold>&nbsp;${host}</p>
+          <p><bold>URI</bold>&nbsp;${uri}</p>
+          <p><bold>Query String</bold>&nbsp;${querystring}</p>
+        </body>
+      </html>
+    `
+    htmlRes = buildHtmlRes(markup)
+    return callback(null, htmlRes)
+  }
+
+  try {
+    markup = await getPreRender(uri, process.env.APPS_LIST)
+
+    htmlRes = buildHtmlRes(markup)
+
+    return callback(null, htmlRes)
+  } catch (error) {
+    context.callbackWaitsForEmptyEventLoop = false
+    return callback(new Error(error.message))
+  }
 }

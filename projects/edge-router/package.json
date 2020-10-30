@@ -13,7 +13,9 @@
     "pro": "NODE_ENV=production sls offline",
     "deploy:dev": "NODE_ENV=development sls deploy",
     "deploy:pro": "NODE_ENV=production sls deploy",
-    "undeploy:pro": "NODE_ENV=production sls remove"
+    "undeploy:pro": "NODE_ENV=production sls remove",
+    "update": "NODE_ENV=production sls deploy --update-config",
+    "event": "NODE_ENV=production sls invoke local -f viewerRequest -p v1/events/non-www.json"
   },
   "devDependencies": {
     "@babel/core": "^7.11.5",
@@ -21,12 +23,10 @@
     "@cjo3/configs": "0.0.1",
     "@cjo3/shared": "0.0.1",
     "aws-sdk": "^2.745.0",
-    "axios": "^0.21.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-source-map-support": "^2.1.3",
+    "colors": "^1.4.0",
     "serverless-dotenv-plugin": "^3.0.0",
-    "serverless-offline": "^6.7.0",
-    "serverless-offline-edge-lambda": "^1.0.2",
     "serverless-webpack": "^5.3.4"
   }
 }

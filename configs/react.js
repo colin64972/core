@@ -128,13 +128,6 @@ exports.setPreRenderConfig = (entry, outputPath, setFilePublicPath) => ({
     libraryTarget: 'commonjs2'
   },
   target: 'node',
-  // optimization: { minimize: process.env.NODE_ENV === 'production' },
-  devServer: {
-    contentBase: outputPath,
-    compress: true,
-    port: 8002,
-    writeToDisk: true
-  },
   performance: { hints: 'warning' },
   resolve: {
     extensions: [

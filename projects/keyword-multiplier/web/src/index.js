@@ -6,9 +6,9 @@ import { setChunkPublicPath } from '@cjo3/shared/react/helpers'
 import { AppWithTheme } from './AppWithTheme'
 import { setStore } from './store'
 
-// __webpack_public_path__ = setChunkPublicPath(
-//   `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/`
-// )
+__webpack_public_path__ = setChunkPublicPath(
+  `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/`
+)
 
 const preloadedState = window?.__PRELOADED_STATE__
 
