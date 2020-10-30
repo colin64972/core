@@ -8,17 +8,16 @@ provider:
   region: ${env:REGION}
   stackName: ${env:SLS_SERVICE_NAME}
   role: ${env:ACCESS_ROLE}
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - s3:GetObject
-      Resource:
-        - arn:aws:s3:${env:CDN_BUCKET}
 
 functions:
   viewerRequest:
     name: ${env:SLS_SERVICE_NAME}-viewerRequest
     handler: v1/handlers.viewerRequest
+    memorySize: 128
+    timeout: 5
+  originRequest:
+    name: ${env:SLS_SERVICE_NAME}-originRequest
+    handler: v1/handlers.originRequest
     memorySize: 128
     timeout: 5
 

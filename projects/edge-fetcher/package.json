@@ -1,5 +1,5 @@
 {
-  "name": "@cjo3/edge-router",
+  "name": "@cjo3/edge-fetcher",
   "version": "0.0.1",
   "main": "index.js",
   "repository": "git@github.com:cjo3/primary.git",
@@ -15,7 +15,8 @@
     "deploy:pro": "NODE_ENV=production sls deploy",
     "undeploy:pro": "NODE_ENV=production sls remove",
     "update": "NODE_ENV=production sls deploy --update-config",
-    "event": "NODE_ENV=production sls invoke local -f viewerRequest -p v1/events/non-www.json"
+    "event": "NODE_ENV=production sls invoke local -f viewerRequest -p v1/events/non-www.json",
+    "invalidate": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").invalidate(require(\"./cliParams\").invalidate)'"
   },
   "devDependencies": {
     "@babel/core": "^7.11.5",
