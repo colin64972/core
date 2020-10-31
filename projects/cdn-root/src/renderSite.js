@@ -2,6 +2,7 @@ require('colors')
 const pug = require('pug')
 const path = require('path')
 const fs = require('fs')
+const minify = require('html-minifier').minify
 
 const pages = require('./pages')
 
@@ -22,7 +23,10 @@ try {
 
   pages.forEach(page => {
     const data = pug.renderFile(page.templatePath, page.locals)
-    fs.writeFileSync(`${outputFolder}/${page.fileName}`, data)
+    const markup = minify(data, {
+      minifyCSS: true
+    })
+    fs.writeFileSync(`${outputFolder}/${page.fileName}`, markup)
   })
 
   console.log('render pass'.green)

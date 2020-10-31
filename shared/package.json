@@ -8,6 +8,7 @@
   "private": true,
   "prettier": "@cjo3/configs/prettier",
   "devDependencies": {
-    "@cjo3/configs": "0.0.1"
+    "@cjo3/configs": "0.0.1",
+    "colors": "^1.4.0"
   }
 }

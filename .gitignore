@@ -4,6 +4,7 @@ dist
 distPreRenders
 server2
 node_modules
+events
 
 # files
 .env

@@ -120,7 +120,7 @@ exports.setWebConfig = (
   ]
 })
 
-exports.setNodeConfig = (entry, outputPath, setFilePublicPath) => ({
+exports.setPreRenderConfig = (entry, outputPath, setFilePublicPath) => ({
   entry,
   output: {
     path: outputPath,
@@ -128,13 +128,6 @@ exports.setNodeConfig = (entry, outputPath, setFilePublicPath) => ({
     libraryTarget: 'commonjs2'
   },
   target: 'node',
-  // optimization: { minimize: process.env.NODE_ENV === 'production' },
-  devServer: {
-    contentBase: outputPath,
-    compress: true,
-    port: 8002,
-    writeToDisk: true
-  },
   performance: { hints: 'warning' },
   resolve: {
     extensions: [

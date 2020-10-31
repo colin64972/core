@@ -10,11 +10,16 @@ provider:
   role: ${env:ACCESS_ROLE}
 
 functions:
-  rootHandler:
-    name: ${env:SLS_SERVICE_NAME}-rootHandler
-    handler: v1/handlers.rootHandler
+  viewerRequest:
+    name: ${env:SLS_SERVICE_NAME}-viewerRequest
+    handler: v1/handlers.viewerRequest
     memorySize: 128
-    timeout: 5    
+    timeout: 5
+  originRequest:
+    name: ${env:SLS_SERVICE_NAME}-originRequest
+    handler: v1/handlers.originRequest
+    memorySize: 128
+    timeout: 5
 
 configValidationMode: warn
 

@@ -1,4 +1,5 @@
 const awsCli = require('aws-cli-js')
+const colors = require('colors')
 const Aws = awsCli.Aws
 
 const aws = new Aws()
@@ -43,14 +44,30 @@ const sync = async ({ srcPath, s3Path, dryrun = true, excludes = [] }) => {
 
     if (!result.raw) throw Error('no raw results')
 
-    console.log('PASS', result.raw)
+    console.log('PASS sync'.green, result.raw)
   } catch (error) {
-    return process.exit()
+    console.log('FAIL sync'.red, error)
   }
+  return process.exit()
+}
+
+const invalidate = async ({ id, paths }) => {
+  console.log('params'.yellow, id, paths)
+  try {
+    let params = `cloudfront create-invalidation --distribution-id ${id} --paths "${paths}"`
+
+    const result = await aws.command(params)
+
+    console.log('PASS invalidate'.green, result.raw)
+  } catch (error) {
+    console.log('FAIL invalidate'.red, error)
+  }
+  return process.exit()
 }
 
 module.exports = {
   create,
   rm,
-  sync
+  sync,
+  invalidate
 }

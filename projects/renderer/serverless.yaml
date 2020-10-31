@@ -9,6 +9,9 @@ provider:
   stackName: ${env:SLS_SERVICE_NAME}
   endpointType: regional
   role: ${env:ACCESS_ROLE}
+  deploymentBucket:
+    name: ${env:SLS_SERVICE_NAME}
+    deploymentPrefix: serverless
   httpApi:
     name: ${env:SLS_SERVICE_NAME}
     payload: '2.0'
@@ -18,8 +21,10 @@ provider:
         - s3.ListObjects
         - s3:GetObject
         - s3:PutObject
+        - kms:Decrypt
       Resource:
-        - arn:aws:s3:${env:CDN_BUCKET}
+        # - arn:aws:s3:${env:CDN_BUCKET}
+        - arn:aws:s3:${env:PRERENDERS_BUCKET}
     # - Effect: Allow
     #   Action:
     #     - dynamodb:DeleteItem

@@ -1,4 +1,3 @@
-const path = require('path')
 const slsw = require('serverless-webpack')
 const setServerlessConfig = require('@cjo3/configs/serverless')
 const { EnvironmentPlugin } = require('webpack')
@@ -8,7 +7,7 @@ const serverlessConfig = setServerlessConfig(slsw.lib.entries, true)
 
 serverlessConfig.plugins = [
   new EnvironmentPlugin({
-    HOST: localEnv.parsed.HOST
+    NEW_HOST: localEnv.parsed.NEW_HOST
   })
 ]
 

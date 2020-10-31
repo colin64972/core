@@ -1,27 +1,20 @@
 require('dotenv').config()
 
-exports.createParams = {
-  // dryrun: false,
-  bucketName: process.env.CDN_BUCKET,
-  region: process.env.S3_REGION,
-  acl: 'public-read'
-}
-
-exports.webParams = {
+exports.web = {
   // dryrun: false,
   srcPath: 'dist',
   s3Path: `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}`,
   excludes: ['*.html']
 }
 
-exports.nodeParams = {
+exports.preRenders = {
   // dryrun: false,
-  srcPath: 'distNode',
-  s3Path: `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/node`,
-  excludes: ['*.html']
+  srcPath: 'distPreRenders',
+  s3Path: `${process.env.PRERENDERS_BUCKET}`,
+  includes: ['*.js']
 }
 
-exports.deleteParams = {
-  // dryrun: false,
-  keyPath: `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}`
+exports.invalidate = {
+  id: process.env.CDN_ID,
+  paths: '/*'
 }

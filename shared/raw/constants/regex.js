@@ -5,5 +5,6 @@ module.exports = {
   IP_ADDRESS: /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/,
   LINE_INCLUDES_TLD: /(.*)(\.[a-z]{1}[a-z0-9\-]{1,23})/gi,
   APP_PATH_MATCH: /^(\/apps\/)([\w\-]+)(.*)$/i,
-  WWW_HOST: /^(https?\:\/{2})?[w]{3}\./i
+  WWW_HOST: /^(https?\:\/{2})?[w]{3}\./i,
+  FILE_WITH_EXT: /\.[a-z]{3,}$/i
 }

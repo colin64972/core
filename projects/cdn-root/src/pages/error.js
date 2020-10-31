@@ -35,7 +35,7 @@ module.exports = {
   templatePath: path.resolve('src', 'templates', 'error.pug'),
   locals: {
     title: 'Error',
-    cdnUrl: process.env.CDN_URL,
+    cdnUrl: `https://${process.env.CDN_BUCKET}`,
     heading: `Error`,
     message: 'Sorry, something went wrong',
     styleSheet

@@ -24,7 +24,7 @@ const styles = {
 
 const styleSheet = sheetGenerator(styles)
 
-const cdnUrl = process.env.CDN_URL
+const cdnUrl = `https://${process.env.CDN_BUCKET}`
 
 module.exports = {
   fileName: 'index.html',

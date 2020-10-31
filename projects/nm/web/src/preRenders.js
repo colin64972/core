@@ -2,7 +2,20 @@ import { AppWithTheme } from './AppWithTheme'
 import { generatePreRenders } from '@cjo3/shared/react/helpers'
 import { setStore } from './store'
 
-const pages = ['/', '/feedback', '/*']
+const pages = [
+  {
+    name: 'home',
+    path: '/'
+  },
+  {
+    name: 'feedback',
+    path: '/feedback'
+  },
+  {
+    name: 'error',
+    path: '/*'
+  }
+]
 
 let renders
 
