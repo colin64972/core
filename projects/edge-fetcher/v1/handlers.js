@@ -1,33 +1,28 @@
-import colors from 'colors'
+// import colors from 'colors'
 import { WWW_HOST } from '@cjo3/shared/raw/constants/regex'
-import { issueRedirect, getPreRender, buildHtmlRes } from './helpers'
+import { generateRedirect, buildHtmlRes } from './helpers'
 
 export const viewerRequest = (event, context, callback) => {
-  console.log('LOG viewerRequest'.yellow, event.Records[0].cf.request)
-
   context.callbackWaitsForEmptyEventLoop = false
 
-  const { method, uri, querystring } = event.Records[0].cf.request
+  const { request } = event.Records[0].cf
 
-  let { host } = event.Records[0].cf.request.headers
+  if (!WWW_HOST.test(request.headers.host[0].value))
+    return callback(null, request)
 
-  host = host[0].value
+  const { uri, querystring } = request
 
-  let res = {
-    status: 204,
-    statusDescription: 'leaving to origin request'
-  }
-
-  if (WWW_HOST.test(host)) {
-    res = issueRedirect(method, uri, querystring)
-    return callback(null, res)
-  }
+  const res = generateRedirect(
+    `https://${process.env.NEW_HOST}${uri}${
+      querystring.length ? `?${querystring}` : ''
+    }`
+  )
 
   return callback(null, res)
 }
 
 export const originRequest = (event, context, callback) => {
-  console.log('LOG originRequest', event.Records[0].cf.request)
+  const { request, response } = event.Records[0].cf
 
   context.callbackWaitsForEmptyEventLoop = false
 
@@ -38,14 +33,18 @@ export const originRequest = (event, context, callback) => {
       </head>
       <body>
         <h1>Origin Request</h1>
-        <p>${JSON.stringify(event.Records[0].cf.request, null, 2)}</p>
+        <p>${JSON.stringify(request, null, 2)}</p>
+        <h1>Origin Response</h1>
+        <p>${JSON.stringify(response, null, 2)}</p>
       </body>
     </html>
   `
 
   const htmlRes = buildHtmlRes(markup)
 
-  return callback(null, htmlRes)
+  // return callback(null, htmlRes)
+
+  return callback(null, request)
 }
 
 // if (!uri.includes('/apps')) {
@@ -78,3 +77,10 @@ export const originRequest = (event, context, callback) => {
 //   context.callbackWaitsForEmptyEventLoop = false
 //   return callback(new Error(error.message))
 // }
+
+// response.headers['strict-transport-security'] = [
+//   {
+//     key: 'strict-transport-security',
+//     value: 'max-age=1'
+//   }
+// ]

@@ -8,14 +8,10 @@
   "private": true,
   "prettier": "@cjo3/configs/prettier",
   "scripts": {
-    "debug": "NODE_ENV=development SLS_DEBUG=* sls offline",
-    "dev": "NODE_ENV=development sls offline start --port",
-    "pro": "NODE_ENV=production sls offline",
-    "deploy:dev": "NODE_ENV=development sls deploy",
-    "deploy:pro": "NODE_ENV=production sls deploy",
-    "undeploy:pro": "NODE_ENV=production sls remove",
+    "deploy": "NODE_ENV=production sls deploy",
+    "undeploy": "NODE_ENV=production sls remove",
     "update": "NODE_ENV=production sls deploy --update-config",
-    "event": "NODE_ENV=production sls invoke local -f viewerRequest -p v1/events/non-www.json",
+    "event": "NODE_ENV=production sls invoke local -f viewerRequest -p v1/events/asdf.json",
     "invalidate": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").invalidate(require(\"./cliParams\").invalidate)'"
   },
   "devDependencies": {
