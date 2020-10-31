@@ -1,6 +1,9 @@
-// import colors from 'colors'
+import colors from 'colors'
 import { WWW_HOST } from '@cjo3/shared/raw/constants/regex'
 import { generateRedirect, buildHtmlRes } from './helpers'
+import { splitAppsList, parseAppPage } from '@cjo3/shared/serverless/helpers'
+
+const appsList = splitAppsList(process.env.APPS_LIST)
 
 export const viewerRequest = (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = false
@@ -24,63 +27,16 @@ export const viewerRequest = (event, context, callback) => {
 export const originRequest = (event, context, callback) => {
   const { request, response } = event.Records[0].cf
 
-  context.callbackWaitsForEmptyEventLoop = false
+  const host = request.headers.host[0].value
+  const { uri, querystring } = request
+  const { app, page, path, file } = parseAppPage(uri)
 
-  const markup = `
-    <html>
-      <head>
-        <title>Origin Request</title>
-      </head>
-      <body>
-        <h1>Origin Request</h1>
-        <p>${JSON.stringify(request, null, 2)}</p>
-        <h1>Origin Response</h1>
-        <p>${JSON.stringify(response, null, 2)}</p>
-      </body>
-    </html>
-  `
+  if (file) {
+    request.uri = `${path}${file}`
+    return callback(null, request)
+  }
 
-  const htmlRes = buildHtmlRes(markup)
+  if (!appsList.includes(app)) return callback(new Error('no such app'))
 
-  // return callback(null, htmlRes)
-
-  return callback(null, request)
+  // return callback(null, request)
 }
-
-// if (!uri.includes('/apps')) {
-//   context.callbackWaitsForEmptyEventLoop = false
-//   markup = `
-//     <html>
-//       <head>
-//         <title>Request Details</title>
-//       </head>
-//       <body>
-//         <h1>Request Details</h1>
-//         <p><bold>Method</bold>&nbsp;${method}</p>
-//         <p><bold>Host</bold>&nbsp;${host}</p>
-//         <p><bold>URI</bold>&nbsp;${uri}</p>
-//         <p><bold>Query String</bold>&nbsp;${querystring}</p>
-//       </body>
-//     </html>
-//   `
-//   htmlRes = buildHtmlRes(markup)
-//   return callback(null, htmlRes)
-// }
-
-// try {
-//   markup = await getPreRender(uri, process.env.APPS_LIST)
-
-//   htmlRes = buildHtmlRes(markup)
-
-//   return callback(null, htmlRes)
-// } catch (error) {
-//   context.callbackWaitsForEmptyEventLoop = false
-//   return callback(new Error(error.message))
-// }
-
-// response.headers['strict-transport-security'] = [
-//   {
-//     key: 'strict-transport-security',
-//     value: 'max-age=1'
-//   }
-// ]

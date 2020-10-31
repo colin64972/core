@@ -11,7 +11,8 @@
     "deploy": "NODE_ENV=production sls deploy",
     "undeploy": "NODE_ENV=production sls remove",
     "update": "NODE_ENV=production sls deploy --update-config",
-    "event": "NODE_ENV=production sls invoke local -f viewerRequest -p v1/events/asdf.json",
+    "vr": "NODE_ENV=production sls invoke local -f viewerRequest -p v1/events/viewerRequest.json",
+    "or": "NODE_ENV=production sls invoke local -f originRequest -p v1/events/originRequest.json",
     "invalidate": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").invalidate(require(\"./cliParams\").invalidate)'"
   },
   "devDependencies": {
