@@ -10,7 +10,7 @@ const pages = [
   },
   {
     name: 'error',
-    path: `${process.env.APP_ROOT_PATH}/error`
+    path: `${process.env.APP_ROOT_PATH}/*`
   }
 ]
 

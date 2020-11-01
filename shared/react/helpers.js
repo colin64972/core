@@ -51,10 +51,8 @@ export const copyToClipboard = data => {
 export const setChunkPublicPath = path =>
   process.env.NODE_ENV === 'production' ? path : ''
 
-export const switchLinkRoutePath = (devPath, prodPath) => {
-  if (process.env.IS_SERVER) return devPath
-  return process.env.NODE_ENV === 'production' ? prodPath : devPath
-}
+export const switchLinkRoutePath = (devPath, prodPath) =>
+  process.env.NODE_ENV === 'production' ? prodPath : devPath
 
 export const removeAppUrlPrefix = (path, prefix) => {
   let result = path.replace(prefix, '')
@@ -107,8 +105,6 @@ const renderPage = (path, app, store) => {
     )
   )
 
-  console.log('----------------->', render)
-
   const html = render
   const css = sheets.toString()
   const state = store.getState()
@@ -120,10 +116,9 @@ export const generatePreRenders = (pages, app, store) =>
   pages.reduce((acc, cur) => {
     let temp = acc
 
-    const renderedPage = renderPage(cur, app, store)
+    const renderedPage = renderPage(cur.path, app, store)
 
     temp[cur.name] = {
-      path: cur.path,
       html: renderedPage.html,
       css: renderedPage.css,
       state: renderedPage.state
