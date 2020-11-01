@@ -28,7 +28,7 @@ const rm = async ({ keyPath, dryrun = true }) => {
   }
 }
 
-const sync = async ({ srcPath, s3Path, dryrun = true, excludes = [] }) => {
+const sync = async ({ srcPath, s3Path, dryrun = false, excludes = [] }) => {
   try {
     let params = `s3 sync ${srcPath} s3://${s3Path}`
 

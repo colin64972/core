@@ -5,24 +5,6 @@ export const ipMock = {
   }
 }
 
-export const ipGeoMock = {
-  status: 200,
-  data: {
-    ip: '162.221.202.17',
-    type: 'ipv4',
-    continent_code: 'NA',
-    continent_name: 'North America',
-    country_code: 'CA',
-    country_name: 'Canada',
-    region_code: 'BC',
-    region_name: 'British Columbia',
-    city: 'Coquitlam',
-    zip: 'V3B 1A1',
-    latitude: 49.28226089477539,
-    longitude: -122.79740142822266
-  }
-}
-
 export const optionsMock = {
   status: 200,
   data: {

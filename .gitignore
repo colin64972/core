@@ -2,12 +2,13 @@
 .serverless
 dist
 distPreRenders
-server2
 node_modules
 events
+site-configs
 
 # files
 .env
 *.DS_Store
 *.lock
 *.log
+templateLocals.js

@@ -177,7 +177,7 @@ export const Footer = () => {
         <Grid item xs={12} sm={6}>
           <nav className={classes.footerNav}>
             <Link
-              href={switchLinkRoutePath('/', process.env.APP_ROOT_PATH)}
+              href={process.env.APP_ROOT_PATH}
               className={classes.navButton}>
               <WebIcon className={classes.menuItemIcon} />
               Home

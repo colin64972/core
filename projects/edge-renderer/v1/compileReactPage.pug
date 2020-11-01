@@ -1,0 +1,21 @@
+- const gaUrl = `https://www.googletagmanager.com/gtag/js?id=${gaTag}`
+
+doctype html
+html(lang="en")
+  head
+    script(src=gaUrl)
+    script window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments)}; gtag('js', new Date()); gtag('config', '#{gaTag}');
+    title=title
+    meta(charset="UTF-8")
+    meta(name="viewport", content="minimum-scale=1, initial-scale=1, width=device-width")
+    meta(name="description" content=metaDescription)
+    meta(name="robots" content=robots)
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    link(rel="icon" type="image/x-icon" href=faviconHref)
+    link(rel="canonical" href=canonical)
+    style !{appStyle}
+  body
+    #app !{appMarkup}
+each bundle in bundles
+  script(src=bundle defer)
+script#preloaded-state window.__PRELOADED_STATE__ = !{JSON.stringify(appState)}

@@ -1,14 +1,14 @@
 require('dotenv').config()
 
 exports.web = {
-  // dryrun: false,
+  // dryrun: true,
   srcPath: 'dist',
   s3Path: `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}`,
   excludes: ['*.html']
 }
 
 exports.preRenders = {
-  // dryrun: false,
+  // dryrun: true,
   srcPath: 'distPreRenders',
   s3Path: `${process.env.PRERENDERS_BUCKET}`,
   includes: ['*.js']
