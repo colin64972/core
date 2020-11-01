@@ -48,9 +48,6 @@ export const copyToClipboard = data => {
   }
 }
 
-export const setChunkPublicPath = path =>
-  process.env.NODE_ENV === 'production' ? path : ''
-
 export const switchLinkRoutePath = (devPath, prodPath) =>
   process.env.NODE_ENV === 'production' ? prodPath : devPath
 
