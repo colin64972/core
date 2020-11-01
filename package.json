@@ -9,8 +9,14 @@
   "workspaces": {
     "packages": [
       "configs",
-      "projects/**",
+      "projects/*",
       "shared"
+    ],
+    "nohoist": [
+      "**/html-minifier", "**/html-minifier/**"
     ]
+  },
+  "scripts": {
+    "clean": "./clean.sh"
   }
 }

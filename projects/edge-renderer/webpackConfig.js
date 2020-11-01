@@ -12,8 +12,9 @@ const serverlessConfig = setServerlessConfig(slsw.lib.entries, true)
 
 serverlessConfig.plugins = [
   new EnvironmentPlugin({
+    NEW_HOST: localEnv.parsed.NEW_HOST,
     APPS_LIST: sharedEnv.parsed.APPS_LIST,
-    CDN_URL: localEnv.parsed.CDN_URL
+    PRERENDERS_BUCKET: localEnv.parsed.PRERENDERS_BUCKET
   })
 ]
 
