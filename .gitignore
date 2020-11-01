@@ -2,9 +2,9 @@
 .serverless
 dist
 distPreRenders
-server2
 node_modules
 events
+hidden
 
 # files
 .env
