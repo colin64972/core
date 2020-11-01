@@ -4,7 +4,7 @@ dist
 distPreRenders
 node_modules
 events
-hidden
+site-configs
 
 # files
 .env
