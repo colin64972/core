@@ -1,3 +1,5 @@
+- const gaUrl = `https://www.googletagmanager.com/gtag/js?id=${gaTag}`
+
 doctype html
 html(lang="en")
   head
@@ -9,6 +11,8 @@ html(lang="en")
     style !{appStyle}
   body
     #app !{appMarkup}
-script window.__PRELOADED_STATE__ = !{JSON.stringify(appState)}
 each bundle in bundles
   script(src=bundle defer)
+script window.__PRELOADED_STATE__ = !{JSON.stringify(appState)}
+script(src=gaUrl defer)
+script window.dataLayer = window.dataLayer || [] function gtag(){dataLayer.push(arguments)} gtag('js', new Date()) gtag('config', '#{gaTag}')

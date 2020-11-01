@@ -11,4 +11,4 @@ events
 *.DS_Store
 *.lock
 *.log
-locals.js
+templateLocals.js

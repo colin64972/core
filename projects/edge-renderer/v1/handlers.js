@@ -2,8 +2,7 @@ import colors from 'colors'
 import { WWW_HOST } from '@cjo3/shared/raw/constants/regex'
 import { generateRedirect, buildHtmlRes } from './helpers'
 import { splitAppsList, parseAppPage } from '@cjo3/shared/serverless/helpers'
-import compileReactPage from './templates/compileReactPage.pug'
-import { templateLocals } from './templates/locals'
+import compileReactPage from './compileReactPage.pug'
 import AWS from 'aws-sdk'
 
 const s3 = new AWS.S3({
@@ -37,11 +36,9 @@ export const originRequest = async (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = true
 
   const { request, response } = event.Records[0].cf
-  // console.log('LOG request'.yellow, request)
 
   const { uri, querystring } = request
   const { app, page, path, file } = parseAppPage(uri, appsList)
-  // console.log('LOG app, page, path, file'.yellow, app, page, path, file)
 
   if (file) {
     context.callbackWaitsForEmptyEventLoop = false
@@ -55,23 +52,29 @@ export const originRequest = async (event, context, callback) => {
   }
 
   try {
-    const s3Req = await s3
+    const rendersReq = await s3
       .getObject({
         Bucket: process.env.PRERENDERS_BUCKET,
         Key: `${app}.js`
       })
       .promise()
-    // console.log('LOG s3Req'.yellow, s3Req)
 
-    const preRendersFile = s3Req.Body.toString()
+    const preRendersFile = rendersReq.Body.toString()
 
     const preRenderedPages = eval(preRendersFile).preRenders
 
-    // console.log('LOG preRenderedPages'.yellow, preRenderedPages)
-
     const { html, css, state } = preRenderedPages[page]
 
-    // console.log('LOG html, css, state'.yellow, html, css, state)
+    const templateLocalsReq = await s3
+      .getObject({
+        Bucket: process.env.PRERENDERS_BUCKET,
+        Key: 'templateLocals.js'
+      })
+      .promise()
+
+    const templateLocalsFile = templateLocalsReq.Body.toString()
+
+    const templateLocals = eval(templateLocalsFile)
 
     const pageMarkup = compileReactPage({
       ...templateLocals[app][page],
@@ -79,8 +82,6 @@ export const originRequest = async (event, context, callback) => {
       appMarkup: html,
       appState: state
     })
-
-    // console.log('LOG pageMarkup'.yellow, pageMarkup)
 
     return import(
       /* webpackChunkName: "chunk~html-minifier" */
