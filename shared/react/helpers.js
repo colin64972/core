@@ -51,10 +51,10 @@ export const copyToClipboard = data => {
 export const switchLinkRoutePath = (devPath, prodPath) =>
   process.env.NODE_ENV === 'production' ? prodPath : devPath
 
-export const removeAppUrlPrefix = (path, prefix) => {
+export const removeAppUrlPrefix = (prefix, path) => {
   let result = path.replace(prefix, '')
   if (result === '') return '/'
-  return result
+  return result.replace(/\/{2,}/g, '/')
 }
 
 export const setTracker = gaTag => {
@@ -63,6 +63,7 @@ export const setTracker = gaTag => {
     pageHit: () => {},
     eventHit: () => {}
   }
+
   if (!gaTag) return tracker
 
   const config = {
@@ -70,13 +71,10 @@ export const setTracker = gaTag => {
   }
 
   tracker.initialize = () => ReactGA.initialize(config.gaTag)
-  tracker.pageHit = (pathname, search, rootPath) => {
-    const path = removeAppUrlPrefix(pathname, rootPath)
-    ReactGA.pageview(`${path}${search}`)
-  }
-  tracker.eventHit = () => {
-    console.log('%c ga eventHit', 'color: yellow; font-size: large')
-  }
+  tracker.pageHit = (rootPath, pathname) =>
+    ReactGA.pageview(removeAppUrlPrefix(rootPath, pathname))
+  tracker.eventHit = () => {}
+
   return tracker
 }
 

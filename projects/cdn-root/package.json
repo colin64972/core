@@ -9,7 +9,7 @@
   "prettier": "@cjo3/configs/prettier",
   "scripts": {
     "render": "node src/renderSite.js",
-    "sync:web": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./s3Params\").web)'"
+    "sync:web": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").web)'"
   },
   "devDependencies": {
     "@cjo3/configs": "0.0.1",
