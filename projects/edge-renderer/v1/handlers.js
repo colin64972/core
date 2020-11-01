@@ -2,6 +2,7 @@ import colors from 'colors'
 import { WWW_HOST } from '@cjo3/shared/raw/constants/regex'
 import { generateRedirect, buildHtmlRes } from './helpers'
 import { splitAppsList, parseAppPage } from '@cjo3/shared/serverless/helpers'
+import { minify } from 'html-minifier'
 import compileReactPage from './compileReactPage.pug'
 import AWS from 'aws-sdk'
 
@@ -83,31 +84,13 @@ export const originRequest = async (event, context, callback) => {
       appState: state
     })
 
-    return import(
-      /* webpackChunkName: "chunk~html-minifier" */
-      /* webpackMode: "lazy" */
-      'html-minifier'
-    )
-      .then(importModule => {
-        console.log('LOG importModule'.yellow, importModule)
-        const { minify } = importModule
+    const minifiedMarkup = minify(pageMarkup, {
+      minifyCSS: true
+    })
 
-        const minifiedMarkup = minify(pageMarkup, {
-          minifyCSS: true
-        })
+    const htmlRes = buildHtmlRes(minifiedMarkup)
 
-        console.log('LOG minifiedMarkup'.yellow, minifiedMarkup)
-
-        const htmlRes = buildHtmlRes(minifiedMarkup)
-
-        console.log('LOG htmlRes'.yellow, htmlRes)
-
-        return callback(null, htmlRes)
-      })
-      .catch(error => {
-        console.error('ERROR catch error'.yellow, error)
-        throw error
-      })
+    return callback(null, htmlRes)
   } catch (error) {
     console.error('ERROR originRequest'.yellow, error)
     return callback(error)
