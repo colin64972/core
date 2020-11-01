@@ -18,4 +18,4 @@ html(lang="en")
     #app !{appMarkup}
 each bundle in bundles
   script(src=bundle defer)
-script window.__PRELOADED_STATE__ = !{JSON.stringify(appState)}
+script#preloaded-state window.__PRELOADED_STATE__ = !{JSON.stringify(appState)}

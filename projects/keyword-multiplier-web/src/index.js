@@ -15,6 +15,8 @@ if (preloadedState) {
   delete window.__PRELOADED_STATE__
   renderMethod = hydrate
   store = setStore(preloadedState)
+  const stateElement = document.getElementById('preloaded-state')
+  stateElement.remove()
 }
 
 renderMethod(
