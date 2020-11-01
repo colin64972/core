@@ -39,5 +39,8 @@
     "serverless-offline": "^6.7.0",
     "serverless-webpack": "^5.3.4",
     "stripe": "^8.107.0"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1"
   }
 }

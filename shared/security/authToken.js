@@ -1,13 +1,15 @@
 import crypto from 'crypto'
 import jwt from 'jsonwebtoken'
 
-export const createAuthHash = secret =>
-  crypto.createHmac('sha256', secret).digest('hex')
+export const createAuthHash = content =>
+  crypto.createHmac('sha256', content).digest('hex')
 
-export const createAuthToken = (secret, key) => {
-  const authHash = createAuthHash(secret)
+export const createAuthToken = (payloadSecret, jwtSecret) => {
+  const payload = {
+    secret: createAuthHash(payloadSecret)
+  }
 
-  const token = jwt.sign(authHash, key)
+  const token = jwt.sign(payload, jwtSecret, { expiresIn: 30 })
 
-  return token
+  return `Bearer ${token}`
 }

@@ -16,21 +16,29 @@ export const fetchIpAddress = async () => {
   return res.data.ip
 }
 
-const authToken = createAuthToken(
-  process.env.AUTH_SECRET,
-  process.env.JWT_PRIVATE_KEY
-)
-
-const options = {
+const otherHeaders = {
   headers: {
-    authorization: `Bearer ${authToken}`,
     accept: 'application/json'
   }
 }
 
+const addAuthHeaderToOptions = options => ({
+  headers: {
+    ...options.headers,
+    authorization: createAuthToken(
+      process.env.AUTH_SECRET,
+      process.env.JWT_PRIVATE_KEY
+    )
+  }
+})
+
 export const createTrial = async payload => {
   if (process.env.USE_MOCKS) return createTrialMock
-  const res = await post(`${process.env.API_URL}/trials`, payload, options)
+  const res = await post(
+    `${process.env.API_URL}/trials`,
+    payload,
+    addAuthHeaderToOptions(otherHeaders)
+  )
   return res
 }
 
@@ -45,7 +53,7 @@ export const fetchKeData = async resource => {
   }
   const res = await get(
     `${process.env.API_URL}/ke?resource=${resource}`,
-    options
+    addAuthHeaderToOptions(otherHeaders)
   )
   return res
 }
@@ -67,7 +75,7 @@ export const makePreOrder = async (
       dataSource,
       readableKeOptions
     },
-    options
+    addAuthHeaderToOptions(otherHeaders)
   )
   return res.data
 }
@@ -89,7 +97,7 @@ export const fetchKeVolumes = async (
       currency,
       dataSource
     },
-    options
+    addAuthHeaderToOptions(otherHeaders)
   )
 
   if (res.status === 200) return res.data
@@ -99,7 +107,7 @@ export const postLowCreditAlert = async credits => {
   const res = await post(
     `${process.env.API_URL}/ke/low-credits`,
     { credits },
-    options
+    addAuthHeaderToOptions(otherHeaders)
   )
   if (res.status === 202) return true
   return false

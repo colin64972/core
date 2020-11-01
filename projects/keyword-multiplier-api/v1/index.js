@@ -6,6 +6,9 @@ import { createTrial } from './trials'
 import { getMeta, preOrder, getVolumes, alertLowCredits } from './metrics'
 
 const checkAuthorization = (authHeader, callback) => {
+  const decoded = jwt_decode(authHeader.replace('Bearer '))
+  console.log('LOG checkAuthorization'.yellow, decoded)
+
   if (authHeader !== process.env.API_SECRET)
     return callback(null, {
       statusCode: 401
