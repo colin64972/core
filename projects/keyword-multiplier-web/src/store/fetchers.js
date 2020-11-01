@@ -17,7 +17,7 @@ export const fetchIpAddress = async () => {
 
 const options = {
   headers: {
-    authorization: 'secret',
+    authorization: process.env.API_SECRET,
     accept: 'application/json'
   }
 }

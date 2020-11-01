@@ -22,6 +22,7 @@ provider:
       allowedMethods:
         - GET
         - POST
+        - OPTIONS
       allowCredentials: true
       maxAge: 6000
   iamRoleStatements:

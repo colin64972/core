@@ -1,8 +1,15 @@
 require('dotenv').config()
 const slsw = require('serverless-webpack')
 const setServerlessConfig = require('@cjo3/configs/serverless')
+const { EnvironmentPlugin } = require('webpack')
 
 const serverlessConfig = setServerlessConfig(slsw.lib.entries)
+
+serverlessConfig.plugins = [
+  new EnvironmentPlugin({
+    API_SECRET: process.env.API_SECRET
+  })
+]
 
 if (process.env.NODE_ENV === 'development') {
   serverlessConfig.mode = 'development'
