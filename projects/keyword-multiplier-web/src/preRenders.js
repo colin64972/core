@@ -1,3 +1,4 @@
+import __webpack_public_path__ from './publicPath'
 import { AppWithTheme } from './AppWithTheme'
 import { generatePreRenders } from '@cjo3/shared/react/helpers'
 import { setStore } from './store'
@@ -5,11 +6,11 @@ import { setStore } from './store'
 const pages = [
   {
     name: 'home',
-    path: '/'
+    path: `${process.env.APP_ROOT_PATH}/`
   },
   {
     name: 'error',
-    path: '/*'
+    path: `${process.env.APP_ROOT_PATH}/error`
   }
 ]
 
