@@ -34,6 +34,8 @@ module.exports = {
     title: process.env.BRAND_NAME,
     logoSrc: `${cdnUrl}/logo.svg`,
     styleSheet,
+    gsvTag: process.env.GSV_TAG,
+    gaTag: process.env.GA_TAG,
     copy: 'asfd'
   }
 }

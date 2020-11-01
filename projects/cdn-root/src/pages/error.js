@@ -37,6 +37,8 @@ module.exports = {
     title: 'Error',
     cdnUrl: `https://${process.env.CDN_BUCKET}`,
     heading: `Error`,
+    gsvTag: process.env.GSV_TAG,
+    gaTag: process.env.GA_TAG,
     message: 'Sorry, something went wrong',
     styleSheet
   }
