@@ -8,6 +8,15 @@ provider:
   region: ${env:REGION}
   stackName: ${env:SLS_SERVICE_NAME}
   role: ${env:ACCESS_ROLE}
+  iamRoleStatements:
+  - Effect: Allow
+    Action:
+      - s3.ListObjects
+      - s3:GetObject
+      - s3:PutObject
+      - kms:Decrypt
+    Resource:
+      - arn:aws:s3:${env:PRERENDERS_BUCKET}
 
 functions:
   viewerRequest:
@@ -18,8 +27,8 @@ functions:
   originRequest:
     name: ${env:SLS_SERVICE_NAME}-originRequest
     handler: v1/handlers.originRequest
-    memorySize: 128
-    timeout: 5
+    memorySize: 3008
+    timeout: 30
 
 configValidationMode: warn
 

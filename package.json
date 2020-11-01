@@ -9,14 +9,14 @@
   "workspaces": {
     "packages": [
       "configs",
-      "projects/**",
+      "projects/*",
       "shared"
+    ],
+    "nohoist": [
+      "**/html-minifier", "**/html-minifier/**"
     ]
   },
   "scripts": {
-    "clean": "./clean.sh",
-    "rm:folders": "deleteFolders node_modules dist distPreRenders .serverless",
-    "rm:files": "deleteFiles *.lock *.log *.error",
-    "rm:all": "yarn rm:folders & yarn rm:files"
+    "clean": "./clean.sh"
   }
 }

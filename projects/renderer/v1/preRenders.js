@@ -59,14 +59,14 @@ export const buildFromPreRender = async (app, page, templateLocals) => {
       appMarkup: html,
       appState: state
     })
+    console.log('LOG'.yellow, pageContent)
+    // const compressed = minify(pageContent, {
+    //   minifyCSS: true
+    // })
 
-    const compressed = minify(pageContent, {
-      minifyCSS: true
-    })
+    // const etag = await uploadToCdn(compressed, app, page)
 
-    const etag = await uploadToCdn(compressed, app, page)
-
-    return etag
+    // return etag
   } catch (error) {
     console.error('ERROR buildFromPreRender'.red, error)
     throw error

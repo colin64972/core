@@ -32,7 +32,7 @@ export const switchPathPageName = appPath => {
 
 export const splitAppsList = envVar => envVar.split(',')
 
-export const parseAppPage = uri => {
+export const parseAppPage = (uri, appsList) => {
   let result = {}
 
   const parsedUri = path.parse(uri)
