@@ -5,8 +5,8 @@ const { setTemplateLocals } = require('@cjo3/shared/raw/general')
 const nodeExternals = require('webpack-node-externals')
 const { EnvironmentPlugin } = require('webpack')
 
-const babelLoaderPlugins =
-  process.env.NODE_ENV === 'production' ? ['transform-remove-console'] : []
+const babelLoaderPlugins = []
+// process.env.NODE_ENV === 'production' ? ['transform-remove-console'] : []
 
 exports.setWebConfig = (
   entry,
