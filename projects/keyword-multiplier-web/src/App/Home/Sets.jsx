@@ -83,13 +83,13 @@ export const Sets = () => {
           </FadeIn>
         </Grid>
         <Hidden smDown>
-          <Grid item md={1} lg={2} />
+          <Grid item md={1} />
         </Hidden>
         <Grid container>
           <Hidden smDown>
-            <Grid item md={1} lg={2} />
+            <Grid item md={1} />
           </Hidden>
-          <Grid item xs={12} md={10} lg={8}>
+          <Grid item xs={12} md={10}>
             <Formik
               component={SetsForm}
               initialValues={initialValues}

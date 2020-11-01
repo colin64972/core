@@ -16,18 +16,13 @@ for (let i = 1; i <= 5; i += 1) {
     textArea: {
       setName,
       rows: 8,
-      initialValue: ''
+      initialValue: '',
+      placeholder: 'Enter keywords'
     },
     validations: [],
     key: createHashId()
   })
 }
-
-setFields[0].textArea.placeholder = 'best\ngood\nmost popular'
-setFields[1].textArea.placeholder = 'used\nnew\nsecond hand'
-setFields[2].textArea.placeholder = 'cars\nsuvs\ntrucks\nvans'
-setFields[3].textArea.placeholder = 'for sale\nto buy'
-setFields[4].textArea.placeholder = '.com\n.net\n.review'
 
 export const matchTypes = [
   {
