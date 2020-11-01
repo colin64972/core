@@ -38,7 +38,8 @@ const envVars = new EnvironmentPlugin({
   CDN_URL: process.env.CDN_URL,
   CDN_APP_FOLDER: process.env.CDN_APP_FOLDER,
   APP_ROOT_PATH: process.env.APP_ROOT_PATH,
-  API_SECRET: process.env.API_SECRET
+  AUTH_SECRET: process.env.AUTH_SECRET,
+  JWT_PRIVATE_KEY: process.env.JWT_PRIVATE_KEY
 })
 
 webConfig.plugins.push(envVars)

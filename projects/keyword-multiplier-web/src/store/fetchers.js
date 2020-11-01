@@ -8,6 +8,7 @@ import {
   volumeMock
 } from '@cjo3/shared/react/mocks/keyword-multiplier'
 import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+import { createAuthToken } from '@cjo3/shared/security/authToken'
 
 export const fetchIpAddress = async () => {
   if (process.env.USE_MOCKS) return ipMock.data.ip
@@ -15,9 +16,14 @@ export const fetchIpAddress = async () => {
   return res.data.ip
 }
 
+const authToken = createAuthToken(
+  process.env.AUTH_SECRET,
+  process.env.JWT_PRIVATE_KEY
+)
+
 const options = {
   headers: {
-    authorization: process.env.API_SECRET,
+    authorization: `Bearer ${authToken}`,
     accept: 'application/json'
   }
 }
