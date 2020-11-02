@@ -1,15 +1,17 @@
-import React from 'react'
-import clsx from 'clsx'
-import { makeStyles } from '@material-ui/core/styles'
-import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
 import {
+  Button,
   Dialog,
   DialogActions,
   DialogContent,
   DialogTitle,
-  Button,
   Typography
 } from '@material-ui/core'
+
+import PropTypes from 'prop-types'
+import React from 'react'
+import clsx from 'clsx'
+import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => {
   const baseFont = {
@@ -83,11 +85,11 @@ const useStyles = makeStyles(theme => {
 })
 
 export const PrivacyPolicy = ({
-  open,
   closeHandler,
+  open,
+  siteContactEmail,
   siteName,
-  siteUrl,
-  siteContactEmail
+  siteUrl
 }) => {
   const classes = useStyles()
 
@@ -825,4 +827,12 @@ export const PrivacyPolicy = ({
       </DialogActions>
     </Dialog>
   )
+}
+
+PrivacyPolicy.propTypes = {
+  closeHandler: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
+  siteContactEmail: PropTypes.string.isRequired,
+  siteName: PropTypes.string.isRequired,
+  siteUrl: PropTypes.string.isRequired
 }

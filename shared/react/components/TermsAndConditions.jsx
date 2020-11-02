@@ -1,13 +1,15 @@
-import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
 import {
+  Button,
   Dialog,
   DialogActions,
   DialogContent,
   DialogTitle,
-  Button,
   Typography
 } from '@material-ui/core'
+
+import PropTypes from 'prop-types'
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => {
   const baseFont = {
@@ -69,11 +71,11 @@ const useStyles = makeStyles(theme => {
 })
 
 export const TermsAndConditions = ({
-  open,
   closeHandler,
+  open,
+  siteContactEmail,
   siteName,
-  siteUrl,
-  siteContactEmail
+  siteUrl
 }) => {
   const classes = useStyles()
 
@@ -889,4 +891,12 @@ export const TermsAndConditions = ({
       </DialogActions>
     </Dialog>
   )
+}
+
+TermsAndConditions.propTypes = {
+  closeHandler: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
+  siteContactEmail: PropTypes.string.isRequired,
+  siteName: PropTypes.string.isRequired,
+  siteUrl: PropTypes.string.isRequired
 }
