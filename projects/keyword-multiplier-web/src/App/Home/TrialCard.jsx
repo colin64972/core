@@ -68,19 +68,22 @@ export const TrialCard = ({ trial, isShown }) => {
     trial.billableKeywords.length > 100 ||
     KeCredits < trial.billableKeywords.length
 
-  const windowSizeTracker = () =>
+  const checkWindowSize = () =>
     window.innerWidth < 768
       ? setVolumeUnobtainable(true)
       : setVolumeUnobtainable(checkVolumeObtainable())
 
   useLayoutEffect(() => {
-    window.addEventListener('resize', windowSizeTracker)
+    window.addEventListener('resize', checkWindowSize)
+    window.addEventListener('scroll', checkWindowSize)
     return () => {
-      window.removeEventListener('resize', windowSizeTracker)
+      window.removeEventListener('resize', checkWindowSize)
+      window.removeEventListener('scroll', checkWindowSize)
     }
   })
 
   useLayoutEffect(() => {
+    checkWindowSize()
     if (isShown) {
       timeline
         .fromTo(
@@ -120,7 +123,7 @@ export const TrialCard = ({ trial, isShown }) => {
   }, [isShown])
 
   useEffect(() => {
-    setVolumeUnobtainable(checkVolumeObtainable())
+    checkWindowSize()
   }, [KeCredits])
 
   const accordionChangeHandler = (event, expanded) => {
