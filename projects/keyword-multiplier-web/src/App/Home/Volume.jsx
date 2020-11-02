@@ -24,6 +24,9 @@ const useStyles = makeStyles(theme => ({
       padding: theme.custom.setSpace()
     }
   },
+  contentContainer: {
+    maxWidth: 1024
+  },
   mainHeading: theme.typography.mainHeading,
   subHeading: theme.typography.subHeading
 }))
@@ -114,7 +117,12 @@ export const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
         }
       }}>
       <BackDropScreen isOpen={isSubmitting} spinner />
-      <Grid container justify="center" direction="column" alignItems="center">
+      <Grid
+        container
+        direction="column"
+        justify="flex-start"
+        alignItems="flex-start"
+        className={classes.contentContainer}>
         <Typography component="h4" className={classes.subHeading}>
           Keyword Metric Order Form
         </Typography>

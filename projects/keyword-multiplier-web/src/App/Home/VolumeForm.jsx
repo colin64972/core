@@ -19,7 +19,7 @@ import { StripeBanner } from '@cjo3/shared/react/components/StripeBanner'
 const useStyles = makeStyles(theme => ({
   form: {
     ...theme.custom.setGrid(12, 'auto', theme.custom.setSpace('sm')),
-    maxWidth: theme.custom.setSpace() * 85,
+    width: '100%',
     marginTop: theme.custom.setSpace('sm'),
     [theme.breakpoints.down('xs')]: {
       marginTop: 0
@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   gridPosition1: {
     gridColumn: '1 / 9',
     gridRow: 1,
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       gridColumn: '1 / 13',
       gridRow: 1
     }
@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
   gridPosition2: {
     gridColumn: '1 / 9',
     gridRow: 2,
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       gridColumn: '1 / 13',
       gridRow: 2
     }
@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
   gridPosition3: {
     gridColumn: '1 / 9',
     gridRow: 3,
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       gridColumn: '1 / 13',
       gridRow: 3
     }
@@ -52,7 +52,7 @@ const useStyles = makeStyles(theme => ({
   gridPosition4: {
     gridColumn: '9 / 13',
     gridRow: '1 / 6',
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       gridColumn: '1 / 13',
       gridRow: 4
     }
@@ -60,7 +60,7 @@ const useStyles = makeStyles(theme => ({
   gridPosition5: {
     gridColumn: '1 / 9',
     gridRow: 4,
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       gridColumn: '1 / 13',
       gridRow: 5
     }
@@ -68,7 +68,7 @@ const useStyles = makeStyles(theme => ({
   gridPosition6: {
     gridColumn: '1 / 9',
     gridRow: 5,
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       gridColumn: '1 / 13',
       gridRow: 6
     }

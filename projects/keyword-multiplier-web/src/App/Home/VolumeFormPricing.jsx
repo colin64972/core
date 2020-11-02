@@ -125,7 +125,7 @@ export const VolumeFormPricing = ({ trialId }) => {
         </TableRow>
         <TableRow className={classes.noBorder}>
           <TableCell className={classes.note} colSpan={2}>
-            &#42; All prices listed in &#36; Canadian Dollars CAD
+            &#42; All prices listed in Canadian Dollars &#36; CAD
           </TableCell>
         </TableRow>
         {hasBumpUpFee && (
