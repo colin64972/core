@@ -14,9 +14,8 @@ import {
 const useStyles = makeStyles(theme => {
   const baseFont = {
     fontFamily: theme.typography.fontFamily,
-    fontSize: theme.typography.fontSize * 1.5,
+    fontSize: theme.typography.fontSize,
     color: theme.palette.bodyColor,
-    lineHeight: 1.5,
     margin: 0,
     padding: 0
   }
@@ -24,16 +23,17 @@ const useStyles = makeStyles(theme => {
     mainHeading: {
       ...baseFont,
       ...theme.typography.bold,
-      fontSize: theme.custom.setSpace('sm'),
-      color: theme.palette.primary.main
+      fontSize: theme.typography.fontSize * 1.25,
+      color: theme.palette.primary.main,
+      textTransform: 'uppercase'
     },
     subHeading: {
       ...baseFont
     },
     section: {
-      'marginTop': theme.custom.setSpace('sm'),
+      'marginTop': theme.custom.setSpace(),
       '&:first-child': {
-        marginTop: theme.custom.setSpace()
+        marginTop: 0
       }
     },
     sectionHeading: {
@@ -43,14 +43,19 @@ const useStyles = makeStyles(theme => {
     },
     copy: {
       ...baseFont,
-      marginTop: theme.custom.setSpace(),
-      textIndent: theme.custom.setSpace()
+      'marginTop': theme.custom.setSpace(),
+      '&:first-child': {
+        marginTop: 0
+      }
     },
     unorderedList: {
       ...theme.custom.unorderedList
     },
     listItem: {
-      ...baseFont
+      ...baseFont,
+      '&:first-child': {
+        marginTop: theme.custom.setSpace() / 2
+      }
     },
     siteLink: {
       ...baseFont,
@@ -113,11 +118,8 @@ export const PrivacyPolicy = ({
             {setSiteLink()}&nbsp;&#40;&quot;we&quot;, &quot;our&quot; or
             &quot;us&quot;&#41; is committed to protecting your privacy. This
             Privacy Policy explains how your personal information is collected,
-            used, and disclosed by
-          </Typography>
-          <Typography className={classes.copy}>
-            {setSiteLink()}&nbsp;This Privacy Policy applies to our
-            website,&nbsp;
+            used, and disclosed by {setSiteLink()}&nbsp;This Privacy Policy
+            applies to our website,&nbsp;
             <a href={siteUrl} className={classes.siteLink}>
               {siteUrl}
             </a>
@@ -237,9 +239,9 @@ export const PrivacyPolicy = ({
             survey or fill out a form.
           </Typography>
           <ul className={classes.unorderedList}>
-            <li className={classes.copy}>IP address</li>
-            <li className={classes.copy}>Order details</li>
-            <li className={classes.copy}>Email address, if submitted</li>
+            <li className={classes.listItem}>IP address</li>
+            <li className={classes.listItem}>Order details</li>
+            <li className={classes.listItem}>Email address, if submitted</li>
           </ul>
         </section>
 
@@ -252,20 +254,20 @@ export const PrivacyPolicy = ({
             following ways&#58;
           </Typography>
           <ul className={classes.unorderedList}>
-            <li className={classes.copy}>
+            <li className={classes.listItem}>
               To personalize your experience &#40;your information helps us to
               better respond to your individual needs&#41;
             </li>
-            <li className={classes.copy}>
+            <li className={classes.listItem}>
               To improve our service &#40;we continually strive to improve our
               service offerings based on the information and feedback we receive
               from you&#41;
             </li>
-            <li className={classes.copy}>To process transactions</li>
-            <li className={classes.copy}>
+            <li className={classes.listItem}>To process transactions</li>
+            <li className={classes.listItem}>
               To administer a contest, promotion, survey or other site feature
             </li>
-            <li className={classes.copy}>To send periodic emails</li>
+            <li className={classes.listItem}>To send periodic emails</li>
           </ul>
         </section>
 
@@ -641,21 +643,21 @@ export const PrivacyPolicy = ({
             Protection Principles include requirements such as&#58;
           </Typography>
           <ul className={classes.unorderedList}>
-            <li className={classes.copy}>
+            <li className={classes.listItem}>
               Personal data collected must be processed in a fair, legal, and
               transparent way and should only be used in a way that a person
               would reasonably expect.
             </li>
-            <li className={classes.copy}>
+            <li className={classes.listItem}>
               Personal data should only be collected to fulfil a specific
               purpose and it should only be used for that purpose. Organizations
               must specify why they need the personal data when they collect it.
             </li>
-            <li className={classes.copy}>
+            <li className={classes.listItem}>
               Personal data should be held no longer than necessary to fulfil
               its purpose.
             </li>
-            <li className={classes.copy}>
+            <li className={classes.listItem}>
               People covered by the GDPR have the right to access their own
               personal data. They can also request a copy of their data, and
               that their data be updated, deleted, restricted, or moved to
@@ -718,7 +720,7 @@ export const PrivacyPolicy = ({
             following rights&#58;
           </Typography>
           <ul className={classes.unorderedList}>
-            <li className={classes.copy}>
+            <li className={classes.listItem}>
               Right to Know and Access. You may submit a verifiable request for
               information regarding the&#58; &#40;1&#41; categories of Personal
               Information we collect, use, or share; &#40;2&#41; purposes for
@@ -727,16 +729,16 @@ export const PrivacyPolicy = ({
               Personal Information; and &#40;4&#41; specific pieces of Personal
               Information we have collected about you.
             </li>
-            <li className={classes.copy}>
+            <li className={classes.listItem}>
               Right to Equal Service. We will not discriminate against you if
               you exercise your privacy rights.
             </li>
-            <li className={classes.copy}>
+            <li className={classes.listItem}>
               Right to Delete. You may submit a verifiable request to close your
               account and we will delete Personal Information about you that we
               have collected.
             </li>
-            <li className={classes.copy}>
+            <li className={classes.listItem}>
               Request that a business that sells a consumer&apos;s personal
               data, not sell the consumer&apos;s personal data.
             </li>
@@ -768,7 +770,7 @@ export const PrivacyPolicy = ({
             CalOPPA users have the following rights&#58;
           </Typography>
           <ul className={classes.unorderedList}>
-            <li className={classes.copy}>
+            <li className={classes.listItem}>
               Right to Know and Access. You may submit a verifiable request for
               information regarding the&#58; &#40;1&#41; categories of Personal
               Information we collect, use, or share; &#40;2&#41; purposes for
@@ -777,16 +779,16 @@ export const PrivacyPolicy = ({
               Personal Information; and &#40;4&#41; specific pieces of Personal
               Information we have collected about you.
             </li>
-            <li className={classes.copy}>
+            <li className={classes.listItem}>
               Right to Equal Service. We will not discriminate against you if
               you exercise your privacy rights.
             </li>
-            <li className={classes.copy}>
+            <li className={classes.listItem}>
               Right to Delete. You may submit a verifiable request to close your
               account and we will delete Personal Information about you that we
               have collected.
             </li>
-            <li className={classes.copy}>
+            <li className={classes.listItem}>
               Right to request that a business that sells a consumer&apos;s
               personal data, not sell the consumer&apos;s personal data.
             </li>

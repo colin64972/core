@@ -51,7 +51,7 @@ customTheme.custom.buttons = {
 }
 
 customTheme.custom.unorderedList = {
-  paddingLeft: customTheme.custom.setSpace('md')
+  paddingLeft: customTheme.custom.setSpace('sm')
 }
 customTheme.typography.mainHeading = {
   ...customTheme.typography.bold,
