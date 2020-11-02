@@ -93,8 +93,12 @@ const useStyles = makeStyles(theme => ({
   formSectionTitle: {
     ...theme.typography.bold,
     textTransform: 'uppercase',
+    fontSize: theme.typography.fontSize * 1.25,
     color: theme.palette.primary[200],
     marginBottom: theme.custom.setSpace()
+  },
+  noBottomMargin: {
+    marginBottom: 0
   },
   pricingTitle: {
     color: theme.palette.secondary[50]
@@ -129,13 +133,13 @@ const useStyles = makeStyles(theme => ({
     }
   },
   formButtonIcon: {
-    fontSize: theme.custom.setSpace() * 1.5,
+    fontSize: theme.typography.fontSize * 1.5,
     marginRight: theme.custom.setSpace() / 2,
     position: 'relative',
     top: -1
   },
   lockIcon: {
-    fontSize: theme.custom.setSpace('sm'),
+    fontSize: theme.typography.fontSize * 1.5,
     position: 'relative',
     top: 3
   },
@@ -152,7 +156,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   stripeIcon: {
-    height: theme.custom.setSpace('sm') * 1.33,
+    height: theme.custom.setSpace('sm'),
     [theme.breakpoints.down('xs')]: {
       marginTop: theme.custom.setSpace()
     }
@@ -186,7 +190,9 @@ export const VolumeForm = ({
       </Paper>
       <Paper className={clsx(classes.gridPosition3, classes.formSection)}>
         <Grid container justify="space-between" alignItems="center">
-          <Typography component="h5" className={classes.formSectionTitle}>
+          <Typography
+            component="h5"
+            className={clsx(classes.formSectionTitle, classes.noBottomMargin)}>
             Payment Info <HttpsIcon className={classes.lockIcon} />
           </Typography>
           <StripeBanner

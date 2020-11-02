@@ -14,7 +14,7 @@ import {
 const useStyles = makeStyles(theme => {
   const baseFont = {
     fontFamily: theme.typography.fontFamily,
-    fontSize: theme.custom.setSpace() * 1.5,
+    fontSize: theme.typography.fontSize * 1.5,
     color: theme.palette.bodyColor,
     lineHeight: 1.5,
     margin: 0,

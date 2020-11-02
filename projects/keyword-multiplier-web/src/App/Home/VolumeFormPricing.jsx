@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme => ({
     ...theme.typography.italic,
     border: 'none',
     width: '100%',
-    fontSize: theme.custom.setSpace() * 1.25,
+    fontSize: theme.typography.fontSize,
     lineHeight: 1.25,
     color: 'white',
     textAlign: 'left',

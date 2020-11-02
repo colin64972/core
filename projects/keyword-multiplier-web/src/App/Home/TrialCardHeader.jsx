@@ -13,11 +13,11 @@ const useStyles = makeStyles(theme => ({
       theme.custom.setSpace() / 4
     }px 0`,
     [theme.breakpoints.down('xs')]: {
-      fontSize: theme.custom.setSpace() * 1.75
+      fontSize: theme.typography.fontSize * 1.75
     }
   },
   trialCardHeadingId: {
-    fontSize: theme.custom.setSpace() * 1.25,
+    fontSize: theme.typography.fontSize * 1.25,
     textAlign: 'left',
     textTransform: 'unset'
   },
@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   actionButtonIcon: {
-    fontSize: theme.custom.setSpace() * 1.5
+    fontSize: theme.typography.fontSize * 1.25
   },
   countChip: {
     ...theme.typography.bold,

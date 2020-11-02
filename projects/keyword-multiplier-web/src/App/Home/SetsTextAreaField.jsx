@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import clsx from 'clsx'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
-import Grid from '@material-ui/core/Grid'
+import { Grid, Tooltip } from '@material-ui/core'
 import ListIcon from '@material-ui/icons/List'
 import { makeStyles } from '@material-ui/core/styles'
 import { prepSetValue } from '@cjo3/shared/logic/keyword-multiplier'
@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.custom.setSpace(),
     textTransform: 'uppercase',
     fontWeight: 'bold',
-    fontSize: theme.typography.fontSize,
+    fontSize: 14,
     borderRadius: `${theme.custom.borderRadius}px ${theme.custom.borderRadius}px 0 0`,
     backgroundColor: theme.palette.primary.main,
     transition: 'background-color 250ms ease-out',
@@ -39,13 +39,10 @@ const useStyles = makeStyles(theme => ({
     }
   },
   labelIcon: {
-    fontSize: theme.custom.setSpace() * 1.5,
+    fontSize: theme.typography.fontSize * 1.25,
     position: 'relative',
-    top: -1,
-    marginRight: theme.custom.setSpace() / 2,
-    [theme.breakpoints.up('lg')]: {
-      top: 0
-    }
+    top: 1,
+    marginRight: theme.custom.setSpace() / 2
   },
   textArea: {
     width: '100%',
@@ -92,23 +89,34 @@ export const SetsTextAreaField = props => {
       direction={setFadeInDirection()}
       position={Math.random() > 0.5 ? 100 : -100}>
       <Grid container>
-        <label
-          id={props.setField.label.id}
-          htmlFor={props.setField.textArea.setName}
-          className={classes.label}>
-          <button
-            type="button"
-            onClick={event =>
-              toggleDisabledSet(props.field.name, props.field.value)
-            }
-            className={clsx(classes.labelButton, {
-              [classes.labelDisabled]: props.disabled,
-              [classes.labelWithValue]: !props.disabled && props.field.value
-            })}>
-            <ListIcon className={classes.labelIcon} />
-            {props.setField.label.name}
-          </button>
-        </label>
+        <Tooltip
+          title={
+            !props.disabled && props.field.value
+              ? 'Disable'
+              : props.disabled
+              ? 'Enable'
+              : 'Enter Keywords'
+          }
+          placement="top-start"
+          arrow>
+          <label
+            id={props.setField.label.id}
+            htmlFor={props.setField.textArea.setName}
+            className={classes.label}>
+            <button
+              type="button"
+              onClick={event =>
+                toggleDisabledSet(props.field.name, props.field.value)
+              }
+              className={clsx(classes.labelButton, {
+                [classes.labelDisabled]: props.disabled,
+                [classes.labelWithValue]: !props.disabled && props.field.value
+              })}>
+              <ListIcon className={classes.labelIcon} />
+              {props.setField.label.name}
+            </button>
+          </label>
+        </Tooltip>
         <textarea
           className={clsx(classes.textArea, {
             [classes.textAreaDisabled]: props.disabled

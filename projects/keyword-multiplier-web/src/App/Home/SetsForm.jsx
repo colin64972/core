@@ -106,7 +106,7 @@ const useStyles = makeStyles(theme => {
       }
     },
     formButtonIcon: {
-      fontSize: theme.custom.setSpace() * 1.5,
+      fontSize: theme.typography.fontSize * 1.5,
       marginRight: theme.custom.setSpace() / 2,
       position: 'relative',
       top: -1

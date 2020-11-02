@@ -60,7 +60,7 @@ const useStyles = makeStyles(theme => {
       marginRight: 0
     },
     icon: {
-      fontSize: theme.custom.setSpace() * 1.5,
+      fontSize: theme.typography.fontSize * 1.5,
       marginRight: theme.custom.setSpace() / 4
     },
     toggleText: {

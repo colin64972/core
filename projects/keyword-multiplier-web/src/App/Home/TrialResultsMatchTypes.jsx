@@ -71,7 +71,7 @@ const useStyles = makeStyles(theme => {
       color: theme.palette.fail[500]
     },
     icon: {
-      fontSize: theme.custom.setSpace() * 1.5,
+      fontSize: theme.typography.fontSize * 1.5,
       marginRight: theme.custom.setSpace() / 4
     },
     matchTypeButtonsContainer: {

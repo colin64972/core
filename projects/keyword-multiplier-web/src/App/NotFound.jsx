@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'left',
     fontSize: theme.custom.setSpace('sm'),
     [theme.breakpoints.down('xs')]: {
-      fontSize: theme.custom.setSpace() * 1.5
+      fontSize: theme.typography.fontSize * 1.5
     }
   },
   subtitleFadeIn: {
@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
   },
   subtitle: {
     width: '100%',
-    fontSize: theme.custom.setSpace() * 1.5,
+    fontSize: theme.typography.fontSize * 1.5,
     marginTop: theme.custom.setSpace() / 2,
     color: theme.palette.secondary[100],
     textAlign: 'left',

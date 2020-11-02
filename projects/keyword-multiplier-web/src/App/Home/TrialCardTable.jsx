@@ -83,7 +83,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   searchButtonIcon: {
-    fontSize: theme.custom.setSpace() * 1.5
+    fontSize: theme.typography.fontSize * 1.25
   }
 }))
 

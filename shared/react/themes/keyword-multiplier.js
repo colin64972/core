@@ -86,7 +86,7 @@ customTheme.custom.buttons.formButton = {
   fontFamily: customTheme.typography.fontFamily,
   width: '100%',
   border: 'none',
-  fontSize: customTheme.custom.setSpace(),
+  fontSize: 13,
   fontWeight: 'bold',
   textTransform: 'uppercase',
   transition: 'all 250ms ease-out',
@@ -96,7 +96,7 @@ customTheme.custom.buttons.formButton = {
 customTheme.custom.buttons.iconButton = {
   'border': 'none',
   'fontSize': customTheme.custom.setSpace(),
-  'padding': customTheme.custom.setSpace() / 2,
+  'padding': customTheme.custom.setSpace() / 3,
   'margin': `0 ${customTheme.custom.setSpace() / 2}px 0 0`,
   'borderRadius': customTheme.custom.borderRadius,
   'cursor': 'pointer',
