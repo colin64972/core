@@ -1,13 +1,13 @@
 import React from 'react'
+
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
-import { defaultPadding } from '@cjo3/shared/react/themes/theming'
-import Grid from '@material-ui/core/Grid'
-import Link from '@material-ui/core/Link'
-import Typography from '@material-ui/core/Typography'
-import InfoIcon from '@material-ui/icons/Info'
-import { makeStyles } from '@material-ui/core/styles'
-import { Footer } from './Footer'
 import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
+import { defaultPadding } from '@cjo3/shared/react/themes/theming'
+import { Grid, Link, Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+import InfoIcon from '@material-ui/icons/Info'
+
+import { Footer } from './Footer'
 
 const useStyles = makeStyles(theme => ({
   notFoundSection: {

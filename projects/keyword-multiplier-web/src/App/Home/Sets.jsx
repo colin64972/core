@@ -1,15 +1,14 @@
-import React from 'react'
-import { Formik } from 'formik'
-import { useDispatch } from 'react-redux'
-import { defaultPadding } from '@cjo3/shared/react/themes/theming'
+import { Grid, Hidden, Typography } from '@material-ui/core'
+
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
-import Hidden from '@material-ui/core/Hidden'
-import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
+import { Formik } from 'formik'
+import React from 'react'
+import { SetsForm } from './SetsForm'
+import { defaultPadding } from '@cjo3/shared/react/themes/theming'
 import { makeStyles } from '@material-ui/core/styles'
 import { setFields } from './fields'
-import { SetsForm } from './SetsForm'
 import { types } from '../../store/types'
+import { useDispatch } from 'react-redux'
 
 const useStyles = makeStyles(theme => ({
   setsSection: {

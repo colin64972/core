@@ -17,6 +17,13 @@
     "invalidate": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").invalidate(require(\"./cliParams\").invalidate)'",
     "deploy": "yarn invalidate && yarn build && yarn sync:web && yarn preRender && yarn sync:preRenders"
   },
+  "importSort": {
+    ".js, .jsx, .es6, .es": {
+      "parser": "babylon",
+      "style": "import-sort-style-module-scoped",
+      "options": {}
+    }
+  },
   "devDependencies": {
     "@cjo3/configs": "0.0.1",
     "aws-cli-js": "^2.0.6",

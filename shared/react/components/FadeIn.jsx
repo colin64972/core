@@ -1,9 +1,9 @@
-import React, { createRef, useEffect } from 'react'
-
-import PropTypes from 'prop-types'
 import gsap from 'gsap'
-import { makeStyles } from '@material-ui/core/styles'
+import PropTypes from 'prop-types'
+import React, { createRef, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
+
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
   innerClass: {

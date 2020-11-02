@@ -1,11 +1,12 @@
 import React, { Fragment, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { makeStyles } from '@material-ui/core/styles'
-import Grid from '@material-ui/core/Grid'
+
+import { Grid } from '@material-ui/core'
+import { TrialCardsContainer } from './TrialCardsContainer'
 import { TrialResultsMatchTypes } from './TrialResultsMatchTypes'
 import { TrialResultsSettings } from './TrialResultsSettings'
-import { TrialCardsContainer } from './TrialCardsContainer'
+import { makeStyles } from '@material-ui/core/styles'
 import { types } from '../../store/types'
+import { useDispatch } from 'react-redux'
 
 const useStyles = makeStyles(theme => ({
   settingsSection: {

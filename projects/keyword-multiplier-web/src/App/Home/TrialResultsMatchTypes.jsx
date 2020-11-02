@@ -1,12 +1,12 @@
-import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
+import { Grid, Typography } from '@material-ui/core'
+import { useDispatch, useSelector } from 'react-redux'
+
 import CloseIcon from '@material-ui/icons/Close'
 import DoneIcon from '@material-ui/icons/Done'
-import { makeStyles } from '@material-ui/core/styles'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
+import React from 'react'
 import { defaultPadding } from '@cjo3/shared/react/themes/theming'
+import { makeStyles } from '@material-ui/core/styles'
 import { matchTypes } from './fields'
 import { types } from '../../store/types'
 

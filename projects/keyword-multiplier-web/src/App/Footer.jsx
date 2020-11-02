@@ -1,19 +1,16 @@
 import React, { useState } from 'react'
 import Loadable from 'react-loadable'
-import { defaultPadding } from '@cjo3/shared/react/themes/theming'
+
+import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
-import Grid from '@material-ui/core/Grid'
-import Link from '@material-ui/core/Link'
-import Typography from '@material-ui/core/Typography'
+import { defaultPadding } from '@cjo3/shared/react/themes/theming'
+import { Grid, Link, Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
 import GavelIcon from '@material-ui/icons/Gavel'
-import RateReviewIcon from '@material-ui/icons/RateReview'
 import VpnLockIcon from '@material-ui/icons/VpnLock'
 import WebIcon from '@material-ui/icons/Web'
-import { makeStyles } from '@material-ui/core/styles'
-import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+
 import { ProfilePic } from '../../assets'
-import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
-import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 
 const TermsAndConditionsLoadable = Loadable({
   loader: () =>

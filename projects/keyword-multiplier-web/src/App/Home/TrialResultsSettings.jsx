@@ -1,21 +1,24 @@
-import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import Grid from '@material-ui/core/Grid'
-import Switch from '@material-ui/core/Switch'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import InputLabel from '@material-ui/core/InputLabel'
-import MenuItem from '@material-ui/core/MenuItem'
-import FormControl from '@material-ui/core/FormControl'
-import Select from '@material-ui/core/Select'
-import FormGroup from '@material-ui/core/FormGroup'
-import Typography from '@material-ui/core/Typography'
+import {
+  FormControl,
+  FormControlLabel,
+  FormGroup,
+  Grid,
+  InputLabel,
+  MenuItem,
+  Select,
+  Switch,
+  Typography
+} from '@material-ui/core'
+import { makeStyles, withStyles } from '@material-ui/core/styles'
+import { useDispatch, useSelector } from 'react-redux'
+
 import DeleteSweepIcon from '@material-ui/icons/DeleteSweep'
-import FileCopyIcon from '@material-ui/icons/FileCopy'
-import { withStyles, makeStyles } from '@material-ui/core/styles'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
+import FileCopyIcon from '@material-ui/icons/FileCopy'
+import React from 'react'
 import { defaultPadding } from '@cjo3/shared/react/themes/theming'
-import { whiteSpaceOptions } from './fields'
 import { types } from '../../store/types'
+import { whiteSpaceOptions } from './fields'
 
 const CustomSwitch = withStyles(theme => ({
   switchBase: {

@@ -1,25 +1,25 @@
-import { Backdrop, CircularProgress } from '@material-ui/core'
-
 import PropTypes from 'prop-types'
 import React from 'react'
+
+import { Backdrop, CircularProgress } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
-  container: {
-    zIndex: 1000,
-    width: '100vw',
+  backdrop: {
     height: '100vh',
+    width: '100vw',
+    zIndex: 1000
+  },
+  container: {
+    alignItems: 'center',
     display: 'flex',
+    height: '100vh',
     justifyContent: 'center',
-    alignItems: 'center'
+    width: '100vw',
+    zIndex: 1000
   },
   spinner: {
     color: '#00bcd4'
-  },
-  backdrop: {
-    zIndex: 1000,
-    width: '100vw',
-    height: '100vh'
   }
 }))
 

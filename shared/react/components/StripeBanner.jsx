@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+
 import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
 
 export const StripeBanner = ({ className, fillColor, iconClass }) => {
