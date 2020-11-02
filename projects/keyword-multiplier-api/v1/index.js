@@ -1,9 +1,11 @@
 import colors from 'colors'
+
+import { checkAuthorization } from '@cjo3/shared/security/authToken'
 import middy from '@middy/core'
 import jsonBodyParser from '@middy/http-json-body-parser'
-import { checkAuthorization } from '@cjo3/shared/security/authToken'
+
+import { alertLowCredits, getMeta, getVolumes, preOrder } from './metrics'
 import { createTrial } from './trials'
-import { getMeta, preOrder, getVolumes, alertLowCredits } from './metrics'
 
 export const createTrialHandler = middy(async (event, context, callback) => {
   checkAuthorization(

@@ -1,10 +1,12 @@
-import colors from 'colors'
-import { WWW_HOST } from '@cjo3/shared/raw/constants/regex'
-import { generateRedirect, buildHtmlRes } from './helpers'
-import { splitAppsList, parseAppPage } from '@cjo3/shared/serverless/helpers'
-import { minify } from 'html-minifier'
-import compileReactPage from './compileReactPage.pug'
 import AWS from 'aws-sdk'
+import colors from 'colors'
+import { minify } from 'html-minifier'
+
+import { WWW_HOST } from '@cjo3/shared/raw/constants/regex'
+import { parseAppPage, splitAppsList } from '@cjo3/shared/serverless/helpers'
+
+import compileReactPage from './compileReactPage.pug'
+import { buildHtmlRes, generateRedirect } from './helpers'
 
 const s3 = new AWS.S3({
   apiVersion: '2006-03-01',

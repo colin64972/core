@@ -1,6 +1,7 @@
-import { setCustomTheme } from './theming'
 import primary from '@material-ui/core/colors/blue'
 import secondary from '@material-ui/core/colors/purple'
+
+import { setCustomTheme } from './theming'
 
 const customTheme = setCustomTheme(
   16,

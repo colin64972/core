@@ -1,11 +1,12 @@
-import { Grid, Typography } from '@material-ui/core/Grid'
-
-import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 import React from 'react'
-import { TrialCard } from './TrialCard'
-import { defaultPadding } from '@cjo3/shared/react/themes/theming'
-import { makeStyles } from '@material-ui/core/styles'
+
 import { mergeSort } from '@cjo3/shared/general/sorting'
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
+import { defaultPadding } from '@cjo3/shared/react/themes/theming'
+import { Grid, Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+
+import { TrialCard } from './TrialCard'
 
 const useStyles = makeStyles(theme => ({
   trialsSection: {

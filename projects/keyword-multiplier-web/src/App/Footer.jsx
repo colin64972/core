@@ -136,11 +136,11 @@ export const Footer = () => {
 
   const [PPOpen, setPPOpen] = useState(false)
 
-  const openTAndCHandler = event => setTAndCOpen(true)
+  const openTAndCHandler = () => setTAndCOpen(true)
 
   const closeTAndCHandler = () => setTAndCOpen(false)
 
-  const openPPHandler = event => setPPOpen(true)
+  const openPPHandler = () => setPPOpen(true)
 
   const closePPHandler = () => setPPOpen(false)
 

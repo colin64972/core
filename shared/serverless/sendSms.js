@@ -1,5 +1,4 @@
 import AWS from 'aws-sdk'
-import { errorConstants } from './errorConstants'
 
 const sns = new AWS.SNS({
   apiVersion: '2010-03-31',

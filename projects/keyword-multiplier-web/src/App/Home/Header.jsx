@@ -1,10 +1,10 @@
-import { Grid, Typography } from '@material-ui/core'
+import React from 'react'
 
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
-import MultilineChartIcon from '@material-ui/icons/MultilineChart'
-import React from 'react'
 import { defaultPadding } from '@cjo3/shared/react/themes/theming'
+import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import MultilineChartIcon from '@material-ui/icons/MultilineChart'
 
 const useStyles = makeStyles(theme => ({
   headerSection: {

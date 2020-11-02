@@ -1,19 +1,21 @@
-import { call, put, select, take, race, delay } from 'redux-saga/effects'
-import {
-  fetchKeData,
-  makePreOrder,
-  fetchKeVolumes,
-  postLowCreditAlert
-} from '../fetchers'
-import { types } from '../types'
+import { call, delay, put, race, select, take } from 'redux-saga/effects'
+
 import {
   decorateKeOptions,
   decorateTrial,
   generateNotice
 } from '@cjo3/shared/logic/keyword-multiplier'
 import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
-import { payloadMock } from '@cjo3/shared/react/mocks/keyword-multiplier'
 import { getLabelFromValue } from '@cjo3/shared/react/helpers'
+import { payloadMock } from '@cjo3/shared/react/mocks/keyword-multiplier'
+
+import {
+  fetchKeData,
+  fetchKeVolumes,
+  makePreOrder,
+  postLowCreditAlert
+} from '../fetchers'
+import { types } from '../types'
 
 export function* getKeOptions() {
   try {

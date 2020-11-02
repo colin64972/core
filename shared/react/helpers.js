@@ -1,11 +1,13 @@
+import crypto from 'crypto'
+
 import { createElement } from 'react'
 import { renderToString } from 'react-dom/server'
+import ReactGA from 'react-ga'
 import { Provider } from 'react-redux'
 import { StaticRouter } from 'react-router-dom'
-import { ServerStyleSheets } from '@material-ui/core/styles'
-import crypto from 'crypto'
-import ReactGA from 'react-ga'
 import { v4 as uuidv4 } from 'uuid'
+
+import { ServerStyleSheets } from '@material-ui/core/styles'
 
 export const createHashId = () => {
   const hash = crypto.createHash('sha256')
