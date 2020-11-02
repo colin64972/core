@@ -112,9 +112,9 @@ const useStyles = makeStyles(theme => {
     },
     headingText: {
       fontFamily: theme.typography.fontFamily,
-      fontSize: theme.typography.fontSize * 1.3333333333,
+      fontSize: theme.typography.fontSize * 1.25,
       textAlign: 'left',
-      lineHeight: 1.3333333333,
+      lineHeight: 1.25,
       textTransform: 'uppercase',
       margin: `0 ${theme.custom.setSpace() / 2}px`,
       position: 'relative',
@@ -126,9 +126,9 @@ const useStyles = makeStyles(theme => {
     },
     messageText: {
       fontFamily: theme.typography.fontFamily,
-      fontSize: theme.typography.fontSize * 1.25,
+      fontSize: theme.typography.fontSize,
       textAlign: 'left',
-      lineHeight: 1.3333333333,
+      lineHeight: 1.25,
       margin: 0,
       position: 'relative',
       top: 1,

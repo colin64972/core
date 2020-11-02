@@ -22,10 +22,12 @@ const useStyles = makeStyles(theme => ({
   mainHeading: {
     ...theme.typography.mainHeading,
     color: theme.palette.primary.main,
+    fontSize: theme.typography.fontSize * 2.5,
     textAlign: 'center'
   },
   subHeading: {
     ...theme.typography.subHeading,
+    fontSize: theme.typography.fontSize * 1.5,
     textAlign: 'center'
   }
 }))

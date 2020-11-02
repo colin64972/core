@@ -3,7 +3,7 @@ import primary from '@material-ui/core/colors/cyan'
 import secondary from '@material-ui/core/colors/indigo'
 
 const customTheme = setCustomTheme(
-  14,
+  15,
   'Heebo',
   [
     {
@@ -55,8 +55,8 @@ customTheme.custom.unorderedList = {
 }
 customTheme.typography.mainHeading = {
   ...customTheme.typography.bold,
+  ...customTheme.overrides.MuiTypography.h3,
   width: '100%',
-  fontSize: customTheme.typography.fontSize * 3,
   textTransform: 'uppercase',
   lineHeight: 1.125,
   margin: '0.5rem 0'
@@ -64,8 +64,9 @@ customTheme.typography.mainHeading = {
 
 customTheme.typography.subHeading = {
   ...customTheme.typography.italic,
+  ...customTheme.overrides.MuiTypography.h4,
+  fontWeight: 'normal',
   width: '100%',
-  fontSize: customTheme.typography.fontSize * 2,
   lineHeight: 1.125
 }
 

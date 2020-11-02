@@ -64,7 +64,7 @@ const useStyles = makeStyles(theme => {
       marginRight: theme.custom.setSpace() / 4
     },
     toggleText: {
-      fontSize: theme.custom.setSpace() * 1.25,
+      fontSize: theme.typography.fontSize,
       color: theme.palette.bodyColor
     },
     copyAllButton: {

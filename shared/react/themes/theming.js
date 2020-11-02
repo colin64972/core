@@ -162,7 +162,7 @@ export const setCustomTheme = (
       },
       MuiTypography: {
         h1: {
-          fontSize: fontSize * 4,
+          fontSize: fontSize * 2.5,
           ...headingStyle
         },
         h2: {

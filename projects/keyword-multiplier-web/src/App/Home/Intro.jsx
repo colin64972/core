@@ -130,7 +130,7 @@ export const Intro = () => {
       </Grid>
 
       <Grid container justify="center">
-        <FadeIn>
+        <FadeIn outerClass={classes.valuePropFadeIn}>
           <Grid item xs={12} className={classes.valuePropContainer}>
             <Grid container>
               <Grid item xs={12} sm={6} className={classes.valuePropLeft}>
