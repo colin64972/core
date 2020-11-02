@@ -1,10 +1,10 @@
 - const gaUrl = `https://www.googletagmanager.com/gtag/js?id=${gaTag}`
 
-doctype
+doctype html
 html(lang='en')
   head
-    script(src=gaUrl)
-    script window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments)}; gtag('js', new Date()); gtag('config', '#{gaTag}');
+    script(src=gaUrl async)
+    script window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '#{gaTag}');
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name="google-site-verification" content=gsvTag)
