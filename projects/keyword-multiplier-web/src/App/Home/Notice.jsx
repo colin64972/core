@@ -158,11 +158,17 @@ const useStyles = makeStyles(theme => {
 
 export const Notice = () => {
   const classes = useStyles()
+
   const dispatch = useDispatch()
+
   const screen = useRef()
+
   const timeoutBar = useRef()
+
   const noticeBar = useRef()
+
   const { show, item } = useSelector(state => state.app.notice)
+
   let timeline = gsap.timeline({ paused: true })
 
   const responseHandler = (event, choice = null) => {
@@ -193,13 +199,15 @@ export const Notice = () => {
     if (show) {
       timeline
         .add(
-          gsap.to(screen.current, 0.25, {
+          gsap.to(screen.current, {
+            duration: 0.25,
             opacity: 1
           }),
           0
         )
         .add(
-          gsap.from(timeoutBar.current, constants.NOTICE.TIMEOUT_DELAY / 1000, {
+          gsap.from(timeoutBar.current, {
+            duration: constants.NOTICE.TIMEOUT_DELAY / 1000,
             width: '100%',
             ease: 'linear'
           }),
@@ -236,7 +244,8 @@ export const Notice = () => {
           }
         )
         .add(
-          gsap.to(screen.current, 0.25, {
+          gsap.to(screen.current, {
+            duartion: 0.25,
             opacity: 0
           }),
           0.25
