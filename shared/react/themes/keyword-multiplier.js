@@ -50,6 +50,9 @@ customTheme.custom.buttons = {
   }
 }
 
+customTheme.custom.unorderedList = {
+  paddingLeft: customTheme.custom.setSpace('md')
+}
 customTheme.typography.mainHeading = {
   ...customTheme.typography.bold,
   width: '100%',
@@ -58,6 +61,7 @@ customTheme.typography.mainHeading = {
   lineHeight: 1.125,
   margin: '0.5rem 0'
 }
+
 customTheme.typography.subHeading = {
   ...customTheme.typography.italic,
   width: '100%',
