@@ -64,6 +64,22 @@ export const TrialCard = ({ trial, isShown }) => {
 
   let timeline = gsap.timeline({ paused: true })
 
+  const checkVolumeObtainable = () =>
+    trial.billableKeywords.length > 100 ||
+    KeCredits < trial.billableKeywords.length
+
+  const windowSizeTracker = () =>
+    window.innerWidth < 768
+      ? setVolumeUnobtainable(true)
+      : setVolumeUnobtainable(checkVolumeObtainable())
+
+  useLayoutEffect(() => {
+    window.addEventListener('resize', windowSizeTracker)
+    return () => {
+      window.removeEventListener('resize', windowSizeTracker)
+    }
+  })
+
   useLayoutEffect(() => {
     if (isShown) {
       timeline
@@ -104,10 +120,7 @@ export const TrialCard = ({ trial, isShown }) => {
   }, [isShown])
 
   useEffect(() => {
-    setVolumeUnobtainable(
-      trial.billableKeywords.length > 100 ||
-        KeCredits < trial.billableKeywords.length
-    )
+    setVolumeUnobtainable(checkVolumeObtainable())
   }, [KeCredits])
 
   const accordionChangeHandler = (event, expanded) => {
