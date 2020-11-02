@@ -58,7 +58,7 @@ export const TrialCardsContainer = ({ trials }) => {
         spacing={3}
         className={classes.trialsContainer}>
         {sortedItems.map(trial => (
-          <Grid item xs={12} md={6} lg={4} xl={3} key={trial.id}>
+          <Grid item xs={12} md={6} lg={4} key={trial.id}>
             <TrialCard
               trial={trial}
               isShown={trials.shown.includes(trial.id)}
