@@ -114,7 +114,6 @@ export const Volume = ({ closeDialogHandler, dialogStatus, trialId }) => {
 
   return (
     <Grid container className={classes.dialogContainer}>
-      <BackDropScreen isOpen={isSubmitting} spinner />
       <Dialog
         open={dialogStatus}
         transitionDuration={500}
@@ -126,6 +125,11 @@ export const Volume = ({ closeDialogHandler, dialogStatus, trialId }) => {
             root: classes.paper
           }
         }}>
+        <BackDropScreen
+          isOpen={isSubmitting}
+          spinner
+          className={classes.orderingBackdrop}
+        />
         <Grid container>
           <Grid item xs={12}>
             <Typography component="h4" className={classes.subHeading}>

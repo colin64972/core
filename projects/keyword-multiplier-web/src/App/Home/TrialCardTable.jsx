@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   metricProp: {
-    'fontSize': theme.custom.setSpace() * 1.25,
+    'fontSize': theme.typography.fontSize,
     'marginTop': theme.custom.setSpace() / 2,
     'marginRight': theme.custom.setSpace(),
     'fontWeight': 'normal',
@@ -145,19 +145,19 @@ export const TrialCardTable = ({
           justify="center"
           alignItems="center"
           className={classes.metricDetailsContainer}>
-          <Typography variant="h6" className={classes.metricProp}>
+          <Typography className={classes.metricProp}>
             Target Country&nbsp;
             <span className={classes.metricPropValue}>
               {metricOptionLabels.country}
             </span>
           </Typography>
-          <Typography variant="h6" className={classes.metricProp}>
+          <Typography className={classes.metricProp}>
             CPC Currency&nbsp;
             <span className={classes.metricPropValue}>
               {metricOptionLabels.currency}
             </span>
           </Typography>
-          <Typography variant="h6" className={classes.metricProp}>
+          <Typography className={classes.metricProp}>
             Metric Data Source&nbsp;
             <span className={classes.metricPropValue}>
               {metricOptionLabels.dataSource}
@@ -256,7 +256,7 @@ TrialCardTable.propTypes = {
   trial: PropTypes.shape({
     id: PropTypes.string.isRequired,
     metrics: PropTypes.shape({
-      volume: PropTypes.string,
+      volume: PropTypes.arrayOf(PropTypes.object),
       country: PropTypes.string,
       currency: PropTypes.string,
       dataSource: PropTypes.string
