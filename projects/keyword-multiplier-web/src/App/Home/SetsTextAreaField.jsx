@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 import { prepSetValue } from '@cjo3/shared/logic/keyword-multiplier'
@@ -92,6 +92,17 @@ export const SetsTextAreaField = ({
     return 'x'
   }
 
+  const [innerWidth, setInnerWidth] = useState(window.innerWidth)
+
+  const resizeListener = () => setInnerWidth(window.innerWidth)
+
+  useLayoutEffect(() => {
+    window.addEventListener('resize', resizeListener)
+    return () => window.removeEventListener('resize', resizeListener)
+  })
+
+  const setTextAreaRows = defaultCount => (innerWidth < 600 ? 3 : defaultCount)
+
   return (
     <FadeIn
       direction={setFadeInDirection()}
@@ -132,7 +143,7 @@ export const SetsTextAreaField = ({
             setFieldValue(name, prepSetValue(event.target.value), false)
             onBlur(event)
           }}
-          rows={textArea.rows}
+          rows={setTextAreaRows(textArea.rows)}
           placeholder={textArea.placeholder}
           id={textArea.setName}
           name={textArea.setName}

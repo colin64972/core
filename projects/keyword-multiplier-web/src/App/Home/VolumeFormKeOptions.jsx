@@ -43,6 +43,9 @@ const useStyles = makeStyles(theme => ({
       gridColumn: '1 / 13',
       gridRow: 3
     }
+  },
+  fontSize: {
+    fontSize: theme.typography.fontSize
   }
 }))
 
@@ -69,7 +72,9 @@ export const VolumeFormKEOptions = ({ keOptions }) => {
                 error={
                   fieldProps.meta.touched && fieldProps.meta.error?.status
                 }>
-                <InputLabel id={`${fieldProps.field.name}-label`}>
+                <InputLabel
+                  id={`${fieldProps.field.name}-label`}
+                  className={classes.fontSize}>
                   {kEField.label}
                 </InputLabel>
                 <Select
@@ -78,14 +83,20 @@ export const VolumeFormKEOptions = ({ keOptions }) => {
                   name={fieldProps.field.name}
                   value={fieldProps.field.value}
                   onChange={fieldProps.field.onChange}
-                  onBlur={fieldProps.field.onBlur}>
+                  onBlur={fieldProps.field.onBlur}
+                  classes={{
+                    root: classes.fontSize
+                  }}>
                   {keOptions[kEField.optionsName].map(option => (
-                    <MenuItem key={option.key} value={option.value}>
+                    <MenuItem
+                      key={option.key}
+                      value={option.value}
+                      className={classes.fontSize}>
                       {option.label}
                     </MenuItem>
                   ))}
                 </Select>
-                <FormHelperText>
+                <FormHelperText className={classes.fontSize}>
                   {fieldProps.meta.touched && fieldProps.meta.error?.status
                     ? fieldProps.meta.error.message
                     : kEField?.helperText}

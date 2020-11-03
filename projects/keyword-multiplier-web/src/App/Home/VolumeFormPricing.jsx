@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
     border: 'none',
     width: '100%',
     fontSize: theme.typography.fontSize,
-    lineHeight: 1.25,
+    lineHeight: 1.125,
     color: 'white',
     textAlign: 'left',
     marginTop: theme.custom.setSpace()
@@ -66,7 +66,7 @@ export const VolumeFormPricing = ({ trialId }) => {
   }, [price])
 
   return (
-    <Table className={classes.table}>
+    <Table size="small" className={classes.table}>
       <TableBody>
         <TableRow className={classes.noBorder} hover>
           <TableCell component="th" align="left" className={classes.headCell}>

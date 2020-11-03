@@ -114,13 +114,11 @@ const useStyles = makeStyles(theme => {
     },
     headingText: {
       fontFamily: theme.typography.fontFamily,
-      fontSize: theme.typography.fontSize * 1.25,
+      fontSize: theme.typography.fontSize * 1.125,
       textAlign: 'left',
       lineHeight: 1.25,
       textTransform: 'uppercase',
       margin: `0 ${theme.custom.setSpace() / 2}px`,
-      position: 'relative',
-      top: 2,
       ...theme.typography.bold,
       [theme.breakpoints.down('xs')]: {
         margin: `0 0 0 ${theme.custom.setSpace() / 2}px`
@@ -130,7 +128,7 @@ const useStyles = makeStyles(theme => {
       fontFamily: theme.typography.fontFamily,
       fontSize: theme.typography.fontSize,
       textAlign: 'left',
-      lineHeight: 1.25,
+      lineHeight: 1.125,
       margin: 0,
       position: 'relative',
       top: 1,

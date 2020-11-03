@@ -160,7 +160,7 @@ export const TrialResultsSettings = ({ buttonsDisabled }) => {
         </FadeIn>
         <FadeIn direction="y" position={100}>
           <Typography variant="body1" className={classes.settingsCopy}>
-            Use the options here to adjust the display and output settings of
+            Use the options below to adjust the display and output settings of
             your keyword variation trials here.
           </Typography>
         </FadeIn>

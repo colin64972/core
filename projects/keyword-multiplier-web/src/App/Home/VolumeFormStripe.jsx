@@ -58,10 +58,11 @@ const useStyles = makeStyles(theme => ({
   inputLabel: {
     position: 'relative',
     top: -25,
-    transition: 'font-size 250ms linear'
+    transition: 'font-size 250ms linear',
+    fontSize: theme.typography.fontSize
   },
   inputLabelShrink: {
-    fontSize: 18.2875 * 0.75
+    fontSize: theme.typography.fontSize * 0.75
   },
   stripeBase: {
     'padding': '6px 0 7px 0',
@@ -82,6 +83,9 @@ const useStyles = makeStyles(theme => ({
     '&:hover': {
       borderBottom: `2px solid ${theme.palette.error.main}`
     }
+  },
+  fontSize: {
+    fontSize: theme.typography.fontSize
   }
 }))
 
@@ -116,12 +120,12 @@ export const VolumeFormStripe = () => {
     base: {
       'color': 'rgb(68, 68, 68)',
       'fontFamily': 'Heebo, Roboto, Open Sans, Segoe UI, sans-serif',
-      'fontSize': '18.2857px',
+      'fontSize': '1rem',
       'fontSmoothing': 'antialiased',
       '::placeholder': {
         color: 'rgb(68, 68, 68)',
         fontFamily: 'Heebo, Roboto, Open Sans, Segoe UI, sans-serif',
-        fontSize: '18.2857px'
+        fontSize: '1rem'
       }
     },
     invalid: {
@@ -319,11 +323,18 @@ export const VolumeFormStripe = () => {
           {fieldProps => (
             <TextField
               fullWidth
+              name={fieldProps.field.name}
               error={fieldProps.meta.touched && fieldProps.meta.error?.status}
               id={fieldProps.field.name}
               label="Billing Email Address"
               onChange={fieldProps.field.onChange}
               onBlur={fieldProps.field.onBlur}
+              value={fieldProps.field.value}
+              InputProps={{
+                classes: {
+                  input: classes.fontSize
+                }
+              }}
               helperText={
                 fieldProps.meta.touched && fieldProps.meta.error?.status
                   ? 'Invalid email address'

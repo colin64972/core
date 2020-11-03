@@ -152,10 +152,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   stripeIcon: {
-    height: theme.custom.setSpace('sm'),
-    [theme.breakpoints.down('xs')]: {
-      marginTop: theme.custom.setSpace()
-    }
+    height: theme.custom.setSpace('sm')
   }
 }))
 
