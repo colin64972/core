@@ -88,9 +88,16 @@ export const Volume = ({ closeDialogHandler, dialogStatus, trialId }) => {
     }
   }
 
+  const tracker = useSelector(state => state.app?.tracker)
+
   const customSubmitHandler = (values, actions) => {
     const cardNumberElement = elements.getElement('cardNumber')
     if (!cardNumberElement) return null
+    tracker.eventHit({
+      category: 'trials',
+      action: 'trial_order_submitted',
+      value: trialId
+    })
     dispatch({
       type: types.ORDER_METRICS,
       values,

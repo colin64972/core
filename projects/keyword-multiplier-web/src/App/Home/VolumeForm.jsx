@@ -3,7 +3,6 @@ import { Form } from 'formik'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 import { StripeBanner } from '@cjo3/shared/react/components/StripeBanner'
 import { Button, Grid, Paper, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'

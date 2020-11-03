@@ -47,11 +47,27 @@ export const TrialCard = ({ isShown, trial }) => {
   const copyRef = createRef()
 
   const KeCredits = useSelector(state => state.kE?.credits)
+  const tracker = useSelector(state => state.app?.tracker)
+
+  useEffect(() => {
+    if (!process.env.IS_SERVER) {
+      tracker.eventHit({
+        category: 'trials',
+        action: 'trial_created',
+        value: id
+      })
+    }
+  }, [])
 
   const [volumeUnobtainable, setVolumeUnobtainable] = useState(false)
 
   const copyHandler = event => {
     event.stopPropagation()
+    tracker.eventHit({
+      category: 'trials',
+      action: 'trial_copied',
+      value: id
+    })
     return dispatch({
       type: types.COPY_TRIAL,
       tableRef: copyRef.current,

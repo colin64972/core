@@ -75,7 +75,9 @@ export const setTracker = gaTag => {
   tracker.initialize = () => ReactGA.initialize(config.gaTag)
   tracker.pageHit = (rootPath, pathname) =>
     ReactGA.pageview(removeAppUrlPrefix(rootPath, pathname))
-  tracker.eventHit = () => {}
+  tracker.eventHit = event => {
+    ReactGA.event(event)
+  }
 
   return tracker
 }
