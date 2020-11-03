@@ -88,7 +88,7 @@ export const TrialResultsMatchTypes = () => {
 
   const dispatch = useDispatch()
 
-  const matchTypeHandler = () =>
+  const matchTypeHandler = event =>
     dispatch({
       type: types.CHANGE_MATCHTYPE,
       matchType: event.currentTarget.dataset.matchtype

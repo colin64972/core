@@ -28,7 +28,7 @@ export const Feedback = () => {
   const decreaseCount = () => setCount(count - 1)
   const name = useSelector(state => state.app?.name)
   const dispatch = useDispatch()
-  const blurName = () =>
+  const blurName = event =>
     dispatch({
       type: types.SET_NAME,
       name: event.target.value

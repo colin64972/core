@@ -126,7 +126,7 @@ export const TrialResultsSettings = ({ buttonsDisabled }) => {
       type: types.TOGGLE_COPY_KEYWORDS_ONLY
     })
 
-  const whiteSpaceSelectorHandler = () =>
+  const whiteSpaceSelectorHandler = event =>
     dispatch({
       type: types.CHANGE_WHITESPACE_SELECTION,
       selection: event.target.value
