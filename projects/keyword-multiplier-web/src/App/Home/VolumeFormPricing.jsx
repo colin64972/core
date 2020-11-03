@@ -1,10 +1,13 @@
 import clsx from 'clsx'
-import { useSelector, useDispatch } from 'react-redux'
+import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import { Table, TableBody, TableCell, TableRow } from '@material-ui/core'
+import { useDispatch, useSelector } from 'react-redux'
+
 import { calculateTrialPrice } from '@cjo3/shared/logic/keyword-multiplier'
 import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+import { Table, TableBody, TableCell, TableRow } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+
 import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => ({
@@ -139,4 +142,8 @@ export const VolumeFormPricing = ({ trialId }) => {
       </TableBody>
     </Table>
   )
+}
+
+VolumeFormPricing.propTypes = {
+  trialId: PropTypes.string.isRequired
 }

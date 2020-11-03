@@ -1,3 +1,9 @@
+import PropTypes from 'prop-types'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
+import { defaultPadding } from '@cjo3/shared/react/themes/theming'
 import {
   FormControl,
   FormControlLabel,
@@ -10,13 +16,9 @@ import {
   Typography
 } from '@material-ui/core'
 import { makeStyles, withStyles } from '@material-ui/core/styles'
-import { useDispatch, useSelector } from 'react-redux'
-
 import DeleteSweepIcon from '@material-ui/icons/DeleteSweep'
-import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 import FileCopyIcon from '@material-ui/icons/FileCopy'
-import React from 'react'
-import { defaultPadding } from '@cjo3/shared/react/themes/theming'
+
 import { types } from '../../store/types'
 import { whiteSpaceOptions } from './fields'
 
@@ -124,7 +126,7 @@ export const TrialResultsSettings = ({ buttonsDisabled }) => {
       type: types.TOGGLE_COPY_KEYWORDS_ONLY
     })
 
-  const whiteSpaceSelectorHandler = event =>
+  const whiteSpaceSelectorHandler = () =>
     dispatch({
       type: types.CHANGE_WHITESPACE_SELECTION,
       selection: event.target.value
@@ -261,4 +263,8 @@ export const TrialResultsSettings = ({ buttonsDisabled }) => {
       </Grid>
     </Grid>
   )
+}
+
+TrialResultsSettings.propTypes = {
+  buttonsDisabled: PropTypes.bool.isRequired
 }

@@ -1,19 +1,20 @@
 import clsx from 'clsx'
 import { Field } from 'formik'
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+
+import { EMAIL_ADDRESS } from '@cjo3/shared/raw/constants/regex'
 import {
   FormControl,
   FormHelperText,
-  TextField,
-  InputLabel
+  InputLabel,
+  TextField
 } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
 import {
-  CardNumberElement,
+  CardCvcElement,
   CardExpiryElement,
-  CardCvcElement
+  CardNumberElement
 } from '@stripe/react-stripe-js'
-import { EMAIL_ADDRESS } from '@cjo3/shared/raw/constants/regex'
 
 const useStyles = makeStyles(theme => ({
   grid: {

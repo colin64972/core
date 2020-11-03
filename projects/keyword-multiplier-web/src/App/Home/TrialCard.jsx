@@ -1,39 +1,44 @@
 import gsap from 'gsap'
+import PropTypes from 'prop-types'
 import React, { createRef, useEffect, useLayoutEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary
 } from '@material-ui/core'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import { makeStyles } from '@material-ui/core/styles'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+
+import { types } from '../../store/types'
 import { TrialCardHeader } from './TrialCardHeader'
 import { TrialCardTable } from './TrialCardTable'
-import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => ({
+  expandIcon: {
+    position: 'relative',
+    right: 25,
+    top: 15
+  },
   trialCard: {
     width: '100%'
   },
-  expandIcon: {
-    position: 'relative',
-    top: 15,
-    right: 25
-  },
   trialList: {
-    'padding': theme.custom.setSpace(),
-    'margin': 0,
     '& :last-child': {
       margin: 0
-    }
+    },
+    'margin': 0,
+    'padding': theme.custom.setSpace()
   },
   trialListItem: {
     textAlign: 'left'
   }
 }))
 
-export const TrialCard = ({ trial, isShown }) => {
+export const TrialCard = ({ isShown, trial }) => {
+  const { id, billableKeywords } = trial
+
   const classes = useStyles()
 
   const dispatch = useDispatch()
@@ -45,28 +50,27 @@ export const TrialCard = ({ trial, isShown }) => {
 
   const [volumeUnobtainable, setVolumeUnobtainable] = useState(false)
 
-  const copyHandler = event => {
+  const copyHandler = () => {
     event.stopPropagation()
     return dispatch({
       type: types.COPY_TRIAL,
       tableRef: copyRef.current,
-      id: trial.id
+      id
     })
   }
 
-  const askDeleteTrialHandler = event => {
+  const askDeleteTrialHandler = () => {
     event.stopPropagation()
     return dispatch({
       type: types.ASK_DELETE_TRIAL,
-      id: trial.id
+      id
     })
   }
 
   let timeline = gsap.timeline({ paused: true })
 
   const checkVolumeObtainable = () =>
-    trial.billableKeywords.length > 100 ||
-    KeCredits < trial.billableKeywords.length
+    billableKeywords.length > 100 || KeCredits < billableKeywords.length
 
   const checkWindowSize = () =>
     window.innerWidth < 768
@@ -135,7 +139,7 @@ export const TrialCard = ({ trial, isShown }) => {
   }
 
   return (
-    <div className={classes.trialCard} ref={card} id={trial.id}>
+    <div className={classes.trialCard} ref={card} id={id}>
       <Accordion onChange={accordionChangeHandler}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -160,4 +164,17 @@ export const TrialCard = ({ trial, isShown }) => {
       </Accordion>
     </div>
   )
+}
+
+TrialCard.propTypes = {
+  isShown: PropTypes.bool.isRequired,
+  trial: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    geoIp: PropTypes.object,
+    heading: PropTypes.string.isRequired,
+    timestampUpdated: PropTypes.string.isRequired,
+    updatedAt: PropTypes.number.isRequired,
+    list: PropTypes.arrayOf(PropTypes.string),
+    billableKeywords: PropTypes.arrayOf(PropTypes.string)
+  })
 }

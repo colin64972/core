@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 
 import { mergeSort } from '@cjo3/shared/general/sorting'
@@ -28,7 +29,10 @@ const useStyles = makeStyles(theme => ({
 
 export const TrialCardsContainer = ({ trials }) => {
   const classes = useStyles()
-  const sortedItems = mergeSort(trials.items, 'updatedAt', 'down')
+
+  const { items, shown } = trials
+
+  const sortedItems = mergeSort(items, 'updatedAt', 'down')
   return (
     <Grid container component="section" className={classes.trialsSection}>
       <Grid item xs={12}>
@@ -62,12 +66,19 @@ export const TrialCardsContainer = ({ trials }) => {
           <Grid item xs={12} md={6} lg={4} key={trial.id}>
             <TrialCard
               trial={trial}
-              isShown={trials.shown.includes(trial.id)}
-              isLastShown={trials.shown.length === 1}
+              isShown={shown.includes(trial.id)}
+              isLastShown={shown.length === 1}
             />
           </Grid>
         ))}
       </Grid>
     </Grid>
   )
+}
+
+TrialCardsContainer.propTypes = {
+  trials: PropTypes.shape({
+    items: PropTypes.arrayOf(PropTypes.object).isRequired,
+    shown: PropTypes.arrayOf(PropTypes.string).isRequired
+  })
 }

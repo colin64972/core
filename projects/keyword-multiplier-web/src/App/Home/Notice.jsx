@@ -1,13 +1,15 @@
-import gsap from 'gsap'
 import clsx from 'clsx'
-import React, { useRef, useEffect, useLayoutEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import gsap from 'gsap'
+import React, { useEffect, useLayoutEffect, useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+import { makeStyles } from '@material-ui/core/styles'
 import CloseIcon from '@material-ui/icons/Close'
 import DoneIcon from '@material-ui/icons/Done'
-import { makeStyles } from '@material-ui/core/styles'
-import { NoticeIcon } from './NoticeIcon'
-import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+
 import { types } from '../../store/types'
+import { NoticeIcon } from './NoticeIcon'
 
 const useStyles = makeStyles(theme => {
   const noticeButton = {
@@ -181,7 +183,7 @@ export const Notice = () => {
     })
   }
 
-  const keyUpHandler = event => {
+  const keyUpHandler = () => {
     const { keyCode } = event
     let choice
     switch (keyCode) {

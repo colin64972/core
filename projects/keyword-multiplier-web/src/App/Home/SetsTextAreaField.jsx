@@ -1,11 +1,14 @@
+import clsx from 'clsx'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import clsx from 'clsx'
+
+import { prepSetValue } from '@cjo3/shared/logic/keyword-multiplier'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 import { Grid, Tooltip } from '@material-ui/core'
-import ListIcon from '@material-ui/icons/List'
 import { makeStyles } from '@material-ui/core/styles'
-import { prepSetValue } from '@cjo3/shared/logic/keyword-multiplier'
+import ListIcon from '@material-ui/icons/List'
+
 import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => ({
@@ -60,18 +63,23 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export const SetsTextAreaField = props => {
+export const SetsTextAreaField = ({
+  disabled,
+  field: { onChange, onBlur, value, name },
+  form: { setFieldValue },
+  setField: { label, textArea }
+}) => {
   const classes = useStyles()
 
   const dispatch = useDispatch()
 
   const toggleDisabledSet = (fieldName, fieldValue) => {
-    if (props.disabled)
+    if (disabled)
       return dispatch({
         type: types.REMOVE_DISABLED_SET,
         fieldName
       })
-    if (!props.disabled && fieldValue)
+    if (!disabled && fieldValue)
       return dispatch({
         type: types.ADD_DISABLED_SET,
         fieldName
@@ -91,53 +99,71 @@ export const SetsTextAreaField = props => {
       <Grid container>
         <Tooltip
           title={
-            !props.disabled && props.field.value
+            !disabled && value
               ? 'Disable'
-              : props.disabled
+              : disabled
               ? 'Enable'
               : 'Enter Keywords'
           }
           placement="top-start"
           arrow>
           <label
-            id={props.setField.label.id}
-            htmlFor={props.setField.textArea.setName}
+            id={label.id}
+            htmlFor={textArea.setName}
             className={classes.label}>
             <button
               type="button"
-              onClick={event =>
-                toggleDisabledSet(props.field.name, props.field.value)
-              }
+              onClick={() => toggleDisabledSet(name, value)}
               className={clsx(classes.labelButton, {
-                [classes.labelDisabled]: props.disabled,
-                [classes.labelWithValue]: !props.disabled && props.field.value
+                [classes.labelDisabled]: disabled,
+                [classes.labelWithValue]: !disabled && value
               })}>
               <ListIcon className={classes.labelIcon} />
-              {props.setField.label.name}
+              {label.name}
             </button>
           </label>
         </Tooltip>
         <textarea
           className={clsx(classes.textArea, {
-            [classes.textAreaDisabled]: props.disabled
+            [classes.textAreaDisabled]: disabled
           })}
-          onChange={props.field.onChange}
+          onChange={onChange}
           onBlur={event => {
-            props.form.setFieldValue(
-              props.field.name,
-              prepSetValue(event.target.value),
-              false
-            )
-            props.field.onBlur(event)
+            setFieldValue(name, prepSetValue(event.target.value), false)
+            onBlur(event)
           }}
-          rows={props.setField.textArea.rows}
-          placeholder={props.setField.textArea.placeholder}
-          id={props.setField.textArea.setName}
-          name={props.setField.textArea.setName}
-          disabled={props.disabled}
-          value={props.field.value}
+          rows={textArea.rows}
+          placeholder={textArea.placeholder}
+          id={textArea.setName}
+          name={textArea.setName}
+          disabled={disabled}
+          value={value}
         />
       </Grid>
     </FadeIn>
   )
+}
+
+SetsTextAreaField.propTypes = {
+  disabled: PropTypes.bool.isRequired,
+  field: PropTypes.shape({
+    value: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+    onBlur: PropTypes.func.isRequired,
+    name: PropTypes.string.isRequired
+  }),
+  form: PropTypes.shape({
+    setFieldValue: PropTypes.func.isRequired
+  }),
+  setField: PropTypes.shape({
+    label: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.number.isRequired
+    }),
+    textArea: PropTypes.shape({
+      setName: PropTypes.string.isRequired,
+      rows: PropTypes.number.isRequired,
+      placeholder: PropTypes.string.isRequired
+    })
+  })
 }

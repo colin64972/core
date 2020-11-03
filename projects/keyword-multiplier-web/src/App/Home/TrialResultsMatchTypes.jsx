@@ -1,14 +1,15 @@
-import { Grid, Typography } from '@material-ui/core'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
+import { defaultPadding } from '@cjo3/shared/react/themes/theming'
+import { Grid, Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
 import CloseIcon from '@material-ui/icons/Close'
 import DoneIcon from '@material-ui/icons/Done'
-import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
-import React from 'react'
-import { defaultPadding } from '@cjo3/shared/react/themes/theming'
-import { makeStyles } from '@material-ui/core/styles'
-import { matchTypes } from './fields'
+
 import { types } from '../../store/types'
+import { matchTypes } from './fields'
 
 const useStyles = makeStyles(theme => {
   const matchTypeIcon = {
@@ -87,7 +88,7 @@ export const TrialResultsMatchTypes = () => {
 
   const dispatch = useDispatch()
 
-  const matchTypeHandler = event =>
+  const matchTypeHandler = () =>
     dispatch({
       type: types.CHANGE_MATCHTYPE,
       matchType: event.currentTarget.dataset.matchtype

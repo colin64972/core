@@ -23,7 +23,7 @@ const useStyles = makeStyles(() => ({
   }
 }))
 
-export const BackDropScreen = ({ isOpen = false, spinner = true }) => {
+export const BackDropScreen = ({ isOpen, spinner }) => {
   const classes = useStyles()
   return (
     <Backdrop className={classes.backdrop} open={isOpen}>

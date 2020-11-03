@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { makeStyles } from '@material-ui/core/styles'
+
 import {
   Button,
   Dialog,
@@ -9,12 +10,13 @@ import {
   DialogContentText,
   DialogTitle,
   Table,
-  TableContainer,
   TableBody,
   TableCell,
+  TableContainer,
   TableHead,
   TableRow
 } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
 import FindInPageIcon from '@material-ui/icons/FindInPage'
 
 const useStyles = makeStyles(theme => ({
@@ -65,8 +67,8 @@ export const VolumeFormTrialReview = ({ trialId }) => {
     state.app.trials.items.find(trial => trial.id === trialId)
   )
   const [reviewModalStatus, setReviewModalStatus] = useState(false)
-  const openReviewHandler = event => setReviewModalStatus(true)
-  const closeReviewHandler = event => setReviewModalStatus(false)
+  const openReviewHandler = () => setReviewModalStatus(true)
+  const closeReviewHandler = () => setReviewModalStatus(false)
   return (
     <Table size="small" className={classes.table}>
       <TableHead>
@@ -186,4 +188,8 @@ export const VolumeFormTrialReview = ({ trialId }) => {
       </TableHead>
     </Table>
   )
+}
+
+VolumeFormTrialReview.propTypes = {
+  trialId: PropTypes.string.isRequired
 }

@@ -1,20 +1,23 @@
 import clsx from 'clsx'
 import { Form } from 'formik'
+import PropTypes from 'prop-types'
 import React from 'react'
+
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
+import { StripeBanner } from '@cjo3/shared/react/components/StripeBanner'
 import { Button, Grid, Paper, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
+import CachedIcon from '@material-ui/icons/Cached'
+import CloseIcon from '@material-ui/icons/Close'
+import HttpsIcon from '@material-ui/icons/Https'
+import PaymentIcon from '@material-ui/icons/Payment'
+import RestorePageIcon from '@material-ui/icons/RestorePage'
+
 import { VolumeFormKEOptions } from './VolumeFormKEOptions'
 import { VolumeFormPricing } from './VolumeFormPricing'
-import { VolumeFormTrialReview } from './VolumeFormTrialReview'
-import { VolumeFormTerms } from './VolumeFormTerms'
 import { VolumeFormStripe } from './VolumeFormStripe'
-import HttpsIcon from '@material-ui/icons/Https'
-import RestorePageIcon from '@material-ui/icons/RestorePage'
-import CloseIcon from '@material-ui/icons/Close'
-import PaymentIcon from '@material-ui/icons/Payment'
-import CachedIcon from '@material-ui/icons/Cached'
-import { StripeBanner } from '@cjo3/shared/react/components/StripeBanner'
+import { VolumeFormTerms } from './VolumeFormTerms'
+import { VolumeFormTrialReview } from './VolumeFormTrialReview'
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -103,16 +106,9 @@ const useStyles = makeStyles(theme => ({
   pricingTitle: {
     color: theme.palette.secondary[50]
   },
-  formActionButtons: {
-    ...theme.custom.setFlex('row nowrap', 'flex-start')
-  },
   formActionButton: {
     ...theme.custom.buttons.formButton,
-    ...theme.custom.setFlex(),
-    'margin': `0 ${theme.custom.setSpace()}px 0 0`,
-    '&:last-of-type': {
-      margin: 0
-    }
+    ...theme.custom.setFlex()
   },
   formActionButtonSubmit: {
     'backgroundColor': theme.palette.pass[500],
@@ -164,11 +160,11 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export const VolumeForm = ({
-  formikProps,
   closeDialogHandler,
-  trialId,
+  customResetHandler,
+  formikProps,
   keOptions,
-  customResetHandler
+  trialId
 }) => {
   const classes = useStyles()
 
@@ -225,54 +221,67 @@ export const VolumeForm = ({
         <VolumeFormTerms />
       </Paper>
       <div className={classes.gridPosition6}>
-        <FadeIn
-          direction="y"
-          position={100}
-          outerClass={classes.formActionButtons}>
-          <Button
-            type="submit"
-            variant="contained"
-            disabled={
-              !formikProps.isValid || checkIfPristine(formikProps.touched)
-            }
-            className={clsx(
-              classes.formActionButton,
-              classes.formActionButtonSubmit
-            )}>
-            {formikProps.isSubmitting ? (
-              <CachedIcon className={classes.formButtonIcon} />
-            ) : (
-              <PaymentIcon className={classes.formButtonIcon} />
-            )}
-            {formikProps.isSubmitting ? 'Ordering' : 'Order'}
-          </Button>
-          <Button
-            type="reset"
-            variant="contained"
-            onClick={event => {
-              customResetHandler(event, formikProps.setFieldValue)
-            }}
-            className={clsx(
-              classes.formActionButton,
-              classes.formActionButtonReset
-            )}
-            disabled={checkIfPristine(formikProps.touched)}>
-            <RestorePageIcon className={classes.formButtonIcon} />
-            Reset
-          </Button>
-          <Button
-            type="button"
-            variant="contained"
-            onClick={closeDialogHandler}
-            className={clsx(
-              classes.formActionButton,
-              classes.formActionButtonClose
-            )}>
-            <CloseIcon className={classes.formButtonIcon} />
-            Close
-          </Button>
+        <FadeIn direction="x" position={-100}>
+          <Grid container spacing={3}>
+            <Grid item xs={4}>
+              <Button
+                type="submit"
+                variant="contained"
+                disabled={
+                  !formikProps.isValid || checkIfPristine(formikProps.touched)
+                }
+                className={clsx(
+                  classes.formActionButton,
+                  classes.formActionButtonSubmit
+                )}>
+                {formikProps.isSubmitting ? (
+                  <CachedIcon className={classes.formButtonIcon} />
+                ) : (
+                  <PaymentIcon className={classes.formButtonIcon} />
+                )}
+                {formikProps.isSubmitting ? 'Ordering' : 'Order'}
+              </Button>
+            </Grid>
+            <Grid item xs={4}>
+              <Button
+                type="reset"
+                variant="contained"
+                onClick={event => {
+                  customResetHandler(event, formikProps.setFieldValue)
+                }}
+                className={clsx(
+                  classes.formActionButton,
+                  classes.formActionButtonReset
+                )}
+                disabled={checkIfPristine(formikProps.touched)}>
+                <RestorePageIcon className={classes.formButtonIcon} />
+                Reset
+              </Button>
+            </Grid>
+            <Grid item xs={4}>
+              <Button
+                type="button"
+                variant="contained"
+                onClick={closeDialogHandler}
+                className={clsx(
+                  classes.formActionButton,
+                  classes.formActionButtonClose
+                )}>
+                <CloseIcon className={classes.formButtonIcon} />
+                Close
+              </Button>
+            </Grid>
+          </Grid>
         </FadeIn>
       </div>
     </Form>
   )
+}
+
+VolumeForm.propTypes = {
+  closeDialogHandler: PropTypes.func.isRequired,
+  customResetHandler: PropTypes.func.isRequired,
+  formikProps: PropTypes.object.isRequired,
+  keOptions: PropTypes.object.isRequired,
+  trialId: PropTypes.string.isRequired
 }

@@ -1,9 +1,11 @@
 import clsx from 'clsx'
+import PropTypes from 'prop-types'
 import React from 'react'
-import { Chip, Grid, Typography, Tooltip } from '@material-ui/core'
+
+import { Chip, Grid, Tooltip, Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
 import AssignmentIcon from '@material-ui/icons/Assignment'
 import DeleteIcon from '@material-ui/icons/Delete'
-import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
   trialCardHeading: {
@@ -79,9 +81,9 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export const TrialCardHeader = ({
-  trial,
+  askDeleteTrialHandler,
   copyHandler,
-  askDeleteTrialHandler
+  trial: { billableKeywords, heading, id, list, metrics, timestampUpdated }
 }) => {
   const classes = useStyles()
   return (
@@ -89,13 +91,13 @@ export const TrialCardHeader = ({
       <Grid item xs={12}>
         <Grid container justify="space-between" alignItems="flex-start">
           <Grid item>
-            {trial.billableKeywords.length !== trial.list.length && (
+            {billableKeywords.length !== list.length && (
               <Tooltip
                 title="Billable Keyword Count"
                 placement="top-start"
                 arrow>
                 <Chip
-                  label={trial.billableKeywords.length}
+                  label={billableKeywords.length}
                   className={clsx(classes.countChip, classes.billableCount)}
                   classes={{
                     label: classes.chipLabel
@@ -105,7 +107,7 @@ export const TrialCardHeader = ({
             )}
             <Tooltip title="Total Variations" placement="top-start" arrow>
               <Chip
-                label={trial.list.length}
+                label={list.length}
                 className={clsx(classes.countChip, classes.listCount)}
                 classes={{
                   label: classes.chipLabel
@@ -114,14 +116,14 @@ export const TrialCardHeader = ({
             </Tooltip>
             <Tooltip title="Time Updated" placement="top-start" arrow>
               <Chip
-                label={trial.timestampUpdated}
+                label={timestampUpdated}
                 className={classes.timestamp}
                 classes={{
                   label: classes.chipLabel
                 }}
               />
             </Tooltip>
-            {trial?.metrics && (
+            {metrics && (
               <Chip
                 label="Metrics"
                 className={clsx(classes.countChip, classes.metricsChip)}
@@ -154,15 +156,30 @@ export const TrialCardHeader = ({
             variant="h3"
             component="h5"
             className={classes.trialCardHeading}>
-            {trial.heading}
+            {heading}
           </Typography>
         </Tooltip>
         <Tooltip title="Result ID" placement="bottom-start" arrow>
           <Typography variant="body1" className={classes.trialCardHeadingId}>
-            {trial.id}
+            {id}
           </Typography>
         </Tooltip>
       </Grid>
     </Grid>
   )
+}
+
+TrialCardHeader.propTypes = {
+  askDeleteTrialHandler: PropTypes.func.isRequired,
+  copyHandler: PropTypes.func.isRequired,
+  trial: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    geoIp: PropTypes.object,
+    heading: PropTypes.string.isRequired,
+    timestampUpdated: PropTypes.string.isRequired,
+    updatedAt: PropTypes.number.isRequired,
+    list: PropTypes.arrayOf(PropTypes.string),
+    billableKeywords: PropTypes.arrayOf(PropTypes.string),
+    metrics: PropTypes.object
+  })
 }

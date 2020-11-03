@@ -1,20 +1,17 @@
-import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 import { Field } from 'formik'
+import PropTypes from 'prop-types'
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { makeStyles } from '@material-ui/core/styles'
+
 import {
   FormControl,
   FormHelperText,
   InputLabel,
   MenuItem,
-  Paper,
-  Select,
-  Typography
+  Select
 } from '@material-ui/core'
-import { kEFields } from './fields'
+import { makeStyles } from '@material-ui/core/styles'
 
-import { countryCodesList } from '@cjo3/shared/raw/constants/countryCodes'
+import { kEFields } from './fields'
 
 const useStyles = makeStyles(theme => ({
   grid: {
@@ -100,4 +97,17 @@ export const VolumeFormKEOptions = ({ keOptions }) => {
       ))}
     </div>
   )
+}
+
+VolumeFormKEOptions.propTypes = {
+  keOptions: PropTypes.shape({
+    countryOptions: PropTypes.arrayOf(PropTypes.object),
+    currencyOptions: PropTypes.arrayOf(PropTypes.object),
+    dataSourceOptions: PropTypes.arrayOf(PropTypes.object),
+    userSelections: PropTypes.shape({
+      country: PropTypes.string,
+      currency: PropTypes.string,
+      dataSource: PropTypes.string
+    })
+  }).isRequired
 }

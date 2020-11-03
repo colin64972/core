@@ -4,7 +4,7 @@ import React from 'react'
 import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
 
 export const StripeBanner = ({ className, fillColor, iconClass }) => {
-  const clickHandler = event => {
+  const clickHandler = () => {
     event.preventDefault()
     if (!window) return null
     window.open(constants.URLS.STRIPE, '_blank')

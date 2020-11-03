@@ -1,15 +1,18 @@
-import React from 'react'
 import { Formik } from 'formik'
-import { useSelector, useDispatch } from 'react-redux'
-import { Dialog, Grid, Typography } from '@material-ui/core'
-import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
-import { makeStyles } from '@material-ui/core/styles'
-import { VolumeForm } from './VolumeForm'
-import { countryCodesList } from '@cjo3/shared/raw/constants/countryCodes'
-import { types } from '../../store/types'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
 import { setInitialCountry } from '@cjo3/shared/logic/keyword-multiplier'
+import { countryCodesList } from '@cjo3/shared/raw/constants/countryCodes'
 import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
-import { useStripe, useElements } from '@stripe/react-stripe-js'
+import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
+import { Dialog, Grid, Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+import { useElements, useStripe } from '@stripe/react-stripe-js'
+
+import { types } from '../../store/types'
+import { VolumeForm } from './VolumeForm'
 
 const useStyles = makeStyles(theme => ({
   backdrop: {
@@ -31,7 +34,7 @@ const useStyles = makeStyles(theme => ({
   subHeading: theme.typography.subHeading
 }))
 
-export const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
+export const Volume = ({ closeDialogHandler, dialogStatus, trialId }) => {
   const classes = useStyles()
 
   const dispatch = useDispatch()
@@ -143,4 +146,10 @@ export const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
       </Grid>
     </Dialog>
   )
+}
+
+Volume.propTypes = {
+  closeDialogHandler: PropTypes.func.isRequired,
+  dialogStatus: PropTypes.bool.isRequired,
+  trialId: PropTypes.string.isRequired
 }

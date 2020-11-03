@@ -1,10 +1,12 @@
 import React from 'react'
+
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
+import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
 import { defaultPadding } from '@cjo3/shared/react/themes/theming'
 import { Grid, Typography } from '@material-ui/core'
-import CheckIcon from '@material-ui/icons/Check'
 import { makeStyles } from '@material-ui/core/styles'
-import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
+import CheckIcon from '@material-ui/icons/Check'
+
 import { Intro as IntroImage } from '../../../assets'
 
 const useStyles = makeStyles(theme => ({

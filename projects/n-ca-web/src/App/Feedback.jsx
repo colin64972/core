@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
 import clsx from 'clsx'
-import { makeStyles } from '@material-ui/core/styles'
-import { Button, Grid, TextField, Typography } from '@material-ui/core'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
+import { Button, Grid, TextField, Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+
 import { types } from '../store/types'
 
 const useStyles = makeStyles(theme => ({
@@ -22,11 +24,11 @@ const useStyles = makeStyles(theme => ({
 export const Feedback = () => {
   const classes = useStyles()
   const [count, setCount] = useState(0)
-  const increaseCount = event => setCount(count + 1)
-  const decreaseCount = event => setCount(count - 1)
+  const increaseCount = () => setCount(count + 1)
+  const decreaseCount = () => setCount(count - 1)
   const name = useSelector(state => state.app?.name)
   const dispatch = useDispatch()
-  const blurName = event =>
+  const blurName = () =>
     dispatch({
       type: types.SET_NAME,
       name: event.target.value
