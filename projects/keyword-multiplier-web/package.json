@@ -1,0 +1,55 @@
+{
+  "name": "@cjo3/keyword-multiplier-web",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "license": "MIT",
+  "repository": "git@github.com:cjo3/primary.git",
+  "author": "cjo3",
+  "private": true,
+  "prettier": "@cjo3/configs/prettier",
+  "scripts": {
+    "start": "NODE_ENV=development CONFIG_VER=web webpack-dev-server --config config/webpack-dev.js",
+    "build": "NODE_ENV=production CONFIG_VER=web webpack --config config/webpack-pro.js --progress",
+    "lite": "lite-server -c config/lite-server",
+    "preRender": "NODE_ENV=production CONFIG_VER=preRenders webpack --config config/webpack-pro.js --progress",
+    "sync:web": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").web)'",
+    "sync:js": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").js)'",
+    "sync:preRenders": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").preRenders)'",
+    "invalidate": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").invalidate(require(\"./cliParams\").invalidate)'",
+    "deploy": "yarn invalidate && yarn build && yarn sync:web && yarn preRender && yarn sync:preRenders",
+    "update": "yarn invalidate && yarn build && yarn sync:js && yarn preRender && yarn sync:preRenders"
+  },
+  "importSort": {
+    ".js, .jsx, .es6, .es": {
+      "parser": "babylon",
+      "style": "import-sort-style-module-scoped",
+      "options": {}
+    }
+  },
+  "devDependencies": {
+    "@cjo3/configs": "~0.0.1",
+    "aws-cli-js": "~2.0.6",
+    "redux-logger": "~3.0.6",
+    "webpack-merge": "~5.2.0",
+    "webpack-node-externals": "~2.5.2"
+  },
+  "dependencies": {
+    "@cjo3/shared": "~0.0.1",
+    "@material-ui/core": "~4.11.0",
+    "@material-ui/icons": "~4.9.1",
+    "@stripe/react-stripe-js": "~1.1.2",
+    "@stripe/stripe-js": "~1.10.0",
+    "clsx": "~1.1.1",
+    "formik": "~2.2.1",
+    "gsap": "~3.5.1",
+    "react": "~17.0.1",
+    "react-dom": "~17.0.1",
+    "react-ga": "~3.2.0",
+    "react-intersection-observer": "~8.29.1",
+    "react-loadable": "~5.5.0",
+    "react-redux": "~7.2.2",
+    "react-router-dom": "~5.2.0",
+    "redux": "~4.0.5",
+    "redux-saga": "~1.1.3"
+  }
+}

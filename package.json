@@ -1,0 +1,22 @@
+{
+  "name": "cjo3",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@github.com:cjo3/primary.git",
+  "author": "cjo3",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "configs",
+      "projects/*",
+      "shared"
+    ],
+    "nohoist": [
+      "**/html-minifier", "**/html-minifier/**"
+    ]
+  },
+  "scripts": {
+    "clean": "./clean.sh"
+  }
+}
