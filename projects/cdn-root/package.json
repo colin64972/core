@@ -12,18 +12,18 @@
     "sync:web": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").web)'"
   },
   "devDependencies": {
-    "@cjo3/configs": "0.0.1",
-    "@cjo3/shared": "0.0.1",
-    "add": "^2.0.6",
-    "dotenv": "^8.2.0",
-    "html-minifier": "^4.0.0",
-    "jss": "^10.4.0",
-    "jss-plugin-global": "^10.4.0",
-    "jss-preset-default": "^10.4.0",
-    "pug": "^3.0.0",
-    "yarn": "^1.22.10"
+    "@cjo3/configs": "~0.0.1",
+    "@cjo3/shared": "~0.0.1",
+    "add": "~2.0.6",
+    "dotenv": "~8.2.0",
+    "html-minifier": "~4.0.0",
+    "jss": "~10.4.0",
+    "jss-plugin-global": "~10.4.0",
+    "jss-preset-default": "~10.4.0",
+    "pug": "~3.0.0",
+    "yarn": "~1.22.10"
   },
   "dependencies": {
-    "colors": "^1.4.0"
+    "colors": "~1.4.0"
   }
 }
