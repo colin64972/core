@@ -1,0 +1,14 @@
+# folders
+.serverless
+dist
+distPreRenders
+node_modules
+events
+site-configs
+
+# files
+.env
+*.DS_Store
+*.lock
+*.log
+templateLocals.js
