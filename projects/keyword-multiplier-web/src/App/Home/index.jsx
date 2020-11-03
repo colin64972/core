@@ -2,8 +2,6 @@ import React from 'react'
 import Loadable from 'react-loadable'
 import { useSelector } from 'react-redux'
 
-import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
-
 import { Footer } from '../Footer'
 import { Header } from './Header'
 import { Intro } from './Intro'
@@ -17,7 +15,7 @@ const TrialResultsLoadable = Loadable({
       /* webpackPrefetch: true */
       './TrialResults'
     ),
-  loading: () => <BackDropScreen isOpen spinner />,
+  loading: () => null,
   render: (loaded, props) => {
     let Component = loaded.TrialResults
     return <Component {...props} />

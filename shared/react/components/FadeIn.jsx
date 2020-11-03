@@ -35,7 +35,7 @@ export const FadeIn = ({
 
   let envDuration = duration
   if (process.env.NODE_ENV === 'development') {
-    envDuration = 0.25
+    envDuration = 0.125
   }
 
   useEffect(() => {

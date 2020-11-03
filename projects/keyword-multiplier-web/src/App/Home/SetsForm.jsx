@@ -134,7 +134,7 @@ export const SetsForm = ({ handleReset, values }) => {
 
   const resetEnabled = setsWithValues.length > 0
 
-  const customResetHandler = () => {
+  const customResetHandler = event => {
     event.preventDefault()
     return dispatch({
       type: types.ASK_RESET_ALL,

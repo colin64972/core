@@ -50,7 +50,7 @@ export const TrialCard = ({ isShown, trial }) => {
 
   const [volumeUnobtainable, setVolumeUnobtainable] = useState(false)
 
-  const copyHandler = () => {
+  const copyHandler = event => {
     event.stopPropagation()
     return dispatch({
       type: types.COPY_TRIAL,
@@ -59,7 +59,7 @@ export const TrialCard = ({ isShown, trial }) => {
     })
   }
 
-  const askDeleteTrialHandler = () => {
+  const askDeleteTrialHandler = event => {
     event.stopPropagation()
     return dispatch({
       type: types.ASK_DELETE_TRIAL,
@@ -69,25 +69,7 @@ export const TrialCard = ({ isShown, trial }) => {
 
   let timeline = gsap.timeline({ paused: true })
 
-  const checkVolumeObtainable = () =>
-    billableKeywords.length > 100 || KeCredits < billableKeywords.length
-
-  const checkWindowSize = () =>
-    window.innerWidth < 768
-      ? setVolumeUnobtainable(true)
-      : setVolumeUnobtainable(checkVolumeObtainable())
-
   useLayoutEffect(() => {
-    window.addEventListener('resize', checkWindowSize)
-    window.addEventListener('scroll', checkWindowSize)
-    return () => {
-      window.removeEventListener('resize', checkWindowSize)
-      window.removeEventListener('scroll', checkWindowSize)
-    }
-  })
-
-  useLayoutEffect(() => {
-    checkWindowSize()
     if (isShown) {
       timeline
         .fromTo(
@@ -127,7 +109,9 @@ export const TrialCard = ({ isShown, trial }) => {
   }, [isShown])
 
   useEffect(() => {
-    checkWindowSize()
+    setVolumeUnobtainable(
+      billableKeywords.length > 100 || KeCredits < billableKeywords.length
+    )
   }, [KeCredits])
 
   const accordionChangeHandler = (event, expanded) => {

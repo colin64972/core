@@ -35,7 +35,7 @@ const VolumeLoadable = Loadable({
       /* webpackPrefetch: true */
       './Volume'
     ),
-  loading: () => <BackDropScreen isOpen spinner />,
+  loading: () => null,
   render: (loaded, props) => {
     let Component = loaded.Volume
     return <Component {...props} />

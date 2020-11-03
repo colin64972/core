@@ -6,17 +6,12 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
   backdrop: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
     height: '100vh',
     width: '100vw',
-    zIndex: 1000
-  },
-  container: {
-    alignItems: 'center',
-    display: 'flex',
-    height: '100vh',
-    justifyContent: 'center',
-    width: '100vw',
-    zIndex: 1000
+    zIndex: 100
   },
   spinner: {
     color: '#00bcd4'

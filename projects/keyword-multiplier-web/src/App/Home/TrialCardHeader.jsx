@@ -9,17 +9,14 @@ import DeleteIcon from '@material-ui/icons/Delete'
 
 const useStyles = makeStyles(theme => ({
   trialCardHeading: {
+    ...theme.custom.mainHeading,
+    ...theme.typography.bold,
     textAlign: 'left',
     textTransform: 'unset',
-    margin: `${theme.custom.setSpace('sm')}px 0 ${
-      theme.custom.setSpace() / 4
-    }px 0`,
-    [theme.breakpoints.down('xs')]: {
-      fontSize: theme.typography.fontSize * 1.75
-    }
+    fontSize: theme.typography.fontSize * 1.5,
+    margin: `${theme.custom.setSpace()}px 0 0 0`
   },
   trialCardHeadingId: {
-    fontSize: theme.typography.fontSize * 1.25,
     textAlign: 'left',
     textTransform: 'unset'
   },
@@ -152,15 +149,12 @@ export const TrialCardHeader = ({
       </Grid>
       <Grid item xs={10}>
         <Tooltip title="Input Sets Used" placement="top-start" arrow>
-          <Typography
-            variant="h3"
-            component="h5"
-            className={classes.trialCardHeading}>
+          <Typography component="h3" className={classes.trialCardHeading}>
             {heading}
           </Typography>
         </Tooltip>
         <Tooltip title="Result ID" placement="bottom-start" arrow>
-          <Typography variant="body1" className={classes.trialCardHeadingId}>
+          <Typography component="h4" className={classes.trialCardHeadingId}>
             {id}
           </Typography>
         </Tooltip>

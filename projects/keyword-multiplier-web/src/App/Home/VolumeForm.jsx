@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     marginTop: theme.custom.setSpace('sm'),
     [theme.breakpoints.down('xs')]: {
-      marginTop: 0
+      marginTop: theme.custom.setSpace()
     }
   },
   gridPosition1: {
@@ -221,58 +221,56 @@ export const VolumeForm = ({
         <VolumeFormTerms />
       </Paper>
       <div className={classes.gridPosition6}>
-        <FadeIn direction="x" position={-100}>
-          <Grid container spacing={3}>
-            <Grid item xs={4}>
-              <Button
-                type="submit"
-                variant="contained"
-                disabled={
-                  !formikProps.isValid || checkIfPristine(formikProps.touched)
-                }
-                className={clsx(
-                  classes.formActionButton,
-                  classes.formActionButtonSubmit
-                )}>
-                {formikProps.isSubmitting ? (
-                  <CachedIcon className={classes.formButtonIcon} />
-                ) : (
-                  <PaymentIcon className={classes.formButtonIcon} />
-                )}
-                {formikProps.isSubmitting ? 'Ordering' : 'Order'}
-              </Button>
-            </Grid>
-            <Grid item xs={4}>
-              <Button
-                type="reset"
-                variant="contained"
-                onClick={event => {
-                  customResetHandler(event, formikProps.setFieldValue)
-                }}
-                className={clsx(
-                  classes.formActionButton,
-                  classes.formActionButtonReset
-                )}
-                disabled={checkIfPristine(formikProps.touched)}>
-                <RestorePageIcon className={classes.formButtonIcon} />
-                Reset
-              </Button>
-            </Grid>
-            <Grid item xs={4}>
-              <Button
-                type="button"
-                variant="contained"
-                onClick={closeDialogHandler}
-                className={clsx(
-                  classes.formActionButton,
-                  classes.formActionButtonClose
-                )}>
-                <CloseIcon className={classes.formButtonIcon} />
-                Close
-              </Button>
-            </Grid>
+        <Grid container spacing={3}>
+          <Grid item xs={4}>
+            <Button
+              type="submit"
+              variant="contained"
+              disabled={
+                !formikProps.isValid || checkIfPristine(formikProps.touched)
+              }
+              className={clsx(
+                classes.formActionButton,
+                classes.formActionButtonSubmit
+              )}>
+              {formikProps.isSubmitting ? (
+                <CachedIcon className={classes.formButtonIcon} />
+              ) : (
+                <PaymentIcon className={classes.formButtonIcon} />
+              )}
+              {formikProps.isSubmitting ? 'Ordering' : 'Order'}
+            </Button>
           </Grid>
-        </FadeIn>
+          <Grid item xs={4}>
+            <Button
+              type="reset"
+              variant="contained"
+              onClick={event => {
+                customResetHandler(event, formikProps.setFieldValue)
+              }}
+              className={clsx(
+                classes.formActionButton,
+                classes.formActionButtonReset
+              )}
+              disabled={checkIfPristine(formikProps.touched)}>
+              <RestorePageIcon className={classes.formButtonIcon} />
+              Reset
+            </Button>
+          </Grid>
+          <Grid item xs={4}>
+            <Button
+              type="button"
+              variant="contained"
+              onClick={closeDialogHandler}
+              className={clsx(
+                classes.formActionButton,
+                classes.formActionButtonClose
+              )}>
+              <CloseIcon className={classes.formButtonIcon} />
+              Close
+            </Button>
+          </Grid>
+        </Grid>
       </div>
     </Form>
   )

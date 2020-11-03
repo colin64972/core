@@ -15,11 +15,16 @@ import { types } from '../../store/types'
 import { VolumeForm } from './VolumeForm'
 
 const useStyles = makeStyles(theme => ({
-  backdrop: {
-    zIndex: theme.zIndex.drawer + 1
+  dialogContainer: {
+    position: 'fixed',
+    width: '100vw',
+    minHeight: '100vh',
+    top: 0,
+    left: 0,
+    zIndex: 100
   },
   paper: {
-    backgroundColor: theme.palette.secondary[100],
+    backgroundColor: theme.palette.secondary[200],
     [theme.breakpoints.up('xs')]: {
       padding: theme.custom.setSpace('md')
     },
@@ -108,43 +113,44 @@ export const Volume = ({ closeDialogHandler, dialogStatus, trialId }) => {
   )
 
   return (
-    <Dialog
-      open={dialogStatus}
-      transitionDuration={500}
-      disableBackdropClick
-      disableEscapeKeyDown
-      fullScreen
-      PaperProps={{
-        classes: {
-          root: classes.paper
-        }
-      }}>
+    <Grid container className={classes.dialogContainer}>
       <BackDropScreen isOpen={isSubmitting} spinner />
-      <Grid
-        container
-        direction="column"
-        justify="flex-start"
-        alignItems="flex-start"
-        className={classes.contentContainer}>
-        <Typography component="h4" className={classes.subHeading}>
-          Keyword Metric Order Form
-        </Typography>
-        <Typography component="h3" className={classes.mainHeading}>
-          Quantify your Keyword Variation Trial
-        </Typography>
-        <Formik initialValues={initalValues} onSubmit={customSubmitHandler}>
-          {formikProps => (
-            <VolumeForm
-              formikProps={formikProps}
-              closeDialogHandler={closeDialogHandler}
-              trialId={trialId}
-              keOptions={keOptions}
-              customResetHandler={customResetHandler}
-            />
-          )}
-        </Formik>
-      </Grid>
-    </Dialog>
+      <Dialog
+        open={dialogStatus}
+        transitionDuration={500}
+        disableBackdropClick
+        disableEscapeKeyDown
+        fullScreen
+        PaperProps={{
+          classes: {
+            root: classes.paper
+          }
+        }}>
+        <Grid container>
+          <Grid item xs={12}>
+            <Typography component="h4" className={classes.subHeading}>
+              Keyword Metric Order Form
+            </Typography>
+            <Typography component="h3" className={classes.mainHeading}>
+              Quantify your Keyword Variation Trial
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Formik initialValues={initalValues} onSubmit={customSubmitHandler}>
+              {formikProps => (
+                <VolumeForm
+                  formikProps={formikProps}
+                  closeDialogHandler={closeDialogHandler}
+                  trialId={trialId}
+                  keOptions={keOptions}
+                  customResetHandler={customResetHandler}
+                />
+              )}
+            </Formik>
+          </Grid>
+        </Grid>
+      </Dialog>
+    </Grid>
   )
 }
 
