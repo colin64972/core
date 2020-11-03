@@ -239,7 +239,6 @@ export const Notice = () => {
             y: 0
           },
           {
-            duration: 0.25,
             ease: 'back.in(1.5)',
             opacity: 0,
             y: noticeBar.current.offsetHeight * -1
@@ -247,7 +246,6 @@ export const Notice = () => {
         )
         .add(
           gsap.to(screen.current, {
-            duartion: 0.25,
             opacity: 0
           }),
           0.25
