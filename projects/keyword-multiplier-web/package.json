@@ -13,9 +13,11 @@
     "lite": "lite-server -c config/lite-server",
     "preRender": "NODE_ENV=production CONFIG_VER=preRenders webpack --config config/webpack-pro.js --progress",
     "sync:web": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").web)'",
+    "sync:js": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").js)'",
     "sync:preRenders": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").preRenders)'",
     "invalidate": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").invalidate(require(\"./cliParams\").invalidate)'",
-    "deploy": "yarn invalidate && yarn build && yarn sync:web && yarn preRender && yarn sync:preRenders"
+    "deploy": "yarn invalidate && yarn build && yarn sync:web && yarn preRender && yarn sync:preRenders",
+    "update": "yarn invalidate && yarn build && yarn sync:js && yarn preRender && yarn sync:preRenders"
   },
   "importSort": {
     ".js, .jsx, .es6, .es": {

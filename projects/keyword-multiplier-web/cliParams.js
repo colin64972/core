@@ -7,6 +7,13 @@ exports.web = {
   excludes: ['*.html']
 }
 
+exports.js = {
+  // dryrun: true,
+  srcPath: 'dist',
+  s3Path: `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}`,
+  excludes: ['*.html', '*jpg', '*.png', '*.webp', '*.svg', '*.gif']
+}
+
 exports.preRenders = {
   // dryrun: true,
   srcPath: 'distPreRenders',
