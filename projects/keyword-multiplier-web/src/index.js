@@ -1,9 +1,10 @@
-import __webpack_public_path__ from './publicPath'
 import { createElement } from 'react'
 import { hydrate, render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
+
 import { AppWithTheme } from './AppWithTheme'
+import __webpack_public_path__ from './publicPath'
 import { setStore } from './store'
 
 const preloadedState = window?.__PRELOADED_STATE__

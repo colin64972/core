@@ -1,10 +1,12 @@
 import React from 'react'
+
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
+import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
 import { defaultPadding } from '@cjo3/shared/react/themes/theming'
 import { Grid, Typography } from '@material-ui/core'
-import CheckIcon from '@material-ui/icons/Check'
 import { makeStyles } from '@material-ui/core/styles'
-import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
+import CheckIcon from '@material-ui/icons/Check'
+
 import { Intro as IntroImage } from '../../../assets'
 
 const useStyles = makeStyles(theme => ({
@@ -68,7 +70,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   valuePropPoint: {
-    ...theme.custom.setFlex('row', 'flex-start'),
+    ...theme.custom.setFlex('row', 'flex-start', 'flex-start'),
     ...theme.typography.body1,
     width: '100%',
     borderRadius: theme.custom.setSpace() / 2
@@ -110,12 +112,12 @@ export const Intro = () => {
           </FadeIn>
           <FadeIn direction="y" position={100}>
             <Typography variant="body1" className={classes.body}>
-              You produce great content and your audience is waiting to engage
-              with it. Whether it be your landing pages, online ads, blog
-              articles, podcasts, YouTube videos or other media&mdash;your
-              content deserves to be seen online. So, before you hit the publish
-              button, make sure you&apos;re using the right keywords and search
-              query language to attract your chosen audience.
+              You produce great content, and your audience is waiting to engage
+              with it. Whether it be landing pages, online ads, blog articles,
+              podcasts, YouTube videos or other media&mdash;your work deserves
+              to be seen online. So, before you hit the publish button, make
+              sure you&apos;re using the right keywords and search query
+              language to attract your chosen audience.
             </Typography>
           </FadeIn>
         </Grid>
@@ -130,7 +132,7 @@ export const Intro = () => {
       </Grid>
 
       <Grid container justify="center">
-        <FadeIn>
+        <FadeIn outerClass={classes.valuePropFadeIn}>
           <Grid item xs={12} className={classes.valuePropContainer}>
             <Grid container>
               <Grid item xs={12} sm={6} className={classes.valuePropLeft}>

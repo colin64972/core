@@ -1,19 +1,22 @@
 import clsx from 'clsx'
-import { Form, Field } from 'formik'
+import { Field, Form } from 'formik'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+
+import { getSetsWithValues } from '@cjo3/shared/logic/keyword-multiplier'
+import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 import { Grid } from '@material-ui/core'
-import RestorePageIcon from '@material-ui/icons/RestorePage'
-import CachedIcon from '@material-ui/icons/Cached'
-import ShuffleIcon from '@material-ui/icons/Shuffle'
 import { makeStyles } from '@material-ui/core/styles'
-import { setFields } from './fields'
-import { SetsTextAreaField } from './SetsTextAreaField'
-import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
-import { getSetsWithValues } from '@cjo3/shared/logic/keyword-multiplier'
-import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
+import CachedIcon from '@material-ui/icons/Cached'
+import RestorePageIcon from '@material-ui/icons/RestorePage'
+import ShuffleIcon from '@material-ui/icons/Shuffle'
+
 import { types } from '../../store/types'
+import { SetsTextAreaField } from './SetsTextAreaField'
+import { setFields } from './fields'
 
 const useStyles = makeStyles(theme => {
   return {
@@ -106,7 +109,7 @@ const useStyles = makeStyles(theme => {
       }
     },
     formButtonIcon: {
-      fontSize: theme.custom.setSpace() * 1.5,
+      fontSize: theme.typography.fontSize * 1.5,
       marginRight: theme.custom.setSpace() / 2,
       position: 'relative',
       top: -1
@@ -114,7 +117,7 @@ const useStyles = makeStyles(theme => {
   }
 })
 
-export const SetsForm = props => {
+export const SetsForm = ({ handleReset, values }) => {
   const classes = useStyles()
 
   const dispatch = useDispatch()
@@ -125,7 +128,7 @@ export const SetsForm = props => {
     state => state.app?.spinnerStatuses[constants.SETS_FORM_NAME]
   )
 
-  const setsWithValues = getSetsWithValues(props.values)
+  const setsWithValues = getSetsWithValues(values)
 
   const submitEnabled = setsWithValues.length - disabledSets.length > 1
 
@@ -135,7 +138,7 @@ export const SetsForm = props => {
     event.preventDefault()
     return dispatch({
       type: types.ASK_RESET_ALL,
-      handler: props.handleReset
+      handler: handleReset
     })
   }
 
@@ -194,4 +197,9 @@ export const SetsForm = props => {
       </FadeIn>
     </Form>
   )
+}
+
+SetsForm.propTypes = {
+  handleReset: PropTypes.func,
+  values: PropTypes.object.isRequired
 }

@@ -1,21 +1,32 @@
+import PropTypes from 'prop-types'
 import React, { useState } from 'react'
+import Loadable from 'react-loadable'
 import { useSelector } from 'react-redux'
-import { makeStyles } from '@material-ui/core/styles'
+
+import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 import {
   Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
   Table,
-  TableContainer,
-  TableBody,
   TableCell,
   TableHead,
   TableRow
 } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
 import FindInPageIcon from '@material-ui/icons/FindInPage'
+
+const VolumeFormReviewDialogLoadable = Loadable({
+  loader: () =>
+    import(
+      /* webpackChunkName: "chunk-VolumeFormReviewDialog" */
+      /* webpackPrefetch: true */
+      './VolumeFormReviewDialog'
+    ),
+  loading: () => <BackDropScreen isOpen spinner />,
+  render: (loaded, props) => {
+    let Component = loaded.VolumeFormReviewDialog
+    return <Component {...props} />
+  }
+})
 
 const useStyles = makeStyles(theme => ({
   table: {
@@ -31,42 +42,21 @@ const useStyles = makeStyles(theme => ({
     '&:hover': {
       backgroundColor: theme.palette.secondary[200]
     }
-  },
-  reviewListContainer: {
-    margin: `${theme.custom.setSpace('sm')}px 0 0 0`,
-    borderRadius: theme.custom.borderRadius,
-    backgroundColor: theme.palette.grey[50]
-  },
-  reviewListTitle: {
-    ...theme.typography.mainHeading,
-    color: theme.palette.primary.main,
-    fontSize: theme.custom.setSpace('sm') * 1.25,
-    margin: 0,
-    borderRadius: theme.custom.borderRadius
-  },
-  reviewListRow: {
-    border: 'none'
-  },
-  reviewListHeadCell: {
-    textAlign: 'center',
-    fontWeight: 'bold'
-  },
-  code: {
-    backgroundColor: theme.palette.grey[200],
-    padding: `0 ${theme.custom.setSpace() / 2}px`,
-    fontFamily: 'courier, mono',
-    margin: `0 0 0 ${theme.custom.setSpace() / 2}px`
   }
 }))
 
 export const VolumeFormTrialReview = ({ trialId }) => {
   const classes = useStyles()
+
   const trial = useSelector(state =>
     state.app.trials.items.find(trial => trial.id === trialId)
   )
   const [reviewModalStatus, setReviewModalStatus] = useState(false)
-  const openReviewHandler = event => setReviewModalStatus(true)
-  const closeReviewHandler = event => setReviewModalStatus(false)
+
+  const openReviewHandler = () => setReviewModalStatus(true)
+
+  const closeReviewHandler = () => setReviewModalStatus(false)
+
   return (
     <Table size="small" className={classes.table}>
       <TableHead>
@@ -109,81 +99,18 @@ export const VolumeFormTrialReview = ({ trialId }) => {
               }}>
               Review
             </Button>
-            <Dialog
-              onClose={closeReviewHandler}
-              aria-labelledby="customized-dialog-title"
-              open={reviewModalStatus}>
-              <DialogTitle
-                disableTypography
-                id="customized-dialog-title"
-                onClose={closeReviewHandler}
-                className={classes.reviewListTitle}>
-                Keyword List Review
-              </DialogTitle>
-              <DialogContent dividers>
-                <DialogContentText id="alert-dialog-description">
-                  Here you can review the list of keywords variations to buy
-                  metrics for. You will be charged only gor the billable
-                  keywords contained in this list, even if your trial variations
-                  list included many more entries with top-level-domain
-                  variations.
-                </DialogContentText>
-                <DialogContentText id="alert-dialog-description">
-                  If your trial variations list did indeed include entries with
-                  TLD variations&mdash;such as
-                  <span className={classes.code}>.com</span>,
-                  <span className={classes.code}>.net</span>,
-                  <span className={classes.code}>.club</span>, etc.&mdash;such
-                  entries have been parsed and de&ndash;duplicated to leave only
-                  billable keywords.
-                </DialogContentText>
-                <DialogContentText id="alert-dialog-description">
-                  For example, keyword variation entry
-                  <span className={classes.code}>best new car .com</span>
-                  &nbsp;and keyword variation entry
-                  <span className={classes.code}>best new car .net</span>
-                  &nbsp; have been reduced into a single billable keyword entry:
-                  <span className={classes.code}>best new car</span>.
-                </DialogContentText>
-                <TableContainer className={classes.reviewListContainer}>
-                  <Table size="small">
-                    <TableHead>
-                      <TableRow>
-                        <TableCell
-                          component="th"
-                          className={classes.reviewListHeadCell}>
-                          Entry Number
-                        </TableCell>
-                        <TableCell
-                          component="th"
-                          className={classes.reviewListHeadCell}>
-                          Billable Keyword
-                        </TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {trial.billableKeywords.map((entry, ind) => (
-                        <TableRow
-                          key={`${entry}-${ind}`}
-                          hover
-                          className={classes.reviewListRow}>
-                          <TableCell align="center">{ind + 1}</TableCell>
-                          <TableCell align="center">{entry}</TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </TableContainer>
-              </DialogContent>
-              <DialogActions>
-                <Button autoFocus onClick={closeReviewHandler} color="primary">
-                  Close
-                </Button>
-              </DialogActions>
-            </Dialog>
+            <VolumeFormReviewDialogLoadable
+              billableKeywords={trial.billableKeywords}
+              closeReviewHandler={closeReviewHandler}
+              reviewModalStatus={reviewModalStatus}
+            />
           </TableCell>
         </TableRow>
       </TableHead>
     </Table>
   )
+}
+
+VolumeFormTrialReview.propTypes = {
+  trialId: PropTypes.string.isRequired
 }

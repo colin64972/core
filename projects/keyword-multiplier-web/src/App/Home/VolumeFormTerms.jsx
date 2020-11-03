@@ -1,15 +1,16 @@
-import Loadable from 'react-loadable'
 import { Field } from 'formik'
 import React, { useState } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import {
-  FormControl,
-  FormHelperText,
-  FormControlLabel,
-  Checkbox
-} from '@material-ui/core'
-import SearchIcon from '@material-ui/icons/Search'
+import Loadable from 'react-loadable'
+
 import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
+import {
+  Checkbox,
+  FormControl,
+  FormControlLabel,
+  FormHelperText
+} from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+import SearchIcon from '@material-ui/icons/Search'
 
 const TermsAndConditionsLoadable = Loadable({
   loader: () =>
@@ -37,7 +38,7 @@ const useStyles = makeStyles(theme => ({
   },
   checkboxLabel: {
     ...theme.custom.setFlex(),
-    fontSize: theme.custom.setSpace() * 1.25,
+    fontSize: theme.typography.fontSize,
     lineHeight: 1.25
   },
   viewTermsButton: {
@@ -51,7 +52,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   viewTermsButtonIcon: {
-    fontSize: theme.custom.setSpace() * 1.5
+    fontSize: theme.typography.fontSize * 1.25
   }
 }))
 
@@ -68,8 +69,8 @@ export const VolumeFormTerms = () => {
 
   const [termsDialogStatus, setTermsDialogStatus] = useState(false)
 
-  const openTermsDialogHandler = event => setTermsDialogStatus(true)
-  const closeTermsDialogHandler = event => setTermsDialogStatus(false)
+  const openTermsDialogHandler = () => setTermsDialogStatus(true)
+  const closeTermsDialogHandler = () => setTermsDialogStatus(false)
 
   return (
     <Field name="acceptTerms" validate={validator}>

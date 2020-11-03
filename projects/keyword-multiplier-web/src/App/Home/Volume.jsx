@@ -1,22 +1,29 @@
-import React from 'react'
-import { Formik } from 'formik'
-import { useSelector, useDispatch } from 'react-redux'
 import { Dialog, Grid, Typography } from '@material-ui/core'
+import { useDispatch, useSelector } from 'react-redux'
+import { useElements, useStripe } from '@stripe/react-stripe-js'
+
 import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
-import { makeStyles } from '@material-ui/core/styles'
+import { Formik } from 'formik'
+import PropTypes from 'prop-types'
+import React from 'react'
 import { VolumeForm } from './VolumeForm'
-import { countryCodesList } from '@cjo3/shared/raw/constants/countryCodes'
-import { types } from '../../store/types'
-import { setInitialCountry } from '@cjo3/shared/logic/keyword-multiplier'
 import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
-import { useStripe, useElements } from '@stripe/react-stripe-js'
+import { countryCodesList } from '@cjo3/shared/raw/constants/countryCodes'
+import { makeStyles } from '@material-ui/core/styles'
+import { setInitialCountry } from '@cjo3/shared/logic/keyword-multiplier'
+import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => ({
-  backdrop: {
-    zIndex: theme.zIndex.drawer + 1
+  dialogContainer: {
+    position: 'fixed',
+    width: '100vw',
+    minHeight: '100vh',
+    top: 0,
+    left: 0,
+    zIndex: 100
   },
   paper: {
-    backgroundColor: theme.palette.secondary[100],
+    backgroundColor: theme.palette.secondary[200],
     [theme.breakpoints.up('xs')]: {
       padding: theme.custom.setSpace('md')
     },
@@ -24,11 +31,14 @@ const useStyles = makeStyles(theme => ({
       padding: theme.custom.setSpace()
     }
   },
+  contentContainer: {
+    maxWidth: 1024
+  },
   mainHeading: theme.typography.mainHeading,
   subHeading: theme.typography.subHeading
 }))
 
-export const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
+export const Volume = ({ closeDialogHandler, dialogStatus, trialId }) => {
   const classes = useStyles()
 
   const dispatch = useDispatch()
@@ -77,7 +87,7 @@ export const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
     }
   }
 
-  const customSubmitHandler = (values, actions) => {
+  const customSubmitHandler = values => {
     const cardNumberElement = elements.getElement('cardNumber')
     if (!cardNumberElement) return null
     dispatch({
@@ -102,37 +112,53 @@ export const Volume = ({ dialogStatus, closeDialogHandler, trialId }) => {
   )
 
   return (
-    <Dialog
-      open={dialogStatus}
-      transitionDuration={500}
-      disableBackdropClick
-      disableEscapeKeyDown
-      fullScreen
-      PaperProps={{
-        classes: {
-          root: classes.paper
-        }
-      }}>
-      <BackDropScreen isOpen={isSubmitting} spinner />
-      <Grid container justify="center" direction="column" alignItems="center">
-        <Typography component="h4" className={classes.subHeading}>
-          Keyword Metric Order Form
-        </Typography>
-        <Typography component="h3" className={classes.mainHeading}>
-          Quantify your Keyword Variation Trial
-        </Typography>
-        <Formik initialValues={initalValues} onSubmit={customSubmitHandler}>
-          {formikProps => (
-            <VolumeForm
-              formikProps={formikProps}
-              closeDialogHandler={closeDialogHandler}
-              trialId={trialId}
-              keOptions={keOptions}
-              customResetHandler={customResetHandler}
-            />
-          )}
-        </Formik>
-      </Grid>
-    </Dialog>
+    <Grid container className={classes.dialogContainer}>
+      <Dialog
+        open={dialogStatus}
+        transitionDuration={500}
+        disableBackdropClick
+        disableEscapeKeyDown
+        fullScreen
+        PaperProps={{
+          classes: {
+            root: classes.paper
+          }
+        }}>
+        <BackDropScreen
+          isOpen={isSubmitting}
+          spinner
+          className={classes.orderingBackdrop}
+        />
+        <Grid container>
+          <Grid item xs={12}>
+            <Typography component="h4" className={classes.subHeading}>
+              Keyword Metric Order Form
+            </Typography>
+            <Typography component="h3" className={classes.mainHeading}>
+              Quantify your Keyword Variation Trial
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Formik initialValues={initalValues} onSubmit={customSubmitHandler}>
+              {formikProps => (
+                <VolumeForm
+                  formikProps={formikProps}
+                  closeDialogHandler={closeDialogHandler}
+                  trialId={trialId}
+                  keOptions={keOptions}
+                  customResetHandler={customResetHandler}
+                />
+              )}
+            </Formik>
+          </Grid>
+        </Grid>
+      </Dialog>
+    </Grid>
   )
+}
+
+Volume.propTypes = {
+  closeDialogHandler: PropTypes.func.isRequired,
+  dialogStatus: PropTypes.bool.isRequired,
+  trialId: PropTypes.string.isRequired
 }

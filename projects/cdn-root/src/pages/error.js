@@ -30,13 +30,21 @@ const styles = {
 
 const styleSheet = sheetGenerator(styles)
 
+const cdnUrl = `https://${process.env.CDN_BUCKET}`
+const baseUrl = `https://${process.env.NM_BUCKET}`
+
 module.exports = {
   fileName: 'error.html',
   templatePath: path.resolve('src', 'templates', 'error.pug'),
   locals: {
-    title: 'Error',
-    cdnUrl: `https://${process.env.CDN_BUCKET}`,
-    heading: `Error`,
+    title: `Error | ${process.env.BRAND_NAME}`,
+    canonical: `${baseUrl}/error.html`,
+    metaDescription: 'Sorry, something went wrong. Please try again later!',
+    robots: 'noindex,follow',
+    faviconHref: `${cdnUrl}/favicon.ico`,
+    gsvCode: process.env.GSV_TAG,
+    gaTag: process.env.GA_TAG,
+    heading: 'Error',
     message: 'Sorry, something went wrong',
     styleSheet
   }

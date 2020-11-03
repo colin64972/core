@@ -1,14 +1,15 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
-import CloseIcon from '@material-ui/icons/Close'
-import DoneIcon from '@material-ui/icons/Done'
-import { makeStyles } from '@material-ui/core/styles'
+import { useDispatch, useSelector } from 'react-redux'
+
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 import { defaultPadding } from '@cjo3/shared/react/themes/theming'
-import { matchTypes } from './fields'
+import { Grid, Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+import CloseIcon from '@material-ui/icons/Close'
+import DoneIcon from '@material-ui/icons/Done'
+
 import { types } from '../../store/types'
+import { matchTypes } from './fields'
 
 const useStyles = makeStyles(theme => {
   const matchTypeIcon = {
@@ -71,7 +72,7 @@ const useStyles = makeStyles(theme => {
       color: theme.palette.fail[500]
     },
     icon: {
-      fontSize: theme.custom.setSpace() * 1.5,
+      fontSize: theme.typography.fontSize * 1.5,
       marginRight: theme.custom.setSpace() / 4
     },
     matchTypeButtonsContainer: {

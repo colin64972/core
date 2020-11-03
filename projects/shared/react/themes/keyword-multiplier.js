@@ -1,9 +1,10 @@
-import { setCustomTheme } from './theming'
 import primary from '@material-ui/core/colors/cyan'
 import secondary from '@material-ui/core/colors/indigo'
 
+import { setCustomTheme } from './theming'
+
 const customTheme = setCustomTheme(
-  14,
+  15,
   'Heebo',
   [
     {
@@ -50,18 +51,23 @@ customTheme.custom.buttons = {
   }
 }
 
+customTheme.custom.unorderedList = {
+  paddingLeft: customTheme.custom.setSpace('sm')
+}
 customTheme.typography.mainHeading = {
   ...customTheme.typography.bold,
+  ...customTheme.overrides.MuiTypography.h3,
   width: '100%',
-  fontSize: customTheme.typography.fontSize * 3,
   textTransform: 'uppercase',
   lineHeight: 1.125,
   margin: '0.5rem 0'
 }
+
 customTheme.typography.subHeading = {
   ...customTheme.typography.italic,
+  ...customTheme.overrides.MuiTypography.h4,
+  fontWeight: 'normal',
   width: '100%',
-  fontSize: customTheme.typography.fontSize * 2,
   lineHeight: 1.125
 }
 
@@ -81,7 +87,7 @@ customTheme.custom.buttons.formButton = {
   fontFamily: customTheme.typography.fontFamily,
   width: '100%',
   border: 'none',
-  fontSize: customTheme.custom.setSpace(),
+  fontSize: 13,
   fontWeight: 'bold',
   textTransform: 'uppercase',
   transition: 'all 250ms ease-out',
@@ -91,7 +97,7 @@ customTheme.custom.buttons.formButton = {
 customTheme.custom.buttons.iconButton = {
   'border': 'none',
   'fontSize': customTheme.custom.setSpace(),
-  'padding': customTheme.custom.setSpace() / 2,
+  'padding': customTheme.custom.setSpace() / 3,
   'margin': `0 ${customTheme.custom.setSpace() / 2}px 0 0`,
   'borderRadius': customTheme.custom.borderRadius,
   'cursor': 'pointer',

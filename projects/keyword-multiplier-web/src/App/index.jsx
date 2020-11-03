@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { Switch, Route, useLocation } from 'react-router-dom'
-import CssBaseline from '@material-ui/core/CssBaseline'
+import { useDispatch, useSelector } from 'react-redux'
+import { Route, Switch, useLocation } from 'react-router-dom'
+
 import { setTracker, switchLinkRoutePath } from '@cjo3/shared/react/helpers'
+import { CssBaseline } from '@material-ui/core'
+
 import { types } from '../store/types'
 import { Home } from './Home'
 import { NotFound } from './NotFound'

@@ -1,27 +1,29 @@
+import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
 import Loadable from 'react-loadable'
-import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
-import { loadStripe } from '@stripe/stripe-js'
-import { Elements } from '@stripe/react-stripe-js'
-import {
-  Grid,
-  Typography,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow
-} from '@material-ui/core'
-import SearchIcon from '@material-ui/icons/Search'
-import { makeStyles } from '@material-ui/core/styles'
-import { volumeDataFields } from './fields'
-import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+import { useSelector } from 'react-redux'
+
 import {
   findMetricFromEntry,
   formatProductLine
 } from '@cjo3/shared/logic/keyword-multiplier'
+import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
 import { getLabelFromValue } from '@cjo3/shared/react/helpers'
+import {
+  Grid,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  Typography
+} from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+import SearchIcon from '@material-ui/icons/Search'
+import { Elements } from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
+
+import { volumeDataFields } from './fields'
 
 const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY)
 
@@ -32,7 +34,7 @@ const VolumeLoadable = Loadable({
       /* webpackPrefetch: true */
       './Volume'
     ),
-  loading: () => <BackDropScreen isOpen spinner />,
+  loading: () => null,
   render: (loaded, props) => {
     let Component = loaded.Volume
     return <Component {...props} />
@@ -47,7 +49,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   metricProp: {
-    'fontSize': theme.custom.setSpace() * 1.25,
+    'fontSize': theme.typography.fontSize,
     'marginTop': theme.custom.setSpace() / 2,
     'marginRight': theme.custom.setSpace(),
     'fontWeight': 'normal',
@@ -83,11 +85,15 @@ const useStyles = makeStyles(theme => ({
     }
   },
   searchButtonIcon: {
-    fontSize: theme.custom.setSpace() * 1.5
+    fontSize: theme.typography.fontSize * 1.25
   }
 }))
 
-export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
+export const TrialCardTable = ({
+  copyRef,
+  trial: { metrics, id, list },
+  volumeUnobtainable
+}) => {
   const classes = useStyles()
 
   const matchType = useSelector(state => state.app.matchType)
@@ -98,22 +104,22 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
 
   const [dialogStatus, setDialogStatus] = useState(false)
 
-  const openDialogHandler = event => setDialogStatus(true)
+  const openDialogHandler = () => setDialogStatus(true)
 
-  const closeDialogHandler = event => setDialogStatus(false)
+  const closeDialogHandler = () => setDialogStatus(false)
 
   const kECountries = useSelector(state => state.kE?.countries)
   const kECurrencies = useSelector(state => state.kE?.currencies)
   const kEDataSources = useSelector(state => state.kE?.dataSources)
 
   const metricOptionLabels = {
-    country: getLabelFromValue(trial?.metrics?.country, kECountries),
-    currency: getLabelFromValue(trial?.metrics?.currency, kECurrencies),
-    dataSource: getLabelFromValue(trial?.metrics?.dataSource, kEDataSources)
+    country: getLabelFromValue(metrics?.country, kECountries),
+    currency: getLabelFromValue(metrics?.currency, kECurrencies),
+    dataSource: getLabelFromValue(metrics?.dataSource, kEDataSources)
   }
 
   const tableMeta = JSON.stringify({
-    trialId: trial.id,
+    trialId: id,
     metricOptions: {
       ...metricOptionLabels
     }
@@ -128,29 +134,29 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
           <VolumeLoadable
             dialogStatus={dialogStatus}
             closeDialogHandler={closeDialogHandler}
-            trialId={trial.id}
+            trialId={id}
           />
         </Elements>
       )}
-      {trial?.metrics && (
+      {metrics && (
         <Grid
           container
           justify="center"
           alignItems="center"
           className={classes.metricDetailsContainer}>
-          <Typography variant="h6" className={classes.metricProp}>
+          <Typography className={classes.metricProp}>
             Target Country&nbsp;
             <span className={classes.metricPropValue}>
               {metricOptionLabels.country}
             </span>
           </Typography>
-          <Typography variant="h6" className={classes.metricProp}>
+          <Typography className={classes.metricProp}>
             CPC Currency&nbsp;
             <span className={classes.metricPropValue}>
               {metricOptionLabels.currency}
             </span>
           </Typography>
-          <Typography variant="h6" className={classes.metricProp}>
+          <Typography className={classes.metricProp}>
             Metric Data Source&nbsp;
             <span className={classes.metricPropValue}>
               {metricOptionLabels.dataSource}
@@ -178,7 +184,7 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
                 {constants.VOLUME_DATA.VOLUME.LABEL}
               </TableCell>
             )}
-            {trial?.metrics &&
+            {metrics &&
               volumeDataFields.map(field => (
                 <TableCell
                   className={classes.tableHeadCell}
@@ -189,9 +195,9 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
               ))}
           </TableRow>
         </TableHead>
-        <TableBody id={trial.id}>
-          {trial.list.map((keyword, keywordIndex) => (
-            <TableRow key={`${trial.id}-${keywordIndex}`} hover>
+        <TableBody id={id}>
+          {list.map((keyword, keywordIndex) => (
+            <TableRow key={`${id}-${keywordIndex}`} hover>
               <TableCell
                 component="td"
                 className={classes.trialId}
@@ -213,31 +219,27 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
                 <TableCell
                   component="td"
                   scope={constants.VOLUME_DATA.VOLUME.VALUE}>
-                  {trial?.metrics?.volume ? (
+                  {metrics?.volume ? (
                     findMetricFromEntry(
                       keyword,
                       constants.VOLUME_DATA.VOLUME.VALUE,
-                      trial.metrics.volume
+                      metrics?.volume
                     )
                   ) : (
                     <button
                       type="button"
                       onClick={openDialogHandler}
-                      data-id={trial.id}
+                      data-id={id}
                       className={classes.requestVolumeButton}>
                       <SearchIcon className={classes.searchButtonIcon} />
                     </button>
                   )}
                 </TableCell>
               )}
-              {trial?.metrics &&
+              {metrics &&
                 volumeDataFields.map(field => (
                   <TableCell component="td" key={field.key} scope={field.value}>
-                    {findMetricFromEntry(
-                      keyword,
-                      field.value,
-                      trial.metrics.volume
-                    )}
+                    {findMetricFromEntry(keyword, field.value, metrics?.volume)}
                   </TableCell>
                 ))}
             </TableRow>
@@ -246,4 +248,19 @@ export const TrialCardTable = ({ trial, copyRef, volumeUnobtainable }) => {
       </Table>
     </Grid>
   )
+}
+
+TrialCardTable.propTypes = {
+  copyRef: PropTypes.object.isRequired,
+  trial: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    metrics: PropTypes.shape({
+      volume: PropTypes.arrayOf(PropTypes.object),
+      country: PropTypes.string,
+      currency: PropTypes.string,
+      dataSource: PropTypes.string
+    }),
+    list: PropTypes.arrayOf(PropTypes.string)
+  }),
+  volumeUnobtainable: PropTypes.bool.isRequired
 }

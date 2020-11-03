@@ -1,5 +1,5 @@
-import { createHashId } from '@cjo3/shared/react/helpers'
 import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+import { createHashId } from '@cjo3/shared/react/helpers'
 
 export const setFields = []
 

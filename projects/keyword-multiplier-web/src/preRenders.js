@@ -1,6 +1,7 @@
-import __webpack_public_path__ from './publicPath'
-import { AppWithTheme } from './AppWithTheme'
 import { generatePreRenders } from '@cjo3/shared/react/helpers'
+
+import { AppWithTheme } from './AppWithTheme'
+import __webpack_public_path__ from './publicPath'
 import { setStore } from './store'
 
 const pages = [

@@ -1,15 +1,15 @@
-import React from 'react'
 import { Formik } from 'formik'
+import React from 'react'
 import { useDispatch } from 'react-redux'
-import { defaultPadding } from '@cjo3/shared/react/themes/theming'
+
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
-import Hidden from '@material-ui/core/Hidden'
-import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
+import { defaultPadding } from '@cjo3/shared/react/themes/theming'
+import { Grid, Hidden, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import { setFields } from './fields'
-import { SetsForm } from './SetsForm'
+
 import { types } from '../../store/types'
+import { SetsForm } from './SetsForm'
+import { setFields } from './fields'
 
 const useStyles = makeStyles(theme => ({
   setsSection: {
@@ -73,12 +73,15 @@ export const Sets = () => {
           </FadeIn>
           <FadeIn direction="x" position={100}>
             <Typography variant="body1">
-              There are many ways to express a search query; therefore, as a
-              content producer, it is worth your while to explore variations
-              within your consumers&apos; expected search queries to objectively
-              evaluate the effectiveness of your content&apos;s topics and
-              language. Use the textareas below to generate keyword variations
-              based on expected search queries.
+              There are many ways to express search intent, and each query can
+              result in varying levels of search volume each month. Therefore,
+              if you are working as a content producer or online marketer, it is
+              worth your while to explore the variations within your
+              consumers&apos; expected search query language. Using keyword
+              variations can help you add depth to your content&apos;s search
+              value, and even uncover new perspectives to write from. Use the
+              text areas below to generate patterned search phrases in order to
+              evaluate the effectiveness of your content topics and language.
             </Typography>
           </FadeIn>
         </Grid>

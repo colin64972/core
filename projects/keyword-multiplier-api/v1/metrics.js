@@ -1,9 +1,11 @@
 import Stripe from 'stripe'
+
 import { calculateTrialPrice } from '@cjo3/shared/logic/keyword-multiplier'
 import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
 import { errorConstants } from '@cjo3/shared/serverless/errorConstants'
 import { proxyServiceError } from '@cjo3/shared/serverless/proxyServiceError'
 import { sendMessage } from '@cjo3/shared/serverless/sendSms'
+
 import { fetchKeMeta, fetchKeVolumes } from './fetchers'
 import { getTrialById, updateTrialWithPaymentAndVolumes } from './trials'
 

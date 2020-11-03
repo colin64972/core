@@ -1,11 +1,12 @@
 import React from 'react'
-import CssBaseline from '@material-ui/core/CssBaseline'
+import { Route, Switch, useLocation } from 'react-router-dom'
+
+import { CssBaseline, Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import { Grid } from '@material-ui/core'
-import { Switch, Route, useLocation } from 'react-router-dom'
-import { Home } from './Home'
-import { Feedback } from './Feedback'
+
 import { Error } from './Error'
+import { Feedback } from './Feedback'
+import { Home } from './Home'
 
 const useStyles = makeStyles(theme => ({
   pageContainer: {

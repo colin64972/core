@@ -1,5 +1,7 @@
-import React from 'react'
 import clsx from 'clsx'
+import PropTypes from 'prop-types'
+import React from 'react'
+
 import { makeStyles } from '@material-ui/core/styles'
 
 const setSrcSet = (paths, format = null) =>
@@ -23,16 +25,26 @@ const useStyles = makeStyles(theme => ({
 
 export const ImageHandler = ({ asset, styleClass }) => {
   const classes = useStyles()
+  const { alt, mimeType, paths } = asset
   return (
     <picture className={clsx(classes.picture, styleClass)}>
-      <source srcSet={setSrcSet(asset.paths, 'webp')} type="image/webp" />
+      <source srcSet={setSrcSet(paths, 'webp')} type="image/webp" />
       <img
         className={styleClass}
-        srcSet={setSrcSet(asset.paths)}
-        src={asset.paths[0]}
-        alt={asset.alt}
-        type={asset.mimeType}
+        srcSet={setSrcSet(paths)}
+        src={paths[0]}
+        alt={alt}
+        type={mimeType}
       />
     </picture>
   )
+}
+
+ImageHandler.propTypes = {
+  asset: PropTypes.shape({
+    alt: PropTypes.string,
+    mimeType: PropTypes.string,
+    paths: PropTypes.arrayOf(PropTypes.string)
+  }),
+  styleClass: PropTypes.string
 }

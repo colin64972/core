@@ -1,10 +1,13 @@
 import clsx from 'clsx'
-import { useSelector, useDispatch } from 'react-redux'
+import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import { Table, TableBody, TableCell, TableRow } from '@material-ui/core'
+import { useDispatch, useSelector } from 'react-redux'
+
 import { calculateTrialPrice } from '@cjo3/shared/logic/keyword-multiplier'
 import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+import { Table, TableBody, TableCell, TableRow } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+
 import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => ({
@@ -34,8 +37,8 @@ const useStyles = makeStyles(theme => ({
     ...theme.typography.italic,
     border: 'none',
     width: '100%',
-    fontSize: theme.custom.setSpace() * 1.25,
-    lineHeight: 1.25,
+    fontSize: theme.typography.fontSize,
+    lineHeight: 1.33,
     color: 'white',
     textAlign: 'left',
     marginTop: theme.custom.setSpace()
@@ -63,7 +66,7 @@ export const VolumeFormPricing = ({ trialId }) => {
   }, [price])
 
   return (
-    <Table className={classes.table}>
+    <Table size="small" className={classes.table}>
       <TableBody>
         <TableRow className={classes.noBorder} hover>
           <TableCell component="th" align="left" className={classes.headCell}>
@@ -125,7 +128,7 @@ export const VolumeFormPricing = ({ trialId }) => {
         </TableRow>
         <TableRow className={classes.noBorder}>
           <TableCell className={classes.note} colSpan={2}>
-            &#42; All prices listed in &#36; Canadian Dollars CAD
+            &#42; All prices listed in Canadian Dollars &#36; CAD
           </TableCell>
         </TableRow>
         {hasBumpUpFee && (
@@ -139,4 +142,8 @@ export const VolumeFormPricing = ({ trialId }) => {
       </TableBody>
     </Table>
   )
+}
+
+VolumeFormPricing.propTypes = {
+  trialId: PropTypes.string.isRequired
 }

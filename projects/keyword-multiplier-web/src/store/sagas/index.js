@@ -1,14 +1,15 @@
 import { takeLatest } from 'redux-saga/effects'
+
+import { types } from '../types'
 import {
-  multiplySets,
-  copyTrial,
-  askDeleteTrial,
   askDeleteAllTrials,
+  askDeleteTrial,
+  askResetAll,
   copyAllTrials,
-  askResetAll
+  copyTrial,
+  multiplySets
 } from './app'
 import { getKeCredits, getKeOptions, orderMetrics } from './keywordsEverywhere'
-import { types } from '../types'
 
 export function* sagas() {
   yield takeLatest(types.MULTIPLY_SETS, multiplySets)

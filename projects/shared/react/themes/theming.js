@@ -1,7 +1,7 @@
-import { createMuiTheme } from '@material-ui/core/styles'
 import warn from '@material-ui/core/colors/amber'
 import pass from '@material-ui/core/colors/lime'
 import fail from '@material-ui/core/colors/red'
+import { createMuiTheme } from '@material-ui/core/styles'
 
 export const defaultPadding = (breakpoints, setSpace, scale) => {
   if (scale)
@@ -162,7 +162,7 @@ export const setCustomTheme = (
       },
       MuiTypography: {
         h1: {
-          fontSize: fontSize * 4,
+          fontSize: fontSize * 2.5,
           ...headingStyle
         },
         h2: {

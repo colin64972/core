@@ -1,12 +1,12 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import Loadable from 'react-loadable'
+import { useSelector } from 'react-redux'
+
+import { Footer } from '../Footer'
 import { Header } from './Header'
 import { Intro } from './Intro'
 import { Notice } from './Notice'
 import { Sets } from './Sets'
-import { Footer } from '../Footer'
-import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 
 const TrialResultsLoadable = Loadable({
   loader: () =>
@@ -15,7 +15,7 @@ const TrialResultsLoadable = Loadable({
       /* webpackPrefetch: true */
       './TrialResults'
     ),
-  loading: () => <BackDropScreen isOpen spinner />,
+  loading: () => null,
   render: (loaded, props) => {
     let Component = loaded.TrialResults
     return <Component {...props} />

@@ -1,19 +1,16 @@
 import React, { useState } from 'react'
 import Loadable from 'react-loadable'
-import { defaultPadding } from '@cjo3/shared/react/themes/theming'
+
+import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
-import Grid from '@material-ui/core/Grid'
-import Link from '@material-ui/core/Link'
-import Typography from '@material-ui/core/Typography'
+import { defaultPadding } from '@cjo3/shared/react/themes/theming'
+import { Grid, Link, Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
 import GavelIcon from '@material-ui/icons/Gavel'
-import RateReviewIcon from '@material-ui/icons/RateReview'
 import VpnLockIcon from '@material-ui/icons/VpnLock'
 import WebIcon from '@material-ui/icons/Web'
-import { makeStyles } from '@material-ui/core/styles'
-import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+
 import { ProfilePic } from '../../assets'
-import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
-import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 
 const TermsAndConditionsLoadable = Loadable({
   loader: () =>
@@ -48,7 +45,8 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.grey[900],
     ...defaultPadding(theme.breakpoints, theme.custom.setSpace, 0.5),
     [theme.breakpoints.down('lg')]: {
-      ...defaultPadding(theme.breakpoints, theme.custom.setSpace)
+      ...defaultPadding(theme.breakpoints, theme.custom.setSpace),
+      paddingTop: theme.custom.setSpace('sm')
     }
   },
   footerNav: {
@@ -58,7 +56,6 @@ const useStyles = makeStyles(theme => ({
     ...theme.custom.buttons.base,
     'padding': theme.custom.setSpace() / 2,
     'paddingLeft': 0,
-    'fontSize': theme.custom.setSpace() * 1.25,
     'color': theme.palette.primary[800],
     ...theme.custom.setFlex(),
     '&:hover': {
@@ -67,7 +64,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   menuItemIcon: {
-    fontSize: theme.custom.setSpace() * 1.5,
+    fontSize: theme.typography.fontSize * 1.5,
     marginRight: theme.custom.setSpace() / 2
   },
   footerRight: {
@@ -102,8 +99,8 @@ const useStyles = makeStyles(theme => ({
     ...theme.typography.bold,
     textTransform: 'uppercase',
     textAlign: 'right',
-    lineHeight: 1.125,
-    fontSize: theme.typography.fontSize * 1.5,
+    fontSize: theme.typography.fontSize * 1.33,
+    lineHeight: 1.25,
     margin: `0 ${theme.custom.setSpace()}px 0 0`,
     [theme.breakpoints.down('xs')]: {
       textAlign: 'left',
@@ -119,12 +116,10 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'right',
     color: theme.palette.grey[700],
     [theme.breakpoints.down('xs')]: {
-      fontSize: theme.custom.setSpace() * 1.25,
       textAlign: 'left'
     }
   },
   copyright: {
-    fontSize: theme.custom.setSpace() * 1.25,
     color: theme.palette.grey[700],
     textAlign: 'right',
     margin: `28px 0 0 0`,
@@ -141,11 +136,11 @@ export const Footer = () => {
 
   const [PPOpen, setPPOpen] = useState(false)
 
-  const openTAndCHandler = event => setTAndCOpen(true)
+  const openTAndCHandler = () => setTAndCOpen(true)
 
   const closeTAndCHandler = () => setTAndCOpen(false)
 
-  const openPPHandler = event => setPPOpen(true)
+  const openPPHandler = () => setPPOpen(true)
 
   const closePPHandler = () => setPPOpen(false)
 
@@ -203,10 +198,10 @@ export const Footer = () => {
             </Link>
             <ImageHandler asset={ProfilePic} styleClass={classes.profilePic} />
           </div>
-          <Typography variant="body1" className={classes.badgeSubheading}>
+          <Typography className={classes.badgeSubheading}>
             Available for hire today!
           </Typography>
-          <Typography variant="body1" className={classes.copyright}>
+          <Typography className={classes.copyright}>
             &copy; {new Date().getFullYear()} {process.env.COPYRIGHT_ENTITY}.
             All rights reserved.
           </Typography>

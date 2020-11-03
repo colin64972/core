@@ -1,10 +1,10 @@
-import { createElement } from 'react'
-import { renderToString } from 'react-dom/server'
 import { Provider } from 'react-redux'
-import { StaticRouter } from 'react-router-dom'
-import { ServerStyleSheets } from '@material-ui/core/styles'
-import crypto from 'crypto'
 import ReactGA from 'react-ga'
+import { ServerStyleSheets } from '@material-ui/core/styles'
+import { StaticRouter } from 'react-router-dom'
+import { createElement } from 'react'
+import crypto from 'crypto'
+import { renderToString } from 'react-dom/server'
 import { v4 as uuidv4 } from 'uuid'
 
 export const createHashId = () => {
@@ -73,7 +73,9 @@ export const setTracker = gaTag => {
   tracker.initialize = () => ReactGA.initialize(config.gaTag)
   tracker.pageHit = (rootPath, pathname) =>
     ReactGA.pageview(removeAppUrlPrefix(rootPath, pathname))
-  tracker.eventHit = () => {}
+  tracker.eventHit = event => {
+    ReactGA.event(event)
+  }
 
   return tracker
 }

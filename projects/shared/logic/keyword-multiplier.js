@@ -1,9 +1,10 @@
 import moment from 'moment'
+
+import { formatCentsToDollars } from '../general/formatting'
 import { constants } from '../raw/constants/keyword-multiplier'
 import { LINE_INCLUDES_TLD } from '../raw/constants/regex'
-import { createHashId, optionizeObject } from '../react/helpers'
 import { stripe } from '../raw/constants/stripe'
-import { formatCentsToDollars } from '../general/formatting'
+import { createHashId, optionizeObject } from '../react/helpers'
 
 export const calculateTrialPrice = itemCount => {
   const result = {}

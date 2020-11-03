@@ -1,11 +1,13 @@
+import PropTypes from 'prop-types'
 import React from 'react'
-import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
-import { makeStyles } from '@material-ui/core/styles'
+
+import { mergeSort } from '@cjo3/shared/general/sorting'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 import { defaultPadding } from '@cjo3/shared/react/themes/theming'
+import { Grid, Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+
 import { TrialCard } from './TrialCard'
-import { mergeSort } from '@cjo3/shared/general/sorting'
 
 const useStyles = makeStyles(theme => ({
   trialsSection: {
@@ -27,7 +29,10 @@ const useStyles = makeStyles(theme => ({
 
 export const TrialCardsContainer = ({ trials }) => {
   const classes = useStyles()
-  const sortedItems = mergeSort(trials.items, 'updatedAt', 'down')
+
+  const { items, shown } = trials
+
+  const sortedItems = mergeSort(items, 'updatedAt', 'down')
   return (
     <Grid container component="section" className={classes.trialsSection}>
       <Grid item xs={12}>
@@ -58,15 +63,22 @@ export const TrialCardsContainer = ({ trials }) => {
         spacing={3}
         className={classes.trialsContainer}>
         {sortedItems.map(trial => (
-          <Grid item xs={12} md={6} lg={4} xl={3} key={trial.id}>
+          <Grid item xs={12} md={6} lg={4} key={trial.id}>
             <TrialCard
               trial={trial}
-              isShown={trials.shown.includes(trial.id)}
-              isLastShown={trials.shown.length === 1}
+              isShown={shown.includes(trial.id)}
+              isLastShown={shown.length === 1}
             />
           </Grid>
         ))}
       </Grid>
     </Grid>
   )
+}
+
+TrialCardsContainer.propTypes = {
+  trials: PropTypes.shape({
+    items: PropTypes.arrayOf(PropTypes.object).isRequired,
+    shown: PropTypes.arrayOf(PropTypes.string).isRequired
+  })
 }

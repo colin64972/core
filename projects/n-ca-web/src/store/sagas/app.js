@@ -1,4 +1,5 @@
-import { call, put, select, take, race, delay } from 'redux-saga/effects'
+import { call, delay, put, race, select, take } from 'redux-saga/effects'
+
 import { types } from '../types'
 
 export function* getIp(action) {

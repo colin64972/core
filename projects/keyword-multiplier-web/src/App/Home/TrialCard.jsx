@@ -1,39 +1,43 @@
-import gsap from 'gsap'
-import React, { createRef, useEffect, useLayoutEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary
 } from '@material-ui/core'
+import React, { createRef, useEffect, useLayoutEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import { makeStyles } from '@material-ui/core/styles'
+import PropTypes from 'prop-types'
 import { TrialCardHeader } from './TrialCardHeader'
 import { TrialCardTable } from './TrialCardTable'
+import gsap from 'gsap'
+import { makeStyles } from '@material-ui/core/styles'
 import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => ({
+  expandIcon: {
+    position: 'relative',
+    right: 25,
+    top: 15
+  },
   trialCard: {
     width: '100%'
   },
-  expandIcon: {
-    position: 'relative',
-    top: 15,
-    right: 25
-  },
   trialList: {
-    'padding': theme.custom.setSpace(),
-    'margin': 0,
     '& :last-child': {
       margin: 0
-    }
+    },
+    'margin': 0,
+    'padding': theme.custom.setSpace()
   },
   trialListItem: {
     textAlign: 'left'
   }
 }))
 
-export const TrialCard = ({ trial, isShown }) => {
+export const TrialCard = ({ isShown, trial }) => {
+  const { id, billableKeywords } = trial
+
   const classes = useStyles()
 
   const dispatch = useDispatch()
@@ -42,15 +46,32 @@ export const TrialCard = ({ trial, isShown }) => {
   const copyRef = createRef()
 
   const KeCredits = useSelector(state => state.kE?.credits)
+  const tracker = useSelector(state => state.app?.tracker)
+
+  useEffect(() => {
+    if (!process.env.IS_SERVER) {
+      tracker.eventHit({
+        category: 'trials',
+        action: 'trial_created',
+        label: id,
+        value: billableKeywords.length
+      })
+    }
+  }, [])
 
   const [volumeUnobtainable, setVolumeUnobtainable] = useState(false)
 
   const copyHandler = event => {
     event.stopPropagation()
+    tracker.eventHit({
+      category: 'trials',
+      action: 'trial_copied',
+      label: id,
+    })
     return dispatch({
       type: types.COPY_TRIAL,
       tableRef: copyRef.current,
-      id: trial.id
+      id
     })
   }
 
@@ -58,7 +79,7 @@ export const TrialCard = ({ trial, isShown }) => {
     event.stopPropagation()
     return dispatch({
       type: types.ASK_DELETE_TRIAL,
-      id: trial.id
+      id
     })
   }
 
@@ -105,8 +126,7 @@ export const TrialCard = ({ trial, isShown }) => {
 
   useEffect(() => {
     setVolumeUnobtainable(
-      trial.billableKeywords.length > 100 ||
-        KeCredits < trial.billableKeywords.length
+      billableKeywords.length > 100 || KeCredits < billableKeywords.length
     )
   }, [KeCredits])
 
@@ -119,7 +139,7 @@ export const TrialCard = ({ trial, isShown }) => {
   }
 
   return (
-    <div className={classes.trialCard} ref={card} id={trial.id}>
+    <div className={classes.trialCard} ref={card} id={id}>
       <Accordion onChange={accordionChangeHandler}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -144,4 +164,17 @@ export const TrialCard = ({ trial, isShown }) => {
       </Accordion>
     </div>
   )
+}
+
+TrialCard.propTypes = {
+  isShown: PropTypes.bool.isRequired,
+  trial: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    geoIp: PropTypes.object,
+    heading: PropTypes.string.isRequired,
+    timestampUpdated: PropTypes.string.isRequired,
+    updatedAt: PropTypes.number.isRequired,
+    list: PropTypes.arrayOf(PropTypes.string),
+    billableKeywords: PropTypes.arrayOf(PropTypes.string)
+  })
 }

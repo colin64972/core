@@ -1,13 +1,15 @@
-import gsap from 'gsap'
 import clsx from 'clsx'
-import React, { useRef, useEffect, useLayoutEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import gsap from 'gsap'
+import React, { useEffect, useLayoutEffect, useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+import { makeStyles } from '@material-ui/core/styles'
 import CloseIcon from '@material-ui/icons/Close'
 import DoneIcon from '@material-ui/icons/Done'
-import { makeStyles } from '@material-ui/core/styles'
-import { NoticeIcon } from './NoticeIcon'
-import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+
 import { types } from '../../store/types'
+import { NoticeIcon } from './NoticeIcon'
 
 const useStyles = makeStyles(theme => {
   const noticeButton = {
@@ -112,13 +114,11 @@ const useStyles = makeStyles(theme => {
     },
     headingText: {
       fontFamily: theme.typography.fontFamily,
-      fontSize: theme.typography.fontSize * 1.3333333333,
+      fontSize: theme.typography.fontSize * 1.125,
       textAlign: 'left',
-      lineHeight: 1.3333333333,
+      lineHeight: 1.25,
       textTransform: 'uppercase',
       margin: `0 ${theme.custom.setSpace() / 2}px`,
-      position: 'relative',
-      top: 2,
       ...theme.typography.bold,
       [theme.breakpoints.down('xs')]: {
         margin: `0 0 0 ${theme.custom.setSpace() / 2}px`
@@ -126,9 +126,9 @@ const useStyles = makeStyles(theme => {
     },
     messageText: {
       fontFamily: theme.typography.fontFamily,
-      fontSize: theme.typography.fontSize * 1.25,
+      fontSize: theme.typography.fontSize,
       textAlign: 'left',
-      lineHeight: 1.3333333333,
+      lineHeight: 1.125,
       margin: 0,
       position: 'relative',
       top: 1,
@@ -158,11 +158,17 @@ const useStyles = makeStyles(theme => {
 
 export const Notice = () => {
   const classes = useStyles()
+
   const dispatch = useDispatch()
+
   const screen = useRef()
+
   const timeoutBar = useRef()
+
   const noticeBar = useRef()
+
   const { show, item } = useSelector(state => state.app.notice)
+
   let timeline = gsap.timeline({ paused: true })
 
   const responseHandler = (event, choice = null) => {
@@ -175,7 +181,7 @@ export const Notice = () => {
     })
   }
 
-  const keyUpHandler = event => {
+  const keyUpHandler = () => {
     const { keyCode } = event
     let choice
     switch (keyCode) {
@@ -193,13 +199,15 @@ export const Notice = () => {
     if (show) {
       timeline
         .add(
-          gsap.to(screen.current, 0.25, {
+          gsap.to(screen.current, {
+            duration: 0.25,
             opacity: 1
           }),
           0
         )
         .add(
-          gsap.from(timeoutBar.current, constants.NOTICE.TIMEOUT_DELAY / 1000, {
+          gsap.from(timeoutBar.current, {
+            duration: constants.NOTICE.TIMEOUT_DELAY / 1000,
             width: '100%',
             ease: 'linear'
           }),
@@ -229,14 +237,13 @@ export const Notice = () => {
             y: 0
           },
           {
-            duration: 0.25,
             ease: 'back.in(1.5)',
             opacity: 0,
             y: noticeBar.current.offsetHeight * -1
           }
         )
         .add(
-          gsap.to(screen.current, 0.25, {
+          gsap.to(screen.current, {
             opacity: 0
           }),
           0.25

@@ -1,20 +1,17 @@
-import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 import { Field } from 'formik'
+import PropTypes from 'prop-types'
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { makeStyles } from '@material-ui/core/styles'
+
 import {
   FormControl,
   FormHelperText,
   InputLabel,
   MenuItem,
-  Paper,
-  Select,
-  Typography
+  Select
 } from '@material-ui/core'
-import { kEFields } from './fields'
+import { makeStyles } from '@material-ui/core/styles'
 
-import { countryCodesList } from '@cjo3/shared/raw/constants/countryCodes'
+import { kEFields } from './fields'
 
 const useStyles = makeStyles(theme => ({
   grid: {
@@ -46,6 +43,9 @@ const useStyles = makeStyles(theme => ({
       gridColumn: '1 / 13',
       gridRow: 3
     }
+  },
+  fontSize: {
+    fontSize: theme.typography.fontSize
   }
 }))
 
@@ -72,7 +72,9 @@ export const VolumeFormKEOptions = ({ keOptions }) => {
                 error={
                   fieldProps.meta.touched && fieldProps.meta.error?.status
                 }>
-                <InputLabel id={`${fieldProps.field.name}-label`}>
+                <InputLabel
+                  id={`${fieldProps.field.name}-label`}
+                  className={classes.fontSize}>
                   {kEField.label}
                 </InputLabel>
                 <Select
@@ -81,14 +83,20 @@ export const VolumeFormKEOptions = ({ keOptions }) => {
                   name={fieldProps.field.name}
                   value={fieldProps.field.value}
                   onChange={fieldProps.field.onChange}
-                  onBlur={fieldProps.field.onBlur}>
+                  onBlur={fieldProps.field.onBlur}
+                  classes={{
+                    root: classes.fontSize
+                  }}>
                   {keOptions[kEField.optionsName].map(option => (
-                    <MenuItem key={option.key} value={option.value}>
+                    <MenuItem
+                      key={option.key}
+                      value={option.value}
+                      className={classes.fontSize}>
                       {option.label}
                     </MenuItem>
                   ))}
                 </Select>
-                <FormHelperText>
+                <FormHelperText className={classes.fontSize}>
                   {fieldProps.meta.touched && fieldProps.meta.error?.status
                     ? fieldProps.meta.error.message
                     : kEField?.helperText}
@@ -100,4 +108,17 @@ export const VolumeFormKEOptions = ({ keOptions }) => {
       ))}
     </div>
   )
+}
+
+VolumeFormKEOptions.propTypes = {
+  keOptions: PropTypes.shape({
+    countryOptions: PropTypes.arrayOf(PropTypes.object),
+    currencyOptions: PropTypes.arrayOf(PropTypes.object),
+    dataSourceOptions: PropTypes.arrayOf(PropTypes.object),
+    userSelections: PropTypes.shape({
+      country: PropTypes.string,
+      currency: PropTypes.string,
+      dataSource: PropTypes.string
+    })
+  }).isRequired
 }

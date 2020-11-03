@@ -2,6 +2,7 @@ import { createElement } from 'react'
 import { hydrate, render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
+
 import { AppWithTheme } from './AppWithTheme'
 import { setStore } from './store'
 

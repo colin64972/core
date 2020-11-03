@@ -1,21 +1,26 @@
+import PropTypes from 'prop-types'
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import Grid from '@material-ui/core/Grid'
-import Switch from '@material-ui/core/Switch'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import InputLabel from '@material-ui/core/InputLabel'
-import MenuItem from '@material-ui/core/MenuItem'
-import FormControl from '@material-ui/core/FormControl'
-import Select from '@material-ui/core/Select'
-import FormGroup from '@material-ui/core/FormGroup'
-import Typography from '@material-ui/core/Typography'
-import DeleteSweepIcon from '@material-ui/icons/DeleteSweep'
-import FileCopyIcon from '@material-ui/icons/FileCopy'
-import { withStyles, makeStyles } from '@material-ui/core/styles'
+import { useDispatch, useSelector } from 'react-redux'
+
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 import { defaultPadding } from '@cjo3/shared/react/themes/theming'
-import { whiteSpaceOptions } from './fields'
+import {
+  FormControl,
+  FormControlLabel,
+  FormGroup,
+  Grid,
+  InputLabel,
+  MenuItem,
+  Select,
+  Switch,
+  Typography
+} from '@material-ui/core'
+import { makeStyles, withStyles } from '@material-ui/core/styles'
+import DeleteSweepIcon from '@material-ui/icons/DeleteSweep'
+import FileCopyIcon from '@material-ui/icons/FileCopy'
+
 import { types } from '../../store/types'
+import { whiteSpaceOptions } from './fields'
 
 const CustomSwitch = withStyles(theme => ({
   switchBase: {
@@ -60,11 +65,11 @@ const useStyles = makeStyles(theme => {
       marginRight: 0
     },
     icon: {
-      fontSize: theme.custom.setSpace() * 1.5,
+      fontSize: theme.typography.fontSize * 1.5,
       marginRight: theme.custom.setSpace() / 4
     },
     toggleText: {
-      fontSize: theme.custom.setSpace() * 1.25,
+      fontSize: theme.typography.fontSize,
       color: theme.palette.bodyColor
     },
     copyAllButton: {
@@ -155,7 +160,7 @@ export const TrialResultsSettings = ({ buttonsDisabled }) => {
         </FadeIn>
         <FadeIn direction="y" position={100}>
           <Typography variant="body1" className={classes.settingsCopy}>
-            Use the options here to adjust the display and output settings of
+            Use the options below to adjust the display and output settings of
             your keyword variation trials here.
           </Typography>
         </FadeIn>
@@ -258,4 +263,8 @@ export const TrialResultsSettings = ({ buttonsDisabled }) => {
       </Grid>
     </Grid>
   )
+}
+
+TrialResultsSettings.propTypes = {
+  buttonsDisabled: PropTypes.bool.isRequired
 }

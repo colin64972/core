@@ -1,13 +1,14 @@
 import { get, post } from 'axios'
+
+import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
 import {
-  ipMock,
   createTrialMock,
-  optionsMock,
   creditsMock,
+  ipMock,
+  optionsMock,
   preOrderMock,
   volumeMock
 } from '@cjo3/shared/react/mocks/keyword-multiplier'
-import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
 import { createAuthToken } from '@cjo3/shared/security/authToken'
 
 export const fetchIpAddress = async () => {

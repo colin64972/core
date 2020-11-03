@@ -5,7 +5,7 @@ const { EnvironmentPlugin } = require('webpack')
 const localEnv = require('dotenv').config()
 
 const sharedEnv = require('dotenv').config({
-  path: path.resolve('..', '..', 'shared', '.env')
+  path: path.resolve('..', 'shared', '.env')
 })
 
 const serverlessConfig = setServerlessConfig(slsw.lib.entries, true)

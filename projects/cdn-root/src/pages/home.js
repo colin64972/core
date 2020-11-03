@@ -25,15 +25,21 @@ const styles = {
 const styleSheet = sheetGenerator(styles)
 
 const cdnUrl = `https://${process.env.CDN_BUCKET}`
+const baseUrl = `https://${process.env.NM_BUCKET}`
 
 module.exports = {
   fileName: 'index.html',
   templatePath: path.resolve('src', 'templates', 'home.pug'),
   locals: {
-    cdnUrl,
     title: process.env.BRAND_NAME,
+    canonical: `${baseUrl}/`,
+    metaDescription:
+      'Online marketing solutions including JavaScript web app design and development',
+    robots: 'index,follow',
+    faviconHref: `${cdnUrl}/favicon.ico`,
+    gsvCode: process.env.GSV_TAG,
+    gaTag: process.env.GA_TAG,
     logoSrc: `${cdnUrl}/logo.svg`,
-    styleSheet,
-    copy: 'asfd'
+    styleSheet
   }
 }

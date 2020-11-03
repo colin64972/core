@@ -1,8 +1,10 @@
+import PropTypes from 'prop-types'
 import React from 'react'
+
 import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
 
-export const StripeBanner = ({ fillColor, className, iconClass }) => {
-  const clickHandler = event => {
+export const StripeBanner = ({ className, fillColor, iconClass }) => {
+  const clickHandler = () => {
     event.preventDefault()
     if (!window) return null
     window.open(constants.URLS.STRIPE, '_blank')
@@ -90,4 +92,10 @@ export const StripeBanner = ({ fillColor, className, iconClass }) => {
       </svg>
     </button>
   )
+}
+
+StripeBanner.propTypes = {
+  className: PropTypes.string,
+  fillColor: PropTypes.string.isRequired,
+  iconClass: PropTypes.string
 }

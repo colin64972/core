@@ -1,6 +1,8 @@
 import gsap from 'gsap'
+import PropTypes from 'prop-types'
 import React, { createRef, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
+
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
@@ -12,13 +14,13 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export const FadeIn = ({
-  threshold = 0.25,
+  children,
   delay = Math.random(),
-  duration = Math.random(),
   direction,
-  position,
+  duration = Math.random(),
   outerClass,
-  ...props
+  position,
+  threshold = 0.25
 }) => {
   const classes = useStyles()
 
@@ -33,7 +35,7 @@ export const FadeIn = ({
 
   let envDuration = duration
   if (process.env.NODE_ENV === 'development') {
-    envDuration = 0.25
+    envDuration = 0.125
   }
 
   useEffect(() => {
@@ -60,8 +62,18 @@ export const FadeIn = ({
         }}
         name="FadeInInner"
         className={classes.innerClass}>
-        {props.children}
+        {children}
       </div>
     </div>
   )
+}
+
+FadeIn.propTypes = {
+  children: PropTypes.element.isRequired,
+  delay: PropTypes.number,
+  direction: PropTypes.string,
+  duration: PropTypes.number,
+  outerClass: PropTypes.string,
+  position: PropTypes.number,
+  threshold: PropTypes.number
 }

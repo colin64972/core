@@ -1,34 +1,36 @@
 import clsx from 'clsx'
 import { Form } from 'formik'
+import PropTypes from 'prop-types'
 import React from 'react'
+
+import { StripeBanner } from '@cjo3/shared/react/components/StripeBanner'
 import { Button, Grid, Paper, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
+import CachedIcon from '@material-ui/icons/Cached'
+import CloseIcon from '@material-ui/icons/Close'
+import HttpsIcon from '@material-ui/icons/Https'
+import PaymentIcon from '@material-ui/icons/Payment'
+import RestorePageIcon from '@material-ui/icons/RestorePage'
+
 import { VolumeFormKEOptions } from './VolumeFormKEOptions'
 import { VolumeFormPricing } from './VolumeFormPricing'
-import { VolumeFormTrialReview } from './VolumeFormTrialReview'
-import { VolumeFormTerms } from './VolumeFormTerms'
 import { VolumeFormStripe } from './VolumeFormStripe'
-import HttpsIcon from '@material-ui/icons/Https'
-import RestorePageIcon from '@material-ui/icons/RestorePage'
-import CloseIcon from '@material-ui/icons/Close'
-import PaymentIcon from '@material-ui/icons/Payment'
-import CachedIcon from '@material-ui/icons/Cached'
-import { StripeBanner } from '@cjo3/shared/react/components/StripeBanner'
+import { VolumeFormTerms } from './VolumeFormTerms'
+import { VolumeFormTrialReview } from './VolumeFormTrialReview'
 
 const useStyles = makeStyles(theme => ({
   form: {
     ...theme.custom.setGrid(12, 'auto', theme.custom.setSpace('sm')),
-    maxWidth: theme.custom.setSpace() * 85,
+    width: '100%',
     marginTop: theme.custom.setSpace('sm'),
     [theme.breakpoints.down('xs')]: {
-      marginTop: 0
+      marginTop: theme.custom.setSpace()
     }
   },
   gridPosition1: {
     gridColumn: '1 / 9',
     gridRow: 1,
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       gridColumn: '1 / 13',
       gridRow: 1
     }
@@ -36,7 +38,7 @@ const useStyles = makeStyles(theme => ({
   gridPosition2: {
     gridColumn: '1 / 9',
     gridRow: 2,
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       gridColumn: '1 / 13',
       gridRow: 2
     }
@@ -44,7 +46,7 @@ const useStyles = makeStyles(theme => ({
   gridPosition3: {
     gridColumn: '1 / 9',
     gridRow: 3,
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       gridColumn: '1 / 13',
       gridRow: 3
     }
@@ -52,7 +54,7 @@ const useStyles = makeStyles(theme => ({
   gridPosition4: {
     gridColumn: '9 / 13',
     gridRow: '1 / 6',
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       gridColumn: '1 / 13',
       gridRow: 4
     }
@@ -60,7 +62,7 @@ const useStyles = makeStyles(theme => ({
   gridPosition5: {
     gridColumn: '1 / 9',
     gridRow: 4,
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       gridColumn: '1 / 13',
       gridRow: 5
     }
@@ -68,7 +70,7 @@ const useStyles = makeStyles(theme => ({
   gridPosition6: {
     gridColumn: '1 / 9',
     gridRow: 5,
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       gridColumn: '1 / 13',
       gridRow: 6
     }
@@ -93,22 +95,19 @@ const useStyles = makeStyles(theme => ({
   formSectionTitle: {
     ...theme.typography.bold,
     textTransform: 'uppercase',
+    fontSize: theme.typography.fontSize * 1.25,
     color: theme.palette.primary[200],
     marginBottom: theme.custom.setSpace()
+  },
+  noBottomMargin: {
+    marginBottom: 0
   },
   pricingTitle: {
     color: theme.palette.secondary[50]
   },
-  formActionButtons: {
-    ...theme.custom.setFlex('row nowrap', 'flex-start')
-  },
   formActionButton: {
     ...theme.custom.buttons.formButton,
-    ...theme.custom.setFlex(),
-    'margin': `0 ${theme.custom.setSpace()}px 0 0`,
-    '&:last-of-type': {
-      margin: 0
-    }
+    ...theme.custom.setFlex()
   },
   formActionButtonSubmit: {
     'backgroundColor': theme.palette.pass[500],
@@ -129,13 +128,13 @@ const useStyles = makeStyles(theme => ({
     }
   },
   formButtonIcon: {
-    fontSize: theme.custom.setSpace() * 1.5,
+    fontSize: theme.typography.fontSize * 1.5,
     marginRight: theme.custom.setSpace() / 2,
     position: 'relative',
     top: -1
   },
   lockIcon: {
-    fontSize: theme.custom.setSpace('sm'),
+    fontSize: theme.typography.fontSize * 1.5,
     position: 'relative',
     top: 3
   },
@@ -152,19 +151,16 @@ const useStyles = makeStyles(theme => ({
     }
   },
   stripeIcon: {
-    height: theme.custom.setSpace('sm') * 1.33,
-    [theme.breakpoints.down('xs')]: {
-      marginTop: theme.custom.setSpace()
-    }
+    height: theme.custom.setSpace('sm')
   }
 }))
 
 export const VolumeForm = ({
-  formikProps,
   closeDialogHandler,
-  trialId,
+  customResetHandler,
+  formikProps,
   keOptions,
-  customResetHandler
+  trialId
 }) => {
   const classes = useStyles()
 
@@ -186,7 +182,9 @@ export const VolumeForm = ({
       </Paper>
       <Paper className={clsx(classes.gridPosition3, classes.formSection)}>
         <Grid container justify="space-between" alignItems="center">
-          <Typography component="h5" className={classes.formSectionTitle}>
+          <Typography
+            component="h5"
+            className={clsx(classes.formSectionTitle, classes.noBottomMargin)}>
             Payment Info <HttpsIcon className={classes.lockIcon} />
           </Typography>
           <StripeBanner
@@ -219,54 +217,65 @@ export const VolumeForm = ({
         <VolumeFormTerms />
       </Paper>
       <div className={classes.gridPosition6}>
-        <FadeIn
-          direction="y"
-          position={100}
-          outerClass={classes.formActionButtons}>
-          <Button
-            type="submit"
-            variant="contained"
-            disabled={
-              !formikProps.isValid || checkIfPristine(formikProps.touched)
-            }
-            className={clsx(
-              classes.formActionButton,
-              classes.formActionButtonSubmit
-            )}>
-            {formikProps.isSubmitting ? (
-              <CachedIcon className={classes.formButtonIcon} />
-            ) : (
-              <PaymentIcon className={classes.formButtonIcon} />
-            )}
-            {formikProps.isSubmitting ? 'Ordering' : 'Order'}
-          </Button>
-          <Button
-            type="reset"
-            variant="contained"
-            onClick={event => {
-              customResetHandler(event, formikProps.setFieldValue)
-            }}
-            className={clsx(
-              classes.formActionButton,
-              classes.formActionButtonReset
-            )}
-            disabled={checkIfPristine(formikProps.touched)}>
-            <RestorePageIcon className={classes.formButtonIcon} />
-            Reset
-          </Button>
-          <Button
-            type="button"
-            variant="contained"
-            onClick={closeDialogHandler}
-            className={clsx(
-              classes.formActionButton,
-              classes.formActionButtonClose
-            )}>
-            <CloseIcon className={classes.formButtonIcon} />
-            Close
-          </Button>
-        </FadeIn>
+        <Grid container spacing={3}>
+          <Grid item xs={4}>
+            <Button
+              type="submit"
+              variant="contained"
+              disabled={
+                !formikProps.isValid || checkIfPristine(formikProps.touched)
+              }
+              className={clsx(
+                classes.formActionButton,
+                classes.formActionButtonSubmit
+              )}>
+              {formikProps.isSubmitting ? (
+                <CachedIcon className={classes.formButtonIcon} />
+              ) : (
+                <PaymentIcon className={classes.formButtonIcon} />
+              )}
+              {formikProps.isSubmitting ? 'Ordering' : 'Order'}
+            </Button>
+          </Grid>
+          <Grid item xs={4}>
+            <Button
+              type="reset"
+              variant="contained"
+              onClick={event => {
+                customResetHandler(event, formikProps.setFieldValue)
+              }}
+              className={clsx(
+                classes.formActionButton,
+                classes.formActionButtonReset
+              )}
+              disabled={checkIfPristine(formikProps.touched)}>
+              <RestorePageIcon className={classes.formButtonIcon} />
+              Reset
+            </Button>
+          </Grid>
+          <Grid item xs={4}>
+            <Button
+              type="button"
+              variant="contained"
+              onClick={closeDialogHandler}
+              className={clsx(
+                classes.formActionButton,
+                classes.formActionButtonClose
+              )}>
+              <CloseIcon className={classes.formButtonIcon} />
+              Close
+            </Button>
+          </Grid>
+        </Grid>
       </div>
     </Form>
   )
+}
+
+VolumeForm.propTypes = {
+  closeDialogHandler: PropTypes.func.isRequired,
+  customResetHandler: PropTypes.func.isRequired,
+  formikProps: PropTypes.object.isRequired,
+  keOptions: PropTypes.object.isRequired,
+  trialId: PropTypes.string.isRequired
 }

@@ -1,15 +1,17 @@
-import { call, put, select, take, race, delay } from 'redux-saga/effects'
-import { createTrial, fetchIpAddress } from '../fetchers'
-import { types } from '../types'
+import { call, delay, put, race, select, take } from 'redux-saga/effects'
+
+import {
+  buildCopyData,
+  decorateTrial,
+  findEnabledSets,
+  generateNotice,
+  getSetsWithValues
+} from '@cjo3/shared/logic/keyword-multiplier'
 import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
 import { copyToClipboard } from '@cjo3/shared/react/helpers'
-import {
-  decorateTrial,
-  generateNotice,
-  getSetsWithValues,
-  findEnabledSets,
-  buildCopyData
-} from '@cjo3/shared/logic/keyword-multiplier'
+
+import { createTrial, fetchIpAddress } from '../fetchers'
+import { types } from '../types'
 
 export function* multiplySets(action) {
   const notice = generateNotice('Check your results below')
