@@ -8,7 +8,6 @@ import {
   formatProductLine
 } from '@cjo3/shared/logic/keyword-multiplier'
 import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
-import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 import { getLabelFromValue } from '@cjo3/shared/react/helpers'
 import {
   Grid,
