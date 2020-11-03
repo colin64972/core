@@ -1,19 +1,18 @@
-import gsap from 'gsap'
-import PropTypes from 'prop-types'
-import React, { createRef, useEffect, useLayoutEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary
 } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import React, { createRef, useEffect, useLayoutEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { types } from '../../store/types'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import PropTypes from 'prop-types'
 import { TrialCardHeader } from './TrialCardHeader'
 import { TrialCardTable } from './TrialCardTable'
+import gsap from 'gsap'
+import { makeStyles } from '@material-ui/core/styles'
+import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => ({
   expandIcon: {
@@ -54,7 +53,8 @@ export const TrialCard = ({ isShown, trial }) => {
       tracker.eventHit({
         category: 'trials',
         action: 'trial_created',
-        value: id
+        label: id,
+        value: billableKeywords.length
       })
     }
   }, [])
@@ -66,7 +66,7 @@ export const TrialCard = ({ isShown, trial }) => {
     tracker.eventHit({
       category: 'trials',
       action: 'trial_copied',
-      value: id
+      label: id,
     })
     return dispatch({
       type: types.COPY_TRIAL,

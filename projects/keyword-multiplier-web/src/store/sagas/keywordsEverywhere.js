@@ -1,20 +1,19 @@
 import { call, delay, put, race, select, take } from 'redux-saga/effects'
-
 import {
   decorateKeOptions,
   decorateTrial,
   generateNotice
 } from '@cjo3/shared/logic/keyword-multiplier'
-import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
-import { getLabelFromValue } from '@cjo3/shared/react/helpers'
-import { payloadMock } from '@cjo3/shared/react/mocks/keyword-multiplier'
-
 import {
   fetchKeData,
   fetchKeVolumes,
   makePreOrder,
   postLowCreditAlert
 } from '../fetchers'
+
+import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+import { getLabelFromValue } from '@cjo3/shared/react/helpers'
+import { payloadMock } from '@cjo3/shared/react/mocks/keyword-multiplier'
 import { types } from '../types'
 
 export function* getKeOptions() {
@@ -70,7 +69,7 @@ export function* orderMetrics(action) {
 
   try {
     const orderRequest = yield select(state => state.kE.orderRequest)
-
+    const tracker = yield select(state => state.app?.tracker)
     const kECountries = yield select(state => state.kE?.countries)
     const kECurrencies = yield select(state => state.kE?.currencies)
     const kEDataSources = yield select(state => state.kE?.dataSources)
@@ -105,6 +104,13 @@ export function* orderMetrics(action) {
             email: action.values.billingEmail || null
           }
         }
+      })
+      
+      yield call(tracker.eventHit, {
+        category: 'trials',
+        action: 'metrics_purchase',
+        label: orderRequest.trialId,
+        value: parseFloat(orderRequest.price.total) * 100
       })
     }
 

@@ -1,6 +1,6 @@
 const path = require('path')
 const sharedEnv = require('dotenv').config({
-  path: path.resolve('..', '..', 'shared', '.env')
+  path: path.resolve('..', 'shared', '.env')
 })
 const slsw = require('serverless-webpack')
 const setServerlessConfig = require('@cjo3/configs/serverless')

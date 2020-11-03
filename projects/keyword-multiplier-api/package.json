@@ -23,8 +23,8 @@
   "devDependencies": {
     "@babel/core": "~7.11.5",
     "@babel/preset-env": "~7.11.5",
-    "@cjo3/configs": "0.0.1",
-    "@cjo3/shared": "0.0.1",
+    "@cjo3/configs": "~0.0.1",
+    "@cjo3/shared": "~0.0.1",
     "@middy/core": "~1.4.0",
     "@middy/http-json-body-parser": "~1.4.0",
     "aws-sdk": "~2.745.0",
@@ -34,13 +34,11 @@
     "colors": "~1.4.0",
     "dotenv": "~8.2.0",
     "js-yaml": "~3.14.0",
+    "jsonwebtoken": "~8.5.1",
     "serverless-domain-manager": "~4.2.0",
     "serverless-dotenv-plugin": "~3.0.0",
     "serverless-offline": "~6.7.0",
     "serverless-webpack": "~5.3.4",
     "stripe": "~8.107.0"
-  },
-  "dependencies": {
-    "jsonwebtoken": "~8.5.1"
   }
 }

@@ -1,18 +1,17 @@
+import { Dialog, Grid, Typography } from '@material-ui/core'
+import { useDispatch, useSelector } from 'react-redux'
+import { useElements, useStripe } from '@stripe/react-stripe-js'
+
+import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 import { Formik } from 'formik'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-
-import { setInitialCountry } from '@cjo3/shared/logic/keyword-multiplier'
-import { countryCodesList } from '@cjo3/shared/raw/constants/countryCodes'
-import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
-import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
-import { Dialog, Grid, Typography } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
-import { useElements, useStripe } from '@stripe/react-stripe-js'
-
-import { types } from '../../store/types'
 import { VolumeForm } from './VolumeForm'
+import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+import { countryCodesList } from '@cjo3/shared/raw/constants/countryCodes'
+import { makeStyles } from '@material-ui/core/styles'
+import { setInitialCountry } from '@cjo3/shared/logic/keyword-multiplier'
+import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => ({
   dialogContainer: {
@@ -88,16 +87,9 @@ export const Volume = ({ closeDialogHandler, dialogStatus, trialId }) => {
     }
   }
 
-  const tracker = useSelector(state => state.app?.tracker)
-
-  const customSubmitHandler = (values, actions) => {
+  const customSubmitHandler = values => {
     const cardNumberElement = elements.getElement('cardNumber')
     if (!cardNumberElement) return null
-    tracker.eventHit({
-      category: 'trials',
-      action: 'trial_order_submitted',
-      value: trialId
-    })
     dispatch({
       type: types.ORDER_METRICS,
       values,

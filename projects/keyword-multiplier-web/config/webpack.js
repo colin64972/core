@@ -1,7 +1,7 @@
 const path = require('path')
 const localEnv = require('dotenv').config()
 const sharedEnv = require('dotenv').config({
-  path: path.resolve('..', '..', 'shared', '.env')
+  path: path.resolve('..', 'shared', '.env')
 })
 const { setWebConfig, setPreRenderConfig } = require('@cjo3/configs/react')
 const {
@@ -14,7 +14,7 @@ const { EnvironmentPlugin } = require('webpack')
 const webConfig = setWebConfig(
   { src: path.resolve('src', 'index') },
   path.resolve('dist'),
-  path.resolve('..', '..', 'shared', 'react', 'htmlPluginTemplate.pug'),
+  path.resolve('..', 'shared', 'react', 'htmlPluginTemplate.pug'),
   {
     title: localEnv.parsed.TEMPLATE_TITLE
   },

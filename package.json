@@ -9,8 +9,7 @@
   "workspaces": {
     "packages": [
       "configs",
-      "projects/*",
-      "shared"
+      "projects/*"
     ],
     "nohoist": [
       "**/html-minifier", "**/html-minifier/**"
