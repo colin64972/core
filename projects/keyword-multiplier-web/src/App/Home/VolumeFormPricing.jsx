@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
     border: 'none',
     width: '100%',
     fontSize: theme.typography.fontSize,
-    lineHeight: 1.125,
+    lineHeight: 1.33,
     color: 'white',
     textAlign: 'left',
     marginTop: theme.custom.setSpace()
