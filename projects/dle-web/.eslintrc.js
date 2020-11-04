@@ -13,19 +13,17 @@ module.exports = {
       version: 'detect'
     }
   },
-  plugins: [
-    '@typescript-eslint',
-    'react',
-    'no-loops'
-  ],
-  'extends': [
+  plugins: ['@typescript-eslint', 'prettier', 'react', 'no-loops'],
+  extends: [
     'eslint:recommended',
+    'prettier',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended'
   ],
   rules: {
     'no-undef': 'off',
-    'no-loops/no-loops': 'warn'
+    'no-loops/no-loops': 'warn',
+    'prettier/prettier': 'error'
   }
 }
