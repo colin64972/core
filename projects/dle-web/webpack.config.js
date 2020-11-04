@@ -19,14 +19,31 @@ module.exports = {
   },
   target: 'web',
   resolve: {
-    extensions: ['.ts', '.tsx', '.js']
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: '/node_modules/'
+        exclude: '/node_modules/',
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/preset-typescript',
+              [
+                '@babel/preset-env',
+                {
+                  targets: {
+                    browsers: ['> 1%', 'last 2 versions']
+                  }
+                }
+              ],
+              '@babel/preset-react'
+            ],
+            plugins: []
+          }
+        }
       },
       {
         test: /\.pug$/,
