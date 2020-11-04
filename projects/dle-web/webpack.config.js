@@ -24,26 +24,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.(t|j)sx?$/,
         exclude: '/node_modules/',
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              '@babel/preset-typescript',
-              [
-                '@babel/preset-env',
-                {
-                  targets: {
-                    browsers: ['> 1%', 'last 2 versions']
-                  }
-                }
-              ],
-              '@babel/preset-react'
-            ],
-            plugins: []
-          }
-        }
+        loader: 'babel-loader'
       },
       {
         test: /\.pug$/,
