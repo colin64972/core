@@ -1,25 +1,50 @@
-const path = require('path');
+const path = require('path')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { EnvironmentPlugin } = require('webpack')
+const localEnv = require('dotenv').config()
 
 module.exports = {
-    mode: 'none',
-    entry: {
-      app: path.resolve('src', 'index.ts')
-    },
-    target: 'web',
-    resolve: {
-        extensions: ['.ts', '.tsx', '.js']
-    },
-    module: {
-        rules: [
-            {
-                test: /\.tsx?$/,
-                use: 'ts-loader',
-                exclude: '/node_modules/'
-            }
-        ],
-    },
-    output: {
-        filename: '[name].js',
-        path: path.resolve('dist')
-    }
+  mode: process.env.NODE_ENV,
+  entry: {
+    index: path.resolve('src', 'index.ts')
+  },
+  devServer: {
+    contentBase: path.resolve('dist'),
+    compress: true,
+    port: 8001,
+    hot: true,
+    writeToDisk: true,
+    historyApiFallback: true
+  },
+  target: 'web',
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js']
+  },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: '/node_modules/'
+      }
+    ]
+  },
+  output: {
+    filename: '[name].js',
+    path: path.resolve('dist')
+  },
+  plugins: [
+    new CleanWebpackPlugin({ verbose: true }),
+    new HtmlWebpackPlugin({
+      template: path.resolve('src', 'template.html'),
+      inject: true,
+      scriptLoading: 'defer',
+      cache: false
+    }),
+    new EnvironmentPlugin({
+      APP_PATH: localEnv.parsed.APP_PATH,
+      APP_NAME: localEnv.parsed.APP_NAME
+    })
+  ]
 }

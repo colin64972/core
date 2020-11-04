@@ -24,6 +24,7 @@ module.exports = {
   rules: {
     'no-undef': 'off',
     'no-loops/no-loops': 'warn',
-    'prettier/prettier': 'error'
+    'prettier/prettier': 'error',
+    '@typescript-eslint/no-var-requires': 'off'
   }
 }

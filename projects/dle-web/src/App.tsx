@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const App = () => (
+export const App: React.FC = () => (
   <div>
     <h1>Detection Limit Editor</h1>
     <p>
