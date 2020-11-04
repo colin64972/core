@@ -13,11 +13,12 @@ module.exports = {
       version: 'detect'
     }
   },
-  plugins: ['@typescript-eslint', 'prettier', 'react', 'no-loops'],
+  plugins: ['@typescript-eslint', 'prettier', 'react', 'jest-dom', 'no-loops'],
   extends: [
     'eslint:recommended',
     'prettier',
     'plugin:react/recommended',
+    'plugin:jest-dom/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended'
   ],

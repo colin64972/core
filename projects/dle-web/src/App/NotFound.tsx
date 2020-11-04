@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { TopNav } from './TopNav'
 
 export const NotFound: React.FC = () => (

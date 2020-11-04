@@ -11,7 +11,8 @@
     "start": "NODE_ENV=development webpack-dev-server -c webpack.config.ts",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
-    "prettier:format": "prettier --config prettier.config.js src/** --write"
+    "prettier:format": "prettier --config prettier.config.js src/** --write",
+    "test": "jest --watch"
   },
   "importSort": {
     ".js, .jsx, .es6, .es": {
@@ -28,11 +29,12 @@
   "devDependencies": {
     "@babel/core": "~7.12.3",
     "@babel/preset-typescript": "~7.12.1",
+    "@testing-library/jest-dom": "~5.11.5",
+    "@testing-library/react": "~11.1.1",
     "@types/jest": "~26.0.15",
     "@types/react": "~16.9.55",
     "@types/react-dom": "~16.9.9",
     "@types/react-router-dom": "~5.1.6",
-    "@types/react-test-renderer": "~16.9.3",
     "@typescript-eslint/eslint-plugin": "~4.6.1",
     "@typescript-eslint/parser": "~4.6.1",
     "babel-loader": "~8.1.0",
@@ -40,6 +42,7 @@
     "dotenv": "~8.2.0",
     "eslint": "~7.12.1",
     "eslint-config-prettier": "~6.15.0",
+    "eslint-plugin-jest-dom": "~3.2.4",
     "eslint-plugin-no-loops": "~0.3.0",
     "eslint-plugin-prettier": "~3.1.4",
     "eslint-plugin-react": "~7.21.5",
@@ -48,7 +51,6 @@
     "prettier": "~2.1.2",
     "pug": "~3.0.0",
     "pug-loader": "~2.4.0",
-    "react-test-renderer": "~17.0.1",
     "typescript": "~4.0.5",
     "webpack": "~4.44.2",
     "webpack-dev-server": "~3.11.0"
