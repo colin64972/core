@@ -7,7 +7,7 @@
   "author": "cjo3",
   "private": true,
   "scripts": {
-    "start": "webpack -c webpack.config.js"
+    "build": "webpack -c webpack.config.js"
   },
   "importSort": {
     ".js, .jsx, .es6, .es": {
