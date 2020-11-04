@@ -1,0 +1,18 @@
+{
+  "name": "@cjo3/dle-web",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "license": "MIT",
+  "repository": "git@github.com:cjo3/primary.git",
+  "author": "cjo3",
+  "private": true,
+  "scripts": {
+  },
+  "importSort": {
+    ".js, .jsx, .es6, .es": {
+      "parser": "babylon",
+      "style": "import-sort-style-module-scoped",
+      "options": {}
+    }
+  }
+}
