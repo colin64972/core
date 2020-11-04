@@ -27,6 +27,11 @@ module.exports = {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: '/node_modules/'
+      },
+      {
+        test: /\.pug$/,
+        exclude: /(node_modules)/,
+        loader: 'pug-loader'
       }
     ]
   },
@@ -37,10 +42,13 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin({ verbose: true }),
     new HtmlWebpackPlugin({
-      template: path.resolve('src', 'template.html'),
+      template: path.resolve('..', 'shared', 'react', 'template.pug'),
       inject: true,
       scriptLoading: 'defer',
-      cache: false
+      cache: false,
+      templateLocals: {
+        title: 'Hello'
+      }
     }),
     new EnvironmentPlugin({
       APP_PATH: localEnv.parsed.APP_PATH,
