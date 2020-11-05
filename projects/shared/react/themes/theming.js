@@ -190,7 +190,8 @@ export const setCustomTheme = (
           ...headingStyle
         },
         body1: {
-          marginTop: fontSize
+          marginTop: fontSize,
+          fontSize
         }
       }
     }

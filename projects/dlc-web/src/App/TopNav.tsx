@@ -4,15 +4,16 @@ import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   nav: {
-    ...theme.custom.setFlex(),
+    ...theme.custom.setFlex('row', 'flex-start'),
     backgroundColor: theme.palette.grey[300],
     width: '100%'
   },
   navItem: {
-    padding: theme.custom.setSpace(),
-    fontWeight: 'bold',
-    backgroundColor: theme.palette.primary[100],
-    clipPath: `polygon(0 0, 0 75%, 50% 100%, 100% 75%, 100% 0%)`
+    'padding': theme.custom.setSpace(),
+    'transition': 'all 250ms ease-out',
+    '&:hover': {
+      background: `radial-gradient(circle at top, ${theme.palette.grey[200]}, ${theme.palette.grey[300]})`
+    }
   }
 }))
 

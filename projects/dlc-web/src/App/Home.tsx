@@ -1,10 +1,14 @@
-import { Grid, Typography } from '@material-ui/core'
+import { Grid, Button, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import { Link } from 'react-router-dom'
 import React from 'react'
 
 const useStyles = makeStyles(theme => ({
   section: {
     padding: theme.custom.setSpace()
+  },
+  gridButton: {
+    marginTop: theme.custom.setSpace()
   }
 }))
 
@@ -23,12 +27,10 @@ export const Home: React.FC = (): JSX.Element => {
             diam sanctus sea amet invidunt labore.
           </Typography>
         </Grid>
+        <Grid item xs={12} className={classes.gridButton}>
+          <Link to="/editor">Start</Link>
+        </Grid>
       </Grid>
     </Grid>
   )
-}
-
-Home.propTypes = {
-  // name: PropTypes.string.isRequired,
-  // size: PropTypes.number.isRequired
 }
