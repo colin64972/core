@@ -188,6 +188,9 @@ export const setCustomTheme = (
         h6: {
           fontSize,
           ...headingStyle
+        },
+        body1: {
+          marginTop: fontSize
         }
       }
     }
