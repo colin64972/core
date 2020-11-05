@@ -1,10 +1,8 @@
 import '@testing-library/jest-dom/extend-expect'
-
 import { render, screen } from '@testing-library/react'
-
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { NotFound } from './NotFound'
-import React from 'react'
 
 let root, subject
 
@@ -15,11 +13,6 @@ beforeEach(() => {
 })
 
 describe('NotFound', () => {
-  test('renders top nav', () => {
-    subject = screen.getByRole('list')
-    expect(subject.children.length).toBe(2)
-  })
-
   test('renders heading', () => {
     subject = screen.getByRole('heading', { level: 1 })
     expect(subject.tagName).toBe('H1')

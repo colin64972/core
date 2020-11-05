@@ -1,7 +1,7 @@
-import { App } from './App/'
+import { theme } from '@cjo3/shared/react/themes/dlc'
 import { ThemeProvider } from '@material-ui/core/styles'
 import { createElement } from 'react'
-import { theme } from '@cjo3/shared/react/themes/dle'
+import { App } from './App/'
 
 export const AppWithTheme = createElement(
   ThemeProvider,
