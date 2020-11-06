@@ -1,6 +1,8 @@
 import { Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
+import PropTypes from 'prop-types'
+import { FileUpload } from '../../interfaces'
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -20,35 +22,35 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-interface FileObject {
-  name: string
+interface Props {
+  setLoadedFile: (file: FileUpload) => void
 }
 
-export const FileSelector: React.FC = (): JSX.Element => {
+export const FileSelector: React.FC<Props> = ({
+  setLoadedFile
+}): JSX.Element => {
   const classes = useStyles()
 
-  const initialFile: FileObject = {
+  const initialFile: FileUpload = {
     name: ''
   }
 
-  const [selectedFile, setSelectedFile] = useState<FileObject | null>(null)
+  const [selectedFile, setSelectedFile] = useState<FileUpload | null>(null)
 
-  const [savedFile, setSavedFile] = useState<FileObject | null>(null)
+  const changeHandler = (): void => setSelectedFile(fileInput.current.files[0])
 
   const submitHandler = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault()
-    setSavedFile(selectedFile)
+    setLoadedFile(selectedFile)
     event.currentTarget.reset()
-  }
-
-  const changeHandler = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setSelectedFile(event.currentTarget.files[0])
   }
 
   const resetHandler = (event: React.FormEvent<HTMLFormElement>): void => {
-    event.currentTarget.reset()
+    event.preventDefault()
     setSelectedFile(initialFile)
   }
+
+  const fileInput = useRef<HTMLInputElement>(null)
 
   return (
     <form
@@ -60,7 +62,7 @@ export const FileSelector: React.FC = (): JSX.Element => {
           <label htmlFor="file-upload-input">Select File</label>
         </Button>
         <Typography variant="body1" className={classes.fileName}>
-          {selectedFile ? selectedFile.name : 'No File Selected'}
+          {selectedFile?.size ? selectedFile.name : 'No File Selected'}
         </Typography>
       </Grid>
       <input
@@ -70,6 +72,7 @@ export const FileSelector: React.FC = (): JSX.Element => {
         type="file"
         accept=".csv, .xls, .xlsx"
         onChange={changeHandler}
+        ref={fileInput}
       />
       <Grid container justify="flex-start" alignItems="center">
         <Button
@@ -87,7 +90,6 @@ export const FileSelector: React.FC = (): JSX.Element => {
   )
 }
 
-// UploadForm.propTypes = {
-//   name: PropTypes.string.isRequired,
-//   size: PropTypes.number.isRequired
-// }
+FileSelector.propTypes = {
+  setLoadedFile: PropTypes.func.isRequired
+}

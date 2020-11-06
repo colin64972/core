@@ -1,10 +1,10 @@
-import { testRenderer, renderSnapshot } from './testRenderer'
+import { testRenderer, renderSnapshot } from './setup'
 import { NotFound } from '../src/App/NotFound'
 
 describe('NotFound', () => {
   describe('render', () => {
     test('matches current snapshop', () => {
-      const tree = renderSnapshot(NotFound, '/error')
+      const tree = renderSnapshot('/error', NotFound)
       expect(tree).toMatchSnapshot()
     })
 

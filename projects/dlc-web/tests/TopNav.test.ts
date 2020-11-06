@@ -1,10 +1,10 @@
-import { testRenderer, renderSnapshot } from './testRenderer'
+import { testRenderer, renderSnapshot } from './setup'
 import { TopNav } from '../src/App/TopNav'
 
 describe('TopNav', () => {
   describe('render', () => {
     test('matches current snapshop', () => {
-      const tree = renderSnapshot(TopNav, '/editor')
+      const tree = renderSnapshot('/editor', TopNav)
       expect(tree).toMatchSnapshot()
     })
     test('renders 3 links', () => {

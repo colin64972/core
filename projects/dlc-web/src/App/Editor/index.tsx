@@ -1,9 +1,10 @@
-import { Grid, Typography } from '@material-ui/core'
+import { Grid, Button, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
 import React, { useState } from 'react'
 import { TopNav } from '../TopNav'
 import { FileSelector } from './FileSelector'
+import { FileUpload } from '../../interfaces'
 
 const useStyles = makeStyles(theme => ({
   section: {
@@ -16,6 +17,14 @@ const useStyles = makeStyles(theme => ({
 
 export const Editor = (): JSX.Element => {
   const classes = useStyles()
+
+  const [loadedFile, setLoadedFile] = useState<FileUpload | null>(null)
+
+  const unloadFile = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ): void => {
+    setLoadedFile(null)
+  }
 
   return (
     <Grid container>
@@ -32,18 +41,29 @@ export const Editor = (): JSX.Element => {
           </Typography>
         </Grid>
       </Grid>
-      <Grid
-        component="section"
-        container
-        className={clsx(classes.section, classes.uploadForm)}>
-        <Grid item xs={12}>
-          <Typography variant="h3">File Loader</Typography>
-          <Typography variant="body1">Start by loading a file here.</Typography>
+      {loadedFile ? (
+        <Grid component="section" container className={classes.section}>
+          <Grid item xs={12}>
+            <Typography variant="h3">{loadedFile.name}</Typography>
+            <Button type="button" onClick={unloadFile}>
+              Unload File
+            </Button>
+          </Grid>
         </Grid>
-        <Grid item xs={12}>
-          <FileSelector />
+      ) : (
+        <Grid
+          component="section"
+          container
+          className={clsx(classes.section, classes.uploadForm)}>
+          <Grid item xs={12}>
+            <Typography variant="h3">File Loader</Typography>
+            <Typography variant="body1">
+              Start by loading a file here.
+            </Typography>
+            <FileSelector setLoadedFile={setLoadedFile} />
+          </Grid>
         </Grid>
-      </Grid>
+      )}
     </Grid>
   )
 }

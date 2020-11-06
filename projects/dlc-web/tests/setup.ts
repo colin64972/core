@@ -39,13 +39,17 @@ export const testRenderer = (
   }
 }
 
-export const renderSnapshot = (component: React.FC, path: string) =>
+export const renderSnapshot = (
+  path: string,
+  component: React.FC,
+  props: { [key: string]: any } = null
+) =>
   renderer
     .create(
       createElement(
         MemoryRouter,
         { initialEntries: [path] },
-        createElement(ThemeProvider, { theme }, createElement(component))
+        createElement(ThemeProvider, { theme }, createElement(component, props))
       )
     )
     .toJSON()

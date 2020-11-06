@@ -1,10 +1,10 @@
-import { testRenderer, renderSnapshot } from './testRenderer'
+import { testRenderer, renderSnapshot } from './setup'
 import { Editor } from '../src/App/Editor'
 
 describe('Editor', () => {
   describe('render', () => {
     test('matches current snapshop', () => {
-      const tree = renderSnapshot(Editor, '/editor')
+      const tree = renderSnapshot('/editor', Editor)
       expect(tree).toMatchSnapshot()
     })
 
@@ -29,10 +29,11 @@ describe('Editor', () => {
       expect(links.length).toBe(3)
     })
 
-    test('renders file loader', () => {
+    test('renders file loader heading', () => {
       const { getByRole } = testRenderer('/editor', Editor)
-      const selectFileButton = getByRole('button', { name: /select file/i })
-      expect(selectFileButton).toBeInTheDocument()
+      const h3 = getByRole('heading', { level: 3 })
+      expect(h3).toBeInTheDocument()
+      expect(h3.innerHTML).toBe('File Loader')
     })
   })
 })

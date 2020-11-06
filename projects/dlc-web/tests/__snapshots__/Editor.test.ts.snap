@@ -63,10 +63,6 @@ exports[`Editor render matches current snapshop 1`] = `
       >
         Start by loading a file here.
       </p>
-    </div>
-    <div
-      className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
-    >
       <form
         className="makeStyles-form-5"
         onReset={[Function]}

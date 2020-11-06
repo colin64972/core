@@ -12,7 +12,8 @@
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "prettier:format": "prettier --config prettier.config.js src/** --write",
-    "test": "jest --watch --detectOpenHandles"
+    "test": "jest --watch --detectOpenHandles",
+    "snapshots": "jest --updateSnapshot --detectOpenHandles --forceExit"
   },
   "importSort": {
     ".js, .jsx, .es6, .es": {
