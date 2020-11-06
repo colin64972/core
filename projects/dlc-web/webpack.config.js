@@ -52,7 +52,8 @@ module.exports = {
     }),
     new EnvironmentPlugin({
       APP_PATH: localEnv.parsed.APP_PATH,
-      APP_NAME: localEnv.parsed.APP_NAME
+      APP_NAME: localEnv.parsed.APP_NAME,
+      ACCEPTED_FILETYPES: localEnv.parsed.ACCEPTED_FILETYPES
     })
   ]
 }

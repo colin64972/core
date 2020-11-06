@@ -1,18 +1,18 @@
-import { Grid, Button, Typography } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
 import React, { useState } from 'react'
+import { FileUpload } from '../../interfaces'
 import { TopNav } from '../TopNav'
 import { FileSelector } from './FileSelector'
 import { FileViewer } from './FileViewer'
-import { FileUpload } from '../../interfaces'
 
 const useStyles = makeStyles(theme => ({
   section: {
-    padding: theme.custom.setSpace()
+    padding: theme.custom.setSpace('sm')
   },
   uploadForm: {
-    background: `linear-gradient(163deg, ${theme.palette.primary[50]}, ${theme.palette.primary[100]})`
+    background: `linear-gradient(top, ${theme.palette.primary[200]}, white)`
   }
 }))
 
