@@ -4,6 +4,7 @@ import clsx from 'clsx'
 import React, { useState } from 'react'
 import { TopNav } from '../TopNav'
 import { FileSelector } from './FileSelector'
+import { FileViewer } from './FileViewer'
 import { FileUpload } from '../../interfaces'
 
 const useStyles = makeStyles(theme => ({
@@ -11,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.custom.setSpace()
   },
   uploadForm: {
-    backgroundColor: theme.palette.primary[100]
+    background: `linear-gradient(163deg, ${theme.palette.primary[50]}, ${theme.palette.primary[100]})`
   }
 }))
 
@@ -43,25 +44,14 @@ export const Editor = (): JSX.Element => {
       </Grid>
       {loadedFile ? (
         <Grid component="section" container className={classes.section}>
-          <Grid item xs={12}>
-            <Typography variant="h3">{loadedFile.name}</Typography>
-            <Button type="button" onClick={unloadFile}>
-              Unload File
-            </Button>
-          </Grid>
+          <FileViewer unloadFileHandler={unloadFile} loadedFile={loadedFile} />
         </Grid>
       ) : (
         <Grid
           component="section"
           container
           className={clsx(classes.section, classes.uploadForm)}>
-          <Grid item xs={12}>
-            <Typography variant="h3">File Loader</Typography>
-            <Typography variant="body1">
-              Start by loading a file here.
-            </Typography>
-            <FileSelector setLoadedFile={setLoadedFile} />
-          </Grid>
+          <FileSelector setLoadedFile={setLoadedFile} />
         </Grid>
       )}
     </Grid>

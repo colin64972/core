@@ -26,6 +26,7 @@ module.exports = {
     'no-undef': 'off',
     'no-loops/no-loops': 'warn',
     'prettier/prettier': 'error',
-    '@typescript-eslint/no-var-requires': 'off'
+    '@typescript-eslint/no-var-requires': 'off',
+    'react/prop-types': 'off'
   }
 }

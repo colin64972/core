@@ -53,40 +53,47 @@ export const FileSelector: React.FC<Props> = ({
   const fileInput = useRef<HTMLInputElement>(null)
 
   return (
-    <form
-      onSubmit={submitHandler}
-      onReset={resetHandler}
-      className={classes.form}>
-      <Grid container justify="flex-start" alignItems="center">
-        <Button type="button" variant="outlined">
-          <label htmlFor="file-upload-input">Select File</label>
-        </Button>
-        <Typography variant="body1" className={classes.fileName}>
-          {selectedFile?.size ? selectedFile.name : 'No File Selected'}
-        </Typography>
-      </Grid>
-      <input
-        className={classes.hidden}
-        id="file-upload-input"
-        name="file-upload-input"
-        type="file"
-        accept=".csv, .xls, .xlsx"
-        onChange={changeHandler}
-        ref={fileInput}
-      />
-      <Grid container justify="flex-start" alignItems="center">
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          className={classes.formButton}>
-          Load
-        </Button>
-        <Button type="reset" variant="contained" className={classes.formButton}>
-          Reset
-        </Button>
-      </Grid>
-    </form>
+    <Grid item xs={12}>
+      <Typography variant="h3">File Loader</Typography>
+      <Typography variant="body1">Start by loading a file here</Typography>
+      <form
+        onSubmit={submitHandler}
+        onReset={resetHandler}
+        className={classes.form}>
+        <Grid container justify="flex-start" alignItems="center">
+          <Button type="button" variant="outlined">
+            <label htmlFor="file-upload-input">Select File</label>
+          </Button>
+          <Typography variant="body1" className={classes.fileName}>
+            {selectedFile?.size ? selectedFile.name : 'No File Selected'}
+          </Typography>
+        </Grid>
+        <input
+          className={classes.hidden}
+          id="file-upload-input"
+          name="file-upload-input"
+          type="file"
+          accept=".csv, .xls, .xlsx"
+          onChange={changeHandler}
+          ref={fileInput}
+        />
+        <Grid container justify="flex-start" alignItems="center">
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            className={classes.formButton}>
+            Load
+          </Button>
+          <Button
+            type="reset"
+            variant="contained"
+            className={classes.formButton}>
+            Reset
+          </Button>
+        </Grid>
+      </form>
+    </Grid>
   )
 }
 

@@ -1,104 +1,118 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FileSelector render matches current snapshop 1`] = `
-<form
-  className="makeStyles-form-1"
-  onReset={[Function]}
-  onSubmit={[Function]}
+<div
+  className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
 >
-  <div
-    className="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+  <h3
+    className="MuiTypography-root MuiTypography-h3"
   >
-    <button
-      className="MuiButtonBase-root MuiButton-root MuiButton-outlined"
-      disabled={false}
-      onBlur={[Function]}
-      onDragLeave={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      tabIndex={0}
-      type="button"
+    File Loader
+  </h3>
+  <p
+    className="MuiTypography-root MuiTypography-body1"
+  >
+    Start by loading a file here.
+  </p>
+  <form
+    className="makeStyles-form-1"
+    onReset={[Function]}
+    onSubmit={[Function]}
+  >
+    <div
+      className="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
     >
-      <span
-        className="MuiButton-label"
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-outlined"
+        disabled={false}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
       >
-        <label
-          htmlFor="file-upload-input"
+        <span
+          className="MuiButton-label"
         >
-          Select File
-        </label>
-      </span>
-    </button>
-    <p
-      className="MuiTypography-root makeStyles-fileName-3 MuiTypography-body1"
-    >
-      No File Selected
-    </p>
-  </div>
-  <input
-    accept=".csv, .xls, .xlsx"
-    className="makeStyles-hidden-2"
-    id="file-upload-input"
-    name="file-upload-input"
-    onChange={[Function]}
-    type="file"
-  />
-  <div
-    className="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
-  >
-    <button
-      className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-formButton-4 MuiButton-containedPrimary"
-      disabled={false}
-      onBlur={[Function]}
-      onDragLeave={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      tabIndex={0}
-      type="submit"
-    >
-      <span
-        className="MuiButton-label"
+          <label
+            htmlFor="file-upload-input"
+          >
+            Select File
+          </label>
+        </span>
+      </button>
+      <p
+        className="MuiTypography-root makeStyles-fileName-3 MuiTypography-body1"
       >
-        Load
-      </span>
-    </button>
-    <button
-      className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-formButton-4"
-      disabled={false}
-      onBlur={[Function]}
-      onDragLeave={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      tabIndex={0}
-      type="reset"
+        No File Selected
+      </p>
+    </div>
+    <input
+      accept=".csv, .xls, .xlsx"
+      className="makeStyles-hidden-2"
+      id="file-upload-input"
+      name="file-upload-input"
+      onChange={[Function]}
+      type="file"
+    />
+    <div
+      className="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
     >
-      <span
-        className="MuiButton-label"
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-formButton-4 MuiButton-containedPrimary"
+        disabled={false}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="submit"
       >
-        Reset
-      </span>
-    </button>
-  </div>
-</form>
+        <span
+          className="MuiButton-label"
+        >
+          Load
+        </span>
+      </button>
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-formButton-4"
+        disabled={false}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="reset"
+      >
+        <span
+          className="MuiButton-label"
+        >
+          Reset
+        </span>
+      </button>
+    </div>
+  </form>
+</div>
 `;
