@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TopNav render matches current snapshop 1`] = `
+<nav
+  className="makeStyles-nav-1"
+>
+  <a
+    className="makeStyles-navItem-2"
+    href="/"
+    onClick={[Function]}
+  >
+    Home
+  </a>
+  <a
+    className="makeStyles-navItem-2"
+    href="/editor"
+    onClick={[Function]}
+  >
+    Editor
+  </a>
+  <a
+    className="makeStyles-navItem-2"
+    href="/error"
+    onClick={[Function]}
+  >
+    Error
+  </a>
+</nav>
+`;

@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound render matches current snapshop 1`] = `
+<div
+  className="MuiGrid-root MuiGrid-container"
+>
+  <section
+    className="MuiGrid-root makeStyles-section-1 MuiGrid-container"
+  >
+    <div
+      className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+    >
+      <h1
+        className="MuiTypography-root MuiTypography-h1"
+      >
+        Error
+      </h1>
+      <p
+        className="MuiTypography-root MuiTypography-body1"
+      >
+        Sorry, an error occurred. Please try again later!
+      </p>
+    </div>
+    <div
+      className="MuiGrid-root makeStyles-homeLink-2 MuiGrid-item MuiGrid-grid-xs-12"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        Home
+      </a>
+    </div>
+  </section>
+</div>
+`;

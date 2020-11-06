@@ -1,4 +1,5 @@
 import { theme } from '@cjo3/shared/react/themes/dlc'
+import renderer from 'react-test-renderer'
 import { ThemeProvider } from '@material-ui/core/styles'
 import '@testing-library/jest-dom/extend-expect'
 import { render, screen, waitFor } from '@testing-library/react'
@@ -37,3 +38,14 @@ export const testRenderer = (
     )
   }
 }
+
+export const renderSnapshot = (component: React.FC, path: string) =>
+  renderer
+    .create(
+      createElement(
+        MemoryRouter,
+        { initialEntries: [path] },
+        createElement(ThemeProvider, { theme }, createElement(component))
+      )
+    )
+    .toJSON()

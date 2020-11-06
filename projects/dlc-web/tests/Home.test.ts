@@ -1,8 +1,13 @@
-import { testRenderer } from './testRenderer'
+import { testRenderer, renderSnapshot } from './testRenderer'
 import { Home } from '../src/App/Home'
 
 describe('Home', () => {
   describe('render', () => {
+    test('matches current snapshop', () => {
+      const tree = renderSnapshot(Home, '/')
+      expect(tree).toMatchSnapshot()
+    })
+
     test('renders heading', () => {
       const { getByRole } = testRenderer('/', Home)
       const heading = getByRole('heading', { level: 1 })

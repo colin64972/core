@@ -1,8 +1,12 @@
-import { testRenderer } from './testRenderer'
+import { testRenderer, renderSnapshot } from './testRenderer'
 import { TopNav } from '../src/App/TopNav'
 
 describe('TopNav', () => {
   describe('render', () => {
+    test('matches current snapshop', () => {
+      const tree = renderSnapshot(TopNav, '/editor')
+      expect(tree).toMatchSnapshot()
+    })
     test('renders 3 links', () => {
       const { getAllByRole } = testRenderer('/editor', TopNav)
       const links = getAllByRole('link')
