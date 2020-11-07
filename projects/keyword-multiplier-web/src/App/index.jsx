@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { Route, Switch, useLocation } from 'react-router-dom'
-
 import { setTracker, switchLinkRoutePath } from '@cjo3/shared/react/helpers'
-import { CssBaseline } from '@material-ui/core'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { types } from '../store/types'
+import { CssBaseline } from '@material-ui/core'
 import { Home } from './Home'
 import { NotFound } from './NotFound'
+import { types } from '../store/types'
 
 export const App = () => {
   const location = useLocation()

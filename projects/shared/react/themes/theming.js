@@ -1,7 +1,7 @@
-import warn from '@material-ui/core/colors/amber'
-import pass from '@material-ui/core/colors/lime'
-import fail from '@material-ui/core/colors/red'
 import { createMuiTheme } from '@material-ui/core/styles'
+import fail from '@material-ui/core/colors/red'
+import pass from '@material-ui/core/colors/lime'
+import warn from '@material-ui/core/colors/amber'
 
 export const defaultPadding = (breakpoints, setSpace, scale) => {
   if (scale)
@@ -157,6 +157,10 @@ export const setCustomTheme = (
           },
           '*:focus': {
             outline: 'none'
+          },
+          'a': {
+            textDecoration: 'none',
+            color: 'inherit'
           }
         }
       },
@@ -184,6 +188,10 @@ export const setCustomTheme = (
         h6: {
           fontSize,
           ...headingStyle
+        },
+        body1: {
+          marginTop: fontSize,
+          fontSize
         }
       }
     }
