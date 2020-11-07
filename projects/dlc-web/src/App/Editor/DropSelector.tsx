@@ -62,7 +62,7 @@ export const DropSelector: React.FC<Props> = ({
 
   return (
     <div
-      id="target"
+      data-testid="drop-selector"
       className={clsx(classes.dropContainer, {
         [classes.dragColor]: dragCount > 0
       })}
@@ -70,7 +70,7 @@ export const DropSelector: React.FC<Props> = ({
       onDragLeave={dragLeaveHandler}
       onDragOver={dragOverHandler}
       onDrop={dropHandler}>
-      <GetAppIcon id="icon" className={classes.dropIcon} />
+      <GetAppIcon className={classes.dropIcon} />
     </div>
   )
 }

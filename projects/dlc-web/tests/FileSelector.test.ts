@@ -13,23 +13,35 @@ describe('FileSelector', () => {
     })
 
     test('renders 3 buttons', () => {
-      const { getAllByRole } = testRenderer('/editor', FileSelector, props)
+      const { getAllByRole } = testRenderer('/editor', FileSelector)
       const buttons = getAllByRole('button')
       expect(buttons.length).toBe(3)
     })
 
     test('renders hidden file input', () => {
-      const { getByLabelText } = testRenderer('/editor', FileSelector, props)
+      const { getByLabelText } = testRenderer('/editor', FileSelector)
       const input = getByLabelText('select file', { exact: false })
-      expect(input).toHaveClass('makeStyles-hidden-2')
+      expect(input).not.toBeVisible()
       expect(input.name).toBe('file-upload-input')
       expect(input).toHaveAttribute('type', 'file')
     })
 
     test('renders no file status', () => {
-      const { getByText } = testRenderer('/editor', FileSelector, props)
+      const { getByText } = testRenderer('/editor', FileSelector)
       const status = getByText('no file selected', { exact: false })
       expect(status).toBeInTheDocument()
+    })
+
+    test('submit is disabled', () => {
+      const { getByRole, screen } = testRenderer('/editor', FileSelector)
+      const submitButton = getByRole('button', { name: /load/i })
+      expect(submitButton).toHaveAttribute('disabled')
+    })
+
+    test('reset is disabled', () => {
+      const { getByRole, screen } = testRenderer('/editor', FileSelector)
+      const resetButton = getByRole('button', { name: /reset/i })
+      expect(resetButton).toHaveAttribute('disabled')
     })
   })
 
@@ -38,13 +50,38 @@ describe('FileSelector', () => {
       const {
         getByLabelText,
         getByText,
+        getByRole,
         userEvent: { upload }
-      } = testRenderer('/editor', FileSelector, props)
+      } = testRenderer('/editor', FileSelector)
       const input = getByLabelText('select file', { exact: false })
       const testFile = new File(['asdf'], 'asdf.xls', { type: 'xls ' })
       upload(input, testFile)
       const fileNameStatus = getByText(testFile.name, { exact: false })
       expect(fileNameStatus).toBeInTheDocument()
+      const submitButton = getByRole('button', { name: /load/i })
+      expect(submitButton).not.toHaveAttribute('disabled')
+      const resetButton = getByRole('button', { name: /reset/i })
+      expect(resetButton).not.toHaveAttribute('disabled')
+    })
+
+    test('choose file and then another', () => {
+      const {
+        getByLabelText,
+        getByText,
+        queryByText,
+        userEvent: { upload }
+      } = testRenderer('/editor', FileSelector)
+      const input = getByLabelText('select file', { exact: false })
+      const testFile = new File(['asdf'], 'asdf.xls', { type: 'xls ' })
+      upload(input, testFile)
+      let fileNameStatus = getByText(testFile.name, { exact: false })
+      expect(fileNameStatus).toBeInTheDocument()
+      const testFile2 = new File(['asdf'], 'qwer.xls', { type: 'xls ' })
+      upload(input, testFile2)
+      fileNameStatus = queryByText(testFile.name, { exact: false })
+      expect(fileNameStatus).not.toBeInTheDocument()
+      const fileNameStatus2 = getByText(testFile2.name, { exact: false })
+      expect(fileNameStatus2).toBeInTheDocument()
     })
 
     test('choose file and reset form', () => {
@@ -53,7 +90,7 @@ describe('FileSelector', () => {
         getByRole,
         queryByText,
         userEvent: { upload, click }
-      } = testRenderer('/editor', FileSelector, props)
+      } = testRenderer('/editor', FileSelector)
       const input = getByLabelText('select file', { exact: false })
       const testFile = new File(['asdf'], 'asdf.xls', { type: 'xls ' })
       upload(input, testFile)
@@ -61,21 +98,24 @@ describe('FileSelector', () => {
       click(resetButton)
       const noFileStatus = queryByText('no file selected', { exact: false })
       expect(noFileStatus).toBeInTheDocument()
+      expect(resetButton).toHaveAttribute('disabled')
+      const submitButton = getByRole('button', { name: /load/i })
+      expect(submitButton).toHaveAttribute('disabled')
     })
 
     test('choose file and submit form', () => {
       const {
         getByLabelText,
         getByRole,
-        userEvent: { upload, click }
-      } = testRenderer('/editor')
+        userEvent: { upload, click },
+        screen
+      } = testRenderer('/editor', FileSelector, props)
       const input = getByLabelText('select file', { exact: false })
       const testFile = new File(['asdf'], 'asdf.xls', { type: 'xls ' })
       upload(input, testFile)
       const loadButton = getByRole('button', { name: /load/i })
       click(loadButton)
-      const unloadButton = getByRole('button', { name: /unload/i })
-      expect(unloadButton).toBeInTheDocument()
+      expect(props.setLoadedFile).toHaveBeenCalled()
     })
   })
 })

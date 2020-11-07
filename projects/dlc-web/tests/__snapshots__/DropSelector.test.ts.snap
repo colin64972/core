@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropSelector render matches current snapshop 1`] = `
+<div
+  className="makeStyles-dropContainer-1"
+  data-testid="drop-selector"
+  onDragEnter={[Function]}
+  onDragLeave={[Function]}
+  onDragOver={[Function]}
+  onDrop={[Function]}
+>
+  <svg
+    aria-hidden={true}
+    className="MuiSvgIcon-root makeStyles-dropIcon-3"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
+    />
+  </svg>
+</div>
+`;
