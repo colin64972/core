@@ -5,24 +5,24 @@ exports[`Editor render matches current snapshop 1`] = `
   className="MuiGrid-root MuiGrid-container"
 >
   <nav
-    className="makeStyles-nav-3"
+    className="makeStyles-nav-2"
   >
     <a
-      className="makeStyles-navItem-4"
+      className="makeStyles-navItem-3"
       href="/"
       onClick={[Function]}
     >
       Home
     </a>
     <a
-      className="makeStyles-navItem-4"
+      className="makeStyles-navItem-3"
       href="/editor"
       onClick={[Function]}
     >
       Editor
     </a>
     <a
-      className="makeStyles-navItem-4"
+      className="makeStyles-navItem-3"
       href="/error"
       onClick={[Function]}
     >
@@ -48,15 +48,15 @@ exports[`Editor render matches current snapshop 1`] = `
     </div>
   </section>
   <section
-    className="MuiGrid-root makeStyles-section-1 makeStyles-uploadForm-2 MuiGrid-container"
+    className="MuiGrid-root makeStyles-section-1 MuiGrid-container"
   >
     <form
-      className="makeStyles-form-5"
+      className="makeStyles-form-4"
       onReset={[Function]}
       onSubmit={[Function]}
     >
       <div
-        className="makeStyles-title-6"
+        className="makeStyles-title-5"
       >
         <h3
           className="MuiTypography-root MuiTypography-h3"
@@ -71,7 +71,7 @@ exports[`Editor render matches current snapshop 1`] = `
         </p>
       </div>
       <div
-        className="makeStyles-fileSelect-7"
+        className="makeStyles-fileSelect-6"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary"
@@ -104,12 +104,12 @@ exports[`Editor render matches current snapshop 1`] = `
           />
         </button>
         <p
-          className="MuiTypography-root makeStyles-fileName-11 MuiTypography-body1"
+          className="MuiTypography-root makeStyles-fileName-10 MuiTypography-body1"
         >
           No File Selected
         </p>
         <input
-          className="makeStyles-hiddenInput-10"
+          className="makeStyles-hiddenInput-9"
           id="file-upload-input"
           name="file-upload-input"
           onChange={[Function]}
@@ -117,10 +117,10 @@ exports[`Editor render matches current snapshop 1`] = `
         />
       </div>
       <div
-        className="makeStyles-dropLoader-8"
+        className="makeStyles-dropLoader-7"
       >
         <div
-          className="makeStyles-dropContainer-15"
+          className="makeStyles-dropContainer-14"
           data-testid="drop-selector"
           onDragEnter={[Function]}
           onDragLeave={[Function]}
@@ -129,7 +129,7 @@ exports[`Editor render matches current snapshop 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="MuiSvgIcon-root makeStyles-dropIcon-17"
+            className="MuiSvgIcon-root makeStyles-dropIcon-16"
             focusable="false"
             viewBox="0 0 24 24"
           >
@@ -140,10 +140,10 @@ exports[`Editor render matches current snapshop 1`] = `
         </div>
       </div>
       <div
-        className="makeStyles-actionButtons-9"
+        className="makeStyles-actionButtons-8"
       >
         <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-formButton-12 makeStyles-submitButton-13 MuiButton-containedPrimary Mui-disabled Mui-disabled"
+          className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-formButton-11 makeStyles-submitButton-12 MuiButton-containedPrimary Mui-disabled Mui-disabled"
           disabled={true}
           onBlur={[Function]}
           onDragLeave={[Function]}
@@ -166,7 +166,7 @@ exports[`Editor render matches current snapshop 1`] = `
           </span>
         </button>
         <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-formButton-12 makeStyles-resetButton-14 Mui-disabled Mui-disabled"
+          className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-formButton-11 makeStyles-resetButton-13 Mui-disabled Mui-disabled"
           disabled={true}
           onBlur={[Function]}
           onDragLeave={[Function]}

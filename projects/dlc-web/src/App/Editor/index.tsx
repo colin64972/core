@@ -4,15 +4,12 @@ import clsx from 'clsx'
 import React, { useState } from 'react'
 import { FileUpload } from '../../interfaces'
 import { TopNav } from '../TopNav'
-import { FileSelector } from './FileSelector'
+import { FileLoader } from './FileLoader'
 import { FileViewer } from './FileViewer'
 
 const useStyles = makeStyles(theme => ({
   section: {
     padding: theme.custom.setSpace('sm')
-  },
-  uploadForm: {
-    background: `linear-gradient(top, ${theme.palette.primary[200]}, white)`
   }
 }))
 
@@ -42,18 +39,13 @@ export const Editor = (): JSX.Element => {
           </Typography>
         </Grid>
       </Grid>
-      {loadedFile ? (
-        <Grid component="section" container className={classes.section}>
+      <Grid component="section" container className={classes.section}>
+        {!loadedFile ? (
+          <FileLoader setLoadedFile={setLoadedFile} />
+        ) : (
           <FileViewer unloadFileHandler={unloadFile} loadedFile={loadedFile} />
-        </Grid>
-      ) : (
-        <Grid
-          component="section"
-          container
-          className={clsx(classes.section, classes.uploadForm)}>
-          <FileSelector setLoadedFile={setLoadedFile} />
-        </Grid>
-      )}
+        )}
+      </Grid>
     </Grid>
   )
 }

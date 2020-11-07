@@ -72,9 +72,7 @@ interface Props {
   setLoadedFile: (file: FileUpload) => void
 }
 
-export const FileSelector: React.FC<Props> = ({
-  setLoadedFile
-}): JSX.Element => {
+export const FileLoader: React.FC<Props> = ({ setLoadedFile }): JSX.Element => {
   const classes = useStyles()
 
   const initialFile: FileUpload = {

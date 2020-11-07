@@ -1,25 +1,25 @@
 import { testRenderer, renderSnapshot } from './setup'
-import { FileSelector } from '../src/App/Editor/FileSelector'
+import { FileLoader } from '../src/App/Editor/FileLoader'
 
 const props = {
   setLoadedFile: jest.fn()
 }
 
-describe('FileSelector', () => {
+describe('FileLoader', () => {
   describe('render', () => {
     test('matches current snapshop', () => {
-      const tree = renderSnapshot('/editor', FileSelector, props)
+      const tree = renderSnapshot('/editor', FileLoader, props)
       expect(tree).toMatchSnapshot()
     })
 
     test('renders 3 buttons', () => {
-      const { getAllByRole } = testRenderer('/editor', FileSelector)
+      const { getAllByRole } = testRenderer('/editor', FileLoader)
       const buttons = getAllByRole('button')
       expect(buttons.length).toBe(3)
     })
 
     test('renders hidden file input', () => {
-      const { getByLabelText } = testRenderer('/editor', FileSelector)
+      const { getByLabelText } = testRenderer('/editor', FileLoader)
       const input = getByLabelText('select file', { exact: false })
       expect(input).not.toBeVisible()
       expect(input.name).toBe('file-upload-input')
@@ -27,19 +27,19 @@ describe('FileSelector', () => {
     })
 
     test('renders no file status', () => {
-      const { getByText } = testRenderer('/editor', FileSelector)
+      const { getByText } = testRenderer('/editor', FileLoader)
       const status = getByText('no file selected', { exact: false })
       expect(status).toBeInTheDocument()
     })
 
     test('submit is disabled', () => {
-      const { getByRole, screen } = testRenderer('/editor', FileSelector)
+      const { getByRole, screen } = testRenderer('/editor', FileLoader)
       const submitButton = getByRole('button', { name: /load/i })
       expect(submitButton).toHaveAttribute('disabled')
     })
 
     test('reset is disabled', () => {
-      const { getByRole, screen } = testRenderer('/editor', FileSelector)
+      const { getByRole, screen } = testRenderer('/editor', FileLoader)
       const resetButton = getByRole('button', { name: /reset/i })
       expect(resetButton).toHaveAttribute('disabled')
     })
@@ -52,7 +52,7 @@ describe('FileSelector', () => {
         getByText,
         getByRole,
         userEvent: { upload }
-      } = testRenderer('/editor', FileSelector)
+      } = testRenderer('/editor', FileLoader)
       const input = getByLabelText('select file', { exact: false })
       const testFile = new File(['asdf'], 'asdf.xls', { type: 'xls ' })
       upload(input, testFile)
@@ -70,7 +70,7 @@ describe('FileSelector', () => {
         getByText,
         queryByText,
         userEvent: { upload }
-      } = testRenderer('/editor', FileSelector)
+      } = testRenderer('/editor', FileLoader)
       const input = getByLabelText('select file', { exact: false })
       const testFile = new File(['asdf'], 'asdf.xls', { type: 'xls ' })
       upload(input, testFile)
@@ -90,7 +90,7 @@ describe('FileSelector', () => {
         getByRole,
         queryByText,
         userEvent: { upload, click }
-      } = testRenderer('/editor', FileSelector)
+      } = testRenderer('/editor', FileLoader)
       const input = getByLabelText('select file', { exact: false })
       const testFile = new File(['asdf'], 'asdf.xls', { type: 'xls ' })
       upload(input, testFile)
@@ -109,7 +109,7 @@ describe('FileSelector', () => {
         getByRole,
         userEvent: { upload, click },
         screen
-      } = testRenderer('/editor', FileSelector, props)
+      } = testRenderer('/editor', FileLoader, props)
       const input = getByLabelText('select file', { exact: false })
       const testFile = new File(['asdf'], 'asdf.xls', { type: 'xls ' })
       upload(input, testFile)

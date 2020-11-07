@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FileSelector render matches current snapshop 1`] = `
+exports[`FileLoader render matches current snapshop 1`] = `
 <form
   className="makeStyles-form-1"
   onReset={[Function]}
