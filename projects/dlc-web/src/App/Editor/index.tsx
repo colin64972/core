@@ -5,11 +5,18 @@ import React, { useState } from 'react'
 import { FileUpload } from '../../interfaces'
 import { TopNav } from '../TopNav'
 import { FileLoader } from './FileLoader'
-import { FileViewer } from './FileViewer'
+import { EditorSettings } from './EditorSettings'
 
 const useStyles = makeStyles(theme => ({
   section: {
     padding: theme.custom.setSpace('sm')
+  },
+  fileLoaderBg: {
+    background: `linear-gradient(top, ${theme.palette.primary[100]}, white)`
+  },
+  editorSettingsBg: {
+    background: `linear-gradient(bottom, ${theme.palette.grey[900]}, ${theme.palette.grey[800]})`,
+    boxShadow: '0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.1)'
   }
 }))
 
@@ -39,13 +46,22 @@ export const Editor = (): JSX.Element => {
           </Typography>
         </Grid>
       </Grid>
-      <Grid component="section" container className={classes.section}>
-        {!loadedFile ? (
+      {!loadedFile && (
+        <Grid
+          component="section"
+          container
+          className={clsx(classes.section, classes.fileLoaderBg)}>
           <FileLoader setLoadedFile={setLoadedFile} />
-        ) : (
-          <FileViewer unloadFileHandler={unloadFile} loadedFile={loadedFile} />
-        )}
-      </Grid>
+        </Grid>
+      )}
+      {loadedFile && (
+        <Grid
+          component="section"
+          container
+          className={clsx(classes.section, classes.editorSettingsBg)}>
+          <EditorSettings />
+        </Grid>
+      )}
     </Grid>
   )
 }

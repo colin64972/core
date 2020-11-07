@@ -11,11 +11,12 @@ const useStyles = makeStyles(theme => ({
     width: 200,
     height: 200,
     borderRadius: theme.custom.setSpace() / 4,
-    backgroundColor: theme.palette.grey[500],
+    backgroundColor: theme.palette.primary[300],
     transition: 'all 250ms linear'
   },
   dragColor: {
-    backgroundColor: theme.palette.primary.main
+    backgroundColor: theme.palette.primary[400],
+    boxShadow: '0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.1)'
   },
   dropIcon: {
     color: theme.palette.grey[50],
