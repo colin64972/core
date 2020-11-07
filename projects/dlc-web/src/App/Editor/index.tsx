@@ -1,11 +1,12 @@
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
-import React, { useState } from 'react'
-import { FileUpload } from '../../interfaces'
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../store'
 import { TopNav } from '../TopNav'
-import { FileLoader } from './FileLoader'
 import { EditorSettings } from './EditorSettings'
+import { FileLoader } from './FileLoader'
 
 const useStyles = makeStyles(theme => ({
   section: {
@@ -23,13 +24,8 @@ const useStyles = makeStyles(theme => ({
 export const Editor = (): JSX.Element => {
   const classes = useStyles()
 
-  const [loadedFile, setLoadedFile] = useState<FileUpload | null>(null)
-
-  const unloadFile = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ): void => {
-    setLoadedFile(null)
-  }
+  const rawFileSelector = (state: RootState) => state.editor.rawFile
+  const rawFile = useSelector(rawFileSelector)
 
   return (
     <Grid container>
@@ -46,15 +42,15 @@ export const Editor = (): JSX.Element => {
           </Typography>
         </Grid>
       </Grid>
-      {!loadedFile && (
+      {!rawFile && (
         <Grid
           component="section"
           container
           className={clsx(classes.section, classes.fileLoaderBg)}>
-          <FileLoader setLoadedFile={setLoadedFile} />
+          <FileLoader />
         </Grid>
       )}
-      {loadedFile && (
+      {rawFile && (
         <Grid
           component="section"
           container

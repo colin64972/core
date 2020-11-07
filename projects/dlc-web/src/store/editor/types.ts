@@ -1,0 +1,2 @@
+export const LOAD_RAW_FILE = 'LOAD_RAW_FILE'
+export const UNLOAD_RAW_FILE = 'UNLOAD_RAW_FILE'

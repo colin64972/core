@@ -2,7 +2,9 @@ import { Button, Hidden, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
 import React, { useRef, useState } from 'react'
-import { FileUpload } from '../../interfaces'
+import { useDispatch } from 'react-redux'
+import { loadRawFile } from '../../store/editor/actions'
+import { RawFile } from '../../store/editor/interfaces'
 import { DropSelector } from './DropSelector'
 
 const useStyles = makeStyles(theme => ({
@@ -68,30 +70,24 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-interface Props {
-  setLoadedFile: (file: FileUpload) => void
-}
-
-export const FileLoader: React.FC<Props> = ({ setLoadedFile }): JSX.Element => {
+export const FileLoader: React.FC = (): JSX.Element => {
   const classes = useStyles()
 
-  const initialFile: FileUpload = {
-    name: ''
-  }
+  const dispatch = useDispatch()
 
-  const [selectedFile, setSelectedFile] = useState<FileUpload | null>(null)
+  const [selectedFile, setSelectedFile] = useState<RawFile | null>(null)
 
   const changeHandler = (): void => setSelectedFile(fileInput.current.files[0])
 
   const submitHandler = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault()
-    setLoadedFile(selectedFile)
+    dispatch(loadRawFile(selectedFile))
     event.currentTarget.reset()
   }
 
   const resetHandler = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault()
-    setSelectedFile(initialFile)
+    setSelectedFile(null)
   }
 
   const fileInput = useRef<HTMLInputElement>(null)
@@ -119,7 +115,7 @@ export const FileLoader: React.FC<Props> = ({ setLoadedFile }): JSX.Element => {
           <label htmlFor="file-upload-input">Select File</label>
         </Button>
         <Typography variant="body1" className={classes.fileName}>
-          {selectedFile?.size ? selectedFile.name : 'No File Selected'}
+          {selectedFile?.name ? selectedFile.name : 'No File Selected'}
         </Typography>
         <input
           className={classes.hiddenInput}

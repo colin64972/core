@@ -1,8 +1,8 @@
 import primary from '@material-ui/core/colors/lightBlue'
 import secondary from '@material-ui/core/colors/pink'
-import { setCustomTheme } from './theming'
+import { setCustomTheme } from '@cjo3/shared/react/themes/theming'
 
-const customTheme = setCustomTheme(
+export const theme = setCustomTheme(
   14,
   'Fira Sans',
   [
@@ -32,5 +32,3 @@ const customTheme = setCustomTheme(
   'rgb(68, 68, 68)',
   3
 )
-
-export const theme = customTheme
