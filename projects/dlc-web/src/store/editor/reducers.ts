@@ -1,5 +1,5 @@
 import { EditorState, EditorActionTypes } from './interfaces'
-import { LOAD_RAW_FILE } from './types'
+import { LOAD_RAW_FILE, UNLOAD_RAW_FILE } from './types'
 
 const initialState: EditorState = {
   rawFile: null
@@ -14,6 +14,11 @@ export const editorReducer = (
       return {
         ...state,
         rawFile: action.rawFile
+      }
+    case UNLOAD_RAW_FILE:
+      return {
+        ...state,
+        rawFile: null
       }
     default:
       return state

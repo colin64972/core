@@ -1,4 +1,4 @@
-import { theme } from '@cjo3/shared/react/themes/dlc'
+import { theme } from '../src/theme'
 import renderer from 'react-test-renderer'
 import { ThemeProvider } from '@material-ui/core/styles'
 import '@testing-library/jest-dom/extend-expect'

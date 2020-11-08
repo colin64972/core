@@ -6,9 +6,9 @@ const rootReducer = combineReducers({
   editor: editorReducer
 })
 
-export type RootState = ReturnType<typeof rootReducer>
+export type State = ReturnType<typeof rootReducer | null>
 
-const middleware = []
+const middleware: any[] = []
 
 if (process.env.NODE_ENV === 'development') {
   middleware.push(
@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === 'development') {
   )
 }
 
-export const setReduxStore = (preloadedState: RootState = null) =>
+export const setReduxStore = (preloadedState: State = null) =>
   createStore(
     rootReducer,
     preloadedState ? preloadedState : {},

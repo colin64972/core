@@ -1,9 +1,6 @@
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import clsx from 'clsx'
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { RootState } from '../../store'
 import { TopNav } from '../TopNav'
 import { EditorSettings } from './EditorSettings'
 import { FileLoader } from './FileLoader'
@@ -24,9 +21,6 @@ const useStyles = makeStyles(theme => ({
 export const Editor = (): JSX.Element => {
   const classes = useStyles()
 
-  const rawFileSelector = (state: RootState) => state.editor.rawFile
-  const rawFile = useSelector(rawFileSelector)
-
   return (
     <Grid container>
       <TopNav />
@@ -42,22 +36,8 @@ export const Editor = (): JSX.Element => {
           </Typography>
         </Grid>
       </Grid>
-      {!rawFile && (
-        <Grid
-          component="section"
-          container
-          className={clsx(classes.section, classes.fileLoaderBg)}>
-          <FileLoader />
-        </Grid>
-      )}
-      {rawFile && (
-        <Grid
-          component="section"
-          container
-          className={clsx(classes.section, classes.editorSettingsBg)}>
-          <EditorSettings />
-        </Grid>
-      )}
+      <FileLoader sectionClass={classes.section} />
+      <EditorSettings />
     </Grid>
   )
 }
