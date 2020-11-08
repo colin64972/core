@@ -9,11 +9,18 @@ import { rawFileSelector } from '../../store/selectors'
 import { DropSelector } from './DropSelector'
 
 const useStyles = makeStyles(theme => ({
-  fileLoaderBg: {
+  noFileBg: {
     background: theme.custom.setLinearGradient(
       180,
       theme.palette.primary[100],
-      'white'
+      theme.palette.primary[50]
+    )
+  },
+  withFileBg: {
+    background: theme.custom.setLinearGradient(
+      180,
+      theme.palette.secondary[100],
+      theme.palette.secondary[50]
     )
   },
   form: {
@@ -106,9 +113,7 @@ export const FileLoader: React.FC<Props> = ({ sectionClass }): JSX.Element => {
 
   const fileInput = useRef<HTMLInputElement>(null)
 
-  const unloadFileHandler = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ): void => {
+  const unloadFileHandler = (): void => {
     dispatch(unloadRawFile())
   }
 
@@ -118,8 +123,11 @@ export const FileLoader: React.FC<Props> = ({ sectionClass }): JSX.Element => {
       container
       justify="center"
       alignItems="center"
-      className={clsx(sectionClass, classes.fileLoaderBg)}
-      data-testid="gebto">
+      className={clsx(sectionClass, {
+        [classes.noFileBg]: !rawFile,
+        [classes.withFileBg]: rawFile
+      })}
+      data-testid="FileLoader">
       {rawFile ? (
         <Button
           type="button"

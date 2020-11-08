@@ -68,17 +68,6 @@ export const FileViewer: React.FC<Props> = ({
   const [workbook, setWorkbook] = useState(null)
   const [currentSheet, setCurrentSheet] = useState(null)
 
-  const readWorkbook = fileBlob => {
-    const reader = new FileReader()
-    reader.onload = event => {
-      const arrayBuffer = new Uint8Array(event.target.result)
-      const workbook = XLSX.read(arrayBuffer, { type: 'array' })
-      if (workbook) return setWorkbook(workbook)
-      return null
-    }
-    reader.readAsArrayBuffer(fileBlob)
-  }
-
   useEffect(() => {
     readWorkbook(loadedFile)
   }, [loadedFile])

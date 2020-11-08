@@ -32,3 +32,27 @@ export const theme = setCustomTheme(
   'rgb(68, 68, 68)',
   3
 )
+
+theme.overrides.MuiOutlinedInput = {
+  input: {
+    padding: theme.custom.setSpace()
+  }
+}
+
+theme.overrides.MuiInputBase = {
+  root: {
+    fontSize: theme.typography.fontSize
+  }
+}
+
+theme.overrides.MuiInputLabel = {
+  formControl: {
+    top: -5,
+    fontSize: theme.typography.fontSize
+  },
+  outlined: {
+    '&$shrink': {
+      transform: 'translate(14px, 1px) scale(0.75)'
+    }
+  }
+}

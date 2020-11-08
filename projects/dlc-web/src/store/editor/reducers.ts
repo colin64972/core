@@ -1,8 +1,15 @@
-import { EditorState, EditorActionTypes } from './interfaces'
-import { LOAD_RAW_FILE, UNLOAD_RAW_FILE } from './types'
+import { EditorActionTypes, EditorState } from './interfaces'
+import {
+  LOAD_RAW_FILE,
+  LOAD_WORKBOOK,
+  SELECT_SHEET,
+  UNLOAD_RAW_FILE
+} from './types'
 
 const initialState: EditorState = {
-  rawFile: null
+  rawFile: null,
+  workbook: null,
+  currentSheet: ''
 }
 
 export const editorReducer = (
@@ -15,11 +22,24 @@ export const editorReducer = (
         ...state,
         rawFile: action.rawFile
       }
+
     case UNLOAD_RAW_FILE:
       return {
-        ...state,
-        rawFile: null
+        ...initialState
       }
+
+    case LOAD_WORKBOOK:
+      return {
+        ...state,
+        workbook: action.workbook
+      }
+
+    case SELECT_SHEET:
+      return {
+        ...state,
+        currentSheet: action.name
+      }
+
     default:
       return state
   }

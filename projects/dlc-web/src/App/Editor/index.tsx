@@ -4,10 +4,14 @@ import React from 'react'
 import { TopNav } from '../TopNav'
 import { EditorSettings } from './EditorSettings'
 import { FileLoader } from './FileLoader'
+import { SheetSelector } from './SheetSelector'
 
 const useStyles = makeStyles(theme => ({
   section: {
     padding: theme.custom.setSpace('sm')
+  },
+  header: {
+    paddingTop: theme.custom.setSpace('lg')
   },
   fileLoaderBg: {
     background: `linear-gradient(top, ${theme.palette.primary[100]}, white)`
@@ -25,7 +29,7 @@ export const Editor = (): JSX.Element => {
     <Grid container>
       <TopNav />
       <Grid component="section" container className={classes.section}>
-        <Grid item xs={12}>
+        <Grid component="header" item xs={12} className={classes.header}>
           <Typography variant="h1">Editor</Typography>
           <Typography variant="body1">
             Labore labore ut est sit sanctus stet et. Eos lorem ipsum consetetur
@@ -37,7 +41,7 @@ export const Editor = (): JSX.Element => {
         </Grid>
       </Grid>
       <FileLoader sectionClass={classes.section} />
-      <EditorSettings />
+      <SheetSelector sectionClass={classes.section} />
     </Grid>
   )
 }

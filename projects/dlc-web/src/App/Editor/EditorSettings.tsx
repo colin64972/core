@@ -181,16 +181,6 @@ export const EditorSettings: React.FC = ({}): JSX.Element => {
                 control={<Radio size="small" color="primary" />}
                 label="Zero Value"
               />
-              <FormControlLabel
-                classes={{
-                  root: classes.noMargin,
-                  label: classes.noMargin
-                }}
-                disabled
-                value="custom-value"
-                control={<Radio size="small" color="primary" />}
-                label="Custom Function"
-              />
             </RadioGroup>
           </FormControl>
         </Grid>
@@ -269,16 +259,6 @@ export const EditorSettings: React.FC = ({}): JSX.Element => {
                 value="zero"
                 control={<Radio size="small" />}
                 label="Zero Value"
-              />
-              <FormControlLabel
-                classes={{
-                  root: classes.noMargin,
-                  label: classes.noMargin
-                }}
-                disabled
-                value="custom-value"
-                control={<Radio size="small" />}
-                label="Custom Function"
               />
             </RadioGroup>
           </FormControl>
