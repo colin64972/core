@@ -118,7 +118,8 @@ export const FileLoader: React.FC<Props> = ({ sectionClass }): JSX.Element => {
       container
       justify="center"
       alignItems="center"
-      className={clsx(sectionClass, classes.fileLoaderBg)}>
+      className={clsx(sectionClass, classes.fileLoaderBg)}
+      data-testid="gebto">
       {rawFile ? (
         <Button
           type="button"

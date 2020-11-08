@@ -16,7 +16,7 @@ describe('Editor', () => {
 
     test('renders copy', () => {
       const { getByText } = testRenderer('/editor', Editor)
-      const copy = getByText('voluptua', {
+      const copy = getByText('Labore labore', {
         selector: 'p',
         exact: false
       })
@@ -30,10 +30,9 @@ describe('Editor', () => {
     })
 
     test('renders file loader heading', () => {
-      const { getByRole } = testRenderer('/editor', Editor)
-      const h3 = getByRole('heading', { level: 3 })
-      expect(h3).toBeInTheDocument()
-      expect(h3.innerHTML).toBe('File Loader')
+      const { getByText } = testRenderer('/editor', Editor)
+      const heading = getByText('File Loader')
+      expect(heading).toBeInTheDocument()
     })
   })
 })

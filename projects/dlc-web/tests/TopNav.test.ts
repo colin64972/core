@@ -52,11 +52,11 @@ describe('TopNav', () => {
       } = testRenderer('/editor')
       const editorLink = getByRole('link', { name: /editor/i })
       click(editorLink)
-      const copy = getByText('voluptua', {
-        selector: 'p',
-        exact: false
+      const heading = getByText('Editor', {
+        selector: 'h1',
+        exact: true
       })
-      expect(copy).toBeInTheDocument()
+      expect(heading).toBeInTheDocument()
     })
 
     test('link clicks to error', () => {

@@ -2,7 +2,7 @@ import { testRenderer, renderSnapshot } from './setup'
 import { FileLoader } from '../src/App/Editor/FileLoader'
 
 const props = {
-  setLoadedFile: jest.fn()
+  sectionClass: 'test-class'
 }
 
 describe('FileLoader', () => {
@@ -10,6 +10,12 @@ describe('FileLoader', () => {
     test('matches current snapshop', () => {
       const tree = renderSnapshot('/editor', FileLoader, props)
       expect(tree).toMatchSnapshot()
+    })
+
+    test('renders with sectionClass prop', () => {
+      const { getByTestId } = testRenderer('/editor', FileLoader, props)
+      const div = getByTestId('gebto')
+      expect(div).toHaveClass('test-class')
     })
 
     test('renders 3 buttons', () => {
@@ -105,17 +111,37 @@ describe('FileLoader', () => {
 
     test('choose file and submit form', () => {
       const {
+        screen,
         getByLabelText,
         getByRole,
-        userEvent: { upload, click },
-        screen
-      } = testRenderer('/editor', FileLoader, props)
+        userEvent: { upload, click }
+      } = testRenderer('/editor', FileLoader)
       const input = getByLabelText('select file', { exact: false })
       const testFile = new File(['asdf'], 'asdf.xls', { type: 'xls ' })
       upload(input, testFile)
       const loadButton = getByRole('button', { name: /load/i })
       click(loadButton)
-      expect(props.setLoadedFile).toHaveBeenCalled()
+      const unloadButton = getByRole('button', { name: /unload/i })
+      expect(unloadButton).toBeInTheDocument()
+    })
+
+    test('choose file, submit form, unload file', () => {
+      const {
+        screen,
+        getByLabelText,
+        getByRole,
+        userEvent: { upload, click }
+      } = testRenderer('/editor', FileLoader)
+      let input = getByLabelText('select file', { exact: false })
+      const testFile = new File(['asdf'], 'asdf.xls', { type: 'xls ' })
+      upload(input, testFile)
+      const loadButton = getByRole('button', { name: /load/i })
+      click(loadButton)
+      const unloadButton = getByRole('button', { name: /unload/i })
+      expect(unloadButton).toBeInTheDocument()
+      click(unloadButton)
+      input = getByLabelText('select file', { exact: false })
+      expect(input).toBeInTheDocument()
     })
   })
 })
