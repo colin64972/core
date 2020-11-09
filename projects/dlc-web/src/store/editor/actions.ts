@@ -1,24 +1,14 @@
 import { WorkBook } from 'xlsx'
-import { EditorActionTypes, RawFile } from './interfaces'
-import {
-  LOAD_RAW_FILE,
-  LOAD_WORKBOOK,
-  SELECT_SHEET,
-  UNLOAD_RAW_FILE
-} from './types'
-
-export const loadRawFile = (file: RawFile): EditorActionTypes => ({
-  type: LOAD_RAW_FILE,
-  rawFile: file
-})
-
-export const unloadRawFile = (): EditorActionTypes => ({
-  type: UNLOAD_RAW_FILE
-})
+import { EditorActionTypes } from './interfaces'
+import { LOAD_WORKBOOK, UNLOAD_WORKBOOK, SELECT_SHEET } from './types'
 
 export const loadWorkbook = (workbook: WorkBook): EditorActionTypes => ({
   type: LOAD_WORKBOOK,
   workbook
+})
+
+export const unloadWorkbook = (): EditorActionTypes => ({
+  type: UNLOAD_WORKBOOK
 })
 
 export const selectSheet = (name: string): EditorActionTypes => ({

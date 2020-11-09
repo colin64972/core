@@ -55,7 +55,7 @@ export const setCustomTheme = (
 
   const headingStyle = {
     fontWeight: 'bold',
-    lineHeight: 1
+    lineHeight: 1.25
   }
 
   const muiTheme = createMuiTheme({

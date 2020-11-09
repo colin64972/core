@@ -1,13 +1,7 @@
 import { WorkBook } from 'xlsx'
-import {
-  LOAD_RAW_FILE,
-  LOAD_WORKBOOK,
-  SELECT_SHEET,
-  UNLOAD_RAW_FILE
-} from './types'
+import { LOAD_WORKBOOK, UNLOAD_WORKBOOK, SELECT_SHEET } from './types'
 
 export interface EditorState {
-  rawFile: RawFile
   workbook: WorkBook | null
   currentSheet: string
 }
@@ -17,18 +11,13 @@ export interface RawFile {
   size?: number
 }
 
-export interface LoadRawFileAction {
-  type: typeof LOAD_RAW_FILE
-  rawFile: RawFile
-}
-
-export interface UnloadRawFileAction {
-  type: typeof UNLOAD_RAW_FILE
-}
-
 export interface LoadWorkbookAction {
   type: typeof LOAD_WORKBOOK
   workbook: WorkBook
+}
+
+export interface UnloadWorkbookAction {
+  type: typeof UNLOAD_WORKBOOK
 }
 
 export interface SelectSheetAction {
@@ -37,7 +26,6 @@ export interface SelectSheetAction {
 }
 
 export type EditorActionTypes =
-  | LoadRawFileAction
-  | UnloadRawFileAction
   | LoadWorkbookAction
+  | UnloadWorkbookAction
   | SelectSheetAction

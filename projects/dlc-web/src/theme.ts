@@ -35,7 +35,9 @@ export const theme = setCustomTheme(
 
 theme.overrides.MuiOutlinedInput = {
   input: {
-    padding: theme.custom.setSpace()
+    padding: theme.custom.setSpace(),
+    position: 'relative',
+    top: 3
   }
 }
 
