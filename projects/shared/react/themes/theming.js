@@ -55,7 +55,7 @@ export const setCustomTheme = (
 
   const headingStyle = {
     fontWeight: 'bold',
-    lineHeight: 1
+    lineHeight: 1.25
   }
 
   const muiTheme = createMuiTheme({
@@ -116,7 +116,9 @@ export const setCustomTheme = (
         justifyContent: justify,
         alignItems: align
       }),
-      borderRadius
+      borderRadius,
+      setLinearGradient: (deg, color1, color2) =>
+        `linear-gradient(${deg}deg, ${color1}, ${color2})`
     },
     debug: {
       border: {

@@ -1,8 +1,8 @@
 import primary from '@material-ui/core/colors/lightBlue'
 import secondary from '@material-ui/core/colors/pink'
-import { setCustomTheme } from './theming'
+import { setCustomTheme } from '@cjo3/shared/react/themes/theming'
 
-const customTheme = setCustomTheme(
+export const theme = setCustomTheme(
   14,
   'Fira Sans',
   [
@@ -33,4 +33,27 @@ const customTheme = setCustomTheme(
   3
 )
 
-export const theme = customTheme
+theme.overrides.MuiOutlinedInput = {
+  input: {
+    padding: theme.custom.setSpace(),
+    position: 'relative',
+    top: 3
+  }
+}
+
+theme.overrides.MuiInputBase = {
+  root: {
+    fontSize: theme.typography.fontSize
+  }
+}
+
+theme.overrides.MuiInputLabel = {
+  formControl: {
+    fontSize: theme.typography.fontSize
+  },
+  outlined: {
+    '&$shrink': {
+      transform: 'translate(14px, 1px) scale(0.75)'
+    }
+  }
+}

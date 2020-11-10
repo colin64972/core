@@ -63,7 +63,7 @@ export const DropSelector: React.FC<Props> = ({
 
   return (
     <div
-      data-testid="drop-selector"
+      data-testid="DropSelector"
       className={clsx(classes.dropContainer, {
         [classes.dragColor]: dragCount > 0
       })}

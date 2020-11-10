@@ -1,24 +1,31 @@
 import { makeStyles } from '@material-ui/core/styles'
+import HomeIcon from '@material-ui/icons/Home'
+import SettingsIcon from '@material-ui/icons/Settings'
+import ErrorIcon from '@material-ui/icons/Error'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Button } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   nav: {
     ...theme.custom.setFlex('row', 'flex-start'),
-    backgroundColor: theme.palette.grey[300],
+    padding: `0 ${theme.custom.setSpace('sm')}px`,
+    backgroundColor: theme.palette.primary.main,
     width: '100%'
   },
   navItem: {
-    'padding': theme.custom.setSpace(),
-    'transition': 'all 250ms ease-out',
-    '&:hover': {
-      background: `radial-gradient(circle at top, ${theme.palette.grey[200]}, ${theme.palette.grey[300]})`
-    }
+    padding: theme.custom.setSpace()
   }
 }))
 
 export const TopNav: React.FC = (): JSX.Element => {
   const classes = useStyles()
+
+  const iconMap = {
+    '/': <HomeIcon size="small" />,
+    '/editor': <SettingsIcon size="small" />,
+    '/error': <ErrorIcon size="small" />
+  }
+
   return (
     <nav className={classes.nav}>
       {[
@@ -38,9 +45,13 @@ export const TopNav: React.FC = (): JSX.Element => {
           label: 'Error'
         }
       ].map(link => (
-        <Link key={link.key} to={link.to} className={classes.navItem}>
+        <Button
+          key={link.key}
+          href={link.to}
+          startIcon={iconMap[link.to]}
+          className={classes.navItem}>
           {link.label}
-        </Link>
+        </Button>
       ))}
     </nav>
   )

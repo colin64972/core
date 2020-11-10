@@ -1,15 +1,25 @@
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import clsx from 'clsx'
-import React, { useState } from 'react'
-import { FileUpload } from '../../interfaces'
+import React from 'react'
 import { TopNav } from '../TopNav'
 import { FileLoader } from './FileLoader'
-import { EditorSettings } from './EditorSettings'
+import { SheetSelector } from './SheetSelector'
+import { TransformSettings } from './TransformSettings'
+import { TransformResults } from './TransformResults'
 
 const useStyles = makeStyles(theme => ({
   section: {
     padding: theme.custom.setSpace('sm')
+  },
+  Editor_header: {
+    padding: theme.custom.setSpace('lg'),
+    backgroundImage:
+      'url(https://images.ctfassets.net/91sm3pewxzag/59jPKS6AVO44eeKgUWySCs/cbf12ea9d82c1561da9c2eb331b4c612/featured_laptop-spreadsheet-2.jpg?w=950)',
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundBlendMode: 'screen',
+    backgroundColor: 'rgba(255, 255, 255, 0.75)'
   },
   fileLoaderBg: {
     background: `linear-gradient(top, ${theme.palette.primary[100]}, white)`
@@ -23,45 +33,29 @@ const useStyles = makeStyles(theme => ({
 export const Editor = (): JSX.Element => {
   const classes = useStyles()
 
-  const [loadedFile, setLoadedFile] = useState<FileUpload | null>(null)
-
-  const unloadFile = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ): void => {
-    setLoadedFile(null)
-  }
-
   return (
     <Grid container>
       <TopNav />
-      <Grid component="section" container className={classes.section}>
-        <Grid item xs={12}>
-          <Typography variant="h1">Editor</Typography>
-          <Typography variant="body1">
-            Labore labore ut est sit sanctus stet et. Eos lorem ipsum consetetur
-            magna est voluptua. Lorem justo dolor eirmod est est aliquyam. Dolor
-            sit kasd nonumy lorem tempor dolor no duo et, invidunt gubergren
-            rebum at rebum, et nonumy lorem lorem diam ipsum, sadipscing diam
-            voluptua accusam sit sit, dolor.
-          </Typography>
-        </Grid>
+      <Grid
+        component="header"
+        container
+        justify="center"
+        className={classes.Editor_header}>
+        <Typography variant="h1" align="center">
+          Editor
+        </Typography>
+        <Typography variant="body1" align="center">
+          Labore labore ut est sit sanctus stet et. Eos lorem ipsum consetetur
+          magna est voluptua. Lorem justo dolor eirmod est est aliquyam. Dolor
+          sit kasd nonumy lorem tempor dolor no duo et, invidunt gubergren rebum
+          at rebum, et nonumy lorem lorem diam ipsum, sadipscing diam voluptua
+          accusam sit sit, dolor.
+        </Typography>
       </Grid>
-      {!loadedFile && (
-        <Grid
-          component="section"
-          container
-          className={clsx(classes.section, classes.fileLoaderBg)}>
-          <FileLoader setLoadedFile={setLoadedFile} />
-        </Grid>
-      )}
-      {loadedFile && (
-        <Grid
-          component="section"
-          container
-          className={clsx(classes.section, classes.editorSettingsBg)}>
-          <EditorSettings />
-        </Grid>
-      )}
+      <FileLoader />
+      <SheetSelector />
+      <TransformSettings />
+      <TransformResults />
     </Grid>
   )
 }

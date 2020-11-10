@@ -1,4 +1,5 @@
-import { theme } from '@cjo3/shared/react/themes/dlc'
+import 'regenerator-runtime'
+import { theme } from '../src/theme'
 import renderer from 'react-test-renderer'
 import { ThemeProvider } from '@material-ui/core/styles'
 import '@testing-library/jest-dom/extend-expect'
@@ -8,13 +9,17 @@ import 'colors'
 import { createElement } from 'react'
 import { MemoryRouter } from 'react-router-dom'
 import { ThemedApp } from '../src/ThemedApp'
+import { State } from '../src/store/'
+import { setReduxStore } from '../src/store'
+import { Provider } from 'react-redux'
 
 export const testRenderer = (
   path: string,
   component?: React.FC,
   props?: {
     [key: string]: any
-  }
+  },
+  state: State = null
 ): any => {
   const helpers = {
     screen,
@@ -27,13 +32,17 @@ export const testRenderer = (
       createElement(
         MemoryRouter,
         { initialEntries: [path] },
-        component
-          ? createElement(
-              ThemeProvider,
-              { theme },
-              createElement(component, props)
-            )
-          : ThemedApp
+        createElement(
+          Provider,
+          { store: setReduxStore(state) },
+          component
+            ? createElement(
+                ThemeProvider,
+                { theme },
+                createElement(component, props)
+              )
+            : ThemedApp
+        )
       )
     )
   }
@@ -42,14 +51,25 @@ export const testRenderer = (
 export const renderSnapshot = (
   path: string,
   component: React.FC,
-  props: { [key: string]: any } = null
+  props: { [key: string]: any } = null,
+  state: State = null
 ) =>
   renderer
     .create(
       createElement(
         MemoryRouter,
         { initialEntries: [path] },
-        createElement(ThemeProvider, { theme }, createElement(component, props))
+        createElement(
+          Provider,
+          {
+            store: setReduxStore(state)
+          },
+          createElement(
+            ThemeProvider,
+            { theme },
+            createElement(component, props)
+          )
+        )
       )
     )
     .toJSON()

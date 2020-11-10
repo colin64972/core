@@ -1,4 +1,4 @@
-import { theme } from '@cjo3/shared/react/themes/dlc'
+import { theme } from './theme'
 import { ThemeProvider } from '@material-ui/core/styles'
 import { createElement } from 'react'
 import { App } from './App'

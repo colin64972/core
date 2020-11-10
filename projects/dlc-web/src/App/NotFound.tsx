@@ -1,13 +1,12 @@
-import { Grid, Typography } from '@material-ui/core'
+import { Grid, Button, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   section: {
     padding: theme.custom.setSpace()
   },
-  homeLink: {
+  NotFound_homeButton: {
     marginTop: theme.custom.setSpace()
   }
 }))
@@ -15,17 +14,23 @@ const useStyles = makeStyles(theme => ({
 export const NotFound: React.FC = (): JSX.Element => {
   const classes = useStyles()
   return (
-    <Grid container>
-      <Grid component="section" container className={classes.section}>
-        <Grid item xs={12}>
-          <Typography variant="h1">Error</Typography>
-          <Typography variant="body1">
-            Sorry, an error occurred. Please try again later!
-          </Typography>
-        </Grid>
-        <Grid item xs={12} className={classes.homeLink}>
-          <Link to="/">Home</Link>
-        </Grid>
+    <Grid
+      component="section"
+      container
+      direction="column"
+      className={classes.section}>
+      <Typography variant="h1">Error</Typography>
+      <Typography variant="body1">
+        Sorry, an error occurred. Please try again later!
+      </Typography>
+      <Grid item>
+        <Button
+          href="/"
+          color="secondary"
+          variant="contained"
+          className={classes.NotFound_homeButton}>
+          Home
+        </Button>
       </Grid>
     </Grid>
   )
