@@ -10,7 +10,7 @@ describe('DropSelector', () => {
 
     test('renders dropSelector', () => {
       const { getByTestId, screen } = testRenderer('/editor', DropSelector)
-      const dropSelector = getByTestId('drop-selector')
+      const dropSelector = getByTestId('DropSelector')
       expect(dropSelector).toBeInTheDocument()
     })
   })

@@ -6,3 +6,6 @@ export const currentSheetSelector = (state: State) => state.editor.currentSheet
 
 export const sheetDataSelector = (state: State) =>
   state.editor.workbook?.Sheets[state.editor.currentSheet]
+
+export const transformSettingsSelector = (state: State) =>
+  state.editor.transformSettings

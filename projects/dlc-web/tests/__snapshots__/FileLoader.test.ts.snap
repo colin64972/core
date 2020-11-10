@@ -2,19 +2,19 @@
 
 exports[`FileLoader render matches current snapshop 1`] = `
 <section
-  className="MuiGrid-root test-class makeStyles-fileLoaderBg-1 MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
-  data-testid="gebto"
+  className="MuiGrid-root makeStyles-section-1 makeStyles-noWorkbookBg-3 MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
+  data-testid="FileLoader"
 >
   <div
     className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-10 MuiGrid-grid-md-8 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4"
   >
     <form
-      className="makeStyles-form-2"
+      className="makeStyles-form-4"
       onReset={[Function]}
       onSubmit={[Function]}
     >
       <div
-        className="makeStyles-title-3"
+        className="makeStyles-title-5"
       >
         <h3
           className="MuiTypography-root MuiTypography-h3"
@@ -29,7 +29,7 @@ exports[`FileLoader render matches current snapshop 1`] = `
         </p>
       </div>
       <div
-        className="makeStyles-fileSelect-4"
+        className="makeStyles-fileSelect-6"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary"
@@ -62,12 +62,12 @@ exports[`FileLoader render matches current snapshop 1`] = `
           />
         </button>
         <p
-          className="MuiTypography-root makeStyles-fileName-8 MuiTypography-body1"
+          className="MuiTypography-root makeStyles-fileName-10 MuiTypography-body1"
         >
           No File Selected
         </p>
         <input
-          className="makeStyles-hiddenInput-7"
+          className="makeStyles-hiddenInput-9"
           id="file-upload-input"
           name="file-upload-input"
           onChange={[Function]}
@@ -75,11 +75,11 @@ exports[`FileLoader render matches current snapshop 1`] = `
         />
       </div>
       <div
-        className="makeStyles-dropLoader-5"
+        className="makeStyles-dropLoader-7"
       >
         <div
-          className="makeStyles-dropContainer-12"
-          data-testid="drop-selector"
+          className="makeStyles-dropContainer-14"
+          data-testid="DropSelector"
           onDragEnter={[Function]}
           onDragLeave={[Function]}
           onDragOver={[Function]}
@@ -87,7 +87,7 @@ exports[`FileLoader render matches current snapshop 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="MuiSvgIcon-root makeStyles-dropIcon-14"
+            className="MuiSvgIcon-root makeStyles-dropIcon-16"
             focusable="false"
             viewBox="0 0 24 24"
           >
@@ -98,10 +98,10 @@ exports[`FileLoader render matches current snapshop 1`] = `
         </div>
       </div>
       <div
-        className="makeStyles-actionButtons-6"
+        className="makeStyles-actionButtons-8"
       >
         <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-formButton-9 makeStyles-submitButton-10 MuiButton-containedPrimary Mui-disabled Mui-disabled"
+          className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-formButton-11 makeStyles-submitButton-12 MuiButton-containedPrimary Mui-disabled Mui-disabled"
           disabled={true}
           onBlur={[Function]}
           onDragLeave={[Function]}
@@ -124,7 +124,7 @@ exports[`FileLoader render matches current snapshop 1`] = `
           </span>
         </button>
         <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-formButton-9 makeStyles-resetButton-11 Mui-disabled Mui-disabled"
+          className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-formButton-11 makeStyles-resetButton-13 Mui-disabled Mui-disabled"
           disabled={true}
           onBlur={[Function]}
           onDragLeave={[Function]}

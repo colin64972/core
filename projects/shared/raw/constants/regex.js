@@ -6,5 +6,8 @@ module.exports = {
   LINE_INCLUDES_TLD: /(.*)(\.[a-z]{1}[a-z0-9\-]{1,23})/gi,
   APP_PATH_MATCH: /^(\/apps\/)([\w\-]+)(.*)$/i,
   WWW_HOST: /^(https?\:\/{2})?[w]{3}\./i,
-  FILE_WITH_EXT: /\.[a-z]{3,}$/i
+  FILE_WITH_EXT: /\.[a-z]{3,}$/i,
+  EXCEL_CELL_ADDRESS: /^[a-z]{1,2}[1-9](\d+)?$/i,
+  DETICTION_LIMIT_TRIGGER: /^[^\s\d]+$/i,
+  ALPHA_ONLY_STRING: /^[a-z]+$/i
 }

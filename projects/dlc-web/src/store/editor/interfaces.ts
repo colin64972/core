@@ -4,11 +4,22 @@ import { LOAD_WORKBOOK, UNLOAD_WORKBOOK, SELECT_SHEET } from './types'
 export interface EditorState {
   workbook: WorkBook | null
   currentSheet: string
+  transformSettings: TransformSettings
 }
 
 export interface RawFile {
   name: string
   size?: number
+}
+
+export interface TransformSettings {
+  rangeStart: string
+  rangeEnd: string
+  ulTrigger: string
+  ulTriggerZero: string
+  ulTransform: string
+  olTrigger: string
+  olTransform: string
 }
 
 export interface LoadWorkbookAction {

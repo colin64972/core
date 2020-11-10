@@ -1,3 +1,4 @@
+import 'regenerator-runtime'
 import { theme } from '../src/theme'
 import renderer from 'react-test-renderer'
 import { ThemeProvider } from '@material-ui/core/styles'

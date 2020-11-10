@@ -39,6 +39,9 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('xs')]: {
       margin: `${theme.custom.setSpace()}px 0 0 0`
     }
+  },
+  sheetSelection_inputLabel: {
+    top: -5
   }
 }))
 
@@ -81,9 +84,16 @@ export const SheetSelector: React.FC = (): JSX.Element => {
       <FormControl
         variant="outlined"
         className={classes.Editor_SheetSelector_selectFormControl}>
-        <InputLabel id="sheet-selection">Sheet Selection</InputLabel>
+        <InputLabel
+          htmlFor="sheet-selection"
+          id="sheetSelection-label"
+          classes={{
+            formControl: classes.sheetSelection_inputLabel
+          }}>
+          Sheet Selection
+        </InputLabel>
         <Select
-          labelId="sheet-selection"
+          labelId="sheetSelection-label"
           id="sheet-selection"
           name="sheet-selection"
           label="Sheet Selection"

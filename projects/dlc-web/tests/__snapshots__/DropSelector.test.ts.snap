@@ -3,7 +3,7 @@
 exports[`DropSelector render matches current snapshop 1`] = `
 <div
   className="makeStyles-dropContainer-1"
-  data-testid="drop-selector"
+  data-testid="DropSelector"
   onDragEnter={[Function]}
   onDragLeave={[Function]}
   onDragOver={[Function]}

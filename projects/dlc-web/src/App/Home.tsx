@@ -32,13 +32,7 @@ export const Home: React.FC = (): JSX.Element => {
           diam sanctus sea amet invidunt.
         </Typography>
       </Grid>
-      <Button
-        href="/editor"
-        color="primary"
-        variant="contained"
-        className={classes.Home_startButton}>
-        Start
-      </Button>
+      <a href="/editor">Start</a>
     </Grid>
   )
 }

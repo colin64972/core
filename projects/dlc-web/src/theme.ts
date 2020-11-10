@@ -49,7 +49,6 @@ theme.overrides.MuiInputBase = {
 
 theme.overrides.MuiInputLabel = {
   formControl: {
-    top: -5,
     fontSize: theme.typography.fontSize
   },
   outlined: {

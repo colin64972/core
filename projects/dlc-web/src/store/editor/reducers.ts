@@ -1,9 +1,18 @@
 import { EditorActionTypes, EditorState } from './interfaces'
 import { LOAD_WORKBOOK, UNLOAD_WORKBOOK, SELECT_SHEET } from './types'
 
-const initialState: EditorState = {
+export const initialState: EditorState = {
   workbook: null,
-  currentSheet: ''
+  currentSheet: '',
+  transformSettings: {
+    rangeStart: '',
+    rangeEnd: '',
+    ulTrigger: '',
+    ulTriggerZero: '',
+    ulTransform: '',
+    olTrigger: '',
+    olTransform: ''
+  }
 }
 
 export const editorReducer = (
