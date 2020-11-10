@@ -17,6 +17,7 @@ import {
   setTransformSettings,
   saveTransformResult
 } from '../../store/editor/actions'
+import { setWaitTime } from '@cjo3/shared/logic/dlc'
 
 const useStyles = makeStyles(theme => ({
   section: {
@@ -105,24 +106,6 @@ export const TransformSettings: React.FC = (): JSX.Element => {
 
   const sheetData = useSelector(sheetDataSelector)
 
-  // if (process.env.NODE_ENV === 'development' && sheetData) {
-  //   const XXX = processSheet(sheetData, {
-  //     rangeStart: 'c17',
-  //     rangeEnd: 'am47',
-  //     ulTrigger: '<',
-  //     ulTransform: 'zero',
-  //     ulTriggerZero: '',
-  //     olTrigger: '>',
-  //     olTransform: 'zero'
-  //   })
-  //   console.log(
-  //     '%c XXX',
-  //     'color: yellow; font-size: large',
-  //     Object.keys(XXX).length,
-  //     XXX
-  //   )
-  // }
-
   const submitHandler = (
     values: ITransformSettings,
     actions: FormikHelpers<ITransformSettings>
@@ -135,16 +118,13 @@ export const TransformSettings: React.FC = (): JSX.Element => {
 
     const waitTime = Object.keys(result).length * 10
 
-    setTimeout(
-      () => {
-        dispatch(saveTransformResult(result))
+    setTimeout(() => {
+      dispatch(saveTransformResult(result))
 
-        actions.setSubmitting(false)
+      actions.setSubmitting(false)
 
-        dispatch(setProcessing(false))
-      },
-      waitTime < 1000 ? 1000 : waitTime > 5000 ? 5000 : waitTime
-    )
+      dispatch(setProcessing(false))
+    }, setWaitTime(waitTime))
   }
 
   if (!sheetData) return null

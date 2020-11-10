@@ -187,3 +187,10 @@ export const processSheet = (
     return temp
   }, {})
 }
+
+export const setWaitTime = (waitTime: number): number => {
+  if (process.env.NODE_ENV === 'development') return 500
+  if (waitTime < 1000) return 1000
+  if (waitTime > 5000) return 5000
+  return waitTime
+}
