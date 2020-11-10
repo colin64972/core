@@ -102,15 +102,16 @@ export const TransformSettings: React.FC = (): JSX.Element => {
   const sheetData = useSelector(sheetDataSelector)
 
   if (process.env.NODE_ENV === 'development') {
-    processSheet(sheetData, {
+    const XXX = processSheet(sheetData, {
       rangeStart: 'c17',
       rangeEnd: 'am47',
       ulTrigger: '<',
-      ulTransform: 'none',
-      ulTriggerZero: '',
+      ulTransform: 'zero',
+      ulTriggerZero: 'Rock',
       olTrigger: '>',
-      olTransform: 'none'
+      olTransform: 'zero'
     })
+    console.log('%c XXX', 'color: yellow; font-size: large', XXX)
   }
 
   const submitHandler = (
