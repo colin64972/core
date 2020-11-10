@@ -1,10 +1,10 @@
-import { Grid, Typography, LinearProgress } from '@material-ui/core'
+import { Grid, LinearProgress, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import {
   isProcessingSelector,
-  transformSettingsSelector
+  transformResultSelector
 } from '../../store/selectors'
 
 const useStyles = makeStyles(theme => ({
@@ -19,7 +19,7 @@ export const TransformResults: React.FC = (): JSX.Element => {
 
   const isProcessing = useSelector(isProcessingSelector)
 
-  const transformSettings = useSelector(transformSettingsSelector)
+  const transformResult = useSelector(transformResultSelector)
 
   if (isProcessing)
     return (
@@ -28,7 +28,7 @@ export const TransformResults: React.FC = (): JSX.Element => {
       </Grid>
     )
 
-  if (transformSettings.ulTrigger === '') return null
+  if (!transformResult) return null
 
   return (
     <Grid container component="section" className={classes.TransformResults_bg}>
@@ -40,6 +40,7 @@ export const TransformResults: React.FC = (): JSX.Element => {
           consetetur, diam diam vero lorem aliquyam ut duo ut. Diam et et et
           invidunt sit invidunt voluptua sea et, sed labore no sed diam. Et.
         </Typography>
+        <p>{JSON.stringify(transformResult, null, 2)}</p>
       </Grid>
     </Grid>
   )

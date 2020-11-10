@@ -4,7 +4,8 @@ import {
   UNLOAD_WORKBOOK,
   SELECT_SHEET,
   SET_PROCESSING,
-  SET_TRANSFORM_SETTINGS
+  SET_TRANSFORM_SETTINGS,
+  SAVE_TRANSFORM_RESULT
 } from './types'
 
 export interface EditorState {
@@ -12,6 +13,7 @@ export interface EditorState {
   currentSheet: string
   transformSettings: TransformSettings
   isProcessing: boolean
+  transformResult: TransformResult | null
 }
 
 export interface RawFile {
@@ -27,6 +29,33 @@ export interface TransformSettings {
   ulTransform: string
   olTrigger: string
   olTransform: string
+}
+
+export interface TransformResult {
+  [key: string]: {
+    address: string
+    colNum: number
+    rowNum: number
+    original: string
+    result: {
+      t: string
+      v: string | number
+      w: string
+    }
+  }
+}
+
+export interface ScopeRange {
+  start: {
+    colId: string
+    colNum: number
+    rowNum: number
+  }
+  end: {
+    colId: string
+    colNum: number
+    rowNum: number
+  }
 }
 
 export interface LoadWorkbookAction {
@@ -53,9 +82,15 @@ export interface SetTransformSettingsAction {
   settings: TransformSettings
 }
 
+export interface SaveResultAction {
+  type: typeof SAVE_TRANSFORM_RESULT
+  result: TransformResult
+}
+
 export type EditorActionTypes =
   | LoadWorkbookAction
   | UnloadWorkbookAction
   | SelectSheetAction
   | SetProcessingAction
   | SetTransformSettingsAction
+  | SaveResultAction

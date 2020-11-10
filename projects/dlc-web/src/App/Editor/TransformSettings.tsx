@@ -12,7 +12,11 @@ import { sheetDataSelector } from '../../store/selectors'
 import { FormikField } from './FormikField'
 import { TransformSettingsSchema } from './schema'
 import { TransformSettings as ITransformSettings } from '../../store/editor/interfaces'
-import { setProcessing, setTransformSettings } from '../../store/editor/actions'
+import {
+  setProcessing,
+  setTransformSettings,
+  saveTransformResult
+} from '../../store/editor/actions'
 
 const useStyles = makeStyles(theme => ({
   section: {
@@ -24,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   paper: {
     ...theme.custom.borderRadius,
     padding: theme.custom.setSpace('sm'),
-    backgroundColor: theme.palette.grey[200]
+    backgroundColor: theme.palette.grey[100]
   },
   Editor_TransformSettings_paperGrid: {
     maxWidth: 1024,
@@ -72,7 +76,6 @@ const useStyles = makeStyles(theme => ({
     fontSize: theme.typography.fontSize
   },
   actionButtons: {
-    ...theme.custom.setFlex(),
     gridColumn: '2 / 3',
     gridRow: 2,
     [theme.breakpoints.down('xs')]: {
@@ -81,6 +84,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   formButton: {
+    'width': '100%',
     'marginRight': theme.custom.setSpace(),
     '&:last-of-type': {
       marginRight: 0
@@ -101,30 +105,46 @@ export const TransformSettings: React.FC = (): JSX.Element => {
 
   const sheetData = useSelector(sheetDataSelector)
 
-  if (process.env.NODE_ENV === 'development') {
-    const XXX = processSheet(sheetData, {
-      rangeStart: 'c17',
-      rangeEnd: 'am47',
-      ulTrigger: '<',
-      ulTransform: 'zero',
-      ulTriggerZero: 'Rock',
-      olTrigger: '>',
-      olTransform: 'zero'
-    })
-    console.log('%c XXX', 'color: yellow; font-size: large', XXX)
-  }
+  // if (process.env.NODE_ENV === 'development' && sheetData) {
+  //   const XXX = processSheet(sheetData, {
+  //     rangeStart: 'c17',
+  //     rangeEnd: 'am47',
+  //     ulTrigger: '<',
+  //     ulTransform: 'zero',
+  //     ulTriggerZero: '',
+  //     olTrigger: '>',
+  //     olTransform: 'zero'
+  //   })
+  //   console.log(
+  //     '%c XXX',
+  //     'color: yellow; font-size: large',
+  //     Object.keys(XXX).length,
+  //     XXX
+  //   )
+  // }
 
   const submitHandler = (
     values: ITransformSettings,
     actions: FormikHelpers<ITransformSettings>
   ): void => {
     dispatch(setProcessing(true))
-    // const result = processSheet(sheetData, values)
-    setTimeout(() => {
-      actions.setSubmitting(false)
-      dispatch(setTransformSettings(values))
-      dispatch(setProcessing(false))
-    }, 1000 + Math.random() * 5000)
+
+    dispatch(setTransformSettings(values))
+
+    const result = processSheet(sheetData, values)
+
+    const waitTime = Object.keys(result).length * 10
+
+    setTimeout(
+      () => {
+        dispatch(saveTransformResult(result))
+
+        actions.setSubmitting(false)
+
+        dispatch(setProcessing(false))
+      },
+      waitTime < 1000 ? 1000 : waitTime > 5000 ? 5000 : waitTime
+    )
   }
 
   if (!sheetData) return null
@@ -228,21 +248,30 @@ export const TransformSettings: React.FC = (): JSX.Element => {
                 />
               </Paper>
               <div className={classes.actionButtons}>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  color="primary"
-                  disabled={isSubmitting || !isValid || !dirty}
-                  className={clsx(classes.formButton, classes.submitButton)}>
-                  {isSubmitting ? <CachedIcon size="1rem" /> : 'Process Sheet'}
-                </Button>
-                <Button
-                  type="reset"
-                  variant="contained"
-                  disabled={isSubmitting || !dirty}
-                  className={clsx(classes.formButton, classes.resetButton)}>
-                  Reset
-                </Button>
+                <Grid container spacing={3}>
+                  <Grid item xs={8}>
+                    <Button
+                      type="submit"
+                      variant="contained"
+                      color="primary"
+                      disabled={isSubmitting || !isValid || !dirty}
+                      className={clsx(
+                        classes.formButton,
+                        classes.submitButton
+                      )}>
+                      {isSubmitting ? <CachedIcon size="1rem" /> : 'Process'}
+                    </Button>
+                  </Grid>
+                  <Grid item xs={4}>
+                    <Button
+                      type="reset"
+                      variant="contained"
+                      disabled={isSubmitting || !dirty}
+                      className={clsx(classes.formButton, classes.resetButton)}>
+                      Reset
+                    </Button>
+                  </Grid>
+                </Grid>
               </div>
             </Form>
           )

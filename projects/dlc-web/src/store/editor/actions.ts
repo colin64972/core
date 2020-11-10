@@ -1,11 +1,16 @@
 import { WorkBook } from 'xlsx'
-import { EditorActionTypes, TransformSettings } from './interfaces'
+import {
+  EditorActionTypes,
+  TransformSettings,
+  TransformResult
+} from './interfaces'
 import {
   LOAD_WORKBOOK,
   UNLOAD_WORKBOOK,
   SELECT_SHEET,
   SET_PROCESSING,
-  SET_TRANSFORM_SETTINGS
+  SET_TRANSFORM_SETTINGS,
+  SAVE_TRANSFORM_RESULT
 } from './types'
 
 export const loadWorkbook = (workbook: WorkBook): EditorActionTypes => ({
@@ -32,4 +37,11 @@ export const setTransformSettings = (
 ): EditorActionTypes => ({
   type: SET_TRANSFORM_SETTINGS,
   settings
+})
+
+export const saveTransformResult = (
+  result: TransformResult
+): EditorActionTypes => ({
+  type: SAVE_TRANSFORM_RESULT,
+  result
 })
