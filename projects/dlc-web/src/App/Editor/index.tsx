@@ -5,6 +5,7 @@ import { TopNav } from '../TopNav'
 import { FileLoader } from './FileLoader'
 import { SheetSelector } from './SheetSelector'
 import { TransformSettings } from './TransformSettings'
+import { TransformResults } from './TransformResults'
 
 const useStyles = makeStyles(theme => ({
   section: {
@@ -54,6 +55,7 @@ export const Editor = (): JSX.Element => {
       <FileLoader />
       <SheetSelector />
       <TransformSettings />
+      <TransformResults />
     </Grid>
   )
 }

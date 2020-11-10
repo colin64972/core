@@ -1,9 +1,16 @@
 import { EditorActionTypes, EditorState } from './interfaces'
-import { LOAD_WORKBOOK, UNLOAD_WORKBOOK, SELECT_SHEET } from './types'
+import {
+  LOAD_WORKBOOK,
+  UNLOAD_WORKBOOK,
+  SELECT_SHEET,
+  SET_PROCESSING,
+  SET_TRANSFORM_SETTINGS
+} from './types'
 
 export const initialState: EditorState = {
   workbook: null,
   currentSheet: '',
+  isProcessing: false,
   transformSettings: {
     rangeStart: '',
     rangeEnd: '',
@@ -36,7 +43,17 @@ export const editorReducer = (
         ...state,
         currentSheet: action.name
       }
+    case SET_PROCESSING:
+      return {
+        ...state,
+        isProcessing: action.status
+      }
 
+    case SET_TRANSFORM_SETTINGS:
+      return {
+        ...state,
+        transformSettings: action.settings
+      }
     default:
       return state
   }

@@ -1,6 +1,12 @@
 import { WorkBook } from 'xlsx'
-import { EditorActionTypes } from './interfaces'
-import { LOAD_WORKBOOK, UNLOAD_WORKBOOK, SELECT_SHEET } from './types'
+import { EditorActionTypes, TransformSettings } from './interfaces'
+import {
+  LOAD_WORKBOOK,
+  UNLOAD_WORKBOOK,
+  SELECT_SHEET,
+  SET_PROCESSING,
+  SET_TRANSFORM_SETTINGS
+} from './types'
 
 export const loadWorkbook = (workbook: WorkBook): EditorActionTypes => ({
   type: LOAD_WORKBOOK,
@@ -14,4 +20,16 @@ export const unloadWorkbook = (): EditorActionTypes => ({
 export const selectSheet = (name: string): EditorActionTypes => ({
   type: SELECT_SHEET,
   name
+})
+
+export const setProcessing = (status: boolean): EditorActionTypes => ({
+  type: SET_PROCESSING,
+  status
+})
+
+export const setTransformSettings = (
+  settings: TransformSettings
+): EditorActionTypes => ({
+  type: SET_TRANSFORM_SETTINGS,
+  settings
 })

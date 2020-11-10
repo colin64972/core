@@ -1,10 +1,17 @@
 import { WorkBook } from 'xlsx'
-import { LOAD_WORKBOOK, UNLOAD_WORKBOOK, SELECT_SHEET } from './types'
+import {
+  LOAD_WORKBOOK,
+  UNLOAD_WORKBOOK,
+  SELECT_SHEET,
+  SET_PROCESSING,
+  SET_TRANSFORM_SETTINGS
+} from './types'
 
 export interface EditorState {
   workbook: WorkBook | null
   currentSheet: string
   transformSettings: TransformSettings
+  isProcessing: boolean
 }
 
 export interface RawFile {
@@ -36,7 +43,19 @@ export interface SelectSheetAction {
   name: string
 }
 
+export interface SetProcessingAction {
+  type: typeof SET_PROCESSING
+  status: boolean
+}
+
+export interface SetTransformSettingsAction {
+  type: typeof SET_TRANSFORM_SETTINGS
+  settings: TransformSettings
+}
+
 export type EditorActionTypes =
   | LoadWorkbookAction
   | UnloadWorkbookAction
   | SelectSheetAction
+  | SetProcessingAction
+  | SetTransformSettingsAction

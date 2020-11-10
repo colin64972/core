@@ -9,30 +9,29 @@ import { TransformSettings } from '../../store/editor/interfaces'
 
 export const TransformSettingsSchema: Yup.ObjectSchema<TransformSettings> = Yup.object().shape(
   {
-    rangeStart: Yup.string()
-      .matches(EXCEL_CELL_ADDRESS, schemaErrors.excelCellAddress)
-      .defined(),
-    rangeEnd: Yup.string()
-      .matches(EXCEL_CELL_ADDRESS, schemaErrors.excelCellAddress)
-      .defined(),
+    rangeStart: Yup.string().matches(
+      EXCEL_CELL_ADDRESS,
+      schemaErrors.excelCellAddress
+    ),
+    rangeEnd: Yup.string().matches(
+      EXCEL_CELL_ADDRESS,
+      schemaErrors.excelCellAddress
+    ),
     ulTrigger: Yup.string()
       .matches(DETICTION_LIMIT_TRIGGER, schemaErrors.detectionLimitTrigger)
-      .required(schemaErrors.required)
-      .defined(),
+      .required(schemaErrors.required),
     ulTransform: Yup.mixed()
       .oneOf(Object.values(transformFunctionValues))
-      .required(schemaErrors.required)
-      .defined(),
-    ulTriggerZero: Yup.string()
-      .matches(ALPHA_ONLY_STRING, schemaErrors.alphaOnlyString)
-      .defined(),
+      .required(schemaErrors.required),
+    ulTriggerZero: Yup.string().matches(
+      ALPHA_ONLY_STRING,
+      schemaErrors.alphaOnlyString
+    ),
     olTrigger: Yup.string()
       .matches(DETICTION_LIMIT_TRIGGER, schemaErrors.detectionLimitTrigger)
-      .required(schemaErrors.required)
-      .defined(),
+      .required(schemaErrors.required),
     olTransform: Yup.mixed()
       .oneOf(Object.values(transformFunctionValues))
       .required(schemaErrors.required)
-      .defined()
   }
 )

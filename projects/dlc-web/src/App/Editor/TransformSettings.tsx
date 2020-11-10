@@ -1,14 +1,18 @@
 import { Button, Grid, Paper, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
-import { Form, Formik } from 'formik'
+import { Form, Formik, FormikHelpers } from 'formik'
 import React from 'react'
+import { processSheet } from '@cjo3/shared/logic/dlc'
+import CachedIcon from '@material-ui/icons/Cached'
 import { useDispatch, useSelector } from 'react-redux'
 import { transformOptions } from '../../constants'
 import { initialState } from '../../store/editor/reducers'
 import { sheetDataSelector } from '../../store/selectors'
 import { FormikField } from './FormikField'
 import { TransformSettingsSchema } from './schema'
+import { TransformSettings as ITransformSettings } from '../../store/editor/interfaces'
+import { setProcessing, setTransformSettings } from '../../store/editor/actions'
 
 const useStyles = makeStyles(theme => ({
   section: {
@@ -97,22 +101,29 @@ export const TransformSettings: React.FC = (): JSX.Element => {
 
   const sheetData = useSelector(sheetDataSelector)
 
-  const submitHandler = (values, actions) => {
-    console.log(
-      '%c submitHandler',
-      'color: yellow; font-size: large',
-      values,
-      actions
-    )
+  if (process.env.NODE_ENV === 'development') {
+    processSheet(sheetData, {
+      rangeStart: 'c32',
+      rangeEnd: 'ak43',
+      ulTrigger: '<',
+      ulTransform: 'none',
+      ulTriggerZero: '',
+      olTrigger: '>',
+      olTransform: 'none'
+    })
   }
 
-  const resetHandler = (values, actions) => {
-    console.log(
-      '%c resetHandler',
-      'color: yellow; font-size: large',
-      values,
-      actions
-    )
+  const submitHandler = (
+    values: ITransformSettings,
+    actions: FormikHelpers<ITransformSettings>
+  ): void => {
+    dispatch(setProcessing(true))
+    // const result = processSheet(sheetData, values)
+    setTimeout(() => {
+      actions.setSubmitting(false)
+      dispatch(setTransformSettings(values))
+      dispatch(setProcessing(false))
+    }, 1000 + Math.random() * 5000)
   }
 
   if (!sheetData) return null
@@ -122,9 +133,8 @@ export const TransformSettings: React.FC = (): JSX.Element => {
       <Formik
         initialValues={initialState.transformSettings}
         onSubmit={submitHandler}
-        onReset={resetHandler}
         validationSchema={TransformSettingsSchema}>
-        {({ dirty, isValid }) => {
+        {({ dirty, isValid, isSubmitting }) => {
           return (
             <Form className={classes.Editor_TransformSettings_paperGrid}>
               <Paper
@@ -137,7 +147,6 @@ export const TransformSettings: React.FC = (): JSX.Element => {
                   Scope Range
                 </Typography>
                 <FormikField
-                  kind="text"
                   name="rangeStart"
                   label="Range Start"
                   id="rangeStart-input"
@@ -146,7 +155,6 @@ export const TransformSettings: React.FC = (): JSX.Element => {
                   style={classes.topMargin}
                 />
                 <FormikField
-                  kind="text"
                   name="rangeEnd"
                   label="Range End"
                   id="rangeEnd-input"
@@ -166,7 +174,6 @@ export const TransformSettings: React.FC = (): JSX.Element => {
                 </Typography>
                 <FormikField
                   required
-                  kind="text"
                   name="ulTrigger"
                   label="Trigger Character"
                   id="ulTrigger-input"
@@ -184,7 +191,6 @@ export const TransformSettings: React.FC = (): JSX.Element => {
                   style={classes.topMargin}
                 />
                 <FormikField
-                  kind="text"
                   name="ulTriggerZero"
                   label="Zero Trigger"
                   id="ulTriggerZero-input"
@@ -203,7 +209,6 @@ export const TransformSettings: React.FC = (): JSX.Element => {
                 </Typography>
                 <FormikField
                   required
-                  kind="text"
                   name="olTrigger"
                   label="Trigger Character"
                   id="olTrigger-input"
@@ -226,14 +231,14 @@ export const TransformSettings: React.FC = (): JSX.Element => {
                   type="submit"
                   variant="contained"
                   color="primary"
-                  disabled={!isValid || !dirty}
+                  disabled={isSubmitting || !isValid || !dirty}
                   className={clsx(classes.formButton, classes.submitButton)}>
-                  Process Sheet
+                  {isSubmitting ? <CachedIcon size="1rem" /> : 'Process Sheet'}
                 </Button>
                 <Button
                   type="reset"
                   variant="contained"
-                  disabled={!dirty}
+                  disabled={isSubmitting || !dirty}
                   className={clsx(classes.formButton, classes.resetButton)}>
                   Reset
                 </Button>

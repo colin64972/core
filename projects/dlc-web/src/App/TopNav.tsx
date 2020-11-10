@@ -8,6 +8,7 @@ import { Button } from '@material-ui/core'
 const useStyles = makeStyles(theme => ({
   nav: {
     ...theme.custom.setFlex('row', 'flex-start'),
+    padding: `0 ${theme.custom.setSpace('sm')}px`,
     backgroundColor: theme.palette.primary.main,
     width: '100%'
   },

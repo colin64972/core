@@ -11,7 +11,7 @@ import React from 'react'
 
 interface Props {
   id: string
-  kind: string
+  kind?: string
   label: string
   name: string
   placeholder?: string
@@ -27,7 +27,7 @@ interface Props {
 
 export const FormikField: React.FC<Props> = ({
   id,
-  kind,
+  kind = 'text',
   label,
   name,
   options,
@@ -37,37 +37,42 @@ export const FormikField: React.FC<Props> = ({
   helperMessage
 }): JSX.Element => (
   <Field name={name}>
-    {({ field, meta: { error, touched } }) =>
-      kind === 'text' ? (
-        <TextField
-          {...field}
-          className={style}
-          error={touched && error ? true : false}
-          fullWidth
-          helperText={error ? error : helperMessage}
-          id={id}
-          label={label}
-          placeholder={placeholder}
-          required={required}
-          size="small"
-        />
-      ) : (
-        <FormControl
-          fullWidth
-          required={required}
-          className={style}
-          error={touched && error ? true : false}>
-          <InputLabel htmlFor={id}>{label}</InputLabel>
-          <Select id={id} label={label} {...field}>
-            {options.map(item => (
-              <MenuItem key={item.key} value={item.value}>
-                {item.label}
-              </MenuItem>
-            ))}
-          </Select>
-          {touched && error && <FormHelperText>{error}</FormHelperText>}
-        </FormControl>
-      )
-    }
+    {({ field, meta: { error, touched } }) => {
+      switch (kind) {
+        case 'select':
+          return (
+            <FormControl
+              fullWidth
+              required={required}
+              className={style}
+              error={touched && error ? true : false}>
+              <InputLabel htmlFor={id}>{label}</InputLabel>
+              <Select id={id} label={label} {...field}>
+                {options.map(item => (
+                  <MenuItem key={item.key} value={item.value}>
+                    {item.label}
+                  </MenuItem>
+                ))}
+              </Select>
+              {touched && error && <FormHelperText>{error}</FormHelperText>}
+            </FormControl>
+          )
+        default:
+          return (
+            <TextField
+              {...field}
+              className={style}
+              error={touched && error ? true : false}
+              fullWidth
+              helperText={touched && error ? error : helperMessage}
+              id={id}
+              label={label}
+              placeholder={placeholder}
+              required={required}
+              size="small"
+            />
+          )
+      }
+    }}
   </Field>
 )
