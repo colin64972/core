@@ -103,8 +103,8 @@ export const TransformSettings: React.FC = (): JSX.Element => {
 
   if (process.env.NODE_ENV === 'development') {
     processSheet(sheetData, {
-      rangeStart: 'c32',
-      rangeEnd: 'ak43',
+      rangeStart: 'c17',
+      rangeEnd: 'am47',
       ulTrigger: '<',
       ulTransform: 'none',
       ulTriggerZero: '',
