@@ -5,7 +5,9 @@ import {
   SELECT_SHEET,
   SET_PROCESSING,
   SET_TRANSFORM_SETTINGS,
-  SAVE_TRANSFORM_RESULT
+  SAVE_TRANSFORM_RESULT,
+  OPEN_PREVIEW,
+  CLOSE_PREVIEW
 } from './types'
 
 export interface EditorState {
@@ -14,6 +16,7 @@ export interface EditorState {
   transformSettings: TransformSettings
   isProcessing: boolean
   transformResult: TransformResult | null
+  previewOpen: boolean
 }
 
 export interface RawFile {
@@ -57,6 +60,7 @@ export interface TransformResult {
       }
     }
   }
+  totalRange: ScopeRange
 }
 
 export interface ScopeRange {
@@ -101,6 +105,14 @@ export interface SaveResultAction {
   result: TransformResult
 }
 
+export interface OpenPreviewAction {
+  type: typeof OPEN_PREVIEW
+}
+
+export interface ClosePreviewAction {
+  type: typeof CLOSE_PREVIEW
+}
+
 export type EditorActionTypes =
   | LoadWorkbookAction
   | UnloadWorkbookAction
@@ -108,3 +120,5 @@ export type EditorActionTypes =
   | SetProcessingAction
   | SetTransformSettingsAction
   | SaveResultAction
+  | OpenPreviewAction
+  | ClosePreviewAction

@@ -13,6 +13,8 @@ import {
 import { makeStyles } from '@material-ui/core/styles'
 import DoubleArrowIcon from '@material-ui/icons/DoubleArrow'
 import React from 'react'
+import { openPreview } from '../../store/editor/actions'
+import { useDispatch } from 'react-redux'
 
 const useStyles = makeStyles(theme => ({
   TransformSummary_panel: {
@@ -95,6 +97,14 @@ export const TransformSummary: React.FC<Props> = ({
 }): JSX.Element => {
   const classes = useStyles()
 
+  const dispatch = useDispatch()
+
+  const openPreviewHandler = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ): void => {
+    dispatch(openPreview())
+  }
+
   if (caseData.addresses.length < 1) return null
 
   return (
@@ -132,9 +142,11 @@ export const TransformSummary: React.FC<Props> = ({
               variant="outlined"
               color="primary"
               onClick={openDrawerHandler}>
-              View Cell Addresses
+              Inspect Transforms
             </Button>
-            <Button type="button">Inspect Sheet</Button>
+            <Button type="button" onClick={openPreviewHandler}>
+              View Preview
+            </Button>
           </ButtonGroup>
         </Grid>
       </Grid>

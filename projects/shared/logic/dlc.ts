@@ -6,8 +6,9 @@ import {
   TransformSummary
 } from '@cjo3/dlc-web/src/store/editor/interfaces'
 import { WorkSheet } from 'xlsx'
-import { fromBase26 } from '../general/conversion'
+import { fromBase26, toBase26 } from '../general/conversion'
 import { deduplicate, mergeSort } from '../general/sorting'
+import { createHashId } from '../react/helpers'
 
 const setResult = (kind: string, value: string, trigger?: string) => {
   let temp,
@@ -67,7 +68,7 @@ const parseCellAddress = (address: string): [string, string] => {
   return [col, row]
 }
 
-const parseSheetRange = (range: string): ScopeRange => {
+export const parseSheetRange = (range: string): ScopeRange => {
   const [start, end] = range.split(':')
   const [startCol, startRow] = parseCellAddress(start)
   const [endCol, endRow] = parseCellAddress(end)
@@ -199,7 +200,8 @@ export const processSheet = (
     ul: collectChanges('ul', transformed),
     ol: collectChanges('ol', transformed),
     zero: collectChanges('zero', transformed),
-    all: transformed
+    all: transformed,
+    totalRange: parseSheetRange(sheet['!ref'])
   }
 }
 
@@ -229,4 +231,30 @@ export const setWaitTime = (waitTime: number): number => {
   if (waitTime < 1000) return 1000
   if (waitTime > 5000) return 5000
   return waitTime
+}
+
+export const setColHeaders = (
+  endCol: number
+): { label: string; value: number }[] => {
+  let result = []
+  for (let i = 1; i <= endCol; i += 1) {
+    result.push({
+      key: createHashId(),
+      label: toBase26(i).toUpperCase(),
+      value: i
+    })
+  }
+  return result
+}
+
+export const setRowHeaders = (endRow: number) => {
+  let result = []
+  for (let i = 0; i < endRow; i += 1) {
+    result.push({
+      key: createHashId(),
+      label: (i + 1).toString(),
+      value: i
+    })
+  }
+  return result
 }

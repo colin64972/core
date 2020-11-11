@@ -14,3 +14,6 @@ export const isProcessingSelector = (state: State): boolean =>
 
 export const transformResultSelector = (state: State): TransformResult =>
   state.editor.transformResult
+
+export const previewOpenSelector = (state: State): boolean =>
+  state.editor.previewOpen

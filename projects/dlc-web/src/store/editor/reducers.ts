@@ -5,7 +5,9 @@ import {
   SELECT_SHEET,
   SET_PROCESSING,
   SET_TRANSFORM_SETTINGS,
-  SAVE_TRANSFORM_RESULT
+  SAVE_TRANSFORM_RESULT,
+  OPEN_PREVIEW,
+  CLOSE_PREVIEW
 } from './types'
 
 export const initialState: EditorState = {
@@ -21,7 +23,8 @@ export const initialState: EditorState = {
     olTrigger: '',
     olTransform: ''
   },
-  transformResult: null
+  transformResult: null,
+  previewOpen: false
 }
 
 export const editorReducer = (
@@ -56,11 +59,25 @@ export const editorReducer = (
         ...state,
         transformSettings: action.settings
       }
+
     case SAVE_TRANSFORM_RESULT:
       return {
         ...state,
         transformResult: action.result
       }
+
+    case OPEN_PREVIEW:
+      return {
+        ...state,
+        previewOpen: true
+      }
+
+    case CLOSE_PREVIEW:
+      return {
+        ...state,
+        previewOpen: false
+      }
+
     default:
       return state
   }

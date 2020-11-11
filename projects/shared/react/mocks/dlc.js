@@ -5519,5 +5519,17 @@ export const transformResult = {
         w: '2.5'
       }
     }
+  },
+  totalRange: {
+    start: {
+      colId: 'A',
+      colNum: 1,
+      rowNum: 1
+    },
+    end: {
+      colId: 'AM',
+      colNum: 39,
+      rowNum: 47
+    }
   }
 }

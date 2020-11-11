@@ -6,6 +6,7 @@ import { FileLoader } from './FileLoader'
 import { SheetSelector } from './SheetSelector'
 import { TransformSettings } from './TransformSettings'
 import { TransformResults } from './TransformResults'
+import { Preview } from './Preview/'
 
 const useStyles = makeStyles(theme => ({
   section: {
@@ -56,6 +57,7 @@ export const Editor = (): JSX.Element => {
       <SheetSelector />
       <TransformSettings />
       <TransformResults />
+      <Preview />
     </Grid>
   )
 }
