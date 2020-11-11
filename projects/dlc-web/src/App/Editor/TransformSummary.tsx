@@ -94,6 +94,9 @@ export const TransformSummary: React.FC<Props> = ({
   openDrawerHandler
 }): JSX.Element => {
   const classes = useStyles()
+
+  if (caseData.addresses.length < 1) return null
+
   return (
     <Grid
       container
@@ -144,10 +147,10 @@ export const TransformSummary: React.FC<Props> = ({
           [classes.primary_bg]: buttonName === 'ul',
           [classes.secondary_bg]: buttonName === 'ol'
         })}>
-        <Grid container justify="center" alignItems="center">
+        <Grid container justify="center" alignItems="flex-start">
           <Grid item xs={5}>
             <Typography variant="h6" align="center" className={classes.heading}>
-              Original
+              Originals
             </Typography>
             <List dense>
               {caseData.originalValues.map(value => (
@@ -169,7 +172,7 @@ export const TransformSummary: React.FC<Props> = ({
           </Grid>
           <Grid item xs={5}>
             <Typography variant="h6" align="center" className={classes.heading}>
-              Transform
+              Transformed
             </Typography>
             <List dense>
               {caseData.changedValues.map(value => (

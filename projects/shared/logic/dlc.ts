@@ -151,8 +151,8 @@ export const processSheet = (
     const { colNum, rowNum, isInScope } = checkInScope(address, scope)
 
     if (isInScope) {
-      const ulPattern = new RegExp(`^\\${ulTrigger}\\s*?\\d*(\\.\\d*)?$`)
-      const olPattern = new RegExp(`^\\${olTrigger}\\s*?\\d*(\\.\\d*)?$`)
+      const ulPattern = new RegExp(`\\${ulTrigger}\\s*?\\d*(\\.\\d*)?`)
+      const olPattern = new RegExp(`\\${olTrigger}\\s*?\\d*(\\.\\d*)?`)
 
       const meta = {
         address,

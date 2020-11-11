@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
   TransformResults_sideDrawer: {
     ...theme.custom.setFlex('column'),
     height: '100%',
-    width: theme.custom.setSpace('xl'),
+    padding: theme.custom.setSpace(),
     backgroundColor: theme.palette.grey[900]
   },
   TransformResults_addressListItem: {
@@ -48,9 +48,9 @@ export const TransformResults: React.FC = (): JSX.Element => {
 
   let transformResult = useSelector(transformResultSelector)
 
-  if (process.env.NODE_ENV === 'development') {
-    transformResult = transformResultMock
-  }
+  // if (process.env.NODE_ENV === 'development') {
+  //   transformResult = transformResultMock
+  // }
 
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false)
   const [drawerDataName, setDrawerDataName] = useState<string | null>(null)
@@ -101,19 +101,19 @@ export const TransformResults: React.FC = (): JSX.Element => {
             className={classes.TransformResults_changeSummaries}>
             <TransformSummary
               buttonName="ul"
-              title="Under Limit Case"
+              title="Under Limit Cases"
               caseData={transformResult.ul}
               openDrawerHandler={openDrawerHandler}
             />
             <TransformSummary
               buttonName="ol"
-              title="Over Limit Case"
+              title="Over Limit Cases"
               caseData={transformResult.ol}
               openDrawerHandler={openDrawerHandler}
             />
             <TransformSummary
               buttonName="zero"
-              title="Zero Case"
+              title="Zero Cases"
               caseData={transformResult.zero}
               openDrawerHandler={openDrawerHandler}
             />
