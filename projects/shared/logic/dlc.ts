@@ -2,10 +2,12 @@ import { transformFunctionValues } from '@cjo3/dlc-web/src/constants'
 import {
   ScopeRange,
   TransformResult,
-  TransformSettings
+  TransformSettings,
+  TransformSummary
 } from '@cjo3/dlc-web/src/store/editor/interfaces'
 import { WorkSheet } from 'xlsx'
 import { fromBase26 } from '../general/conversion'
+import { deduplicate } from '../general/sorting'
 
 const setResult = (kind: string, value: string, trigger?: string) => {
   let temp,
@@ -141,7 +143,7 @@ export const processSheet = (
   delete sheetData['!ref']
   delete sheetData['!margins']
 
-  return Object.entries(sheetData).reduce((acc, cur, ind) => {
+  const transformed = Object.entries(sheetData).reduce((acc, cur, ind) => {
     const temp = acc
 
     const [address, { v, t, w }] = cur
@@ -162,7 +164,9 @@ export const processSheet = (
       if (v && t === 's' && v === ulTriggerZero) {
         temp[address] = {
           ...meta,
-          result: setResult('zero', v)
+          transformKind: 'zero',
+          trigger: ulTriggerZero,
+          result: setResult('zero', v, ulTriggerZero)
         }
         return temp
       }
@@ -170,6 +174,8 @@ export const processSheet = (
       if (t === 's' && ulPattern.test(v)) {
         temp[address] = {
           ...meta,
+          transformKind: 'ul',
+          trigger: ulTrigger,
           result: setResult(ulTransform, v, ulTrigger)
         }
         return temp
@@ -178,6 +184,8 @@ export const processSheet = (
       if (t === 's' && olPattern.test(v)) {
         temp[address] = {
           ...meta,
+          transformKind: 'ol',
+          trigger: olTrigger,
           result: setResult(olTransform, v, olTrigger)
         }
         return temp
@@ -186,6 +194,34 @@ export const processSheet = (
 
     return temp
   }, {})
+
+  return {
+    ul: collectChanges('ul', transformed),
+    ol: collectChanges('ol', transformed),
+    zero: collectChanges('zero', transformed),
+    all: transformed
+  }
+}
+
+export const collectChanges = (
+  kind: string,
+  data: TransformResult
+): TransformSummary => {
+  const filtered = Object.entries(data).filter(
+    entry => entry[1].transformKind === kind
+  )
+
+  const count = filtered.length
+  const originalValues = deduplicate(filtered.map(item => item[1].original))
+  const changedValues = deduplicate(filtered.map(item => item[1].result.w))
+  const addresses = deduplicate(filtered.map(item => item[0]))
+
+  return {
+    count,
+    originalValues,
+    changedValues,
+    addresses
+  }
 }
 
 export const setWaitTime = (waitTime: number): number => {

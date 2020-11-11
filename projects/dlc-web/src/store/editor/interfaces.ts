@@ -31,16 +31,30 @@ export interface TransformSettings {
   olTransform: string
 }
 
+export interface TransformSummary {
+  count: number
+  originalValues: string[]
+  changedValues: string[]
+  addresses: string[]
+}
+
 export interface TransformResult {
-  [key: string]: {
-    address: string
-    colNum: number
-    rowNum: number
-    original: string
-    result: {
-      t: string
-      v: string | number
-      w: string
+  ul: TransformSummary
+  ol: TransformSummary
+  zero: TransformSummary
+  all: {
+    [key: string]: {
+      address: string
+      colNum: number
+      rowNum: number
+      original: string
+      transformKind: string
+      trigger: string
+      result: {
+        t: string
+        v: string | number
+        w: string
+      }
     }
   }
 }

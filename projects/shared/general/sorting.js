@@ -44,3 +44,5 @@ export const mergeSort = (input = [], field = null, direction = 'up') => {
 
   return reMerge(mergeSort(left), mergeSort(right), field, direction)
 }
+
+export const deduplicate = input => [...new Set(input)]
