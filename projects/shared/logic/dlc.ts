@@ -1,6 +1,7 @@
 import { transformFunctionValues } from '@cjo3/dlc-web/src/constants'
+import { convertSheet, setCellAddress } from '../react/xlsx'
 import {
-  ScopeRange,
+  TransformResultCell,
   TransformResult,
   TransformSettings,
   TransformSummary
@@ -62,63 +63,6 @@ const setResult = (kind: string, value: string, trigger?: string) => {
   }
 }
 
-const parseCellAddress = (address: string): [string, string] => {
-  const col = address.replace(/\d+/gi, '')
-  const row = address.replace(/[a-z]+/gi, '')
-  return [col, row]
-}
-
-export const parseSheetRange = (range: string): ScopeRange => {
-  const [start, end] = range.split(':')
-  const [startCol, startRow] = parseCellAddress(start)
-  const [endCol, endRow] = parseCellAddress(end)
-  return {
-    start: {
-      colId: startCol,
-      colNum: fromBase26(startCol.toLowerCase()),
-      rowNum: parseInt(startRow)
-    },
-    end: {
-      colId: endCol,
-      colNum: fromBase26(endCol.toLowerCase()),
-      rowNum: parseInt(endRow)
-    }
-  }
-}
-
-const setSheetScope = (
-  rangeStart: string,
-  rangeEnd: string,
-  sheetRange: string
-) => {
-  const sourceRange = parseSheetRange(sheetRange)
-
-  if (rangeStart.length && rangeEnd.length)
-    return parseSheetRange(`${rangeStart}:${rangeEnd}`)
-
-  return sourceRange
-}
-
-const checkInScope = (
-  address: string,
-  scope: ScopeRange
-): { colNum: number; rowNum: number; isInScope: boolean } => {
-  const [colId, rowId] = parseCellAddress(address)
-  const colNum = fromBase26(colId.toLowerCase())
-  const rowNum = parseInt(rowId)
-  const isInScope =
-    colNum >= scope.start.colNum &&
-    colNum <= scope.end.colNum &&
-    rowNum >= scope.start.rowNum &&
-    rowNum <= scope.end.rowNum
-
-  return {
-    colNum,
-    rowNum,
-    isInScope
-  }
-}
-
 export const processSheet = (
   sheet: WorkSheet,
   settings: TransformSettings
@@ -135,73 +79,78 @@ export const processSheet = (
     olTransform
   } = settings
 
-  const sheetData = {
-    ...sheet
-  }
+  const scope = rangeStart && rangeEnd ? `${rangeStart}:${rangeEnd}` : null
 
-  const scope = setSheetScope(rangeStart, rangeEnd, sheet['!ref'])
+  const sheetRows = convertSheet(sheet, scope)
 
-  delete sheetData['!ref']
-  delete sheetData['!margins']
+  const transformed = sheetRows.reduce(
+    (acc, row, rowIndex: number): TransformResult => {
+      const temp = acc
 
-  const transformed = Object.entries(sheetData).reduce((acc, cur, ind) => {
-    const temp = acc
+      row.forEach(
+        (cell: string, cellIndex: number): TransformResultCell => {
+          if (typeof cell !== 'string') return temp
 
-    const [address, { v, t, w }] = cur
+          const ulPattern = new RegExp(`\\${ulTrigger}\\s*?\\d*(\\.\\d*)?`)
+          const olPattern = new RegExp(`\\${olTrigger}\\s*?\\d*(\\.\\d*)?`)
 
-    const { colNum, rowNum, isInScope } = checkInScope(address, scope)
+          const address = setCellAddress(
+            rangeStart,
+            rangeEnd,
+            rowIndex,
+            cellIndex
+          )
 
-    if (isInScope) {
-      const ulPattern = new RegExp(`\\${ulTrigger}\\s*?\\d*(\\.\\d*)?`)
-      const olPattern = new RegExp(`\\${olTrigger}\\s*?\\d*(\\.\\d*)?`)
+          const meta = {
+            address,
+            rowIndex,
+            cellIndex,
+            original: cell
+          }
 
-      const meta = {
-        address,
-        colNum,
-        rowNum,
-        original: v
-      }
+          if (ulTriggerZero !== '' && cell === ulTriggerZero) {
+            temp[address] = {
+              ...meta,
+              transformKind: 'zero',
+              trigger: ulTriggerZero,
+              result: setResult('zero', cell, ulTriggerZero)
+            }
+            return temp
+          }
 
-      if (v && t === 's' && v === ulTriggerZero) {
-        temp[address] = {
-          ...meta,
-          transformKind: 'zero',
-          trigger: ulTriggerZero,
-          result: setResult('zero', v, ulTriggerZero)
+          if (ulPattern.test(cell)) {
+            temp[address] = {
+              ...meta,
+              transformKind: 'ul',
+              trigger: ulTrigger,
+              result: setResult(ulTransform, cell, ulTrigger)
+            }
+            return temp
+          }
+
+          if (olPattern.test(cell)) {
+            temp[address] = {
+              ...meta,
+              transformKind: 'ol',
+              trigger: olTrigger,
+              result: setResult(olTransform, cell, olTrigger)
+            }
+            return temp
+          }
         }
-        return temp
-      }
+      )
 
-      if (t === 's' && ulPattern.test(v)) {
-        temp[address] = {
-          ...meta,
-          transformKind: 'ul',
-          trigger: ulTrigger,
-          result: setResult(ulTransform, v, ulTrigger)
-        }
-        return temp
-      }
-
-      if (t === 's' && olPattern.test(v)) {
-        temp[address] = {
-          ...meta,
-          transformKind: 'ol',
-          trigger: olTrigger,
-          result: setResult(olTransform, v, olTrigger)
-        }
-        return temp
-      }
-    }
-
-    return temp
-  }, {})
+      return temp
+    },
+    {}
+  )
 
   return {
     ul: collectChanges('ul', transformed),
     ol: collectChanges('ol', transformed),
     zero: collectChanges('zero', transformed),
     all: transformed,
-    totalRange: parseSheetRange(sheet['!ref'])
+    scope
   }
 }
 

@@ -41,39 +41,28 @@ export interface TransformSummary {
   addresses: string[]
 }
 
+export interface TransformResultCell {
+  address: string
+  rowIndex: number
+  cellIndex: number
+  original: string
+  transformKind: string
+  trigger: string
+  result: {
+    t: string
+    v: string | number
+    w: string
+  }
+}
+
 export interface TransformResult {
   ul: TransformSummary
   ol: TransformSummary
   zero: TransformSummary
   all: {
-    [key: string]: {
-      address: string
-      colNum: number
-      rowNum: number
-      original: string
-      transformKind: string
-      trigger: string
-      result: {
-        t: string
-        v: string | number
-        w: string
-      }
-    }
+    [key: string]: TransformResultCell
   }
-  totalRange: ScopeRange
-}
-
-export interface ScopeRange {
-  start: {
-    colId: string
-    colNum: number
-    rowNum: number
-  }
-  end: {
-    colId: string
-    colNum: number
-    rowNum: number
-  }
+  scope: string
 }
 
 export interface LoadWorkbookAction {

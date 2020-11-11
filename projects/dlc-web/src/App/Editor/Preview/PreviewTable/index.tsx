@@ -1,4 +1,8 @@
-import { setColHeaders, setRowHeaders } from '@cjo3/shared/logic/dlc'
+import {
+  processSheet,
+  setColHeaders,
+  setRowHeaders
+} from '@cjo3/shared/logic/dlc'
 import {
   transformResult as transformResultMock,
   sheetData as sheetDataMock
@@ -30,19 +34,36 @@ export const PreviewTable: React.FC = (): JSX.Element => {
   let transformResult = useSelector(transformResultSelector)
   let sheetData = useSelector(sheetDataSelector)
 
-  if (process.env.NODE_ENV === 'development') {
-    transformResult = transformResultMock
-    sheetData = sheetDataMock
-  }
+  // if (process.env.NODE_ENV === 'development') {
+  //   sheetData = sheetDataMock
+  //   transformResult = transformResultMock
+  //   transformResult = processSheet(sheetDataMock, {
+  //     rangeStart: 'b17',
+  //     rangeEnd: 'am47',
+  //     ulTrigger: '<',
+  //     ulTransform: 'halve',
+  //     ulTriggerZero: 'Rock',
+  //     olTrigger: '>',
+  //     olTransform: 'leave'
+  //   })
+  // }
 
-  const { totalRange } = transformResult
+  console.log(
+    '%c transformResult',
+    'color: yellow; font-size: large',
+    transformResult
+  )
+
+  // const { totalRange } = transformResult
 
   // const colHeaders = setColHeaders(totalRange.end.colNum)
   // const rowHeaders = setRowHeaders(totalRange.end.rowNum)
 
-  const tableRows = convertSheet(sheetData, 'i17:k24')
+  // const tableRows = convertSheet(sheetData, 'i17:k24')
 
-  console.log('%c tableRows', 'color: yellow; font-size: large', totalRange)
+  // console.log('%c tableRows', 'color: yellow; font-size: large', totalRange)
+
+  return <p>hello</p>
 
   return (
     <TableContainer>
