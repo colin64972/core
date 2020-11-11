@@ -1,4 +1,4 @@
-import { read } from 'xlsx'
+import { read, utils } from 'xlsx'
 
 export const createWorkbook = (fileBlob, callback) => {
   const reader = new FileReader()
@@ -16,3 +16,12 @@ export const createWorkbook = (fileBlob, callback) => {
   }
   reader.readAsArrayBuffer(fileBlob)
 }
+
+export const convertSheet = (sheet, range = null) =>
+  utils.sheet_to_json(sheet, {
+    blankrows: true,
+    raw: true,
+    header: 1,
+    range: typeof range === 'string' ? range.toUpperCase() : range,
+    defval: null
+  })

@@ -1,6 +1,8 @@
 import { setColHeaders, setRowHeaders } from '@cjo3/shared/logic/dlc'
-import { transformResult as transformResultMock } from '@cjo3/shared/react/mocks/dlc'
-import XLSX from 'xlsx'
+import {
+  transformResult as transformResultMock,
+  sheetData as sheetDataMock
+} from '@cjo3/shared/react/mocks/dlc'
 import {
   Table,
   TableBody,
@@ -16,6 +18,7 @@ import {
   sheetDataSelector,
   transformResultSelector
 } from '../../../../store/selectors'
+import { convertSheet } from '@cjo3/shared/react/xlsx'
 
 const useStyles = makeStyles(theme => ({}))
 
@@ -25,44 +28,34 @@ export const PreviewTable: React.FC = (): JSX.Element => {
   const dispatch = useDispatch()
 
   let transformResult = useSelector(transformResultSelector)
-  const sheetData = useSelector(sheetDataSelector)
+  let sheetData = useSelector(sheetDataSelector)
 
   if (process.env.NODE_ENV === 'development') {
     transformResult = transformResultMock
+    sheetData = sheetDataMock
   }
 
   const { totalRange } = transformResult
 
-  const colHeaders = setColHeaders(totalRange.end.colNum)
-  const rowHeaders = setRowHeaders(totalRange.end.rowNum)
+  // const colHeaders = setColHeaders(totalRange.end.colNum)
+  // const rowHeaders = setRowHeaders(totalRange.end.rowNum)
 
-  const jsonSheet = XLSX.utils.sheet_to_json(sheetData, {
-    headers: 'A',
-    blandrows: true
-  })
+  const tableRows = convertSheet(sheetData, 'i17:k24')
 
-  console.log('%c jsonSheet', 'color: yellow; font-size: large', jsonSheet)
+  console.log('%c tableRows', 'color: yellow; font-size: large', totalRange)
 
   return (
     <TableContainer>
       <Table size="small">
         <TableHead>
-          <TableRow>
-            <TableCell />
-            {colHeaders.map(cell => (
-              <TableCell key={cell.key} component="th">
-                {cell.label}
-              </TableCell>
-            ))}
-          </TableRow>
+          <TableRow></TableRow>
         </TableHead>
         <TableBody>
-          {rowHeaders.map(row => (
+          {tableRows.map((row, rowIndex) => (
             <TableRow key={row.key}>
-              <TableCell component="td">{row.label}</TableCell>
-              {jsonSheet[row.value].map(data => (
-                <TableCell component="td">{data}</TableCell>
-              ))}
+              <TableCell component="td">
+                {totalRange.start.rowNum + rowIndex}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

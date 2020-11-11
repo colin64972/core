@@ -1,36 +1,10 @@
-import { transformResult as transformResultMock } from '@cjo3/shared/react/mocks/dlc'
-import XLSX from 'xlsx'
-import {
-  Grid,
-  Backdrop,
-  CircularProgress,
-  Button,
-  LinearProgress,
-  Typography,
-  List,
-  ListItem,
-  ListItemText,
-  Hidden,
-  Drawer,
-  TableContainer,
-  Table,
-  TableHead,
-  TableBody,
-  TableRow,
-  TableCell
-} from '@material-ui/core'
+import { Backdrop, Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import React, { useRef, useEffect, useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-  transformResultSelector,
-  previewOpenSelector,
-  sheetDataSelector
-} from '../../../store/selectors'
-import { setColHeaders, setRowHeaders } from '@cjo3/shared/logic/dlc'
 import { closePreview } from '../../../store/editor/actions'
-import clsx from 'clsx'
-import { PreviewTable } from './PreviewTable'
+import { previewOpenSelector } from '../../../store/selectors'
+import { PreviewTable } from './PreviewTable/'
 
 const useStyles = makeStyles(theme => ({
   Preview_backdrop: {
@@ -57,32 +31,20 @@ export const Preview: React.FC = (): JSX.Element => {
 
   const dispatch = useDispatch()
 
-  let transformResult = useSelector(transformResultSelector)
-  const previewOpen = useSelector(previewOpenSelector)
-  const sheetData = useSelector(sheetDataSelector)
+  let previewOpen = useSelector(previewOpenSelector)
 
   if (process.env.NODE_ENV === 'development') {
-    transformResult = transformResultMock
+    previewOpen = true
   }
-
-  const { totalRange } = transformResult
-
-  const colHeaders = setColHeaders(totalRange.end.colNum)
-  const rowHeaders = setRowHeaders(totalRange.end.rowNum)
 
   const closeHandler = (event: React.MouseEvent<HTMLDivElement>): void => {
     dispatch(closePreview())
   }
 
-  const jsonSheet = XLSX.utils.sheet_to_json(sheetData, {
-    header: 1,
-    blankrows: true
-  })
-
   if (!previewOpen) return null
 
   return (
-    <Backdrop open className={classes.Preview_backdrop}>
+    <Backdrop open={previewOpen} className={classes.Preview_backdrop}>
       <div className={classes.Preview_container}>
         <Grid container justify="space-between" alignItems="center">
           <Typography variant="h3">Sheet Preview</Typography>
