@@ -7,7 +7,7 @@ import {
 } from '@cjo3/dlc-web/src/store/editor/interfaces'
 import { WorkSheet } from 'xlsx'
 import { fromBase26 } from '../general/conversion'
-import { deduplicate } from '../general/sorting'
+import { deduplicate, mergeSort } from '../general/sorting'
 
 const setResult = (kind: string, value: string, trigger?: string) => {
   let temp,
@@ -218,9 +218,9 @@ export const collectChanges = (
 
   return {
     count,
-    originalValues,
-    changedValues,
-    addresses
+    originalValues: mergeSort(originalValues),
+    changedValues: mergeSort(changedValues),
+    addresses: mergeSort(addresses)
   }
 }
 

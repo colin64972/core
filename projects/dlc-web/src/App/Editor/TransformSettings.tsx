@@ -131,132 +131,137 @@ export const TransformSettings: React.FC = (): JSX.Element => {
 
   return (
     <Grid item xs={12} className={classes.section}>
-      <Formik
-        initialValues={initialState.transformSettings}
-        onSubmit={submitHandler}
-        validationSchema={TransformSettingsSchema}>
-        {({ dirty, isValid, isSubmitting }) => {
-          return (
-            <Form className={classes.Editor_TransformSettings_paperGrid}>
-              <Paper
-                className={clsx(
-                  classes.Editor_TransformSettings_paperGrid_position0,
-                  classes.paper
-                )}
-                elevation={0}>
-                <Typography variant="h5" align="center">
-                  Scope Range
-                </Typography>
-                <FormikField
-                  name="rangeStart"
-                  label="Range Start"
-                  id="rangeStart-input"
-                  placeholder="a8"
-                  helperMessage="Max columns ZZ"
-                  style={classes.topMargin}
-                />
-                <FormikField
-                  name="rangeEnd"
-                  label="Range End"
-                  id="rangeEnd-input"
-                  placeholder="w49"
-                  helperMessage="Max columns ZZ"
-                  style={classes.topMargin}
-                />
-              </Paper>
-              <Paper
-                className={clsx(
-                  classes.Editor_TransformSettings_paperGrid_position1,
-                  classes.paper
-                )}
-                elevation={0}>
-                <Typography variant="h5" align="center">
-                  Under Limit
-                </Typography>
-                <FormikField
-                  required
-                  name="ulTrigger"
-                  label="Trigger Character"
-                  id="ulTrigger-input"
-                  placeholder="<, -, or custom"
-                  style={classes.topMargin}
-                />
-                <FormikField
-                  required
-                  kind="select"
-                  name="ulTransform"
-                  label="Transform Function"
-                  id="ulTransform-input"
-                  placeholder="<, -, or custom"
-                  options={transformOptions}
-                  style={classes.topMargin}
-                />
-                <FormikField
-                  name="ulTriggerZero"
-                  label="Zero Trigger"
-                  id="ulTriggerZero-input"
-                  placeholder="null, void, under, etc."
-                  style={classes.topMargin}
-                />
-              </Paper>
-              <Paper
-                className={clsx(
-                  classes.Editor_TransformSettings_paperGrid_position2,
-                  classes.paper
-                )}
-                elevation={0}>
-                <Typography variant="h5" align="center">
-                  Over Limit
-                </Typography>
-                <FormikField
-                  required
-                  name="olTrigger"
-                  label="Trigger Character"
-                  id="olTrigger-input"
-                  placeholder=">, +, or custom"
-                  style={classes.topMargin}
-                />
-                <FormikField
-                  required
-                  kind="select"
-                  name="olTransform"
-                  label="Transform Function"
-                  id="olTransform-input"
-                  placeholder=">, +, or custom"
-                  options={transformOptions}
-                  style={classes.topMargin}
-                />
-              </Paper>
-              <div className={classes.actionButtons}>
-                <Grid container spacing={3}>
-                  <Grid item xs={8}>
-                    <Button
-                      type="submit"
-                      variant="contained"
-                      color="primary"
-                      disabled={isSubmitting || !isValid || !dirty}
-                      className={clsx(
-                        classes.formButton,
-                        classes.submitButton
-                      )}>
-                      {isSubmitting ? <CachedIcon size="1rem" /> : 'Process'}
-                    </Button>
+      <Grid container justify="center">
+        <Formik
+          initialValues={initialState.transformSettings}
+          onSubmit={submitHandler}
+          validationSchema={TransformSettingsSchema}>
+          {({ dirty, isValid, isSubmitting }) => {
+            return (
+              <Form className={classes.Editor_TransformSettings_paperGrid}>
+                <Paper
+                  className={clsx(
+                    classes.Editor_TransformSettings_paperGrid_position0,
+                    classes.paper
+                  )}
+                  elevation={0}>
+                  <Typography variant="h5" align="center">
+                    Scope Range
+                  </Typography>
+                  <FormikField
+                    name="rangeStart"
+                    label="Range Start"
+                    id="rangeStart-input"
+                    placeholder="a8"
+                    helperMessage="Max columns ZZ"
+                    style={classes.topMargin}
+                  />
+                  <FormikField
+                    name="rangeEnd"
+                    label="Range End"
+                    id="rangeEnd-input"
+                    placeholder="w49"
+                    helperMessage="Max columns ZZ"
+                    style={classes.topMargin}
+                  />
+                </Paper>
+                <Paper
+                  className={clsx(
+                    classes.Editor_TransformSettings_paperGrid_position1,
+                    classes.paper
+                  )}
+                  elevation={0}>
+                  <Typography variant="h5" align="center">
+                    Under Limit
+                  </Typography>
+                  <FormikField
+                    required
+                    name="ulTrigger"
+                    label="Trigger Character"
+                    id="ulTrigger-input"
+                    placeholder="<, -, or custom"
+                    style={classes.topMargin}
+                  />
+                  <FormikField
+                    required
+                    kind="select"
+                    name="ulTransform"
+                    label="Transform Function"
+                    id="ulTransform-input"
+                    placeholder="<, -, or custom"
+                    options={transformOptions}
+                    style={classes.topMargin}
+                  />
+                  <FormikField
+                    name="ulTriggerZero"
+                    label="Zero Trigger"
+                    id="ulTriggerZero-input"
+                    placeholder="null, void, under, etc."
+                    style={classes.topMargin}
+                  />
+                </Paper>
+                <Paper
+                  className={clsx(
+                    classes.Editor_TransformSettings_paperGrid_position2,
+                    classes.paper
+                  )}
+                  elevation={0}>
+                  <Typography variant="h5" align="center">
+                    Over Limit
+                  </Typography>
+                  <FormikField
+                    required
+                    name="olTrigger"
+                    label="Trigger Character"
+                    id="olTrigger-input"
+                    placeholder=">, +, or custom"
+                    style={classes.topMargin}
+                  />
+                  <FormikField
+                    required
+                    kind="select"
+                    name="olTransform"
+                    label="Transform Function"
+                    id="olTransform-input"
+                    placeholder=">, +, or custom"
+                    options={transformOptions}
+                    style={classes.topMargin}
+                  />
+                </Paper>
+                <div className={classes.actionButtons}>
+                  <Grid container spacing={3}>
+                    <Grid item xs={8}>
+                      <Button
+                        type="submit"
+                        variant="contained"
+                        color="primary"
+                        disabled={isSubmitting || !isValid || !dirty}
+                        className={clsx(
+                          classes.formButton,
+                          classes.submitButton
+                        )}>
+                        {isSubmitting ? <CachedIcon size="1rem" /> : 'Process'}
+                      </Button>
+                    </Grid>
+                    <Grid item xs={4}>
+                      <Button
+                        type="reset"
+                        variant="contained"
+                        disabled={isSubmitting || !dirty}
+                        className={clsx(
+                          classes.formButton,
+                          classes.resetButton
+                        )}>
+                        Reset
+                      </Button>
+                    </Grid>
                   </Grid>
-                  <Grid item xs={4}>
-                    <Button
-                      type="reset"
-                      variant="contained"
-                      disabled={isSubmitting || !dirty}
-                      className={clsx(classes.formButton, classes.resetButton)}>
-                      Reset
-                    </Button>
-                  </Grid>
-                </Grid>
-              </div>
-            </Form>
-          )
-        }}
-      </Formik>
+                </div>
+              </Form>
+            )
+          }}
+        </Formik>
+      </Grid>
     </Grid>
   )
 }

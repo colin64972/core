@@ -1,45 +1,53 @@
+import { TransformSummary as ITransformSummary } from '@cjo3/dlc-web/src/store/editor/interfaces'
+import clsx from 'clsx'
 import {
-  Grid,
   Button,
-  LinearProgress,
-  Typography,
-  Chip,
-  TableContainer,
-  Table,
-  TableHead,
-  TableRow,
-  TableBody,
   ButtonGroup,
+  Chip,
+  Grid,
   List,
   ListItem,
   ListItemText,
-  TableCell
+  Typography
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import {
-  isProcessingSelector,
-  transformResultSelector
-} from '../../store/selectors'
 import DoubleArrowIcon from '@material-ui/icons/DoubleArrow'
-import { collectChanges } from '@cjo3/shared/logic/dlc'
-import { transformResult as transformResultMock } from '@cjo3/shared/react/mocks/dlc'
-import { TransformSummary as ITransformSummary } from '@cjo3/dlc-web/src/store/editor/interfaces'
+import React from 'react'
 
 const useStyles = makeStyles(theme => ({
   TransformSummary_panel: {
     'padding': theme.custom.setSpace('sm'),
     'marginTop': theme.custom.setSpace('sm'),
     ...theme.custom.borderRadius,
-    'background': theme.custom.setLinearGradient(
-      180,
-      theme.palette.grey[100],
-      theme.palette.grey[50]
-    ),
+    'transition': 'box-shadow 250ms ease-out',
+    'background': theme.custom.setLinearGradient(180, 'whitesmoke', 'white'),
     '&:first-of-type': {
       marginTop: 0
+    },
+    '&:hover': {
+      boxShadow: '0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.1)'
     }
+  },
+  grey_bg: {
+    background: theme.custom.setLinearGradient(
+      180,
+      theme.palette.grey[300],
+      'white'
+    )
+  },
+  primary_bg: {
+    background: theme.custom.setLinearGradient(
+      180,
+      theme.palette.primary[100],
+      'white'
+    )
+  },
+  secondary_bg: {
+    background: theme.custom.setLinearGradient(
+      180,
+      theme.palette.secondary[100],
+      'white'
+    )
   },
   TransformSummary_panel_left: {
     ...theme.custom.borderRadius,
@@ -51,7 +59,7 @@ const useStyles = makeStyles(theme => ({
   },
   doubleArrow: {
     fontSize: theme.typography.fontSize * 10,
-    color: theme.palette.primary[50],
+    color: 'white',
     opacity: 0.25
   },
   noPadding: {
@@ -66,7 +74,7 @@ const useStyles = makeStyles(theme => ({
   },
   chip: {
     ...theme.typography.bold,
-    fontSize: theme.typography.fontSize * 1.5,
+    fontSize: theme.typography.fontSize * 1.25,
     padding: theme.custom.setSpace(),
     color: 'white',
     marginTop: theme.custom.setSpace()
@@ -127,7 +135,15 @@ export const TransformSummary: React.FC<Props> = ({
           </ButtonGroup>
         </Grid>
       </Grid>
-      <Grid item xs={12} sm={6} className={classes.TransformSummary_panel_left}>
+      <Grid
+        item
+        xs={12}
+        sm={6}
+        className={clsx(classes.TransformSummary_panel_left, {
+          [classes.grey_bg]: buttonName === 'zero',
+          [classes.primary_bg]: buttonName === 'ul',
+          [classes.secondary_bg]: buttonName === 'ol'
+        })}>
         <Grid container justify="center" alignItems="center">
           <Grid item xs={5}>
             <Typography variant="h6" align="center" className={classes.heading}>
