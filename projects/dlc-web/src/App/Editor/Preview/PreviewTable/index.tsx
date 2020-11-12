@@ -17,7 +17,7 @@ import {
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import { useSelector } from 'react-redux'
 import {
   sheetDataSelector,
@@ -72,6 +72,13 @@ export const PreviewTable: React.FC = (): JSX.Element => {
 
   const tableRows = convertSheet(sheetData, scope)
 
+  const findDataUrls = (address: string): string[] | null => {
+    if (!transformResult.all[address]) return null
+    const { transformKind, original } = transformResult.all[address]
+    const urlObject = transformResult[transformKind].dataUrls[original]
+    return [urlObject.original, urlObject.transform]
+  }
+
   return (
     <TableContainer className={classes.PreviewTable_tableContainer}>
       <Table size="small">
@@ -111,8 +118,10 @@ export const PreviewTable: React.FC = (): JSX.Element => {
                     (cell: any, cellIndex: number): JSX.Element => {
                       const colId = convertColNumToId(colOffset + cellIndex)
                       const cellAddress = `${colId}${rowId}`
+                      const dataUrls = findDataUrls(cellAddress)
                       return (
                         <PreviewCell
+                          dataUrls={dataUrls}
                           key={`td-${cellAddress}`}
                           unprocessedData={cell}
                           transform={transformResult?.all[cellAddress]}

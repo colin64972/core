@@ -1,9 +1,8 @@
-import { TableCell } from '@material-ui/core'
+import { Tooltip, TableCell } from '@material-ui/core'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
 import React, { useLayoutEffect, useState } from 'react'
 import { TransformResultCell } from '../../../../store/editor/interfaces'
-import { createPngDataUrl } from '@cjo3/shared/logic/dlc'
 
 const useStyles = makeStyles(theme => ({
   PreviewCell_base: {
@@ -21,6 +20,9 @@ const useStyles = makeStyles(theme => ({
   },
   PreviewCell_zero: {
     backgroundColor: theme.palette.grey[300]
+  },
+  PreviewCell_tooltip: {
+    fontSize: theme.typography.fontSize
   }
 }))
 
@@ -28,56 +30,57 @@ interface Props {
   transform: TransformResultCell
   cellAddress: string
   unprocessedData: string | number | boolean | null
+  dataUrls: string[] | null
 }
 
 export const PreviewCell: React.FC<Props> = ({
   transform,
   cellAddress,
-  unprocessedData
+  unprocessedData,
+  dataUrls
 }): JSX.Element => {
   const classes = useStyles()
 
-  const [dataUrls, setDataUrls] = useState<string[] | []>([])
-
-  useLayoutEffect(() => {
-    if (transform) {
-      setDataUrls([
-        createPngDataUrl(transform.result.w),
-        createPngDataUrl(transform.original.toString())
-      ])
-    }
-  }, [transform])
-
-  const dynamicStyles = makeStyles(theme => ({
-    valueBg: {
-      'backgroundImage': `url(${dataUrls[0]})`,
-      'backgroundPosition': 'center',
-      'backgroundRepeat': 'no-repeat',
-      'height': 40,
-      'width': 100,
-      'transition': 'all 250ms ease-out',
-      '&:hover': {
-        backgroundImage: `url(${dataUrls[1]})`,
-        backgroundColor: theme.palette.grey[50],
-        cursor: 'pointer'
+  if (transform && dataUrls) {
+    const dynamicStyles = makeStyles(theme => ({
+      valueBg: {
+        'backgroundImage': `url(${dataUrls[0]})`,
+        'backgroundPosition': 'center',
+        'backgroundRepeat': 'no-repeat',
+        'height': 40,
+        'width': 100,
+        'transition': 'all 250ms ease-out',
+        '&:hover': {
+          backgroundImage: `url(${dataUrls[1]})`,
+          backgroundColor: theme.palette.pass[300],
+          cursor: 'pointer'
+        }
       }
-    }
-  }))
+    }))
 
-  const dynamicClasses = dynamicStyles()
+    const dynamicClasses = dynamicStyles()
 
-  if (transform && dataUrls.length === 2)
     return (
-      <TableCell
-        id={cellAddress}
-        align="center"
-        className={clsx(classes.PreviewCell_base, dynamicClasses.valueBg, {
-          [classes.PreviewCell_ul]: transform.transformKind === 'ul',
-          [classes.PreviewCell_ol]: transform.transformKind === 'ol',
-          [classes.PreviewCell_zero]: transform.transformKind === 'zero'
-        })}
-      />
+      <Tooltip
+        title={cellAddress}
+        placement="right"
+        arrow
+        classes={{
+          tooltip: classes.PreviewCell_tooltip
+        }}>
+        <TableCell
+          id={cellAddress}
+          align="center"
+          className={clsx(classes.PreviewCell_base, dynamicClasses.valueBg, {
+            [classes.PreviewCell_ul]: transform.transformKind === 'ul',
+            [classes.PreviewCell_ol]: transform.transformKind === 'ol',
+            [classes.PreviewCell_zero]: transform.transformKind === 'zero'
+          })}
+        />
+      </Tooltip>
     )
+  }
+
   return (
     <TableCell align="center" className={classes.PreviewCell_base}>
       {unprocessedData && unprocessedData.toString()}

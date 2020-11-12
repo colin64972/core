@@ -34,11 +34,20 @@ export interface TransformSettings {
   olTransform: string
 }
 
+export interface DataUrlCollection {
+  [key: string]: {
+    addresses: string[]
+    original: string
+    transform: string
+  }
+}
+
 export interface TransformSummary {
   count: number
   originalValues: string[]
   changedValues: string[]
   addresses: string[]
+  dataUrls: DataUrlCollection
 }
 
 export interface TransformResultCell {

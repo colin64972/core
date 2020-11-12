@@ -9,6 +9,7 @@ import {
 import { WorkSheet } from 'xlsx'
 import { deduplicate, mergeSort } from '../general/sorting'
 import { convertSheet, setCellAddress } from '../react/xlsx'
+import { currentSheetSelector } from '@cjo3/dlc-web/src/store/selectors'
 
 const setResult = (kind: string, value: string, trigger?: string) => {
   let temp,
@@ -168,11 +169,30 @@ export const collectChanges = (
   const changedValues = deduplicate(filtered.map(item => item[1].result.w))
   const addresses = deduplicate(filtered.map(item => item[0]))
 
+  const dataUrls = addresses.reduce((acc, cur) => {
+    let temp = acc
+
+    const cell = data[cur]
+
+    if (temp[cell.original]) {
+      temp[cell.original].addresses.push(cur)
+    } else {
+      temp[cell.original] = {
+        addresses: [],
+        original: createPngDataUrl(cell.original),
+        transform: createPngDataUrl(cell.result.w)
+      }
+    }
+
+    return temp
+  }, {})
+
   return {
     count,
     originalValues: mergeSort(originalValues),
     changedValues: mergeSort(changedValues),
-    addresses: mergeSort(addresses)
+    addresses: mergeSort(addresses),
+    dataUrls
   }
 }
 

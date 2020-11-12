@@ -1,5 +1,5 @@
 import { read, utils } from 'xlsx'
-import { toBase26 } from '../general/conversion'
+import { fromBase26, toBase26 } from '../general/conversion'
 
 export const createWorkbook = (fileBlob, callback) => {
   const reader = new FileReader()
@@ -35,23 +35,26 @@ export const convertSheet = (sheet, range = null) => {
 
 const getCellAddressInt = (address, target) => {
   let temp
-  if ((target = 'row')) {
+  if (target === 'row') {
     temp = address.replace(/[a-z]+/gi, '')
     return parseInt(temp)
   }
   temp = address.replace(/\d+/gi, '').toLowerCase()
-  return toBase26(temp)
+  return fromBase26(temp)
 }
 
 export const setCellAddress = (rangeStart, rowIndex, cellIndex) => {
   let startCell = 'a1'
 
-  if (rangeStart) startCell = rangeStart
+  if (rangeStart) {
+    startCell = rangeStart
+  }
 
   const rowStartNum = getCellAddressInt(startCell, 'row')
   const colStartNum = getCellAddressInt(startCell, 'col')
   const col = toBase26(colStartNum + cellIndex).toUpperCase()
   const row = rowStartNum + rowIndex
+
   return {
     rowStartNum,
     colStartNum,
