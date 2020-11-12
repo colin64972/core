@@ -7,6 +7,7 @@ import { TransformResultCell } from '../../../../store/editor/interfaces'
 const useStyles = makeStyles(theme => ({
   PreviewCell_base: {
     ...theme.custom.tableBorder,
+    ...theme.custom.noSelect,
     padding: theme.custom.setSpace(),
     margin: 0,
     textAlign: 'center'

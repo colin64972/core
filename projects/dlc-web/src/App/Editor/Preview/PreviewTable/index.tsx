@@ -36,6 +36,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.primary.main
   },
   PreviewTable_headCell: {
+    ...theme.custom.noSelect,
     ...theme.custom.tableBorder,
     ...theme.typography.bold,
     color: theme.palette.primary[50],
@@ -44,6 +45,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center'
   },
   PreviewTable_rowHeadCell: {
+    ...theme.custom.noSelect,
     ...theme.typography.bold,
     ...theme.custom.tableBorder,
     color: theme.palette.primary[50],
