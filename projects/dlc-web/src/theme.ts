@@ -1,6 +1,6 @@
+import { setCustomTheme } from '@cjo3/shared/react/themes/theming'
 import primary from '@material-ui/core/colors/lightBlue'
 import secondary from '@material-ui/core/colors/pink'
-import { setCustomTheme } from '@cjo3/shared/react/themes/theming'
 
 export const theme = setCustomTheme(
   14,

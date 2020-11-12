@@ -1,23 +1,22 @@
+import { processSheet, setWaitTime } from '@cjo3/shared/logic/dlc'
 import { Button, Grid, Paper, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import CachedIcon from '@material-ui/icons/Cached'
 import clsx from 'clsx'
 import { Form, Formik, FormikHelpers } from 'formik'
 import React from 'react'
-import { processSheet } from '@cjo3/shared/logic/dlc'
-import CachedIcon from '@material-ui/icons/Cached'
 import { useDispatch, useSelector } from 'react-redux'
 import { transformOptions } from '../../constants'
+import {
+  saveTransformResult,
+  setProcessing,
+  setTransformSettings
+} from '../../store/editor/actions'
+import { TransformSettings as ITransformSettings } from '../../store/editor/interfaces'
 import { initialState } from '../../store/editor/reducers'
 import { sheetDataSelector } from '../../store/selectors'
 import { FormikField } from './FormikField'
 import { TransformSettingsSchema } from './schema'
-import { TransformSettings as ITransformSettings } from '../../store/editor/interfaces'
-import {
-  setProcessing,
-  setTransformSettings,
-  saveTransformResult
-} from '../../store/editor/actions'
-import { setWaitTime } from '@cjo3/shared/logic/dlc'
 
 const useStyles = makeStyles(theme => ({
   section: {

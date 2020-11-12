@@ -1,5 +1,4 @@
 import { TransformSummary as ITransformSummary } from '@cjo3/dlc-web/src/store/editor/interfaces'
-import clsx from 'clsx'
 import {
   Button,
   ButtonGroup,
@@ -12,9 +11,10 @@ import {
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import DoubleArrowIcon from '@material-ui/icons/DoubleArrow'
+import clsx from 'clsx'
 import React from 'react'
-import { openPreview } from '../../store/editor/actions'
 import { useDispatch } from 'react-redux'
+import { openPreview } from '../../store/editor/actions'
 
 const useStyles = makeStyles(theme => ({
   TransformSummary_panel: {

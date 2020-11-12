@@ -1,13 +1,12 @@
-import { transformResult as transformResultMock } from '@cjo3/shared/react/mocks/dlc'
 import {
+  Drawer,
   Grid,
+  Hidden,
   LinearProgress,
-  Typography,
   List,
   ListItem,
   ListItemText,
-  Hidden,
-  Drawer
+  Typography
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React, { useState } from 'react'

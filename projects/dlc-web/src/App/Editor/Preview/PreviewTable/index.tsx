@@ -1,12 +1,12 @@
 import {
-  processSheet,
-  setColHeaders,
-  setRowHeaders
-} from '@cjo3/shared/logic/dlc'
-import {
-  transformResult as transformResultMock,
-  sheetData as sheetDataMock
+  sheetData as sheetDataMock,
+  transformResult as transformResultMock
 } from '@cjo3/shared/react/mocks/dlc'
+import {
+  convertColNumToId,
+  convertSheet,
+  getScopeOffsets
+} from '@cjo3/shared/react/xlsx'
 import {
   Table,
   TableBody,
@@ -17,68 +17,87 @@ import {
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import {
   sheetDataSelector,
   transformResultSelector
 } from '../../../../store/selectors'
-import { convertSheet } from '@cjo3/shared/react/xlsx'
+import { PreviewCell } from './PreviewCell'
 
-const useStyles = makeStyles(theme => ({}))
+const useStyles = makeStyles(theme => ({
+  PreviewTable_tableContainer: {
+    ...theme.debug.border,
+    overflow: 'scroll',
+    marginTop: theme.custom.setSpace('sm')
+  }
+}))
 
 export const PreviewTable: React.FC = (): JSX.Element => {
   const classes = useStyles()
 
-  const dispatch = useDispatch()
-
   let transformResult = useSelector(transformResultSelector)
   let sheetData = useSelector(sheetDataSelector)
 
-  // if (process.env.NODE_ENV === 'development') {
-  //   sheetData = sheetDataMock
-  //   transformResult = transformResultMock
-  //   transformResult = processSheet(sheetDataMock, {
-  //     rangeStart: 'b17',
-  //     rangeEnd: 'am47',
-  //     ulTrigger: '<',
-  //     ulTransform: 'halve',
-  //     ulTriggerZero: 'Rock',
-  //     olTrigger: '>',
-  //     olTransform: 'leave'
-  //   })
-  // }
+  if (process.env.NODE_ENV === 'development') {
+    sheetData = sheetDataMock
+    transformResult = transformResultMock
+  }
 
   console.log(
     '%c transformResult',
     'color: yellow; font-size: large',
-    transformResult
+    transformResult.all
   )
 
-  // const { totalRange } = transformResult
+  const { scope } = transformResult
 
-  // const colHeaders = setColHeaders(totalRange.end.colNum)
-  // const rowHeaders = setRowHeaders(totalRange.end.rowNum)
+  const { colOffset, rowOffset } = getScopeOffsets(scope)
 
-  // const tableRows = convertSheet(sheetData, 'i17:k24')
-
-  // console.log('%c tableRows', 'color: yellow; font-size: large', totalRange)
-
-  return <p>hello</p>
+  const tableRows = convertSheet(sheetData, scope)
 
   return (
-    <TableContainer>
+    <TableContainer className={classes.PreviewTable_tableContainer}>
       <Table size="small">
         <TableHead>
-          <TableRow></TableRow>
+          <TableRow>
+            <TableCell />
+            {tableRows[0].map(
+              (col: any, colIndex: number): JSX.Element => {
+                const colId = convertColNumToId(colOffset + colIndex)
+                return (
+                  <TableCell key={`th-${colId}`} component="th" align="center">
+                    {colId}
+                  </TableCell>
+                )
+              }
+            )}
+          </TableRow>
         </TableHead>
         <TableBody>
-          {tableRows.map((row, rowIndex) => (
-            <TableRow key={row.key}>
-              <TableCell component="td">
-                {totalRange.start.rowNum + rowIndex}
-              </TableCell>
-            </TableRow>
-          ))}
+          {tableRows.map(
+            (row: any[], rowIndex: number): JSX.Element => {
+              const rowId = rowOffset + rowIndex
+              return (
+                <TableRow key={`tr-${rowId}`}>
+                  <TableCell>{rowId}</TableCell>
+                  {tableRows[rowIndex].map(
+                    (cell: any, cellIndex: number): JSX.Element => {
+                      const colId = convertColNumToId(colOffset + cellIndex)
+                      const cellAddress = `${colId}${rowId}`
+                      return (
+                        <PreviewCell
+                          key={`td-${cellAddress}`}
+                          unprocessedData={cell}
+                          transform={transformResult?.all[cellAddress]}
+                          cellAddress={cellAddress}
+                        />
+                      )
+                    }
+                  )}
+                </TableRow>
+              )
+            }
+          )}
         </TableBody>
       </Table>
     </TableContainer>

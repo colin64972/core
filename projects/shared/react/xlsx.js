@@ -28,10 +28,25 @@ export const convertSheet = (sheet, range = null) =>
   })
 
 export const setCellAddress = (rangeStart, rangeEnd, rowIndex, cellIndex) => {
-  const rowStartNum = rangeStart.replace(/[a-z]+/gi, '')
+  const rowStartId = rangeStart.replace(/[a-z]+/gi, '')
+  const rowStartNum = parseInt(rowStartId)
   const colStartId = rangeStart.replace(/\d+/gi, '').toLowerCase()
   const colStartNum = fromBase26(colStartId)
   const col = toBase26(colStartNum + cellIndex).toUpperCase()
-  const row = parseInt(rowStartNum) + rowIndex
+  const row = rowStartNum + rowIndex
   return `${col}${row}`
 }
+
+export const getScopeOffsets = scope => {
+  const start = scope.split(':')
+  const colId = start[0].replace(/\d+/gi, '').toLowerCase()
+  const rowId = start[0].replace(/[a-z]+/gi, '')
+  const colStartNum = fromBase26(colId)
+  const rowStartNum = parseInt(rowId)
+  return {
+    colOffset: colStartNum,
+    rowOffset: rowStartNum
+  }
+}
+
+export const convertColNumToId = int => toBase26(int).toUpperCase()

@@ -94,7 +94,7 @@ export const processSheet = (
           const ulPattern = new RegExp(`\\${ulTrigger}\\s*?\\d*(\\.\\d*)?`)
           const olPattern = new RegExp(`\\${olTrigger}\\s*?\\d*(\\.\\d*)?`)
 
-          const address = setCellAddress(
+          const { rowStartNum, colStartNum, address } = setCellAddress(
             rangeStart,
             rangeEnd,
             rowIndex,
@@ -105,6 +105,8 @@ export const processSheet = (
             address,
             rowIndex,
             cellIndex,
+            rowStartNum,
+            colStartNum,
             original: cell
           }
 
@@ -180,30 +182,4 @@ export const setWaitTime = (waitTime: number): number => {
   if (waitTime < 1000) return 1000
   if (waitTime > 5000) return 5000
   return waitTime
-}
-
-export const setColHeaders = (
-  endCol: number
-): { label: string; value: number }[] => {
-  let result = []
-  for (let i = 1; i <= endCol; i += 1) {
-    result.push({
-      key: createHashId(),
-      label: toBase26(i).toUpperCase(),
-      value: i
-    })
-  }
-  return result
-}
-
-export const setRowHeaders = (endRow: number) => {
-  let result = []
-  for (let i = 0; i < endRow; i += 1) {
-    result.push({
-      key: createHashId(),
-      label: (i + 1).toString(),
-      value: i
-    })
-  }
-  return result
 }

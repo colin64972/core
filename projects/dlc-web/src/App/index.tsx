@@ -2,10 +2,10 @@ import { CssBaseline } from '@material-ui/core'
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { Editor } from './Editor'
+import { Preview } from './Editor/Preview/'
+import { Footer } from './Footer'
 import { Home } from './Home'
 import { NotFound } from './NotFound'
-import { Footer } from './Footer'
-import { Preview } from './Editor/Preview/'
 
 export const App: React.FC = (): JSX.Element => (
   <CssBaseline>

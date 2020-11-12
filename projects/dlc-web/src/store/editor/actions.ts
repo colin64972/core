@@ -1,18 +1,18 @@
 import { WorkBook } from 'xlsx'
 import {
   EditorActionTypes,
-  TransformSettings,
-  TransformResult
+  TransformResult,
+  TransformSettings
 } from './interfaces'
 import {
+  CLOSE_PREVIEW,
   LOAD_WORKBOOK,
-  UNLOAD_WORKBOOK,
+  OPEN_PREVIEW,
+  SAVE_TRANSFORM_RESULT,
   SELECT_SHEET,
   SET_PROCESSING,
   SET_TRANSFORM_SETTINGS,
-  SAVE_TRANSFORM_RESULT,
-  OPEN_PREVIEW,
-  CLOSE_PREVIEW
+  UNLOAD_WORKBOOK
 } from './types'
 
 export const loadWorkbook = (workbook: WorkBook): EditorActionTypes => ({

@@ -3,9 +3,8 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { setReduxStore } from './store'
-import { ThemedApp } from './ThemedApp'
 import { State } from './store/'
-import __webpack_public_path__ from './publicPath'
+import { ThemedApp } from './ThemedApp'
 
 const preLoadedState: State = null
 
