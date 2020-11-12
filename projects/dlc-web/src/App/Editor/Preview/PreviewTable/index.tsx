@@ -26,7 +26,6 @@ import { PreviewCell } from './PreviewCell'
 
 const useStyles = makeStyles(theme => ({
   PreviewTable_tableContainer: {
-    ...theme.debug.border,
     overflow: 'scroll',
     marginTop: theme.custom.setSpace('sm')
   }
