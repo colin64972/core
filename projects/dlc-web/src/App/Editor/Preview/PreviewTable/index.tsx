@@ -61,20 +61,16 @@ export const PreviewTable: React.FC = (): JSX.Element => {
   let transformResult = useSelector(transformResultSelector)
   let sheetData = useSelector(sheetDataSelector)
 
-  // if (!transformResult || !sheetData) return null
-
-  if (process.env.NODE_ENV === 'development') {
-    sheetData = sheetDataMock
-    transformResult = transformResultMock
-  }
+  // if (process.env.NODE_ENV === 'development') {
+  //   sheetData = sheetDataMock
+  //   transformResult = transformResultMock
+  // }
 
   const { scope } = transformResult
 
   const { colOffset, rowOffset } = getScopeOffsets(scope)
 
   const tableRows = convertSheet(sheetData, scope)
-
-  console.log('%c tableRows', 'color: yellow; font-size: large', tableRows)
 
   return (
     <TableContainer className={classes.PreviewTable_tableContainer}>

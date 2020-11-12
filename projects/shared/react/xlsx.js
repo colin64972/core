@@ -1,5 +1,5 @@
 import { read, utils } from 'xlsx'
-import { fromBase26, toBase26 } from '../general/conversion'
+import { toBase26 } from '../general/conversion'
 
 export const createWorkbook = (fileBlob, callback) => {
   const reader = new FileReader()
@@ -18,20 +18,38 @@ export const createWorkbook = (fileBlob, callback) => {
   reader.readAsArrayBuffer(fileBlob)
 }
 
-export const convertSheet = (sheet, range = null) =>
-  utils.sheet_to_json(sheet, {
+export const convertSheet = (sheet, range = null) => {
+  const options = {
     blankrows: true,
     raw: true,
     header: 1,
-    range: typeof range === 'string' ? range.toUpperCase() : range,
     defval: null
-  })
+  }
 
-export const setCellAddress = (rangeStart, rangeEnd, rowIndex, cellIndex) => {
-  const rowStartId = rangeStart.replace(/[a-z]+/gi, '')
-  const rowStartNum = parseInt(rowStartId)
-  const colStartId = rangeStart.replace(/\d+/gi, '').toLowerCase()
-  const colStartNum = fromBase26(colStartId)
+  if (range) {
+    options.range = range.toUpperCase()
+  }
+
+  return utils.sheet_to_json(sheet, options)
+}
+
+const getCellAddressInt = (address, target) => {
+  let temp
+  if ((target = 'row')) {
+    temp = address.replace(/[a-z]+/gi, '')
+    return parseInt(temp)
+  }
+  temp = address.replace(/\d+/gi, '').toLowerCase()
+  return toBase26(temp)
+}
+
+export const setCellAddress = (rangeStart, rowIndex, cellIndex) => {
+  let startCell = 'a1'
+
+  if (rangeStart) startCell = rangeStart
+
+  const rowStartNum = getCellAddressInt(startCell, 'row')
+  const colStartNum = getCellAddressInt(startCell, 'col')
   const col = toBase26(colStartNum + cellIndex).toUpperCase()
   const row = rowStartNum + rowIndex
   return {
@@ -43,10 +61,8 @@ export const setCellAddress = (rangeStart, rangeEnd, rowIndex, cellIndex) => {
 
 export const getScopeOffsets = scope => {
   const start = scope.split(':')
-  const colId = start[0].replace(/\d+/gi, '').toLowerCase()
-  const rowId = start[0].replace(/[a-z]+/gi, '')
-  const colStartNum = fromBase26(colId)
-  const rowStartNum = parseInt(rowId)
+  const rowStartNum = getCellAddressInt(start[0], 'row')
+  const colStartNum = getCellAddressInt(start[0], 'col')
   return {
     colOffset: colStartNum,
     rowOffset: rowStartNum

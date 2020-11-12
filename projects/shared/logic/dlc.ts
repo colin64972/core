@@ -1,4 +1,5 @@
 import { transformFunctionValues } from '@cjo3/dlc-web/src/constants'
+import { createCanvas } from 'canvas'
 import {
   TransformResult,
   TransformResultCell,
@@ -77,7 +78,8 @@ export const processSheet = (
     olTransform
   } = settings
 
-  const scope = rangeStart && rangeEnd ? `${rangeStart}:${rangeEnd}` : null
+  const scope =
+    rangeStart && rangeEnd ? `${rangeStart}:${rangeEnd}` : sheet['!ref']
 
   const sheetRows = convertSheet(sheet, scope)
 
@@ -94,7 +96,6 @@ export const processSheet = (
 
           const { rowStartNum, colStartNum, address } = setCellAddress(
             rangeStart,
-            rangeEnd,
             rowIndex,
             cellIndex
           )
@@ -180,4 +181,14 @@ export const setWaitTime = (waitTime: number): number => {
   if (waitTime < 1000) return 1000
   if (waitTime > 5000) return 5000
   return waitTime
+}
+
+export const createPngDataUrl = (text: string): string => {
+  const canvas = createCanvas(100, 40)
+  const ctx = canvas.getContext('2d')
+  ctx.font = '14px Arial'
+  ctx.textAlign = 'center'
+  ctx.fillStyle = '#444444'
+  ctx.fillText(text, 49, 24, 100)
+  return canvas.toDataURL()
 }

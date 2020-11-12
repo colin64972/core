@@ -1,8 +1,9 @@
 import { TableCell } from '@material-ui/core'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
-import React from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { TransformResultCell } from '../../../../store/editor/interfaces'
+import { createPngDataUrl } from '@cjo3/shared/logic/dlc'
 
 const useStyles = makeStyles(theme => ({
   PreviewCell_base: {
@@ -13,13 +14,13 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center'
   },
   PreviewCell_ul: {
-    backgroundColor: theme.palette.primary[50]
+    backgroundColor: theme.palette.primary[100]
   },
   PreviewCell_ol: {
-    backgroundColor: theme.palette.secondary[50]
+    backgroundColor: theme.palette.secondary[100]
   },
   PreviewCell_zero: {
-    backgroundColor: theme.palette.grey[200]
+    backgroundColor: theme.palette.grey[300]
   }
 }))
 
@@ -36,18 +37,46 @@ export const PreviewCell: React.FC<Props> = ({
 }): JSX.Element => {
   const classes = useStyles()
 
-  if (transform)
+  const [dataUrls, setDataUrls] = useState<string[] | []>([])
+
+  useLayoutEffect(() => {
+    if (transform) {
+      setDataUrls([
+        createPngDataUrl(transform.result.w),
+        createPngDataUrl(transform.original.toString())
+      ])
+    }
+  }, [transform])
+
+  const dynamicStyles = makeStyles(theme => ({
+    valueBg: {
+      'backgroundImage': `url(${dataUrls[0]})`,
+      'backgroundPosition': 'center',
+      'backgroundRepeat': 'no-repeat',
+      'height': 40,
+      'width': 100,
+      'transition': 'all 250ms ease-out',
+      '&:hover': {
+        backgroundImage: `url(${dataUrls[1]})`,
+        backgroundColor: theme.palette.grey[50],
+        cursor: 'pointer'
+      }
+    }
+  }))
+
+  const dynamicClasses = dynamicStyles()
+
+  if (transform && dataUrls.length === 2)
     return (
       <TableCell
         id={cellAddress}
         align="center"
-        className={clsx(classes.PreviewCell_base, {
+        className={clsx(classes.PreviewCell_base, dynamicClasses.valueBg, {
           [classes.PreviewCell_ul]: transform.transformKind === 'ul',
           [classes.PreviewCell_ol]: transform.transformKind === 'ol',
           [classes.PreviewCell_zero]: transform.transformKind === 'zero'
-        })}>
-        {transform.result.w}
-      </TableCell>
+        })}
+      />
     )
   return (
     <TableCell align="center" className={classes.PreviewCell_base}>
