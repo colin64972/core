@@ -3,10 +3,10 @@ import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 import { TopNav } from '../TopNav'
 import { FileLoader } from './FileLoader'
-import { Preview } from './Preview/'
 import { SheetSelector } from './SheetSelector'
 import { TransformResults } from './TransformResults'
 import { TransformSettings } from './TransformSettings'
+import { Preview } from './Preview/'
 
 const useStyles = makeStyles(theme => ({
   section: {

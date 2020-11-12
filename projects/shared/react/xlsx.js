@@ -34,7 +34,11 @@ export const setCellAddress = (rangeStart, rangeEnd, rowIndex, cellIndex) => {
   const colStartNum = fromBase26(colStartId)
   const col = toBase26(colStartNum + cellIndex).toUpperCase()
   const row = rowStartNum + rowIndex
-  return `${col}${row}`
+  return {
+    rowStartNum,
+    colStartNum,
+    address: `${col}${row}`
+  }
 }
 
 export const getScopeOffsets = scope => {

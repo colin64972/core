@@ -1,15 +1,13 @@
 import { transformFunctionValues } from '@cjo3/dlc-web/src/constants'
-import { convertSheet, setCellAddress } from '../react/xlsx'
 import {
-  TransformResultCell,
   TransformResult,
+  TransformResultCell,
   TransformSettings,
   TransformSummary
 } from '@cjo3/dlc-web/src/store/editor/interfaces'
 import { WorkSheet } from 'xlsx'
-import { fromBase26, toBase26 } from '../general/conversion'
 import { deduplicate, mergeSort } from '../general/sorting'
-import { createHashId } from '../react/helpers'
+import { convertSheet, setCellAddress } from '../react/xlsx'
 
 const setResult = (kind: string, value: string, trigger?: string) => {
   let temp,

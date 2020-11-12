@@ -57,3 +57,7 @@ theme.overrides.MuiInputLabel = {
     }
   }
 }
+
+theme.custom.tableBorder = {
+  border: `${theme.custom.setSpace() / 4}px solid ${theme.palette.grey[50]}`
+}

@@ -2,13 +2,14 @@ import { TableCell } from '@material-ui/core'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
-import { useDispatch } from 'react-redux'
 import { TransformResultCell } from '../../../../store/editor/interfaces'
 
 const useStyles = makeStyles(theme => ({
   PreviewCell_base: {
-    padding: 0,
-    margin: 0
+    ...theme.custom.tableBorder,
+    padding: theme.custom.setSpace(),
+    margin: 0,
+    textAlign: 'center'
   },
   PreviewCell_ul: {
     backgroundColor: theme.palette.primary[50]
@@ -34,8 +35,6 @@ export const PreviewCell: React.FC<Props> = ({
 }): JSX.Element => {
   const classes = useStyles()
 
-  const dispatch = useDispatch()
-
   if (transform)
     return (
       <TableCell
@@ -51,7 +50,7 @@ export const PreviewCell: React.FC<Props> = ({
     )
   return (
     <TableCell align="center" className={classes.PreviewCell_base}>
-      {unprocessedData.toString()}
+      {unprocessedData && unprocessedData.toString()}
     </TableCell>
   )
 }
