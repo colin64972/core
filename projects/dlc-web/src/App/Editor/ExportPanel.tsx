@@ -39,10 +39,10 @@ export const ExportPanel: React.FC = (): JSX.Element => {
   let transformResult = useSelector(transformResultSelector)
   let sheetData = useSelector(sheetDataSelector)
 
-  if (process.env.USE_MOCKS) {
-    sheetData = sheetDataMock
-    transformResult = transformResultMock
-  }
+  // if (process.env.USE_MOCKS) {
+  //   sheetData = sheetDataMock
+  //   transformResult = transformResultMock
+  // }
 
   const clickHandler = (event: React.MouseEvent<HTMLButtonElement>): void => {
     switch (event.currentTarget.name) {

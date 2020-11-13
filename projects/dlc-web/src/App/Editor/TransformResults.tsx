@@ -67,9 +67,9 @@ export const TransformResults: React.FC = (): JSX.Element => {
 
   let transformResult = useSelector(transformResultSelector)
 
-  if (process.env.NODE_ENV === 'development') {
-    transformResult = transformResultMock
-  }
+  // if (process.env.USE_MOCKS) {
+  //   transformResult = transformResultMock
+  // }
 
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false)
   const [drawerDataName, setDrawerDataName] = useState<string | null>(null)

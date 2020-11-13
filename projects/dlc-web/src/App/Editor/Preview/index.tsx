@@ -33,7 +33,7 @@ export const Preview: React.FC = (): JSX.Element => {
 
   let previewOpen = useSelector(previewOpenSelector)
 
-  // if (process.env.NODE_ENV === 'development') {
+  // if (process.env.USE_MOCKS) {
   //   previewOpen = true
   // }
 

@@ -61,7 +61,7 @@ export const PreviewTable: React.FC = (): JSX.Element => {
   let transformResult = useSelector(transformResultSelector)
   let sheetData = useSelector(sheetDataSelector)
 
-  // if (process.env.NODE_ENV === 'development') {
+  // if (process.env.USE_MOCKS) {
   //   sheetData = sheetDataMock
   //   transformResult = transformResultMock
   // }
