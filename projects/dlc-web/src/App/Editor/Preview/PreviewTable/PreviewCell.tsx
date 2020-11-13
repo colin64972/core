@@ -1,7 +1,7 @@
-import { Tooltip, TableCell } from '@material-ui/core'
-import clsx from 'clsx'
+import { TableCell, Tooltip } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import React, { useLayoutEffect, useState } from 'react'
+import clsx from 'clsx'
+import React from 'react'
 import { TransformResultCell } from '../../../../store/editor/interfaces'
 
 const useStyles = makeStyles(theme => ({
@@ -44,14 +44,14 @@ export const PreviewCell: React.FC<Props> = ({
   if (transform && dataUrls) {
     const dynamicStyles = makeStyles(theme => ({
       valueBg: {
-        'backgroundImage': `url(${dataUrls[0]})`,
+        'backgroundImage': `url(${dataUrls[1]})`,
         'backgroundPosition': 'center',
         'backgroundRepeat': 'no-repeat',
         'height': 40,
         'width': 100,
         'transition': 'all 250ms ease-out',
         '&:hover': {
-          backgroundImage: `url(${dataUrls[1]})`,
+          backgroundImage: `url(${dataUrls[0]})`,
           backgroundColor: theme.palette.pass[300],
           cursor: 'pointer'
         }

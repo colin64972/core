@@ -4,61 +4,83 @@ import {
   TransformResult,
   TransformResultCell,
   TransformSettings,
-  TransformSummary
+  TransformSummary,
+  CellValue
 } from '@cjo3/dlc-web/src/store/editor/interfaces'
 import { WorkSheet } from 'xlsx'
 import { deduplicate, mergeSort } from '../general/sorting'
 import { convertSheet, setCellAddress } from '../react/xlsx'
-import { currentSheetSelector } from '@cjo3/dlc-web/src/store/selectors'
 
-const setResult = (kind: string, value: string, trigger?: string) => {
-  let temp,
-    transformed,
-    hasSigFigs = false
+const splitFloats = (value: string): string => {
+  const splitIndex = value.lastIndexOf('.')
+  if (splitIndex > 0) return value.substring(splitIndex + 1)
+  return null
+}
 
-  if (value.includes('.')) {
-    hasSigFigs = value.substring(value.lastIndexOf('.') + 1).length
+const checkSigFigs = (value: string, halved: number): string => {
+  const floats = splitFloats(value)
+  if (floats) {
+    const sigFigs = floats.length
+    const halvedFloats = splitFloats(halved.toString())
+    const halvedSigFigs = halvedFloats ? halvedFloats.length : 0
+    if (halvedSigFigs < sigFigs) {
+      let temp = halved.toString()
+      temp += '.'
+      temp += '0'.repeat(sigFigs)
+      return temp
+    }
   }
+  return halved.toString()
+}
+
+const setCellValue = (original: string, replaced: string): CellValue => {
+  const floats = splitFloats(original)
+  const result: CellValue = {
+    t: '',
+    v: '',
+    w: replaced
+  }
+  if (floats) {
+    result.t = 's'
+    result.v = replaced
+  } else {
+    result.t = 'n'
+    result.v = parseInt(replaced)
+  }
+  return result
+}
+
+const setResult = (
+  kind: string,
+  value: string,
+  trigger?: string
+): CellValue => {
+  let temp
 
   switch (kind) {
     case transformFunctionValues.leave:
-      temp = value.replace(trigger, '')
-      if (temp.includes('.')) {
-        transformed = parseFloat(temp)
-      } else {
-        transformed = parseInt(temp)
-      }
-      return {
-        t: 'n',
-        v: transformed,
-        w: transformed.toString()
-      }
+      temp = value.trim().replace(trigger, '')
+      return setCellValue(value, temp)
 
     case transformFunctionValues.halve:
-      temp = value.replace(trigger, '')
-      if (temp.includes('.')) {
-        transformed = parseFloat(temp) / 2
-      } else {
-        transformed = parseInt(temp) / 2
-      }
-      return {
-        t: 'n',
-        v: transformed,
-        w: transformed.toString()
-      }
+      temp = value.trim().replace(trigger, '')
+      const halved = parseFloat(temp) / 2
+      const withSigFigs = checkSigFigs(value, halved)
+      return setCellValue(value, withSigFigs)
 
     case transformFunctionValues.zero:
       return {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
 
     case transformFunctionValues.none:
+      const v = value.toString().trim()
       return {
         t: 's',
-        v: value,
-        w: value
+        v,
+        w: v
       }
   }
 }

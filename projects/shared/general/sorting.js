@@ -12,6 +12,11 @@ const reMerge = (left, right, field, direction) => {
       rightOpponent = rightOpponent[field]
     }
 
+    if (/\d+(\.\d+)?/.test(leftOpponent) && /\d+(\.\d+)?/.test(rightOpponent)) {
+      leftOpponent = parseFloat(leftOpponent.replace(/[^0-9\.]+/gi, ''))
+      rightOpponent = parseFloat(rightOpponent.replace(/[^0-9\.]+/gi, ''))
+    }
+
     if (direction === 'up') {
       if (leftOpponent < rightOpponent) {
         result.push(left[leftIndex])

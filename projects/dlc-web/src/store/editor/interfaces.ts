@@ -74,6 +74,12 @@ export interface TransformResult {
   scope: string
 }
 
+export interface CellValue {
+  t: string
+  v: string | number
+  w: string
+}
+
 export interface LoadWorkbookAction {
   type: typeof LOAD_WORKBOOK
   workbook: WorkBook
