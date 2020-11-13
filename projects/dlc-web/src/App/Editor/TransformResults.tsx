@@ -11,11 +11,13 @@ import {
 import { makeStyles } from '@material-ui/core/styles'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
+import { AddressInspector } from './AddressInspector'
 import {
   isProcessingSelector,
   transformResultSelector
 } from '../../store/selectors'
 import { TransformSummary } from './TransformSummary'
+import { TransformSummary as ITransformSummary } from '../../store/editor/interfaces'
 
 const useStyles = makeStyles(theme => ({
   TransformResults_bg: {
@@ -63,6 +65,10 @@ export const TransformResults: React.FC = (): JSX.Element => {
     setDrawerDataName(null)
     setDrawerOpen(false)
   }
+
+  const addressesByTransform: ITransformSummary[] = drawerDataName
+    ? transformResult[drawerDataName].addresses
+    : []
 
   if (isProcessing)
     return (
@@ -116,39 +122,13 @@ export const TransformResults: React.FC = (): JSX.Element => {
               caseData={transformResult.zero}
               openDrawerHandler={openDrawerHandler}
             />
-            <Drawer
-              anchor="left"
-              open={drawerOpen}
-              onClose={closeDrawerHandler}
-              PaperProps={{
-                classes: {
-                  root: classes.TransformResults_sideDrawer
-                }
-              }}>
-              <List>
-                {drawerDataName &&
-                  transformResult[drawerDataName].addresses.map(address => (
-                    <ListItem
-                      key={`drawer-data-item-${address}`}
-                      className={classes.TransformResults_addressListItem}
-                      alignItems="center">
-                      <ListItemText
-                        primary={address}
-                        primaryTypographyProps={{
-                          align: 'center',
-                          variant: 'h5'
-                        }}
-                        secondary={`${transformResult.all[address].original} >> ${transformResult.all[address].result.w}`}
-                        secondaryTypographyProps={{
-                          align: 'center',
-                          variant: 'body1',
-                          color: 'secondary'
-                        }}
-                      />
-                    </ListItem>
-                  ))}
-              </List>
-            </Drawer>
+            <AddressInspector
+              drawerOpen={drawerOpen}
+              closeDrawerHandler={closeDrawerHandler}
+              drawerDataName={drawerDataName}
+              allTransforms={transformResult.all}
+              addresses={addressesByTransform}
+            />
           </Grid>
         </Grid>
       </Grid>
