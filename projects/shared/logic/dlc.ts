@@ -109,78 +109,90 @@ export const processSheet = (
   const scope =
     rangeStart && rangeEnd ? `${rangeStart}:${rangeEnd}` : sheet['!ref']
 
-  const sheetRows = convertSheet(sheet, scope)
-
-  const transformed = sheetRows.reduce(
-    (acc, row, rowIndex: number): TransformResult => {
-      const temp = acc
-
-      row.forEach(
-        (cell: string, cellIndex: number): TransformResultCell => {
-          if (typeof cell !== 'string') return temp
-
-          const ulPattern = new RegExp(`\\${ulTrigger}\\s*?\\d*(\\.\\d*)?`)
-          const olPattern = new RegExp(`\\${olTrigger}\\s*?\\d*(\\.\\d*)?`)
-
-          const { rowStartNum, colStartNum, address } = setCellAddress(
-            rangeStart,
-            rowIndex,
-            cellIndex
-          )
-
-          const meta = {
-            address,
-            rowIndex,
-            cellIndex,
-            rowStartNum,
-            colStartNum,
-            original: cell
-          }
-
-          if (ulTriggerZero !== '' && cell === ulTriggerZero) {
-            temp[address] = {
-              ...meta,
-              transformKind: 'zero',
-              trigger: ulTriggerZero,
-              result: setResult('zero', cell, ulTriggerZero)
-            }
-            return temp
-          }
-
-          if (ulPattern.test(cell)) {
-            temp[address] = {
-              ...meta,
-              transformKind: 'ul',
-              trigger: ulTrigger,
-              result: setResult(ulTransform, cell, ulTrigger)
-            }
-            return temp
-          }
-
-          if (olPattern.test(cell)) {
-            temp[address] = {
-              ...meta,
-              transformKind: 'ol',
-              trigger: olTrigger,
-              result: setResult(olTransform, cell, olTrigger)
-            }
-            return temp
-          }
-        }
-      )
-
-      return temp
-    },
-    {}
+  console.log(
+    '%c XXX',
+    'color: yellow; font-size: large',
+    utils.decode_range(scope),
+    utils.encode_range({ s: { c: 1, r: 16 }, e: { c: 38, r: 46 } }),
+    utils.format_cell({
+      v: 0.5,
+      t: 'n',
+      z: '0.0000'
+    })
   )
 
-  return {
-    ul: collectChanges('ul', transformed),
-    ol: collectChanges('ol', transformed),
-    zero: collectChanges('zero', transformed),
-    all: transformed,
-    scope
-  }
+  // const sheetRows = convertSheet(sheet, scope)
+
+  // const transformed = sheetRows.reduce(
+  //   (acc, row, rowIndex: number): TransformResult => {
+  //     const temp = acc
+
+  //     row.forEach(
+  //       (cell: string, cellIndex: number): TransformResultCell => {
+  //         if (typeof cell !== 'string') return temp
+
+  //         const ulPattern = new RegExp(`\\${ulTrigger}\\s*?\\d*(\\.\\d*)?`)
+  //         const olPattern = new RegExp(`\\${olTrigger}\\s*?\\d*(\\.\\d*)?`)
+
+  //         const { rowStartNum, colStartNum, address } = setCellAddress(
+  //           rangeStart,
+  //           rowIndex,
+  //           cellIndex
+  //         )
+
+  //         const meta = {
+  //           address,
+  //           rowIndex,
+  //           cellIndex,
+  //           rowStartNum,
+  //           colStartNum,
+  //           original: cell
+  //         }
+
+  //         if (ulTriggerZero !== '' && cell === ulTriggerZero) {
+  //           temp[address] = {
+  //             ...meta,
+  //             transformKind: 'zero',
+  //             trigger: ulTriggerZero,
+  //             result: setResult('zero', cell, ulTriggerZero)
+  //           }
+  //           return temp
+  //         }
+
+  //         if (ulPattern.test(cell)) {
+  //           temp[address] = {
+  //             ...meta,
+  //             transformKind: 'ul',
+  //             trigger: ulTrigger,
+  //             result: setResult(ulTransform, cell, ulTrigger)
+  //           }
+  //           return temp
+  //         }
+
+  //         if (olPattern.test(cell)) {
+  //           temp[address] = {
+  //             ...meta,
+  //             transformKind: 'ol',
+  //             trigger: olTrigger,
+  //             result: setResult(olTransform, cell, olTrigger)
+  //           }
+  //           return temp
+  //         }
+  //       }
+  //     )
+
+  //     return temp
+  //   },
+  //   {}
+  // )
+
+  // return {
+  //   ul: collectChanges('ul', transformed),
+  //   ol: collectChanges('ol', transformed),
+  //   zero: collectChanges('zero', transformed),
+  //   all: transformed,
+  //   scope
+  // }
 }
 
 export const collectChanges = (
@@ -251,30 +263,5 @@ export const buildCopyData = (
     header: 'A'
   }
 
-  const rows = utils.sheet_to_json(sheet, options)
-
-  let result = ''
-
-  rows.forEach((row, rowInd) => {
-    const resultRow = []
-    Object.entries(row).forEach((col, colInd) => {
-      const address = `${col[0]}${rowInd + 1}`
-
-      let value = col[1]
-
-      const transformedCell = all[address]
-
-      if (transformedCell) {
-        value = transformedCell.result.w
-      }
-
-      if (value === null) return resultRow.push('')
-
-      return resultRow.push(value)
-    })
-
-    result += `${resultRow.join('\t')}\n`
-  })
-
-  return result
+  const rows = utils.sheet_to_csv(sheet, options)
 }

@@ -111,9 +111,15 @@ export const TransformSettings: React.FC = (): JSX.Element => {
   ): void => {
     dispatch(setProcessing(true))
 
-    dispatch(setTransformSettings(values))
+    const upperCaseRange: ITransformSettings = {
+      ...values,
+      rangeStart: values.rangeStart.toUpperCase(),
+      rangeEnd: values.rangeEnd.toUpperCase()
+    }
 
-    const result = processSheet(sheetData, values)
+    dispatch(setTransformSettings(upperCaseRange))
+
+    const result = processSheet(sheetData, upperCaseRange)
 
     const waitTime = Object.keys(result).length * 10
 
