@@ -54,7 +54,9 @@ module.exports = {
     new EnvironmentPlugin({
       APP_PATH: localEnv.parsed.APP_PATH,
       APP_NAME: localEnv.parsed.APP_NAME,
-      ACCEPTED_FILETYPES: localEnv.parsed.ACCEPTED_FILETYPES
+      ACCEPTED_FILETYPES: localEnv.parsed.ACCEPTED_FILETYPES,
+      EXPORT_PRICE: localEnv.parsed.EXPORT_PRICE,
+      USE_MOCKS: localEnv.parsed.USE_MOCKS
     })
   ]
 }

@@ -1,24 +1,10 @@
-import {
-  Drawer,
-  Grid,
-  Hidden,
-  LinearProgress,
-  List,
-  ListItem,
-  ListItemText,
-  Typography
-} from '@material-ui/core'
+import { Drawer, List, ListItem, ListItemText } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import React from 'react'
 import {
-  TransformResultCell,
+  TransformResultCellCollection,
   TransformSummary
 } from '../../store/editor/interfaces'
-import {
-  isProcessingSelector,
-  transformResultSelector
-} from '../../store/selectors'
 
 const useStyles = makeStyles(theme => ({
   TransformResults_sideDrawer: {
@@ -30,6 +16,7 @@ const useStyles = makeStyles(theme => ({
     height: '100%'
   },
   TransformResults_addressListItem: {
+    ...theme.custom.noSelect,
     'transition': 'all 250ms linear',
     'color': theme.palette.grey[400],
     '&:hover': {
@@ -42,7 +29,7 @@ interface Props {
   drawerOpen: boolean
   closeDrawerHandler: (event: React.MouseEvent) => void
   drawerDataName: string
-  allTransforms: TransformResultCell[]
+  allTransforms: TransformResultCellCollection
   addresses: TransformSummary[]
 }
 

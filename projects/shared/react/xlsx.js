@@ -2,6 +2,13 @@ import { read, utils } from 'xlsx'
 import { fromBase26, toBase26 } from '../general/conversion'
 import { EXCEL_CELL_ADDRESS } from '../raw/constants/regex'
 
+export const convertSheetOptions = {
+  blankrows: true,
+  raw: true,
+  header: 1,
+  defval: null
+}
+
 export const createWorkbook = (fileBlob, callback) => {
   const reader = new FileReader()
   reader.onload = event => {
@@ -21,12 +28,8 @@ export const createWorkbook = (fileBlob, callback) => {
 
 export const convertSheet = (sheet, range = null) => {
   const options = {
-    blankrows: true,
-    raw: true,
-    header: 1,
-    defval: null
+    ...convertSheetOptions
   }
-
   if (range) {
     options.range = range.toUpperCase()
   }

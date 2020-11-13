@@ -64,13 +64,15 @@ export interface TransformResultCell {
   }
 }
 
+export interface TransformResultCellCollection {
+  [key: string]: TransformResultCell
+}
+
 export interface TransformResult {
   ul: TransformSummary
   ol: TransformSummary
   zero: TransformSummary
-  all: {
-    [key: string]: TransformResultCell
-  }
+  all: TransformResultCellCollection
   scope: string
 }
 

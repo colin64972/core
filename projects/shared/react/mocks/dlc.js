@@ -1,9 +1,138 @@
 export const transformResult = {
   ul: {
     count: 361,
-    originalValues: ['<0.01', '<0.05', '<0.5', '<1', '<2', '<20', '<3', '<5'],
-    changedValues: ['0.005', '0.025', '0.25', '0.5', '1', '1.5', '10', '2.5'],
+    originalValues: ['<0.01', '<0.05', '<0.5', '<1', '<2', '<3', '<5', '<20'],
+    changedValues: ['0.005', '0.025', '0.25', '0.5', '1', '1.5', '2.5', '10'],
     addresses: [
+      'E27',
+      'E45',
+      'J33',
+      'J35',
+      'J40',
+      'J41',
+      'J46',
+      'J47',
+      'K17',
+      'K18',
+      'K19',
+      'K20',
+      'K21',
+      'K22',
+      'K23',
+      'K25',
+      'K26',
+      'K27',
+      'K28',
+      'K29',
+      'K30',
+      'K31',
+      'K32',
+      'K33',
+      'K34',
+      'K35',
+      'K36',
+      'K37',
+      'K38',
+      'K39',
+      'K40',
+      'K41',
+      'K43',
+      'K44',
+      'K45',
+      'K46',
+      'K47',
+      'O30',
+      'O32',
+      'O33',
+      'O34',
+      'O35',
+      'O36',
+      'O37',
+      'O40',
+      'O41',
+      'O42',
+      'O43',
+      'O47',
+      'Q17',
+      'Q18',
+      'Q19',
+      'Q20',
+      'Q21',
+      'Q22',
+      'Q23',
+      'Q25',
+      'Q26',
+      'Q27',
+      'Q28',
+      'Q33',
+      'Q35',
+      'Q36',
+      'Q37',
+      'Q38',
+      'Q39',
+      'Q40',
+      'Q41',
+      'Q43',
+      'Q44',
+      'Q45',
+      'Q47',
+      'R35',
+      'S17',
+      'S18',
+      'S19',
+      'S20',
+      'S21',
+      'S22',
+      'S23',
+      'S24',
+      'S25',
+      'S26',
+      'S27',
+      'S28',
+      'S29',
+      'S30',
+      'S31',
+      'S32',
+      'S33',
+      'S34',
+      'S35',
+      'S36',
+      'S37',
+      'S38',
+      'S39',
+      'S40',
+      'S41',
+      'S42',
+      'S43',
+      'S44',
+      'S45',
+      'S46',
+      'S47',
+      'U17',
+      'U18',
+      'U19',
+      'U20',
+      'U21',
+      'U22',
+      'U23',
+      'U25',
+      'U26',
+      'U27',
+      'U28',
+      'U29',
+      'U31',
+      'U32',
+      'U33',
+      'U37',
+      'U38',
+      'U39',
+      'U40',
+      'U41',
+      'U43',
+      'U44',
+      'U45',
+      'U46',
+      'U47',
       'AB17',
       'AB18',
       'AB19',
@@ -235,136 +364,7 @@ export const transformResult = {
       'AK44',
       'AK45',
       'AK46',
-      'AK47',
-      'E27',
-      'E45',
-      'J33',
-      'J35',
-      'J40',
-      'J41',
-      'J46',
-      'J47',
-      'K17',
-      'K18',
-      'K19',
-      'K20',
-      'K21',
-      'K22',
-      'K23',
-      'K25',
-      'K26',
-      'K27',
-      'K28',
-      'K29',
-      'K30',
-      'K31',
-      'K32',
-      'K33',
-      'K34',
-      'K35',
-      'K36',
-      'K37',
-      'K38',
-      'K39',
-      'K40',
-      'K41',
-      'K43',
-      'K44',
-      'K45',
-      'K46',
-      'K47',
-      'O30',
-      'O32',
-      'O33',
-      'O34',
-      'O35',
-      'O36',
-      'O37',
-      'O40',
-      'O41',
-      'O42',
-      'O43',
-      'O47',
-      'Q17',
-      'Q18',
-      'Q19',
-      'Q20',
-      'Q21',
-      'Q22',
-      'Q23',
-      'Q25',
-      'Q26',
-      'Q27',
-      'Q28',
-      'Q33',
-      'Q35',
-      'Q36',
-      'Q37',
-      'Q38',
-      'Q39',
-      'Q40',
-      'Q41',
-      'Q43',
-      'Q44',
-      'Q45',
-      'Q47',
-      'R35',
-      'S17',
-      'S18',
-      'S19',
-      'S20',
-      'S21',
-      'S22',
-      'S23',
-      'S24',
-      'S25',
-      'S26',
-      'S27',
-      'S28',
-      'S29',
-      'S30',
-      'S31',
-      'S32',
-      'S33',
-      'S34',
-      'S35',
-      'S36',
-      'S37',
-      'S38',
-      'S39',
-      'S40',
-      'S41',
-      'S42',
-      'S43',
-      'S44',
-      'S45',
-      'S46',
-      'S47',
-      'U17',
-      'U18',
-      'U19',
-      'U20',
-      'U21',
-      'U22',
-      'U23',
-      'U25',
-      'U26',
-      'U27',
-      'U28',
-      'U29',
-      'U31',
-      'U32',
-      'U33',
-      'U37',
-      'U38',
-      'U39',
-      'U40',
-      'U41',
-      'U43',
-      'U44',
-      'U45',
-      'U46',
-      'U47'
+      'AK47'
     ],
     dataUrls: {
       '<1': {
@@ -787,17 +787,31 @@ export const transformResult = {
     }
   },
   ol: {
-    count: 3,
-    originalValues: ['>100.0', '>10000'],
-    changedValues: ['100', '10000'],
-    addresses: ['G42', 'I24', 'I42'],
+    count: 5,
+    originalValues: ['>84.000', '>100.0', '>500.8', '>10000'],
+    changedValues: ['84.000', '100.0', '500.8', '10000'],
+    addresses: ['G42', 'I24', 'I27', 'I29', 'I42'],
     dataUrls: {
       '>100.0': {
         addresses: ['I42'],
         original:
           'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAEV0lEQVRoQ+2XXWgcVRTH/2c2i6GV0rXBQFWCQh4EKbWIH1nRcefOxpjGFwnWBxFR8aMVVOyTaIgIolEiVEELFfwAqQs+FWUz52624BIqCVEQwadq8OtBDcWEZbO798qFXdmOdlcHphnZe9/mnjnnnvv/3XPmDsGORClAicrGJgMLJGGHwAKxQBKmQMLSsRVigSRMgYSlYyvEAkmYAglLx1aIBZIwBRKWjq0QCyRhCiQsnURXyMTExC6l1NXFYvGrsG6u6w4R0Z7FxcVv/0nTXvaQDwkhrms0GmfL5fLGdjJKLBDXdQfT6fSy1noHM1/TFsl13d0DAwOfArilNXcOwB3MvGqee9nDYnue9xARvQHg0pbteDabfXx2dlZtB5iLDsTzvFnHcRaCIKhcYMPmtD4I4FUAewCc7QQihCgR0Wij0biTiDYcx/kAwL5MJnN5oVDY6mXvXFMIcTOAJa31C81mcz6VSh0koo8APMnMb/YFEN/339ZaPwpgDcB8tVo9UalU/mhv3rSper1+Tmv9FoC9RLS/DWRycjJTq9V+B/A0M5tTjVwud6PjOGe01v7g4OBKN7uUkkNAjgO4P5vN7mxXhBDicwC7mHlfXwAxm/R9f69S6hkiOgxgAMDHRDQfBMHy9PR0an19/QpmXhNCfAhgrA0kl8sdcBxnRSl1V6lU+szEGh8fv6zZbP4G4AGl1Nfd7Mz8fghIGcAwM1/bnhdCnABwkJmH+wZIRzVcsrW1dZiIXjdzzHxeCw0DyefztymlTmutx6SUS8ZnZmbGqVQqTQBHHcf5opudmV/rFNnzvGUi2mLmsQ4gcwCeYuZ0XwFxXffKdDp9VGv9RKtKTjLzodAJPq9CfN/fr7VeJSI3CILT5t2pqakd1Wp1U2v9sKmObnYppTn9fw0hBGutd0spb+gAcgzAfcw81BdAWj3/edMWADQAHEulUnPFYvHnsADhCvE8b5iIfgFwDzN/Yt7P5/NXKaXWtNY5AN90s0spF0NATAu7nZlHOoCcBDDKzAf6AogQ4nsAO4no5Xq9/k63e38YSKs9bRLRe0EQPGYEa93I3gUwks1mf6hUKhe0m+9SCMizAOa01kNSSvMdMvF+BSCZ+d5+AXJrJpNZKhQKpu93HWEgLcHmARxRSt2dTqd/ajabEsAKM4//G7vv+68A2AyC4MWOW9sppdQRx3EeAfAcEV0fBMGXvfKLw37R/0P+yyZaQG5i5tG2X+vH7xSAbGtuVSk1VSqVfjTPveymQrXW61LK/eZ9z/MOEZH5lzG3vQ0ieikIAgNtW0aigXRTxFx3a7WaUy6XTYv52+hl73QwrXBpaWlkYWHhOwB6W0i0Fv3fAtlO0eJc2wKJU90IsS2QCKLF6WKBxKluhNgWSATR4nSxQOJUN0JsCySCaHG6WCBxqhshtgUSQbQ4XSyQONWNENsCiSBanC4WSJzqRohtgUQQLU4XCyROdSPEtkAiiBany5/GYhZH6o7koQAAAABJRU5ErkJggg==',
         transform:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAACmElEQVRoQ+2YPYgTURSFz2U22CzKgFoIrsVaWCha2KUJmZcZptjCv0WwUOzERiwWRZuoIFa2NgsWCsroglqE4M1PpZWgiFi7jYiYQsRI4puRgYnEJZvIhsAduOmSO2847/ty5pEQ9CWKAIlKo2GgQoR9CVSIChFGQFgcbYgKEUZAWBxtiAoRRkBYHG2IChFGQFgcbYgKEUZAWJxcNMQYsxDHMTWbzU8b+ZXL5cVCofCzXq9/HsV20lyYD/n/ZQVBsN9a+x7AfWa+MABYqVSOJknyFMBC+lmSJG8ABI1G41v6ftJcmohBHrENKZVK847jXCWiFQBzAO4NhIRhuL3f768T0SsiOmetXSSiFwBeM/PSpLlUGWkusUKMMccBPEyS5BIR3QCwNhDied5JIoqstQdbrdaHdCPGmOsAbrquO9fpdI6Nm0dRZKVKESskDMNd3W632263fxhjvgwLMcZcAXDbdd1tURT1MiHLAB47jrPHWnt23Hyz80aCJLFChuGMEHILwDVm/pvf8zxDRC8dxzlirT01bl6v199JgD8qQy6FeJ63QkR3hoX4vr8Ux/FzAPuSJDk9bs7M6ypkCgIbG+J53hkielAoFHbUarXv2SPrPIDV7AxJhWw61zNkChkZ7H/OkCAIDltr3wI4wcxr2TWP0rOdmXdOmk8ZZ6bLc/nIygR8JKL5OI4DIjoAIP1NcpmZ7/7PfKZUp7h5noQ8YeaLg70aYw4BYAC7AfwG8KxYLC5Xq9U4EzJ2PgWzmS7NhZBxBHzf39vr9b622+1fo66bNJ8p3S3cPPdCtrBn0UtUiDA9KkSFCCMgLI42RIUIIyAsjjZEhQgjICyONkSFCCMgLI42RIUIIyAsjjZEhQgjICyONkSYkD9EBTM4BE+gTQAAAABJRU5ErkJggg=='
+          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAERklEQVRoQ+2XXWgcVRiG328mg6WWmrGhgYoGLQGFWmIp/mRB152zu8Z0vZFUvRD/QaGCinqjGIKC1F5EUG8KFbQFDauCWgyb+WZ3C42L0BC9EPGqEvAH/AmVrXF/5hw5MFuWNXZ7lRzhzN3O+WDefZ/zft85BPsY5QAZpcaKgQVi2CawQCwQwxwwTI5NiAVimAOGybEJsUAMc8AwOTYhFohhDhgmxybEAjHMAcPkGJWQiYmJ7VLKa0ul0je9PqXT6SEi2lGpVL5fz8NMJrPb87y/SqXSz5fgMQkh9rTb7bPVarV+CfUbVmIMkHQ6vcXzvDNKqa3MfF3HgXQ6PTgwMPAFgNuSd+cA3MnMy/p3Npvdr5T6GMA1+rdSaglAPoqi39dzMQiCx4joTQDbkvWjqVTqqZmZGblhrl/kQyYA0bv1EQBvANgB4Gw3ECFEmYhG2+32XURUdxznOIC9vu/vrNfrW1qt1goRfUlED8dxvJuIPgdQY+ZC7/8WQtyq15RSr8RxPOu67gEi+gDA08z8tgUCQLepVqt1Tin1DoBdRDTWATI5Oek3Go0/ADzLzHpXI5PJ3Ow4zldKqSyAQSIqxnG8p1KpfKvXhRAvA3jV9/2BYrEYd5sshDgK4MFUKnV5JxFCiNMAtjPzXgsEwNTUlLu6unoVM68IIU4AGO8AyWQy+xzHWZJS3l0ul+e1Yfl8/so4jnU7ekgDBPC67/uXFYvFZgLkIIA513V39c4TIUQVwDAz39AxXwhxDMABZh62QHoc6AWSy+Vul1KeUkqNR1FU0+XT09PO4uKi3vkv6IQAeImZL7TeIAgEEYWu6471Hg6CIDhDRE1mHu8CcgTAM8zsWSB9gGSz2TGl1DIRpcMwPKXLC4XC1rW1tfNKqcf1zCGiw91AcrlcQUr5GYARnbqelsVKqcEoivZ3AXkLwAPMPGSB9AESBMEwEf0C4F5m/kSX53K5q6WUK0qpTDJzTnied8X8/PyfSct6FMCx/5gh7wO4g5lHuoDMARhl5n0WSB8gSXs6T0TvhWH4ZGK4PpG9qxPguq4fx/HX3cCEEB/q2b7ejhdCPA/giFJqqHMsFkL8BiBi5vsskD5AEgCzAA5JKe/xPO+nOI4jAEvMnE/WvyOibVLKPBFdD0DfSZ5j5tnkbnNcSjkXRdFHXae2k1LKQ47jPKFnEBHdFIahBrvpjwn3kAsmJEP9FmYe7bxMLoYnAaSSd8tSykK5XP4xAXIjAAawE0AbwKepVOqgPtZ2jtQ6Fcz8oq4PguB+ItJ3mQEAdSJ6LQzDw5tOIhFgFJCLmaKPu41Gw6lWq7rF/OvRs6XZbP5arVb/7meuboW1Wm1kYWHhB32571e/kev/GyAbacpmfssC2Uz31/m2BWKBGOaAYXJsQiwQwxwwTI5NiAVimAOGybEJsUAMc8AwOTYhFohhDhgmxybEAjHMAcPk2IQYBuQfvi60OIQQfEoAAAAASUVORK5CYII='
+      },
+      '>500.8': {
+        addresses: [],
+        original:
+          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAEw0lEQVRoQ+2ZX2gcVRTGv3OzS6KWkm1TH0pLn3yo4N+Aogk67txpjG3qg9RailRBUIyKSisqSEhfisZapX2oYNUqiO1Cn/yT7JzZTB/WqlgKIv4Dwda2VqgmZRvWTXbvkQubsixh40uTC5n7lvvtzJz7/ea75w4hJMMpB8ipapJikABx7CVIgCRAHHPAsXKShCRAHHPAsXKShCRAHHPAsXKShCRAHHPAsXKShCRAHHPAsXKcTMjAwMC1pVJJNXq1atWqci6Xq83OeZ7XRUQrx8fHf5nL0/n05mt837+xVqv9GsdxdTEZOQlEa10G0NFkzHZm/sTzvM5UKvUFgLvq+iUA9zHzKfv3fHqz2VrrZwEMAVgJ4F8A7zGznVuUseBAfN8fVkrlwzAszrXibDa7Tin1u4g8Zoz5evY3InIujuPLWusCEd1QrVbvJ6LLSqmPAdycyWSuz+Vy0/Ppjc/UWq8H8COAVzKZzMjk5KQnIgxgKzMfXQwiCw4kCIKDIvIkgDMA9pXL5UPFYrE0u3it9cMAjpTL5eXt7e0rjDF/xXFs31xs3LgxU6lU/gHwAjO/beey2ewdSqlvRCTo6Og42UqPosiafWUEQeDXAWxi5s99319JRBeJaE8Yhq8uCSB2kUEQrDbGvEhEgwBSAI4S0b4wDL8LgmCviFjtrIisqZsywswvZbPZ25VSJ40xDxQKhS+t1tfXt6JWq/0NYIcx5odWOjN/1Ghyd3d3OpPJfA/APudDyxzAWhG5JYoim5wFHwuekMYV9vf3t09PTw8S0V47z8yktf7K9gciet4Yc5qIXgZwJxE9SkRnjDHHReTuKIpO2GuGhoZUsVi0zX6XUurbVjozvzkHkA8AbG+Yj5RSD+bz+akFpwEs3j+oPM9bk06nd4nI0/WUHGHmR/r7+5dXq9VlYRierzfpZalUym5pERHtFJFTROSFYXjc6vZEVi6Xp0TkCZuOVnoURYeatqxBETkA4LmJiYmDnZ2d9xKRTd4xZt66JIDU9/zXAGwCYI+Y+9va2kbGxsb+nDXAvvXDw8Omoa/8JCIVu0MR0QUADzHzMatv2LBhrTHmjIhkbYNupUdRNN7U1EMAtzFz1+x8EAQ5EbE95ZolAURrfRrAdbZxzszMvGtPTk1v7R8i8hsze3beJmZmZuaSiOzu7e0dLhaLU0R0OAzDp6yutX4cwPsA1vX09JxtpTOzPUhcGVrrMQA3MfPqBvh27p6lBKQ3k8mcaPzIazJpJ4ARERm0PUFE9ljflVLr8/n8z1rrfQCeMcZsTqfT52u1WgTgJDP31QG11IMgeB3AVBiGu33f30FEtpnvN8a8o5TaDOAtIvo0DMNtSyIh8y3S87xl6XT6gIjYPdx+HFZtf4ii6HC9p9gPw88A9NTvdcoYM1AoFM79H90mVEQmoii6tQ7wDXsgaKhrtFqtbovjeHK+Wq+GvqinrFYL2rJlS1upVFo7Ojpqtzhp/q097lYqFRXH8cW57jOf3niNPf52dXWtq1QqF5q30Ktheqt7OgtkoY1w5XkJEFdI1OtIgCRAHHPAsXKShCRAHHPAsXKShCRAHHPAsXKShCRAHHPAsXKShCRAHHPAsXKShCRAHHPAsXKShDgG5D/V6FZHnb9dNgAAAABJRU5ErkJggg==',
+        transform:
+          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAE20lEQVRoQ+2ZX4hUVRzHv78zc1kLsb26+iCZDxJkZP+MolbqNvfMbmZrD7GKSGjRQ2BFiUX/YNl6kJKyyIce+idGaFNCf3dn77mz14fVCsQKygqC3NKMLNdmbZrduecXR+/UsCzhU3sezn2bc+4wv/v53O/5ncMQ3GUVAbKqGlcMnBDLXgInxAmxjIBl5biEOCGWEbCsHJcQJ8QyApaV4xLihFhGwLJyXEKcEMsIWFaOFQnp6ek5v1qtilY28+fPr5VKpbQ5FgRBBxHNGx4e/nY6hoVCYYnneX+Wy+Wfz4VxGIaXpmn6XZIkjXO5//+6xwohUsoagFlTHnq9UuqtIAja8/n8xwCuz+ZPAbhZKXXIfC4Wi9cw87sALjKfmfkggO44jn+bDqKU8n4AfQDmAfgLwCtKKTNmxTXjQgqFwmIhxA/MvFFr/UmTCjMfTZJkXEpZIaKLG43GLUQ0LoTYBeBy3/cXjI+Pz5qcnBwlov1EtDFN0yVE9AGAA0qpnqmEpZRLAXwN4DHf97eNjY0FzKwArFVKvW2DkRkXIqVcA2BPrVab09bWNldr/UuSJObNxapVq/x6vf47gIeUUi+YsUKhcK0Q4lNmLgJoJ6JSmqaXDQ8Pf2XmpZRPAnja9/1865KXpSnMBNymlPooDMN5RHSCiLZGUfS4E3J2yXmOmTcT0U/MfGEGZZtS6pFCoXC1EOKg1vrWSqUyYOa6u7vnpmlqlqMNABYC2Or7flupVJrIhJwRnMvlFk7tJ8uXL/d83/8SgPmdN4xzAIuY+Yo4jk1yZvyyISH7TX8goge11keI6FEA1xHRnUQ0qrXex8w3xHF8wNDq6+sTIyMjptk/bBIC4Aml1D/PEYahJKIol8tdWS6Xv2glnAl5HcD6lvFYCHH70NDQ6Rm3Acz8H1QrV66c02g0ZkdRdMwACYJgdj6frwKIiWgLMx8ioiCKon1m3uzIarXaaWa+xzRmInqmVUhXV1eP1vp9AIuVUqOtkIvF4iZm3gHggZMnT77c3t5+ExGZ5O1VSq11QjIC5q3v7+/XTSBSysPMXDcrFBEdB3CHUmqvme/q6lqktR5l5oJZsojoTc/zLhgYGPgjW7LuBvDqdD1EShkBuEop1dH8rWKxWGJm01POc0LO9pAfmfl7pVRggJjETE5OnmLmp1asWNE/MjJymoh2RlF0bwb8LgCvmQTkcjk/TdPPW4VJKXeb3t4KvUV0GcAypZTpPWcuKaUZu9EJ+RfIFgDbmHmTEOIzZt5qOAkhlg4NDX0jpdwO4D6t9WrP846laRoDOKiU6s6AHiai2Vprk6ZLAJgzyWal1PYgCGZ5nrdLa70njuN3wjDcQESmmb+ktX5RCLEawPNEtDuKonUuIVnP8DxvBzObNdwcDhumP8RxvDPrKeZg+CGAzgzYIa11T6VSOZoJWQbAnCUWmO8CeK+zs3ONWQKbaTPCza4tu//ZbEPQ5D/YaDTWJUky5oS0EOjt7c1Vq9VFg4ODR8yBeyocs92t1+siSZIT04EzvWViYuLX5hnmv+Ca3VZHR8fier1+3Bw+bRDRrGHGt702wbChFifEBgstNTghTohlBCwrxyXECbGMgGXluIQ4IZYRsKwclxAnxDIClpXjEuKEWEbAsnJcQpwQywhYVo5LiGVC/gbN8PQ4ID98TQAAAABJRU5ErkJggg=='
+      },
+      '>84.000': {
+        addresses: [],
+        original:
+          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAF4ElEQVRoQ+2YaWgdVRTH/+dOHrGuGRssFLUfRFCpWq24PbXPN3dejG30g1YtVtzXqqjoB9dSFESLRqnggnXfarDgWps5kzzBGARLVXBFXIorLomaGt8y98iReRJrWvqhlSHM/ZSZuTPv3P/v/M89N4R8ZEoBylQ0eTDIgWQsCXIgOZCMKZCxcHKH5EAypkDGwskdkgPJmAIZCyd3SA4kYwpkLJzcITmQjCmQsXAy5ZAgCA5IkuTTarXa3JxOlUpldr1e/7parY5uSctSqdRJRNMHBwc/mWxeuVzep1Ao/LF27drvJnlO1trZzWbzi2q1OvZ/MssEEGvtFQCWApgO4E8ADzOz3vvXCILgDCJ6VkQWx3H89GRClUqljra2ttcAHJU+/xXA8cy8Xq/DMDxMRF4AsLdei8g6AF1xHP+s10EQnE9E9wDYOX3/oWKxeOmyZcvc/wFmuwMJgmCZMaY/iqKhyRZkrd0fwIcArvd9f/no6GhJRBjA6cz8fOudcrk8yxjzGYC2LQGx1g4Q0b7NZvMEIhozxjwJ4CDf9/cYGxvbodFobCCit4jonCRJ9iGilwEMM3OPtfZI/VtEbkmSpNfzvAWaAACuYOb7pgSQMAwfEJGLAWwA0Ds+Pr5yaGjo99biwjAMUgALmPnVIAimE9FPRHR7FEU36LyFCxd6o6Oj74nIuwDO3ByQ+fPn+7Va7RcAVzOzZjnK5fLhxpi3RSQE0EFEfUmSzB4cHPxAn1trbwJwq+/7bSMjI/cDOKtYLO7UcoS19k0AuzLzQVMCSFomZjrnriGiJZrhAJ4not4oit6ZO3duwff99wHsCeAxAPMB7CUiB8dxrM5R0e4EsNgYM8c598PmgJTL5UONMeuccycODAys0Xe7urp2T5JEy9HZAGYCuN33/fa+vr56+u3TAKzyPG9mkiTqhhnMrK79e1hrVwLQZJkxZYC0FtLd3d1er9eXENFdeo+ZKQXyqGb+hAXHxpiT+/v7N4ZhOE9Eqs65I9rb2z9uNBq/bg5IpVI5zjn3hogcHcfxsH5v6dKlZmhoKAFwnToEwI36u63fCoLAElHked6cZrO5kojqzHz0BCDLAVzFzIUpBaRUKu1ZKBSuE5HLUpesYuYzwjBcIiJan68cGRl5oKOjYx4RaXav9jzv0iRJPheRh+M4vra7u3vXLQEJw3COiKwnolIURW+ogD09PTuOj49vFJELtGkgojsmAqlUKj3OuZcAzALwiIh0xHF82AQgKwAsYubOKQEkreE3q+0BaDu7wvO85a1201obAThk4oLDMOwTEZ2vWa2CaOupWe6l3Y92YquZeaKrtEOaQUTfAziFmVergJVKZS/n3AYRKWvJIqKnCoXCbmvWrPktLUnnAViZ7iHq1HnMrHBaJWsVgH2Z+dApAcRa+xWAnXSTbjQaD27a11tr1wI4kJm1vrdE0HvHEdGxzrlTW/eNMdNE5EoA/SLyxKatb1qeNhLR41EUXZIKfq5mvjrA8zw/SRJtDP4BZq19TrcKTQhr7bUAlotIZ6sNttb+BCBm5tOnCpBjfN8f7uvr0wz/zwiC4Gwi0s18hXPuXmPMSQDuJqLnoihaNPGFyUpWGIaLRaSnJZi1thfA5c65kwqFwrdJksQA1jFzVwroIyLa2TnXRUT7AdAzyTXM3DuhS3vFOXe5MeZC3XOI6JAoihTkdh/b/RyyNStIuygtT63xerPZXLTpabxYLO4ybdo0LTVnMvMzqcAPAriImY2e89KD4SsAiunH1jvnegYGBr5J5x+o/QSAPdIS+mKxWDyt1eamh089u2g3OEZEt0VRdMfWrGNbzMkEEF2IdludnZ2zarXa99vi3xXa7tZqNVOtVrXk/Gfo3lKv13+sVqu6H/1raOkbHh6e1d/f/6VC3hZCb+03MgNkawOe6vNyIBkjnAPJgWRMgYyFkzskB5IxBTIWTu6QHEjGFMhYOLlDciAZUyBj4eQOyYFkTIGMhZM7JAeSMQUyFk7ukIwB+QsDY5JHDBH3eAAAAABJRU5ErkJggg==',
+        transform:
+          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAFZ0lEQVRoQ+2afYgUdRjHv8/M3l1HZi5YRmGSEhhZWQpFG7jt/GavRaU/8ky5q0R7hYoMU0HpMoVS/9BIkEqN3juOzDISd57BKdLD4sICNSgqXyjKq73CrLt5eeIXs7Ednv8oe0M3v7/2x29meeb7me/zsiwhXYlSgBIVTRoMUiAJewlSICmQhCmQsHBSh6RAEqZAwsJJHZICSZgCCQsndUgKJGEKJCyc1CEpkIQpkLBwhs0hra2tjZVKZRIzHz6TJsViccrAwMBxz/P6znRdoVCY1NDQcGr37t0/nuY6UkpNCYLgO8/zTg4+L5VKTVEUTe7v7z/oeV4wnIzqDqSjo8PYu3fvSwDuBpABoAVcyczbBgthWdY8InpLRNpd133jdELZtj1dRN4BcLk+F5EeAC2u6/6i95ZlLSKijQBGxfe/mMvlHlq1alWk90qpFwAsjGMJRORe13VfGS4odQdi2/aDIrKZiG7xfX9/JpPp0ECCIBjved7xqhCFQmGCYRjfaKGGAlIqlUb7vn+UiPYR0YIwDCcR0U4A3cw8Wyl1k/4sIk+GYbjBNM1ZGjCAR5h5k23by0TkWREpNTY27vN9/ykAi0Xkatd1Dw0HlOEAslZElgZBkNVpSCl1O4AdAG5lZk+L0Nraavb19X0hIgcAtA0FxLKsOUTUFYbhlD179hyM3/iVAFZns9lMpVLZDOCuXC53fo0jPgEwmpmvVUodAXCImUv63mnTpjVks9lTADYy8xMjAkixWJwcRdFnAE6IyIdEdA8R9fm+f0U1fyul1gFoNwxjahRFPw0FRCm1HMAz2Wy2qaurayAGMhdAp2mal4ZhqN0wjpmvqoqrlNoKYBYzj1NK+QA2MfPi6rlt28dE5CNmbh8pQMZHUVQGMLn6wDqluK67Wu9t254hIl4URTc2NTV95fv+b2cAsgbACmb+1+mWZSkickzTnBoEwVYiGmDmm2uArAfwGDM3KKWEiDocx3m65vxLAD8zsxoRQJRSOsffZhiGZZrmft/3HwGwXhfTTCbzbhiG34rIFtd1l8Q1YkgglmUtJaK1tUCKxeLsKIreBzABwDYRGeO67vQawZ8HMJ+Zx2qHiMg613VX1Jx/DeBzZr5zpAD5k4h2OI4zP35g3ZKeIKJPdQoDoAXTrWkIwIy7o78AbGfmtlqRLMtqI6LXGxoaLty1a9fvccrSHdPWuIa8DGAGM2s4/yylVCeAK5n5BqXUDwB2MvMDNee98Quh02HdV92LulJKA+l0HGdBtYBXKhUN4GMiWhFF0ZyqCoZhNIvIowDKIvLq4Na3paXlujAMdeG/g5m3x4K/rXWPHbAkdt/YahuslOoF4GoHKKUYwERmnqjvLRaLOp0ejVtfXWvqvuoOxLZtPVfME5EF2hUAtGgL9X5w/3+6lGXbdruIzK6mFKXUYSIaFUVRCxHpuqRnkseZecPMmTOz/f39vwL4IIqihw3DuE/XHCK63nGcA4VCoWQYhm4slpum2RkEwRYA0w3DuKxcLv9RdxpA/f/kkM/nx2QyGZ02itUHJqJ1juMsGyxALpe7oLm5WaeiNmZ+M3aAHuTuZ2ZDz4FKqWsA6Df9YgB6yn4vl8vNrba58XD5Wjz4nSSiNY7jrK1Jl8/puUTviUjPQYscx9FNx7Csujuk+pT5fH5UU1PTJb29vUd6enp0+3lWS6ebgYGBE57n6Xrzn6V/Heju7p5QLpe/1xAHn+fz+fMaGxsvKpfLx84qiHNw87ABOQex/y+/IgWSMKwpkBRIwhRIWDipQ1IgCVMgYeGkDkmBJEyBhIWTOiQFkjAFEhZO6pAUSMIUSFg4qUNSIAlTIGHhpA5JGJC/AeCFe0cEGjMkAAAAAElFTkSuQmCC'
       },
       '>10000': {
         addresses: [],
@@ -893,7 +907,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -909,7 +923,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -923,8 +937,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.25,
+        t: 's',
+        v: '0.25',
         w: '0.25'
       }
     },
@@ -939,7 +953,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -953,8 +967,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -983,8 +997,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -1013,8 +1027,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -1029,7 +1043,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -1044,7 +1058,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -1059,7 +1073,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -1074,7 +1088,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -1088,7 +1102,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -1104,7 +1118,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -1118,8 +1132,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.25,
+        t: 's',
+        v: '0.25',
         w: '0.25'
       }
     },
@@ -1134,7 +1148,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -1148,8 +1162,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -1178,8 +1192,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -1208,8 +1222,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -1224,7 +1238,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -1239,7 +1253,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -1254,7 +1268,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -1269,7 +1283,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -1283,7 +1297,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -1299,7 +1313,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -1313,8 +1327,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.25,
+        t: 's',
+        v: '0.25',
         w: '0.25'
       }
     },
@@ -1329,7 +1343,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -1343,8 +1357,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -1373,8 +1387,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -1403,8 +1417,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -1419,7 +1433,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -1434,7 +1448,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -1449,7 +1463,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -1464,7 +1478,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -1478,7 +1492,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -1494,7 +1508,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -1508,8 +1522,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.25,
+        t: 's',
+        v: '0.25',
         w: '0.25'
       }
     },
@@ -1524,7 +1538,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -1538,8 +1552,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -1568,8 +1582,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -1598,8 +1612,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -1614,7 +1628,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -1629,7 +1643,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -1644,7 +1658,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -1659,7 +1673,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -1673,7 +1687,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -1689,7 +1703,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -1703,8 +1717,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.25,
+        t: 's',
+        v: '0.25',
         w: '0.25'
       }
     },
@@ -1719,7 +1733,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -1733,8 +1747,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -1763,8 +1777,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -1793,8 +1807,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -1809,7 +1823,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -1824,7 +1838,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -1839,7 +1853,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -1854,7 +1868,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -1868,7 +1882,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -1884,7 +1898,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -1898,8 +1912,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.25,
+        t: 's',
+        v: '0.25',
         w: '0.25'
       }
     },
@@ -1914,7 +1928,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -1928,8 +1942,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -1958,8 +1972,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -1988,8 +2002,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -2004,7 +2018,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -2019,7 +2033,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -2034,7 +2048,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -2049,7 +2063,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -2063,7 +2077,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -2079,7 +2093,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -2093,8 +2107,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.25,
+        t: 's',
+        v: '0.25',
         w: '0.25'
       }
     },
@@ -2109,7 +2123,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -2123,8 +2137,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -2153,8 +2167,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -2183,8 +2197,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -2199,7 +2213,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -2214,7 +2228,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -2229,7 +2243,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -2244,7 +2258,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -2258,9 +2272,9 @@ export const transformResult = {
       transformKind: 'ol',
       trigger: '>',
       result: {
-        t: 'n',
-        v: 100,
-        w: '100'
+        t: 's',
+        v: '100.0',
+        w: '100.0'
       }
     },
     S24: {
@@ -2274,7 +2288,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -2303,8 +2317,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -2319,7 +2333,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -2334,7 +2348,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -2349,7 +2363,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -2364,7 +2378,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -2378,7 +2392,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -2394,7 +2408,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -2408,8 +2422,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.25,
+        t: 's',
+        v: '0.25',
         w: '0.25'
       }
     },
@@ -2424,7 +2438,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -2438,8 +2452,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -2468,8 +2482,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -2498,8 +2512,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -2514,7 +2528,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -2529,7 +2543,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -2544,7 +2558,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -2559,7 +2573,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -2573,7 +2587,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -2589,7 +2603,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -2603,8 +2617,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.25,
+        t: 's',
+        v: '0.25',
         w: '0.25'
       }
     },
@@ -2619,7 +2633,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -2633,8 +2647,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -2663,8 +2677,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -2693,8 +2707,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -2709,7 +2723,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -2724,7 +2738,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -2739,7 +2753,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -2754,7 +2768,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -2768,7 +2782,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -2784,8 +2798,23 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
+      }
+    },
+    I27: {
+      address: 'I27',
+      rowIndex: 10,
+      cellIndex: 7,
+      rowStartNum: 17,
+      colStartNum: 2,
+      original: '>500.8',
+      transformKind: 'ol',
+      trigger: '>',
+      result: {
+        t: 's',
+        v: '500.8',
+        w: '500.8'
       }
     },
     K27: {
@@ -2799,7 +2828,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -2813,8 +2842,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.25,
+        t: 's',
+        v: '0.25',
         w: '0.25'
       }
     },
@@ -2829,7 +2858,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -2843,8 +2872,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -2873,8 +2902,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -2903,8 +2932,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -2919,7 +2948,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -2934,7 +2963,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -2949,7 +2978,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -2964,7 +2993,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -2978,7 +3007,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -2994,7 +3023,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -3008,8 +3037,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.25,
+        t: 's',
+        v: '0.25',
         w: '0.25'
       }
     },
@@ -3024,7 +3053,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -3038,8 +3067,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -3068,8 +3097,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -3098,8 +3127,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -3114,7 +3143,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -3129,7 +3158,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -3144,7 +3173,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -3159,7 +3188,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -3173,9 +3202,24 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
+      }
+    },
+    I29: {
+      address: 'I29',
+      rowIndex: 12,
+      cellIndex: 7,
+      rowStartNum: 17,
+      colStartNum: 2,
+      original: '>84.000',
+      transformKind: 'ol',
+      trigger: '>',
+      result: {
+        t: 's',
+        v: '84.000',
+        w: '84.000'
       }
     },
     K29: {
@@ -3189,7 +3233,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -3204,7 +3248,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -3218,8 +3262,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -3248,8 +3292,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -3278,8 +3322,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -3294,7 +3338,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -3309,7 +3353,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -3323,7 +3367,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -3339,7 +3383,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -3369,7 +3413,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -3398,8 +3442,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -3428,8 +3472,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -3444,7 +3488,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -3459,7 +3503,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -3473,7 +3517,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -3489,7 +3533,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -3504,7 +3548,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -3518,8 +3562,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -3548,8 +3592,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -3579,7 +3623,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -3594,7 +3638,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -3609,7 +3653,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -3624,7 +3668,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -3638,7 +3682,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -3654,7 +3698,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -3684,7 +3728,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -3698,8 +3742,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -3728,8 +3772,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -3758,8 +3802,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -3774,7 +3818,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -3789,7 +3833,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -3804,7 +3848,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -3819,7 +3863,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -3833,7 +3877,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -3849,7 +3893,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -3864,7 +3908,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -3893,8 +3937,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.25,
+        t: 's',
+        v: '0.25',
         w: '0.25'
       }
     },
@@ -3909,7 +3953,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -3923,8 +3967,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -3953,8 +3997,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -3983,8 +4027,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -3999,7 +4043,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -4014,7 +4058,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -4029,7 +4073,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -4044,7 +4088,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -4058,7 +4102,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -4074,7 +4118,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -4104,7 +4148,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -4133,8 +4177,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -4163,8 +4207,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -4179,7 +4223,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -4194,7 +4238,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -4209,7 +4253,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -4224,7 +4268,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -4238,7 +4282,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -4254,7 +4298,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -4269,7 +4313,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -4298,8 +4342,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.25,
+        t: 's',
+        v: '0.25',
         w: '0.25'
       }
     },
@@ -4314,7 +4358,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -4329,7 +4373,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -4358,8 +4402,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -4388,8 +4432,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -4404,7 +4448,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -4419,7 +4463,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -4434,7 +4478,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -4449,7 +4493,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -4463,7 +4507,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -4479,7 +4523,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -4508,8 +4552,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.25,
+        t: 's',
+        v: '0.25',
         w: '0.25'
       }
     },
@@ -4524,7 +4568,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -4553,8 +4597,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -4583,8 +4627,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -4599,7 +4643,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -4614,7 +4658,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -4629,7 +4673,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -4644,7 +4688,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -4658,7 +4702,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -4674,7 +4718,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -4703,8 +4747,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.25,
+        t: 's',
+        v: '0.25',
         w: '0.25'
       }
     },
@@ -4719,7 +4763,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -4733,8 +4777,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -4763,8 +4807,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -4793,8 +4837,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -4809,7 +4853,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -4824,7 +4868,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -4839,7 +4883,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -4854,7 +4898,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -4868,7 +4912,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -4884,7 +4928,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -4898,8 +4942,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.25,
+        t: 's',
+        v: '0.25',
         w: '0.25'
       }
     },
@@ -4914,7 +4958,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -4928,8 +4972,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -4958,8 +5002,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -4988,8 +5032,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -5004,7 +5048,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -5019,7 +5063,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -5034,7 +5078,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -5049,7 +5093,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -5063,7 +5107,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -5079,7 +5123,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -5093,8 +5137,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.25,
+        t: 's',
+        v: '0.25',
         w: '0.25'
       }
     },
@@ -5109,7 +5153,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -5123,8 +5167,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -5153,8 +5197,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -5183,8 +5227,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -5199,7 +5243,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -5214,7 +5258,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -5229,7 +5273,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -5244,7 +5288,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -5258,7 +5302,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -5274,7 +5318,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -5289,7 +5333,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -5318,8 +5362,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.25,
+        t: 's',
+        v: '0.25',
         w: '0.25'
       }
     },
@@ -5334,7 +5378,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -5348,8 +5392,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -5378,8 +5422,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -5408,8 +5452,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -5424,7 +5468,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -5439,7 +5483,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -5454,7 +5498,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -5468,7 +5512,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -5484,7 +5528,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -5499,7 +5543,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -5528,8 +5572,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.25,
+        t: 's',
+        v: '0.25',
         w: '0.25'
       }
     },
@@ -5544,7 +5588,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -5558,8 +5602,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -5588,8 +5632,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -5618,8 +5662,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -5634,7 +5678,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -5649,7 +5693,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -5664,7 +5708,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -5693,9 +5737,9 @@ export const transformResult = {
       transformKind: 'ol',
       trigger: '>',
       result: {
-        t: 'n',
-        v: 100,
-        w: '100'
+        t: 's',
+        v: '100.0',
+        w: '100.0'
       }
     },
     O42: {
@@ -5724,7 +5768,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -5754,7 +5798,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -5769,7 +5813,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -5784,7 +5828,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -5798,7 +5842,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -5814,7 +5858,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -5843,8 +5887,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.25,
+        t: 's',
+        v: '0.25',
         w: '0.25'
       }
     },
@@ -5859,7 +5903,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -5873,8 +5917,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -5903,8 +5947,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -5933,8 +5977,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -5949,7 +5993,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -5964,7 +6008,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -5979,7 +6023,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -5994,7 +6038,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -6008,7 +6052,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -6024,7 +6068,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -6038,8 +6082,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.25,
+        t: 's',
+        v: '0.25',
         w: '0.25'
       }
     },
@@ -6054,7 +6098,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -6068,8 +6112,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -6098,8 +6142,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -6128,8 +6172,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -6144,7 +6188,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -6159,7 +6203,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -6174,7 +6218,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -6189,7 +6233,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -6203,7 +6247,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -6219,7 +6263,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -6234,7 +6278,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -6248,8 +6292,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.25,
+        t: 's',
+        v: '0.25',
         w: '0.25'
       }
     },
@@ -6264,7 +6308,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -6278,8 +6322,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -6308,8 +6352,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -6338,8 +6382,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -6354,7 +6398,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -6369,7 +6413,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -6384,7 +6428,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -6399,7 +6443,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -6413,7 +6457,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -6429,7 +6473,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -6444,7 +6488,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -6459,7 +6503,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -6473,8 +6517,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -6503,8 +6547,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -6534,7 +6578,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -6549,7 +6593,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -6564,7 +6608,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -6578,7 +6622,7 @@ export const transformResult = {
       transformKind: 'zero',
       trigger: 'Rock',
       result: {
-        t: 's',
+        t: 'n',
         v: 0,
         w: '0'
       }
@@ -6594,7 +6638,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -6609,7 +6653,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 0.5,
+        v: 0,
         w: '0.5'
       }
     },
@@ -6638,8 +6682,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.25,
+        t: 's',
+        v: '0.25',
         w: '0.25'
       }
     },
@@ -6654,7 +6698,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 1.5,
+        v: 1,
         w: '1.5'
       }
     },
@@ -6668,8 +6712,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -6698,8 +6742,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.005,
+        t: 's',
+        v: '0.005',
         w: '0.005'
       }
     },
@@ -6728,8 +6772,8 @@ export const transformResult = {
       transformKind: 'ul',
       trigger: '<',
       result: {
-        t: 'n',
-        v: 0.025,
+        t: 's',
+        v: '0.025',
         w: '0.025'
       }
     },
@@ -6744,7 +6788,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -6759,7 +6803,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     },
@@ -6774,7 +6818,7 @@ export const transformResult = {
       trigger: '<',
       result: {
         t: 'n',
-        v: 2.5,
+        v: 2,
         w: '2.5'
       }
     }
@@ -9642,9 +9686,9 @@ export const sheetData = {
     w: '18'
   },
   'I27': {
-    v: 0.4,
-    t: 'n',
-    w: '0.4'
+    v: '>500.8',
+    t: 's',
+    w: '>500.8'
   },
   'J27': {
     v: 1,
@@ -10032,9 +10076,9 @@ export const sheetData = {
     w: '72'
   },
   'I29': {
-    v: 2.7,
-    t: 'n',
-    w: '2.7'
+    v: '>84.000',
+    t: 's',
+    w: '>84.000'
   },
   'J29': {
     v: 3,

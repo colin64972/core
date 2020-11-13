@@ -1,7 +1,6 @@
 import { TransformSummary as ITransformSummary } from '@cjo3/dlc-web/src/store/editor/interfaces'
 import {
   Button,
-  ButtonGroup,
   Chip,
   Grid,
   List,
@@ -13,8 +12,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import DoubleArrowIcon from '@material-ui/icons/DoubleArrow'
 import clsx from 'clsx'
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { openPreview } from '../../store/editor/actions'
 
 const useStyles = makeStyles(theme => ({
   TransformSummary_panel: {
@@ -97,14 +94,6 @@ export const TransformSummary: React.FC<Props> = ({
 }): JSX.Element => {
   const classes = useStyles()
 
-  const dispatch = useDispatch()
-
-  const openPreviewHandler = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ): void => {
-    dispatch(openPreview())
-  }
-
   if (caseData.addresses.length < 1) return null
 
   return (
@@ -135,19 +124,15 @@ export const TransformSummary: React.FC<Props> = ({
             color="secondary"
             className={classes.chip}
           />
-          <ButtonGroup className={classes.marginTop}>
-            <Button
-              name={buttonName}
-              type="button"
-              variant="outlined"
-              color="primary"
-              onClick={openDrawerHandler}>
-              Inspect Transforms
-            </Button>
-            <Button type="button" onClick={openPreviewHandler}>
-              View Preview
-            </Button>
-          </ButtonGroup>
+          <Button
+            className={classes.marginTop}
+            name={buttonName}
+            type="button"
+            variant="outlined"
+            color="primary"
+            onClick={openDrawerHandler}>
+            Inspect
+          </Button>
         </Grid>
       </Grid>
       <Grid

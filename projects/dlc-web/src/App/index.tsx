@@ -6,14 +6,14 @@ import { Preview } from './Editor/Preview/'
 import { Footer } from './Footer'
 import { Home } from './Home'
 import { NotFound } from './NotFound'
-import { Test } from './Test'
+import { TransformResults } from './Editor/TransformResults'
 
 export const App: React.FC = (): JSX.Element => (
   <CssBaseline>
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/editor" exact component={Editor} />
-      <Route path="/test" exact component={Test} />
+      <Route path="/test" exact component={TransformResults} />
       <Route path="/*" component={NotFound} />
     </Switch>
     <Footer />

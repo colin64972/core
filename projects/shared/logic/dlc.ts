@@ -7,9 +7,14 @@ import {
   TransformSummary,
   CellValue
 } from '@cjo3/dlc-web/src/store/editor/interfaces'
-import { WorkSheet } from 'xlsx'
+import { WorkSheet, utils } from 'xlsx'
 import { deduplicate, mergeSort } from '../general/sorting'
-import { convertSheet, setCellAddress, sortAddresses } from '../react/xlsx'
+import {
+  convertSheet,
+  setCellAddress,
+  sortAddresses,
+  convertSheetOptions
+} from '../react/xlsx'
 
 const splitFloats = (value: string): string => {
   const splitIndex = value.lastIndexOf('.')
@@ -233,4 +238,43 @@ export const createPngDataUrl = (text: string): string => {
   ctx.fillStyle = '#444444'
   ctx.fillText(text, 49, 24, 100)
   return canvas.toDataURL()
+}
+
+export const buildCopyData = (
+  sheet: WorkSheet,
+  results: TransformResult
+): string => {
+  const { ul, ol, zero, all } = results
+
+  const options = {
+    ...convertSheetOptions,
+    header: 'A'
+  }
+
+  const rows = utils.sheet_to_json(sheet, options)
+
+  let result = ''
+
+  rows.forEach((row, rowInd) => {
+    const resultRow = []
+    Object.entries(row).forEach((col, colInd) => {
+      const address = `${col[0]}${rowInd + 1}`
+
+      let value = col[1]
+
+      const transformedCell = all[address]
+
+      if (transformedCell) {
+        value = transformedCell.result.w
+      }
+
+      if (value === null) return resultRow.push('')
+
+      return resultRow.push(value)
+    })
+
+    result += `${resultRow.join('\t')}\n`
+  })
+
+  return result
 }

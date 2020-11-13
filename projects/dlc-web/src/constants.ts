@@ -42,3 +42,9 @@ export const schemaErrors = {
   detectionLimitTrigger: 'Cannot include spaces or digits',
   alphaOnlyString: 'Must contain only letters'
 }
+
+export const exportButtons = [
+  { label: 'Copy', name: 'copy', key: createHashId() },
+  { label: 'CSV', name: 'csv', key: createHashId() },
+  { label: 'XLSX', name: 'xlsx', key: createHashId() }
+]
