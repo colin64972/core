@@ -9,7 +9,7 @@ import {
 } from '@cjo3/dlc-web/src/store/editor/interfaces'
 import { WorkSheet } from 'xlsx'
 import { deduplicate, mergeSort } from '../general/sorting'
-import { convertSheet, setCellAddress } from '../react/xlsx'
+import { convertSheet, setCellAddress, sortAddresses } from '../react/xlsx'
 
 const splitFloats = (value: string): string => {
   const splitIndex = value.lastIndexOf('.')
@@ -213,7 +213,7 @@ export const collectChanges = (
     count,
     originalValues: mergeSort(originalValues),
     changedValues: mergeSort(changedValues),
-    addresses: mergeSort(addresses),
+    addresses: sortAddresses(addresses),
     dataUrls
   }
 }
