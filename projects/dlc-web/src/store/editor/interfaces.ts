@@ -1,4 +1,4 @@
-import { WorkBook } from 'xlsx'
+import * as XLSX from 'xlsx'
 import {
   CLOSE_PREVIEW,
   LOAD_WORKBOOK,
@@ -11,7 +11,7 @@ import {
 } from './types'
 
 export interface EditorState {
-  workbook: WorkBook | null
+  workbook: XLSX.WorkBook | null
   currentSheet: string
   transformSettings: TransformSettings
   isProcessing: boolean
@@ -50,22 +50,40 @@ export interface TransformSummary {
   dataUrls: DataUrlCollection
 }
 
-export interface TransformResultCell {
+export interface TransformResultCellMeta {
   address: string
-  rowIndex: number
-  cellIndex: number
-  original: string
-  transformKind: string
+  coordinates: { c: number; r: number }
+  caseType: string
   trigger: string
-  result: {
-    t: string
-    v: string | number
-    w: string
-  }
+  original: XLSX.CellObject
+}
+
+export interface TransformValue {
+  t: string
+  v: string | number
+  z?: string
+}
+
+export interface TransformResultCell {
+  t: string
+  v: string | number
+  w: string
+  meta: TransformResultCellMeta
 }
 
 export interface TransformResultCellCollection {
   [key: string]: TransformResultCell
+}
+
+export interface ScopeRange {
+  e: {
+    c: number,
+    r: number
+  },
+  s: {
+    c: number,
+    r: number
+  }
 }
 
 export interface TransformResult {
@@ -73,8 +91,7 @@ export interface TransformResult {
   ol: TransformSummary
   zero: TransformSummary
   all: TransformResultCellCollection
-  scope: string
-}
+  scope: ScopeRange
 
 export interface CellValue {
   t: string
@@ -84,7 +101,7 @@ export interface CellValue {
 
 export interface LoadWorkbookAction {
   type: typeof LOAD_WORKBOOK
-  workbook: WorkBook
+  workbook: XLSX.WorkBook
 }
 
 export interface UnloadWorkbookAction {

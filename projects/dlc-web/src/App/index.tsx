@@ -7,13 +7,14 @@ import { Footer } from './Footer'
 import { Home } from './Home'
 import { NotFound } from './NotFound'
 import { TransformResults } from './Editor/TransformResults'
+import { Test } from './Test'
 
 export const App: React.FC = (): JSX.Element => (
   <CssBaseline>
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/editor" exact component={Editor} />
-      <Route path="/test" exact component={TransformResults} />
+      <Route path="/test" exact component={Test} />
       <Route path="/*" component={NotFound} />
     </Switch>
     <Footer />

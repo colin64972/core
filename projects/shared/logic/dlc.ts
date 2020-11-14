@@ -1,20 +1,19 @@
 import { transformFunctionValues } from '@cjo3/dlc-web/src/constants'
-import { createCanvas } from 'canvas'
 import {
+  DataUrlCollection,
+  ScopeRange,
   TransformResult,
   TransformResultCell,
+  TransformResultCellCollection,
   TransformSettings,
   TransformSummary,
-  CellValue
+  TransformValue
 } from '@cjo3/dlc-web/src/store/editor/interfaces'
-import { WorkSheet, utils } from 'xlsx'
+import { createCanvas } from 'canvas'
+import * as XLSX from 'xlsx'
 import { deduplicate, mergeSort } from '../general/sorting'
-import {
-  convertSheet,
-  setCellAddress,
-  sortAddresses,
-  convertSheetOptions
-} from '../react/xlsx'
+import { EXCEL_CELL_ADDRESS } from '../raw/constants/regex'
+import { convertSheetOptions, sortAddresses } from '../react/xlsx'
 
 const splitFloats = (value: string): string => {
   const splitIndex = value.lastIndexOf('.')
@@ -22,81 +21,59 @@ const splitFloats = (value: string): string => {
   return null
 }
 
-const checkSigFigs = (value: string, halved: number): string => {
-  const floats = splitFloats(value)
-  if (floats) {
-    const sigFigs = floats.length
-    const halvedFloats = splitFloats(halved.toString())
-    const halvedSigFigs = halvedFloats ? halvedFloats.length : 0
-    if (halvedSigFigs < sigFigs) {
-      let temp = halved.toString()
-      temp += '.'
-      temp += '0'.repeat(sigFigs)
-      return temp
-    }
-  }
-  return halved.toString()
-}
-
-const setCellValue = (original: string, replaced: string): CellValue => {
-  const floats = splitFloats(original)
-  const result: CellValue = {
-    t: '',
-    v: '',
-    w: replaced
-  }
-  if (floats) {
-    result.t = 's'
-    result.v = replaced
-  } else {
-    result.t = 'n'
-    result.v = parseInt(replaced)
-  }
-  return result
-}
-
-const setResult = (
+const setTransformValue = (
   kind: string,
   value: string,
   trigger?: string
-): CellValue => {
+): TransformValue => {
   let temp
 
   switch (kind) {
     case transformFunctionValues.leave:
-      temp = value.trim().replace(trigger, '')
-      return setCellValue(value, temp)
+      temp = value.replace(trigger, '')
+      return {
+        v: temp,
+        t: 's'
+      }
 
     case transformFunctionValues.halve:
-      temp = value.trim().replace(trigger, '')
+      temp = value.replace(trigger, '')
       const halved = parseFloat(temp) / 2
-      const withSigFigs = checkSigFigs(value, halved)
-      return setCellValue(value, withSigFigs)
+      return {
+        t: 'n',
+        v: halved
+      }
 
     case transformFunctionValues.zero:
       return {
         t: 'n',
-        v: 0,
-        w: '0'
+        v: 0
       }
 
     case transformFunctionValues.none:
-      const v = value.toString().trim()
       return {
         t: 's',
-        v,
-        w: v
+        v: value
       }
   }
 }
 
-export const processSheet = (
-  sheet: WorkSheet,
-  settings: TransformSettings
-): TransformResult => {
-  if (!sheet) return null
+const formatForSigFigs = value => {
+  const floats = splitFloats(value)
+  if (floats) return `.${'0'.repeat(floats.length)}`
+  return ''
+}
 
-  const {
+const getDataCellAddresses = sheet => {
+  const result = Object.keys(sheet).filter(entry =>
+    EXCEL_CELL_ADDRESS.test(entry)
+  )
+  return sortAddresses(result)
+}
+
+export const processSheet = (
+  sheet: XLSX.WorkSheet,
+  {
     rangeStart,
     rangeEnd,
     ulTrigger,
@@ -104,132 +81,183 @@ export const processSheet = (
     ulTransform,
     olTrigger,
     olTransform
-  } = settings
+  }: TransformSettings
+): TransformResult => {
+  if (!sheet) return null
 
-  const scope =
-    rangeStart && rangeEnd ? `${rangeStart}:${rangeEnd}` : sheet['!ref']
+  const ref: string = sheet['!ref']
 
-  console.log(
-    '%c XXX',
-    'color: yellow; font-size: large',
-    utils.decode_range(scope),
-    utils.encode_range({ s: { c: 1, r: 16 }, e: { c: 38, r: 46 } }),
-    utils.format_cell({
-      v: 0.5,
-      t: 'n',
-      z: '0.0000'
-    })
-  )
+  const sheetAddresses: string[] = getDataCellAddresses(sheet)
 
-  // const sheetRows = convertSheet(sheet, scope)
+  const requestedScope: string =
+    rangeStart && rangeEnd ? `${rangeStart}:${rangeEnd}` : ref
 
-  // const transformed = sheetRows.reduce(
-  //   (acc, row, rowIndex: number): TransformResult => {
-  //     const temp = acc
+  const scope: ScopeRange = XLSX.utils.decode_range(requestedScope)
 
-  //     row.forEach(
-  //       (cell: string, cellIndex: number): TransformResultCell => {
-  //         if (typeof cell !== 'string') return temp
+  const isInScope = (address: string, scope: ScopeRange): boolean => {
+    const { c, r } = XLSX.utils.decode_cell(address)
+    return r >= scope.s.r && r <= scope.e.r && c >= scope.s.c && c <= scope.e.c
+  }
 
-  //         const ulPattern = new RegExp(`\\${ulTrigger}\\s*?\\d*(\\.\\d*)?`)
-  //         const olPattern = new RegExp(`\\${olTrigger}\\s*?\\d*(\\.\\d*)?`)
+  const processCell = (
+    address: string,
+    cell: XLSX.CellObject
+  ): TransformResultCell => {
+    const ulPattern = new RegExp(`\\${ulTrigger}\\s*?\\d*(\\.\\d*)?`)
+    const olPattern = new RegExp(`\\${olTrigger}\\s*?\\d*(\\.\\d*)?`)
 
-  //         const { rowStartNum, colStartNum, address } = setCellAddress(
-  //           rangeStart,
-  //           rowIndex,
-  //           cellIndex
-  //         )
+    const cellValue: string = cell.v.toString().trim()
 
-  //         const meta = {
-  //           address,
-  //           rowIndex,
-  //           cellIndex,
-  //           rowStartNum,
-  //           colStartNum,
-  //           original: cell
-  //         }
-
-  //         if (ulTriggerZero !== '' && cell === ulTriggerZero) {
-  //           temp[address] = {
-  //             ...meta,
-  //             transformKind: 'zero',
-  //             trigger: ulTriggerZero,
-  //             result: setResult('zero', cell, ulTriggerZero)
-  //           }
-  //           return temp
-  //         }
-
-  //         if (ulPattern.test(cell)) {
-  //           temp[address] = {
-  //             ...meta,
-  //             transformKind: 'ul',
-  //             trigger: ulTrigger,
-  //             result: setResult(ulTransform, cell, ulTrigger)
-  //           }
-  //           return temp
-  //         }
-
-  //         if (olPattern.test(cell)) {
-  //           temp[address] = {
-  //             ...meta,
-  //             transformKind: 'ol',
-  //             trigger: olTrigger,
-  //             result: setResult(olTransform, cell, olTrigger)
-  //           }
-  //           return temp
-  //         }
-  //       }
-  //     )
-
-  //     return temp
-  //   },
-  //   {}
-  // )
-
-  // return {
-  //   ul: collectChanges('ul', transformed),
-  //   ol: collectChanges('ol', transformed),
-  //   zero: collectChanges('zero', transformed),
-  //   all: transformed,
-  //   scope
-  // }
-}
-
-export const collectChanges = (
-  kind: string,
-  data: TransformResult
-): TransformSummary => {
-  const filtered = Object.entries(data).filter(
-    entry => entry[1].transformKind === kind
-  )
-
-  const count = filtered.length
-  const originalValues = deduplicate(filtered.map(item => item[1].original))
-  const changedValues = deduplicate(filtered.map(item => item[1].result.w))
-  const addresses = deduplicate(filtered.map(item => item[0]))
-
-  const dataUrls = addresses.reduce((acc, cur) => {
-    let temp = acc
-
-    const cell = data[cur]
-
-    if (temp[cell.original]) {
-      temp[cell.original].addresses.push(cur)
-    } else {
-      temp[cell.original] = {
-        addresses: [],
-        original: createPngDataUrl(cell.original),
-        transform: createPngDataUrl(cell.result.w)
+    let result: TransformResultCell = {
+      t: '',
+      v: '',
+      w: '',
+      meta: {
+        address,
+        coordinates: XLSX.utils.decode_cell(address),
+        caseType: '',
+        trigger: '',
+        original: {
+          ...cell
+        }
       }
     }
 
-    return temp
-  }, {})
+    if (cellValue === ulTriggerZero) {
+      const transform: TransformValue = setTransformValue(
+        transformFunctionValues.zero,
+        cellValue
+      )
+
+      const transformW: string = XLSX.utils.format_cell(transform)
+
+      result = {
+        ...transform,
+        w: transformW,
+        meta: {
+          ...result.meta,
+          caseType: transformFunctionValues.zero,
+          trigger: ulTriggerZero
+        }
+      }
+
+      return result
+    }
+
+    if (ulPattern.test(cellValue)) {
+      const transform: TransformValue = {
+        ...setTransformValue(ulTransform, cellValue, ulTrigger),
+        z: `0${formatForSigFigs(cellValue)}`
+      }
+
+      const transformW: string = XLSX.utils.format_cell(transform)
+
+      result = {
+        ...transform,
+        w: transformW,
+        meta: {
+          ...result.meta,
+          caseType: 'ul',
+          trigger: ulTrigger
+        }
+      }
+
+      return result
+    }
+
+    if (olPattern.test(cellValue)) {
+      const transform: TransformValue = {
+        ...setTransformValue(olTransform, cellValue, olTrigger),
+        z: `0${formatForSigFigs(cellValue)}`
+      }
+
+      const transformW: string = XLSX.utils.format_cell(transform)
+
+      result = {
+        ...transform,
+        w: transformW,
+        meta: {
+          ...result.meta,
+          caseType: 'ol',
+          trigger: olTrigger
+        }
+      }
+
+      return result
+    }
+  }
+
+  const transforms: TransformResultCellCollection = sheetAddresses.reduce(
+    (
+      acc: TransformResultCellCollection,
+      cur: string
+    ): TransformResultCellCollection => {
+      let temp = acc
+
+      const cell: XLSX.CellObject = sheet[cur]
+
+      if (cell.t === 's' && cell.w !== '' && isInScope(cur, scope)) {
+        temp[cur] = processCell(cur, cell)
+      }
+
+      return temp
+    },
+    {}
+  )
+
+  return {
+    ul: collectChanges('ul', transforms),
+    ol: collectChanges('ol', transforms),
+    zero: collectChanges('zero', transforms),
+    all: transforms,
+    scope
+  }
+}
+
+export const collectChanges = (
+  caseType: string,
+  data: TransformResultCellCollection
+): TransformSummary => {
+  const filtered: TransformResultCell[] = Object.values(data).filter(
+    (item: TransformResultCell) => item && item.meta.caseType === caseType
+  )
+
+  const count: number = filtered.length
+
+  const originalStrings: string[] = deduplicate(
+    filtered.map((item: TransformResultCell): string => item.meta.original.w)
+  )
+  const transformedStrings: string[] = deduplicate(
+    filtered.map((item: TransformResultCell): string => item.w)
+  )
+  const addresses: string[] = deduplicate(
+    filtered.map((item: TransformResultCell): string => item.meta.address)
+  )
+
+  const dataUrls = addresses.reduce(
+    (acc: DataUrlCollection, cur: string): DataUrlCollection => {
+      let temp: DataUrlCollection = acc
+
+      const cell: TransformResultCell = data[cur]
+
+      if (temp[cell.meta.original.w]) {
+        temp[cell.meta.original.w].addresses.push(cur)
+      } else {
+        temp[cell.meta.original.w] = {
+          addresses: [cur],
+          original: createPngDataUrl(cell.meta.original.w),
+          transform: createPngDataUrl(cell.w)
+        }
+      }
+      return temp
+    },
+    {}
+  )
 
   return {
     count,
-    originalValues: mergeSort(originalValues),
-    changedValues: mergeSort(changedValues),
+    originalValues: mergeSort(originalStrings),
+    changedValues: mergeSort(transformedStrings),
     addresses: sortAddresses(addresses),
     dataUrls
   }

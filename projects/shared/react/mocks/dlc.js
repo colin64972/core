@@ -1,6830 +1,8803 @@
 export const transformResult = {
-  ul: {
-    count: 361,
-    originalValues: ['<0.01', '<0.05', '<0.5', '<1', '<2', '<3', '<5', '<20'],
-    changedValues: ['0.005', '0.025', '0.25', '0.5', '1', '1.5', '2.5', '10'],
-    addresses: [
-      'E27',
-      'E45',
-      'J33',
-      'J35',
-      'J40',
-      'J41',
-      'J46',
-      'J47',
-      'K17',
-      'K18',
-      'K19',
-      'K20',
-      'K21',
-      'K22',
-      'K23',
-      'K25',
-      'K26',
-      'K27',
-      'K28',
-      'K29',
-      'K30',
-      'K31',
-      'K32',
-      'K33',
-      'K34',
-      'K35',
-      'K36',
-      'K37',
-      'K38',
-      'K39',
-      'K40',
-      'K41',
-      'K43',
-      'K44',
-      'K45',
-      'K46',
-      'K47',
-      'O30',
-      'O32',
-      'O33',
-      'O34',
-      'O35',
-      'O36',
-      'O37',
-      'O40',
-      'O41',
-      'O42',
-      'O43',
-      'O47',
-      'Q17',
-      'Q18',
-      'Q19',
-      'Q20',
-      'Q21',
-      'Q22',
-      'Q23',
-      'Q25',
-      'Q26',
-      'Q27',
-      'Q28',
-      'Q33',
-      'Q35',
-      'Q36',
-      'Q37',
-      'Q38',
-      'Q39',
-      'Q40',
-      'Q41',
-      'Q43',
-      'Q44',
-      'Q45',
-      'Q47',
-      'R35',
-      'S17',
-      'S18',
-      'S19',
-      'S20',
-      'S21',
-      'S22',
-      'S23',
-      'S24',
-      'S25',
-      'S26',
-      'S27',
-      'S28',
-      'S29',
-      'S30',
-      'S31',
-      'S32',
-      'S33',
-      'S34',
-      'S35',
-      'S36',
-      'S37',
-      'S38',
-      'S39',
-      'S40',
-      'S41',
-      'S42',
-      'S43',
-      'S44',
-      'S45',
-      'S46',
-      'S47',
-      'U17',
-      'U18',
-      'U19',
-      'U20',
-      'U21',
-      'U22',
-      'U23',
-      'U25',
-      'U26',
-      'U27',
-      'U28',
-      'U29',
-      'U31',
-      'U32',
-      'U33',
-      'U37',
-      'U38',
-      'U39',
-      'U40',
-      'U41',
-      'U43',
-      'U44',
-      'U45',
-      'U46',
-      'U47',
-      'AB17',
-      'AB18',
-      'AB19',
-      'AB20',
-      'AB21',
-      'AB22',
-      'AB23',
-      'AB24',
-      'AB25',
-      'AB26',
-      'AB27',
-      'AB28',
-      'AB29',
-      'AB30',
-      'AB31',
-      'AB32',
-      'AB33',
-      'AB34',
-      'AB35',
-      'AB36',
-      'AB37',
-      'AB38',
-      'AB39',
-      'AB40',
-      'AB41',
-      'AB43',
-      'AB44',
-      'AB45',
-      'AB46',
-      'AB47',
-      'AD17',
-      'AD18',
-      'AD19',
-      'AD20',
-      'AD21',
-      'AD22',
-      'AD23',
-      'AD24',
-      'AD25',
-      'AD26',
-      'AD27',
-      'AD28',
-      'AD29',
-      'AD30',
-      'AD31',
-      'AD32',
-      'AD33',
-      'AD34',
-      'AD35',
-      'AD36',
-      'AD37',
-      'AD38',
-      'AD39',
-      'AD40',
-      'AD41',
-      'AD43',
-      'AD44',
-      'AD45',
-      'AD46',
-      'AD47',
-      'AF17',
-      'AF18',
-      'AF19',
-      'AF20',
-      'AF21',
-      'AF22',
-      'AF23',
-      'AF25',
-      'AF26',
-      'AF27',
-      'AF28',
-      'AF29',
-      'AF30',
-      'AF31',
-      'AF32',
-      'AF33',
-      'AF34',
-      'AF35',
-      'AF36',
-      'AF37',
-      'AF38',
-      'AF39',
-      'AF40',
-      'AF41',
-      'AF42',
-      'AF43',
-      'AF44',
-      'AF45',
-      'AF46',
-      'AF47',
-      'AG17',
-      'AG18',
-      'AG19',
-      'AG20',
-      'AG21',
-      'AG22',
-      'AG23',
-      'AG25',
-      'AG26',
-      'AG27',
-      'AG28',
-      'AG29',
-      'AG30',
-      'AG32',
-      'AG33',
-      'AG34',
-      'AG35',
-      'AG36',
-      'AG37',
-      'AG38',
-      'AG39',
-      'AG40',
-      'AG41',
-      'AG43',
-      'AG44',
-      'AG45',
-      'AG47',
-      'AH17',
-      'AH18',
-      'AH19',
-      'AH20',
-      'AH21',
-      'AH22',
-      'AH23',
-      'AH24',
-      'AH25',
-      'AH26',
-      'AH27',
-      'AH28',
-      'AH29',
-      'AH31',
-      'AH32',
-      'AH33',
-      'AH34',
-      'AH35',
-      'AH36',
-      'AH37',
-      'AH38',
-      'AH39',
-      'AH42',
-      'AH43',
-      'AH44',
-      'AH45',
-      'AI17',
-      'AI18',
-      'AI19',
-      'AI20',
-      'AI21',
-      'AI22',
-      'AI23',
-      'AI24',
-      'AI25',
-      'AI26',
-      'AI27',
-      'AI28',
-      'AI30',
-      'AI31',
-      'AI32',
-      'AI33',
-      'AI34',
-      'AI35',
-      'AI36',
-      'AI37',
-      'AI38',
-      'AI39',
-      'AI40',
-      'AI41',
-      'AI42',
-      'AI43',
-      'AI44',
-      'AI45',
-      'AI46',
-      'AI47',
-      'AJ17',
-      'AJ18',
-      'AJ19',
-      'AJ20',
-      'AJ21',
-      'AJ22',
-      'AJ23',
-      'AJ24',
-      'AJ25',
-      'AJ26',
-      'AJ27',
-      'AJ28',
-      'AJ29',
-      'AJ30',
-      'AJ31',
-      'AJ32',
-      'AJ33',
-      'AJ34',
-      'AJ35',
-      'AJ36',
-      'AJ37',
-      'AJ38',
-      'AJ39',
-      'AJ40',
-      'AJ41',
-      'AJ43',
-      'AJ44',
-      'AJ45',
-      'AJ46',
-      'AJ47',
-      'AK17',
-      'AK18',
-      'AK19',
-      'AK20',
-      'AK21',
-      'AK22',
-      'AK23',
-      'AK24',
-      'AK25',
-      'AK26',
-      'AK27',
-      'AK28',
-      'AK31',
-      'AK32',
-      'AK33',
-      'AK34',
-      'AK35',
-      'AK36',
-      'AK37',
-      'AK38',
-      'AK39',
-      'AK40',
-      'AK41',
-      'AK42',
-      'AK43',
-      'AK44',
-      'AK45',
-      'AK46',
-      'AK47'
-    ],
-    dataUrls: {
-      '<1': {
-        addresses: [
-          'AH17',
-          'K18',
-          'AH18',
-          'K19',
-          'AH19',
-          'K20',
-          'AH20',
-          'K21',
-          'AH21',
-          'K22',
-          'AH22',
-          'K23',
-          'AH23',
-          'AH24',
-          'K25',
-          'AH25',
-          'K26',
-          'AH26',
-          'E27',
-          'K27',
-          'AH27',
-          'K28',
-          'AH28',
-          'K29',
-          'AH29',
-          'K30',
-          'K31',
-          'AH31',
-          'K32',
-          'AH32',
-          'J33',
-          'K33',
-          'AH33',
-          'K34',
-          'AH34',
-          'J35',
-          'K35',
-          'AH35',
-          'K36',
-          'AH36',
-          'K37',
-          'AH37',
-          'K38',
-          'AH38',
-          'K39',
-          'AH39',
-          'J40',
-          'K40',
-          'J41',
-          'K41',
-          'AH42',
-          'K43',
-          'AH43',
-          'K44',
-          'AH44',
-          'E45',
-          'K45',
-          'AH45',
-          'J46',
-          'K46',
-          'J47',
-          'K47'
-        ],
-        original:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAACCElEQVRoQ+2XMYsTURSFz30TY2M1YmFjo7iFZTqrJPNimEoQBbFzO7FQEASxEESt7GwsF8TG6IJVYPIS4m/QXoRt1k4Qooa8JwO7soW4W9zEu8uZaorHuYfve3dgBHxMERBTbVgGFGLsElAIhRgjYKwON4RCjBEwVocbQiHGCBirww2hEGMEjNXhhlCIMQLG6hzJDfHen4kxymQy+WKM9751jpyQfr9/brFYfASwEUK4tS8BYwcOrZCyLI/P5/MbAL6FEDbb7faJLMseiMh9AA0ALylkBbetKIrzInIHwPrOuOshhPfe+ysAXqeU7orIYwCbFLIkIa1W61ie51djjPdEpAXgc0rpaZ7nrwaDwa96bFmWp2az2Ww6nX733m9TyJJk1LG9Xu9aSulN/XkSkcuj0ejDv8ZRyBJl1NGdTmet0Wi8SyldEJGtGOOTZrO5MRwOf/5tNIUsWchufLfbveicewTgEoAfAF44555XVfV1bwUKWZGQPWLOOuceAriZUno2Ho/r9z8PhaxYyO64oihOZll2uqqqTxTynyQcZOzOhrwNIdw+yHlLZw7tj6EliJpdKESTpkIWhShA1IygEE2aClkUogBRM4JCNGkqZFGIAkTNCArRpKmQRSEKEDUjKESTpkIWhShA1IygEE2aClkUogBRM4JCNGkqZFGIAkTNCArRpKmQ9RvJnospmlgRlwAAAABJRU5ErkJggg==',
-        transform:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAADQklEQVRoQ+2Xy2sTURSHzxlTfFEwVRQEFRdua1XwiTJmZhL7dCFduRBBRMSNguKu1p1gUf8ABR+7ggvrAzr3TtNFKFnEulJctrUqxifaJjGZe+TCFEMJ4mJSTuFml9zhzO9+3/wyMwjmw4oAskpjwoARwuwiMEKMEGYEmMUxDTFCmBFgFsc0xAhhRoBZHNMQI4QZAWZxTEOMEGYEmMVZNg2xbXsDIq4fGxt7+y+G/f39K4rF4ur6Y1pbW9XIyMg8M/YN47AXYtv2ukQi8RwADkQ7+AEAR4UQk4125DjOJUQcWrT2QQix2QiJgYDrugEi7qjVascQ8ZdlWQ8BoD2ZTG4cHh7+vfgUnucNE1F7GIZ9C2uIWA6CYCqGOE0fwboh3d3dyUql8hUALgohbmsaqVRqr2VZeSLypJSigZAZInpiWdYVAGgbHR2daTrFGE/AWkgqldptWVZBKdUVBMELve9MJtMWhuEXADglhHhQz8K27VWJRKIEAJ+0DABIIOI7pVRGSvk6Rm5NG8VaSDqdPqKUGieig1LKCU1hYGDAyuVyIQBcFkLcrCfjuu5+ANDHTSDiNSI6DABXEfFjtVrdns1ma00jGdNg1kI8z+sgoklEtH3fH9d77u3tXVMqleaI6IyU8m49By0rn89vLRaLs4VCoarXPM8bIiJ9o9/l+/6rmLg1bQxrIY7jbNJXNwCcEEI81hTS6fQWpdQ0EaWklGOLyWgpg4ODauF3z/O6iOgZIrq+78umkYxpMGsh0d/THCLe933/nN6z67qnAeAeAGwTQkzXc3Ac5yQiPlJK7QmC4GXUkDtEdD6ZTK5t9FQWE8fYxrAWEgm4BQAXlFJ9LS0t78Mw1Fd5QQiRiYDfAIA53/evd3Z2rqxWq98B4A0ingWAfUSk7zNSCNETG7UmDmIvJHoxfAoAhyIOk0qp3iAIZiNhU0T0TUrZEX0/TkSDiLgzOj5fq9V6stns5yZyjG00eyELO9WPu5VKxfpfsPr+Uy6X53O53M/YaC3BoGUjZAlYsDiFEcJCw98QRogRwowAszimIUYIMwLM4piGGCHMCDCLYxpihDAjwCyOaYgRwowAszimIUYIMwLM4piGMBPyByeqKzgvdM+kAAAAAElFTkSuQmCC'
-      },
-      '<0.5': {
-        addresses: [
-          'Q18',
-          'Q19',
-          'Q20',
-          'Q21',
-          'Q22',
-          'Q23',
-          'Q25',
-          'Q26',
-          'Q27',
-          'Q28',
-          'Q33',
-          'Q35',
-          'Q36',
-          'Q37',
-          'Q38',
-          'Q39',
-          'Q40',
-          'Q41',
-          'Q43',
-          'Q44',
-          'Q45',
-          'Q47'
-        ],
-        original:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAD00lEQVRoQ+2XS4gjRRjH/1+Z4KgMTHZlBUEXD17XR2R9jdJ2dSfOzmZFZPCgIC66iIiosCJexgERhF129eZB8XVy0IPjA9LVPdlDs+QQx5OyR/ehslFR3N1J7HR9UppAGAaRbAIVqBwrVV+++v3q310huI9VBMiqblwzcEIsOwROiBNiGQHL2nEJcUIsI2BZOy4hTohlBCxrxyXECbGMgGXtuIQ4IZYRsKydqU2I53nXEtHO9fX1U//FdGlp6Yp2u33V8JzZ2Vm9trZ2yTIX/7QzdUI8z5srFApfAbi7D/QPAA8opTa2AyylfImIjm757iel1PVOyIgEpJSBEKIcRdGbQRAkRHRzr9d7kIguCCE+ArCnVCrtWl1d/WvrT4RhuMrMe/I8PzD4jog6SZL8MGI7E11mbUKklDsBHCKiFwDsYuY3ZmZmjnS73d8AvKiUOm7I+L6/VwjRZOYwjmO1jZAzzPy5EOJlADvq9fqZiRK9zOLWCZFS3meAE9HDAC4Q0bEsy95uNBq/+L5/uxCipbXelyTJ12bv1Wp1R57nvwJ4Qin14TAPz/NmCoXCJoDzRgaAAhGd1VpX4zj+7jLZTWS5VUIWFxdL/QSAiJ7Osuz9RqPRG+y8Uqncr7U+wcz3xHF80owvLy+LNE1zAIeVUkeGKQVBcBcAM+8kEb3GzEb2K0T0c5ZlNw3XngjdEYpaJWRhYeHKLMs+BbAIoGPSQUTH6/W6OeEIw/BWZt4gIi+KohNmrFarXb25uXmRmZ+K4/jdYQZGVrPZvLHdbp9rtVpZv8ZRZjYv+tuiKPp2BGYTXWKVkMFOfd/fLYR4FcBB85gB8AmA15n5vDndAB5RSn1m5lcqlRu01qeZ2Y/jeH0rLSNlZWVFD8bDMNzHzF8SURBFUTxRuiMUt1LIYB/milssFp9n5sPMfGp+fn5vmqYXieiDKIqeMfOCIHgSwHsAdiulTg8zkFI+RkQfa63LSZJ800/IW8z8bKlUuma7W9kIDMe6xGohg52Wy+Xi3NzcHea9EQTBMQDPaa0PFIvFH/M8N6e8pZSq9oE/zsw1pdSj/Ufg7wC+J6JDAO5kZvOeiZVS+8dKckzFpkLIlpuT+WP4BYB7++MbWutakiTn+ol5x1yXlVICAAdB8BAzrxDRLf35zV6vt9/c2sbEcKxlpk7IYPfmutvtdsX/BSulvK7T6VxK0/TPsRIcc7GpFTJmDtaUc0KsUfFvI06IE2IZAcvacQlxQiwjYFk7LiFOiGUELGvHJcQJsYyAZe24hDghlhGwrB2XECfEMgKWteMSYpmQvwHzx2U46u+pfgAAAABJRU5ErkJggg==',
-        transform:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAD3UlEQVRoQ+2XTYgcRRTH/1W93fGQw7ayiIoRloCKBw/rIcdltmqWARURxhwSVPw8qIEkaIISxs1BJAc16MFIRI0fEAZRCGTYnlewIqiXVRSNhxw0iQTMqrsrJrCZ7nlSYRbaYdhJHzpTQvWtu169fvX79euuFvCHUwSEU9X4YuCFOPYQeCFeiGMEHCvHd4gX4hgBx8rxHeKFOEbAsXJ8h3ghjhFwrBzfIV6IYwQcK8fZDqnVapu63e4da2trPy0sLKTDuCmltgRB8M/8/Pxf+dh6vR4tLS1F+WsTExOXm83m5WE5RzHupBCl1BEAjwEYA5Ay8xPGmA8GAdJa15n5FQBbe+NfAniBiL6x50qpeQDVvrnHiOiRUQAfdk/nhGit9zHzq8xci6Loq06n8zKA3cx8lzHmVH5Bs7Oz12dZ9juAd9I03Qdg89jY2EkAd8ZxvLnZbGZKqRUAn2ZZdmh9bhiGy0mSXBgGZxTjzglRSp0BcIqIahbI1NRUGMfxJQBvENHzfULuTtP0SQANY8yfdkxrfZCZDwRBcIM9z7LMXn9ASvm1ECLtf6WNAvpG93RRSAfAW0S0e71wrfU5Zv6CiHZutJh6vR6srKz8yswREd2ota4ys31lnQWwpTfXhGH4YKvV+ts1GbYeF4WwEKLRbrcPrgNTSv0A4AIRqY0gKqU+ArBDSnl/kiQnZmZmDgghbJ63hRCfMfMOAA8D+HiY3FHJclFIh5kPGWNeygk5DeBbIto+CJTtjOXl5U8APMTMe40xr9k4u1PLsuzmJEl+yXXbj8x8OxGFo4L+f3tlnQdwgoiezgn5g5mPGmP29y+mJ+NzAPcC2EVEb+ZjGo2GnJub6+aEHGbmXXEcb3Jx6+tihxCASSKatBCr1eqt3W73bG/r+26/EKXU8V5n2K3xf8a11u8z8/YwDMdbrdaanauU+hnAKhFt8x1yFQQqlUpNSnlSCLE/CILjaZoeBXCPlPKWJEkuaq13MvN99vWltZ5hZmLm7+3WN58+y7JjYRhuZebvALwH4HUhxKPMvGdQJ11FadckxLkOsRsNpdRhAM9d2XUI8RuAx9vtdtJ7wu1P41NEJJVSH9qP+CBSUspJ++3QWr/IzM8CuKmX78j4+Pgz9h/lmhAueBMXhVxZwvT09HVRFE0kSXKu4JoGhlcqldtWV1fPLy4u2m21s4ezQpwlVnJhXkjJgIum90KKEis53gspGXDR9F5IUWIlx3shJQMumt4LKUqs5HgvpGTARdN7IUWJlRzvhZQMuGh6L6QosZLjvZCSARdN74UUJVZyvBdSMuCi6b2QosRKjv8XqWhsON9BwVwAAAAASUVORK5CYII='
-      },
-      '<3': {
-        addresses: [
-          'S18',
-          'S19',
-          'S20',
-          'S21',
-          'S22',
-          'S23',
-          'S24',
-          'S25',
-          'S26',
-          'S27',
-          'S28',
-          'S29',
-          'S30',
-          'S31',
-          'S32',
-          'S33',
-          'S34',
-          'R35',
-          'S35',
-          'S36',
-          'S37',
-          'S38',
-          'S39',
-          'S40',
-          'S41',
-          'S42',
-          'S43',
-          'S44',
-          'S45',
-          'S46',
-          'S47'
-        ],
-        original:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAACmUlEQVRoQ+2XPYgTURSFz30TkxSukoiFglooilqIBAuNRZKZLBsQLPxh2U4R7LTQTlgLfyotZGELCxEsBIOChSSZTAa0FNKpnSi4siBIkBQaJ8yVkQS2WJYUIXsn3ClnHvPO+753HjMEvUQRIFFpNAxUiLBNoEJUiDACwuJoQ1SIMALC4mhDVIgwAsLiaENUiDACwuJoQ1SIMALC4kxdQ8rl8m7LspL1ev2rMNYjxZkaIY7jHGbm50R0bLDyVWPMrOu6H0YiIWRQbIVUKpVUEAQLAH5lMpnXnU7nEzP/TqfTxYhtr9d7C2C753n7hLAeKUbshNi2fZCIrgO4PFjhfL/ff5NIJE6HYfjN9/3P0X3Hcd4BOO553sxIJIQMioWQXC63JZvNng/D8AYR5QB8YeZ72Wz2WbVa/buWpW3bRSK6AmCBmRdbrdYdIaxHihELIeVy+QIzv4iOJyI622w2o+No3ctxnPcATgwenvM879VIJIQMioWQYrF4KJFIvGTmo0S0Eobh3WQy+bRWq/XW41ipVHYGQfAEwJkwDA8MjzEhzDeMEQshwxWUSqVTxpjbAGYB/AGwZIx54Lruj0KhsLXb7fba7XYQjbdt+wgRfQRwzfO8pTjIiDLGSsgaMfuNMbcAXGLm+8y8bIxZIaKbzWbz4UDIHBHVmPlqq9V6rEImQMC27R2WZe2K/jUcx6kBOMnM8/93GtEygD2WZe1tNBqrE4gzlili2ZD1Vj74HH4EYG7w/Kcx5qLruv5YSE3oJVMjZMgrn8/PpFKpbb7vf58Qw7FOM3VCxkpnE16mQjYB+kZTqhAVIoyAsDjaEBUijICwONoQFSKMgLA42hAVIoyAsDjaEBUijICwONoQFSKMgLA42hBhQv4BZ+StKXub9QoAAAAASUVORK5CYII=',
-        transform:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAACnklEQVRoQ+2VPYgTQRTH30sCKpoigggWB4K1H1hoIwR2hrByKAip7AW1EQvRKuY6wSvsLC20ilxhsMnOLtsESRERBK2PU/xYQUG9BDe7TxYucIh3x81mcpPwAttk9/3nv79fHkHgj1UE0Ko2XAZYiGU/AhbCQiwjYFkd3hAWYhkBy+rwhrAQywhYVoc3hIVYRsCyOrwhLMQyApbVmakNEUIspGmKQRCsbsWxXq8Xoyg6sPl+uVxO2+32umXs/1tnZoTUarUTSZK8BYAnSqnrW8F1HOc2Ii7/c/+TUuoYC5kAgWq1eqhYLN5DxDsAUAKAx9sJkVK2iOhkkiSXxscj4nC7rZpAzYlFWL8hQogrAPCMiG4h4hIArOwgZI2IXhQKhUzg4U6nszYxWlMIsl6I67pHBoPBIAzDX0KIL9sJqVar+0ul0gAAvmYyso1CxA9pmtZ83383BZ65j7BeyOY33EmIEOI8ALzKLkS8T0QXAOAuIn6O4/h4GIaj3MQMB8yVkEajUej1egtRFH3s9/txxk5KuUxE2R/9Gc/z3hjmmTt+roRkNDIpzWYzHZORUl4kopeIKDzP83MTMxwwV0Icx7mKiE/TND0bBMHrjQ15REQ3KpXKwVar9ccwz9zxMy9ESvkAAH57nrfkuu6+OI5/AMB7RLwGAOeI6CEA+Eqpxdy0phAwi0KeK6VujtkIIVaJ6Lvv+6ez74QQl4moiYinNp7pjUajxTAMv02BZ+4jZkrIbt7WcZyjw+Fwvdvt/tzN3F4/O7dC9hqs7vksRJecoTkWYgisbiwL0SVnaI6FGAKrG8tCdMkZmmMhhsDqxrIQXXKG5liIIbC6sSxEl5yhORZiCKxuLAvRJWdojoUYAqsby0J0yRmaYyGGwOrG/gXlC98pyAqVuQAAAABJRU5ErkJggg=='
-      },
-      '<0.01': {
-        addresses: [
-          'AD17',
-          'U18',
-          'AD18',
-          'U19',
-          'AD19',
-          'U20',
-          'AD20',
-          'U21',
-          'AD21',
-          'U22',
-          'AD22',
-          'U23',
-          'AD23',
-          'AD24',
-          'U25',
-          'AD25',
-          'U26',
-          'AD26',
-          'U27',
-          'AD27',
-          'U28',
-          'AD28',
-          'U29',
-          'AD29',
-          'AD30',
-          'U31',
-          'AD31',
-          'U32',
-          'AD32',
-          'U33',
-          'AD33',
-          'AD34',
-          'AD35',
-          'AD36',
-          'U37',
-          'AD37',
-          'U38',
-          'AD38',
-          'U39',
-          'AD39',
-          'U40',
-          'AD40',
-          'U41',
-          'AD41',
-          'U43',
-          'AD43',
-          'U44',
-          'AD44',
-          'U45',
-          'AD45',
-          'U46',
-          'AD46',
-          'U47',
-          'AD47'
-        ],
-        original:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAEH0lEQVRoQ+2XX2gcVRTGv3OzuxGfslZbRSRSEARRxARBJTLO3NnNNkQsor4UxH/VBxWLBIs+RETEitAovghVrD61QVE0FXbO3WweoulDDSgWik82NUqpitAY19mdI4O7MiwtyRQZJnD3bfecc8/Z73fPvecS7CdXClCuqrHFwALJ2SawQCyQnCmQs3Jsh1ggOVMgZ+XYDrFAcqZAzsqxHWKB5EyBnJVjO8QCyZkCOStny3RIrVYbjKLoxlar9X2z2WxvpKPjOFcS0bb5+flTF/PVWt88ODh4Zm5u7veN1svKviWAaK3fBfAogAKAtog8bow5fCGRHMcZKhQKxwDc0bX/AeAeZl5O+vu+/4CIHBWR3caYT7MSfKM8uQTieZ5WSo0EQXDA9/0XROR1EamVSqWvwjB8GcA+EbnJGHOy/w9qrRtEdEO73R4novNKqY8A3FIul7fPzs7+PT4+fn273T4A4ME41gK5yBbxPG8bgL1E9ByA7SLymjHmJa31jwBOMnMtDh0ZGSmWy+U/Acww81RyuYmJiXKr1fotBsbMM7HNdd3blVLHRcQ3xnDcbUS0S0SeB3DEAukD4nneWCwgEe0GcJ6IDoZh+Haz2TwXu2qtQwDvMPO+Xqjv+ysissDMe5LLua57m1LqRBRFuxqNxpexrVqtXtHpdH4F8DAzf+i67vDY2NjK0tLSjk6ns2qBJBRM7GgQ0RNhGH7Qf2FrrYWIpoMgeKUXqrX+FsBZZtZJIJVK5e4oihZE5E5jzNexbXp6Wi0uLnYATDHzmz3/arV6jQXS1x3x5BSG4ccAJgD8FXcHEc3U6/WzCfFDEXkjPr4Sv/0A4Btmfqjvor5VRJaJyAmCYCG2TU5OXr6+vr7WHQTes0A2Giv+PeeHlVIvJiapowBeZebvtNarAD5n5icTQM6JyCFjzP7k8p7n7SCiXwDcz8yfxLZKpXJdFEWnRcQ1xsxbIJsA0nOJR9ZisfisiEyJyCljzKjWmgHsZOadfQLHo+9/Oz5xPK0R0eEgCJ7q3kGPAHgfwDAzn7ZAUgDpucaT1NDQ0Gh8D7iuW1NKHSOi/QMDA0fa7fYhAKNKqWvr9fqa7/t7RGSyd3xprQ8CeDqKonuLxeJqp9MxAE4wczVZir1DLgFMN4S01m8BeCb+TkRnADwWBEG92wHxo3EvM6v4WdF9GH4B4K5u/HIURZONRuOnZAmO41xdKBR+BnAfM3926eX9v5G5fBhe6C86jnNZqVS6ql6vr2xGgnjcbbVaqjc+byYmDz5bBkgexMqiBgskC5VT5LBAUoiVhasFkoXKKXJYICnEysLVAslC5RQ5LJAUYmXhaoFkoXKKHBZICrGycLVAslA5RQ4LJIVYWbhaIFmonCKHBZJCrCxcLZAsVE6RwwJJIVYWrv8AtqrYOG02NVIAAAAASUVORK5CYII=',
-        transform:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAE0klEQVRoQ+2XX4hUZRjGn/fMnlEicCZdI6MEJRLKkJSoFmI6+53ZNhmJQr1I+k8FmaAQSQabdVF5o1IXCVrZH0gGizIcZuY9s+PFKl1sRqQRXURaVq792WXVZmfO98ZXM3FaFrYr57v4zt3Z9+z5nvP85nm/9yO4yyoHyCo1TgwcEMt+BA6IA2KZA5bJcQlxQCxzwDI5LiEOiGUOWCbHJcQBscwBy+S4hDggljlgmRxrEjI4ODhHa72s0WicqNfrrdl8yuVyC4ho/vDw8DczPRsEwVLf9y+Uy+WfkvW1a9emx8bG0sm/9fb2ThWLxanZ1rwUdSuAKKX2AHgEQA+Alog8FkXR/pkMyOVymZ6ensMAbmvXxwHcyczHzX0YhqtE5CCAa829iIwCGIii6Fdzr5QqA8hPe/c7zPzgpTB8tjW6DiQMw2dF5BURGUyn00ebzeYLADaLyA1RFJ2c/gFKqRoRXddqte4ioknP894FcFM2m104OTk5t9lsniKio0T0UBzHS4noEIBjzFxoA/kDwME4jnd03u37/u+VSuXsbGZdinrXgSilvgdwkpkHzQevXLnSz2azFwDsYuZnkiasXr0622g0fjPAmHmXqQVBcIvneZ+JSAggQ0TFOI5vHB4ePtEG8DyAl7LZbM/ExMS8OI5NUu7xPO8YEbXK5bJ5nzWXDUCaAF5n5s0dV8IwPC0iR5h5Q9KpIAhu9jxvVGt9d61WK5nawMDAFW2TTctZBODlbDY7p7MnKKXWATiQSqUWaa2Xi4hpWac6LQ1A5Pv+vaVSacIGKjYAESIaqlarL3YMUUp9CeAsM6ukSfl8/g6t9RERuT2KomOmNjQ05I2MjMQATJoyALYx87/f1d/fr4iomkqlVrRarTVEZNZ5g4g+EpH7ATwA4P3p8LsFxwYgTRHZEUXRtgSQbwF8zszrk8aEYbhCRI4TUa5arR4xtUKhcNnFixfPm0EAwHwiejUJJJ/PF7TWnwBY7Pv+L3EcL6pUKt8l0viViFzPzH63ICTXtQHIGQCHmPmJBJBzIrI3iqKtSbH9/f1XEtHPAO5j5g9NLZ/PX6O1PiUigWlZRPSe7/vzOi1IKWWmt31mDykWi7FJ1Pbt23UCyG4R2ZRsc90EYwMQBrCEmZdMM9iMvvuS5rTb03ki2l+tVp9sb9oPA3jTJCCVSmXjOP4iCUwp9YGZdpl5QRiGb4vIet/3M6VSqdH+/68BjDPzrd0E0Vm760CCIBj0PO8wEW1NpVIHWq3WXgCrPM+7ulKpnA/DcIOIFDrtSym1E8BGrfUa3/fPxHEcARhl5oGOwUR0udZ6gIiWmREXwBZm3tlpeQDeArDTjMYisgXAJmZ+zQH5xwFSSu0G8PTfN0Q/AHi0Wq1W2gabQ+PjzOyZc177YPgpgL62gce11oVarfZj+/nlAEzqFppDJoCP+/r61nXaVBiGz4nIRgBXtdfbk8lknjLtzAFJOJDL5eam0+neSqVy+v8YY8bdRqPh1ev1czM9b/aWqampsXq9/udM9SAIFo+Pj58ZHR01Y7c1V9dbljVOWCLEAbEEhDWbumV+dF2OS0jXEfxXgAPigFjmgGVyXEIcEMscsEyOS4gDYpkDlslxCXFALHPAMjkuIQ6IZQ5YJsclxDIgfwGJp/g4/H084wAAAABJRU5ErkJggg=='
-      },
-      '<20': {
-        addresses: [
-          'AB18',
-          'AB19',
-          'AB20',
-          'AB21',
-          'AB22',
-          'AB23',
-          'AB24',
-          'AB25',
-          'AB26',
-          'AB27',
-          'AB28',
-          'AB29',
-          'AB30',
-          'AB31',
-          'AB32',
-          'AB33',
-          'AB34',
-          'AB35',
-          'AB36',
-          'AB37',
-          'AB38',
-          'AB39',
-          'AB40',
-          'AB41',
-          'AB43',
-          'AB44',
-          'AB45',
-          'AB46',
-          'AB47'
-        ],
-        original:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAADeElEQVRoQ+2XQWhcRRjH/997+5KL4D5aPAimh1w8RJQml7IKYWf2LWEJUoX0EIjS0tpDCbZFD7YIwWItPUTsoRAUIqSgrgqNSNjNvORBIT0pllJKA0XopaVaD0Wk2Zc3IyO7UkI85CVDZmXm9tj5vvfN7zffzD6CG1YRIKuqccXACbFsEzghTohlBCwrx3WIE2IZAcvKcR3ihFhGwLJyXIc4IZYRsKwc1yFOiGUELCun6ztkeHi42NPTEzabzV83Y1sul/uDIPir0Wjct4z9puV0rZAoigaklDMADrRXtqqU+jiO4y/1c6VSGVJKfQegTz8rpX4CUI3j+JHNYrpKCGOMe543uLi4eIFz/rMG6/t+TSn1WEr5CYATAPYHQXA3TdN7RLRCRG9nWdZPRD8AuC6EGHVCtkGAMbYHwDEiehfAc7oLsiy7WCgUPpRSfru0tLSi03POXwVwDcAhpZQkonqWZQPLy8u32r+fBfBRGIaFer2ebaMko6HWdghj7DUAJ4noIIA/iWg6TdPPkiT5fTMinPM5AOOe5/VJKccBnA/DsLder7faQsYAfO37/vM23ydWCqnVauHa2tofGiQRHU3TdDZJkvX/2pqMsbeIaBbAJSHEJOf8HIAzQoh/16ePOyJa9H3/lUajccPoNt9GciuFjIyM9KZpqi/kGoAnujuI6NNms/lw41orlcpxpdRlAD+GYfi6Po4YY+8T0YWnhURRNCqlnAewTwhxbxvMjIZaKaSz4nK5vM/zvA8AHAZQAPANgHNCiJvtY0jfK9MA5sMwfKNzNzDGxoloLgiCZxcWFh635+ocX7g7ZAf2k/7WCIJgUin1nlLqThzHQ4yxI0T0OYArpVJpYmpqSnZeVa1WX86y7BcAbwohvm8L+Urf/UKIvTtQkrEUVnfIxlUPDg4GxWJxCMAqET0AsK6UOr1hnojjeJVzfpuInpFSVonoRQD6CDwlhNAdZe3oKiEdipzzCQD/fABuHEqpd+I4nuGcvwRA6L/KWhyAq6VSaezpTrLRSlcK2QrIKIpeaLVavyVJ8mQrcbs1938vZLfA5n2vE5KXnKE4J8QQ2LxpnZC85AzFOSGGwOZN64TkJWcozgkxBDZvWickLzlDcU6IIbB50zoheckZinNCDIHNm9YJyUvOUJwTYghs3rROSF5yhuKcEENg86b9Gx/JDTiSzefVAAAAAElFTkSuQmCC',
-        transform:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAChUlEQVRoQ+2XP4gTQRSHf4+9xeZQFtRC8CzOwkLRwi5NyE6ybHGNyjU2Yic2YnEo2kQFsbK1ESwUTlYP1CIsvvyptBIUEWuvEREbESOJsyuBRMIhsgyZMBteymXem99837xdQpCfUwTIqTQSBiLEsUsgQkSIYwQciyMTIkIcI+BYHJkQEeIYAcfiyISIEMcIOBZHJkSEOEbAsTilnBCl1EqWZdTpdD7t5Fmr1VZ93/+Zpulnx1gXilM6IVEUHdZavwfwgJkvTE5Zr9dP5nn+FMDK6Fme528ARO12+1shEo4sKo2QarW67HneVSLaALAE4N5ESBzHu4fD4TYRvSKic1rrVSJ6AeA1M685wrpQjNIIUUqdAvAoz/NLRHQDwNZESBiGZ4go0Vof7Xa7H0YnV0pdB3AzCIKlJEl0IRoOLCqNkDiO9/X7/X6v1/uhlPoyLUQpdQXA7SAIdiVJMhgLWQfw2PO8A2X6npRGyPTl/YeQWwCuMfPf84RhqIjoped5J9I0fefA5S8UYSGEhGG4QUR3poU0Go21LMueAzjEzNuFaDiwaFGEnCWih77v72m1Wt/Hr6zzAO7LN2QOt2znKyuKouNa67cATjPz1ljI5ujbzsx75xBpZlssxISMBXwkouUsyyIiOgJg9J/kMjPfnRmtOTQqs5AnzHxxwkgpdQwAA9gP4DeAZ5VKZb3ZbGZz4DizLUop5H+nbzQaBweDwdder/drZpTm2GjhhMyRnZWtRIgVrOZNRYg5OyuVIsQKVvOmIsScnZVKEWIFq3lTEWLOzkqlCLGC1bypCDFnZ6VShFjBat5UhJizs1IpQqxgNW8qQszZWakUIVawmjcVIebsrFT+AbR4wCmRsR4sAAAAAElFTkSuQmCC'
-      },
-      '<2': {
-        addresses: [
-          'AF18',
-          'AF19',
-          'AF20',
-          'AF21',
-          'AF22',
-          'AF23',
-          'AF25',
-          'AF26',
-          'AF27',
-          'AF28',
-          'AF29',
-          'O30',
-          'AF30',
-          'AF31',
-          'O32',
-          'AF32',
-          'O33',
-          'AF33',
-          'O34',
-          'AF34',
-          'O35',
-          'AF35',
-          'O36',
-          'AF36',
-          'O37',
-          'AF37',
-          'AF38',
-          'AF39',
-          'O40',
-          'AF40',
-          'O41',
-          'AF41',
-          'O42',
-          'AF42',
-          'O43',
-          'AF43',
-          'AF44',
-          'AF45',
-          'AF46',
-          'O47',
-          'AF47'
-        ],
-        original:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAACf0lEQVRoQ+2XMYgTQRSG/9ld19ZdKxsbQQutTKWxSDKTQLA4EEVROFELLUSFKw+UgIqFcIWFIBYnauOqhSCBzWzgECy1v+YKBcXurNQkM7KQgBzBnWqYCW/L8MP75/vmsVkGepwiwJxqQ2VAQhy7BCSEhDhGwLE6tCEkxDECjtWhDSEhjhFwrA5tCAlxjIBjdWhDSIhjBByrs3Ab0mg09sRxnOR5vuUYa6M6CyOk0+kcUUo9AXBsevJNrfX9oiieGZFwJOStkG63u3s0Gp0HsC2lfCuE+FQyDcPwpNb6p1LqAYDrAI5KKT87wruyhndCOOcHGWM3AVyenu7ceDzeiKLotlLq9XA4/Fj+LoQ4AeADgLNSyleVJBwJeCGkVqvtStP0tFJqhTFWA7Cltb6XpunzLMv+zGMphHgB4EIQBPvzPP/iCO/KGl4IabfbZ7TW5S3fZowtDQaDjf+djHN+kTG2DuCRlPJGJQWHAl4IaTabh6IoeqO1PswY+6qUuhvH8Xq/3/+9k2W73b6mtX4M4H2SJEtZlk0c4l1ZxQshs1O0Wq3jQRDcAdAB8KvcgCAIHuZ5/mP63rgFYA3AuyRJTvkmozyDV0L+EXMgCIJVAJemf21XOedXGGNPAbys1+vLvV5PVV5HBwNeCplx5JzvDcNw32Qy+cYY+w5grLVe2cFZFkWx6SD7uZW8FjI7kRBiGcDcD0Ct9dWiKMoPRi+ehRDiBWnDkiTEEJStGAmxRdpwDgkxBGUrRkJskTacQ0IMQdmKkRBbpA3nkBBDULZiJMQWacM5JMQQlK0YCbFF2nAOCTEEZStGQmyRNpxDQgxB2YqREFukDeeQEENQtmJ/AYC1nik4fdo4AAAAAElFTkSuQmCC',
-        transform:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAABM0lEQVRoQ+2XsW2DUBRF35eQGCFJFS+QEZAQ+gjkyi7sRTxFRsgISZUUdNCzR6K49AKgZ7lwG8kF5hIdevhH5/xbEIxHykCQogHGCCJ2CQhCEDEDYjgshCBiBsRwWAhBxAyI4bAQgogZEMNhIQQRMyCG8y8WEmN8SdP0p2mak5jfm3EWH6Qsy527f7j7tuu6z5sNiL2w2CB1Xa+GYXg1s/3FKUFmvlkxxrcQwtrdD2b2TpCZgxRF8Zxl2Xff9w/jOP4SZOYg1+OrqnoiiEiMCwZBhGIQRCwGQQgyuYHF/odczeR5/pgkydHMNm3bfk1ubOIDFh9kYj93/zxB7q787wMJQhAxA2I4LIQgYgbEcFgIQcQMiOGwEIKIGRDDYSEEETMghsNCCCJmQAyHhRBEzIAYzhnD1nIpEKQRsQAAAABJRU5ErkJggg=='
-      },
-      '<0.05': {
-        addresses: [
-          'AG18',
-          'AG19',
-          'AG20',
-          'AG21',
-          'AG22',
-          'AG23',
-          'AG25',
-          'AG26',
-          'AG27',
-          'AG28',
-          'AG29',
-          'AG30',
-          'AG32',
-          'AG33',
-          'AG34',
-          'AG35',
-          'AG36',
-          'AG37',
-          'AG38',
-          'AG39',
-          'AG40',
-          'AG41',
-          'AG43',
-          'AG44',
-          'AG45',
-          'AG47'
-        ],
-        original:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAExUlEQVRoQ+2XXWgcVRTH/+dmN35RyLZaQdFiQRCE+pGiqFXWmTuJaZqKlOJLQfyqIipWqBZ9SCMiKpa24otQP4q+2KAPRivs3DtJwVjykFYUK8Unra1iqii2TdaZvUdu2YUhVDcMnWQCd992zpxzz/n977n3DMH9CkWACpWNSwZOkIJtAieIE6RgBAqWjusQJ0jBCBQsHdchTpCCEShYOq5DnCAFI1CwdFyHOEEKRqBg6SyaDunr67vAGHNdvV7/bmxsLGnHsVqtXkpEy0ZHR4+m3924cWPH1NTURelnS5YsMSMjI2faxZwP+6IQREr5NoCHAJQAJMz8iNZ677kAVavVrlKptB/AbU37XwDuVkodtv9933+WiHbM8v1FKXXFfABvt0YhBfF9XwohusMwfC0IgueZ+VVm7uvs7PwqjuPtALYw8/Va6yOzC5RSRkR0bZIk9xDRKSHEBwBWVSqV5cPDw/8EQTDMzKsajcb6li8RzURR9GM7WPNhL4wgvu8vA7CZiJ4BsJyZX9FavyiltKCOKKX6LJDu7u5ypVKxx8supdTWNKT+/v5KvV7/wwqmlNplbZ7n3SKEmGDmQGutgiA4xsyfCiGeA7C0Vqsdmw/Qc11jwQXxff9OC5CI7gNwioh2xnH85tjY2ElbhJQyBvCWUmpLq6gm1ANKqU3pQj3Pu1kIMWmMWRtF0RfW1tvbu7TRaPwO4IEkSfaVSqVpAL9ZMewRSEQ/G2N6z9Vtc4V4Pt9bUEFSOxpE9Ggcx+/PvrCllExEg2EYvtQqXEr5jYWqlJJpGD09PXcZYw4w8+1a64PWNjg4KMbHxxsAbDd9CcA+P0hE25nZboZtRPRrHMfXzGVYOJ/wzxVrQQWxk1Mcxx8D6AcwY7uDiHbVajW7g8/+bIcw8+v2+Eo9+wHAIaXU/emigiC4kZkPE1E1DMMD1jYwMHDx9PT0aTsIrFmz5r2JiYmrp6amjk9OTtrOQxAEO5jZXvQ3hWH4dd7A28VfUEFayXmet0II8UJqktoH4GWl1LdSyhMARpRSj6UEOcnMe7TW29IF+r5/ud3tADYopT6xtp6enquMMT8xs6e1HrUdMzQ0ZFLH31pm/pyIZBiGuh2wvO2FEKRVpB1Zy+Xy08y8lZmPaq1XSykVgJVKqZWzANvR9500oObxdJqI9oZh+Hizwx4E8C6AFfaIIqIPjTHdURQdanbIbmZ+olKpXGKnsLyBt4tfKEFaydpJqqura7W9BzzP6xNC7CeibR0dHR8lSbIHwGohxJW1Wu10EASbmHmgdXxJKXcCeNIYs75cLp9oNBp2108qpXqbR+SfAL4nos0AbmXmNwBopdS6drDmw15IQWYVTlLK3QCess/tVATg4TAMa80OsB+Nm5VSAgA3Pww/A3BHM85hY8xAFEXHm+/fy8xDRHRD0z6RJMm61lQ3H9D/b43FIMjZ/KvV6oWdnZ2XzfW7wY679Xpd/Bdoe9/MzMycGR8f/3uhRUivv2gEKRK0PHNxguRJN0NsJ0gGaHm6OEHypJshthMkA7Q8XZwgedLNENsJkgFani5OkDzpZojtBMkALU8XJ0iedDPEdoJkgJanixMkT7oZYjtBMkDL08UJkifdDLGdIBmg5enyL7Ew6TizTMDGAAAAAElFTkSuQmCC',
-        transform:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAEtUlEQVRoQ+2XbYgVVRjH/+fcO9cIP+xkm1SkIEaFEJERvUDc7j3nbputRHHzg5K9F2SChSmFbPohQiKV+pBhL9oLyNILGF527jN3V8KsD5sUZUQfKi0p19oXNLnuzDxxbC4Mt6X1097z4cy3Oc+ZOf/5/+Z/5hkBd1jlgLBKjRMDB8Syl8ABcUAsc8AyOS4hDohlDlgmxyXEAbHMAcvkuIQ4IJY5YJkclxAHxDIHLJNjTUJ6e3vnJElydbPZ/G54eDiayadisXixEGLe0NDQD9PNVUotyOVypwYHB//K1qvVamF0dLSQHevu7j47MDBwdqY1Z6NuBRCl1E4ADwHIA4iY+ZEwDHdPZ0CxWOzK5/P7Adyc1icA3E5Eh8251rrKzC8CWJzWPwPwLBF9Yc6VUoMAKm333kNEq2fD8JnW6DgQrfUGZn6JmXsLhcLnU1NTLwBYx8xLwjA80v4ASqmGEOLKKIruEEKcklK+C+Ba3/cvmZycnBvH8R8A3oiiaAOAuSm8a3zfnzswMBArpcYBfBjH8dbWvT3PGwuC4MRMZs1GveNAlFK/ADhCRL3mgZcuXer5vv83gO1EtD5rwrJly/xms2m2oHVEtN3USqXSjVLKL5lZ5/P50SiKHgXQH4bhn2litjDzplwuN8+cx3Fsxu+WUh4SQkTtW9psmP5/a9gAZArAa0S0riVUa32MmQ8Q0aqs+FKpdL2UciRJkjsbjUbN1Hp6ei5KTV5NRHvavhe58fHxn5m5QETztdYVZjZb1lEAC9K5oed599RqtclOwzDr2wCEhRD99Xp9S8sQpdQ3AE4QkcqaVKlUbkuS5AAz3xKG4SFT6+/vlwcPHowBrCeil7PzlVLvAVgppVweBMG+crm8SQhh1nldCPExM68EcD+A99vhdwqODUCmmHlrGIbPZ4D8COArIlqRNUZrfR0zHxZCFOv1+gFT6+vru/DMmTOn00bgTTNWrVZzY2NjHwC4j5mfCcPwFTNuOrk4ji8LguCnTBq/ZeariMjrFITsujYAOQ5gHxE9ngFykpl3hWG4MSu2XC7PF0L8DuBeIvrI1CqVyhVJkhxl5lIYhkMpjE8A3AVgLRG9mr2HSdTmzZuTDJAdzLzW9/05NrS+NgAhAIuIaFGbwab1PffGt450ezothNhdr9efMONKqQcBvAVgIREdVUrtTZPxn+u11u8w8wrP87pqtVozvf57ABNEdJNLyL9dUq+Ucr8QYmMul9sbRdEuADdIKS8PguC01noVM/e1ti+l1DYAa5IkWe553vE4jkMAI0TUo7UuMzMx89em9c0aHMfxHs/zFpstD8DbALYJIR5g5qenS1Kn4HQ8IaaxUErtAPDUuS5DiF8BPFyv14P0DTY/jY8RkQTA6Y/hpwBuTU07nCRJX6PR+K31EZ/OTCnlIvPt0Fo/x8xrAFyarrezq6vrSfOP0ikIVn1DWmKKxeIFhUKhOwiCY+djjGl3m82mHB4ePnk+89vnlEqlhRMTE8dHRkZM223NYUNCrDHDBiEOiA0UMhocEAfEMgcsk+MS4oBY5oBlclxCHBDLHLBMjkuIA2KZA5bJcQlxQCxzwDI5LiEOiGUOWCbHJcQyIP8AoBX9OJmCyZMAAAAASUVORK5CYII='
-      },
-      '<5': {
-        addresses: [
-          'AJ17',
-          'AK17',
-          'AI18',
-          'AJ18',
-          'AK18',
-          'AI19',
-          'AJ19',
-          'AK19',
-          'AI20',
-          'AJ20',
-          'AK20',
-          'AI21',
-          'AJ21',
-          'AK21',
-          'AI22',
-          'AJ22',
-          'AK22',
-          'AI23',
-          'AJ23',
-          'AK23',
-          'AI24',
-          'AJ24',
-          'AK24',
-          'AI25',
-          'AJ25',
-          'AK25',
-          'AI26',
-          'AJ26',
-          'AK26',
-          'AI27',
-          'AJ27',
-          'AK27',
-          'AI28',
-          'AJ28',
-          'AK28',
-          'AJ29',
-          'AI30',
-          'AJ30',
-          'AI31',
-          'AJ31',
-          'AK31',
-          'AI32',
-          'AJ32',
-          'AK32',
-          'AI33',
-          'AJ33',
-          'AK33',
-          'AI34',
-          'AJ34',
-          'AK34',
-          'AI35',
-          'AJ35',
-          'AK35',
-          'AI36',
-          'AJ36',
-          'AK36',
-          'AI37',
-          'AJ37',
-          'AK37',
-          'AI38',
-          'AJ38',
-          'AK38',
-          'AI39',
-          'AJ39',
-          'AK39',
-          'AI40',
-          'AJ40',
-          'AK40',
-          'AI41',
-          'AJ41',
-          'AK41',
-          'AI42',
-          'AK42',
-          'AI43',
-          'AJ43',
-          'AK43',
-          'AI44',
-          'AJ44',
-          'AK44',
-          'AI45',
-          'AJ45',
-          'AK45',
-          'AI46',
-          'AJ46',
-          'AK46',
-          'AI47',
-          'AJ47',
-          'AK47'
-        ],
-        original:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAACtUlEQVRoQ+2YP2jUUBzHv7/XWG8oDnEoHbVgwT/TDYK1x7VJCufiovhnUxzcHARFHM6CSlHBQdBBBMHNquBwFHPvykm51UG6OXTQQQoigqC2TX4SycHRQSjvBV7KL2vy++b3Pp/8XkIIcjhFgJzqRpqBCHHsIRAhIsQxAo61IxMiQhwj4Fg7MiEixDECjrUjEyJCHCPgWDsyISLEMQKOtbOjJqRer49s5dvtdn86xvy/7ewYIWEYHgHwcetqlVKjcRyvlUVKaYU0Go3dGxsb5wH80Fq/iaLoEjM/TZLkMIDNvoBarfZpbm4uFSEFEQiC4AARXQFwMb/FWa312zAMnwGoTU5OTiwvL++bmppaLZOIPq5STEi1Wt3l+/6pNE2vElEVwCoz3/F9/8XCwsJ6tpgoilaYeTyfjuxdssnM5zqdzquCno1CYkshJIqi08z8MtueiOhku91+P0ij2WyqXq+XAPjGzJcB+ER0C8CYUmp/HMerhdArILQUQqanpyc8z3vNzIeI6EuapreHh4efLy4u/ukzCYJgtFKprLdare/5xMwy8ztmvt7pdO4VwK6QyFII6a98ZmbmmFKqCWAWwG8Aj5RSD/KvqP5aOLu+Xq9XPM/7BeC+1vpaIfQKCC2VkAEx40qpmwAuMPPdJEmeeJ73GcANrfV8PiEnmLlFRMfb7XavAHaFRJZSyMA2tXdoaGgsjuOVMAw1gKNEdIaZs3U9zt4lWus9AP5NTRmOUgsZBBwEwUEiephvZ9mptTRNG0tLSx/KIKJUn73bAZr/Phnpdrtft1PnyrU7ZkJcAWrahwgxJWi5XoRYBmoaJ0JMCVquFyGWgZrGiRBTgpbrRYhloKZxIsSUoOV6EWIZqGmcCDElaLlehFgGahonQkwJWq4XIZaBmsaJEFOClutFiGWgpnF/AfL/tSl4q0O5AAAAAElFTkSuQmCC',
-        transform:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAADC0lEQVRoQ+2XT2gTQRSHfy8JVZGCqwfBg+Bd/HtQqUJgZirVoiAUD4V6EFRERBTEk7UeREER8SAUDwr1Yjy1eMnuLAGp0kPVk4IXkSqKERRFLSadJystSAhe+rZMZQI5hE2+ffN9mc2GEB5eGSCvpgnDIATx7EsQgoQgnhnwbJywQ0IQzwx4Nk7YISGIZwY8GyfskBDEMwOejRN2SAjimQHPxlk0O6RcLq/o6OiIqtXq63857OvrK9br9WV/v6ezs9ONjY398Mx923G8D9Ld3b3eOTcMYMfsCl4x8yVr7d12K1JKnSaiay3H3idJsiYEETCgtX6aYYrF4l5m/uqcuwzgBIAtSZI8az2FMabCzBtmZmb2zR0jouk0Td8IjJM7wusdkl2mSqXSeefcgzRNH2c2tNY7ATwCcDBJkvttgkwx82ihUDgLYGW1Wp3K3aLgCbwO0m6dWusRAP2FQmFtq+xyuby0VCr9BPAxiwGgRERvnXO7rbUvBL3lhlpUQZRSh4joDoCbSZKcbLWitd4O4En2JKILzLwLwDki+tBoNNbVarVmbiaFwIsmiDHmGDPfAvAwiqL9lUplptXB4OBgYWJiYm29Xn83OTnZyI4bY64xc/ZDvzmO4+dC3nLDLIogWutTAK4DGI2i6EC7GHOGsihDQ0Nu7rUxZg8zPyQiHcexzc2kENj7IEqpw0R0G8C9rq6ugb9ltzpQSvUT0Yhzbmuapn/uzowxN5j5eBRFyyuVyi8hb7lhvA6ilFqVXf8BNJn5TIuFxFr7yhhzBcD3OI4v9vT0LGk0Gl8AvCSiIwC2MfNVADZJkt7cLAqCvQ6itR4A0PYPIDMftdYOa63fMPNna+2m2dvi/cw8REQbZz1NNJvN3lqt9knQW24or4PMZ9VKqdXT09M/xsfHv82Hs9Cf/W+DLLRIqfOFIFImhTghiJBIKUwIImVSiBOCCImUwoQgUiaFOCGIkEgpTAgiZVKIE4IIiZTChCBSJoU4IYiQSClMCCJlUogTggiJlMKEIFImhTghiJBIKcxvlE/yKVv8NEgAAAAASUVORK5CYII='
-      }
-    }
-  },
-  ol: {
-    count: 5,
-    originalValues: ['>84.000', '>100.0', '>500.8', '>10000'],
-    changedValues: ['84.000', '100.0', '500.8', '10000'],
-    addresses: ['G42', 'I24', 'I27', 'I29', 'I42'],
-    dataUrls: {
-      '>100.0': {
-        addresses: ['I42'],
-        original:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAEV0lEQVRoQ+2XXWgcVRTH/2c2i6GV0rXBQFWCQh4EKbWIH1nRcefOxpjGFwnWBxFR8aMVVOyTaIgIolEiVEELFfwAqQs+FWUz52624BIqCVEQwadq8OtBDcWEZbO798qFXdmOdlcHphnZe9/mnjnnnvv/3XPmDsGORClAicrGJgMLJGGHwAKxQBKmQMLSsRVigSRMgYSlYyvEAkmYAglLx1aIBZIwBRKWjq0QCyRhCiQsnURXyMTExC6l1NXFYvGrsG6u6w4R0Z7FxcVv/0nTXvaQDwkhrms0GmfL5fLGdjJKLBDXdQfT6fSy1noHM1/TFsl13d0DAwOfArilNXcOwB3MvGqee9nDYnue9xARvQHg0pbteDabfXx2dlZtB5iLDsTzvFnHcRaCIKhcYMPmtD4I4FUAewCc7QQihCgR0Wij0biTiDYcx/kAwL5MJnN5oVDY6mXvXFMIcTOAJa31C81mcz6VSh0koo8APMnMb/YFEN/339ZaPwpgDcB8tVo9UalU/mhv3rSper1+Tmv9FoC9RLS/DWRycjJTq9V+B/A0M5tTjVwud6PjOGe01v7g4OBKN7uUkkNAjgO4P5vN7mxXhBDicwC7mHlfXwAxm/R9f69S6hkiOgxgAMDHRDQfBMHy9PR0an19/QpmXhNCfAhgrA0kl8sdcBxnRSl1V6lU+szEGh8fv6zZbP4G4AGl1Nfd7Mz8fghIGcAwM1/bnhdCnABwkJmH+wZIRzVcsrW1dZiIXjdzzHxeCw0DyefztymlTmutx6SUS8ZnZmbGqVQqTQBHHcf5opudmV/rFNnzvGUi2mLmsQ4gcwCeYuZ0XwFxXffKdDp9VGv9RKtKTjLzodAJPq9CfN/fr7VeJSI3CILT5t2pqakd1Wp1U2v9sKmObnYppTn9fw0hBGutd0spb+gAcgzAfcw81BdAWj3/edMWADQAHEulUnPFYvHnsADhCvE8b5iIfgFwDzN/Yt7P5/NXKaXWtNY5AN90s0spF0NATAu7nZlHOoCcBDDKzAf6AogQ4nsAO4no5Xq9/k63e38YSKs9bRLRe0EQPGYEa93I3gUwks1mf6hUKhe0m+9SCMizAOa01kNSSvMdMvF+BSCZ+d5+AXJrJpNZKhQKpu93HWEgLcHmARxRSt2dTqd/ajabEsAKM4//G7vv+68A2AyC4MWOW9sppdQRx3EeAfAcEV0fBMGXvfKLw37R/0P+yyZaQG5i5tG2X+vH7xSAbGtuVSk1VSqVfjTPveymQrXW61LK/eZ9z/MOEZH5lzG3vQ0ieikIAgNtW0aigXRTxFx3a7WaUy6XTYv52+hl73QwrXBpaWlkYWHhOwB6W0i0Fv3fAtlO0eJc2wKJU90IsS2QCKLF6WKBxKluhNgWSATR4nSxQOJUN0JsCySCaHG6WCBxqhshtgUSQbQ4XSyQONWNENsCiSBanC4WSJzqRohtgUQQLU4XCyROdSPEtkAiiBany5/GYhZH6o7koQAAAABJRU5ErkJggg==',
-        transform:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAERklEQVRoQ+2XXWgcVRiG328mg6WWmrGhgYoGLQGFWmIp/mRB152zu8Z0vZFUvRD/QaGCinqjGIKC1F5EUG8KFbQFDauCWgyb+WZ3C42L0BC9EPGqEvAH/AmVrXF/5hw5MFuWNXZ7lRzhzN3O+WDefZ/zft85BPsY5QAZpcaKgQVi2CawQCwQwxwwTI5NiAVimAOGybEJsUAMc8AwOTYhFohhDhgmxybEAjHMAcPkGJWQiYmJ7VLKa0ul0je9PqXT6SEi2lGpVL5fz8NMJrPb87y/SqXSz5fgMQkh9rTb7bPVarV+CfUbVmIMkHQ6vcXzvDNKqa3MfF3HgXQ6PTgwMPAFgNuSd+cA3MnMy/p3Npvdr5T6GMA1+rdSaglAPoqi39dzMQiCx4joTQDbkvWjqVTqqZmZGblhrl/kQyYA0bv1EQBvANgB4Gw3ECFEmYhG2+32XURUdxznOIC9vu/vrNfrW1qt1goRfUlED8dxvJuIPgdQY+ZC7/8WQtyq15RSr8RxPOu67gEi+gDA08z8tgUCQLepVqt1Tin1DoBdRDTWATI5Oek3Go0/ADzLzHpXI5PJ3Ow4zldKqSyAQSIqxnG8p1KpfKvXhRAvA3jV9/2BYrEYd5sshDgK4MFUKnV5JxFCiNMAtjPzXgsEwNTUlLu6unoVM68IIU4AGO8AyWQy+xzHWZJS3l0ul+e1Yfl8/so4jnU7ekgDBPC67/uXFYvFZgLkIIA513V39c4TIUQVwDAz39AxXwhxDMABZh62QHoc6AWSy+Vul1KeUkqNR1FU0+XT09PO4uKi3vkv6IQAeImZL7TeIAgEEYWu6471Hg6CIDhDRE1mHu8CcgTAM8zsWSB9gGSz2TGl1DIRpcMwPKXLC4XC1rW1tfNKqcf1zCGiw91AcrlcQUr5GYARnbqelsVKqcEoivZ3AXkLwAPMPGSB9AESBMEwEf0C4F5m/kSX53K5q6WUK0qpTDJzTnied8X8/PyfSct6FMCx/5gh7wO4g5lHuoDMARhl5n0WSB8gSXs6T0TvhWH4ZGK4PpG9qxPguq4fx/HX3cCEEB/q2b7ejhdCPA/giFJqqHMsFkL8BiBi5vsskD5AEgCzAA5JKe/xPO+nOI4jAEvMnE/WvyOibVLKPBFdD0DfSZ5j5tnkbnNcSjkXRdFHXae2k1LKQ47jPKFnEBHdFIahBrvpjwn3kAsmJEP9FmYe7bxMLoYnAaSSd8tSykK5XP4xAXIjAAawE0AbwKepVOqgPtZ2jtQ6Fcz8oq4PguB+ItJ3mQEAdSJ6LQzDw5tOIhFgFJCLmaKPu41Gw6lWq7rF/OvRs6XZbP5arVb/7meuboW1Wm1kYWHhB32571e/kev/GyAbacpmfssC2Uz31/m2BWKBGOaAYXJsQiwQwxwwTI5NiAVimAOGybEJsUAMc8AwOTYhFohhDhgmxybEAjHMAcPk2IQYBuQfvi60OIQQfEoAAAAASUVORK5CYII='
-      },
-      '>500.8': {
-        addresses: [],
-        original:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAEw0lEQVRoQ+2ZX2gcVRTGv3OzS6KWkm1TH0pLn3yo4N+Aogk67txpjG3qg9RailRBUIyKSisqSEhfisZapX2oYNUqiO1Cn/yT7JzZTB/WqlgKIv4Dwda2VqgmZRvWTXbvkQubsixh40uTC5n7lvvtzJz7/ea75w4hJMMpB8ipapJikABx7CVIgCRAHHPAsXKShCRAHHPAsXKShCRAHHPAsXKShCRAHHPAsXKShCRAHHPAsXKcTMjAwMC1pVJJNXq1atWqci6Xq83OeZ7XRUQrx8fHf5nL0/n05mt837+xVqv9GsdxdTEZOQlEa10G0NFkzHZm/sTzvM5UKvUFgLvq+iUA9zHzKfv3fHqz2VrrZwEMAVgJ4F8A7zGznVuUseBAfN8fVkrlwzAszrXibDa7Tin1u4g8Zoz5evY3InIujuPLWusCEd1QrVbvJ6LLSqmPAdycyWSuz+Vy0/Ppjc/UWq8H8COAVzKZzMjk5KQnIgxgKzMfXQwiCw4kCIKDIvIkgDMA9pXL5UPFYrE0u3it9cMAjpTL5eXt7e0rjDF/xXFs31xs3LgxU6lU/gHwAjO/beey2ewdSqlvRCTo6Og42UqPosiafWUEQeDXAWxi5s99319JRBeJaE8Yhq8uCSB2kUEQrDbGvEhEgwBSAI4S0b4wDL8LgmCviFjtrIisqZsywswvZbPZ25VSJ40xDxQKhS+t1tfXt6JWq/0NYIcx5odWOjN/1Ghyd3d3OpPJfA/APudDyxzAWhG5JYoim5wFHwuekMYV9vf3t09PTw8S0V47z8yktf7K9gciet4Yc5qIXgZwJxE9SkRnjDHHReTuKIpO2GuGhoZUsVi0zX6XUurbVjozvzkHkA8AbG+Yj5RSD+bz+akFpwEs3j+oPM9bk06nd4nI0/WUHGHmR/r7+5dXq9VlYRierzfpZalUym5pERHtFJFTROSFYXjc6vZEVi6Xp0TkCZuOVnoURYeatqxBETkA4LmJiYmDnZ2d9xKRTd4xZt66JIDU9/zXAGwCYI+Y+9va2kbGxsb+nDXAvvXDw8Omoa/8JCIVu0MR0QUADzHzMatv2LBhrTHmjIhkbYNupUdRNN7U1EMAtzFz1+x8EAQ5EbE95ZolAURrfRrAdbZxzszMvGtPTk1v7R8i8hsze3beJmZmZuaSiOzu7e0dLhaLU0R0OAzDp6yutX4cwPsA1vX09JxtpTOzPUhcGVrrMQA3MfPqBvh27p6lBKQ3k8mcaPzIazJpJ4ARERm0PUFE9ljflVLr8/n8z1rrfQCeMcZsTqfT52u1WgTgJDP31QG11IMgeB3AVBiGu33f30FEtpnvN8a8o5TaDOAtIvo0DMNtSyIh8y3S87xl6XT6gIjYPdx+HFZtf4ii6HC9p9gPw88A9NTvdcoYM1AoFM79H90mVEQmoii6tQ7wDXsgaKhrtFqtbovjeHK+Wq+GvqinrFYL2rJlS1upVFo7Ojpqtzhp/q097lYqFRXH8cW57jOf3niNPf52dXWtq1QqF5q30Ktheqt7OgtkoY1w5XkJEFdI1OtIgCRAHHPAsXKShCRAHHPAsXKShCRAHHPAsXKShCRAHHPAsXKShCRAHHPAsXKShCRAHHPAsXKShDgG5D/V6FZHnb9dNgAAAABJRU5ErkJggg==',
-        transform:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAE20lEQVRoQ+2ZX4hUVRzHv78zc1kLsb26+iCZDxJkZP+MolbqNvfMbmZrD7GKSGjRQ2BFiUX/YNl6kJKyyIce+idGaFNCf3dn77mz14fVCsQKygqC3NKMLNdmbZrduecXR+/UsCzhU3sezn2bc+4wv/v53O/5ncMQ3GUVAbKqGlcMnBDLXgInxAmxjIBl5biEOCGWEbCsHJcQJ8QyApaV4xLihFhGwLJyXEKcEMsIWFaOFQnp6ek5v1qtilY28+fPr5VKpbQ5FgRBBxHNGx4e/nY6hoVCYYnneX+Wy+Wfz4VxGIaXpmn6XZIkjXO5//+6xwohUsoagFlTHnq9UuqtIAja8/n8xwCuz+ZPAbhZKXXIfC4Wi9cw87sALjKfmfkggO44jn+bDqKU8n4AfQDmAfgLwCtKKTNmxTXjQgqFwmIhxA/MvFFr/UmTCjMfTZJkXEpZIaKLG43GLUQ0LoTYBeBy3/cXjI+Pz5qcnBwlov1EtDFN0yVE9AGAA0qpnqmEpZRLAXwN4DHf97eNjY0FzKwArFVKvW2DkRkXIqVcA2BPrVab09bWNldr/UuSJObNxapVq/x6vf47gIeUUi+YsUKhcK0Q4lNmLgJoJ6JSmqaXDQ8Pf2XmpZRPAnja9/1865KXpSnMBNymlPooDMN5RHSCiLZGUfS4E3J2yXmOmTcT0U/MfGEGZZtS6pFCoXC1EOKg1vrWSqUyYOa6u7vnpmlqlqMNABYC2Or7flupVJrIhJwRnMvlFk7tJ8uXL/d83/8SgPmdN4xzAIuY+Yo4jk1yZvyyISH7TX8goge11keI6FEA1xHRnUQ0qrXex8w3xHF8wNDq6+sTIyMjptk/bBIC4Aml1D/PEYahJKIol8tdWS6Xv2glnAl5HcD6lvFYCHH70NDQ6Rm3Acz8H1QrV66c02g0ZkdRdMwACYJgdj6frwKIiWgLMx8ioiCKon1m3uzIarXaaWa+xzRmInqmVUhXV1eP1vp9AIuVUqOtkIvF4iZm3gHggZMnT77c3t5+ExGZ5O1VSq11QjIC5q3v7+/XTSBSysPMXDcrFBEdB3CHUmqvme/q6lqktR5l5oJZsojoTc/zLhgYGPgjW7LuBvDqdD1EShkBuEop1dH8rWKxWGJm01POc0LO9pAfmfl7pVRggJjETE5OnmLmp1asWNE/MjJymoh2RlF0bwb8LgCvmQTkcjk/TdPPW4VJKXeb3t4KvUV0GcAypZTpPWcuKaUZu9EJ+RfIFgDbmHmTEOIzZt5qOAkhlg4NDX0jpdwO4D6t9WrP846laRoDOKiU6s6AHiai2Vprk6ZLAJgzyWal1PYgCGZ5nrdLa70njuN3wjDcQESmmb+ktX5RCLEawPNEtDuKonUuIVnP8DxvBzObNdwcDhumP8RxvDPrKeZg+CGAzgzYIa11T6VSOZoJWQbAnCUWmO8CeK+zs3ONWQKbaTPCza4tu//ZbEPQ5D/YaDTWJUky5oS0EOjt7c1Vq9VFg4ODR8yBeyocs92t1+siSZIT04EzvWViYuLX5hnmv+Ca3VZHR8fier1+3Bw+bRDRrGHGt702wbChFifEBgstNTghTohlBCwrxyXECbGMgGXluIQ4IZYRsKwclxAnxDIClpXjEuKEWEbAsnJcQpwQywhYVo5LiGVC/gbN8PQ4ID98TQAAAABJRU5ErkJggg=='
-      },
-      '>84.000': {
-        addresses: [],
-        original:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAF4ElEQVRoQ+2YaWgdVRTH/+dOHrGuGRssFLUfRFCpWq24PbXPN3dejG30g1YtVtzXqqjoB9dSFESLRqnggnXfarDgWps5kzzBGARLVXBFXIorLomaGt8y98iReRJrWvqhlSHM/ZSZuTPv3P/v/M89N4R8ZEoBylQ0eTDIgWQsCXIgOZCMKZCxcHKH5EAypkDGwskdkgPJmAIZCyd3SA4kYwpkLJzcITmQjCmQsXAy5ZAgCA5IkuTTarXa3JxOlUpldr1e/7parY5uSctSqdRJRNMHBwc/mWxeuVzep1Ao/LF27drvJnlO1trZzWbzi2q1OvZ/MssEEGvtFQCWApgO4E8ADzOz3vvXCILgDCJ6VkQWx3H89GRClUqljra2ttcAHJU+/xXA8cy8Xq/DMDxMRF4AsLdei8g6AF1xHP+s10EQnE9E9wDYOX3/oWKxeOmyZcvc/wFmuwMJgmCZMaY/iqKhyRZkrd0fwIcArvd9f/no6GhJRBjA6cz8fOudcrk8yxjzGYC2LQGx1g4Q0b7NZvMEIhozxjwJ4CDf9/cYGxvbodFobCCit4jonCRJ9iGilwEMM3OPtfZI/VtEbkmSpNfzvAWaAACuYOb7pgSQMAwfEJGLAWwA0Ds+Pr5yaGjo99biwjAMUgALmPnVIAimE9FPRHR7FEU36LyFCxd6o6Oj74nIuwDO3ByQ+fPn+7Va7RcAVzOzZjnK5fLhxpi3RSQE0EFEfUmSzB4cHPxAn1trbwJwq+/7bSMjI/cDOKtYLO7UcoS19k0AuzLzQVMCSFomZjrnriGiJZrhAJ4not4oit6ZO3duwff99wHsCeAxAPMB7CUiB8dxrM5R0e4EsNgYM8c598PmgJTL5UONMeuccycODAys0Xe7urp2T5JEy9HZAGYCuN33/fa+vr56+u3TAKzyPG9mkiTqhhnMrK79e1hrVwLQZJkxZYC0FtLd3d1er9eXENFdeo+ZKQXyqGb+hAXHxpiT+/v7N4ZhOE9Eqs65I9rb2z9uNBq/bg5IpVI5zjn3hogcHcfxsH5v6dKlZmhoKAFwnToEwI36u63fCoLAElHked6cZrO5kojqzHz0BCDLAVzFzIUpBaRUKu1ZKBSuE5HLUpesYuYzwjBcIiJan68cGRl5oKOjYx4RaXav9jzv0iRJPheRh+M4vra7u3vXLQEJw3COiKwnolIURW+ogD09PTuOj49vFJELtGkgojsmAqlUKj3OuZcAzALwiIh0xHF82AQgKwAsYubOKQEkreE3q+0BaDu7wvO85a1201obAThk4oLDMOwTEZ2vWa2CaOupWe6l3Y92YquZeaKrtEOaQUTfAziFmVergJVKZS/n3AYRKWvJIqKnCoXCbmvWrPktLUnnAViZ7iHq1HnMrHBaJWsVgH2Z+dApAcRa+xWAnXSTbjQaD27a11tr1wI4kJm1vrdE0HvHEdGxzrlTW/eNMdNE5EoA/SLyxKatb1qeNhLR41EUXZIKfq5mvjrA8zw/SRJtDP4BZq19TrcKTQhr7bUAlotIZ6sNttb+BCBm5tOnCpBjfN8f7uvr0wz/zwiC4Gwi0s18hXPuXmPMSQDuJqLnoihaNPGFyUpWGIaLRaSnJZi1thfA5c65kwqFwrdJksQA1jFzVwroIyLa2TnXRUT7AdAzyTXM3DuhS3vFOXe5MeZC3XOI6JAoihTkdh/b/RyyNStIuygtT63xerPZXLTpabxYLO4ybdo0LTVnMvMzqcAPAriImY2e89KD4SsAiunH1jvnegYGBr5J5x+o/QSAPdIS+mKxWDyt1eamh089u2g3OEZEt0VRdMfWrGNbzMkEEF2IdludnZ2zarXa99vi3xXa7tZqNVOtVrXk/Gfo3lKv13+sVqu6H/1raOkbHh6e1d/f/6VC3hZCb+03MgNkawOe6vNyIBkjnAPJgWRMgYyFkzskB5IxBTIWTu6QHEjGFMhYOLlDciAZUyBj4eQOyYFkTIGMhZM7JAeSMQUyFk7ukIwB+QsDY5JHDBH3eAAAAABJRU5ErkJggg==',
-        transform:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAFZ0lEQVRoQ+2afYgUdRjHv8/M3l1HZi5YRmGSEhhZWQpFG7jt/GavRaU/8ky5q0R7hYoMU0HpMoVS/9BIkEqN3juOzDISd57BKdLD4sICNSgqXyjKq73CrLt5eeIXs7Ednv8oe0M3v7/2x29meeb7me/zsiwhXYlSgBIVTRoMUiAJewlSICmQhCmQsHBSh6RAEqZAwsJJHZICSZgCCQsndUgKJGEKJCyc1CEpkIQpkLBwhs0hra2tjZVKZRIzHz6TJsViccrAwMBxz/P6znRdoVCY1NDQcGr37t0/nuY6UkpNCYLgO8/zTg4+L5VKTVEUTe7v7z/oeV4wnIzqDqSjo8PYu3fvSwDuBpABoAVcyczbBgthWdY8InpLRNpd133jdELZtj1dRN4BcLk+F5EeAC2u6/6i95ZlLSKijQBGxfe/mMvlHlq1alWk90qpFwAsjGMJRORe13VfGS4odQdi2/aDIrKZiG7xfX9/JpPp0ECCIBjved7xqhCFQmGCYRjfaKGGAlIqlUb7vn+UiPYR0YIwDCcR0U4A3cw8Wyl1k/4sIk+GYbjBNM1ZGjCAR5h5k23by0TkWREpNTY27vN9/ykAi0Xkatd1Dw0HlOEAslZElgZBkNVpSCl1O4AdAG5lZk+L0Nraavb19X0hIgcAtA0FxLKsOUTUFYbhlD179hyM3/iVAFZns9lMpVLZDOCuXC53fo0jPgEwmpmvVUodAXCImUv63mnTpjVks9lTADYy8xMjAkixWJwcRdFnAE6IyIdEdA8R9fm+f0U1fyul1gFoNwxjahRFPw0FRCm1HMAz2Wy2qaurayAGMhdAp2mal4ZhqN0wjpmvqoqrlNoKYBYzj1NK+QA2MfPi6rlt28dE5CNmbh8pQMZHUVQGMLn6wDqluK67Wu9t254hIl4URTc2NTV95fv+b2cAsgbACmb+1+mWZSkickzTnBoEwVYiGmDmm2uArAfwGDM3KKWEiDocx3m65vxLAD8zsxoRQJRSOsffZhiGZZrmft/3HwGwXhfTTCbzbhiG34rIFtd1l8Q1YkgglmUtJaK1tUCKxeLsKIreBzABwDYRGeO67vQawZ8HMJ+Zx2qHiMg613VX1Jx/DeBzZr5zpAD5k4h2OI4zP35g3ZKeIKJPdQoDoAXTrWkIwIy7o78AbGfmtlqRLMtqI6LXGxoaLty1a9fvccrSHdPWuIa8DGAGM2s4/yylVCeAK5n5BqXUDwB2MvMDNee98Quh02HdV92LulJKA+l0HGdBtYBXKhUN4GMiWhFF0ZyqCoZhNIvIowDKIvLq4Na3paXlujAMdeG/g5m3x4K/rXWPHbAkdt/YahuslOoF4GoHKKUYwERmnqjvLRaLOp0ejVtfXWvqvuoOxLZtPVfME5EF2hUAtGgL9X5w/3+6lGXbdruIzK6mFKXUYSIaFUVRCxHpuqRnkseZecPMmTOz/f39vwL4IIqihw3DuE/XHCK63nGcA4VCoWQYhm4slpum2RkEwRYA0w3DuKxcLv9RdxpA/f/kkM/nx2QyGZ02itUHJqJ1juMsGyxALpe7oLm5WaeiNmZ+M3aAHuTuZ2ZDz4FKqWsA6Df9YgB6yn4vl8vNrba58XD5Wjz4nSSiNY7jrK1Jl8/puUTviUjPQYscx9FNx7Csujuk+pT5fH5UU1PTJb29vUd6enp0+3lWS6ebgYGBE57n6Xrzn6V/Heju7p5QLpe/1xAHn+fz+fMaGxsvKpfLx84qiHNw87ABOQex/y+/IgWSMKwpkBRIwhRIWDipQ1IgCVMgYeGkDkmBJEyBhIWTOiQFkjAFEhZO6pAUSMIUSFg4qUNSIAlTIGHhpA5JGJC/AeCFe0cEGjMkAAAAAElFTkSuQmCC'
-      },
-      '>10000': {
-        addresses: [],
-        original:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAFdklEQVRoQ+2XbYhUVRjH/8+9e3dFxbxpClpJimBkYim9OAtNM2d2m3T7Epp9iF40etEgJSmw2tYiU6k1NMpIJRJqWwpKcdm5z90doXEJNCvQiD5Ya1n0tlir2+zMPU+cuAvTtissyHZd7vm0d849Z5/z/93/8zyHEI9IKUCRiiYOBjGQiH0EMZAYSMQUiFg4sUNiIBFTIGLhxA6JgURMgYiFEzskBhIxBSIWTuyQGEjEFIhYOJF0SDabnaS1vqq9vf2LwXpls9karfW8YrF4PJ/PlwfPJ5PJqUQ0pbOz8+uhtE6lUnMcxznX3t7+4xDzpJSaXy6XT+bz+d7/g1XkgCSTyXGO4xwRkfHMPLtSFKXULgAPAKgCUBaR1b7vv23eSSaTk6uqqg4CuDlccwbArcx8zDxnMpnFIvIBgCvNs4gcBVDv+/5v5jmdTq8iou0AJobr30wkEo80NTXp0QQzakDS6XSTZVk5z/MKwxzQfJ33A9gKYAqAk5VAMpnMkyLykohkq6urD5dKpecArBORa3zfP6GU6iCiueVy+TYi6rUs6x0AC1zXndbb2zuuVCp1E9FhIrovCII5RLQfQBczNyilbjJ/i8izQRA027a9jIjeBfAYM+8ck0AymcwbIvIQgG4AzX19fbsLhcKfA4c1aapUKp0RkdcAzCCihZVAlFLfATjBzFmzZtGiRY7ruucAbK+pqXmxWCz+bgAxs/nKkUqlbrAs61MRyQCYTEStQRDM7+zsPG7mlVJPA3jedd2qnp6e1wHck0gkJgw4Qin1CYBJzLxgTAIJ08YMrfV6IloTpp33iajZ87wjy5cvt3t6emYyc7dSah+AJYOAlADsZOZ1AwJlMplTInJIa/2KZVlHtda3d3R0tJn5+vr6S4MgMOnoXgMYwGbXdWtaW1v7QyArALTYtj0jCALjhunMfPXA3kqp3QCWMfP0MQukwg01/f39a4joZfMbM/8rdQ4DRIio0fO8TRWifQngZ8uyNmmtD4nIEt/3u8x8Y2OjVSgUAgAbjEMAbKz8P+l0WhGRZ9v2wnK5vJuI+pl5ScXe2wA8zszOmAaSTCYvdxxng4g8GrqkhZlXDireQzpERLb6vr+xQrRvAHxGRJtF5BgRJT3PO2TmGxoaxvf19Z01hd/UJCLaUgmkrq6uQWv9MYBZAPaIyGTf9xdX7L0DwN3MPHVMAglz+jMmDZgOCcAO27a3DdV+DuOQ0wD2M7OpQ/8MpdSvIvKWqUlE9BOAO5n5QzNXV1d3hda6W0RSYU3a5zjOJW1tbX+Ea023tjusIXsB3MLMBs7A3i0A5jLz9WMSSFiUJ5ivuVQq7Tpfnz8MEAYwe6CuVAi+ura2dm+hUDhLRG97nvdwKLjp2PYYB9i27QZB8HklMKXUe4apcYBS6gkA20Rk6kAbbGAD8Jn5rrEKpNZ13a7W1laT1887hgKSSqWylmUdJKKnbNtuKZfLxhmLLcuamcvlziqlmgGs1Vrf4TjO6SAIfABHmbk+BPQVEU3UWtcT0TwA5k6ynpmbly5d6oZd2gGt9VrLsh40NYeIrvM8z4ActTFq95CRnCgEciMzz61YZ+4pr5q7gfmNiL4HsMrzvJx5Di+GBwAkwjXHtNYNHR0dP4RArjX9A4BpYcr8KJFIrBhoc9Pp9EoiMncXc+nsJaIXPM/bMpK4L8S7kQRyvoOZm3x1dfVluVzu1FDvmXa3WCxa+XzepJz/DJPq+vv7f8nn838NnjSdWVdX16xcLvetucxfCIFHusdFB2SkB7zY3o+BRIxYDCQGEjEFIhZO7JAYSMQUiFg4sUNiIBFTIGLhxA6JgURMgYiFEzskBhIxBSIWTuyQGEjEFIhYOLFDIgbkb+BeUUfGnLePAAAAAElFTkSuQmCC',
-        transform:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAEZUlEQVRoQ+2XXWgcVRTH/2cmg6WWmrWhgYoGLQGFWmMpfmRB1527u8Z0BZFUfRC/QaGCij4phqAgtQ8VVAQhFbGgJSioxbCdsx8FYxAM0QcRnyoBP0DNUtkaN9l7r1yYLctql9GH2YHceZs5Z/fc+f3m3A+CvRJFgBI1GjsYWCEJ+wisECskYQQSNhzbIVZIwggkbDi2Q6yQhBFI2HBsh1ghCSOQsOHYDrFCEkYgYcNJRIdMTExsV0pdWSqVvunmk8lkhohoR7Va/f7f2GWz2d2e5/1ZKpV+/h9xEkLsabVaZ2q1WiMJbvouJJPJbPE87yut9VZmvqoNJZPJDA4MDHwG4Obw2VkAtzHzsrnP5XL7tdYfArjC3GutlwAUyuXy71Hivu8/QkSvAdgW/v/b6XT6iZmZGdVPMf0UYr7OhwC8CmAHgDOdQoQQFSIabbVatxNRw3Gc9wDsTaVSOxuNxpaNjY0VIvqCiB6UUu4mok8BLDJz0XRcr7gQ4iaTq7V+UUp51HXdA0T0PoAnmfmNTSkkhHZWa/0mgF1ENNYWMjk5mWo2m6sAnmZm8xUjm83e4DjOl1rrHIBBIpqTUu6pVqvfmrgQ4gUAL6VSqYHV1dW7esXr9fpbAO5Pp9MXtztCCPE5gO3MvHdTCpmamnLr9fplzLwihDgOYLwtJJvN7nMcZ0kpdUelUpk3gAqFwqVSSjMdPWAEAngllUpdNDc3tx4KOQjghOu6u6SUJqdX3HTDMDNf04YvhJgFcICZhzelkM6X7haSz+dvUUqd1lqPl8vlRZM7PT3tLCwsSADPmQ4B8Dwzn59yfd8XRBS4rjsmpZzqFW+1WrNEtM7M4x1CjgB4ipk9K6SrQ3K53JjWepmIMkEQnDaAisXi1rW1tXNa60fNmkNEhzuF5PP5olLqEwAjWut7e8UBHNNaD5bL5f0dQl4HcB8zD1khXUJ83x8mol8A3M3MHxlA+Xz+cqXUitY6G645xz3Pu2R+fv6PcMp6GMBsuIYYIReM1+v1dwDcyswjHUJOABhl5n1WSJeQcHo6R0TvBkHweAjc7MiOmQ5wXTclpfy6U5gQ4gOztpsvvFAoXNcrLoR4FsARrfVQe5sshPgNQJmZ77FCuoSEAo4COKSUutPzvJ+klGUAS8xcCOPfEdE2pVSBiK4GYM4kzzCz+Z3ZdV0w3rGLO6mUOuQ4zmNmzSGi64MgMKL7dvXzHHL+pcNF/UZmHm0/DA+GJwGkw2fLSqlipVL5MQR+LQAGsBNAC8DH6XT6YMc2tmfc930zrZmzzQCABhG9HATB4b6ZCAsnQkgvCGa722w2nVqtZqaUf1xmbVlfX/+1Vqv99V/jZmpcXFwcOXXq1A/msN9vGaZ+4oUkAVKcY7BC4qQdoZYVEgFSnClWSJy0I9SyQiJAijPFComTdoRaVkgESHGmWCFx0o5QywqJACnOFCskTtoRalkhESDFmWKFxEk7Qi0rJAKkOFOskDhpR6hlhUSAFGfK38htD0cB7icoAAAAAElFTkSuQmCC'
-      }
-    }
-  },
-  zero: {
-    count: 29,
-    originalValues: ['Rock'],
-    changedValues: ['0'],
-    addresses: [
-      'B17',
-      'B18',
-      'B19',
-      'B20',
-      'B21',
-      'B22',
-      'B23',
-      'B25',
-      'B26',
-      'B27',
-      'B28',
-      'B29',
-      'B30',
-      'B31',
-      'B32',
-      'B33',
-      'B34',
-      'B35',
-      'B36',
-      'B37',
-      'B38',
-      'B39',
-      'B40',
-      'B41',
-      'B43',
-      'B44',
-      'B45',
-      'B46',
-      'B47'
-    ],
-    dataUrls: {
-      Rock: {
-        addresses: [
-          'B18',
-          'B19',
-          'B20',
-          'B21',
-          'B22',
-          'B23',
-          'B25',
-          'B26',
-          'B27',
-          'B28',
-          'B29',
-          'B30',
-          'B31',
-          'B32',
-          'B33',
-          'B34',
-          'B35',
-          'B36',
-          'B37',
-          'B38',
-          'B39',
-          'B40',
-          'B41',
-          'B43',
-          'B44',
-          'B45',
-          'B46',
-          'B47'
-        ],
-        original:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAADzElEQVRoQ+2XXWgcVRTH/+fMrLqkQbeoD7UFWz8iKEiNIpoHd5M7sw8BRSVSoYp58sUPpPVRYp4UVBC/nmKhfqA0FKSCiTN31oAEqVRfFESptNJAIA+GEGtc2b1HrmxgqK1glpaD3Hmc2XPnf/+//Z9zhxAuVQ6QKjVBDAIQZX+CACQAUeaAMjkhIQGIMgeUyQkJCUCUOaBMTkhIAKLMAWVyQkICEGUOKJOjJiHNZvP2brfLm/5EUeSIaG1wcPDM7Oxst1/fJiYmLltdXb2VmX/Ksuxsv+tdrHo1QIwxcoFN/uGce6jVas31Y0Kaprc4534A0LDWLvSz1sWsVQVERF4riuKg33C9Xo+Z+Q5mfh/Ankqlsm1ubq69VTMCkP/onE9IGchmuTFmCsCLnU5n18LCwtL4+Hit3W6/CeABAFcAWGTmySzLTvmaJEl2AJgRkQaAZSL6IM/zqTRNh8oJSZLkUf8+AC9Za/16Ki5VCQHwThRFL3hnut3uNgB3AjhMRL/keX6bv2+M8e3mPgDvATgD4ACAdrVa3bG+vu7iOP4OwE4iekVEqgAOisj+KIq+2QTinKsy82cAjlhr9wG4ULu85JC0ATmfAaeI6JE8z0+Mjo7ewMwnieiNPM+f7QHySflERJ5k5tMi8rmI3FsUxVe95++KyGoURTMeCBFNicg0gGMjIyMPTk9Pu0vu+r+8UBuQTEQOMfPVPdOuZOa9WZZ97/cwNja2j4g+IiKT53nh76VpOuCc+w3AW0S0JCIvW2v/sa/SDPnbDma+P8uyTzXB8FpUATlnqO+M49jPhV83NjZuXFxcXE+SZEJEjjjn7m61Wl/7DQwPD1dqtdqfAF4XkTYRHbDWVs41ugTkS9/SAGxn5uu0HYHVAum1m0kAhwB8aK3db4zZC+BbP+Sttb7t+JlSB/AFET3mnLuciGbiON49Pz9/uvf8MIAhZn6iNEN+Z+bjIvJ2URRPaUqJaiC9NnWCiIYB3GOtPW6M+RnANUT0nHNuiYj8Cen6Tqeze2Bg4Gy73V4hoh+dc08DuJaIPgbwDDPn5VOWMcaDniSiu/x80gJFFRAAr1prny+bU2o1J621NzUajaEoio4BuLn3u2UReXhziCdJkorIUQD+lNYBcLRWqz2+tra2pwykXq9fFcfxMoAlv24A0qcDzWZzu4jEWZatnG+pNE13RVG00s/HZJ8St1SuJiFbUv8/LApAlEENQAIQZQ4okxMSEoAoc0CZnJCQAESZA8rkhIQEIMocUCYnJCQAUeaAMjkhIQGIMgeUyQkJUQbkLwqFpTj4AOn0AAAAAElFTkSuQmCC',
-        transform:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAACHElEQVRoQ+2XMWsUURSFz2UcbEQZEAtBU6RJocTCbrt9szNskUpJYyP+BIsgmGaJIFb+AjsLZVBQi2XwLruVqQQtxD6NRbBJEcKubyYsrGJ92cfcB3f7c9+Z73t3hiXYTxUBUtXGysCEKLsEJsSEKCOgrI5tiAlRRkBZHdsQE6KMgLI6tiEmRBkBZXVsQ0yIMgLK6kS/If1+fzNN09O6rn8pYyuqE62QwWBwt23bdwBuLp+8bduvAMrJZPJbREJJKEohw+Hw8mKxOCKiL0T00Hu/SUSfABwy844StqIaUQpxzt0nosp7f2s6nf5YPnme5/sADrIsu1BVlRfRUBCKUkie508APM+y7GJVVfOVkF0Ab5MkuR7z9yRWIc8APGXmf/2dczkRfU6S5E5d198VXHZRhSiFOOf2iOjF/0KKothpmuYjgA1mPhLRUBCKVcgDInqdpumV8Xh8snplPQLwyr4hHdyqsiy3vfffANxj5vcrIW+W33ZmvtpBpbUdGeWGrAT8JKJLTdOURLQFYPmf5DEzv1wbnQ4GxSzkNgAGcA3AHwAfer3e7mg0ajrguLYjoxXyl0BRFDfm8/nxbDY7WxuVDgdFL6RDdkGONiFBsMqHmhA5uyBJExIEq3yoCZGzC5I0IUGwyoeaEDm7IEkTEgSrfKgJkbMLkjQhQbDKh5oQObsgSRMSBKt8qAmRswuSNCFBsMqHmhA5uyDJc/LqeCmjDJaEAAAAAElFTkSuQmCC'
-      }
-    }
-  },
-  all: {
-    B17: {
-      address: 'B17',
-      rowIndex: 0,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    K17: {
-      address: 'K17',
-      rowIndex: 0,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    Q17: {
-      address: 'Q17',
-      rowIndex: 0,
-      cellIndex: 15,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.25',
-        w: '0.25'
-      }
-    },
-    S17: {
-      address: 'S17',
-      rowIndex: 0,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U17: {
-      address: 'U17',
-      rowIndex: 0,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB17: {
-      address: 'AB17',
-      rowIndex: 0,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD17: {
-      address: 'AD17',
-      rowIndex: 0,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF17: {
-      address: 'AF17',
-      rowIndex: 0,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG17: {
-      address: 'AG17',
-      rowIndex: 0,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AH17: {
-      address: 'AH17',
-      rowIndex: 0,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI17: {
-      address: 'AI17',
-      rowIndex: 0,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ17: {
-      address: 'AJ17',
-      rowIndex: 0,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK17: {
-      address: 'AK17',
-      rowIndex: 0,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B18: {
-      address: 'B18',
-      rowIndex: 1,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    K18: {
-      address: 'K18',
-      rowIndex: 1,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    Q18: {
-      address: 'Q18',
-      rowIndex: 1,
-      cellIndex: 15,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.25',
-        w: '0.25'
-      }
-    },
-    S18: {
-      address: 'S18',
-      rowIndex: 1,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U18: {
-      address: 'U18',
-      rowIndex: 1,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB18: {
-      address: 'AB18',
-      rowIndex: 1,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD18: {
-      address: 'AD18',
-      rowIndex: 1,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF18: {
-      address: 'AF18',
-      rowIndex: 1,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG18: {
-      address: 'AG18',
-      rowIndex: 1,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AH18: {
-      address: 'AH18',
-      rowIndex: 1,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI18: {
-      address: 'AI18',
-      rowIndex: 1,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ18: {
-      address: 'AJ18',
-      rowIndex: 1,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK18: {
-      address: 'AK18',
-      rowIndex: 1,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B19: {
-      address: 'B19',
-      rowIndex: 2,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    K19: {
-      address: 'K19',
-      rowIndex: 2,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    Q19: {
-      address: 'Q19',
-      rowIndex: 2,
-      cellIndex: 15,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.25',
-        w: '0.25'
-      }
-    },
-    S19: {
-      address: 'S19',
-      rowIndex: 2,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U19: {
-      address: 'U19',
-      rowIndex: 2,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB19: {
-      address: 'AB19',
-      rowIndex: 2,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD19: {
-      address: 'AD19',
-      rowIndex: 2,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF19: {
-      address: 'AF19',
-      rowIndex: 2,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG19: {
-      address: 'AG19',
-      rowIndex: 2,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AH19: {
-      address: 'AH19',
-      rowIndex: 2,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI19: {
-      address: 'AI19',
-      rowIndex: 2,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ19: {
-      address: 'AJ19',
-      rowIndex: 2,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK19: {
-      address: 'AK19',
-      rowIndex: 2,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B20: {
-      address: 'B20',
-      rowIndex: 3,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    K20: {
-      address: 'K20',
-      rowIndex: 3,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    Q20: {
-      address: 'Q20',
-      rowIndex: 3,
-      cellIndex: 15,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.25',
-        w: '0.25'
-      }
-    },
-    S20: {
-      address: 'S20',
-      rowIndex: 3,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U20: {
-      address: 'U20',
-      rowIndex: 3,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB20: {
-      address: 'AB20',
-      rowIndex: 3,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD20: {
-      address: 'AD20',
-      rowIndex: 3,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF20: {
-      address: 'AF20',
-      rowIndex: 3,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG20: {
-      address: 'AG20',
-      rowIndex: 3,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AH20: {
-      address: 'AH20',
-      rowIndex: 3,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI20: {
-      address: 'AI20',
-      rowIndex: 3,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ20: {
-      address: 'AJ20',
-      rowIndex: 3,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK20: {
-      address: 'AK20',
-      rowIndex: 3,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B21: {
-      address: 'B21',
-      rowIndex: 4,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    K21: {
-      address: 'K21',
-      rowIndex: 4,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    Q21: {
-      address: 'Q21',
-      rowIndex: 4,
-      cellIndex: 15,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.25',
-        w: '0.25'
-      }
-    },
-    S21: {
-      address: 'S21',
-      rowIndex: 4,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U21: {
-      address: 'U21',
-      rowIndex: 4,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB21: {
-      address: 'AB21',
-      rowIndex: 4,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD21: {
-      address: 'AD21',
-      rowIndex: 4,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF21: {
-      address: 'AF21',
-      rowIndex: 4,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG21: {
-      address: 'AG21',
-      rowIndex: 4,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AH21: {
-      address: 'AH21',
-      rowIndex: 4,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI21: {
-      address: 'AI21',
-      rowIndex: 4,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ21: {
-      address: 'AJ21',
-      rowIndex: 4,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK21: {
-      address: 'AK21',
-      rowIndex: 4,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B22: {
-      address: 'B22',
-      rowIndex: 5,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    K22: {
-      address: 'K22',
-      rowIndex: 5,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    Q22: {
-      address: 'Q22',
-      rowIndex: 5,
-      cellIndex: 15,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.25',
-        w: '0.25'
-      }
-    },
-    S22: {
-      address: 'S22',
-      rowIndex: 5,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U22: {
-      address: 'U22',
-      rowIndex: 5,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB22: {
-      address: 'AB22',
-      rowIndex: 5,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD22: {
-      address: 'AD22',
-      rowIndex: 5,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF22: {
-      address: 'AF22',
-      rowIndex: 5,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG22: {
-      address: 'AG22',
-      rowIndex: 5,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AH22: {
-      address: 'AH22',
-      rowIndex: 5,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI22: {
-      address: 'AI22',
-      rowIndex: 5,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ22: {
-      address: 'AJ22',
-      rowIndex: 5,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK22: {
-      address: 'AK22',
-      rowIndex: 5,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B23: {
-      address: 'B23',
-      rowIndex: 6,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    K23: {
-      address: 'K23',
-      rowIndex: 6,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    Q23: {
-      address: 'Q23',
-      rowIndex: 6,
-      cellIndex: 15,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.25',
-        w: '0.25'
-      }
-    },
-    S23: {
-      address: 'S23',
-      rowIndex: 6,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U23: {
-      address: 'U23',
-      rowIndex: 6,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB23: {
-      address: 'AB23',
-      rowIndex: 6,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD23: {
-      address: 'AD23',
-      rowIndex: 6,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF23: {
-      address: 'AF23',
-      rowIndex: 6,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG23: {
-      address: 'AG23',
-      rowIndex: 6,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AH23: {
-      address: 'AH23',
-      rowIndex: 6,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI23: {
-      address: 'AI23',
-      rowIndex: 6,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ23: {
-      address: 'AJ23',
-      rowIndex: 6,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK23: {
-      address: 'AK23',
-      rowIndex: 6,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    I24: {
-      address: 'I24',
-      rowIndex: 7,
-      cellIndex: 7,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '>100.0',
-      transformKind: 'ol',
-      trigger: '>',
-      result: {
-        t: 's',
-        v: '100.0',
-        w: '100.0'
-      }
-    },
-    S24: {
-      address: 'S24',
-      rowIndex: 7,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    AB24: {
-      address: 'AB24',
-      rowIndex: 7,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD24: {
-      address: 'AD24',
-      rowIndex: 7,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AH24: {
-      address: 'AH24',
-      rowIndex: 7,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI24: {
-      address: 'AI24',
-      rowIndex: 7,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ24: {
-      address: 'AJ24',
-      rowIndex: 7,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK24: {
-      address: 'AK24',
-      rowIndex: 7,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B25: {
-      address: 'B25',
-      rowIndex: 8,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    K25: {
-      address: 'K25',
-      rowIndex: 8,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    Q25: {
-      address: 'Q25',
-      rowIndex: 8,
-      cellIndex: 15,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.25',
-        w: '0.25'
-      }
-    },
-    S25: {
-      address: 'S25',
-      rowIndex: 8,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U25: {
-      address: 'U25',
-      rowIndex: 8,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB25: {
-      address: 'AB25',
-      rowIndex: 8,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD25: {
-      address: 'AD25',
-      rowIndex: 8,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF25: {
-      address: 'AF25',
-      rowIndex: 8,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG25: {
-      address: 'AG25',
-      rowIndex: 8,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AH25: {
-      address: 'AH25',
-      rowIndex: 8,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI25: {
-      address: 'AI25',
-      rowIndex: 8,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ25: {
-      address: 'AJ25',
-      rowIndex: 8,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK25: {
-      address: 'AK25',
-      rowIndex: 8,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B26: {
-      address: 'B26',
-      rowIndex: 9,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    K26: {
-      address: 'K26',
-      rowIndex: 9,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    Q26: {
-      address: 'Q26',
-      rowIndex: 9,
-      cellIndex: 15,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.25',
-        w: '0.25'
-      }
-    },
-    S26: {
-      address: 'S26',
-      rowIndex: 9,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U26: {
-      address: 'U26',
-      rowIndex: 9,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB26: {
-      address: 'AB26',
-      rowIndex: 9,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD26: {
-      address: 'AD26',
-      rowIndex: 9,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF26: {
-      address: 'AF26',
-      rowIndex: 9,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG26: {
-      address: 'AG26',
-      rowIndex: 9,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AH26: {
-      address: 'AH26',
-      rowIndex: 9,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI26: {
-      address: 'AI26',
-      rowIndex: 9,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ26: {
-      address: 'AJ26',
-      rowIndex: 9,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK26: {
-      address: 'AK26',
-      rowIndex: 9,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B27: {
-      address: 'B27',
-      rowIndex: 10,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    E27: {
-      address: 'E27',
-      rowIndex: 10,
-      cellIndex: 3,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    I27: {
-      address: 'I27',
-      rowIndex: 10,
-      cellIndex: 7,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '>500.8',
-      transformKind: 'ol',
-      trigger: '>',
-      result: {
-        t: 's',
-        v: '500.8',
-        w: '500.8'
-      }
-    },
-    K27: {
-      address: 'K27',
-      rowIndex: 10,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    Q27: {
-      address: 'Q27',
-      rowIndex: 10,
-      cellIndex: 15,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.25',
-        w: '0.25'
-      }
-    },
-    S27: {
-      address: 'S27',
-      rowIndex: 10,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U27: {
-      address: 'U27',
-      rowIndex: 10,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB27: {
-      address: 'AB27',
-      rowIndex: 10,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD27: {
-      address: 'AD27',
-      rowIndex: 10,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF27: {
-      address: 'AF27',
-      rowIndex: 10,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG27: {
-      address: 'AG27',
-      rowIndex: 10,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AH27: {
-      address: 'AH27',
-      rowIndex: 10,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI27: {
-      address: 'AI27',
-      rowIndex: 10,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ27: {
-      address: 'AJ27',
-      rowIndex: 10,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK27: {
-      address: 'AK27',
-      rowIndex: 10,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B28: {
-      address: 'B28',
-      rowIndex: 11,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    K28: {
-      address: 'K28',
-      rowIndex: 11,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    Q28: {
-      address: 'Q28',
-      rowIndex: 11,
-      cellIndex: 15,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.25',
-        w: '0.25'
-      }
-    },
-    S28: {
-      address: 'S28',
-      rowIndex: 11,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U28: {
-      address: 'U28',
-      rowIndex: 11,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB28: {
-      address: 'AB28',
-      rowIndex: 11,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD28: {
-      address: 'AD28',
-      rowIndex: 11,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF28: {
-      address: 'AF28',
-      rowIndex: 11,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG28: {
-      address: 'AG28',
-      rowIndex: 11,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AH28: {
-      address: 'AH28',
-      rowIndex: 11,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI28: {
-      address: 'AI28',
-      rowIndex: 11,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ28: {
-      address: 'AJ28',
-      rowIndex: 11,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK28: {
-      address: 'AK28',
-      rowIndex: 11,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B29: {
-      address: 'B29',
-      rowIndex: 12,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    I29: {
-      address: 'I29',
-      rowIndex: 12,
-      cellIndex: 7,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '>84.000',
-      transformKind: 'ol',
-      trigger: '>',
-      result: {
-        t: 's',
-        v: '84.000',
-        w: '84.000'
-      }
-    },
-    K29: {
-      address: 'K29',
-      rowIndex: 12,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    S29: {
-      address: 'S29',
-      rowIndex: 12,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U29: {
-      address: 'U29',
-      rowIndex: 12,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB29: {
-      address: 'AB29',
-      rowIndex: 12,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD29: {
-      address: 'AD29',
-      rowIndex: 12,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF29: {
-      address: 'AF29',
-      rowIndex: 12,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG29: {
-      address: 'AG29',
-      rowIndex: 12,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AH29: {
-      address: 'AH29',
-      rowIndex: 12,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AJ29: {
-      address: 'AJ29',
-      rowIndex: 12,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B30: {
-      address: 'B30',
-      rowIndex: 13,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    K30: {
-      address: 'K30',
-      rowIndex: 13,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    O30: {
-      address: 'O30',
-      rowIndex: 13,
-      cellIndex: 13,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    S30: {
-      address: 'S30',
-      rowIndex: 13,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    AB30: {
-      address: 'AB30',
-      rowIndex: 13,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD30: {
-      address: 'AD30',
-      rowIndex: 13,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF30: {
-      address: 'AF30',
-      rowIndex: 13,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG30: {
-      address: 'AG30',
-      rowIndex: 13,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AI30: {
-      address: 'AI30',
-      rowIndex: 13,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ30: {
-      address: 'AJ30',
-      rowIndex: 13,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B31: {
-      address: 'B31',
-      rowIndex: 14,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    K31: {
-      address: 'K31',
-      rowIndex: 14,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    S31: {
-      address: 'S31',
-      rowIndex: 14,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U31: {
-      address: 'U31',
-      rowIndex: 14,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB31: {
-      address: 'AB31',
-      rowIndex: 14,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD31: {
-      address: 'AD31',
-      rowIndex: 14,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF31: {
-      address: 'AF31',
-      rowIndex: 14,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AH31: {
-      address: 'AH31',
-      rowIndex: 14,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI31: {
-      address: 'AI31',
-      rowIndex: 14,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ31: {
-      address: 'AJ31',
-      rowIndex: 14,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK31: {
-      address: 'AK31',
-      rowIndex: 14,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B32: {
-      address: 'B32',
-      rowIndex: 15,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    K32: {
-      address: 'K32',
-      rowIndex: 15,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    O32: {
-      address: 'O32',
-      rowIndex: 15,
-      cellIndex: 13,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    S32: {
-      address: 'S32',
-      rowIndex: 15,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U32: {
-      address: 'U32',
-      rowIndex: 15,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB32: {
-      address: 'AB32',
-      rowIndex: 15,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD32: {
-      address: 'AD32',
-      rowIndex: 15,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF32: {
-      address: 'AF32',
-      rowIndex: 15,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG32: {
-      address: 'AG32',
-      rowIndex: 15,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AH32: {
-      address: 'AH32',
-      rowIndex: 15,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI32: {
-      address: 'AI32',
-      rowIndex: 15,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ32: {
-      address: 'AJ32',
-      rowIndex: 15,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK32: {
-      address: 'AK32',
-      rowIndex: 15,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B33: {
-      address: 'B33',
-      rowIndex: 16,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    J33: {
-      address: 'J33',
-      rowIndex: 16,
-      cellIndex: 8,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    K33: {
-      address: 'K33',
-      rowIndex: 16,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    O33: {
-      address: 'O33',
-      rowIndex: 16,
-      cellIndex: 13,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    Q33: {
-      address: 'Q33',
-      rowIndex: 16,
-      cellIndex: 15,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.25',
-        w: '0.25'
-      }
-    },
-    S33: {
-      address: 'S33',
-      rowIndex: 16,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U33: {
-      address: 'U33',
-      rowIndex: 16,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB33: {
-      address: 'AB33',
-      rowIndex: 16,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD33: {
-      address: 'AD33',
-      rowIndex: 16,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF33: {
-      address: 'AF33',
-      rowIndex: 16,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG33: {
-      address: 'AG33',
-      rowIndex: 16,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AH33: {
-      address: 'AH33',
-      rowIndex: 16,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI33: {
-      address: 'AI33',
-      rowIndex: 16,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ33: {
-      address: 'AJ33',
-      rowIndex: 16,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK33: {
-      address: 'AK33',
-      rowIndex: 16,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B34: {
-      address: 'B34',
-      rowIndex: 17,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    K34: {
-      address: 'K34',
-      rowIndex: 17,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    O34: {
-      address: 'O34',
-      rowIndex: 17,
-      cellIndex: 13,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    S34: {
-      address: 'S34',
-      rowIndex: 17,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    AB34: {
-      address: 'AB34',
-      rowIndex: 17,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD34: {
-      address: 'AD34',
-      rowIndex: 17,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF34: {
-      address: 'AF34',
-      rowIndex: 17,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG34: {
-      address: 'AG34',
-      rowIndex: 17,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AH34: {
-      address: 'AH34',
-      rowIndex: 17,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI34: {
-      address: 'AI34',
-      rowIndex: 17,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ34: {
-      address: 'AJ34',
-      rowIndex: 17,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK34: {
-      address: 'AK34',
-      rowIndex: 17,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B35: {
-      address: 'B35',
-      rowIndex: 18,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    J35: {
-      address: 'J35',
-      rowIndex: 18,
-      cellIndex: 8,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    K35: {
-      address: 'K35',
-      rowIndex: 18,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    O35: {
-      address: 'O35',
-      rowIndex: 18,
-      cellIndex: 13,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    Q35: {
-      address: 'Q35',
-      rowIndex: 18,
-      cellIndex: 15,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.25',
-        w: '0.25'
-      }
-    },
-    R35: {
-      address: 'R35',
-      rowIndex: 18,
-      cellIndex: 16,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    S35: {
-      address: 'S35',
-      rowIndex: 18,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    AB35: {
-      address: 'AB35',
-      rowIndex: 18,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD35: {
-      address: 'AD35',
-      rowIndex: 18,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF35: {
-      address: 'AF35',
-      rowIndex: 18,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG35: {
-      address: 'AG35',
-      rowIndex: 18,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AH35: {
-      address: 'AH35',
-      rowIndex: 18,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI35: {
-      address: 'AI35',
-      rowIndex: 18,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ35: {
-      address: 'AJ35',
-      rowIndex: 18,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK35: {
-      address: 'AK35',
-      rowIndex: 18,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B36: {
-      address: 'B36',
-      rowIndex: 19,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    K36: {
-      address: 'K36',
-      rowIndex: 19,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    O36: {
-      address: 'O36',
-      rowIndex: 19,
-      cellIndex: 13,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    Q36: {
-      address: 'Q36',
-      rowIndex: 19,
-      cellIndex: 15,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.25',
-        w: '0.25'
-      }
-    },
-    S36: {
-      address: 'S36',
-      rowIndex: 19,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    AB36: {
-      address: 'AB36',
-      rowIndex: 19,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD36: {
-      address: 'AD36',
-      rowIndex: 19,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF36: {
-      address: 'AF36',
-      rowIndex: 19,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG36: {
-      address: 'AG36',
-      rowIndex: 19,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AH36: {
-      address: 'AH36',
-      rowIndex: 19,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI36: {
-      address: 'AI36',
-      rowIndex: 19,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ36: {
-      address: 'AJ36',
-      rowIndex: 19,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK36: {
-      address: 'AK36',
-      rowIndex: 19,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B37: {
-      address: 'B37',
-      rowIndex: 20,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    K37: {
-      address: 'K37',
-      rowIndex: 20,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    O37: {
-      address: 'O37',
-      rowIndex: 20,
-      cellIndex: 13,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    Q37: {
-      address: 'Q37',
-      rowIndex: 20,
-      cellIndex: 15,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.25',
-        w: '0.25'
-      }
-    },
-    S37: {
-      address: 'S37',
-      rowIndex: 20,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U37: {
-      address: 'U37',
-      rowIndex: 20,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB37: {
-      address: 'AB37',
-      rowIndex: 20,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD37: {
-      address: 'AD37',
-      rowIndex: 20,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF37: {
-      address: 'AF37',
-      rowIndex: 20,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG37: {
-      address: 'AG37',
-      rowIndex: 20,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AH37: {
-      address: 'AH37',
-      rowIndex: 20,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI37: {
-      address: 'AI37',
-      rowIndex: 20,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ37: {
-      address: 'AJ37',
-      rowIndex: 20,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK37: {
-      address: 'AK37',
-      rowIndex: 20,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B38: {
-      address: 'B38',
-      rowIndex: 21,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    K38: {
-      address: 'K38',
-      rowIndex: 21,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    Q38: {
-      address: 'Q38',
-      rowIndex: 21,
-      cellIndex: 15,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.25',
-        w: '0.25'
-      }
-    },
-    S38: {
-      address: 'S38',
-      rowIndex: 21,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U38: {
-      address: 'U38',
-      rowIndex: 21,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB38: {
-      address: 'AB38',
-      rowIndex: 21,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD38: {
-      address: 'AD38',
-      rowIndex: 21,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF38: {
-      address: 'AF38',
-      rowIndex: 21,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG38: {
-      address: 'AG38',
-      rowIndex: 21,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AH38: {
-      address: 'AH38',
-      rowIndex: 21,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI38: {
-      address: 'AI38',
-      rowIndex: 21,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ38: {
-      address: 'AJ38',
-      rowIndex: 21,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK38: {
-      address: 'AK38',
-      rowIndex: 21,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B39: {
-      address: 'B39',
-      rowIndex: 22,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    K39: {
-      address: 'K39',
-      rowIndex: 22,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    Q39: {
-      address: 'Q39',
-      rowIndex: 22,
-      cellIndex: 15,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.25',
-        w: '0.25'
-      }
-    },
-    S39: {
-      address: 'S39',
-      rowIndex: 22,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U39: {
-      address: 'U39',
-      rowIndex: 22,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB39: {
-      address: 'AB39',
-      rowIndex: 22,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD39: {
-      address: 'AD39',
-      rowIndex: 22,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF39: {
-      address: 'AF39',
-      rowIndex: 22,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG39: {
-      address: 'AG39',
-      rowIndex: 22,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AH39: {
-      address: 'AH39',
-      rowIndex: 22,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI39: {
-      address: 'AI39',
-      rowIndex: 22,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ39: {
-      address: 'AJ39',
-      rowIndex: 22,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK39: {
-      address: 'AK39',
-      rowIndex: 22,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B40: {
-      address: 'B40',
-      rowIndex: 23,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    J40: {
-      address: 'J40',
-      rowIndex: 23,
-      cellIndex: 8,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    K40: {
-      address: 'K40',
-      rowIndex: 23,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    O40: {
-      address: 'O40',
-      rowIndex: 23,
-      cellIndex: 13,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    Q40: {
-      address: 'Q40',
-      rowIndex: 23,
-      cellIndex: 15,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.25',
-        w: '0.25'
-      }
-    },
-    S40: {
-      address: 'S40',
-      rowIndex: 23,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U40: {
-      address: 'U40',
-      rowIndex: 23,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB40: {
-      address: 'AB40',
-      rowIndex: 23,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD40: {
-      address: 'AD40',
-      rowIndex: 23,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF40: {
-      address: 'AF40',
-      rowIndex: 23,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG40: {
-      address: 'AG40',
-      rowIndex: 23,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AI40: {
-      address: 'AI40',
-      rowIndex: 23,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ40: {
-      address: 'AJ40',
-      rowIndex: 23,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK40: {
-      address: 'AK40',
-      rowIndex: 23,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B41: {
-      address: 'B41',
-      rowIndex: 24,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    J41: {
-      address: 'J41',
-      rowIndex: 24,
-      cellIndex: 8,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    K41: {
-      address: 'K41',
-      rowIndex: 24,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    O41: {
-      address: 'O41',
-      rowIndex: 24,
-      cellIndex: 13,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    Q41: {
-      address: 'Q41',
-      rowIndex: 24,
-      cellIndex: 15,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.25',
-        w: '0.25'
-      }
-    },
-    S41: {
-      address: 'S41',
-      rowIndex: 24,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U41: {
-      address: 'U41',
-      rowIndex: 24,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB41: {
-      address: 'AB41',
-      rowIndex: 24,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD41: {
-      address: 'AD41',
-      rowIndex: 24,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF41: {
-      address: 'AF41',
-      rowIndex: 24,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG41: {
-      address: 'AG41',
-      rowIndex: 24,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AI41: {
-      address: 'AI41',
-      rowIndex: 24,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ41: {
-      address: 'AJ41',
-      rowIndex: 24,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK41: {
-      address: 'AK41',
-      rowIndex: 24,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    G42: {
-      address: 'G42',
-      rowIndex: 25,
-      cellIndex: 5,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '>10000',
-      transformKind: 'ol',
-      trigger: '>',
-      result: {
-        t: 'n',
-        v: 10000,
-        w: '10000'
-      }
-    },
-    I42: {
-      address: 'I42',
-      rowIndex: 25,
-      cellIndex: 7,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '>100.0',
-      transformKind: 'ol',
-      trigger: '>',
-      result: {
-        t: 's',
-        v: '100.0',
-        w: '100.0'
-      }
-    },
-    O42: {
-      address: 'O42',
-      rowIndex: 25,
-      cellIndex: 13,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    S42: {
-      address: 'S42',
-      rowIndex: 25,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    AF42: {
-      address: 'AF42',
-      rowIndex: 25,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AH42: {
-      address: 'AH42',
-      rowIndex: 25,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI42: {
-      address: 'AI42',
-      rowIndex: 25,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK42: {
-      address: 'AK42',
-      rowIndex: 25,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B43: {
-      address: 'B43',
-      rowIndex: 26,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    K43: {
-      address: 'K43',
-      rowIndex: 26,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    O43: {
-      address: 'O43',
-      rowIndex: 26,
-      cellIndex: 13,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    Q43: {
-      address: 'Q43',
-      rowIndex: 26,
-      cellIndex: 15,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.25',
-        w: '0.25'
-      }
-    },
-    S43: {
-      address: 'S43',
-      rowIndex: 26,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U43: {
-      address: 'U43',
-      rowIndex: 26,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB43: {
-      address: 'AB43',
-      rowIndex: 26,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD43: {
-      address: 'AD43',
-      rowIndex: 26,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF43: {
-      address: 'AF43',
-      rowIndex: 26,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG43: {
-      address: 'AG43',
-      rowIndex: 26,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AH43: {
-      address: 'AH43',
-      rowIndex: 26,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI43: {
-      address: 'AI43',
-      rowIndex: 26,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ43: {
-      address: 'AJ43',
-      rowIndex: 26,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK43: {
-      address: 'AK43',
-      rowIndex: 26,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B44: {
-      address: 'B44',
-      rowIndex: 27,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    K44: {
-      address: 'K44',
-      rowIndex: 27,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    Q44: {
-      address: 'Q44',
-      rowIndex: 27,
-      cellIndex: 15,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.25',
-        w: '0.25'
-      }
-    },
-    S44: {
-      address: 'S44',
-      rowIndex: 27,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U44: {
-      address: 'U44',
-      rowIndex: 27,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB44: {
-      address: 'AB44',
-      rowIndex: 27,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD44: {
-      address: 'AD44',
-      rowIndex: 27,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF44: {
-      address: 'AF44',
-      rowIndex: 27,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG44: {
-      address: 'AG44',
-      rowIndex: 27,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AH44: {
-      address: 'AH44',
-      rowIndex: 27,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI44: {
-      address: 'AI44',
-      rowIndex: 27,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ44: {
-      address: 'AJ44',
-      rowIndex: 27,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK44: {
-      address: 'AK44',
-      rowIndex: 27,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B45: {
-      address: 'B45',
-      rowIndex: 28,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    E45: {
-      address: 'E45',
-      rowIndex: 28,
-      cellIndex: 3,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    K45: {
-      address: 'K45',
-      rowIndex: 28,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    Q45: {
-      address: 'Q45',
-      rowIndex: 28,
-      cellIndex: 15,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.25',
-        w: '0.25'
-      }
-    },
-    S45: {
-      address: 'S45',
-      rowIndex: 28,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U45: {
-      address: 'U45',
-      rowIndex: 28,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB45: {
-      address: 'AB45',
-      rowIndex: 28,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD45: {
-      address: 'AD45',
-      rowIndex: 28,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF45: {
-      address: 'AF45',
-      rowIndex: 28,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG45: {
-      address: 'AG45',
-      rowIndex: 28,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AH45: {
-      address: 'AH45',
-      rowIndex: 28,
-      cellIndex: 32,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    AI45: {
-      address: 'AI45',
-      rowIndex: 28,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ45: {
-      address: 'AJ45',
-      rowIndex: 28,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK45: {
-      address: 'AK45',
-      rowIndex: 28,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B46: {
-      address: 'B46',
-      rowIndex: 29,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    J46: {
-      address: 'J46',
-      rowIndex: 29,
-      cellIndex: 8,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    K46: {
-      address: 'K46',
-      rowIndex: 29,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    S46: {
-      address: 'S46',
-      rowIndex: 29,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U46: {
-      address: 'U46',
-      rowIndex: 29,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB46: {
-      address: 'AB46',
-      rowIndex: 29,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD46: {
-      address: 'AD46',
-      rowIndex: 29,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF46: {
-      address: 'AF46',
-      rowIndex: 29,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AI46: {
-      address: 'AI46',
-      rowIndex: 29,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ46: {
-      address: 'AJ46',
-      rowIndex: 29,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK46: {
-      address: 'AK46',
-      rowIndex: 29,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    B47: {
-      address: 'B47',
-      rowIndex: 30,
-      cellIndex: 0,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: 'Rock',
-      transformKind: 'zero',
-      trigger: 'Rock',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0'
-      }
-    },
-    J47: {
-      address: 'J47',
-      rowIndex: 30,
-      cellIndex: 8,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    K47: {
-      address: 'K47',
-      rowIndex: 30,
-      cellIndex: 9,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<1',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 0,
-        w: '0.5'
-      }
-    },
-    O47: {
-      address: 'O47',
-      rowIndex: 30,
-      cellIndex: 13,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    Q47: {
-      address: 'Q47',
-      rowIndex: 30,
-      cellIndex: 15,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.25',
-        w: '0.25'
-      }
-    },
-    S47: {
-      address: 'S47',
-      rowIndex: 30,
-      cellIndex: 17,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<3',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1.5'
-      }
-    },
-    U47: {
-      address: 'U47',
-      rowIndex: 30,
-      cellIndex: 19,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AB47: {
-      address: 'AB47',
-      rowIndex: 30,
-      cellIndex: 26,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<20',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 10,
-        w: '10'
-      }
-    },
-    AD47: {
-      address: 'AD47',
-      rowIndex: 30,
-      cellIndex: 28,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.01',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.005',
-        w: '0.005'
-      }
-    },
-    AF47: {
-      address: 'AF47',
-      rowIndex: 30,
-      cellIndex: 30,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<2',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 1,
-        w: '1'
-      }
-    },
-    AG47: {
-      address: 'AG47',
-      rowIndex: 30,
-      cellIndex: 31,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<0.05',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 's',
-        v: '0.025',
-        w: '0.025'
-      }
-    },
-    AI47: {
-      address: 'AI47',
-      rowIndex: 30,
-      cellIndex: 33,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AJ47: {
-      address: 'AJ47',
-      rowIndex: 30,
-      cellIndex: 34,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    },
-    AK47: {
-      address: 'AK47',
-      rowIndex: 30,
-      cellIndex: 35,
-      rowStartNum: 17,
-      colStartNum: 2,
-      original: '<5',
-      transformKind: 'ul',
-      trigger: '<',
-      result: {
-        t: 'n',
-        v: 2,
-        w: '2.5'
-      }
-    }
-  },
-  scope: 'b17:am47'
-}
+         ul: {
+           count: 361,
+           originalValues: [
+             '<0.01',
+             '<0.05',
+             '<0.5',
+             '<1',
+             '<2',
+             '<3',
+             '<5',
+             '<20'
+           ],
+           changedValues: ['0.01', '0.03', '0.3', '1', '2', '3', '10'],
+           addresses: [
+             'E27',
+             'E45',
+             'J33',
+             'J35',
+             'J40',
+             'J41',
+             'J46',
+             'J47',
+             'K17',
+             'K18',
+             'K19',
+             'K20',
+             'K21',
+             'K22',
+             'K23',
+             'K25',
+             'K26',
+             'K27',
+             'K28',
+             'K29',
+             'K30',
+             'K31',
+             'K32',
+             'K33',
+             'K34',
+             'K35',
+             'K36',
+             'K37',
+             'K38',
+             'K39',
+             'K40',
+             'K41',
+             'K43',
+             'K44',
+             'K45',
+             'K46',
+             'K47',
+             'O30',
+             'O32',
+             'O33',
+             'O34',
+             'O35',
+             'O36',
+             'O37',
+             'O40',
+             'O41',
+             'O42',
+             'O43',
+             'O47',
+             'Q17',
+             'Q18',
+             'Q19',
+             'Q20',
+             'Q21',
+             'Q22',
+             'Q23',
+             'Q25',
+             'Q26',
+             'Q27',
+             'Q28',
+             'Q33',
+             'Q35',
+             'Q36',
+             'Q37',
+             'Q38',
+             'Q39',
+             'Q40',
+             'Q41',
+             'Q43',
+             'Q44',
+             'Q45',
+             'Q47',
+             'R35',
+             'S17',
+             'S18',
+             'S19',
+             'S20',
+             'S21',
+             'S22',
+             'S23',
+             'S24',
+             'S25',
+             'S26',
+             'S27',
+             'S28',
+             'S29',
+             'S30',
+             'S31',
+             'S32',
+             'S33',
+             'S34',
+             'S35',
+             'S36',
+             'S37',
+             'S38',
+             'S39',
+             'S40',
+             'S41',
+             'S42',
+             'S43',
+             'S44',
+             'S45',
+             'S46',
+             'S47',
+             'U17',
+             'U18',
+             'U19',
+             'U20',
+             'U21',
+             'U22',
+             'U23',
+             'U25',
+             'U26',
+             'U27',
+             'U28',
+             'U29',
+             'U31',
+             'U32',
+             'U33',
+             'U37',
+             'U38',
+             'U39',
+             'U40',
+             'U41',
+             'U43',
+             'U44',
+             'U45',
+             'U46',
+             'U47',
+             'AB17',
+             'AB18',
+             'AB19',
+             'AB20',
+             'AB21',
+             'AB22',
+             'AB23',
+             'AB24',
+             'AB25',
+             'AB26',
+             'AB27',
+             'AB28',
+             'AB29',
+             'AB30',
+             'AB31',
+             'AB32',
+             'AB33',
+             'AB34',
+             'AB35',
+             'AB36',
+             'AB37',
+             'AB38',
+             'AB39',
+             'AB40',
+             'AB41',
+             'AB43',
+             'AB44',
+             'AB45',
+             'AB46',
+             'AB47',
+             'AD17',
+             'AD18',
+             'AD19',
+             'AD20',
+             'AD21',
+             'AD22',
+             'AD23',
+             'AD24',
+             'AD25',
+             'AD26',
+             'AD27',
+             'AD28',
+             'AD29',
+             'AD30',
+             'AD31',
+             'AD32',
+             'AD33',
+             'AD34',
+             'AD35',
+             'AD36',
+             'AD37',
+             'AD38',
+             'AD39',
+             'AD40',
+             'AD41',
+             'AD43',
+             'AD44',
+             'AD45',
+             'AD46',
+             'AD47',
+             'AF17',
+             'AF18',
+             'AF19',
+             'AF20',
+             'AF21',
+             'AF22',
+             'AF23',
+             'AF25',
+             'AF26',
+             'AF27',
+             'AF28',
+             'AF29',
+             'AF30',
+             'AF31',
+             'AF32',
+             'AF33',
+             'AF34',
+             'AF35',
+             'AF36',
+             'AF37',
+             'AF38',
+             'AF39',
+             'AF40',
+             'AF41',
+             'AF42',
+             'AF43',
+             'AF44',
+             'AF45',
+             'AF46',
+             'AF47',
+             'AG17',
+             'AG18',
+             'AG19',
+             'AG20',
+             'AG21',
+             'AG22',
+             'AG23',
+             'AG25',
+             'AG26',
+             'AG27',
+             'AG28',
+             'AG29',
+             'AG30',
+             'AG32',
+             'AG33',
+             'AG34',
+             'AG35',
+             'AG36',
+             'AG37',
+             'AG38',
+             'AG39',
+             'AG40',
+             'AG41',
+             'AG43',
+             'AG44',
+             'AG45',
+             'AG47',
+             'AH17',
+             'AH18',
+             'AH19',
+             'AH20',
+             'AH21',
+             'AH22',
+             'AH23',
+             'AH24',
+             'AH25',
+             'AH26',
+             'AH27',
+             'AH28',
+             'AH29',
+             'AH31',
+             'AH32',
+             'AH33',
+             'AH34',
+             'AH35',
+             'AH36',
+             'AH37',
+             'AH38',
+             'AH39',
+             'AH42',
+             'AH43',
+             'AH44',
+             'AH45',
+             'AI17',
+             'AI18',
+             'AI19',
+             'AI20',
+             'AI21',
+             'AI22',
+             'AI23',
+             'AI24',
+             'AI25',
+             'AI26',
+             'AI27',
+             'AI28',
+             'AI30',
+             'AI31',
+             'AI32',
+             'AI33',
+             'AI34',
+             'AI35',
+             'AI36',
+             'AI37',
+             'AI38',
+             'AI39',
+             'AI40',
+             'AI41',
+             'AI42',
+             'AI43',
+             'AI44',
+             'AI45',
+             'AI46',
+             'AI47',
+             'AJ17',
+             'AJ18',
+             'AJ19',
+             'AJ20',
+             'AJ21',
+             'AJ22',
+             'AJ23',
+             'AJ24',
+             'AJ25',
+             'AJ26',
+             'AJ27',
+             'AJ28',
+             'AJ29',
+             'AJ30',
+             'AJ31',
+             'AJ32',
+             'AJ33',
+             'AJ34',
+             'AJ35',
+             'AJ36',
+             'AJ37',
+             'AJ38',
+             'AJ39',
+             'AJ40',
+             'AJ41',
+             'AJ43',
+             'AJ44',
+             'AJ45',
+             'AJ46',
+             'AJ47',
+             'AK17',
+             'AK18',
+             'AK19',
+             'AK20',
+             'AK21',
+             'AK22',
+             'AK23',
+             'AK24',
+             'AK25',
+             'AK26',
+             'AK27',
+             'AK28',
+             'AK31',
+             'AK32',
+             'AK33',
+             'AK34',
+             'AK35',
+             'AK36',
+             'AK37',
+             'AK38',
+             'AK39',
+             'AK40',
+             'AK41',
+             'AK42',
+             'AK43',
+             'AK44',
+             'AK45',
+             'AK46',
+             'AK47'
+           ],
+           dataUrls: {
+             '<1': {
+               addresses: [
+                 'E27',
+                 'E45',
+                 'J33',
+                 'J35',
+                 'J40',
+                 'J41',
+                 'J46',
+                 'J47',
+                 'K17',
+                 'K18',
+                 'K19',
+                 'K20',
+                 'K21',
+                 'K22',
+                 'K23',
+                 'K25',
+                 'K26',
+                 'K27',
+                 'K28',
+                 'K29',
+                 'K30',
+                 'K31',
+                 'K32',
+                 'K33',
+                 'K34',
+                 'K35',
+                 'K36',
+                 'K37',
+                 'K38',
+                 'K39',
+                 'K40',
+                 'K41',
+                 'K43',
+                 'K44',
+                 'K45',
+                 'K46',
+                 'K47',
+                 'AH17',
+                 'AH18',
+                 'AH19',
+                 'AH20',
+                 'AH21',
+                 'AH22',
+                 'AH23',
+                 'AH24',
+                 'AH25',
+                 'AH26',
+                 'AH27',
+                 'AH28',
+                 'AH29',
+                 'AH31',
+                 'AH32',
+                 'AH33',
+                 'AH34',
+                 'AH35',
+                 'AH36',
+                 'AH37',
+                 'AH38',
+                 'AH39',
+                 'AH42',
+                 'AH43',
+                 'AH44',
+                 'AH45'
+               ],
+               original:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAACCElEQVRoQ+2XMYsTURSFz30TY2M1YmFjo7iFZTqrJPNimEoQBbFzO7FQEASxEESt7GwsF8TG6IJVYPIS4m/QXoRt1k4Qooa8JwO7soW4W9zEu8uZaorHuYfve3dgBHxMERBTbVgGFGLsElAIhRgjYKwON4RCjBEwVocbQiHGCBirww2hEGMEjNXhhlCIMQLG6hzJDfHen4kxymQy+WKM9751jpyQfr9/brFYfASwEUK4tS8BYwcOrZCyLI/P5/MbAL6FEDbb7faJLMseiMh9AA0ALylkBbetKIrzInIHwPrOuOshhPfe+ysAXqeU7orIYwCbFLIkIa1W61ie51djjPdEpAXgc0rpaZ7nrwaDwa96bFmWp2az2Ww6nX733m9TyJJk1LG9Xu9aSulN/XkSkcuj0ejDv8ZRyBJl1NGdTmet0Wi8SyldEJGtGOOTZrO5MRwOf/5tNIUsWchufLfbveicewTgEoAfAF44555XVfV1bwUKWZGQPWLOOuceAriZUno2Ho/r9z8PhaxYyO64oihOZll2uqqqTxTynyQcZOzOhrwNIdw+yHlLZw7tj6EliJpdKESTpkIWhShA1IygEE2aClkUogBRM4JCNGkqZFGIAkTNCArRpKmQRSEKEDUjKESTpkIWhShA1IygEE2aClkUogBRM4JCNGkqZFGIAkTNCArRpKmQ9RvJnospmlgRlwAAAABJRU5ErkJggg==',
+               transform:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAABM0lEQVRoQ+2XsW2DUBRF35eQGCFJFS+QEZAQ+gjkyi7sRTxFRsgISZUUdNCzR6K49AKgZ7lwG8kF5hIdevhH5/xbEIxHykCQogHGCCJ2CQhCEDEDYjgshCBiBsRwWAhBxAyI4bAQgogZEMNhIQQRMyCG8y8WEmN8SdP0p2mak5jfm3EWH6Qsy527f7j7tuu6z5sNiL2w2CB1Xa+GYXg1s/3FKUFmvlkxxrcQwtrdD2b2TpCZgxRF8Zxl2Xff9w/jOP4SZOYg1+OrqnoiiEiMCwZBhGIQRCwGQQgyuYHF/odczeR5/pgkydHMNm3bfk1ubOIDFh9kYj93/zxB7q787wMJQhAxA2I4LIQgYgbEcFgIQcQMiOGwEIKIGRDDYSEEETMghsNCCCJmQAyHhRBEzIAYzhnD1nIpEKQRsQAAAABJRU5ErkJggg=='
+             },
+             '<2': {
+               addresses: [
+                 'O30',
+                 'O32',
+                 'O33',
+                 'O34',
+                 'O35',
+                 'O36',
+                 'O37',
+                 'O40',
+                 'O41',
+                 'O42',
+                 'O43',
+                 'O47',
+                 'AF17',
+                 'AF18',
+                 'AF19',
+                 'AF20',
+                 'AF21',
+                 'AF22',
+                 'AF23',
+                 'AF25',
+                 'AF26',
+                 'AF27',
+                 'AF28',
+                 'AF29',
+                 'AF30',
+                 'AF31',
+                 'AF32',
+                 'AF33',
+                 'AF34',
+                 'AF35',
+                 'AF36',
+                 'AF37',
+                 'AF38',
+                 'AF39',
+                 'AF40',
+                 'AF41',
+                 'AF42',
+                 'AF43',
+                 'AF44',
+                 'AF45',
+                 'AF46',
+                 'AF47'
+               ],
+               original:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAACf0lEQVRoQ+2XMYgTQRSG/9ld19ZdKxsbQQutTKWxSDKTQLA4EEVROFELLUSFKw+UgIqFcIWFIBYnauOqhSCBzWzgECy1v+YKBcXurNQkM7KQgBzBnWqYCW/L8MP75/vmsVkGepwiwJxqQ2VAQhy7BCSEhDhGwLE6tCEkxDECjtWhDSEhjhFwrA5tCAlxjIBjdWhDSIhjBByrs3Ab0mg09sRxnOR5vuUYa6M6CyOk0+kcUUo9AXBsevJNrfX9oiieGZFwJOStkG63u3s0Gp0HsC2lfCuE+FQyDcPwpNb6p1LqAYDrAI5KKT87wruyhndCOOcHGWM3AVyenu7ceDzeiKLotlLq9XA4/Fj+LoQ4AeADgLNSyleVJBwJeCGkVqvtStP0tFJqhTFWA7Cltb6XpunzLMv+zGMphHgB4EIQBPvzPP/iCO/KGl4IabfbZ7TW5S3fZowtDQaDjf+djHN+kTG2DuCRlPJGJQWHAl4IaTabh6IoeqO1PswY+6qUuhvH8Xq/3/+9k2W73b6mtX4M4H2SJEtZlk0c4l1ZxQshs1O0Wq3jQRDcAdAB8KvcgCAIHuZ5/mP63rgFYA3AuyRJTvkmozyDV0L+EXMgCIJVAJemf21XOedXGGNPAbys1+vLvV5PVV5HBwNeCplx5JzvDcNw32Qy+cYY+w5grLVe2cFZFkWx6SD7uZW8FjI7kRBiGcDcD0Ct9dWiKMoPRi+ehRDiBWnDkiTEEJStGAmxRdpwDgkxBGUrRkJskTacQ0IMQdmKkRBbpA3nkBBDULZiJMQWacM5JMQQlK0YCbFF2nAOCTEEZStGQmyRNpxDQgxB2YqREFukDeeQEENQtmJ/AYC1nik4fdo4AAAAAElFTkSuQmCC',
+               transform:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAABM0lEQVRoQ+2XsW2DUBRF35eQGCFJFS+QEZAQ+gjkyi7sRTxFRsgISZUUdNCzR6K49AKgZ7lwG8kF5hIdevhH5/xbEIxHykCQogHGCCJ2CQhCEDEDYjgshCBiBsRwWAhBxAyI4bAQgogZEMNhIQQRMyCG8y8WEmN8SdP0p2mak5jfm3EWH6Qsy527f7j7tuu6z5sNiL2w2CB1Xa+GYXg1s/3FKUFmvlkxxrcQwtrdD2b2TpCZgxRF8Zxl2Xff9w/jOP4SZOYg1+OrqnoiiEiMCwZBhGIQRCwGQQgyuYHF/odczeR5/pgkydHMNm3bfk1ubOIDFh9kYj93/zxB7q787wMJQhAxA2I4LIQgYgbEcFgIQcQMiOGwEIKIGRDDYSEEETMghsNCCCJmQAyHhRBEzIAYzhnD1nIpEKQRsQAAAABJRU5ErkJggg=='
+             },
+             '<0.5': {
+               addresses: [
+                 'Q17',
+                 'Q18',
+                 'Q19',
+                 'Q20',
+                 'Q21',
+                 'Q22',
+                 'Q23',
+                 'Q25',
+                 'Q26',
+                 'Q27',
+                 'Q28',
+                 'Q33',
+                 'Q35',
+                 'Q36',
+                 'Q37',
+                 'Q38',
+                 'Q39',
+                 'Q40',
+                 'Q41',
+                 'Q43',
+                 'Q44',
+                 'Q45',
+                 'Q47'
+               ],
+               original:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAD00lEQVRoQ+2XS4gjRRjH/1+Z4KgMTHZlBUEXD17XR2R9jdJ2dSfOzmZFZPCgIC66iIiosCJexgERhF129eZB8XVy0IPjA9LVPdlDs+QQx5OyR/ehslFR3N1J7HR9UppAGAaRbAIVqBwrVV+++v3q310huI9VBMiqblwzcEIsOwROiBNiGQHL2nEJcUIsI2BZOy4hTohlBCxrxyXECbGMgGXtuIQ4IZYRsKydqU2I53nXEtHO9fX1U//FdGlp6Yp2u33V8JzZ2Vm9trZ2yTIX/7QzdUI8z5srFApfAbi7D/QPAA8opTa2AyylfImIjm757iel1PVOyIgEpJSBEKIcRdGbQRAkRHRzr9d7kIguCCE+ArCnVCrtWl1d/WvrT4RhuMrMe/I8PzD4jog6SZL8MGI7E11mbUKklDsBHCKiFwDsYuY3ZmZmjnS73d8AvKiUOm7I+L6/VwjRZOYwjmO1jZAzzPy5EOJlADvq9fqZiRK9zOLWCZFS3meAE9HDAC4Q0bEsy95uNBq/+L5/uxCipbXelyTJ12bv1Wp1R57nvwJ4Qin14TAPz/NmCoXCJoDzRgaAAhGd1VpX4zj+7jLZTWS5VUIWFxdL/QSAiJ7Osuz9RqPRG+y8Uqncr7U+wcz3xHF80owvLy+LNE1zAIeVUkeGKQVBcBcAM+8kEb3GzEb2K0T0c5ZlNw3XngjdEYpaJWRhYeHKLMs+BbAIoGPSQUTH6/W6OeEIw/BWZt4gIi+KohNmrFarXb25uXmRmZ+K4/jdYQZGVrPZvLHdbp9rtVpZv8ZRZjYv+tuiKPp2BGYTXWKVkMFOfd/fLYR4FcBB85gB8AmA15n5vDndAB5RSn1m5lcqlRu01qeZ2Y/jeH0rLSNlZWVFD8bDMNzHzF8SURBFUTxRuiMUt1LIYB/milssFp9n5sPMfGp+fn5vmqYXieiDKIqeMfOCIHgSwHsAdiulTg8zkFI+RkQfa63LSZJ800/IW8z8bKlUuma7W9kIDMe6xGohg52Wy+Xi3NzcHea9EQTBMQDPaa0PFIvFH/M8N6e8pZSq9oE/zsw1pdSj/Ufg7wC+J6JDAO5kZvOeiZVS+8dKckzFpkLIlpuT+WP4BYB7++MbWutakiTn+ol5x1yXlVICAAdB8BAzrxDRLf35zV6vt9/c2sbEcKxlpk7IYPfmutvtdsX/BSulvK7T6VxK0/TPsRIcc7GpFTJmDtaUc0KsUfFvI06IE2IZAcvacQlxQiwjYFk7LiFOiGUELGvHJcQJsYyAZe24hDghlhGwrB2XECfEMgKWteMSYpmQvwHzx2U46u+pfgAAAABJRU5ErkJggg==',
+               transform:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAADJ0lEQVRoQ+2ZS2jUUBSG/3s7bUEQOlV8gA8QROlCi0VBRYmTR6WlBXXpQkRRF4IouC64EARRETcuVHzsCq6sOslJOkWKuChFXEhX0oIi4rNYy5TJPRKIUMSWwkg54s1y5ib57/fNf29mRsEeoggoUWlsGFghwj4EVogVIoyAsDi2IVaIMALC4tiGWCHCCAiLYxtihQgjICyObYgVIoyAsDj/TEMcx1mulFo2ODg4thCGQRBsVkp9KJfLnxcyXsoY8UIcx2kpFAqPAezMoX0DsI+IRv8E0fO8gwBuAFidv/+sVqv1ViqVr1Kgz5dDvBDP8xKl1MZarbZfKfVda30fwJZisbiiv79/ZvbkHMdZUygU3jDzzdbW1nOTk5Pr0jR9DeAOEZ2wQuok0N3dXaxWq9mSc5aIrmWXK5VKO7TWL5jZj+OYfhPS0tTUtAdAEobhVE9Pz5Lp6elPAJ4S0YE64yzK6aIbUiqVtmmtR4wxXUmSPMmIdHZ2tqZpmkE+QkT35qLkuu4xpdRJANu11m4YhsmiEK3zJqKFBEGw1xgzxMy74jh+ns21r69PDw8PpwDOE9HlP82/o6OjsVgs/gBQAPABgEdEr+pktSinixbi+347M48qpZwoioYyIvkyNMXMx+M4vjUfJdd127TWZWZeSkQti0K0zpuIFuK67kql1HsAh4joYTbXIAjWGmMmmLkUx/Hg7/PP9p2BgYEvv173ff8MM2f7TxsRZRu86EO0kHx5mlJK3Y2i6FRG0vO8owBuA1hPRBOz6bque1gp9aChoaG9XC6/zMdfyR4KtNYbwjB8I9oGIP8/dc/zrgI4bYzpbWxsfJemaQxghIg6M7i+718CMBVF0YV87/jMzGPMfEJr3QHgOoAJItokXUaWT3RDsoD5F8NHAHbnQEeNMT1JkrzNGzDOzF/iOG7PBXUZYy4qpbbOGn8gSZJxK+QvEsged6vVqq5UKh8XclnHcVY1NzfP2J9OFkLLjpmTgPgl639zZ4UIM26FWCHCCAiLYxtihQgjICyObYgVIoyAsDi2IVaIMALC4tiGWCHCCAiLYxtihQgjICzOT/Y7Eji1Y/3xAAAAAElFTkSuQmCC'
+             },
+             '<3': {
+               addresses: [
+                 'R35',
+                 'S17',
+                 'S18',
+                 'S19',
+                 'S20',
+                 'S21',
+                 'S22',
+                 'S23',
+                 'S24',
+                 'S25',
+                 'S26',
+                 'S27',
+                 'S28',
+                 'S29',
+                 'S30',
+                 'S31',
+                 'S32',
+                 'S33',
+                 'S34',
+                 'S35',
+                 'S36',
+                 'S37',
+                 'S38',
+                 'S39',
+                 'S40',
+                 'S41',
+                 'S42',
+                 'S43',
+                 'S44',
+                 'S45',
+                 'S46',
+                 'S47'
+               ],
+               original:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAACmUlEQVRoQ+2XPYgTURSFz30TkxSukoiFglooilqIBAuNRZKZLBsQLPxh2U4R7LTQTlgLfyotZGELCxEsBIOChSSZTAa0FNKpnSi4siBIkBQaJ8yVkQS2WJYUIXsn3ClnHvPO+753HjMEvUQRIFFpNAxUiLBNoEJUiDACwuJoQ1SIMALC4mhDVIgwAsLiaENUiDACwuJoQ1SIMALC4kxdQ8rl8m7LspL1ev2rMNYjxZkaIY7jHGbm50R0bLDyVWPMrOu6H0YiIWRQbIVUKpVUEAQLAH5lMpnXnU7nEzP/TqfTxYhtr9d7C2C753n7hLAeKUbshNi2fZCIrgO4PFjhfL/ff5NIJE6HYfjN9/3P0X3Hcd4BOO553sxIJIQMioWQXC63JZvNng/D8AYR5QB8YeZ72Wz2WbVa/buWpW3bRSK6AmCBmRdbrdYdIaxHihELIeVy+QIzv4iOJyI622w2o+No3ctxnPcATgwenvM879VIJIQMioWQYrF4KJFIvGTmo0S0Eobh3WQy+bRWq/XW41ipVHYGQfAEwJkwDA8MjzEhzDeMEQshwxWUSqVTxpjbAGYB/AGwZIx54Lruj0KhsLXb7fba7XYQjbdt+wgRfQRwzfO8pTjIiDLGSsgaMfuNMbcAXGLm+8y8bIxZIaKbzWbz4UDIHBHVmPlqq9V6rEImQMC27R2WZe2K/jUcx6kBOMnM8/93GtEygD2WZe1tNBqrE4gzlili2ZD1Vj74HH4EYG7w/Kcx5qLruv5YSE3oJVMjZMgrn8/PpFKpbb7vf58Qw7FOM3VCxkpnE16mQjYB+kZTqhAVIoyAsDjaEBUijICwONoQFSKMgLA42hAVIoyAsDjaEBUijICwONoQFSKMgLA42hBhQv4BZ+StKXub9QoAAAAASUVORK5CYII=',
+               transform:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAB00lEQVRoQ+2WMUsDQRCFX+6ClU20sLMQGyt/hLukEbvY2GprI2glgoWljZ1gIyJIGkEQcuxCwMbWX6CthSZFyjtGAhFELJLjFbMyqW8fb75v5y4N2E8VgYaqNlYGJkTZJTAhJkQZAWV1bENMiDICyurYhpgQZQSU1bENMSHKCCirYxtiQpQRUFYn+Q1xzi3neT7q9XqfytjWqpOsEO99R0TOAKxOJn8CcBhCeK5FQsmhJIW02+2FqqreAVyWZXkEYL7ZbD4CWGu1WvPdbrdSwnfmGqkKWS/Lcg/ASYzxYzy19/5URI7zPF9M+fWVpJDf167T6eTD4fBNROZCCEszX0tFB/6FEOfcDYCdLMu2iqJ4UMR35ipJCxlvxmAwuAWwLSIHMcbzmQkoO5CskImMewCbAPZDCBfK2Naqk6wQ59zdZDN2Y4xXtaZXeChJId77DREJIvIy/uv7k2tVVdf9fn+kkPVUlZIU8v0R/2vCLMtWiqJ4nWp6hQ8lKUQhR1olE0JDyQkyIRyOtBQTQkPJCTIhHI60FBNCQ8kJMiEcjrQUE0JDyQkyIRyOtBQTQkPJCTIhHI60FBNCQ8kJMiEcjrQUE0JDyQkyIRyOtBQTQkPJCfoClLlqKX6BBHcAAAAASUVORK5CYII='
+             },
+             '<0.01': {
+               addresses: [
+                 'U17',
+                 'U18',
+                 'U19',
+                 'U20',
+                 'U21',
+                 'U22',
+                 'U23',
+                 'U25',
+                 'U26',
+                 'U27',
+                 'U28',
+                 'U29',
+                 'U31',
+                 'U32',
+                 'U33',
+                 'U37',
+                 'U38',
+                 'U39',
+                 'U40',
+                 'U41',
+                 'U43',
+                 'U44',
+                 'U45',
+                 'U46',
+                 'U47',
+                 'AD17',
+                 'AD18',
+                 'AD19',
+                 'AD20',
+                 'AD21',
+                 'AD22',
+                 'AD23',
+                 'AD24',
+                 'AD25',
+                 'AD26',
+                 'AD27',
+                 'AD28',
+                 'AD29',
+                 'AD30',
+                 'AD31',
+                 'AD32',
+                 'AD33',
+                 'AD34',
+                 'AD35',
+                 'AD36',
+                 'AD37',
+                 'AD38',
+                 'AD39',
+                 'AD40',
+                 'AD41',
+                 'AD43',
+                 'AD44',
+                 'AD45',
+                 'AD46',
+                 'AD47'
+               ],
+               original:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAEH0lEQVRoQ+2XX2gcVRTGv3OzuxGfslZbRSRSEARRxARBJTLO3NnNNkQsor4UxH/VBxWLBIs+RETEitAovghVrD61QVE0FXbO3WweoulDDSgWik82NUqpitAY19mdI4O7MiwtyRQZJnD3bfecc8/Z73fPvecS7CdXClCuqrHFwALJ2SawQCyQnCmQs3Jsh1ggOVMgZ+XYDrFAcqZAzsqxHWKB5EyBnJVjO8QCyZkCOStny3RIrVYbjKLoxlar9X2z2WxvpKPjOFcS0bb5+flTF/PVWt88ODh4Zm5u7veN1svKviWAaK3fBfAogAKAtog8bow5fCGRHMcZKhQKxwDc0bX/AeAeZl5O+vu+/4CIHBWR3caYT7MSfKM8uQTieZ5WSo0EQXDA9/0XROR1EamVSqWvwjB8GcA+EbnJGHOy/w9qrRtEdEO73R4novNKqY8A3FIul7fPzs7+PT4+fn273T4A4ME41gK5yBbxPG8bgL1E9ByA7SLymjHmJa31jwBOMnMtDh0ZGSmWy+U/Acww81RyuYmJiXKr1fotBsbMM7HNdd3blVLHRcQ3xnDcbUS0S0SeB3DEAukD4nneWCwgEe0GcJ6IDoZh+Haz2TwXu2qtQwDvMPO+Xqjv+ysissDMe5LLua57m1LqRBRFuxqNxpexrVqtXtHpdH4F8DAzf+i67vDY2NjK0tLSjk6ns2qBJBRM7GgQ0RNhGH7Qf2FrrYWIpoMgeKUXqrX+FsBZZtZJIJVK5e4oihZE5E5jzNexbXp6Wi0uLnYATDHzmz3/arV6jQXS1x3x5BSG4ccAJgD8FXcHEc3U6/WzCfFDEXkjPr4Sv/0A4Btmfqjvor5VRJaJyAmCYCG2TU5OXr6+vr7WHQTes0A2Giv+PeeHlVIvJiapowBeZebvtNarAD5n5icTQM6JyCFjzP7k8p7n7SCiXwDcz8yfxLZKpXJdFEWnRcQ1xsxbIJsA0nOJR9ZisfisiEyJyCljzKjWmgHsZOadfQLHo+9/Oz5xPK0R0eEgCJ7q3kGPAHgfwDAzn7ZAUgDpucaT1NDQ0Gh8D7iuW1NKHSOi/QMDA0fa7fYhAKNKqWvr9fqa7/t7RGSyd3xprQ8CeDqKonuLxeJqp9MxAE4wczVZir1DLgFMN4S01m8BeCb+TkRnADwWBEG92wHxo3EvM6v4WdF9GH4B4K5u/HIURZONRuOnZAmO41xdKBR+BnAfM3926eX9v5G5fBhe6C86jnNZqVS6ql6vr2xGgnjcbbVaqjc+byYmDz5bBkgexMqiBgskC5VT5LBAUoiVhasFkoXKKXJYICnEysLVAslC5RQ5LJAUYmXhaoFkoXKKHBZICrGycLVAslA5RQ4LJIVYWbhaIFmonCKHBZJCrCxcLZAsVE6RwwJJIVYWrv8AtqrYOG02NVIAAAAASUVORK5CYII=',
+               transform:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAADgUlEQVRoQ+2XT4gcVRDGv5rOTDxEpUE9KImYXAIqKpvTLsIyXa+HPuxJiQeDiIo5eYhgDETQ1YB/LibgwUByCMnBMChowGV6qtn2kpwUFRIPHoIbUfDPRTS4O9P95MlsaEZle1fovEP1bXjfq6r5fl2vXxH08coB8qoaLQYKxLOXQIEoEM8c8Kwc7RAF4pkDnpWjHaJAPHPAs3K0QxSIZw54Vo52iALxzAHPyvG2Q5Ik2V6W5d7V1dXLeZ6PN/Kt2+3uabfb1weDwY//oSVjzOzs7OylxcXFcqN4N2vdSyDMfBLAMwC2ARhba5/LsuzMv5lkjNlnrf0QwC63bq39HEAvy7Jfq3pjzPvW2oPj8fjWPM9/v1mGb5TXOyDGmJettW9Za5NOp3NxNBq9BuCQtfb+LMuuVP9QkiS3jUajFSK6SERPF0Wxh4guALgkIgtOG0XRo0R0AsAj7rcC2eiVmFpn5u8AXBGRxC3NzMy0wzC8DuC4iLxUlUdR9DgR9YuieGB5efmyW2PmVwC8EYbhtn6/X0ziXQUwBHBMgWweyAjAeyJyaH2rMeaatfYzETlQDcfMRwC8GYbh9n6/vzYBsh/A+SAI7nbfkziO70vT9CozPwXgjALZPBBLRK8Oh8PX17cy89cAfhIRngJyDMBREblx9EZRxEQ0DILg4cFg8FUlhgLZJIu/5cw8sta+k2XZ0YqZ3wL4QkSemDqyDhPR21UgcRwvlGX5CYB7RWRFgWyFQmUPM/8A4IKIHKyY+Yu19lSWZe6IuvFEUfQkEZ1rt9u3Ly0t/TYB6m5np9e/IQrk/wMRALtFZLcLFcfxzrIsVyZX39PV8L1e76GiKL4E8JiIfDQB8oFrNBG5Y+p40yNrK2y63W7SarU+JaIjQRCcH4/HpwDsa7Va96Rp+ocx5oC1dmH9+GLmb4hoR1mWPSLaC8DNJC+KyLsKZCsE/rmHmNnNDS+4JSL6HsCzw+EwnXSAGxqfF5GWmwOZ+UEArqvucmMGgI/n5ub2T0/jE5Bn9Za1RUjz8/O3dDqdO9M0vVYnhDva1tbWfs7z/M86el813k3qvhrVVF0KpCmna+ZRIDWNakqmQJpyumYeBVLTqKZkCqQpp2vmUSA1jWpKpkCacrpmHgVS06imZAqkKadr5lEgNY1qSqZAmnK6Zh4FUtOopmQKpCmna+ZRIDWNakr2Fy66ajiAJdn2AAAAAElFTkSuQmCC'
+             },
+             '<20': {
+               addresses: [
+                 'AB17',
+                 'AB18',
+                 'AB19',
+                 'AB20',
+                 'AB21',
+                 'AB22',
+                 'AB23',
+                 'AB24',
+                 'AB25',
+                 'AB26',
+                 'AB27',
+                 'AB28',
+                 'AB29',
+                 'AB30',
+                 'AB31',
+                 'AB32',
+                 'AB33',
+                 'AB34',
+                 'AB35',
+                 'AB36',
+                 'AB37',
+                 'AB38',
+                 'AB39',
+                 'AB40',
+                 'AB41',
+                 'AB43',
+                 'AB44',
+                 'AB45',
+                 'AB46',
+                 'AB47'
+               ],
+               original:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAADeElEQVRoQ+2XQWhcRRjH/997+5KL4D5aPAimh1w8RJQml7IKYWf2LWEJUoX0EIjS0tpDCbZFD7YIwWItPUTsoRAUIqSgrgqNSNjNvORBIT0pllJKA0XopaVaD0Wk2Zc3IyO7UkI85CVDZmXm9tj5vvfN7zffzD6CG1YRIKuqccXACbFsEzghTohlBCwrx3WIE2IZAcvKcR3ihFhGwLJyXIc4IZYRsKwc1yFOiGUELCun6ztkeHi42NPTEzabzV83Y1sul/uDIPir0Wjct4z9puV0rZAoigaklDMADrRXtqqU+jiO4y/1c6VSGVJKfQegTz8rpX4CUI3j+JHNYrpKCGOMe543uLi4eIFz/rMG6/t+TSn1WEr5CYATAPYHQXA3TdN7RLRCRG9nWdZPRD8AuC6EGHVCtkGAMbYHwDEiehfAc7oLsiy7WCgUPpRSfru0tLSi03POXwVwDcAhpZQkonqWZQPLy8u32r+fBfBRGIaFer2ebaMko6HWdghj7DUAJ4noIIA/iWg6TdPPkiT5fTMinPM5AOOe5/VJKccBnA/DsLder7faQsYAfO37/vM23ydWCqnVauHa2tofGiQRHU3TdDZJkvX/2pqMsbeIaBbAJSHEJOf8HIAzQoh/16ePOyJa9H3/lUajccPoNt9GciuFjIyM9KZpqi/kGoAnujuI6NNms/lw41orlcpxpdRlAD+GYfi6Po4YY+8T0YWnhURRNCqlnAewTwhxbxvMjIZaKaSz4nK5vM/zvA8AHAZQAPANgHNCiJvtY0jfK9MA5sMwfKNzNzDGxoloLgiCZxcWFh635+ocX7g7ZAf2k/7WCIJgUin1nlLqThzHQ4yxI0T0OYArpVJpYmpqSnZeVa1WX86y7BcAbwohvm8L+Urf/UKIvTtQkrEUVnfIxlUPDg4GxWJxCMAqET0AsK6UOr1hnojjeJVzfpuInpFSVonoRQD6CDwlhNAdZe3oKiEdipzzCQD/fABuHEqpd+I4nuGcvwRA6L/KWhyAq6VSaezpTrLRSlcK2QrIKIpeaLVavyVJ8mQrcbs1938vZLfA5n2vE5KXnKE4J8QQ2LxpnZC85AzFOSGGwOZN64TkJWcozgkxBDZvWickLzlDcU6IIbB50zoheckZinNCDIHNm9YJyUvOUJwTYghs3rROSF5yhuKcEENg86b9Gx/JDTiSzefVAAAAAElFTkSuQmCC',
+               transform:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAChUlEQVRoQ+2XP4gTQRSHf4+9xeZQFtRC8CzOwkLRwi5NyE6ybHGNyjU2Yic2YnEo2kQFsbK1ESwUTlYP1CIsvvyptBIUEWuvEREbESOJsyuBRMIhsgyZMBteymXem99837xdQpCfUwTIqTQSBiLEsUsgQkSIYwQciyMTIkIcI+BYHJkQEeIYAcfiyISIEMcIOBZHJkSEOEbAsTilnBCl1EqWZdTpdD7t5Fmr1VZ93/+Zpulnx1gXilM6IVEUHdZavwfwgJkvTE5Zr9dP5nn+FMDK6Fme528ARO12+1shEo4sKo2QarW67HneVSLaALAE4N5ESBzHu4fD4TYRvSKic1rrVSJ6AeA1M685wrpQjNIIUUqdAvAoz/NLRHQDwNZESBiGZ4go0Vof7Xa7H0YnV0pdB3AzCIKlJEl0IRoOLCqNkDiO9/X7/X6v1/uhlPoyLUQpdQXA7SAIdiVJMhgLWQfw2PO8A2X6npRGyPTl/YeQWwCuMfPf84RhqIjoped5J9I0fefA5S8UYSGEhGG4QUR3poU0Go21LMueAzjEzNuFaDiwaFGEnCWih77v72m1Wt/Hr6zzAO7LN2QOt2znKyuKouNa67cATjPz1ljI5ujbzsx75xBpZlssxISMBXwkouUsyyIiOgJg9J/kMjPfnRmtOTQqs5AnzHxxwkgpdQwAA9gP4DeAZ5VKZb3ZbGZz4DizLUop5H+nbzQaBweDwdder/drZpTm2GjhhMyRnZWtRIgVrOZNRYg5OyuVIsQKVvOmIsScnZVKEWIFq3lTEWLOzkqlCLGC1bypCDFnZ6VShFjBat5UhJizs1IpQqxgNW8qQszZWakUIVawmjcVIebsrFT+AbR4wCmRsR4sAAAAAElFTkSuQmCC'
+             },
+             '<0.05': {
+               addresses: [
+                 'AG17',
+                 'AG18',
+                 'AG19',
+                 'AG20',
+                 'AG21',
+                 'AG22',
+                 'AG23',
+                 'AG25',
+                 'AG26',
+                 'AG27',
+                 'AG28',
+                 'AG29',
+                 'AG30',
+                 'AG32',
+                 'AG33',
+                 'AG34',
+                 'AG35',
+                 'AG36',
+                 'AG37',
+                 'AG38',
+                 'AG39',
+                 'AG40',
+                 'AG41',
+                 'AG43',
+                 'AG44',
+                 'AG45',
+                 'AG47'
+               ],
+               original:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAExUlEQVRoQ+2XXWgcVRTH/+dmN35RyLZaQdFiQRCE+pGiqFXWmTuJaZqKlOJLQfyqIipWqBZ9SCMiKpa24otQP4q+2KAPRivs3DtJwVjykFYUK8Unra1iqii2TdaZvUdu2YUhVDcMnWQCd992zpxzz/n977n3DMH9CkWACpWNSwZOkIJtAieIE6RgBAqWjusQJ0jBCBQsHdchTpCCEShYOq5DnCAFI1CwdFyHOEEKRqBg6SyaDunr67vAGHNdvV7/bmxsLGnHsVqtXkpEy0ZHR4+m3924cWPH1NTURelnS5YsMSMjI2faxZwP+6IQREr5NoCHAJQAJMz8iNZ677kAVavVrlKptB/AbU37XwDuVkodtv9933+WiHbM8v1FKXXFfABvt0YhBfF9XwohusMwfC0IgueZ+VVm7uvs7PwqjuPtALYw8/Va6yOzC5RSRkR0bZIk9xDRKSHEBwBWVSqV5cPDw/8EQTDMzKsajcb6li8RzURR9GM7WPNhL4wgvu8vA7CZiJ4BsJyZX9FavyiltKCOKKX6LJDu7u5ypVKxx8supdTWNKT+/v5KvV7/wwqmlNplbZ7n3SKEmGDmQGutgiA4xsyfCiGeA7C0Vqsdmw/Qc11jwQXxff9OC5CI7gNwioh2xnH85tjY2ElbhJQyBvCWUmpLq6gm1ANKqU3pQj3Pu1kIMWmMWRtF0RfW1tvbu7TRaPwO4IEkSfaVSqVpAL9ZMewRSEQ/G2N6z9Vtc4V4Pt9bUEFSOxpE9Ggcx+/PvrCllExEg2EYvtQqXEr5jYWqlJJpGD09PXcZYw4w8+1a64PWNjg4KMbHxxsAbDd9CcA+P0hE25nZboZtRPRrHMfXzGVYOJ/wzxVrQQWxk1Mcxx8D6AcwY7uDiHbVajW7g8/+bIcw8+v2+Eo9+wHAIaXU/emigiC4kZkPE1E1DMMD1jYwMHDx9PT0aTsIrFmz5r2JiYmrp6amjk9OTtrOQxAEO5jZXvQ3hWH4dd7A28VfUEFayXmet0II8UJqktoH4GWl1LdSyhMARpRSj6UEOcnMe7TW29IF+r5/ud3tADYopT6xtp6enquMMT8xs6e1HrUdMzQ0ZFLH31pm/pyIZBiGuh2wvO2FEKRVpB1Zy+Xy08y8lZmPaq1XSykVgJVKqZWzANvR9500oObxdJqI9oZh+Hizwx4E8C6AFfaIIqIPjTHdURQdanbIbmZ+olKpXGKnsLyBt4tfKEFaydpJqqura7W9BzzP6xNC7CeibR0dHR8lSbIHwGohxJW1Wu10EASbmHmgdXxJKXcCeNIYs75cLp9oNBp2108qpXqbR+SfAL4nos0AbmXmNwBopdS6drDmw15IQWYVTlLK3QCess/tVATg4TAMa80OsB+Nm5VSAgA3Pww/A3BHM85hY8xAFEXHm+/fy8xDRHRD0z6RJMm61lQ3H9D/b43FIMjZ/KvV6oWdnZ2XzfW7wY679Xpd/Bdoe9/MzMycGR8f/3uhRUivv2gEKRK0PHNxguRJN0NsJ0gGaHm6OEHypJshthMkA7Q8XZwgedLNENsJkgFani5OkDzpZojtBMkALU8XJ0iedDPEdoJkgJanixMkT7oZYjtBMkDL08UJkifdDLGdIBmg5enyL7Ew6TizTMDGAAAAAElFTkSuQmCC',
+               transform:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAELUlEQVRoQ+2YTYhbVRTH/yevL60iTh+oYP2kXVhoi8J0NdnE5L7MZDEI1oygXYiVShcKtX5UKuio4MfGEV0odBaKQkusX4MTkncuk8LQLkSpH62gK6eiWHVwBIszmfeOPHkpYbA0b/HSu7hvF97Juef+fjn3IwT7GEWAjKrGFgMrxLAfgRVihRhGwLBybIdYIYYRMKwc2yFWiGEEDCvHdogVYhgBw8qxHWKFGEbAsHKM7ZBqtbo+iqKty8vLp9vt9uqluJVKpS2u655vNpu/rI2t1WrO4uLitjAMv2+32/9cKtflfG+kEKXU2wAeBLAOwKqIPKS1fuf/QPm+v1NEjgG4OX4vIl8AGNVa/xF/Vkq9COAAgA3J96cKhcKBycnJ6HKCv9jYxgnxff8pEXlZRKr5fP5Ep9N5DsB+EdmmtT7TO5FqtXp1p9NZIKITRPRAGIZbiGgGwElmHldK3QXgYyKaGBkZOTY/P18joiMiUtNaf2CF9EFAKfUjgDPMXI3Dh4eHXc/zzgOYYuYnelOUy+V7iKgehuH2ubm500lHPAPgBc/z1i0tLW0SkR1BEMzG75Ju+pyI9gVB8FYf5Qw8xLgOUUp1ALzJzPu7NHzfPysix5l5dy8hpdRBAC95nre+Xq+vJEImABx1HGdTdz8pFosbHcfZR0SPALhSRG7TWv86cNp9DGiiECGiZ4MgeL5bv1LqawDnmFmtERLvD4eY+cI8yuWyIqLAcZw7ms3mV0lnVETks2RPOi4iu7p7TB+MBhpiopCOiLyqtT7UI+QHAF8y871rlqwnieiVXiGVSmU8iqJPAdzCzAu98b7vx2KaIvKR1vrugZLuczAThfwMYIaZH+4R8ruIHNZax0vUhadcLt9PRO+5rjvUaDT+Spas+HQ2He8h9Xo9KhaLQ+12+8+e5W9WRO5k5iv6ZDTQMBOFMIDNzLw5JlGpVG6KomghOfpO99IZHR29PQzDUwB2MfOHiZAj8WmXma9RSr0LoOZ53lB3j/F9/1sRuZGZNw6UdJ+DGSekVCpVc7ncLBEddBzn6Orq6mEAO3O53A2tVutv3/d3i8h4d/lSSn1HRFdFUTRKRFsBxHeSx5j5tUqlsj2Kom+IaJqIpkTkPhF5GsAbzPxon4wGGmacEACklHodQHwiAhH9BGBPEAStpAPiS+NeZs7F90Cl1A4AcVddF18iAXxSKBQmuhc/pdTjsSAA1ydk33ddd0+j0VgeKOk+BzNRyH+lF4vFDfl8/tpWq3W2n7nES9vKyspvF/trZGxs7FbXdc/NzMzEdxpjH2OFGEss48KskIwBp01vhaQllnG8FZIx4LTprZC0xDKOt0IyBpw2vRWSlljG8VZIxoDTprdC0hLLON4KyRhw2vRWSFpiGcdbIRkDTpveCklLLON4KyRjwGnTWyFpiWUc/y/XwYY4ccqwqAAAAABJRU5ErkJggg=='
+             },
+             '<5': {
+               addresses: [
+                 'AI17',
+                 'AI18',
+                 'AI19',
+                 'AI20',
+                 'AI21',
+                 'AI22',
+                 'AI23',
+                 'AI24',
+                 'AI25',
+                 'AI26',
+                 'AI27',
+                 'AI28',
+                 'AI30',
+                 'AI31',
+                 'AI32',
+                 'AI33',
+                 'AI34',
+                 'AI35',
+                 'AI36',
+                 'AI37',
+                 'AI38',
+                 'AI39',
+                 'AI40',
+                 'AI41',
+                 'AI42',
+                 'AI43',
+                 'AI44',
+                 'AI45',
+                 'AI46',
+                 'AI47',
+                 'AJ17',
+                 'AJ18',
+                 'AJ19',
+                 'AJ20',
+                 'AJ21',
+                 'AJ22',
+                 'AJ23',
+                 'AJ24',
+                 'AJ25',
+                 'AJ26',
+                 'AJ27',
+                 'AJ28',
+                 'AJ29',
+                 'AJ30',
+                 'AJ31',
+                 'AJ32',
+                 'AJ33',
+                 'AJ34',
+                 'AJ35',
+                 'AJ36',
+                 'AJ37',
+                 'AJ38',
+                 'AJ39',
+                 'AJ40',
+                 'AJ41',
+                 'AJ43',
+                 'AJ44',
+                 'AJ45',
+                 'AJ46',
+                 'AJ47',
+                 'AK17',
+                 'AK18',
+                 'AK19',
+                 'AK20',
+                 'AK21',
+                 'AK22',
+                 'AK23',
+                 'AK24',
+                 'AK25',
+                 'AK26',
+                 'AK27',
+                 'AK28',
+                 'AK31',
+                 'AK32',
+                 'AK33',
+                 'AK34',
+                 'AK35',
+                 'AK36',
+                 'AK37',
+                 'AK38',
+                 'AK39',
+                 'AK40',
+                 'AK41',
+                 'AK42',
+                 'AK43',
+                 'AK44',
+                 'AK45',
+                 'AK46',
+                 'AK47'
+               ],
+               original:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAACtUlEQVRoQ+2YP2jUUBzHv7/XWG8oDnEoHbVgwT/TDYK1x7VJCufiovhnUxzcHARFHM6CSlHBQdBBBMHNquBwFHPvykm51UG6OXTQQQoigqC2TX4SycHRQSjvBV7KL2vy++b3Pp/8XkIIcjhFgJzqRpqBCHHsIRAhIsQxAo61IxMiQhwj4Fg7MiEixDECjrUjEyJCHCPgWDsyISLEMQKOtbOjJqRer49s5dvtdn86xvy/7ewYIWEYHgHwcetqlVKjcRyvlUVKaYU0Go3dGxsb5wH80Fq/iaLoEjM/TZLkMIDNvoBarfZpbm4uFSEFEQiC4AARXQFwMb/FWa312zAMnwGoTU5OTiwvL++bmppaLZOIPq5STEi1Wt3l+/6pNE2vElEVwCoz3/F9/8XCwsJ6tpgoilaYeTyfjuxdssnM5zqdzquCno1CYkshJIqi08z8MtueiOhku91+P0ij2WyqXq+XAPjGzJcB+ER0C8CYUmp/HMerhdArILQUQqanpyc8z3vNzIeI6EuapreHh4efLy4u/ukzCYJgtFKprLdare/5xMwy8ztmvt7pdO4VwK6QyFII6a98ZmbmmFKqCWAWwG8Aj5RSD/KvqP5aOLu+Xq9XPM/7BeC+1vpaIfQKCC2VkAEx40qpmwAuMPPdJEmeeJ73GcANrfV8PiEnmLlFRMfb7XavAHaFRJZSyMA2tXdoaGgsjuOVMAw1gKNEdIaZs3U9zt4lWus9AP5NTRmOUgsZBBwEwUEiephvZ9mptTRNG0tLSx/KIKJUn73bAZr/Phnpdrtft1PnyrU7ZkJcAWrahwgxJWi5XoRYBmoaJ0JMCVquFyGWgZrGiRBTgpbrRYhloKZxIsSUoOV6EWIZqGmcCDElaLlehFgGahonQkwJWq4XIZaBmsaJEFOClutFiGWgpnF/AfL/tSl4q0O5AAAAAElFTkSuQmCC',
+               transform:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAB7UlEQVRoQ+2ZMUtbURiG33MSEygIJlMLxcGl4qIQOgoXzr0ZGiLo6ijEseiPcCxFunTq4l8IeA8fl0B/QCkdSidpR0EtgRqQ5B4JJND5Lr5Hvrsf8tznuW8uJAZ6URkwVDQKAw1C9hBoEA1CZoAMRxeiQcgMkOHoQjQImQEyHF2IBiEzQIajC9EgZAbIcKJfSLfb3TTGXOd5fkvmthJOtEHSND0A8AnAq8Wdf51Op3uj0ehvJRMkh6IMkiTJ63q9fhVC+Nxut0/H4/H6bDb7CeCLiAxI3FbCiDXIWqPR2AVQeO//9fv9F5PJ5AbApYjsVzJBcijKIP+7c84dGWOOAby11jrvfUHithJG1EE6nc5Kq9W6B1AHcA0gFZEflUyQHIo6yNKhc27LWpuHEFZFZI3EbSWMaIP0er3WcDi8W951lmXvQwgfAWyJyPwFH+UVZRDn3KEx5qJWq+3kef59bj5N0w8ATqy1G977qyhrAHH+p754d9yGEH6FEAbW2g6AcwB/RORNrDHm3FEuZA6eZdm7sizPjDHbiwDfyrLcL4ritwZ5QgNJkrxsNpsP+tPJE0Z4zh8d7VfWc42iQcjKahANQmaADEcXokHIDJDh6EI0CJkBMhxdiAYhM0CGowvRIGQGyHB0IRqEzAAZziPSWHEpivNyhAAAAABJRU5ErkJggg=='
+             }
+           }
+         },
+         ol: {
+           count: 5,
+           originalValues: ['>84.000', '>100.0', '>500.8', '>10000'],
+           changedValues: ['42.000', '50.0', '250.4', '5000'],
+           addresses: ['G42', 'I24', 'I27', 'I29', 'I42'],
+           dataUrls: {
+             '>10000': {
+               addresses: ['G42'],
+               original:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAFdklEQVRoQ+2XbYhUVRjH/8+9e3dFxbxpClpJimBkYim9OAtNM2d2m3T7Epp9iF40etEgJSmw2tYiU6k1NMpIJRJqWwpKcdm5z90doXEJNCvQiD5Ya1n0tlir2+zMPU+cuAvTtissyHZd7vm0d849Z5/z/93/8zyHEI9IKUCRiiYOBjGQiH0EMZAYSMQUiFg4sUNiIBFTIGLhxA6JgURMgYiFEzskBhIxBSIWTuyQGEjEFIhYOJF0SDabnaS1vqq9vf2LwXpls9karfW8YrF4PJ/PlwfPJ5PJqUQ0pbOz8+uhtE6lUnMcxznX3t7+4xDzpJSaXy6XT+bz+d7/g1XkgCSTyXGO4xwRkfHMPLtSFKXULgAPAKgCUBaR1b7vv23eSSaTk6uqqg4CuDlccwbArcx8zDxnMpnFIvIBgCvNs4gcBVDv+/5v5jmdTq8iou0AJobr30wkEo80NTXp0QQzakDS6XSTZVk5z/MKwxzQfJ33A9gKYAqAk5VAMpnMkyLykohkq6urD5dKpecArBORa3zfP6GU6iCiueVy+TYi6rUs6x0AC1zXndbb2zuuVCp1E9FhIrovCII5RLQfQBczNyilbjJ/i8izQRA027a9jIjeBfAYM+8ck0AymcwbIvIQgG4AzX19fbsLhcKfA4c1aapUKp0RkdcAzCCihZVAlFLfATjBzFmzZtGiRY7ruucAbK+pqXmxWCz+bgAxs/nKkUqlbrAs61MRyQCYTEStQRDM7+zsPG7mlVJPA3jedd2qnp6e1wHck0gkJgw4Qin1CYBJzLxgTAIJ08YMrfV6IloTpp33iajZ87wjy5cvt3t6emYyc7dSah+AJYOAlADsZOZ1AwJlMplTInJIa/2KZVlHtda3d3R0tJn5+vr6S4MgMOnoXgMYwGbXdWtaW1v7QyArALTYtj0jCALjhunMfPXA3kqp3QCWMfP0MQukwg01/f39a4joZfMbM/8rdQ4DRIio0fO8TRWifQngZ8uyNmmtD4nIEt/3u8x8Y2OjVSgUAgAbjEMAbKz8P+l0WhGRZ9v2wnK5vJuI+pl5ScXe2wA8zszOmAaSTCYvdxxng4g8GrqkhZlXDireQzpERLb6vr+xQrRvAHxGRJtF5BgRJT3PO2TmGxoaxvf19Z01hd/UJCLaUgmkrq6uQWv9MYBZAPaIyGTf9xdX7L0DwN3MPHVMAglz+jMmDZgOCcAO27a3DdV+DuOQ0wD2M7OpQ/8MpdSvIvKWqUlE9BOAO5n5QzNXV1d3hda6W0RSYU3a5zjOJW1tbX+Ea023tjusIXsB3MLMBs7A3i0A5jLz9WMSSFiUJ5ivuVQq7Tpfnz8MEAYwe6CuVAi+ura2dm+hUDhLRG97nvdwKLjp2PYYB9i27QZB8HklMKXUe4apcYBS6gkA20Rk6kAbbGAD8Jn5rrEKpNZ13a7W1laT1887hgKSSqWylmUdJKKnbNtuKZfLxhmLLcuamcvlziqlmgGs1Vrf4TjO6SAIfABHmbk+BPQVEU3UWtcT0TwA5k6ynpmbly5d6oZd2gGt9VrLsh40NYeIrvM8z4ActTFq95CRnCgEciMzz61YZ+4pr5q7gfmNiL4HsMrzvJx5Di+GBwAkwjXHtNYNHR0dP4RArjX9A4BpYcr8KJFIrBhoc9Pp9EoiMncXc+nsJaIXPM/bMpK4L8S7kQRyvoOZm3x1dfVluVzu1FDvmXa3WCxa+XzepJz/DJPq+vv7f8nn838NnjSdWVdX16xcLvetucxfCIFHusdFB2SkB7zY3o+BRIxYDCQGEjEFIhZO7JAYSMQUiFg4sUNiIBFTIGLhxA6JgURMgYiFEzskBhIxBSIWTuyQGEjEFIhYOLFDIgbkb+BeUUfGnLePAAAAAElFTkSuQmCC',
+               transform:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAEn0lEQVRoQ+2XbYhUVRjH/8+9c1mpZXN0V0Gy/SBCgkmJ9OIITXfO7Lbp9iVWi5DsDYoMTCyCItkKRCQ2SAiCLaSoZCiopH25z50doXUrEPsS1odIt7SiF7FZm2b33vPEWWZisOmz58M5n+bOuWfmz/93/s9zDsENqxwgq9Q4MXBALNsEDogDYpkDlslxCXFALHPAMjkuIQ6IZQ5YJsclxAGxzAHL5LiEOCCWOWCZHKsSMjg4eFW1WvVaPerp6amVSqW0+V0+n+8mouVTU1PftvMyDMM1QRD8NTEx8VObeVJKrU+S5PtKpTJnGYtFOVYBUUrVACy5zKj7mfndfD6/NJPJfArgtsb8RQB3MPMp81wsFjeJyAcArjPPInISQH8cx7+b50Kh8DARvQqgs7H+jVwu9/jw8LC2CYw1QMIw7PU874yI7NJaf940SUTOmd2slCoT0dokSe4kojnP894GsCGbza6Ym5tbsrCwMEtEJ4hoV5qma4joEwAzzDyolLrVfBaRF9I0HfF9fxsRvQfgSWY+7IC0cUAptR3A0Vqt1tXR0bFMa/1LpVL527y6devWbL1e/wPAU8xsdjnCMLzZ87wvRKQIYCkRldI0XT81NfW1mVdKPQ/gpWw2m7lw4cLrAHbmcrmrm4lQSn0GoIuZNzggbRwoFouviMheIvpRRK5tvHKImZ8Jw3Cj53kntdZ3lcvlMTPX39+/LE1TU44eALAKwIFsNttRKpXmG0AWAfu+vypNU5OGlcy8rvnXSqlRANuYeaUD0j4hJ0x/IKI9WuuzRPQsgFuIaCcRzWqtj4vI5jiOZ8zy/fv3e9PT06bZP20SAuA5Zv63BBcKBUVEke/7NyZJMkpE88y8uQXIIQB7mDlwQNo4MDAw0JUkSWcURefNdD6f78xkMlUAMRHtE5FTRJSPoui4mTcnslqtdklEHgGwnIgOtgLp6+sb1Fp/DKAXwJsisjSO400tQF4DcB8zdzsg/+OA2fWtpx6l1GkRqZsKRUQ/A7iHmT80y/v6+lZrrWdFJDQli4jeCYLgmrGxsT8bJeshAKONHvIWgNuZ2cBZHEqpowDWMvNGB6R9D/lBRL5j5ryZNolZWFi4KCIvbtmyZXh6evoSER2JouixhqEPmp1vEuD7fjZN069agSml3je+mwQopfYBOCQi3c1jsFLqN5M+Zt7hgLTvIU3TnvA870sROWAM9Txv3eTk5DdKqREAu7XWdwdBcD5N0xjASWbubwA6TUSdWmuTpusBmDvJXmYeaTmlHdNa7/Y871HTc4jopiiKDEhrhjX3ENMzgiA4LCJmx5rLYWL6QxzHRxo9xVwMjwHINdw7pbUeLJfL5xpAbgDAAFaYtQA+yuVy25slsFAo3EtE5u6SATBHRC9HUXTQGhINIdYAaRozNDTkV6vV1ePj42fNhftyw8xxt16ve5VKxZSc/wzTW+bn539t3mFaXzA9amZmpndycvJMu9+2AY51QGww5UpqcECupPtt/tsBcUAsc8AyOS4hDohlDlgmxyXEAbHMAcvkuIQ4IJY5YJkclxAHxDIHLJPjEuKAWOaAZXJcQiwD8g8uoto43G6rbQAAAABJRU5ErkJggg=='
+             },
+             '>100.0': {
+               addresses: ['I24', 'I42'],
+               original:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAEV0lEQVRoQ+2XXWgcVRTH/2c2i6GV0rXBQFWCQh4EKbWIH1nRcefOxpjGFwnWBxFR8aMVVOyTaIgIolEiVEELFfwAqQs+FWUz52624BIqCVEQwadq8OtBDcWEZbO798qFXdmOdlcHphnZe9/mnjnnnvv/3XPmDsGORClAicrGJgMLJGGHwAKxQBKmQMLSsRVigSRMgYSlYyvEAkmYAglLx1aIBZIwBRKWjq0QCyRhCiQsnURXyMTExC6l1NXFYvGrsG6u6w4R0Z7FxcVv/0nTXvaQDwkhrms0GmfL5fLGdjJKLBDXdQfT6fSy1noHM1/TFsl13d0DAwOfArilNXcOwB3MvGqee9nDYnue9xARvQHg0pbteDabfXx2dlZtB5iLDsTzvFnHcRaCIKhcYMPmtD4I4FUAewCc7QQihCgR0Wij0biTiDYcx/kAwL5MJnN5oVDY6mXvXFMIcTOAJa31C81mcz6VSh0koo8APMnMb/YFEN/339ZaPwpgDcB8tVo9UalU/mhv3rSper1+Tmv9FoC9RLS/DWRycjJTq9V+B/A0M5tTjVwud6PjOGe01v7g4OBKN7uUkkNAjgO4P5vN7mxXhBDicwC7mHlfXwAxm/R9f69S6hkiOgxgAMDHRDQfBMHy9PR0an19/QpmXhNCfAhgrA0kl8sdcBxnRSl1V6lU+szEGh8fv6zZbP4G4AGl1Nfd7Mz8fghIGcAwM1/bnhdCnABwkJmH+wZIRzVcsrW1dZiIXjdzzHxeCw0DyefztymlTmutx6SUS8ZnZmbGqVQqTQBHHcf5opudmV/rFNnzvGUi2mLmsQ4gcwCeYuZ0XwFxXffKdDp9VGv9RKtKTjLzodAJPq9CfN/fr7VeJSI3CILT5t2pqakd1Wp1U2v9sKmObnYppTn9fw0hBGutd0spb+gAcgzAfcw81BdAWj3/edMWADQAHEulUnPFYvHnsADhCvE8b5iIfgFwDzN/Yt7P5/NXKaXWtNY5AN90s0spF0NATAu7nZlHOoCcBDDKzAf6AogQ4nsAO4no5Xq9/k63e38YSKs9bRLRe0EQPGYEa93I3gUwks1mf6hUKhe0m+9SCMizAOa01kNSSvMdMvF+BSCZ+d5+AXJrJpNZKhQKpu93HWEgLcHmARxRSt2dTqd/ajabEsAKM4//G7vv+68A2AyC4MWOW9sppdQRx3EeAfAcEV0fBMGXvfKLw37R/0P+yyZaQG5i5tG2X+vH7xSAbGtuVSk1VSqVfjTPveymQrXW61LK/eZ9z/MOEZH5lzG3vQ0ieikIAgNtW0aigXRTxFx3a7WaUy6XTYv52+hl73QwrXBpaWlkYWHhOwB6W0i0Fv3fAtlO0eJc2wKJU90IsS2QCKLF6WKBxKluhNgWSATR4nSxQOJUN0JsCySCaHG6WCBxqhshtgUSQbQ4XSyQONWNENsCiSBanC4WSJzqRohtgUQQLU4XCyROdSPEtkAiiBany5/GYhZH6o7koQAAAABJRU5ErkJggg==',
+               transform:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAEEklEQVRoQ+2aXWhcRRTH/2eyS0RDaGpiXyx56kNBihbxoxvwenc2MabxReIHUlRUUKxQpYogGFIEkSgV7FNBoQpKWfCpaNh7ZrMF11WxxDf1QWyiLQp+UDZh3WZ3jgzsyrKUep+28zDztnfO3Tnz+825MxcuITSvCJBX2YRkEIR4tgiCkCDEMwKepRMqJAjxjIBn6YQKCUI8I+BZOqFCghDPCHiWTqiQIMQzAp6l42WFzM/PX1+v11Uvq4mJiUaxWGx3r0VRNE5EN66urv6YgilprW9ptVo/VyqVzRTx1yzESyFa6waA6/qoPMbMH0dRtCOTyXwG4O5O/yUA9zLz2pUo5vP5p4joXQAjnf6TuVzuuaWlJXvNqF9lYO+ExHE8qZQ6LyJPWGu/6uYuIhfc6tZal4loT6vVuo+INpVSHwHYNzY2dlOxWLzcO1et9V0AaiLyervdPj40NHSQiD4B8AIznwhCUhDQWj8E4HSj0RgdHh7eaa39vVKp/ONunZubG2s2m38BeJGZ3apHHMd3KKW+FpGCMYb7hJwEcCiXy93QrQit9RcARpl5X4p0Bh7iXYUUCoV3ROQlIvpVRG7uEFlm5lfiON6vlDpnrb2/XC5/7vpmZmZ2ttvtPwE8zswf9gmpANjFzHu717XW7wM4yMy7Bk47xYDeCdFaf+n2ByI6Yq1dJ6JXAdxJRIeIaMNae1ZEDhhjam5+i4uLqlqtus3+ZWZ+u3fO+Xz+WyK6zMwHeoQsAzjCzNkUfAYe4p2Q2dnZ0VarNZIkyUVHI4qikUwmUwdgiOioiKwRUZQkyVnX705kjUZjS0SeNsa41f9f01qziOwwxtzeI+Q9AI8y8/jAaacY0Dsh3VXfewrSWn8vIk33hCKi3wA8yMyfutjp6end1toNEYmNMat9Qtwj7B5mnuwRchrAHmben4LPwEO8E1IoFH4RkZ+YOXI0XMVsb29fEpFjU1NTS9VqdYuITiVJ8qzr11o/CeADAJPMvNEn5CiAZREZN8a4fcbF/+GqjZkfHjjtFAN6J0Rr3YX4vFLqGxF503FUSu0tlUo/aK2PAzhsrX0gm81ebLfbBsA5Zp5x8y0UCm8B2EqS5FjPqeyMtfawUuoZAK8R0W1JknyXgs/AQ7wT4vaMbDZ7QkTcCnYvh63O/nCqs6e4F8MzAHIdWmvW2vlyuXyhUwHrIvK3MeZW9zufzz9CRO5dJQNgk4jeSJLESfOyeSekS2lhYWGoXq/vXllZWQcg/fTccbfZbKpKpeIeQVdt7iRWq9UmS6XS+Sv91//dP8h+b4UMEoJPYwUhPtkAwodynvkIQoIQ3wh4lk/YQ4IQzwh4lk6okCDEMwKepRMqJAjxjIBn6YQKCUI8I+BZOqFCghDPCHiWzr8a/pA4GjQQkAAAAABJRU5ErkJggg=='
+             },
+             '>500.8': {
+               addresses: ['I27'],
+               original:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAEw0lEQVRoQ+2ZX2gcVRTGv3OzS6KWkm1TH0pLn3yo4N+Aogk67txpjG3qg9RailRBUIyKSisqSEhfisZapX2oYNUqiO1Cn/yT7JzZTB/WqlgKIv4Dwda2VqgmZRvWTXbvkQubsixh40uTC5n7lvvtzJz7/ea75w4hJMMpB8ipapJikABx7CVIgCRAHHPAsXKShCRAHHPAsXKShCRAHHPAsXKShCRAHHPAsXKShCRAHHPAsXKcTMjAwMC1pVJJNXq1atWqci6Xq83OeZ7XRUQrx8fHf5nL0/n05mt837+xVqv9GsdxdTEZOQlEa10G0NFkzHZm/sTzvM5UKvUFgLvq+iUA9zHzKfv3fHqz2VrrZwEMAVgJ4F8A7zGznVuUseBAfN8fVkrlwzAszrXibDa7Tin1u4g8Zoz5evY3InIujuPLWusCEd1QrVbvJ6LLSqmPAdycyWSuz+Vy0/Ppjc/UWq8H8COAVzKZzMjk5KQnIgxgKzMfXQwiCw4kCIKDIvIkgDMA9pXL5UPFYrE0u3it9cMAjpTL5eXt7e0rjDF/xXFs31xs3LgxU6lU/gHwAjO/beey2ewdSqlvRCTo6Og42UqPosiafWUEQeDXAWxi5s99319JRBeJaE8Yhq8uCSB2kUEQrDbGvEhEgwBSAI4S0b4wDL8LgmCviFjtrIisqZsywswvZbPZ25VSJ40xDxQKhS+t1tfXt6JWq/0NYIcx5odWOjN/1Ghyd3d3OpPJfA/APudDyxzAWhG5JYoim5wFHwuekMYV9vf3t09PTw8S0V47z8yktf7K9gciet4Yc5qIXgZwJxE9SkRnjDHHReTuKIpO2GuGhoZUsVi0zX6XUurbVjozvzkHkA8AbG+Yj5RSD+bz+akFpwEs3j+oPM9bk06nd4nI0/WUHGHmR/r7+5dXq9VlYRierzfpZalUym5pERHtFJFTROSFYXjc6vZEVi6Xp0TkCZuOVnoURYeatqxBETkA4LmJiYmDnZ2d9xKRTd4xZt66JIDU9/zXAGwCYI+Y+9va2kbGxsb+nDXAvvXDw8Omoa/8JCIVu0MR0QUADzHzMatv2LBhrTHmjIhkbYNupUdRNN7U1EMAtzFz1+x8EAQ5EbE95ZolAURrfRrAdbZxzszMvGtPTk1v7R8i8hsze3beJmZmZuaSiOzu7e0dLhaLU0R0OAzDp6yutX4cwPsA1vX09JxtpTOzPUhcGVrrMQA3MfPqBvh27p6lBKQ3k8mcaPzIazJpJ4ARERm0PUFE9ljflVLr8/n8z1rrfQCeMcZsTqfT52u1WgTgJDP31QG11IMgeB3AVBiGu33f30FEtpnvN8a8o5TaDOAtIvo0DMNtSyIh8y3S87xl6XT6gIjYPdx+HFZtf4ii6HC9p9gPw88A9NTvdcoYM1AoFM79H90mVEQmoii6tQ7wDXsgaKhrtFqtbovjeHK+Wq+GvqinrFYL2rJlS1upVFo7Ojpqtzhp/q097lYqFRXH8cW57jOf3niNPf52dXWtq1QqF5q30Ktheqt7OgtkoY1w5XkJEFdI1OtIgCRAHHPAsXKShCRAHHPAsXKShCRAHHPAsXKShCRAHHPAsXKShCRAHHPAsXKShCRAHHPAsXKShDgG5D/V6FZHnb9dNgAAAABJRU5ErkJggg==',
+               transform:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAEiUlEQVRoQ+2YXWgcVRTH/2dmVgOGDetXqViLBlo/6kdNUXRNmOzcmbBCX9RUBLFiffBNULSW+mBUsLUPxRcflCI0gi3rByph2e6dZGuIQkBtRa2gRKxfMbWJSv0g27lHLuzKsmzKwjBkhDtvcznnzJn/7557zgzBXKlSgFKVjUkGBkjKNoEBYoCkTIGUpWMqxABJmQIpS8dUiAGSMgVSlo6pEAMkZQqkLB1TIQZIyhRIWTqpqZCBgYFMNpvdMDU19UW7Rq7r9rav1Wq1M61rhUKhP5PJ/FWpVH7uVuNCobAewNnJyckfu/VJ2m7VgQRBcEEUReNEtBWAA+B3AK/kcrldpVIpEkJcD+CzdiEsy1pz5MiRBd/3tzDzWwCu0DbM/DGAkTAMT59LPA3QsqyvALwhpXwgaaG7jb/qQDzP20NEj1uWtbmvr+/E4uLiPUR0iJl3hmH4ou/7DzPzq1EUbdK7ufliQ0NDX8/OzvbW6/WTRPQhET0YRVE/Eb0P4CMppQbc8XJd13EcR1fiBgDjBkiLTL7v72TmBSnla3p5dHT0vKWlpT8BHJRS7hBCHAAwlM/nN05PT185ODj47djYmNK2nudpeCUNq3nUCSGeBvBcLpdzdIV1IuL7/kvMHBBRLzNPGSDnqF/f9+9n5nEA26WUB33f/5yZ+xvVoXvJWWa+LwzDN4UQTwF4IZfLnV8qlZZ1WCHENgCHbdu+rFM/8X0/YOaKZVnXKKUqAI4aICsACYJgk1LqUwDf5PP567TZzMyM3uWnmfkRABcS0TMA1lqWdZVSageA3VLK/45ez/MEEVVt276pUqkcb31UsVi8pF6vzxHR89Vqda8Q4jsDZAUYhULhFsuyjhLRr0qpLWEY/tI4ltb09PQsT0xMLOn75g7XPUbfE9HeViBBEGxVSr0HYL2U8mTr44QQHzBzNgzDzbr/GyArw7i9AWPecZyby+XyqRbT5u5nvea6bo/jOH8D2MfMx4no9Uwm01cul/9oHFkPATjQ3kOGh4c32ratpyo9GOgepa8+fU9E89VqdV23k1CSdmmYsm4gIj2qztm2fVulUllsvrDrupc7jvM9gF1Syj2NCrmTmSeI6A7Lss5EUXQMwN1SyrcbQA7pViKlvLhVOM/zLgLwROsaET0K4AciGq9Wq88mKXS3sdMA5BgR3UhEu5VSvzUTJ6IvpZQ1IYQEcCsR3cvMOt+XdS+RUmYbx84JPS0ppUaI6GoA+pvkMSnlfl1NmUxmXCl1WA8B7aKYI6tNkZGRkbVRFP3Uafcw8zthGN7led61RLQfQNCwW1BKFScnJz9pVIT+cNTQLm0cR+/m8/ltejQuFovZer2uPzT3SSmf7ABkDsC0lHJ7tzs4abtVr5BuX7Dx+6S3VqvNd/IJgmDd8vLyqVqt9k+3MdNo978BkkbxksjJAElC1RgxDZAY4iXhaoAkoWqMmAZIDPGScDVAklA1RkwDJIZ4SbgaIEmoGiOmARJDvCRcDZAkVI0R0wCJIV4SrgZIEqrGiGmAxBAvCVcDJAlVY8Q0QGKIl4Trv4G5qzjQxZ7CAAAAAElFTkSuQmCC'
+             },
+             '>84.000': {
+               addresses: ['I29'],
+               original:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAF4ElEQVRoQ+2YaWgdVRTH/+dOHrGuGRssFLUfRFCpWq24PbXPN3dejG30g1YtVtzXqqjoB9dSFESLRqnggnXfarDgWps5kzzBGARLVXBFXIorLomaGt8y98iReRJrWvqhlSHM/ZSZuTPv3P/v/M89N4R8ZEoBylQ0eTDIgWQsCXIgOZCMKZCxcHKH5EAypkDGwskdkgPJmAIZCyd3SA4kYwpkLJzcITmQjCmQsXAy5ZAgCA5IkuTTarXa3JxOlUpldr1e/7parY5uSctSqdRJRNMHBwc/mWxeuVzep1Ao/LF27drvJnlO1trZzWbzi2q1OvZ/MssEEGvtFQCWApgO4E8ADzOz3vvXCILgDCJ6VkQWx3H89GRClUqljra2ttcAHJU+/xXA8cy8Xq/DMDxMRF4AsLdei8g6AF1xHP+s10EQnE9E9wDYOX3/oWKxeOmyZcvc/wFmuwMJgmCZMaY/iqKhyRZkrd0fwIcArvd9f/no6GhJRBjA6cz8fOudcrk8yxjzGYC2LQGx1g4Q0b7NZvMEIhozxjwJ4CDf9/cYGxvbodFobCCit4jonCRJ9iGilwEMM3OPtfZI/VtEbkmSpNfzvAWaAACuYOb7pgSQMAwfEJGLAWwA0Ds+Pr5yaGjo99biwjAMUgALmPnVIAimE9FPRHR7FEU36LyFCxd6o6Oj74nIuwDO3ByQ+fPn+7Va7RcAVzOzZjnK5fLhxpi3RSQE0EFEfUmSzB4cHPxAn1trbwJwq+/7bSMjI/cDOKtYLO7UcoS19k0AuzLzQVMCSFomZjrnriGiJZrhAJ4not4oit6ZO3duwff99wHsCeAxAPMB7CUiB8dxrM5R0e4EsNgYM8c598PmgJTL5UONMeuccycODAys0Xe7urp2T5JEy9HZAGYCuN33/fa+vr56+u3TAKzyPG9mkiTqhhnMrK79e1hrVwLQZJkxZYC0FtLd3d1er9eXENFdeo+ZKQXyqGb+hAXHxpiT+/v7N4ZhOE9Eqs65I9rb2z9uNBq/bg5IpVI5zjn3hogcHcfxsH5v6dKlZmhoKAFwnToEwI36u63fCoLAElHked6cZrO5kojqzHz0BCDLAVzFzIUpBaRUKu1ZKBSuE5HLUpesYuYzwjBcIiJan68cGRl5oKOjYx4RaXav9jzv0iRJPheRh+M4vra7u3vXLQEJw3COiKwnolIURW+ogD09PTuOj49vFJELtGkgojsmAqlUKj3OuZcAzALwiIh0xHF82AQgKwAsYubOKQEkreE3q+0BaDu7wvO85a1201obAThk4oLDMOwTEZ2vWa2CaOupWe6l3Y92YquZeaKrtEOaQUTfAziFmVergJVKZS/n3AYRKWvJIqKnCoXCbmvWrPktLUnnAViZ7iHq1HnMrHBaJWsVgH2Z+dApAcRa+xWAnXSTbjQaD27a11tr1wI4kJm1vrdE0HvHEdGxzrlTW/eNMdNE5EoA/SLyxKatb1qeNhLR41EUXZIKfq5mvjrA8zw/SRJtDP4BZq19TrcKTQhr7bUAlotIZ6sNttb+BCBm5tOnCpBjfN8f7uvr0wz/zwiC4Gwi0s18hXPuXmPMSQDuJqLnoihaNPGFyUpWGIaLRaSnJZi1thfA5c65kwqFwrdJksQA1jFzVwroIyLa2TnXRUT7AdAzyTXM3DuhS3vFOXe5MeZC3XOI6JAoihTkdh/b/RyyNStIuygtT63xerPZXLTpabxYLO4ybdo0LTVnMvMzqcAPAriImY2e89KD4SsAiunH1jvnegYGBr5J5x+o/QSAPdIS+mKxWDyt1eamh089u2g3OEZEt0VRdMfWrGNbzMkEEF2IdludnZ2zarXa99vi3xXa7tZqNVOtVrXk/Gfo3lKv13+sVqu6H/1raOkbHh6e1d/f/6VC3hZCb+03MgNkawOe6vNyIBkjnAPJgWRMgYyFkzskB5IxBTIWTu6QHEjGFMhYOLlDciAZUyBj4eQOyYFkTIGMhZM7JAeSMQUyFk7ukIwB+QsDY5JHDBH3eAAAAABJRU5ErkJggg==',
+               transform:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAAFcUlEQVRoQ+2Xf4hUVRTHv+e9/dGirU1YUlGCUhiaP5d+OH8o8+7MMOj+U64Vu1FkPwgssiwNo80S8scfGgmRaJH2Q1kyymjZmXNxhHD/qixQg8RKpTJtdw2TdmbePXHjjUzbyiq4Mw9696/3OO/de+73c8+55xCiESoFKFTeRM4gAhKyQxABiYCETIGQuRNFSAQkZAqEzJ0oQiIgIVMgZO5EERIBCZkCIXMnipAISMgUCJk7NY+QVCo1rVAonMjn8wOV2syZM6e+ubn5lr179x68GM0SicTk+vr6cz09Pb8M8z0ppaaVSqUf8vn82aH2TCbTaIyZMjg4eDCfz5cuZr3R+qamQDzPu4+IPhSRDq31+3aTqVRqjO/7O4ioFUAdgDMAtsRisRe6urr8oUIkk8kWEfkIwE3WJiJfAkhrrX+3757nLSGiTQDGBv9uicfjT6xevdrYd6XUWwAeDtYqicgjWut3R0vwkeatGZBEIjHRcZwjVohKIJ7nrSWiZx3HmTVu3LjDfX19i4hop4is0Fqvr9xQJpNpLhaLx4hoPxE95Pv+ZCLaA6CXmVuVUnfaZxF5yff9ja7rLrQHAMCTzLw5mUyuEJG1IpJpaGjYXywWXwawTESmaq0PjSTeaNhrAqStrc0dGBj4RkQOAGivBBKI9Bszv2M33NbW1tDf3/8ngO3MvKRSBM/zLKwu3/enlVObUupFAK/GYrG6/v7+NwE8EI/Hx1RExBcAmpl5ulLqJwCHmDlj57VpMhaLnQOwiZmfGw3BR5qzJkCUUvakdziOM9MYc7ISyDApqUNEdgB4kJm3V9qVUisBvBaLxRq7uroKQQpaDGCX67rX+75vo2ECM99a/k8ptQ3AQmaeoJQqAtjMzMvK9mQyeVxE9jFzx0jijYa96kCSyeQ8EckbY+5obGz8rlgsnrkQEHvhG2O+BnAkHo9PLZ/yCnHXAFjFzOf34XmeIqKc67ozS6XSNiIqMPPcin82AHiameuVUkJEnblc7pUK+7cAbISq0RB8pDmrCiSdTl/t+/5REdmqtV4e3AHDAkkkErc7jrOPiE4bY1q01ieHbsbzvOeJaF0lkFQq1WqM+RTARABvi8hVWuuWCsHfAHA/M4+3ESIi67XWqyrs3wP4ipnvHUm80bBXFYhSaikAK4gtPW3F5AbVz18AdjNzu91kIpGYG8D4ta6ubnZ3d/ep4TbveV47Eb1XX18/rru7+48gZdmKaVtwh9h7aB4zWzj/DKXULgA3M/NspdTPAPYw8+MV9tPBgbHpsOqjqkBsiWqMWVTepeM4TSLyFICsiGy3pa/nedOJyJauR13Xvaunp6fvQqqk0+kZvu/bwuAeZt4dCL7T6h5EwHIAG0RkfLkMVkqdBqBtBCilGMAkZp5k/02lUjcaY44Fpa+9a6o+qgpk6O6GS1me5x0gohlEtMoYc75ZJCJbDeWTyaS95FvLKUUpdZiIxhpj0kQ0BYDtSZ5h5o0LFiyIDQ4OWqCfGWOWOo7zqL1ziGhWLpc7kEgkMo7jfE5EK13X3VUqlbYCaHEc54ZsNmsru6qPmgKJx+NXNjU12VTTzswfpNPp63zft2nkP0NEPtZa3x00co8xs2P7QKXUbQDsSb8WgO2yP4nH44vLBUDQfNoqzTaZZ4loTS6XWxcsYDv4121fYt+J6ASAJblcLlt1EmWHarXw5V7XpptCoXAqn8/b++hfo7Oz0+nt7Z2YzWZ/tBCH2ufPn39FQ0PDNdls9vjl9utS56tphFyqs/+H7yMgIaMcAYmAhEyBkLkTRUgEJGQKhMydKEIiICFTIGTuRBESAQmZAiFzJ4qQCEjIFAiZO1GEREBCpkDI3IkiJGRA/gYJFVpH2SjE5gAAAABJRU5ErkJggg=='
+             }
+           }
+         },
+         zero: {
+           count: 29,
+           originalValues: ['Rock'],
+           changedValues: ['0'],
+           addresses: [
+             'B17',
+             'B18',
+             'B19',
+             'B20',
+             'B21',
+             'B22',
+             'B23',
+             'B25',
+             'B26',
+             'B27',
+             'B28',
+             'B29',
+             'B30',
+             'B31',
+             'B32',
+             'B33',
+             'B34',
+             'B35',
+             'B36',
+             'B37',
+             'B38',
+             'B39',
+             'B40',
+             'B41',
+             'B43',
+             'B44',
+             'B45',
+             'B46',
+             'B47'
+           ],
+           dataUrls: {
+             Rock: {
+               addresses: [
+                 'B17',
+                 'B18',
+                 'B19',
+                 'B20',
+                 'B21',
+                 'B22',
+                 'B23',
+                 'B25',
+                 'B26',
+                 'B27',
+                 'B28',
+                 'B29',
+                 'B30',
+                 'B31',
+                 'B32',
+                 'B33',
+                 'B34',
+                 'B35',
+                 'B36',
+                 'B37',
+                 'B38',
+                 'B39',
+                 'B40',
+                 'B41',
+                 'B43',
+                 'B44',
+                 'B45',
+                 'B46',
+                 'B47'
+               ],
+               original:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAADzElEQVRoQ+2XXWgcVRTH/+fMrLqkQbeoD7UFWz8iKEiNIpoHd5M7sw8BRSVSoYp58sUPpPVRYp4UVBC/nmKhfqA0FKSCiTN31oAEqVRfFESptNJAIA+GEGtc2b1HrmxgqK1glpaD3Hmc2XPnf/+//Z9zhxAuVQ6QKjVBDAIQZX+CACQAUeaAMjkhIQGIMgeUyQkJCUCUOaBMTkhIAKLMAWVyQkICEGUOKJOjJiHNZvP2brfLm/5EUeSIaG1wcPDM7Oxst1/fJiYmLltdXb2VmX/Ksuxsv+tdrHo1QIwxcoFN/uGce6jVas31Y0Kaprc4534A0LDWLvSz1sWsVQVERF4riuKg33C9Xo+Z+Q5mfh/Ankqlsm1ubq69VTMCkP/onE9IGchmuTFmCsCLnU5n18LCwtL4+Hit3W6/CeABAFcAWGTmySzLTvmaJEl2AJgRkQaAZSL6IM/zqTRNh8oJSZLkUf8+AC9Za/16Ki5VCQHwThRFL3hnut3uNgB3AjhMRL/keX6bv2+M8e3mPgDvATgD4ACAdrVa3bG+vu7iOP4OwE4iekVEqgAOisj+KIq+2QTinKsy82cAjlhr9wG4ULu85JC0ATmfAaeI6JE8z0+Mjo7ewMwnieiNPM+f7QHySflERJ5k5tMi8rmI3FsUxVe95++KyGoURTMeCBFNicg0gGMjIyMPTk9Pu0vu+r+8UBuQTEQOMfPVPdOuZOa9WZZ97/cwNja2j4g+IiKT53nh76VpOuCc+w3AW0S0JCIvW2v/sa/SDPnbDma+P8uyTzXB8FpUATlnqO+M49jPhV83NjZuXFxcXE+SZEJEjjjn7m61Wl/7DQwPD1dqtdqfAF4XkTYRHbDWVs41ugTkS9/SAGxn5uu0HYHVAum1m0kAhwB8aK3db4zZC+BbP+Sttb7t+JlSB/AFET3mnLuciGbiON49Pz9/uvf8MIAhZn6iNEN+Z+bjIvJ2URRPaUqJaiC9NnWCiIYB3GOtPW6M+RnANUT0nHNuiYj8Cen6Tqeze2Bg4Gy73V4hoh+dc08DuJaIPgbwDDPn5VOWMcaDniSiu/x80gJFFRAAr1prny+bU2o1J621NzUajaEoio4BuLn3u2UReXhziCdJkorIUQD+lNYBcLRWqz2+tra2pwykXq9fFcfxMoAlv24A0qcDzWZzu4jEWZatnG+pNE13RVG00s/HZJ8St1SuJiFbUv8/LApAlEENQAIQZQ4okxMSEoAoc0CZnJCQAESZA8rkhIQEIMocUCYnJCQAUeaAMjkhIQGIMgeUyQkJUQbkLwqFpTj4AOn0AAAAAElFTkSuQmCC',
+               transform:
+                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAACHElEQVRoQ+2XMWsUURSFz2UcbEQZEAtBU6RJocTCbrt9szNskUpJYyP+BIsgmGaJIFb+AjsLZVBQi2XwLruVqQQtxD6NRbBJEcKubyYsrGJ92cfcB3f7c9+Z73t3hiXYTxUBUtXGysCEKLsEJsSEKCOgrI5tiAlRRkBZHdsQE6KMgLI6tiEmRBkBZXVsQ0yIMgLK6kS/If1+fzNN09O6rn8pYyuqE62QwWBwt23bdwBuLp+8bduvAMrJZPJbREJJKEohw+Hw8mKxOCKiL0T00Hu/SUSfABwy844StqIaUQpxzt0nosp7f2s6nf5YPnme5/sADrIsu1BVlRfRUBCKUkie508APM+y7GJVVfOVkF0Ab5MkuR7z9yRWIc8APGXmf/2dczkRfU6S5E5d198VXHZRhSiFOOf2iOjF/0KKothpmuYjgA1mPhLRUBCKVcgDInqdpumV8Xh8snplPQLwyr4hHdyqsiy3vfffANxj5vcrIW+W33ZmvtpBpbUdGeWGrAT8JKJLTdOURLQFYPmf5DEzv1wbnQ4GxSzkNgAGcA3AHwAfer3e7mg0ajrguLYjoxXyl0BRFDfm8/nxbDY7WxuVDgdFL6RDdkGONiFBsMqHmhA5uyBJExIEq3yoCZGzC5I0IUGwyoeaEDm7IEkTEgSrfKgJkbMLkjQhQbDKh5oQObsgSRMSBKt8qAmRswuSNCFBsMqHmhA5uyDJc/LqeCmjDJaEAAAAAElFTkSuQmCC'
+             }
+           }
+         },
+         all: {
+           B17: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B17',
+               coordinates: {
+                 c: 1,
+                 r: 16
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B18: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B18',
+               coordinates: {
+                 c: 1,
+                 r: 17
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B19: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B19',
+               coordinates: {
+                 c: 1,
+                 r: 18
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B20: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B20',
+               coordinates: {
+                 c: 1,
+                 r: 19
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B21: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B21',
+               coordinates: {
+                 c: 1,
+                 r: 20
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B22: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B22',
+               coordinates: {
+                 c: 1,
+                 r: 21
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B23: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B23',
+               coordinates: {
+                 c: 1,
+                 r: 22
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B25: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B25',
+               coordinates: {
+                 c: 1,
+                 r: 24
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B26: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B26',
+               coordinates: {
+                 c: 1,
+                 r: 25
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B27: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B27',
+               coordinates: {
+                 c: 1,
+                 r: 26
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B28: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B28',
+               coordinates: {
+                 c: 1,
+                 r: 27
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B29: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B29',
+               coordinates: {
+                 c: 1,
+                 r: 28
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B30: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B30',
+               coordinates: {
+                 c: 1,
+                 r: 29
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B31: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B31',
+               coordinates: {
+                 c: 1,
+                 r: 30
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B32: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B32',
+               coordinates: {
+                 c: 1,
+                 r: 31
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B33: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B33',
+               coordinates: {
+                 c: 1,
+                 r: 32
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B34: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B34',
+               coordinates: {
+                 c: 1,
+                 r: 33
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B35: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B35',
+               coordinates: {
+                 c: 1,
+                 r: 34
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B36: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B36',
+               coordinates: {
+                 c: 1,
+                 r: 35
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B37: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B37',
+               coordinates: {
+                 c: 1,
+                 r: 36
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B38: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B38',
+               coordinates: {
+                 c: 1,
+                 r: 37
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B39: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B39',
+               coordinates: {
+                 c: 1,
+                 r: 38
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B40: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B40',
+               coordinates: {
+                 c: 1,
+                 r: 39
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B41: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B41',
+               coordinates: {
+                 c: 1,
+                 r: 40
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B43: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B43',
+               coordinates: {
+                 c: 1,
+                 r: 42
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B44: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B44',
+               coordinates: {
+                 c: 1,
+                 r: 43
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B45: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B45',
+               coordinates: {
+                 c: 1,
+                 r: 44
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B46: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B46',
+               coordinates: {
+                 c: 1,
+                 r: 45
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B47: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B47',
+               coordinates: {
+                 c: 1,
+                 r: 46
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           E27: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'E27',
+               coordinates: {
+                 c: 4,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           E45: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'E45',
+               coordinates: {
+                 c: 4,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           G42: {
+             t: 'n',
+             v: 5000,
+             z: '0',
+             w: '5000',
+             meta: {
+               address: 'G42',
+               coordinates: {
+                 c: 6,
+                 r: 41
+               },
+               caseType: 'ol',
+               trigger: '>',
+               original: {
+                 v: '>10000',
+                 t: 's',
+                 w: '>10000'
+               }
+             }
+           },
+           I24: {
+             t: 'n',
+             v: 50,
+             z: '0.0',
+             w: '50.0',
+             meta: {
+               address: 'I24',
+               coordinates: {
+                 c: 8,
+                 r: 23
+               },
+               caseType: 'ol',
+               trigger: '>',
+               original: {
+                 v: '>100.0',
+                 t: 's',
+                 w: '>100.0'
+               }
+             }
+           },
+           I27: {
+             t: 'n',
+             v: 250.4,
+             z: '0.0',
+             w: '250.4',
+             meta: {
+               address: 'I27',
+               coordinates: {
+                 c: 8,
+                 r: 26
+               },
+               caseType: 'ol',
+               trigger: '>',
+               original: {
+                 v: '>500.8',
+                 t: 's',
+                 w: '>500.8'
+               }
+             }
+           },
+           I29: {
+             t: 'n',
+             v: 42,
+             z: '0.000',
+             w: '42.000',
+             meta: {
+               address: 'I29',
+               coordinates: {
+                 c: 8,
+                 r: 28
+               },
+               caseType: 'ol',
+               trigger: '>',
+               original: {
+                 v: '>84.000',
+                 t: 's',
+                 w: '>84.000'
+               }
+             }
+           },
+           I42: {
+             t: 'n',
+             v: 50,
+             z: '0.0',
+             w: '50.0',
+             meta: {
+               address: 'I42',
+               coordinates: {
+                 c: 8,
+                 r: 41
+               },
+               caseType: 'ol',
+               trigger: '>',
+               original: {
+                 v: '>100.0',
+                 t: 's',
+                 w: '>100.0'
+               }
+             }
+           },
+           J33: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'J33',
+               coordinates: {
+                 c: 9,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           J35: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'J35',
+               coordinates: {
+                 c: 9,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           J40: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'J40',
+               coordinates: {
+                 c: 9,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           J41: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'J41',
+               coordinates: {
+                 c: 9,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           J46: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'J46',
+               coordinates: {
+                 c: 9,
+                 r: 45
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           J47: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'J47',
+               coordinates: {
+                 c: 9,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K17: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K17',
+               coordinates: {
+                 c: 10,
+                 r: 16
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K18: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K18',
+               coordinates: {
+                 c: 10,
+                 r: 17
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K19: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K19',
+               coordinates: {
+                 c: 10,
+                 r: 18
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K20: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K20',
+               coordinates: {
+                 c: 10,
+                 r: 19
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K21: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K21',
+               coordinates: {
+                 c: 10,
+                 r: 20
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K22: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K22',
+               coordinates: {
+                 c: 10,
+                 r: 21
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K23: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K23',
+               coordinates: {
+                 c: 10,
+                 r: 22
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K25: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K25',
+               coordinates: {
+                 c: 10,
+                 r: 24
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K26: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K26',
+               coordinates: {
+                 c: 10,
+                 r: 25
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K27: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K27',
+               coordinates: {
+                 c: 10,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K28: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K28',
+               coordinates: {
+                 c: 10,
+                 r: 27
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K29: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K29',
+               coordinates: {
+                 c: 10,
+                 r: 28
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K30: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K30',
+               coordinates: {
+                 c: 10,
+                 r: 29
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K31: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K31',
+               coordinates: {
+                 c: 10,
+                 r: 30
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K32: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K32',
+               coordinates: {
+                 c: 10,
+                 r: 31
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K33: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K33',
+               coordinates: {
+                 c: 10,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K34: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K34',
+               coordinates: {
+                 c: 10,
+                 r: 33
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K35: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K35',
+               coordinates: {
+                 c: 10,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K36: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K36',
+               coordinates: {
+                 c: 10,
+                 r: 35
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K37: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K37',
+               coordinates: {
+                 c: 10,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K38: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K38',
+               coordinates: {
+                 c: 10,
+                 r: 37
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K39: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K39',
+               coordinates: {
+                 c: 10,
+                 r: 38
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K40: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K40',
+               coordinates: {
+                 c: 10,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K41: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K41',
+               coordinates: {
+                 c: 10,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K43: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K43',
+               coordinates: {
+                 c: 10,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K44: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K44',
+               coordinates: {
+                 c: 10,
+                 r: 43
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K45: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K45',
+               coordinates: {
+                 c: 10,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K46: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K46',
+               coordinates: {
+                 c: 10,
+                 r: 45
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K47: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'K47',
+               coordinates: {
+                 c: 10,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           O30: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'O30',
+               coordinates: {
+                 c: 14,
+                 r: 29
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           O32: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'O32',
+               coordinates: {
+                 c: 14,
+                 r: 31
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           O33: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'O33',
+               coordinates: {
+                 c: 14,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           O34: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'O34',
+               coordinates: {
+                 c: 14,
+                 r: 33
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           O35: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'O35',
+               coordinates: {
+                 c: 14,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           O36: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'O36',
+               coordinates: {
+                 c: 14,
+                 r: 35
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           O37: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'O37',
+               coordinates: {
+                 c: 14,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           O40: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'O40',
+               coordinates: {
+                 c: 14,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           O41: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'O41',
+               coordinates: {
+                 c: 14,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           O42: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'O42',
+               coordinates: {
+                 c: 14,
+                 r: 41
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           O43: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'O43',
+               coordinates: {
+                 c: 14,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           O47: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'O47',
+               coordinates: {
+                 c: 14,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           Q17: {
+             t: 'n',
+             v: 0.25,
+             z: '0.0',
+             w: '0.3',
+             meta: {
+               address: 'Q17',
+               coordinates: {
+                 c: 16,
+                 r: 16
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q18: {
+             t: 'n',
+             v: 0.25,
+             z: '0.0',
+             w: '0.3',
+             meta: {
+               address: 'Q18',
+               coordinates: {
+                 c: 16,
+                 r: 17
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q19: {
+             t: 'n',
+             v: 0.25,
+             z: '0.0',
+             w: '0.3',
+             meta: {
+               address: 'Q19',
+               coordinates: {
+                 c: 16,
+                 r: 18
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q20: {
+             t: 'n',
+             v: 0.25,
+             z: '0.0',
+             w: '0.3',
+             meta: {
+               address: 'Q20',
+               coordinates: {
+                 c: 16,
+                 r: 19
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q21: {
+             t: 'n',
+             v: 0.25,
+             z: '0.0',
+             w: '0.3',
+             meta: {
+               address: 'Q21',
+               coordinates: {
+                 c: 16,
+                 r: 20
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q22: {
+             t: 'n',
+             v: 0.25,
+             z: '0.0',
+             w: '0.3',
+             meta: {
+               address: 'Q22',
+               coordinates: {
+                 c: 16,
+                 r: 21
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q23: {
+             t: 'n',
+             v: 0.25,
+             z: '0.0',
+             w: '0.3',
+             meta: {
+               address: 'Q23',
+               coordinates: {
+                 c: 16,
+                 r: 22
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q25: {
+             t: 'n',
+             v: 0.25,
+             z: '0.0',
+             w: '0.3',
+             meta: {
+               address: 'Q25',
+               coordinates: {
+                 c: 16,
+                 r: 24
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q26: {
+             t: 'n',
+             v: 0.25,
+             z: '0.0',
+             w: '0.3',
+             meta: {
+               address: 'Q26',
+               coordinates: {
+                 c: 16,
+                 r: 25
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q27: {
+             t: 'n',
+             v: 0.25,
+             z: '0.0',
+             w: '0.3',
+             meta: {
+               address: 'Q27',
+               coordinates: {
+                 c: 16,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q28: {
+             t: 'n',
+             v: 0.25,
+             z: '0.0',
+             w: '0.3',
+             meta: {
+               address: 'Q28',
+               coordinates: {
+                 c: 16,
+                 r: 27
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q33: {
+             t: 'n',
+             v: 0.25,
+             z: '0.0',
+             w: '0.3',
+             meta: {
+               address: 'Q33',
+               coordinates: {
+                 c: 16,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q35: {
+             t: 'n',
+             v: 0.25,
+             z: '0.0',
+             w: '0.3',
+             meta: {
+               address: 'Q35',
+               coordinates: {
+                 c: 16,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q36: {
+             t: 'n',
+             v: 0.25,
+             z: '0.0',
+             w: '0.3',
+             meta: {
+               address: 'Q36',
+               coordinates: {
+                 c: 16,
+                 r: 35
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q37: {
+             t: 'n',
+             v: 0.25,
+             z: '0.0',
+             w: '0.3',
+             meta: {
+               address: 'Q37',
+               coordinates: {
+                 c: 16,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q38: {
+             t: 'n',
+             v: 0.25,
+             z: '0.0',
+             w: '0.3',
+             meta: {
+               address: 'Q38',
+               coordinates: {
+                 c: 16,
+                 r: 37
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q39: {
+             t: 'n',
+             v: 0.25,
+             z: '0.0',
+             w: '0.3',
+             meta: {
+               address: 'Q39',
+               coordinates: {
+                 c: 16,
+                 r: 38
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q40: {
+             t: 'n',
+             v: 0.25,
+             z: '0.0',
+             w: '0.3',
+             meta: {
+               address: 'Q40',
+               coordinates: {
+                 c: 16,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q41: {
+             t: 'n',
+             v: 0.25,
+             z: '0.0',
+             w: '0.3',
+             meta: {
+               address: 'Q41',
+               coordinates: {
+                 c: 16,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q43: {
+             t: 'n',
+             v: 0.25,
+             z: '0.0',
+             w: '0.3',
+             meta: {
+               address: 'Q43',
+               coordinates: {
+                 c: 16,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q44: {
+             t: 'n',
+             v: 0.25,
+             z: '0.0',
+             w: '0.3',
+             meta: {
+               address: 'Q44',
+               coordinates: {
+                 c: 16,
+                 r: 43
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q45: {
+             t: 'n',
+             v: 0.25,
+             z: '0.0',
+             w: '0.3',
+             meta: {
+               address: 'Q45',
+               coordinates: {
+                 c: 16,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q47: {
+             t: 'n',
+             v: 0.25,
+             z: '0.0',
+             w: '0.3',
+             meta: {
+               address: 'Q47',
+               coordinates: {
+                 c: 16,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           R35: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'R35',
+               coordinates: {
+                 c: 17,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S17: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S17',
+               coordinates: {
+                 c: 18,
+                 r: 16
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S18: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S18',
+               coordinates: {
+                 c: 18,
+                 r: 17
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S19: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S19',
+               coordinates: {
+                 c: 18,
+                 r: 18
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S20: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S20',
+               coordinates: {
+                 c: 18,
+                 r: 19
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S21: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S21',
+               coordinates: {
+                 c: 18,
+                 r: 20
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S22: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S22',
+               coordinates: {
+                 c: 18,
+                 r: 21
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S23: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S23',
+               coordinates: {
+                 c: 18,
+                 r: 22
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S24: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S24',
+               coordinates: {
+                 c: 18,
+                 r: 23
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S25: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S25',
+               coordinates: {
+                 c: 18,
+                 r: 24
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S26: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S26',
+               coordinates: {
+                 c: 18,
+                 r: 25
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S27: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S27',
+               coordinates: {
+                 c: 18,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S28: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S28',
+               coordinates: {
+                 c: 18,
+                 r: 27
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S29: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S29',
+               coordinates: {
+                 c: 18,
+                 r: 28
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S30: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S30',
+               coordinates: {
+                 c: 18,
+                 r: 29
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S31: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S31',
+               coordinates: {
+                 c: 18,
+                 r: 30
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S32: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S32',
+               coordinates: {
+                 c: 18,
+                 r: 31
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S33: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S33',
+               coordinates: {
+                 c: 18,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S34: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S34',
+               coordinates: {
+                 c: 18,
+                 r: 33
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S35: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S35',
+               coordinates: {
+                 c: 18,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S36: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S36',
+               coordinates: {
+                 c: 18,
+                 r: 35
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S37: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S37',
+               coordinates: {
+                 c: 18,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S38: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S38',
+               coordinates: {
+                 c: 18,
+                 r: 37
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S39: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S39',
+               coordinates: {
+                 c: 18,
+                 r: 38
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S40: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S40',
+               coordinates: {
+                 c: 18,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S41: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S41',
+               coordinates: {
+                 c: 18,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S42: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S42',
+               coordinates: {
+                 c: 18,
+                 r: 41
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S43: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S43',
+               coordinates: {
+                 c: 18,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S44: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S44',
+               coordinates: {
+                 c: 18,
+                 r: 43
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S45: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S45',
+               coordinates: {
+                 c: 18,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S46: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S46',
+               coordinates: {
+                 c: 18,
+                 r: 45
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S47: {
+             t: 'n',
+             v: 1.5,
+             z: '0',
+             w: '2',
+             meta: {
+               address: 'S47',
+               coordinates: {
+                 c: 18,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           U17: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U17',
+               coordinates: {
+                 c: 20,
+                 r: 16
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U18: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U18',
+               coordinates: {
+                 c: 20,
+                 r: 17
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U19: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U19',
+               coordinates: {
+                 c: 20,
+                 r: 18
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U20: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U20',
+               coordinates: {
+                 c: 20,
+                 r: 19
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U21: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U21',
+               coordinates: {
+                 c: 20,
+                 r: 20
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U22: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U22',
+               coordinates: {
+                 c: 20,
+                 r: 21
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U23: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U23',
+               coordinates: {
+                 c: 20,
+                 r: 22
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U25: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U25',
+               coordinates: {
+                 c: 20,
+                 r: 24
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U26: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U26',
+               coordinates: {
+                 c: 20,
+                 r: 25
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U27: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U27',
+               coordinates: {
+                 c: 20,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U28: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U28',
+               coordinates: {
+                 c: 20,
+                 r: 27
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U29: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U29',
+               coordinates: {
+                 c: 20,
+                 r: 28
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U31: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U31',
+               coordinates: {
+                 c: 20,
+                 r: 30
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U32: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U32',
+               coordinates: {
+                 c: 20,
+                 r: 31
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U33: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U33',
+               coordinates: {
+                 c: 20,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U37: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U37',
+               coordinates: {
+                 c: 20,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U38: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U38',
+               coordinates: {
+                 c: 20,
+                 r: 37
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U39: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U39',
+               coordinates: {
+                 c: 20,
+                 r: 38
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U40: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U40',
+               coordinates: {
+                 c: 20,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U41: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U41',
+               coordinates: {
+                 c: 20,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U43: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U43',
+               coordinates: {
+                 c: 20,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U44: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U44',
+               coordinates: {
+                 c: 20,
+                 r: 43
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U45: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U45',
+               coordinates: {
+                 c: 20,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U46: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U46',
+               coordinates: {
+                 c: 20,
+                 r: 45
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U47: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'U47',
+               coordinates: {
+                 c: 20,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AB17: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB17',
+               coordinates: {
+                 c: 27,
+                 r: 16
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB18: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB18',
+               coordinates: {
+                 c: 27,
+                 r: 17
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB19: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB19',
+               coordinates: {
+                 c: 27,
+                 r: 18
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB20: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB20',
+               coordinates: {
+                 c: 27,
+                 r: 19
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB21: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB21',
+               coordinates: {
+                 c: 27,
+                 r: 20
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB22: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB22',
+               coordinates: {
+                 c: 27,
+                 r: 21
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB23: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB23',
+               coordinates: {
+                 c: 27,
+                 r: 22
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB24: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB24',
+               coordinates: {
+                 c: 27,
+                 r: 23
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB25: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB25',
+               coordinates: {
+                 c: 27,
+                 r: 24
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB26: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB26',
+               coordinates: {
+                 c: 27,
+                 r: 25
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB27: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB27',
+               coordinates: {
+                 c: 27,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB28: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB28',
+               coordinates: {
+                 c: 27,
+                 r: 27
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB29: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB29',
+               coordinates: {
+                 c: 27,
+                 r: 28
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB30: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB30',
+               coordinates: {
+                 c: 27,
+                 r: 29
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB31: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB31',
+               coordinates: {
+                 c: 27,
+                 r: 30
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB32: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB32',
+               coordinates: {
+                 c: 27,
+                 r: 31
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB33: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB33',
+               coordinates: {
+                 c: 27,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB34: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB34',
+               coordinates: {
+                 c: 27,
+                 r: 33
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB35: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB35',
+               coordinates: {
+                 c: 27,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB36: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB36',
+               coordinates: {
+                 c: 27,
+                 r: 35
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB37: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB37',
+               coordinates: {
+                 c: 27,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB38: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB38',
+               coordinates: {
+                 c: 27,
+                 r: 37
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB39: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB39',
+               coordinates: {
+                 c: 27,
+                 r: 38
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB40: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB40',
+               coordinates: {
+                 c: 27,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB41: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB41',
+               coordinates: {
+                 c: 27,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB43: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB43',
+               coordinates: {
+                 c: 27,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB44: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB44',
+               coordinates: {
+                 c: 27,
+                 r: 43
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB45: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB45',
+               coordinates: {
+                 c: 27,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB46: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB46',
+               coordinates: {
+                 c: 27,
+                 r: 45
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB47: {
+             t: 'n',
+             v: 10,
+             z: '0',
+             w: '10',
+             meta: {
+               address: 'AB47',
+               coordinates: {
+                 c: 27,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AD17: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD17',
+               coordinates: {
+                 c: 29,
+                 r: 16
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD18: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD18',
+               coordinates: {
+                 c: 29,
+                 r: 17
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD19: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD19',
+               coordinates: {
+                 c: 29,
+                 r: 18
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD20: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD20',
+               coordinates: {
+                 c: 29,
+                 r: 19
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD21: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD21',
+               coordinates: {
+                 c: 29,
+                 r: 20
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD22: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD22',
+               coordinates: {
+                 c: 29,
+                 r: 21
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD23: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD23',
+               coordinates: {
+                 c: 29,
+                 r: 22
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD24: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD24',
+               coordinates: {
+                 c: 29,
+                 r: 23
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD25: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD25',
+               coordinates: {
+                 c: 29,
+                 r: 24
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD26: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD26',
+               coordinates: {
+                 c: 29,
+                 r: 25
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD27: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD27',
+               coordinates: {
+                 c: 29,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD28: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD28',
+               coordinates: {
+                 c: 29,
+                 r: 27
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD29: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD29',
+               coordinates: {
+                 c: 29,
+                 r: 28
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD30: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD30',
+               coordinates: {
+                 c: 29,
+                 r: 29
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD31: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD31',
+               coordinates: {
+                 c: 29,
+                 r: 30
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD32: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD32',
+               coordinates: {
+                 c: 29,
+                 r: 31
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD33: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD33',
+               coordinates: {
+                 c: 29,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD34: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD34',
+               coordinates: {
+                 c: 29,
+                 r: 33
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD35: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD35',
+               coordinates: {
+                 c: 29,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD36: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD36',
+               coordinates: {
+                 c: 29,
+                 r: 35
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD37: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD37',
+               coordinates: {
+                 c: 29,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD38: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD38',
+               coordinates: {
+                 c: 29,
+                 r: 37
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD39: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD39',
+               coordinates: {
+                 c: 29,
+                 r: 38
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD40: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD40',
+               coordinates: {
+                 c: 29,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD41: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD41',
+               coordinates: {
+                 c: 29,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD43: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD43',
+               coordinates: {
+                 c: 29,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD44: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD44',
+               coordinates: {
+                 c: 29,
+                 r: 43
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD45: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD45',
+               coordinates: {
+                 c: 29,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD46: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD46',
+               coordinates: {
+                 c: 29,
+                 r: 45
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD47: {
+             t: 'n',
+             v: 0.005,
+             z: '0.00',
+             w: '0.01',
+             meta: {
+               address: 'AD47',
+               coordinates: {
+                 c: 29,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AF17: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF17',
+               coordinates: {
+                 c: 31,
+                 r: 16
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF18: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF18',
+               coordinates: {
+                 c: 31,
+                 r: 17
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF19: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF19',
+               coordinates: {
+                 c: 31,
+                 r: 18
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF20: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF20',
+               coordinates: {
+                 c: 31,
+                 r: 19
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF21: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF21',
+               coordinates: {
+                 c: 31,
+                 r: 20
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF22: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF22',
+               coordinates: {
+                 c: 31,
+                 r: 21
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF23: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF23',
+               coordinates: {
+                 c: 31,
+                 r: 22
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF25: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF25',
+               coordinates: {
+                 c: 31,
+                 r: 24
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF26: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF26',
+               coordinates: {
+                 c: 31,
+                 r: 25
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF27: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF27',
+               coordinates: {
+                 c: 31,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF28: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF28',
+               coordinates: {
+                 c: 31,
+                 r: 27
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF29: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF29',
+               coordinates: {
+                 c: 31,
+                 r: 28
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF30: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF30',
+               coordinates: {
+                 c: 31,
+                 r: 29
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF31: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF31',
+               coordinates: {
+                 c: 31,
+                 r: 30
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF32: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF32',
+               coordinates: {
+                 c: 31,
+                 r: 31
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF33: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF33',
+               coordinates: {
+                 c: 31,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF34: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF34',
+               coordinates: {
+                 c: 31,
+                 r: 33
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF35: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF35',
+               coordinates: {
+                 c: 31,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF36: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF36',
+               coordinates: {
+                 c: 31,
+                 r: 35
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF37: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF37',
+               coordinates: {
+                 c: 31,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF38: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF38',
+               coordinates: {
+                 c: 31,
+                 r: 37
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF39: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF39',
+               coordinates: {
+                 c: 31,
+                 r: 38
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF40: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF40',
+               coordinates: {
+                 c: 31,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF41: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF41',
+               coordinates: {
+                 c: 31,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF42: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF42',
+               coordinates: {
+                 c: 31,
+                 r: 41
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF43: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF43',
+               coordinates: {
+                 c: 31,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF44: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF44',
+               coordinates: {
+                 c: 31,
+                 r: 43
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF45: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF45',
+               coordinates: {
+                 c: 31,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF46: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF46',
+               coordinates: {
+                 c: 31,
+                 r: 45
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF47: {
+             t: 'n',
+             v: 1,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AF47',
+               coordinates: {
+                 c: 31,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AG17: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG17',
+               coordinates: {
+                 c: 32,
+                 r: 16
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG18: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG18',
+               coordinates: {
+                 c: 32,
+                 r: 17
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG19: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG19',
+               coordinates: {
+                 c: 32,
+                 r: 18
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG20: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG20',
+               coordinates: {
+                 c: 32,
+                 r: 19
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG21: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG21',
+               coordinates: {
+                 c: 32,
+                 r: 20
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG22: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG22',
+               coordinates: {
+                 c: 32,
+                 r: 21
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG23: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG23',
+               coordinates: {
+                 c: 32,
+                 r: 22
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG25: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG25',
+               coordinates: {
+                 c: 32,
+                 r: 24
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG26: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG26',
+               coordinates: {
+                 c: 32,
+                 r: 25
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG27: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG27',
+               coordinates: {
+                 c: 32,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG28: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG28',
+               coordinates: {
+                 c: 32,
+                 r: 27
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG29: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG29',
+               coordinates: {
+                 c: 32,
+                 r: 28
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG30: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG30',
+               coordinates: {
+                 c: 32,
+                 r: 29
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG32: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG32',
+               coordinates: {
+                 c: 32,
+                 r: 31
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG33: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG33',
+               coordinates: {
+                 c: 32,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG34: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG34',
+               coordinates: {
+                 c: 32,
+                 r: 33
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG35: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG35',
+               coordinates: {
+                 c: 32,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG36: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG36',
+               coordinates: {
+                 c: 32,
+                 r: 35
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG37: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG37',
+               coordinates: {
+                 c: 32,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG38: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG38',
+               coordinates: {
+                 c: 32,
+                 r: 37
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG39: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG39',
+               coordinates: {
+                 c: 32,
+                 r: 38
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG40: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG40',
+               coordinates: {
+                 c: 32,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG41: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG41',
+               coordinates: {
+                 c: 32,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG43: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG43',
+               coordinates: {
+                 c: 32,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG44: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG44',
+               coordinates: {
+                 c: 32,
+                 r: 43
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG45: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG45',
+               coordinates: {
+                 c: 32,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG47: {
+             t: 'n',
+             v: 0.025,
+             z: '0.00',
+             w: '0.03',
+             meta: {
+               address: 'AG47',
+               coordinates: {
+                 c: 32,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AH17: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH17',
+               coordinates: {
+                 c: 33,
+                 r: 16
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH18: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH18',
+               coordinates: {
+                 c: 33,
+                 r: 17
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH19: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH19',
+               coordinates: {
+                 c: 33,
+                 r: 18
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH20: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH20',
+               coordinates: {
+                 c: 33,
+                 r: 19
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH21: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH21',
+               coordinates: {
+                 c: 33,
+                 r: 20
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH22: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH22',
+               coordinates: {
+                 c: 33,
+                 r: 21
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH23: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH23',
+               coordinates: {
+                 c: 33,
+                 r: 22
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH24: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH24',
+               coordinates: {
+                 c: 33,
+                 r: 23
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH25: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH25',
+               coordinates: {
+                 c: 33,
+                 r: 24
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH26: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH26',
+               coordinates: {
+                 c: 33,
+                 r: 25
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH27: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH27',
+               coordinates: {
+                 c: 33,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH28: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH28',
+               coordinates: {
+                 c: 33,
+                 r: 27
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH29: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH29',
+               coordinates: {
+                 c: 33,
+                 r: 28
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH31: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH31',
+               coordinates: {
+                 c: 33,
+                 r: 30
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH32: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH32',
+               coordinates: {
+                 c: 33,
+                 r: 31
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH33: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH33',
+               coordinates: {
+                 c: 33,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH34: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH34',
+               coordinates: {
+                 c: 33,
+                 r: 33
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH35: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH35',
+               coordinates: {
+                 c: 33,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH36: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH36',
+               coordinates: {
+                 c: 33,
+                 r: 35
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH37: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH37',
+               coordinates: {
+                 c: 33,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH38: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH38',
+               coordinates: {
+                 c: 33,
+                 r: 37
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH39: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH39',
+               coordinates: {
+                 c: 33,
+                 r: 38
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH42: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH42',
+               coordinates: {
+                 c: 33,
+                 r: 41
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH43: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH43',
+               coordinates: {
+                 c: 33,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH44: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH44',
+               coordinates: {
+                 c: 33,
+                 r: 43
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH45: {
+             t: 'n',
+             v: 0.5,
+             z: '0',
+             w: '1',
+             meta: {
+               address: 'AH45',
+               coordinates: {
+                 c: 33,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AI17: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI17',
+               coordinates: {
+                 c: 34,
+                 r: 16
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI18: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI18',
+               coordinates: {
+                 c: 34,
+                 r: 17
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI19: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI19',
+               coordinates: {
+                 c: 34,
+                 r: 18
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI20: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI20',
+               coordinates: {
+                 c: 34,
+                 r: 19
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI21: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI21',
+               coordinates: {
+                 c: 34,
+                 r: 20
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI22: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI22',
+               coordinates: {
+                 c: 34,
+                 r: 21
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI23: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI23',
+               coordinates: {
+                 c: 34,
+                 r: 22
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI24: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI24',
+               coordinates: {
+                 c: 34,
+                 r: 23
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI25: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI25',
+               coordinates: {
+                 c: 34,
+                 r: 24
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI26: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI26',
+               coordinates: {
+                 c: 34,
+                 r: 25
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI27: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI27',
+               coordinates: {
+                 c: 34,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI28: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI28',
+               coordinates: {
+                 c: 34,
+                 r: 27
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI30: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI30',
+               coordinates: {
+                 c: 34,
+                 r: 29
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI31: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI31',
+               coordinates: {
+                 c: 34,
+                 r: 30
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI32: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI32',
+               coordinates: {
+                 c: 34,
+                 r: 31
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI33: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI33',
+               coordinates: {
+                 c: 34,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI34: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI34',
+               coordinates: {
+                 c: 34,
+                 r: 33
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI35: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI35',
+               coordinates: {
+                 c: 34,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI36: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI36',
+               coordinates: {
+                 c: 34,
+                 r: 35
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI37: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI37',
+               coordinates: {
+                 c: 34,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI38: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI38',
+               coordinates: {
+                 c: 34,
+                 r: 37
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI39: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI39',
+               coordinates: {
+                 c: 34,
+                 r: 38
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI40: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI40',
+               coordinates: {
+                 c: 34,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI41: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI41',
+               coordinates: {
+                 c: 34,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI42: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI42',
+               coordinates: {
+                 c: 34,
+                 r: 41
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI43: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI43',
+               coordinates: {
+                 c: 34,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI44: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI44',
+               coordinates: {
+                 c: 34,
+                 r: 43
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI45: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI45',
+               coordinates: {
+                 c: 34,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI46: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI46',
+               coordinates: {
+                 c: 34,
+                 r: 45
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI47: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AI47',
+               coordinates: {
+                 c: 34,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ17: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ17',
+               coordinates: {
+                 c: 35,
+                 r: 16
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ18: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ18',
+               coordinates: {
+                 c: 35,
+                 r: 17
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ19: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ19',
+               coordinates: {
+                 c: 35,
+                 r: 18
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ20: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ20',
+               coordinates: {
+                 c: 35,
+                 r: 19
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ21: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ21',
+               coordinates: {
+                 c: 35,
+                 r: 20
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ22: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ22',
+               coordinates: {
+                 c: 35,
+                 r: 21
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ23: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ23',
+               coordinates: {
+                 c: 35,
+                 r: 22
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ24: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ24',
+               coordinates: {
+                 c: 35,
+                 r: 23
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ25: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ25',
+               coordinates: {
+                 c: 35,
+                 r: 24
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ26: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ26',
+               coordinates: {
+                 c: 35,
+                 r: 25
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ27: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ27',
+               coordinates: {
+                 c: 35,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ28: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ28',
+               coordinates: {
+                 c: 35,
+                 r: 27
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ29: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ29',
+               coordinates: {
+                 c: 35,
+                 r: 28
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ30: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ30',
+               coordinates: {
+                 c: 35,
+                 r: 29
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ31: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ31',
+               coordinates: {
+                 c: 35,
+                 r: 30
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ32: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ32',
+               coordinates: {
+                 c: 35,
+                 r: 31
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ33: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ33',
+               coordinates: {
+                 c: 35,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ34: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ34',
+               coordinates: {
+                 c: 35,
+                 r: 33
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ35: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ35',
+               coordinates: {
+                 c: 35,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ36: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ36',
+               coordinates: {
+                 c: 35,
+                 r: 35
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ37: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ37',
+               coordinates: {
+                 c: 35,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ38: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ38',
+               coordinates: {
+                 c: 35,
+                 r: 37
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ39: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ39',
+               coordinates: {
+                 c: 35,
+                 r: 38
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ40: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ40',
+               coordinates: {
+                 c: 35,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ41: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ41',
+               coordinates: {
+                 c: 35,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ43: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ43',
+               coordinates: {
+                 c: 35,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ44: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ44',
+               coordinates: {
+                 c: 35,
+                 r: 43
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ45: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ45',
+               coordinates: {
+                 c: 35,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ46: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ46',
+               coordinates: {
+                 c: 35,
+                 r: 45
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ47: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AJ47',
+               coordinates: {
+                 c: 35,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK17: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK17',
+               coordinates: {
+                 c: 36,
+                 r: 16
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK18: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK18',
+               coordinates: {
+                 c: 36,
+                 r: 17
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK19: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK19',
+               coordinates: {
+                 c: 36,
+                 r: 18
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK20: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK20',
+               coordinates: {
+                 c: 36,
+                 r: 19
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK21: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK21',
+               coordinates: {
+                 c: 36,
+                 r: 20
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK22: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK22',
+               coordinates: {
+                 c: 36,
+                 r: 21
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK23: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK23',
+               coordinates: {
+                 c: 36,
+                 r: 22
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK24: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK24',
+               coordinates: {
+                 c: 36,
+                 r: 23
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK25: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK25',
+               coordinates: {
+                 c: 36,
+                 r: 24
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK26: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK26',
+               coordinates: {
+                 c: 36,
+                 r: 25
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK27: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK27',
+               coordinates: {
+                 c: 36,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK28: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK28',
+               coordinates: {
+                 c: 36,
+                 r: 27
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK31: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK31',
+               coordinates: {
+                 c: 36,
+                 r: 30
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK32: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK32',
+               coordinates: {
+                 c: 36,
+                 r: 31
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK33: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK33',
+               coordinates: {
+                 c: 36,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK34: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK34',
+               coordinates: {
+                 c: 36,
+                 r: 33
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK35: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK35',
+               coordinates: {
+                 c: 36,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK36: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK36',
+               coordinates: {
+                 c: 36,
+                 r: 35
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK37: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK37',
+               coordinates: {
+                 c: 36,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK38: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK38',
+               coordinates: {
+                 c: 36,
+                 r: 37
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK39: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK39',
+               coordinates: {
+                 c: 36,
+                 r: 38
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK40: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK40',
+               coordinates: {
+                 c: 36,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK41: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK41',
+               coordinates: {
+                 c: 36,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK42: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK42',
+               coordinates: {
+                 c: 36,
+                 r: 41
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK43: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK43',
+               coordinates: {
+                 c: 36,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK44: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK44',
+               coordinates: {
+                 c: 36,
+                 r: 43
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK45: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK45',
+               coordinates: {
+                 c: 36,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK46: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK46',
+               coordinates: {
+                 c: 36,
+                 r: 45
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK47: {
+             t: 'n',
+             v: 2.5,
+             z: '0',
+             w: '3',
+             meta: {
+               address: 'AK47',
+               coordinates: {
+                 c: 36,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           }
+         },
+         scope: {
+           s: {
+             c: 1,
+             r: 16
+           },
+           e: {
+             c: 38,
+             r: 46
+           }
+         }
+       }
 
 export const sheetData = {
   '!margins': {
