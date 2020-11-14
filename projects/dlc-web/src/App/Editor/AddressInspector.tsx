@@ -1,5 +1,7 @@
-import { Drawer, Grid, Typography, List, ListItem, ListItemText } from '@material-ui/core'
+import { setTransformStyle } from '@cjo3/shared/logic/dlc'
+import { Drawer, Grid, List, ListItem, ListItemText } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import DoubleArrowIcon from '@material-ui/icons/DoubleArrow'
 import React from 'react'
 import {
   TransformResultCellCollection,
@@ -16,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     height: '100%'
   },
   TransformResults_addressListItem: {
-    marginTop: theme.custom.setSpace(),
+    'marginTop': theme.custom.setSpace(),
     ...theme.custom.noSelect,
     ...theme.custom.setFlex('column'),
     'transition': 'all 250ms linear',
@@ -25,8 +27,9 @@ const useStyles = makeStyles(theme => ({
       color: theme.palette.grey[50]
     }
   },
-  AddressInspector_white: {
-    color: theme.palette.grey[50]
+  AddressInspector_doubleArrow: {
+    fontSize: theme.typography.fontSize * 1.5,
+    color: theme.palette.grey[800]
   }
 }))
 
@@ -67,26 +70,12 @@ export const AddressInspector: React.FC<Props> = ({
       <List className={classes.TransformResults_innerList}>
         {drawerDataName &&
           addresses.map(address => {
-            const dataUrl =
-              dataUrls[allTransforms[address].meta.original.w].transformWhite
-            const imageStyle = {
-              userSelect: 'none',
-              msUserSelect: 'none',
-              OUserSelect: 'none',
-              MozUserSelect: 'none',
-              KhtmlUserSelect: 'none',
-              WebkitUserSelect: 'none',
-              WebkitTouchCallout: 'none',
-              width: '8rem',
-              height: '2rem',
-              border: '1px solid #616161',
-              borderRadius: 4,
-              backgroundImage: `url(${dataUrl})`,
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              position: 'relative',
-              top: 1
-            }
+            const transformImage =
+              dataUrls[allTransforms[address].meta.original.w].transform.light
+            const originalImage =
+              dataUrls[allTransforms[address].meta.original.w].original.light
+            const originalStyle = setTransformStyle(originalImage, '#03a9f4')
+            const transformStyle = setTransformStyle(transformImage, '#f50057')
             return (
               <ListItem
                 key={`drawer-data-item-${address}`}
@@ -100,11 +89,13 @@ export const AddressInspector: React.FC<Props> = ({
                   }}
                 />
                 <Grid container justify="center" alignItems="center">
-                  <Typography variant="h6" color="primary">{allTransforms[address].meta.original.w}</Typography>
+                  <div style={originalStyle} />
                   &emsp;
-                  <Typography variant="h6" className={classes.AddressInspector_white}>>></Typography>
+                  <DoubleArrowIcon
+                    className={classes.AddressInspector_doubleArrow}
+                  />
                   &emsp;
-                  <div style={imageStyle} />
+                  <div style={transformStyle} />
                 </Grid>
               </ListItem>
             )

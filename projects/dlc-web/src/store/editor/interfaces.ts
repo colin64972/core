@@ -37,8 +37,14 @@ export interface TransformSettings {
 export interface DataUrlCollection {
   [key: string]: {
     addresses: string[]
-    original: string
-    transform: string
+    original: {
+      dark: TransformImageData
+      light: TransformImageData
+    }
+    transform: {
+      dark: TransformImageData
+      light: TransformImageData
+    }
   }
 }
 
@@ -58,10 +64,14 @@ export interface TransformResultCellMeta {
   original: XLSX.CellObject
 }
 
-export interface TransformValue {
-  t: string
-  v: string | number
-  z?: string
+export interface JSSStyleObject {
+  [key: string]: string | number
+}
+
+export interface TransformImageData {
+  url: string
+  width: number
+  height: number
 }
 
 export interface TransformResultCell {
@@ -78,11 +88,11 @@ export interface TransformResultCellCollection {
 
 export interface ScopeRange {
   e: {
-    c: number,
+    c: number
     r: number
-  },
+  }
   s: {
-    c: number,
+    c: number
     r: number
   }
 }
@@ -93,6 +103,7 @@ export interface TransformResult {
   zero: TransformSummary
   all: TransformResultCellCollection
   scope: ScopeRange
+}
 
 export interface CellValue {
   t: string

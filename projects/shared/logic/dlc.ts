@@ -1,13 +1,14 @@
 import { transformFunctionValues } from '@cjo3/dlc-web/src/constants'
 import {
   DataUrlCollection,
+  JSSStyleObject,
   ScopeRange,
+  TransformImageData,
   TransformResult,
   TransformResultCell,
   TransformResultCellCollection,
   TransformSettings,
-  TransformSummary,
-  TransformValue
+  TransformSummary
 } from '@cjo3/dlc-web/src/store/editor/interfaces'
 import { createCanvas } from 'canvas'
 import * as XLSX from 'xlsx'
@@ -255,9 +256,14 @@ export const collectChanges = (
       } else {
         temp[cell.meta.original.w] = {
           addresses: [cur],
-          original: createPngDataUrl(cell.meta.original.w),
-          transform: createPngDataUrl(cell.w),
-          transformWhite: createPngDataUrl(cell.w, '#fafafa', 'left')
+          original: {
+            dark: createPngDataUrl(cell.meta.original.w),
+            light: createPngDataUrl(cell.meta.original.w, '#fafafa')
+          },
+          transform: {
+            light: createPngDataUrl(cell.w, '#fafafa'),
+            dark: createPngDataUrl(cell.w)
+          }
         }
       }
       return temp
@@ -284,18 +290,33 @@ export const setWaitTime = (waitTime: number): number => {
 export const createPngDataUrl = (
   text: string,
   color: string = '#444444'
-): string => {
-  const canvas = createCanvas(100, 40)
-  const ctx = canvas.getContext('2d')
-  ctx.font = '14px Arial'
-  ctx.textAlign = 'center'
-  ctx.fillStyle = color
-  ctx.fillText(text, 49, 24, 100)
-  return canvas.toDataURL()
+): TransformImageData => {
+  const fontSize = 14
+
+  const canvas1 = createCanvas(100, 40)
+  const ctx1 = canvas1.getContext('2d')
+  ctx1.font = `${fontSize}px Arial`
+  ctx1.textAlign = 'center'
+  let { width } = ctx1.measureText(text)
+
+  width += 14
+  let height = fontSize + 14
+
+  const canvas2 = createCanvas(width, height)
+  const ctx2 = canvas2.getContext('2d')
+  ctx2.font = '14px Arial'
+  ctx2.textAlign = 'center'
+  ctx2.fillStyle = color
+  ctx2.fillText(text, width / 2, fontSize + 5, width)
+  return {
+    url: canvas2.toDataURL(),
+    width,
+    height
+  }
 }
 
 export const buildCopyData = (
-  sheet: WorkSheet,
+  sheet: XLSX.WorkSheet,
   results: TransformResult
 ): string => {
   const { ul, ol, zero, all } = results
@@ -306,4 +327,28 @@ export const buildCopyData = (
   }
 
   const rows = utils.sheet_to_csv(sheet, options)
+}
+
+export const setTransformStyle = (
+  imageData: TransformImageData,
+  borderColor: string
+): JSSStyleObject => {
+  return {
+    userSelect: 'none',
+    msUserSelect: 'none',
+    OUserSelect: 'none',
+    MozUserSelect: 'none',
+    KhtmlUserSelect: 'none',
+    WebkitUserSelect: 'none',
+    WebkitTouchCallout: 'none',
+    border: `1px solid ${borderColor}`,
+    width: imageData.width,
+    height: imageData.height,
+    boxSizing: 'content-box',
+    borderRadius: 4,
+    backgroundImage: `url(${imageData.url})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'initial',
+    backgroundRepeat: 'no-repeat'
+  }
 }

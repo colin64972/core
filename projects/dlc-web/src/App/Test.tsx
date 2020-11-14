@@ -26,12 +26,29 @@ export const Test: React.FC = (): JSX.Element => {
 
   const result = processSheet(sheetDataMock, values)
 
-  console.log('%c result', 'color: yellow; font-size: large', result)
+  console.log('%c result', 'color: yellow; font-size: large', result.ol)
+
+  const dataUrl = result.ol.dataUrls['>84.000'].transformWhite
+
+  if (!dataUrl) return null
+
+  const style = {
+    width: dataUrl.width,
+    height: dataUrl.height,
+    boxSizing: 'content-box',
+    border: '1px solid red',
+    borderRadius: 4,
+    backgroundImage: `url(${dataUrl.url})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'initial',
+    backgroundRepeat: 'no-repeat'
+  }
 
   return (
     <Grid container>
       <Grid item className={classes.padding}>
         <Typography variant="body1" align="center"></Typography>
+        <div style={style} />
       </Grid>
     </Grid>
   )
