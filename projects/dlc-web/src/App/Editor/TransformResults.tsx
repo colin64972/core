@@ -94,6 +94,10 @@ export const TransformResults: React.FC = (): JSX.Element => {
     ? transformResult[drawerDataName].addresses
     : []
 
+  const dataUrlsByTransform = drawerDataName
+    ? transformResult[drawerDataName].dataUrls
+    : {}
+
   if (isProcessing)
     return (
       <Grid item xs={12}>
@@ -165,6 +169,7 @@ export const TransformResults: React.FC = (): JSX.Element => {
               drawerDataName={drawerDataName}
               allTransforms={transformResult.all}
               addresses={addressesByTransform}
+              dataUrls={dataUrlsByTransform}
             />
           </Grid>
         </Grid>

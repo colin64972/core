@@ -1,4 +1,4 @@
-import { Drawer, List, ListItem, ListItemText } from '@material-ui/core'
+import { Drawer, Grid, Typography, List, ListItem, ListItemText } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 import {
@@ -16,12 +16,17 @@ const useStyles = makeStyles(theme => ({
     height: '100%'
   },
   TransformResults_addressListItem: {
+    marginTop: theme.custom.setSpace(),
     ...theme.custom.noSelect,
+    ...theme.custom.setFlex('column'),
     'transition': 'all 250ms linear',
     'color': theme.palette.grey[400],
     '&:hover': {
       color: theme.palette.grey[50]
     }
+  },
+  AddressInspector_white: {
+    color: theme.palette.grey[50]
   }
 }))
 
@@ -31,6 +36,12 @@ interface Props {
   drawerDataName: string
   allTransforms: TransformResultCellCollection
   addresses: TransformSummary[]
+  dataUrls: {
+    [key: string]: {
+      original: string
+      transform: string
+    }
+  }
 }
 
 export const AddressInspector: React.FC<Props> = ({
@@ -38,7 +49,8 @@ export const AddressInspector: React.FC<Props> = ({
   closeDrawerHandler,
   drawerDataName,
   allTransforms,
-  addresses
+  addresses,
+  dataUrls
 }): JSX.Element => {
   const classes = useStyles()
   if (!addresses) return null
@@ -54,26 +66,49 @@ export const AddressInspector: React.FC<Props> = ({
       }}>
       <List className={classes.TransformResults_innerList}>
         {drawerDataName &&
-          addresses.map(address => (
-            <ListItem
-              key={`drawer-data-item-${address}`}
-              className={classes.TransformResults_addressListItem}
-              alignItems="center">
-              <ListItemText
-                primary={address}
-                primaryTypographyProps={{
-                  align: 'center',
-                  variant: 'h5'
-                }}
-                secondary={`${allTransforms[address].original} >> ${allTransforms[address].result.w}`}
-                secondaryTypographyProps={{
-                  align: 'center',
-                  variant: 'body1',
-                  color: 'secondary'
-                }}
-              />
-            </ListItem>
-          ))}
+          addresses.map(address => {
+            const dataUrl =
+              dataUrls[allTransforms[address].meta.original.w].transformWhite
+            const imageStyle = {
+              userSelect: 'none',
+              msUserSelect: 'none',
+              OUserSelect: 'none',
+              MozUserSelect: 'none',
+              KhtmlUserSelect: 'none',
+              WebkitUserSelect: 'none',
+              WebkitTouchCallout: 'none',
+              width: '8rem',
+              height: '2rem',
+              border: '1px solid #616161',
+              borderRadius: 4,
+              backgroundImage: `url(${dataUrl})`,
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              position: 'relative',
+              top: 1
+            }
+            return (
+              <ListItem
+                key={`drawer-data-item-${address}`}
+                className={classes.TransformResults_addressListItem}
+                alignItems="center">
+                <ListItemText
+                  primary={address}
+                  primaryTypographyProps={{
+                    align: 'center',
+                    variant: 'h5'
+                  }}
+                />
+                <Grid container justify="center" alignItems="center">
+                  <Typography variant="h6" color="primary">{allTransforms[address].meta.original.w}</Typography>
+                  &emsp;
+                  <Typography variant="h6" className={classes.AddressInspector_white}>>></Typography>
+                  &emsp;
+                  <div style={imageStyle} />
+                </Grid>
+              </ListItem>
+            )
+          })}
       </List>
     </Drawer>
   )

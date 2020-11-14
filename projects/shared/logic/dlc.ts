@@ -21,11 +21,24 @@ const splitFloats = (value: string): string => {
   return null
 }
 
+const setSigFigFormat = (original: string, transformed: number): string => {
+  const oFloats = splitFloats(original)
+  const tFloats = splitFloats(transformed.toString())
+
+  if (oFloats && tFloats) {
+    if (tFloats.length >= oFloats.length)
+      return `0.${'0'.repeat(tFloats.length)}`
+    return `0.${'0'.repeat(oFloats.length)}`
+  }
+
+  if (oFloats) return `0.${'0'.repeat(oFloats.length)}`
+}
+
 const setTransformValue = (
   kind: string,
   value: string,
   trigger?: string
-): TransformValue => {
+): XLSX.CellObject => {
   let temp
 
   switch (kind) {
@@ -41,7 +54,8 @@ const setTransformValue = (
       const halved = parseFloat(temp) / 2
       return {
         t: 'n',
-        v: halved
+        v: halved,
+        z: setSigFigFormat(value, halved)
       }
 
     case transformFunctionValues.zero:
@@ -56,12 +70,6 @@ const setTransformValue = (
         v: value
       }
   }
-}
-
-const formatForSigFigs = value => {
-  const floats = splitFloats(value)
-  if (floats) return `.${'0'.repeat(floats.length)}`
-  return ''
 }
 
 const getDataCellAddresses = sheet => {
@@ -124,7 +132,7 @@ export const processSheet = (
     }
 
     if (cellValue === ulTriggerZero) {
-      const transform: TransformValue = setTransformValue(
+      const transform: XLSX.CellObject = setTransformValue(
         transformFunctionValues.zero,
         cellValue
       )
@@ -145,10 +153,11 @@ export const processSheet = (
     }
 
     if (ulPattern.test(cellValue)) {
-      const transform: TransformValue = {
-        ...setTransformValue(ulTransform, cellValue, ulTrigger),
-        z: `0${formatForSigFigs(cellValue)}`
-      }
+      const transform: XLSX.CellObject = setTransformValue(
+        ulTransform,
+        cellValue,
+        ulTrigger
+      )
 
       const transformW: string = XLSX.utils.format_cell(transform)
 
@@ -166,10 +175,11 @@ export const processSheet = (
     }
 
     if (olPattern.test(cellValue)) {
-      const transform: TransformValue = {
-        ...setTransformValue(olTransform, cellValue, olTrigger),
-        z: `0${formatForSigFigs(cellValue)}`
-      }
+      const transform: XLSX.CellObject = setTransformValue(
+        olTransform,
+        cellValue,
+        olTrigger
+      )
 
       const transformW: string = XLSX.utils.format_cell(transform)
 
@@ -246,7 +256,8 @@ export const collectChanges = (
         temp[cell.meta.original.w] = {
           addresses: [cur],
           original: createPngDataUrl(cell.meta.original.w),
-          transform: createPngDataUrl(cell.w)
+          transform: createPngDataUrl(cell.w),
+          transformWhite: createPngDataUrl(cell.w, '#fafafa', 'left')
         }
       }
       return temp
@@ -270,12 +281,15 @@ export const setWaitTime = (waitTime: number): number => {
   return waitTime
 }
 
-export const createPngDataUrl = (text: string): string => {
+export const createPngDataUrl = (
+  text: string,
+  color: string = '#444444'
+): string => {
   const canvas = createCanvas(100, 40)
   const ctx = canvas.getContext('2d')
   ctx.font = '14px Arial'
   ctx.textAlign = 'center'
-  ctx.fillStyle = '#444444'
+  ctx.fillStyle = color
   ctx.fillText(text, 49, 24, 100)
   return canvas.toDataURL()
 }

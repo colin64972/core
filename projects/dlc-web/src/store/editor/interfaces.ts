@@ -67,7 +67,8 @@ export interface TransformValue {
 export interface TransformResultCell {
   t: string
   v: string | number
-  w: string
+  w?: string
+  z?: string
   meta: TransformResultCellMeta
 }
 

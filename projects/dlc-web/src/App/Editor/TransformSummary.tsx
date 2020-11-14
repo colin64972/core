@@ -1,4 +1,4 @@
-import { TransformSummary as ITransformSummary } from '@cjo3/dlc-web/src/store/editor/interfaces'
+import { TransformSummary as ITransformSummary } from '../../store/editor/interfaces'
 import {
   Button,
   Chip,
