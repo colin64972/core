@@ -1,4 +1,7 @@
-import { TransformSummary as ITransformSummary } from '../../store/editor/interfaces'
+import {
+  DataUrlCollection,
+  TransformSummary as ITransformSummary
+} from '../../store/editor/interfaces'
 import {
   Button,
   Chip,
@@ -12,6 +15,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import DoubleArrowIcon from '@material-ui/icons/DoubleArrow'
 import clsx from 'clsx'
 import React from 'react'
+import { setTransformStyle } from '@cjo3/shared/logic/dlc'
 
 const useStyles = makeStyles(theme => ({
   TransformSummary_panel: {
@@ -77,6 +81,16 @@ const useStyles = makeStyles(theme => ({
     padding: theme.custom.setSpace(),
     color: 'white',
     marginTop: theme.custom.setSpace()
+  },
+  TransformSummary_resultList: {
+    ...theme.custom.cleanList
+  },
+  TransformSummary_resultListItem: {
+    'width': '100%',
+    ...theme.custom.setFlex(),
+    '&:first-child': {
+      marginTop: theme.custom.setSpace()
+    }
   }
 }))
 
@@ -95,6 +109,8 @@ export const TransformSummary: React.FC<Props> = ({
   const classes = useStyles()
 
   if (caseData.addresses.length < 1) return null
+
+  const { dataUrls } = caseData
 
   return (
     <Grid
@@ -144,23 +160,25 @@ export const TransformSummary: React.FC<Props> = ({
           [classes.primary_bg]: buttonName === 'ul',
           [classes.secondary_bg]: buttonName === 'ol'
         })}>
-        <Grid container justify="center" alignItems="flex-start">
+        <Grid container justify="center" alignItems="center">
           <Grid item xs={5}>
             <Typography variant="h6" align="center" className={classes.heading}>
               Originals
             </Typography>
-            <List dense>
-              {caseData.originalValues.map(value => (
-                <ListItem key={`list-item-${value}`} alignItems="center" dense>
-                  <ListItemText
-                    primary={value}
-                    primaryTypographyProps={{
-                      align: 'center'
-                    }}
-                  />
-                </ListItem>
-              ))}
-            </List>
+            <ul className={classes.TransformSummary_resultList}>
+              {caseData.originalValues.map((value, index) => {
+                const originalStyle = setTransformStyle(
+                  dataUrls[value].original.dark
+                )
+                return (
+                  <li
+                    className={classes.TransformSummary_resultListItem}
+                    key={`${buttonName}-original-${index}`}>
+                    <div style={originalStyle} />
+                  </li>
+                )
+              })}
+            </ul>
           </Grid>
           <Grid item xs={2}>
             <Grid container justify="center" alignItems="center">
@@ -171,22 +189,20 @@ export const TransformSummary: React.FC<Props> = ({
             <Typography variant="h6" align="center" className={classes.heading}>
               Transformed
             </Typography>
-            <List dense>
-              {caseData.changedValues.map(value => (
-                <ListItem
-                  key={`list-item-${value}`}
-                  alignItems="center"
-                  dense
-                  disableGutters>
-                  <ListItemText
-                    primary={value}
-                    primaryTypographyProps={{
-                      align: 'center'
-                    }}
-                  />
-                </ListItem>
-              ))}
-            </List>
+            <ul className={classes.TransformSummary_resultList}>
+              {caseData.originalValues.map((value, index) => {
+                const transformStyle = setTransformStyle(
+                  dataUrls[value].transform.dark
+                )
+                return (
+                  <li
+                    className={classes.TransformSummary_resultListItem}
+                    key={`${buttonName}-transform-${index}`}>
+                    <div style={transformStyle} />
+                  </li>
+                )
+              })}
+            </ul>
           </Grid>
         </Grid>
       </Grid>

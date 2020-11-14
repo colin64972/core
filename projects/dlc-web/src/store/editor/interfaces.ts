@@ -51,7 +51,7 @@ export interface DataUrlCollection {
 export interface TransformSummary {
   count: number
   originalValues: string[]
-  changedValues: string[]
+  transformValues: string[]
   addresses: string[]
   dataUrls: DataUrlCollection
 }

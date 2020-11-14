@@ -274,7 +274,7 @@ export const collectChanges = (
   return {
     count,
     originalValues: mergeSort(originalStrings),
-    changedValues: mergeSort(transformedStrings),
+    transformValues: mergeSort(transformedStrings),
     addresses: sortAddresses(addresses),
     dataUrls
   }
@@ -331,9 +331,9 @@ export const buildCopyData = (
 
 export const setTransformStyle = (
   imageData: TransformImageData,
-  borderColor: string
+  borderColor?: string
 ): JSSStyleObject => {
-  return {
+  const style = {
     userSelect: 'none',
     msUserSelect: 'none',
     OUserSelect: 'none',
@@ -341,14 +341,19 @@ export const setTransformStyle = (
     KhtmlUserSelect: 'none',
     WebkitUserSelect: 'none',
     WebkitTouchCallout: 'none',
-    border: `1px solid ${borderColor}`,
     width: imageData.width,
     height: imageData.height,
     boxSizing: 'content-box',
-    borderRadius: 4,
     backgroundImage: `url(${imageData.url})`,
     backgroundPosition: 'center',
     backgroundSize: 'initial',
     backgroundRepeat: 'no-repeat'
   }
+
+  if (borderColor) {
+    style.border = `1px solid ${borderColor}`
+    style.borderRadius = 4
+  }
+
+  return style
 }

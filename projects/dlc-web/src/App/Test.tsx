@@ -26,8 +26,6 @@ export const Test: React.FC = (): JSX.Element => {
 
   const result = processSheet(sheetDataMock, values)
 
-  console.log('%c result', 'color: yellow; font-size: large', result.ol)
-
   const dataUrl = result.ol.dataUrls['>84.000'].transformWhite
 
   if (!dataUrl) return null
