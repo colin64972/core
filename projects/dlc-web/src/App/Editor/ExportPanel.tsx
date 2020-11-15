@@ -1,18 +1,21 @@
-import { Button, ButtonGroup, Grid, Typography } from '@material-ui/core'
+import { exportFile } from '@cjo3/shared/logic/dlc'
 import {
+  currentSheetName as currentSheetNameMock,
   sheetData as sheetDataMock,
-  transformResult as transformResultMock
+  transformResult as transformResultMock,
+  workbookName as workbookNameMock
 } from '@cjo3/shared/react/mocks/dlc'
+import { Button, ButtonGroup, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import {
-  sheetDataSelector,
-  transformResultSelector
-} from '../../store/selectors'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import { exportButtons } from '../../constants'
-import React from 'react'
-import { copyToClipboard } from '@cjo3/shared/react/helpers'
-import { buildCopyData } from '@cjo3/shared/logic/dlc'
+import {
+  currentSheetNameSelector,
+  sheetDataSelector,
+  transformResultSelector,
+  workbookNameSelector
+} from '../../store/selectors'
 
 const useStyles = makeStyles(theme => ({
   ExportPanel_container: {
@@ -36,25 +39,30 @@ const useStyles = makeStyles(theme => ({
 export const ExportPanel: React.FC = (): JSX.Element => {
   const classes = useStyles()
 
-  let transformResult = useSelector(transformResultSelector)
+  let workbookName = useSelector(workbookNameSelector)
+  let currentSheetName = useSelector(currentSheetNameSelector)
   let sheetData = useSelector(sheetDataSelector)
+  let transformResult = useSelector(transformResultSelector)
 
   // if (process.env.USE_MOCKS) {
+  //   workbookName = workbookNameMock
+  //   currentSheetName = currentSheetNameMock
   //   sheetData = sheetDataMock
   //   transformResult = transformResultMock
   // }
 
   const clickHandler = (event: React.MouseEvent<HTMLButtonElement>): void => {
-    switch (event.currentTarget.name) {
-      case exportButtons[0].name:
-        const copyData = buildCopyData(sheetData, transformResult)
-        copyToClipboard(copyData)
-        alert('copied')
-        break
-      case exportButtons[1].name:
-        break
-      case exportButtons[1].name:
-        break
+    try {
+      exportFile(
+        sheetData,
+        transformResult.all,
+        currentSheetName,
+        workbookName,
+        event.currentTarget.dataset.booktype,
+        event.currentTarget.name
+      )
+    } catch (error) {
+      console.error('%c ERROR', 'color: yellow; font-size: large', error)
     }
   }
   return (
@@ -70,6 +78,7 @@ export const ExportPanel: React.FC = (): JSX.Element => {
             key={item.key}
             type="button"
             name={item.name}
+            data-booktype={item.bookType}
             onClick={clickHandler}>
             {item.label}
           </Button>

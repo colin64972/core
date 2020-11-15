@@ -44,7 +44,12 @@ export const schemaErrors = {
 }
 
 export const exportButtons = [
-  { label: 'Copy', name: 'copy', key: createHashId() },
-  { label: 'CSV', name: 'csv', key: createHashId() },
-  { label: 'XLSX', name: 'xlsx', key: createHashId() }
+  { label: 'CSV', name: 'csv', bookType: 'csv', key: createHashId() },
+  {
+    label: 'XLS',
+    name: 'xls',
+    bookType: 'biff8',
+    key: createHashId()
+  },
+  { label: 'XLSX', name: 'xlsx', bookType: 'xlsx', key: createHashId() }
 ]

@@ -8,11 +8,13 @@ import {
   SET_PROCESSING,
   SET_TRANSFORM_SETTINGS,
   UNLOAD_WORKBOOK,
-  DISCARD_TRANSFORM_RESULT
+  DISCARD_TRANSFORM_RESULT,
+  SAVE_FILENAME
 } from './types'
 
 export const initialState: EditorState = {
   workbook: null,
+  workbookName: '',
   currentSheetName: '',
   isProcessing: false,
   transformSettings: {
@@ -37,6 +39,12 @@ export const editorReducer = (
       return {
         ...state,
         workbook: action.workbook
+      }
+
+    case SAVE_FILENAME:
+      return {
+        ...state,
+        workbookName: action.name
       }
 
     case UNLOAD_WORKBOOK:

@@ -13,12 +13,18 @@ import {
   SET_PROCESSING,
   SET_TRANSFORM_SETTINGS,
   UNLOAD_WORKBOOK,
-  DISCARD_TRANSFORM_RESULT
+  DISCARD_TRANSFORM_RESULT,
+  SAVE_FILENAME
 } from './types'
 
 export const loadWorkbook = (workbook: WorkBook): EditorActionTypes => ({
   type: LOAD_WORKBOOK,
   workbook
+})
+
+export const saveFilename = (name: string): EditorActionTypes => ({
+  type: SAVE_FILENAME,
+  name
 })
 
 export const unloadWorkbook = (): EditorActionTypes => ({

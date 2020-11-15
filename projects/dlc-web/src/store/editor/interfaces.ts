@@ -8,11 +8,13 @@ import {
   SELECT_SHEET,
   SET_PROCESSING,
   SET_TRANSFORM_SETTINGS,
-  UNLOAD_WORKBOOK
+  UNLOAD_WORKBOOK,
+  SAVE_FILENAME
 } from './types'
 
 export interface EditorState {
   workbook: XLSX.WorkBook | null
+  workbookName: string
   currentSheetName: string
   transformSettings: TransformSettings
   isProcessing: boolean
@@ -153,6 +155,11 @@ export interface DiscardTransformResultAction {
   type: typeof DISCARD_TRANSFORM_RESULT
 }
 
+export interface SaveFilenameAction {
+  type: typeof SAVE_FILENAME
+  name: string
+}
+
 export type EditorActionTypes =
   | LoadWorkbookAction
   | UnloadWorkbookAction
@@ -163,3 +170,4 @@ export type EditorActionTypes =
   | OpenPreviewAction
   | ClosePreviewAction
   | DiscardTransformResultAction
+  | SaveFilenameAction

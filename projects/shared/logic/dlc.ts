@@ -1,4 +1,5 @@
 import { transformFunctionValues } from '@cjo3/dlc-web/src/constants'
+import FileSaver from 'file-saver'
 import {
   DataUrlCollection,
   JSSStyleObject,
@@ -8,7 +9,8 @@ import {
   TransformResultCell,
   TransformResultCellCollection,
   TransformSettings,
-  TransformSummary
+  TransformSummary,
+  ExportFile
 } from '@cjo3/dlc-web/src/store/editor/interfaces'
 import { createCanvas } from 'canvas'
 import * as XLSX from 'xlsx'
@@ -316,18 +318,38 @@ export const createPngDataUrl = (
   }
 }
 
-export const buildCopyData = (
-  sheet: XLSX.WorkSheet,
-  results: TransformResult
-): string => {
-  const { ul, ol, zero, all } = results
+export const exportFile = (
+  sheetData: XLSX.Sheet,
+  transformResults: TransformResultCellCollection,
+  currentSheetName: string,
+  workbookName: string,
+  bookType: string,
+  ext: string
+): void => {
+  try {
+    const output = mergeResults(sheetData, transformResults)
 
-  const options = {
-    ...convertSheetOptions,
-    header: 'A'
+    let outputSheetName: string = `${currentSheetName}-edited`.substring(0, 31)
+
+    const wb: XLSX.WorkBook = {
+      Sheets: { [outputSheetName]: output },
+      SheetNames: [outputSheetName]
+    }
+
+    const file: string = workbookName.substring(
+      0,
+      workbookName.lastIndexOf('.')
+    )
+
+    XLSX.writeFile(wb, `${file}-edited.${ext}`, {
+      type: 'file',
+      bookType,
+      cellDates: true,
+      compression: true
+    })
+  } catch (error) {
+    throw error
   }
-
-  const rows = utils.sheet_to_csv(sheet, options)
 }
 
 export const setTransformStyle = (
@@ -357,4 +379,23 @@ export const setTransformStyle = (
   }
 
   return style
+}
+
+const mergeResults = (
+  sheet: XLSX.Sheet,
+  transforms: TransformResultCellCollection
+): XLSX.Sheet => {
+  const result = Object.keys(sheet).reduce((acc, cur) => {
+    let temp: XLSX.Sheet = acc
+
+    if (!transforms[cur]) {
+      temp[cur] = sheet[cur]
+    } else {
+      temp[cur] = transforms[cur]
+    }
+
+    return temp
+  }, {})
+
+  return result
 }

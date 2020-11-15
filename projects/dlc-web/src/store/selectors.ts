@@ -1,4 +1,5 @@
 import { TransformResult } from './editor/interfaces'
+import { editorReducer } from './editor/reducers'
 import { State } from './index'
 
 export const workbookSelector = (state: State) => state.editor.workbook
@@ -17,3 +18,6 @@ export const transformResultSelector = (state: State): TransformResult =>
 
 export const previewOpenSelector = (state: State): boolean =>
   state.editor.previewOpen
+
+export const workbookNameSelector = (state: State): string =>
+  state.editor.workbookName

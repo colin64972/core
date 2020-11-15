@@ -5,7 +5,11 @@ import clsx from 'clsx'
 import React, { useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { WorkBook } from 'xlsx'
-import { loadWorkbook, unloadWorkbook } from '../../store/editor/actions'
+import {
+  loadWorkbook,
+  unloadWorkbook,
+  saveFilename
+} from '../../store/editor/actions'
 import { RawFile } from '../../store/editor/interfaces'
 import { workbookSelector } from '../../store/selectors'
 import { DropSelector } from './DropSelector'
@@ -106,6 +110,9 @@ export const FileLoader: React.FC = (): JSX.Element => {
     }
 
     createWorkbook(selectedFile, loadWorkbookHandler)
+
+    dispatch(saveFilename(selectedFile.name))
+
     event.currentTarget.reset()
   }
 
