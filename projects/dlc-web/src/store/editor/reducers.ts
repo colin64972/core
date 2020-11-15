@@ -13,7 +13,7 @@ import {
 
 export const initialState: EditorState = {
   workbook: null,
-  currentSheet: '',
+  currentSheetName: '',
   isProcessing: false,
   transformSettings: {
     rangeStart: '',
@@ -47,7 +47,8 @@ export const editorReducer = (
     case SELECT_SHEET:
       return {
         ...state,
-        currentSheet: action.name
+        currentSheetName: action.name,
+        transformResult: initialState.transformResult
       }
     case SET_PROCESSING:
       return {

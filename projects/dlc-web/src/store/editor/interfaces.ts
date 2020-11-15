@@ -13,7 +13,7 @@ import {
 
 export interface EditorState {
   workbook: XLSX.WorkBook | null
-  currentSheet: string
+  currentSheetName: string
   transformSettings: TransformSettings
   isProcessing: boolean
   transformResult: TransformResult | null

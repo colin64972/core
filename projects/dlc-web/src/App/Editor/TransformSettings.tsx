@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import CachedIcon from '@material-ui/icons/Cached'
 import clsx from 'clsx'
 import { Form, Formik, FormikHelpers } from 'formik'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { transformOptions } from '../../constants'
 import {
@@ -17,7 +17,8 @@ import { TransformSettings as ITransformSettings } from '../../store/editor/inte
 import { initialState } from '../../store/editor/reducers'
 import {
   sheetDataSelector,
-  transformResultSelector
+  transformResultSelector,
+  currentSheetNameSelector
 } from '../../store/selectors'
 import { FormikField } from './FormikField'
 import { TransformSettingsSchema } from './schema'
@@ -108,6 +109,7 @@ export const TransformSettings: React.FC = (): JSX.Element => {
   const dispatch = useDispatch()
 
   const sheetData = useSelector(sheetDataSelector)
+  const currentSheetName = useSelector(currentSheetNameSelector)
   let transformResult = useSelector(transformResultSelector)
 
   const submitHandler = (
@@ -137,6 +139,12 @@ export const TransformSettings: React.FC = (): JSX.Element => {
     }, setWaitTime(waitTime))
   }
 
+  const [sheetKey, setSheetKey] = useState<string>('')
+
+  useEffect(() => {
+    if (sheetData) setSheetKey(currentSheetName)
+  }, [sheetData])
+
   const resetHandler = (values, actions): void => {
     dispatch(discardTransformResult())
   }
@@ -147,6 +155,7 @@ export const TransformSettings: React.FC = (): JSX.Element => {
     <Grid item xs={12} className={classes.section}>
       <Grid container justify="center">
         <Formik
+          key={sheetKey}
           initialValues={initialState.transformSettings}
           onSubmit={submitHandler}
           onReset={resetHandler}

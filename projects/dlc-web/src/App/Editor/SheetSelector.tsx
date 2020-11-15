@@ -11,7 +11,10 @@ import clsx from 'clsx'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectSheet } from '../../store/editor/actions'
-import { currentSheetSelector, workbookSelector } from '../../store/selectors'
+import {
+  currentSheetNameSelector,
+  workbookSelector
+} from '../../store/selectors'
 
 const useStyles = makeStyles(theme => ({
   section: {
@@ -54,7 +57,7 @@ export const SheetSelector: React.FC = (): JSX.Element => {
   const dispatch = useDispatch()
 
   const workbook = useSelector(workbookSelector)
-  const currentSheet = useSelector(currentSheetSelector)
+  const currentSheetName = useSelector(currentSheetNameSelector)
 
   const changeHandler = (event: React.ChangeEvent<HTMLSelectElement>): void => {
     dispatch(selectSheet(event.target.value))
@@ -101,7 +104,7 @@ export const SheetSelector: React.FC = (): JSX.Element => {
           id="sheet-selection"
           name="sheet-selection"
           label="Sheet Selection"
-          value={currentSheet}
+          value={currentSheetName}
           onChange={changeHandler}>
           {SheetNames.map((name, ind) => (
             <MenuItem key={`sheet-selection-${ind}`} value={name}>

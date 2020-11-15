@@ -3,11 +3,11 @@ import { State } from './index'
 
 export const workbookSelector = (state: State) => state.editor.workbook
 
-export const currentSheetSelector = (state: State): string =>
-  state.editor.currentSheet
+export const currentSheetNameSelector = (state: State): string =>
+  state.editor.currentSheetName
 
 export const sheetDataSelector = (state: State) =>
-  state.editor.workbook?.Sheets[state.editor.currentSheet]
+  state.editor.workbook?.Sheets[state.editor.currentSheetName]
 
 export const isProcessingSelector = (state: State): boolean =>
   state.editor.isProcessing
