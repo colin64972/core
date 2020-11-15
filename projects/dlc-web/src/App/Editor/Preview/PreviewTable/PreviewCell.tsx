@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
 import React from 'react'
 import { TransformResultCell } from '../../../../store/editor/interfaces'
+import { setTransformStyle } from '@cjo3/shared/logic/dlc'
 
 const useStyles = makeStyles(theme => ({
   PreviewCell_base: {
@@ -44,11 +45,7 @@ export const PreviewCell: React.FC<Props> = ({
   if (transform && dataUrls) {
     const dynamicStyles = makeStyles(theme => ({
       valueBg: {
-        'backgroundImage': `url(${dataUrls.transform.url})`,
-        'backgroundPosition': 'center',
-        'backgroundRepeat': 'no-repeat',
-        'width': dataUrls.transform.width,
-        'height': dataUrls.transform.height,
+        ...setTransformStyle(dataUrls.transform),
         'transition': 'all 250ms ease-out',
         '&:hover': {
           backgroundImage: `url(${dataUrls.original.url})`,

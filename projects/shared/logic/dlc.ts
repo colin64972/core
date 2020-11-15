@@ -254,11 +254,12 @@ export const collectChanges = (
       if (temp[cell.meta.original.w]) {
         temp[cell.meta.original.w].addresses.push(cur)
       } else {
+        const oValue = cell.meta.original.w || cell.meta.original.v
         temp[cell.meta.original.w] = {
           addresses: [cur],
           original: {
-            dark: createPngDataUrl(cell.meta.original.w),
-            light: createPngDataUrl(cell.meta.original.w, '#fafafa')
+            dark: createPngDataUrl(oValue.toString().trim()),
+            light: createPngDataUrl(oValue.toString().trim(), '#fafafa')
           },
           transform: {
             light: createPngDataUrl(cell.w, '#fafafa'),

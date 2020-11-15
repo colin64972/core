@@ -2,12 +2,7 @@ import {
   sheetData as sheetDataMock,
   transformResult as transformResultMock
 } from '@cjo3/shared/react/mocks/dlc'
-import * as XLSX from 'xlsx'
-import {
-  convertColNumToId,
-  convertSheet,
-  getScopeOffsets
-} from '@cjo3/shared/react/xlsx'
+import { convertSheetOptions } from '@cjo3/shared/react/xlsx'
 import {
   Table,
   TableBody,
@@ -18,14 +13,14 @@ import {
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
-import React, { useLayoutEffect } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
+import * as XLSX from 'xlsx'
 import {
   sheetDataSelector,
   transformResultSelector
 } from '../../../../store/selectors'
 import { PreviewCell } from './PreviewCell'
-import { convertSheetOptions } from '@cjo3/shared/react/xlsx'
 
 const useStyles = makeStyles(theme => ({
   PreviewTable_tableContainer: {
@@ -36,6 +31,9 @@ const useStyles = makeStyles(theme => ({
   PreviewTable_tableRow: {
     ...theme.custom.tableBorder,
     backgroundColor: theme.palette.primary.main
+  },
+  PreviewTable_originCell: {
+    width: 40
   },
   PreviewTable_headCell: {
     ...theme.custom.noSelect,
@@ -70,14 +68,14 @@ export const PreviewTable: React.FC = (): JSX.Element => {
 
   // const { scope } = transformResult
 
-  // const options = convertSheetOptions
+  const options = convertSheetOptions
+  options.raw = false
 
-  const previewData = {
-    ...sheetData
-    // ...transformResult.all
-  }
+  // const previewData = {
+  //   ...sheetData
+  // }
 
-  const tableRows = XLSX.utils.sheet_to_json(previewData, convertSheetOptions)
+  const tableRows = XLSX.utils.sheet_to_json(sheetData, options)
 
   const findDataUrls = (address: string): string[] | null => {
     if (!transformResult.all[address]) return null
@@ -99,7 +97,12 @@ export const PreviewTable: React.FC = (): JSX.Element => {
       <Table size="small">
         <TableHead>
           <TableRow className={classes.PreviewTable_tableRow}>
-            <TableCell className={classes.PreviewTable_headCell} />
+            <TableCell
+              className={clsx(
+                classes.PreviewTable_headCell,
+                classes.PreviewTable_originCell
+              )}
+            />
             {tableRows[0].map(
               (col: any, colIndex: number): JSX.Element => {
                 const colId = XLSX.utils.encode_col(colIndex)
@@ -132,8 +135,8 @@ export const PreviewTable: React.FC = (): JSX.Element => {
                   {tableRows[rowIndex].map(
                     (cell: any, cellIndex: number): JSX.Element => {
                       const cellAddress = XLSX.utils.encode_cell({
-                        c: rowIndex,
-                        r: cellIndex
+                        c: cellIndex,
+                        r: rowIndex
                       })
                       const dataUrls = findDataUrls(cellAddress)
                       return (
