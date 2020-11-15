@@ -32,7 +32,10 @@ const useStyles = makeStyles(theme => ({
   form: {
     ...theme.custom.setGrid(2, 3, theme.custom.setSpace()),
     gridTemplateRows: 'repeat(3, auto)',
-    width: '100%'
+    maxWidth: '50%',
+    [theme.breakpoints.down('sm')]: {
+      maxWidth: '100%'
+    }
   },
   title: {
     gridColumn: '1 / 2',
@@ -153,69 +156,61 @@ export const FileLoader: React.FC = (): JSX.Element => {
         [classes.noWorkbookBg]: !workbook
       })}
       data-testid="FileLoader">
-      <Hidden xsDown>
-        <Grid item sm={1} md={2} lg={3} xl={4} />
-      </Hidden>
-      <Grid item xs={12} sm={10} md={8} lg={6} xl={4}>
-        <form
-          onSubmit={submitHandler}
-          onReset={resetHandler}
-          className={classes.form}>
-          <div className={classes.title}>
-            <Typography variant="h3">File Loader</Typography>
-            <Typography variant="body1">
-              Select a file using the button below
-              <Hidden xsDown>
-                &nbsp;
-                <span>
-                  or drag and drop a file on the attchment box to the right
-                </span>
-              </Hidden>
-              . The selected file name will be displayed once selected.
-            </Typography>
-          </div>
-          <div className={classes.fileSelect}>
-            <Button type="button" variant="outlined" color="primary">
-              <label htmlFor="file-upload-input">Select File</label>
-            </Button>
-            <Typography variant="body1" className={classes.fileName}>
-              {selectedFile?.name ? selectedFile.name : 'No File Selected'}
-            </Typography>
-            <input
-              className={classes.hiddenInput}
-              id="file-upload-input"
-              name="file-upload-input"
-              type="file"
-              accept={process.env.ACCEPTED_FILETYPES}
-              onChange={changeHandler}
-              ref={fileInput}
-            />
-          </div>
-          <div className={classes.dropLoader}>
-            <DropSelector setSelectedFileHandler={setSelectedFile} />
-          </div>
-          <div className={classes.actionButtons}>
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              disabled={!selectedFile?.size}
-              className={clsx(classes.formButton, classes.submitButton)}>
-              Load
-            </Button>
-            <Button
-              type="reset"
-              variant="contained"
-              disabled={!selectedFile?.size}
-              className={clsx(classes.formButton, classes.resetButton)}>
-              Reset
-            </Button>
-          </div>
-        </form>
-      </Grid>
-      <Hidden xsDown>
-        <Grid item sm={1} md={2} lg={3} xl={4} />
-      </Hidden>
+      <form
+        onSubmit={submitHandler}
+        onReset={resetHandler}
+        className={classes.form}>
+        <div className={classes.title}>
+          <Typography variant="h3">File Loader</Typography>
+          <Typography variant="body1">
+            Select a file using the button below
+            <Hidden xsDown>
+              &nbsp;
+              <span>
+                or drag and drop a file on the attchment box to the right
+              </span>
+            </Hidden>
+            . The selected file name will be displayed once selected.
+          </Typography>
+        </div>
+        <div className={classes.fileSelect}>
+          <Button type="button" variant="outlined" color="primary">
+            <label htmlFor="file-upload-input">Select File</label>
+          </Button>
+          <Typography variant="body1" className={classes.fileName}>
+            {selectedFile?.name ? selectedFile.name : 'No File Selected'}
+          </Typography>
+          <input
+            className={classes.hiddenInput}
+            id="file-upload-input"
+            name="file-upload-input"
+            type="file"
+            accept={process.env.ACCEPTED_FILETYPES}
+            onChange={changeHandler}
+            ref={fileInput}
+          />
+        </div>
+        <div className={classes.dropLoader}>
+          <DropSelector setSelectedFileHandler={setSelectedFile} />
+        </div>
+        <div className={classes.actionButtons}>
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            disabled={!selectedFile?.size}
+            className={clsx(classes.formButton, classes.submitButton)}>
+            Load
+          </Button>
+          <Button
+            type="reset"
+            variant="contained"
+            disabled={!selectedFile?.size}
+            className={clsx(classes.formButton, classes.resetButton)}>
+            Reset
+          </Button>
+        </div>
+      </form>
     </Grid>
   )
 }

@@ -53,3 +53,21 @@ export const exportButtons = [
   },
   { label: 'XLSX', name: 'xlsx', bookType: 'xlsx', key: createHashId() }
 ]
+
+export const topNavItems = [
+  {
+    key: 'comon',
+    to: '/',
+    label: 'Home'
+  },
+  {
+    key: 'karim',
+    to: '/editor',
+    label: 'Editor'
+  },
+  {
+    key: 'sigmu',
+    to: '/error',
+    label: 'Error'
+  }
+]

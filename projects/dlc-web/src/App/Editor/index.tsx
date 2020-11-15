@@ -1,47 +1,32 @@
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
-import { TopNav } from '../TopNav'
 import { FileLoader } from './FileLoader'
+import { Preview } from './Preview/'
 import { SheetSelector } from './SheetSelector'
 import { TransformResults } from './TransformResults'
 import { TransformSettings } from './TransformSettings'
-import { Preview } from './Preview/'
 
 const useStyles = makeStyles(theme => ({
-  section: {
-    padding: theme.custom.setSpace('sm')
-  },
   Editor_header: {
+    width: '100%',
     padding: theme.custom.setSpace('lg'),
     backgroundImage:
-      'url(https://images.ctfassets.net/91sm3pewxzag/59jPKS6AVO44eeKgUWySCs/cbf12ea9d82c1561da9c2eb331b4c612/featured_laptop-spreadsheet-2.jpg?w=950)',
+      'url(https://eskipaper.com/images/high-tech-wallpapers-3.jpg)',
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    backgroundBlendMode: 'screen',
-    backgroundColor: 'rgba(255, 255, 255, 0.75)'
-  },
-  fileLoaderBg: {
-    background: `linear-gradient(top, ${theme.palette.primary[100]}, white)`
-  },
-  editorSettingsBg: {
-    background: `linear-gradient(bottom, ${theme.palette.grey[900]}, ${theme.palette.grey[800]})`,
-    boxShadow: '0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.1)'
+    color: theme.palette.grey[50],
+    textShadow: '0 0 0.5rem rgba(0, 0, 0, 0.5)'
   }
 }))
 
-export const Editor = (): JSX.Element => {
+export const Editor: React.FC = (): JSX.Element => {
   const classes = useStyles()
 
   return (
     <Grid container>
-      <TopNav />
-      <Grid
-        component="header"
-        container
-        justify="center"
-        className={classes.Editor_header}>
+      <Grid item component="header" className={classes.Editor_header}>
         <Typography variant="h1" align="center">
           Editor
         </Typography>

@@ -8,7 +8,7 @@ import { FileUpload } from '../../interfaces'
 const useStyles = makeStyles(theme => ({
   dropContainer: {
     ...theme.custom.setFlex('column'),
-    width: 200,
+    width: '100%',
     height: 200,
     borderRadius: theme.custom.setSpace() / 4,
     backgroundColor: theme.palette.primary[300],

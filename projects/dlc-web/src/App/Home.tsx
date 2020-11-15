@@ -1,25 +1,31 @@
-import { Grid, Typography } from '@material-ui/core'
+import { Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 
 const useStyles = makeStyles(theme => ({
-  section: {
-    padding: theme.custom.setSpace('lg')
+  Home_contentContainer: {
+    minHeight: '100%'
+  },
+  Home_header: {
+    ...theme.custom.setFlex('column'),
+    padding: theme.custom.setSpace('md'),
+    backgroundImage:
+      'url(https://image.freepik.com/free-photo/abstract-background-with-low-poly-design_1048-8478.jpg)',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    color: theme.palette.grey[50]
   },
   Home_startButton: {
-    marginTop: theme.custom.setSpace()
+    marginTop: theme.custom.setSpace('sm')
   }
 }))
 
 export const Home: React.FC = (): JSX.Element => {
   const classes = useStyles()
   return (
-    <Grid
-      container
-      component="section"
-      justify="center"
-      className={classes.section}>
-      <Grid item xs={12}>
+    <Grid container className={classes.Home_contentContainer}>
+      <Grid item xs={12} component="header" className={classes.Home_header}>
         <Typography variant="h1" align="center">
           {process.env.APP_NAME}
         </Typography>
@@ -30,8 +36,15 @@ export const Home: React.FC = (): JSX.Element => {
           tempor amet vero aliquyam invidunt consetetur est est sed. Invidunt
           diam sanctus sea amet invidunt.
         </Typography>
+        <Button
+          type="button"
+          variant="contained"
+          href="/editor"
+          color="secondary"
+          className={classes.Home_startButton}>
+          Start
+        </Button>
       </Grid>
-      <a href="/editor">Start</a>
     </Grid>
   )
 }
