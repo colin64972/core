@@ -7,7 +7,8 @@ import {
   SELECT_SHEET,
   SET_PROCESSING,
   SET_TRANSFORM_SETTINGS,
-  UNLOAD_WORKBOOK
+  UNLOAD_WORKBOOK,
+  DISCARD_TRANSFORM_RESULT
 } from './types'
 
 export const initialState: EditorState = {
@@ -76,6 +77,12 @@ export const editorReducer = (
       return {
         ...state,
         previewOpen: false
+      }
+
+    case DISCARD_TRANSFORM_RESULT:
+      return {
+        ...state,
+        transformResult: initialState.transformResult
       }
 
     default:

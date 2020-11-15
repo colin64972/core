@@ -12,7 +12,8 @@ import {
   SELECT_SHEET,
   SET_PROCESSING,
   SET_TRANSFORM_SETTINGS,
-  UNLOAD_WORKBOOK
+  UNLOAD_WORKBOOK,
+  DISCARD_TRANSFORM_RESULT
 } from './types'
 
 export const loadWorkbook = (workbook: WorkBook): EditorActionTypes => ({
@@ -46,6 +47,10 @@ export const saveTransformResult = (
 ): EditorActionTypes => ({
   type: SAVE_TRANSFORM_RESULT,
   result
+})
+
+export const discardTransformResult = (): EditorActionTypes => ({
+  type: DISCARD_TRANSFORM_RESULT
 })
 
 export const openPreview = (): EditorActionTypes => ({

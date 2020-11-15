@@ -1,6 +1,7 @@
 import * as XLSX from 'xlsx'
 import {
   CLOSE_PREVIEW,
+  DISCARD_TRANSFORM_RESULT,
   LOAD_WORKBOOK,
   OPEN_PREVIEW,
   SAVE_TRANSFORM_RESULT,
@@ -148,6 +149,10 @@ export interface ClosePreviewAction {
   type: typeof CLOSE_PREVIEW
 }
 
+export interface DiscardTransformResultAction {
+  type: typeof DISCARD_TRANSFORM_RESULT
+}
+
 export type EditorActionTypes =
   | LoadWorkbookAction
   | UnloadWorkbookAction
@@ -157,3 +162,4 @@ export type EditorActionTypes =
   | SaveResultAction
   | OpenPreviewAction
   | ClosePreviewAction
+  | DiscardTransformResultAction

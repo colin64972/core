@@ -8,13 +8,17 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { transformOptions } from '../../constants'
 import {
+  discardTransformResult,
   saveTransformResult,
   setProcessing,
   setTransformSettings
 } from '../../store/editor/actions'
 import { TransformSettings as ITransformSettings } from '../../store/editor/interfaces'
 import { initialState } from '../../store/editor/reducers'
-import { sheetDataSelector } from '../../store/selectors'
+import {
+  sheetDataSelector,
+  transformResultSelector
+} from '../../store/selectors'
 import { FormikField } from './FormikField'
 import { TransformSettingsSchema } from './schema'
 
@@ -104,6 +108,7 @@ export const TransformSettings: React.FC = (): JSX.Element => {
   const dispatch = useDispatch()
 
   const sheetData = useSelector(sheetDataSelector)
+  let transformResult = useSelector(transformResultSelector)
 
   const submitHandler = (
     values: ITransformSettings,
@@ -132,6 +137,10 @@ export const TransformSettings: React.FC = (): JSX.Element => {
     }, setWaitTime(waitTime))
   }
 
+  const resetHandler = (values, actions): void => {
+    dispatch(discardTransformResult())
+  }
+
   if (!sheetData) return null
 
   return (
@@ -140,6 +149,7 @@ export const TransformSettings: React.FC = (): JSX.Element => {
         <Formik
           initialValues={initialState.transformSettings}
           onSubmit={submitHandler}
+          onReset={resetHandler}
           validationSchema={TransformSettingsSchema}>
           {({ dirty, isValid, isSubmitting }) => {
             return (
