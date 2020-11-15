@@ -1,8744 +1,8753 @@
 export const transformResult = {
-  ul: {
-    count: 361,
-    originalValues: ['<0.01', '<0.05', '<0.5', '<1', '<2', '<3', '<5', '<20'],
-    transformValues: ['0.01', '0.05', '0.5', '1', '2', '3', '5', '20'],
-    addresses: [
-      'E27',
-      'E45',
-      'J33',
-      'J35',
-      'J40',
-      'J41',
-      'J46',
-      'J47',
-      'K17',
-      'K18',
-      'K19',
-      'K20',
-      'K21',
-      'K22',
-      'K23',
-      'K25',
-      'K26',
-      'K27',
-      'K28',
-      'K29',
-      'K30',
-      'K31',
-      'K32',
-      'K33',
-      'K34',
-      'K35',
-      'K36',
-      'K37',
-      'K38',
-      'K39',
-      'K40',
-      'K41',
-      'K43',
-      'K44',
-      'K45',
-      'K46',
-      'K47',
-      'O30',
-      'O32',
-      'O33',
-      'O34',
-      'O35',
-      'O36',
-      'O37',
-      'O40',
-      'O41',
-      'O42',
-      'O43',
-      'O47',
-      'Q17',
-      'Q18',
-      'Q19',
-      'Q20',
-      'Q21',
-      'Q22',
-      'Q23',
-      'Q25',
-      'Q26',
-      'Q27',
-      'Q28',
-      'Q33',
-      'Q35',
-      'Q36',
-      'Q37',
-      'Q38',
-      'Q39',
-      'Q40',
-      'Q41',
-      'Q43',
-      'Q44',
-      'Q45',
-      'Q47',
-      'R35',
-      'S17',
-      'S18',
-      'S19',
-      'S20',
-      'S21',
-      'S22',
-      'S23',
-      'S24',
-      'S25',
-      'S26',
-      'S27',
-      'S28',
-      'S29',
-      'S30',
-      'S31',
-      'S32',
-      'S33',
-      'S34',
-      'S35',
-      'S36',
-      'S37',
-      'S38',
-      'S39',
-      'S40',
-      'S41',
-      'S42',
-      'S43',
-      'S44',
-      'S45',
-      'S46',
-      'S47',
-      'U17',
-      'U18',
-      'U19',
-      'U20',
-      'U21',
-      'U22',
-      'U23',
-      'U25',
-      'U26',
-      'U27',
-      'U28',
-      'U29',
-      'U31',
-      'U32',
-      'U33',
-      'U37',
-      'U38',
-      'U39',
-      'U40',
-      'U41',
-      'U43',
-      'U44',
-      'U45',
-      'U46',
-      'U47',
-      'AB17',
-      'AB18',
-      'AB19',
-      'AB20',
-      'AB21',
-      'AB22',
-      'AB23',
-      'AB24',
-      'AB25',
-      'AB26',
-      'AB27',
-      'AB28',
-      'AB29',
-      'AB30',
-      'AB31',
-      'AB32',
-      'AB33',
-      'AB34',
-      'AB35',
-      'AB36',
-      'AB37',
-      'AB38',
-      'AB39',
-      'AB40',
-      'AB41',
-      'AB43',
-      'AB44',
-      'AB45',
-      'AB46',
-      'AB47',
-      'AD17',
-      'AD18',
-      'AD19',
-      'AD20',
-      'AD21',
-      'AD22',
-      'AD23',
-      'AD24',
-      'AD25',
-      'AD26',
-      'AD27',
-      'AD28',
-      'AD29',
-      'AD30',
-      'AD31',
-      'AD32',
-      'AD33',
-      'AD34',
-      'AD35',
-      'AD36',
-      'AD37',
-      'AD38',
-      'AD39',
-      'AD40',
-      'AD41',
-      'AD43',
-      'AD44',
-      'AD45',
-      'AD46',
-      'AD47',
-      'AF17',
-      'AF18',
-      'AF19',
-      'AF20',
-      'AF21',
-      'AF22',
-      'AF23',
-      'AF25',
-      'AF26',
-      'AF27',
-      'AF28',
-      'AF29',
-      'AF30',
-      'AF31',
-      'AF32',
-      'AF33',
-      'AF34',
-      'AF35',
-      'AF36',
-      'AF37',
-      'AF38',
-      'AF39',
-      'AF40',
-      'AF41',
-      'AF42',
-      'AF43',
-      'AF44',
-      'AF45',
-      'AF46',
-      'AF47',
-      'AG17',
-      'AG18',
-      'AG19',
-      'AG20',
-      'AG21',
-      'AG22',
-      'AG23',
-      'AG25',
-      'AG26',
-      'AG27',
-      'AG28',
-      'AG29',
-      'AG30',
-      'AG32',
-      'AG33',
-      'AG34',
-      'AG35',
-      'AG36',
-      'AG37',
-      'AG38',
-      'AG39',
-      'AG40',
-      'AG41',
-      'AG43',
-      'AG44',
-      'AG45',
-      'AG47',
-      'AH17',
-      'AH18',
-      'AH19',
-      'AH20',
-      'AH21',
-      'AH22',
-      'AH23',
-      'AH24',
-      'AH25',
-      'AH26',
-      'AH27',
-      'AH28',
-      'AH29',
-      'AH31',
-      'AH32',
-      'AH33',
-      'AH34',
-      'AH35',
-      'AH36',
-      'AH37',
-      'AH38',
-      'AH39',
-      'AH42',
-      'AH43',
-      'AH44',
-      'AH45',
-      'AI17',
-      'AI18',
-      'AI19',
-      'AI20',
-      'AI21',
-      'AI22',
-      'AI23',
-      'AI24',
-      'AI25',
-      'AI26',
-      'AI27',
-      'AI28',
-      'AI30',
-      'AI31',
-      'AI32',
-      'AI33',
-      'AI34',
-      'AI35',
-      'AI36',
-      'AI37',
-      'AI38',
-      'AI39',
-      'AI40',
-      'AI41',
-      'AI42',
-      'AI43',
-      'AI44',
-      'AI45',
-      'AI46',
-      'AI47',
-      'AJ17',
-      'AJ18',
-      'AJ19',
-      'AJ20',
-      'AJ21',
-      'AJ22',
-      'AJ23',
-      'AJ24',
-      'AJ25',
-      'AJ26',
-      'AJ27',
-      'AJ28',
-      'AJ29',
-      'AJ30',
-      'AJ31',
-      'AJ32',
-      'AJ33',
-      'AJ34',
-      'AJ35',
-      'AJ36',
-      'AJ37',
-      'AJ38',
-      'AJ39',
-      'AJ40',
-      'AJ41',
-      'AJ43',
-      'AJ44',
-      'AJ45',
-      'AJ46',
-      'AJ47',
-      'AK17',
-      'AK18',
-      'AK19',
-      'AK20',
-      'AK21',
-      'AK22',
-      'AK23',
-      'AK24',
-      'AK25',
-      'AK26',
-      'AK27',
-      'AK28',
-      'AK31',
-      'AK32',
-      'AK33',
-      'AK34',
-      'AK35',
-      'AK36',
-      'AK37',
-      'AK38',
-      'AK39',
-      'AK40',
-      'AK41',
-      'AK42',
-      'AK43',
-      'AK44',
-      'AK45',
-      'AK46',
-      'AK47'
-    ],
-    dataUrls: {
-      '<1': {
-        addresses: [
-          'E27',
-          'E45',
-          'J33',
-          'J35',
-          'J40',
-          'J41',
-          'J46',
-          'J47',
-          'K17',
-          'K18',
-          'K19',
-          'K20',
-          'K21',
-          'K22',
-          'K23',
-          'K25',
-          'K26',
-          'K27',
-          'K28',
-          'K29',
-          'K30',
-          'K31',
-          'K32',
-          'K33',
-          'K34',
-          'K35',
-          'K36',
-          'K37',
-          'K38',
-          'K39',
-          'K40',
-          'K41',
-          'K43',
-          'K44',
-          'K45',
-          'K46',
-          'K47',
-          'AH17',
-          'AH18',
-          'AH19',
-          'AH20',
-          'AH21',
-          'AH22',
-          'AH23',
-          'AH24',
-          'AH25',
-          'AH26',
-          'AH27',
-          'AH28',
-          'AH29',
-          'AH31',
-          'AH32',
-          'AH33',
-          'AH34',
-          'AH35',
-          'AH36',
-          'AH37',
-          'AH38',
-          'AH39',
-          'AH42',
-          'AH43',
-          'AH44',
-          'AH45'
-        ],
-        original: {
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAYAAACdz7SqAAABa0lEQVRIS+2UMUsDQRBGv9k7Y2N1YmFjo2hheZ1VktsYrhKCgthpJxYKgiAWgqiVnY1lQGyMBqwCl02Iv0F7EWy0E4RTQ3YkkEgKDRzZGISbaovdeTNvliEMIGgATMTQvlqP9f4fvVLKCa01VavVx25VG5tpNpudajQadwDySql1o1Df94fr9foKgFelVDGZTI5YlrVLRDsAbABnxqCe500T0SaAtVYXy0qpGyllDsAFM28R0QGAYk9Q13WHHMdZ1FpvE5EL4IGZjxzHOS8UCp9NuO/7Y2EYhrVa7U1K+dwzNJPJLDHzZVMlES2Uy+XbbrMyAk2lUjO2bV8z8ywRPWmtDxOJRL5UKn38BDcCbSdOp9NzQoh9APMA3gGcCiFOgiB46YQbhXbAJ4UQewBWmfm4Uqk0z9/RF2g7u+d5o5ZljQdBcP9n0N8+U6vTK6XUhtHlYGIpG1uDUYqJoVFsRb4b642sLMqDgej9AiXoix337+TJAAAAAElFTkSuQmCC',
-            width: 29.9619140625,
-            height: 28
-          },
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAYAAACdz7SqAAABRklEQVRIS+2UMUoDURCG/wnMYwM2glgKaaytFIl6ArH1BAriAQwRUilaWAkWFgpeQTuxDBZaeANPIDbKrpkJ+8uCAUEMLHkxCPvq9+ab/5vHCCZwZAJMVNCxWq/0/h+9ZrYAQEIIT8O6jjZTd18m2QVwH0JYjQolOWVmnVqt9qqqxyRn+v3+Jcn1IiWAbjSouzdJHgFoFilEZE9VT9y9RfIQwBmAbQCPI0FJJmbWEpEdALMA3gGcq2pHRNICnmVZI0mSNxF5MbOPkaHuvk/yAIAD2AohXA2bVSzoCslrANMAimQXqtoWkSLxjxMFOqja6/U2RaSYZwNATvI2z/Pder3+/J0cFToobGZLAE4BLIrIjapujB06AKRpOqeq86p692fQ3z7Tl96HEMJa1OUQYylHW4NlmqmgZWyVvlvpLa2szIOJ6P0EEzSLHb8vBqMAAAAASUVORK5CYII=',
-            width: 29.9619140625,
-            height: 28
-          }
-        },
-        transform: {
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAcCAYAAACOGPReAAAAn0lEQVRIS+3UMQoCMRCF4fcWpsk9FBtB8Q7eSJstFSz0Dp7GCwgiHsA7JDPFiIWtZN1soSZ1+CA/MyEGOBzAREXLV/3Rpma2NLNLCOH+Llr2882sdfctybWI7HuhqroAcAQwfUKl0BOAGcmdu29KoXMROavqiOS1CPpql1KaVPQLmsYYx03T3EiuROTQa/g/+cOy17QLXtEutfLu/nnTBzmFRR19QsQjAAAAAElFTkSuQmCC',
-            width: 21.7861328125,
-            height: 28
-          },
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAcCAYAAACOGPReAAAAqElEQVRIS2NkoAFgpIGZDKOGUj9Uh2mYuri46LKzsz/ZunXre3yBRrT3XV1dQ////7/q////gXv37t1AkaEeHh4Kf/786WRgYAgDGUQVQ11cXGYyMjJ6/f//v5iBgWElVQx1cnKSt7W1fXzixAnxv3//PqOKobCwc3d3lxw1dAiEqYODgwQLC8tzBgaGgD179mykKPGTU4YRnU1JMXzUUFJCizi1IzxMAdEech06jTF0AAAAAElFTkSuQmCC',
-            width: 21.7861328125,
-            height: 28
-          }
-        }
-      },
-      '<2': {
-        addresses: [
-          'O30',
-          'O32',
-          'O33',
-          'O34',
-          'O35',
-          'O36',
-          'O37',
-          'O40',
-          'O41',
-          'O42',
-          'O43',
-          'O47',
-          'AF17',
-          'AF18',
-          'AF19',
-          'AF20',
-          'AF21',
-          'AF22',
-          'AF23',
-          'AF25',
-          'AF26',
-          'AF27',
-          'AF28',
-          'AF29',
-          'AF30',
-          'AF31',
-          'AF32',
-          'AF33',
-          'AF34',
-          'AF35',
-          'AF36',
-          'AF37',
-          'AF38',
-          'AF39',
-          'AF40',
-          'AF41',
-          'AF42',
-          'AF43',
-          'AF44',
-          'AF45',
-          'AF46',
-          'AF47'
-        ],
-        original: {
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAYAAACdz7SqAAAB20lEQVRIS+2UP2gUQRTGvze7rq27VmlsBC208io9i7ud2YMjRUCUBIWIWmgRVEgZUA5ULIQUFoKkiKiNqxaBcDA3cxAES+3TpFBQ7GJlvLt5YeFs4pnbPQlBvCln3nu/N9/7Q9iHQ/vAxBi6p6qP5f035K1UKoeCIAi11hvDMv7rmtZqtZPOuacATvdh68z8wFr77E/wwtB6vX6w0+lcBLBpjHmrlPqQBfc8b5KZvzvnHgKYA3DKGPNxEDg3VEp5jIhuAbjaDzTT7XbXfN+/45x73W6332f3SqmzAN4BmDbGvCoMLZVKB6IoOu+cmyeiEoANZr4fRdHzNE1/DgqolHoB4JIQ4ojW+lNhaJIkF5g5y3aTiKZardbabk0ipbxMRMsAHhtjbo5U02q1etz3/TfMfIKIPjvn7gVBsNxsNrd2BkyS5AYzPwGwGobhVJqmvZGgv5ziOD4jhLgLoAbgR/YTIcQjrfW3fh1vA1gEsBKG4bndgJl97kbKjOM4PiqEWABwpT8WC1LKa0S0BOBluVyebTQabk/mVEp52PO8iV6v94WIvgLoMvP8Dpix1q4XbqRhGSulZgEMXALMfN1amy2N304heYclkfd9DM2r1Eh2Y3lHki2v0/8j7zZrDZ4dDj0UyQAAAABJRU5ErkJggg==',
-            width: 29.9619140625,
-            height: 28
-          },
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAYAAACdz7SqAAABvklEQVRIS+2TPWhUQRSFz3nMncmCjY0QBCFNGhGxUIsoiFhKWsE2WIiChYVRMZUYC6tYqBALAxFsUhhsbKzSSQJ2KoitCBYiC3MvvisjChE2+/J2lUXYW76f89055wwxguEImBhD/6nrY3v/D3vdfdLM9scYXzdtPHSmZnamrusVkpO/YF/d/UFKaX4neGuou+9R1YWqqr6IyF1V/VzE3f1kjPGTma0BOFVV1dkQwote4F1DzWzG3RcBzBQhktdCCKtmtuLuyymlZ+V5zvk8yVWSt0Tkdmuou0+o6jzJiwD2AfgG4JGILJDs9hJU1U0AR9z9cErpTWuomd1097KtAbgQY3zSryQ550WSJctXMcbTA2VqZifc/TmAvQDKyR6LyA2S5cR/jKreB3AZwHsROUiyLNpzdpVpzvkcyZLnFIDa3V/WdX2p0+l8KKqqugxgDsBbETnUD/izD013avt7VT0OYAnAMZLrIjKrqvcAXAWwJSJHSX5v0mwF/S3W7XYPiMi0mb0LIXwsNwbAw+0wkk9FZKN1kZo2zjnfIXl9h++WYoxX/jq0aamhijSo+Bg6UHuHtXsMHdbBvv+PxN4fQDqbHdOHLH8AAAAASUVORK5CYII=',
-            width: 29.9619140625,
-            height: 28
-          }
-        },
-        transform: {
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAcCAYAAACOGPReAAABIklEQVRIS+2TsUrEQBCG/4nZybFgc7W2doIWvoOl+AAWglgrgsKBbyD2NtZi4UtopxbiE4h2ClaBzCwZiUQ49C7r5bxGMuUy8/H//8wSZlA0AyY66N+n+g8zFZGVEMKr9/45FljUvqoOzOwQwHwFI6KXsiz3siy7HAdvhOZ5vpCm6ROAa+fcZlEU/SRJbgD0nXM9ItJR4Eaoqq6b2VEIYct7X8GhqldmthFCWBwXRdT+sBIzc6r6DmCOmXut7H8fEpF7AKsA9pn5dCporfAOwDKAc2bebrqAqP0a+AhgCcAZM+9OfVIi8lArPGHmgxjw8+yamkRkp1IH4A3AxXCvc+6YiKr3HxWDfi1m1OwaM99ODP2N1Q462aK6TFslEP37bagf+F5hHbn0YbMAAAAASUVORK5CYII=',
-            width: 21.7861328125,
-            height: 28
-          },
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAcCAYAAACOGPReAAABL0lEQVRIS+2SMUvDQBiG394Fpy7Rwc1BXJz6I7wji7jFxVVXF0EnETo4urgJLkUEySIIQo47CLi4+gt0ddBk6HjHJ4EIRducTdtFkjV8D+/73NvBAr7OAphoofO3+g+dCiHWOOfDNE0/fcK89aWUMRGdA9ioYE8AjrXWz5PgtdAoipadc+8Arqy1JwC6QRA8AtgMw7CbJIkbB/ZBe9baAwBnxpiPEiCl7BPRKed8ZZIKb/3RJHEc86Io3ohoSWu92qj+zyMhxA2APcbYjlLqYSZomTDP81sAu0R0ZIy5qFuAt34FvAewDeBQa30586SEEHdVwn1jzLUPWP6vTSql3CIiTUQv5axGgc65QZZlw6kn9f0w4w4ZY+tKqdepoX+p2kJ/GfDutInXFtrEWv3NF7fVah0iNlH6AAAAAElFTkSuQmCC',
-            width: 21.7861328125,
-            height: 28
-          }
-        }
-      },
-      '<0.5': {
-        addresses: [
-          'Q17',
-          'Q18',
-          'Q19',
-          'Q20',
-          'Q21',
-          'Q22',
-          'Q23',
-          'Q25',
-          'Q26',
-          'Q27',
-          'Q28',
-          'Q33',
-          'Q35',
-          'Q36',
-          'Q37',
-          'Q38',
-          'Q39',
-          'Q40',
-          'Q41',
-          'Q43',
-          'Q44',
-          'Q45',
-          'Q47'
-        ],
-        original: {
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAcCAYAAAD815boAAADPUlEQVRYR+1UT2gcZRT/vS87u+Bpd2sKLWgPoj0IUgyI1lA2M99sjBAVNSgq1ooHoaWipRelhBQttBRa6UUPam3x4lK9iEtm3mxSYSkellwK4qlY2iKNta4Y4jaZ78kHszKEJKXZuQT23eb9+/3m9973CJvAaBNwRJ9kVlPqK9lXMisFsuqT2U5WKpX7iWjLzMzMr+uRm5iYyM/Pz+fTOYODg3dqtdqdtep6JlmpVIq5XO5HAE8lIG0AI8w8txqo1noaQHVF7Bwz782M5NjYWGFpaek1AG1m/k5r3SCih5eXl58hon+UUucBPFYqlbaupo7W+i8AF+I4PtEl5TjO7SAIbvZM0vO8R4joPQBvJ81eLRQKP3U6nT8BvM/Mp63fdd0nlFI/i4gfRRGngUdHR8txHN8C8IJS6hIRLU9PT9v6dW3dcQ8NDTnlcvllY8whIhoCcEVEPimXy+etSq7rPq6Uahljnm00GnWLlCKyl5nPpdF936+KiB33VQAPJrHIcZwX6/X63xtS0vf9CRH51o6WiJ4Pw/BiulG1Wt1jjLkoIrujKLpkY5OTk6rZbMYADjPzyXS+53lHiOgogM+I6HsReR3AmwC+YeY3NkRyZGRkZy6XuyAijxLRNWPMx/l8/my9Xu/Yhr7v7xKROSKqdH9gfHz8vsXFxQUReSeKoi/SwHaf4zjeHgTBla7f9/3LIrKTmZ0NkewWua67Wyk1mbzKfwGcUUqdjOOYiOh3AC/ZR2Tzq9XqA8aYqyLiRlE0sxLYKj01NWVSJD8VkYOlUqmw1hm6pxPkuu5DSqmPAOwTkWPDw8NHms3mAhF9HYbhuxZYa70PwJcAdjCz3b3/zff9syLyiuM4xe40tNa/JJfiyZ6UXFnsed6WgYGBbUEQXNZanwJwwBjznOM4N+I4jgC0mHk0WYnjABbCMDzaXQ8AXwE4RURvicgHAA4y85lMSaabJcf8BwBPJ/45Y8x4o9G4nij7m4jcjqJoV0L6QxE5AGCb/Saiz4vF4v5arWYf26p2T+Neq4n129PT6XTU7OzsH+vlpfZ8R7vdvtFqtZbulp8ZybsB9RLvk+xFvXRtX8m+klkpkFWfTbGT/wGKr1csO0n+AgAAAABJRU5ErkJggg==',
-            width: 41.6376953125,
-            height: 28
-          },
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAcCAYAAAD815boAAAC6klEQVRYR+2UT6iUZRTGn+ftO+dzroIGIigi6iJcBabkQiEK2giCCqIbQbDQkFoVqZGroAjaRAQFBQoiCgoquhDdKYL4Jze6UETJgiC0Rc6dOe/nHDnwTUzTONq9s7kwB2Yx3/uec573d/4QM8A4AzRiLHJUVRqTHJMcFYFRxRlZT05OTi4timKxiFwcJs7dJwDEr9eaJJvP85u2SHdfaGbXSC6sk+SU0qaiKM4MSmpm9wAs6zu7pqqrRybS3eeY2YGU0iMR+crMHgCYT3KDuz8medrdF4jIvEF0zMwAXCf5cVdUVVW/NxqNED/QXppkznmtu38JYG1EIvlpzvlIURQPAfykqu/F93a7vZnkcQC7VPXHf9W02VxcFMWvJD+pquqEu9vExET4D7WhIt19lpntJfkBgAUA/gbwg4gcCEqtVmtDSukUgA9V9bvI1KyFxIPKstzfm93MIs73AJ4AmF2fPRCRNST/mBLJnPNn7v4FgAzgfVU92Jd0O4BD7r6tLMujcebur+ScKwAHVXVH3/1jALYAiOE6DCDorwJwQ1XfmKrIde4epF4NSFFWEdlPMoiiqqr1nU4nBmRH9wHuPjfn/BeAb1T1n76rHzAn57xCVa92BZnZIwDzVDVNSWTXqd1ubyUZ/RhT2XH3c51OZw/JlFK6Q3JfDFHdk6+TvAlgp6r+3J84SJN82iPyAoB3RGT289bQSw9OBDWzNQC+BfBmTHFRFJtyzjGtl1V1XS3y6xgMACtV9Ze+cl+J8orI3G41zOyxu7fKsuyusP8A/V8iu97NZnOJiLwmIufN7HyQAPARybvufhLAb6q6vBZ9NqX0RES29LTHFZKfu3u0w7sxjKq6e1rlHrYfYplXVXXV3RfV9/5097fKsrxV04/+banq/Pr/EQAbAcyq718SkbdJxnAOtCmRHBQpVg/JotFo3B/2qJ5eXCkit0m2XnR/ZCJflGg652OR06HX6zsmOSY5KgKjijMjevIZwSszLOFUqU4AAAAASUVORK5CYII=',
-            width: 41.6376953125,
-            height: 28
-          }
-        },
-        transform: {
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAcCAYAAADvANYcAAACUklEQVRIS+2UPWgUURSFz1lz75iNqJ0KNlZqE4garVX8iYjaaCNWimgpKIjEKhgUwVKwsRAlaCEoiGm0Mk3wt4qVJEZELRSCLpn7ZnPlwYyMS5JNNk2KfTDN3PfO+965P8QyWFwGDGhDFFloO9F2orEjF1wTZrbT3aeSJPk4X1u7exVA/MqrRrI217mmEGmaHiX5AEBXLvIjy7LearX6eTZRM/sEYFND7I2q7mgJwt3XhRAmAUzU6/UDlUqll+Q9AOOqunkOCAPwluTFIp5l2dfOzs4IN+ua14kQwhV3v0Zyr4i8jApm9hDACRFRkuE/z2u1jR0dHZMkL2VZ9tjdrVqtfmk2leeFMLP7AE6KSFeR0xBCv7sPuPvWxvows/MAbgP4U0rfhIjsIvm9VSeeuPsRVf0Ha2ZnAdwh2Sciw2VhM3sE4DiAVwBiHZ0BsB3AO1Xd1hKEmcX8n2qAuADgFoAeVX1fFnb3VSGELar6uvhvZj8BrFXVSksQaZoOkOwXkfWFnWma3oxFN1tNxEvcfQXJegniBYA95ZQuak6EEA66+3OSl0XkRl6YHwDE1yaNYmY2Gu0XkTUkf+f7f7n7dJIkG1pyohABEDvhMIA4sK4DuKuqp919dQhhhOSQiAxmWXZoZmbmGYBRklfdPbbpvlhDqnquZYgQwn53fwogvtwBjIlId7Q8nyPf3H04SZK+HHoIwDEAK/NLR0Rkd2M7l4GaTsxic5qm3ao6TnKqWd/nMD0iMkZyutn+BUM0E1pKvA1RuNd2ou3Eosb2UtpuMWf/Au+z+R2H3MyPAAAAAElFTkSuQmCC',
-            width: 33.4619140625,
-            height: 28
-          },
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAcCAYAAADvANYcAAACkElEQVRIS+2UPWhTURTH/yfxtg6iiVjBgnbooINiBwehS8m79z0yFERtHSoqrkqHDkW0UqqCqEMRFx1E8QMssYo6hBdPaCc7BRUUR6GDgsGPOIgmve/Ig74SQtu06dIhb3vvnPu/v/c/H4R18NA6YEATIqpC04mmE7UTueKeSKVSnUqpP77vf11urPv6+lqKxWJLdU5bW1s5k8mUlzpXF8IYc0BEJgHsCkVEpADAy+fz3xcT1Vr7ANya2ANmPtkQRDqd3lypVGaJ6A0RnbLWdhLRKwAzzNy7BMQvAJPW2utRXCn1M5fLfWsIwnGco0SUsdbunZqa+hiKaK1HAFxOJpMbMpmMrRb2PG+rtTZ06FAsFpshojnf93/U28rLlkNrfQ7A1WQy2RrVVGvdD2AiHo+31/aHMcYVkbAcs1H5AOSVUoez2ezvhpzQWl8BcIGZF2Adx9FE9Doej3f5vv++WthxnItEdAnAbSJ6LiIDAE4AeMzMxxuCcBxnmIiuVUO4rtsbBMFLAB3MHP7xwpNOp1utte25XO5z9NEY80FEdjOzahRigIgeKaW2RHZqrU8DuLtYT4SXjI6OxsbGxoIqiJsiMlhd0lXtCc/z9ltr3wE4wszP5hvzSdifzLytVswYc19EjimlEtls9t98/icAJWY+2JATkQgRbQqCwCOiPeH4ARhi5vGenp6NSqmHQRBM5PP5p8aYLhF5C+AegPFwrEVkCMAgM99aC8Q+AAxgO4A5AC+6u7v7Q8vn90gJwA1mHg4vMcacF5GzAHaE70R0J5FInKkd52qguhszSnZdd2e5XC5OT0//rTf3YTyVSnWUSqUvhUKhUi9/xRD1hNYSb0JE7jWdaDqxqrW9lrFbzdn/y6UCLCbiV4IAAAAASUVORK5CYII=',
-            width: 33.4619140625,
-            height: 28
-          }
-        }
-      },
-      '<3': {
-        addresses: [
-          'R35',
-          'S17',
-          'S18',
-          'S19',
-          'S20',
-          'S21',
-          'S22',
-          'S23',
-          'S24',
-          'S25',
-          'S26',
-          'S27',
-          'S28',
-          'S29',
-          'S30',
-          'S31',
-          'S32',
-          'S33',
-          'S34',
-          'S35',
-          'S36',
-          'S37',
-          'S38',
-          'S39',
-          'S40',
-          'S41',
-          'S42',
-          'S43',
-          'S44',
-          'S45',
-          'S46',
-          'S47'
-        ],
-        original: {
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAYAAACdz7SqAAACCklEQVRIS+2UPYgTQRiG3292TVJ4SlYsFNRCUdRCJFhoLJKd2eMWBAt/OK5TBDsttBO08KfSQg6usBDBQjAoWEiS3cmClkI6tRMFTw4ECZJC44b5ZCGB44gkt1GCkCnnm+99hmd+CBMYNAEmptB/an2q9//Q63nedsuyMrVa7dOwHY99pkqp/cz8hIgO9WArQojZIAje/gm+bqjv+9k4jhcAfM/n8y9ardZ7Zv6Ry+XKCaTT6bwCsFlrvWtsqJRyLxFdBnC+Fzbf7XZf2rZ93BjzOYqiD8m8Uuo1gMNa65lU0EKhsMFxnNPGmCtEVADwkZlvO47zuFKp/FodKqUsE9EFAAvMfL3RaNxMBfU87wwzP01UEtHJMAwTdQOHUuoNgCO94imt9fNU0HK5vM+27WfMfJCIlo0xtzKZzKNqtdoZFOj7/tY4jh8COGGM2dNXvnbtSBfJdd1jQogbAGYB/ASwKIS4GwTB11KptLHdbneazWachEspDxDROwCXtNaLgzY3ErTf6LrubiHENQDnmPkOMy8JIZaJ6GoYhvd60DkiqjLzxUaj8WBsaD9ASrnFsqxtyVtUSlUBHGXm+aROREsAdliWtbNer6/8NeiaW5s8pfsA5nrz34QQZ4MgiFJdpGHf2ep6sVicyWazm6Io+jKsb11nOixs1PoUOqqpVOumelNpG7VpInp/A81frR3rYzzuAAAAAElFTkSuQmCC',
-            width: 29.9619140625,
-            height: 28
-          },
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAYAAACdz7SqAAAB0ElEQVRIS+2Uv2tUQRDHP3P3dp6HaURiKoVYpEijlSkiiH+ArWKpIKJBxMpfkErQxkZtFAJqKzbaiIh/gGAjGGy0srAQq+Qub/Z4Iwvv4FDDvbxTDuG23J2Zz873O7vCBJZMgMkU+k9Vn8r7f8hbFMWiiHRU9f2oG4/taYzxmLs/B/ZWsC0RORFCeLMdfMdQd58xs9VWq/Ujy7K7McbvQOz3+4cSJMuyD0CuqjNjQ2OMy+5+G1hOxUTkapZl92OMp4F1VX2X9mOMX919TlVDI6i77zKzayJyAdgHbAAPQwirItIdLmpmZ4FLwGHgmaqebASNMd5091upAeCcqj7ZrpCZfQPmKhWuhxDuNIUedfcXwB4gdbYWQrghIqnj31av15tvt9uvgAVgaSD5r4G1BqkoilMikvycB0p3f12W5Uqn0/ni7mlqN0Vkq/L0uLu/BR6p6vk/Xa4WdJBoZkvAPeCIiLwsyzL5/RF4rKpnUpyZrQAPUpyqXh4bOijQ7XYPhBAW0ls0s8/AfuBKdZ683O3ui3mef/pr0OFC1VN6Chys9g24qKprjQZp1Hc2fO7us2Y2m+f5+qi8HXk6qljd8ym0rlKN4qbyNpKtbtJE5P0JuuOkHas1nEQAAAAASUVORK5CYII=',
-            width: 29.9619140625,
-            height: 28
-          }
-        },
-        transform: {
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAcCAYAAACOGPReAAABRklEQVRIS+3UoUtDYRQF8HPG7mW8smAQsQuCYFoRBEURNJgNxlXNBtFg9T8QwT/CIJoUBIMgGC0Wh0VmUB573x3vypMNDLrH3rYi+/r5wT0f9xIjeByBiTE6/Fb/Yadmtmhmz1EUveQVlju+me25+yGASoaRbJTL5RrJ17/wnmiSJHMkHwHciMhGu92ed/dbAHequlAIdfcpM9sSkTOS7+5eNbMmgCdVnS2E/gyFEI4BbAOYBFBX1dOBUHevmFmcVQogIbkpIpcDod2wmS27+zkAUVUtjMZxPB1FUaMLhBBOsvFJLonI9W9w3u8fkdwnuS4iFxkQQrgCsAqgpqr3faOdLj8ANNM0rZdKpRUAOwA+VbVaePwQwi6AAwATHeQNwJqqPhRGu8FWqzWTpmk8lDXN2/O+Oy0Cft+HosFeuTE6/FZH0ukXZIFxHSLPKNcAAAAASUVORK5CYII=',
-            width: 21.7861328125,
-            height: 28
-          },
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAcCAYAAACOGPReAAABY0lEQVRIS+3UsUoDQRAG4H83ZwKCkEulIBY2ShqFw1I42L0UhgixtRRiKfoQliJiY2XjKwS8ZTgCPoCIhVgFLQNGCWhAkhsJJCCIObImjWT6/4P5h12BCYyYgIkpOv5W/2GnhUJhVQjRCMOwmVRY4vpa6x0A5wAW+thNp9PZrtVqb7/hQ1Hf9xcdx6kz80UulztqtVpL3W73AcAlEVVs0Ww6nd4EEBlj3kul0my73X4BcE1EZSv0e0gptSeE2AewIaVUxpjoT6jneTOu634AcAA0AGgiuv8TOggrpfJSypCZ54goa40Wi0W3Wq2+DoAgCA6Y+RRAnoh6R/sxQ6+vlNoVQlylUqn1MAzvemmt9QmAQynlsjGmPjLa77LJzI/MXJFSegDOADwT0Yr1+kEQbMVxfCyEWOsjt3Ecl6MoerJGB0Hf9+czmcznWJ5p0jsfuVMbsJdJ/FBs4Clq09rwzEQ6/QL1TnEdkqG55wAAAABJRU5ErkJggg==',
-            width: 21.7861328125,
-            height: 28
-          }
-        }
-      },
-      '<0.01': {
-        addresses: [
-          'U17',
-          'U18',
-          'U19',
-          'U20',
-          'U21',
-          'U22',
-          'U23',
-          'U25',
-          'U26',
-          'U27',
-          'U28',
-          'U29',
-          'U31',
-          'U32',
-          'U33',
-          'U37',
-          'U38',
-          'U39',
-          'U40',
-          'U41',
-          'U43',
-          'U44',
-          'U45',
-          'U46',
-          'U47',
-          'AD17',
-          'AD18',
-          'AD19',
-          'AD20',
-          'AD21',
-          'AD22',
-          'AD23',
-          'AD24',
-          'AD25',
-          'AD26',
-          'AD27',
-          'AD28',
-          'AD29',
-          'AD30',
-          'AD31',
-          'AD32',
-          'AD33',
-          'AD34',
-          'AD35',
-          'AD36',
-          'AD37',
-          'AD38',
-          'AD39',
-          'AD40',
-          'AD41',
-          'AD43',
-          'AD44',
-          'AD45',
-          'AD46',
-          'AD47'
-        ],
-        original: {
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAcCAYAAADIrlf0AAADi0lEQVRYR+2VT2hcVRTGv3NnJgG10kyDxYUEkSqilLYR0Zmok/fumxjT6MKKVaxS/6BCRUVdFQ2RKEgLVepCCoo1C9Ggq2Jg3rmTqTgMgiUu3LhKLSpdVKWQEKd57x65MiPPoU0sM22lzN3dew/nnN93zj2XcBksugwY0IX4v1SxW4luJTqoQLedkmIWCoV+ItowNzf3438QmbTWt0ZRtFCpVBbPYU9BEORyuVxtcnLSruaz7UoUCoX16XT6KwB3NgKdBjDMzPNnC+z7/lNE9C6Aqxr3h/L5/POtiQZB8IGIPBtF0bpVQP92cd4Qo6OjvSsrK48COM3MX2qty0S0KYqie4loUSk1DWBzX1/fNTMzM2eSIFrrOwDUROSNOI4PpFKp7UT0KYAXmPl9Z+v7/l1E9B6ArW7fUQjf928kohcBPNlIbGdvb+/X9Xr9dwAvM7NTF57n3a6U+lZEAmMMt0AcArArn89f2VRea/0NgKuZebOz1Vr/BGABQAhgqm2IwcHBTDab3WGtfYWIBp1zEXkrm81OO5U9z9umlDpmrb2vXC7PuiRGRkaycRz/BuAJZv6kBaICYCMz39w811p/CGA7M290Z8Vi8fpSqbSgtX4cwOG2IYIgeEhEPnetQ0QPhGF4NJlUsVi821p7VERyxpiau5uYmFDVajUG8Boz70/a+77/HRGdYeZcAmIfgJeYOdMC3BmI4eHhm9Lp9BcicgsR/Wytnerp6fl4dna27gIGQbBFROaJqNAEHB8fv2J5eXlJRJ42xjiV/1laaxaR9caY2xIQBwE8wsz9FwSi6dTzvJxSasJVG8CfAA4qpfbHcUxEdBLAg+6RN9rhOmvtCRHxjDFzLYm59rqHmQcSEJ8B2MTM2y4oRALmBqXUXgC7ReTtoaGh16vV6hIRHQ7D8LnGw9wN4CMAA8x8oiWxVwHsE5F+Y4x7N+4hnwJgmPnhiwLRDOL7/oZUKnVtqVT6QWt9AMAea+39mUzm1ziODYBjzDzSaLl3ACyFYfjm2NhYX2OaHbHW7lFKPQNgLxFtDcPw+4sKkQzW+OyOAMg3zuettePlcvmX5sgUkT+MMVvc3vf9nUTk/pI0gEUimgrD0IH+awVB8JiITLc9nVodr7Z3o7Ver6tKpeLaY9XlJlitVhsolUrHAcha9mvdn/ePvZbDS3HfhbgUqp8tZrcS3Up0UIFuO3VQzLZc/QVpW64sYLNBhgAAAABJRU5ErkJggg==',
-            width: 49.423828125,
-            height: 28
-          },
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAcCAYAAADIrlf0AAADQklEQVRYR+2WT6hVVRTGv7Xb6zu+h1FSGq+kf4OcSYIkpBSENEgMDOQ5KBIqQjKbJJWCOpCSSIRokIGRTiqjQUUSITQJa6BRDYL+DCxzEJg1qPPeWft4V+w4F04H9XF570o87p7tsxZr7d+39lr7CObBknnAgBHE/6WKo0qMKjGHCoyuU1vMqampW2OMS1X185lEdvdQ1/XaGONXInLuYv7Zx8wmSR4VkQuXiznrSrj7hJmdEpGJJlEKIWyIMX58scRm9gqAZwDExn5CVe/pHtTMshirVXXxpUD78QeGcPeFZrYrhHBeVfeZ2c8ArheR9e7+h4h85O5LVPVaESnbIFVVbRSRowDeU9UtdV1vdfc9AF4nuSX7VlX1sIgcyDHzfk4hUkqr3f2lrE4OLiLPpZTejjH+CuAQycebQzwkIu8DeJLkG20IMzsBYJWqsq98Sumsuy8geV32NbO/AJwHkH0nZw2Rg5vZ8yKSVVoCICc4qKq7ssrT09PrQwgfAnia5Gv5EGVZLo0xnsnARVHs6ED8AuBqkov6383sSwB3klzQQKwkebKqqhdF5IVZQ6SUdrr7XgAJwBMkD3cO9QiAI+6+qSiKd7PN3a9KKdUADpPc3PH/zd0vFEVxY/97VVWfiMj9JEPn6s0ZxBp3z0pn5fL9PqSqO0QkVwR1XT/Q6/VyA2/uA7r7NSmlPwHsJ/lsB+I0gDGSN7Qq8RmAu0kWQ4FoqTUpIrkfbgPQc/dPe73eUyISQgg/NmXf1/TEchH5BsBjJN/sQJwCsIzkwhbEtwAmSC4eKkQr4SoArwK4K0+hGOOGlJIB+ILkmgbiZRHZDmAFya87EG8BeLSu61vGx8dzf+RGrgB8T3L5FYHoJynL8mZVvUNVj5vZcQD3AdgmIj+5+wcAzpK8vYE6FkL4W1U3lmV5UzPNfgCwSUT2uPuDIYR1McZjVxSinSw/dnVdn3T3frOec/d7i6L4rjUyp0n+O/dTSrvdfXee0rmtALxDMg+I/6yqqvaKyE5VzW/Q7117ez/wY3epYHm0ikgcGxvLzXvZ1UywFaqafzt6M/nPZJ8ziJkSDdM+ghimuoPEHlViELWG6TuqxDDVHST2vKjEP1SofizSQ//ZAAAAAElFTkSuQmCC',
-            width: 49.423828125,
-            height: 28
-          }
-        },
-        transform: {
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAcCAYAAAD815boAAACo0lEQVRYR+2WO2gVURCG/1l3ZmNiAiIaH4iNEkUIpoiChY0SDYpWiiDBQhACoggWIoEEgmJQrLUREcVXpYWmUiwMNga18VHFFxgRhCAXzpxzHdmwVy5LZIV7rxC4287Zme/8+5//LGEePDQPGNGErNdXairZVLJeCtSrzz97UlU3m9lMkiRvi4abWRRC2BHH8SQRfZ9rvZl1hhB6mHm8qF8hpHNuHxHdBNCWNfsWQuhtbW39OFdzVb0I4ASAOKtPMPM2IipX1ptZh/d+CgCLSHtNkOluvfefAHwol8s7oyjqJaLrAKZEpCvf3Dm3n4juArjHzIMhhGNmNgLgsogMpgqr6hgRHQcgAH7WDOm9P2NmZ4loOzM/TqFU9Q6AA8wsROSrQVV1AsCWrDarnPf+i5m1iMiSbNNfATwFsAzA6pohVfUGgEPM3EZEpWzokJmNmtmGvD9VNbVAu4gsrsCr6nMAm0SkxczYe79RRF6q6iSAdTVDeu/vm9leEfnjXVU9CuAKEfXnTa+q02ZWTpJkZQXSOTdORH0iEuVUrw+kqqb+G8hBngRwCUBPqkhucHoYFopIZ5WSTwBsFZGkIZDOuVEiGmLm5UQ0nQ5xzl0golN/8eQLAF0isqgK8jWAFSKytCGQ3vtdZvaIiE4z81h2cF4BWJ9XJqtdA3A4hLCmElGq6gC8E5HuhkBmg3+kcUFEewCkgX4ewFUROZLl3TMiusXM50ql0qo4jj8DeA/gIBGNpJ6Oomh3HMcPGwbpve8zswcAUk8ZgDfM3J2GcyVSzGw8SZL+7PQPm9kwMPuvGgDcFpGBfKZmp3utiHTUFObVLzvnukVkiohmipqa2QLvfXrlpdfir6L1RfXCa7Gowf+oNyHrpXJTyaaS9VKgXn3mhSd/A/cIRSwcg4jCAAAAAElFTkSuQmCC',
-            width: 41.248046875,
-            height: 28
-          },
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAcCAYAAAD815boAAAC00lEQVRYR+2VT0hUURTGvzPPR1FiDUmCUVIiFFhZCIVvkXivM4i6Kq2IoD+0CAoiQoIikYQwFwbVRnCTQslU0B+Qcc7DWUSzMahFtDTctOiPFBI5zrs3LryRYTBGmGcgzN2e8777u98993uENbBoDTCiBBnULZWcLDkZlANB6ax4JltaWmpt2/4dj8e/rGBzklLWZzKZmWQyOb9cf1tbW4VSamc8Hv9QSK8gZGtra6PW+hmAHUZMa/0OQNR13e/LiQshzhPRPQDlfn3YcZyLfX19Ktvf3Ny83rbtaa31BmbeVRSkOe3i4uIsEb0lojOe59US0SsAKWbuzBeXUh42Na31Lc/zhizL6iCixwAuM/MDAMbhswDuAtgCYKZoSCHEMSKKeZ5XPzU19dFASSlvArgdDofLYrGYlwsqpRwGcNpxnI1Z56SUbwBUMPM+/9A/tdYPAVQTUUPRkFLK6wDuhMPhdbFYLO1DdgMYtyyrOn8+pZRJAFXMvCcLL6UcAdDBzFVdXV3W3NzcNmaelVKOAWgKArIfwA1mXppdIYQkooRlWQ35Qy+EmCaiNDM35UAOArjCzHae68FACiF6iGggFzISiXQqpV4CqDGO5G3MWuvNrus25kDeB3CSmStXC/IUEY3Ztr1pYmLil3/d5wCM/GMmHwE4wsw1OZDjAOqY+eCqQEaj0f2e570HcJSZn/uQT8z7yXfGr10DMKi1rsxGlJTyGwCXmY+vCqS/8SciKldKRYloNwCTmVeZecjPu1Gl1Ljruk/b29vDCwsLPwC8VkpdCoVCF8xME9GBRCJhDru0Ans4PuReAAxgK4AMgBeO43SbiMlGinGPmXtMvxDiBBGNAigDME9E/YlEYmCZTDUP5xAz1xUV5rkfRyKR7el0+msymfxTSLS3tzeUSqVqJicnP5ufVKH+QvWCv8VCAv+jXoIMyuWSkyUng3IgKJ01MZN/AQ3rOSyPWw4TAAAAAElFTkSuQmCC',
-            width: 41.248046875,
-            height: 28
-          }
-        }
-      },
-      '<20': {
-        addresses: [
-          'AB17',
-          'AB18',
-          'AB19',
-          'AB20',
-          'AB21',
-          'AB22',
-          'AB23',
-          'AB24',
-          'AB25',
-          'AB26',
-          'AB27',
-          'AB28',
-          'AB29',
-          'AB30',
-          'AB31',
-          'AB32',
-          'AB33',
-          'AB34',
-          'AB35',
-          'AB36',
-          'AB37',
-          'AB38',
-          'AB39',
-          'AB40',
-          'AB41',
-          'AB43',
-          'AB44',
-          'AB45',
-          'AB46',
-          'AB47'
-        ],
-        original: {
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAcCAYAAADm63ZmAAAC3UlEQVRYR+2UTWgTQRTH/283m14E3SiCgvVQUMGKYr1oPLSZ2Q1FSsGPKhbq10EPomLBS0Up1i8QPHgQikLFCmqsYEVC0tl+IOhJ0YMIBSkUoaJ4sAfRJDtPVlIJoU1TK9JD3m123rz32//83xAWYNACZEIFqtxbqShVUapcBcrN+2eeqq+vXxIOh+10Oj02XfNYLFZjWdb3VCo1MRvcvKFc163VWncD2JpvNsrMlzzPuxOsHcfZwsx9AKqDNTO/AhD3PO/rTHBzhmpsbKzKZrP7AXxTSj2WUr4OipumuYOZJ7XWVwAcB7DZsqwP2Wx2nIheENFB3/driOgpgJdKqaZ5Qwkh1hDRSQCH88X25XK5kVAodE5r/WhwcPBF8F1KuR3AcwB7mVkTUcL3/dqhoaF3+f2zAC7Yth1KJBL+dGAllaqrq7MikchurXU7EdUBGGPmi5FI5G4ikchMV1BK2Qug1TCMaq11K4DLtm1XTeVLKVsAPDBNc+VM/ioJ5TjOHmZ+GFwVETUPDAyMlDKpEOIAEfUAuKGUOiGl7ALQoZT600cIIYlowDTNTalU6u2clWpoaFgbCoX6mHk9EX3UWneFw+GeZDL5s7iY4zjHmPkmgGe2bTcHVyOEOENEVwuhXNdt0lr3A1itlBqfM9TUgVgsts0wjPMAXAA/AiUMw7iWTqc/531yCsB1AP22be+c8ooQopWIei3LWpxMJifzuYEnb/+1p4r/InhrDMPoAHAoP/YdQogjRHQLwL1oNNrW2dmpp87F4/GNvu+/AbArmNQ81P1gHpRSy+Y9fYUFhBBLTdNc4fv+BBF9ApBj5vaiJsrzvFEp5XsiWqS1jhPROgDBm3VaKRUoO23M+Z0qrCKlbAPw+5EsDmY+6nlet5RyAwAFYHkAD+BJNBptKVS0+Oy8oEpNYvGe67qrMpnMl+Hh4cCTJeO/Qc0GUrhfgSpXrYpSFaXKVaDcvAXpqV+HnxIsAGrq0QAAAABJRU5ErkJggg==',
-            width: 37.748046875,
-            height: 28
-          },
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAcCAYAAADm63ZmAAACl0lEQVRYR+2UOWhVURCG///mzVyT2NiIQRBsXBAjFolFFETFBSR2CoqVKIiCiKJxbeKKYqGFCioYiGAjqIVioZVdcKncQKJWKigECZwzeW/kwIvEkOU9IyHFO93lzMz555t/LjEFD6egJtREVTqVGqkaqUoJVBr33zzl7k1mNltVe0Z6PMbY6u59eZ6/HU/chEWZ2ZpSqdRFsqn8WJ+7X83zvCN9hxA2kewG0Fi+/zYwMNDS0NDweTRxVYty9+kxxpNZlv0QkXMxxu+puLuvUNWvZnYPwMosyzbW1dX1mNkXAJ+KxeK6LMtaSHYB6FXV+RMWZWZt7n4WQFsqRvJwoVDoNrMud7+R5/ndMpmtiQzJEwBK7n6a5GoReZruY4wpbrOIKEkbSdiYpNx9Woyxg+RuADMB/AJwXUROkuwfxTsvACx19yUkDwHYJiKNg/FmdtzdO9194Wj+GlOUmR1z91MAUkc7VfX2WCYNIZwlmbz0TFVXmdl9d29X1T/vxBh3pcZIbhCRx1WTMrPl7v4AwAwAicxNETlKMhH768QYrwDYC+CDiCxKo4kxJv9sHyZqP4BLiaaqvqpa1GBCCGELyeSnuWWfPCmVSnvq6+s/ln1yA8AOAO9EZPGgV0IInSSPi8gskl/LnrtA8uA/e2oEGssAXAbQSvKhiLTHGC8COADgpYik7SoO5pnZend/lEYqIufLDbwGsEBV8wlv39AC/f39c0Rknpm9LxQKvemPAODa0BiSd0TkeYzxJ4C0aRtTM+5+DsAtVU1kRzxV/6eGVgkhnCF5ZJTal1V1n5mtLfsykUni34hI81Ciw/MnJGqsTRx+F0JoVtVekn3j5U2aqPGE/DX6aoInK7ZGqlLSNVI1UpUSqDTuN02SDywzSk0qAAAAAElFTkSuQmCC',
-            width: 37.748046875,
-            height: 28
-          }
-        },
-        transform: {
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAYAAACdz7SqAAAB/UlEQVRIS+2UsWsVQRDGv73sfPc8TGFERFHstFKSQgQLKxFBkGBlo4IgEhBEERQEkz9AsRUbLdUUdmJno2KhKcRGKxFTCBGs3uNmN29k4R0cIeZ4Z+RZvOv2ZnZ+M98On8MIPjcCJsbQf6r6WN7/Q15VnY4xrhRF8X1tR2aWxRiPe++XnHMrTR03vmkI4baZ3QQwmYo555b7/f61PM8X01lV7wK4CsAPYG9F5JhzbvVP8A2h3W53j/f+G4DXInKmLMupLMveAJgSkY6qzjrnngFYFJG5GOMVM1sA8IDkXCtoCOGkmd2KMZ4viiLBEUJ4bmazMca93vsEPCIirCYLISybWYfk9lbQdd5OQgi/AEyQTJOmRiZJbqtyVfUdgOkU3xSoqi4BmAFwneR9Vf1hZqt5nu+uAGVZvnTOnSCZ/RXUzNKEHwAcBPCI5MXBEn0FsIXkztqkrwAcJZm3hg6AnwDsB/CQ5OUaIDVygOTW2r+PAHaR3NEaqqqpSJrwHskb9UKq+hjAhRjjvmrRVLUE8JnkoVZQVb2UpgPwE8DTehERudPr9Tre+2QWXwCcdc4tmNnpLMtOee9ftIVWi7Pe/cMk34cQ5s1sPvkGgAjgCclzG7lSoyM1WVqKm9lECGFGRJIN9pvubAq0CbI2PoYOq9hQ+WN5h5Jr2OSRyPsbaEHOHUW0EqEAAAAASUVORK5CYII=',
-            width: 29.572265625,
-            height: 28
-          },
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAYAAACdz7SqAAACH0lEQVRIS+2Uv4sTQRTHv7Obs8khRg+u80C0OBBF0cYtLOYtaQ67+AOxUgtBRVC0EA0REeXgTtDqwOYUxU5QhOy+gYBCLCz0L7hrBXVTpIns5MlIIuE4b8l6EotMN/ve+37mfWf2KYxgqREwMYb+U9fH9v4f9hLRTt/32/V6/fs6J1JEtDdN05VGo9HOOnHmnYZhWBGRewB298TeAbjOzB/cXmt9Vin1EMBkL74UBMGFWq3W/RN8Q2i5XN5urf0CYClN0xtOuFAovAUwWyqVJpMkOQygKSK3rbWLvu/PKaVeALjEzI/zQvenaXoeQNUY882JhGF4R0Ru+b6/w1p7H8CZIAiK/c6I6D2Arcy8Lxd0bVGlUvFbrdaqiGxh5mkiagCYZubZfi4RPQEw5+KbAiWiZwBOe553LIqi11rrj0qpH8x8ZAA6D+AKM0/8FdR1mCTJcwDHReSqMWbBCRIRi8g2Y8yhAegjAKeYeSo3tAd85SwDcJmZneivRUTLAI4y88zAt5cA9jDzwdxQInIirsNzxhh3X78XEV0DMC8iU/2HRkRfARhmPpELGoahFhFn4Wf32wyKWGuXi8XiRKfTccPiTbfbveh5nnvpN5VSB+I4/pQL2n846xV7nrcriqIVrfVJpdRTAAUAbaXU3TiOH2w0lTInUtZIc/Fqteo1m82ZKIpWAUhWzaZAsyBr42PosI4NlT+2dyi7hk0eib0/Ae6x1B21PO77AAAAAElFTkSuQmCC',
-            width: 29.572265625,
-            height: 28
-          }
-        }
-      },
-      '<0.05': {
-        addresses: [
-          'AG17',
-          'AG18',
-          'AG19',
-          'AG20',
-          'AG21',
-          'AG22',
-          'AG23',
-          'AG25',
-          'AG26',
-          'AG27',
-          'AG28',
-          'AG29',
-          'AG30',
-          'AG32',
-          'AG33',
-          'AG34',
-          'AG35',
-          'AG36',
-          'AG37',
-          'AG38',
-          'AG39',
-          'AG40',
-          'AG41',
-          'AG43',
-          'AG44',
-          'AG45',
-          'AG47'
-        ],
-        original: {
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAcCAYAAADIrlf0AAAEIElEQVRYR+1VXWgcVRT+zs1OAiqS3SaWCpoHqUWUUhsR7RbdzNzZGNOoqKH1t9YfUIz1/8VSQ0oVtIUq9UELam0RsaH6Ulyyc2azFUMQDPWhID5VixYxao201E127pErszKENrVp+kPZ83bvPfOd+b7z3XMJF0DQBcABdRLnSxfrnah3Yg4VqNspKWYul2shonnDw8Pf/w+RSWt9XbVaPVAul48k83t7exvHx8cbk3utra2Tg4ODkyfCPe1O5HK55lQq9QWAm+MiEwA6mHnf8Yp6nvcYEb0F4JL4fFs2m31qYGDA2LXWeghAftq3O5h59ZyR6OrqapqamrofwAQzf6a1LhHRwmq1ehsRHVFK7QSwOJ1OXzZdPa31TQBGReTVKIq2NDQ0rCCiTwA8w8zvxCT+BLA7iqI3az/tOM7hYrH462mT8DzvaiJ6FsCjMdiqpqamLyuVyh8Anmdmqy5c171RKfW1iPhhGHKysNZ6G4CHstnsxQnlvwJwKTMv7uzszERR9DuAu5RSo0RUHRoasvgzxox2am9vdzKZzL3GmBeJqB3AARF5LZPJ7LQqu667VCk1Zoy5vVQqFWylxI+sZuYd00iUAcxn5mtq+1rr9wGsYOb5vu/nRcTa6SCAK+Oc0HGcuwuFwl+z6oTv+70isstah4juDIJgbxIon8/fYozZKyLLwjActWf9/f1qZGQkAvAyM29O5nue9w0RTTLzsgSJTQCeY2bH87z1RLQBwLtE9LmIPADgYQAfM/ODsyLR0dGxKJVK7RaRa4noJ2PMxsbGxu2FQqFiAX3fXyIi+4goVyPY09Nz0bFjx46KyONhGFqV/wutNYtIcxiGNyRIbAVwHzO32PsWRdHlxWLxQO3c9/39IrLIkpwVidpHrusuU0r1x1PjbwBblVKboygiIvoFwD32ktv8fD5/hTHmoIi4YRgOTyNh7XUrM7clSHwKYCEzL611snZfYqHeFpG16XS66URj9pRGrOu6Vyml1gFYIyKvL1++fP3IyMhRIvooCIInbVGt9RoAHwBoY2br7WQnXgKwSURawjC0F9jm/wYgZOaVvu9vF5GVjuM017qttf4unoR2sh03TolEDcHzvHkNDQ0LisXifq31FgB9xpg7HMc5FEVRCGCMmTtjJd8AcDQIgg3d3d3peJrtMcb0KaWeALCOiK4PguDbmj0BfAhgCxE9IiIvAFjLzNZ2c0ciiRQ/dnsAZOP9fcaYnlKp9HOs9I8icjgMwyV27XneKiKyb0kKwBEi2hgEgSX6b/i+/4qI9AFYYNdE9F5zc/PTg4ODdlicGRI1VDtaK5WKKpfL1h4zhp1go6OjbcVi8QcAcrxk13XbJiYmDo2NjU2dDG9WdjoZ6Nk+r5M424qf8TtxLgnV7XQu1U/WrnfifOnEPwf7xyzrKag8AAAAAElFTkSuQmCC',
-            width: 49.423828125,
-            height: 28
-          },
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAcCAYAAADIrlf0AAADvElEQVRYR+1VS4gdVRA9db1VnfcSScQYGQ3+FuoqGBUHTFAUdaFEjDCYjRhQ0eBvo6gRkywERXQjIipEjCDxg4KKQSTiRqOEjL+F4gcxaoRASFyYntd1b15JSbc8ni8zmckMyPAKetH33q6655yq04R5EDQPMGAI4v+i4lCJoRKzyMCwnXrJnJiYOCvGuJyZP5mKZDMLOeerYoxfENGB3vNm1gbgT2+URFQeLe9xK2FmI6o6TkQjdZEUQlgbY3x/UFFVfQrAfQBivb+LmS8joiP+rqo/Azi779txEbl41kCY2SJV3RRCOMjMT6jqXgBLiWiNmR0iovfMbBkzL+lnr6qqMSJ6A8CbzLwh53y3mW0B8LyIbKhBKABX6P7m0jnnP1qtloMbGMesREpplZk9DmCVZyKiB1NK22OMvwPYKiK3+XpVVTcS0VsA7hCRF3urquouAKPMLA3zKaV9ZrZARE4uy3J5jPE3Inog5/y2mWm73fb8k8akIDy5qj5ERM7SMgB/AXiBmTc5y51OZ00I4V0A94jIs16puYgDLopiYx+IXwGcKCInNeuq+jmAC0TEa3md5wAcBrCwPrOXmUeJaP+MlEgpPWJmjwFIAG4XkW19l7oZwCtmtq4oitd9z8xOSCllANtEZH3f+f1mdqQoitOa9aqqPiCia0QkqKq32hgAN4dXAbi6FwH4UkQunCmI1WbmTDtz7g5bmXkjEbkiyDlf2+12fYDXNwDNbHFK6U8AT4vIv31d9/svAFoicmqPEh8DuFRECp+3lNL5IrKnZ/8ggCUOckYgeti6iYh8Htw1umb2YbfbvYuIQgjhRyJ62Ie8nokVRPQ1gFtF5KU+JcYBnCcii3ou+Q2AERE5pVGymZca+EcArmTmhUez2WMe7DrhKIBnAFziLhRjXJtScjf5TERW1yCe9MEEsFJEvuoD8TKAW3LOZ7bbbZ8Pt9QKwPciskJVd3v7MPPiRm1VPWRmnaIoGgv/jyDTAtF8XZblGcx8LjPvVNWdzhSAe4noJzN7B8A+ETmnBrUjhHCYmcfKsjy9drMfAKwjoi1mdn0I4boY446e9txNRI+ambfj1W4mInLncbXTZP7mP7uc8x4za4b1gJldXhTFtzXTPj8dEVnq7ymlzWa22V3axwrAayLiBvFPqOp2ADcAWFAvfcrMVxCRm8vAmJESgzK5tRJRbLVaPryTRu1gK5nZf2rdQYdV1fe/I6LOVPlmDcRUheZyfwhiLtmdTu6hEtNhay7PDpWYS3ank3teKPE3cAemLOABSm8AAAAASUVORK5CYII=',
-            width: 49.423828125,
-            height: 28
-          }
-        },
-        transform: {
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAcCAYAAAD815boAAADKklEQVRYR+2WTYgdVRCFz+l01Y0TNUiiSVQ0u+hmcJAouMhGjQZFQVAECS4EISCIkkWQwQQGxajoThRERBT/FqKIGRR0IQY3xp+F0YAw/pKoQQw4cKv6Tckd+smjSeaFx0MYeL1puu/tc78+dW51E6vg4CpgxARyXFWaODlxclwOjEvnrDNpZtdExKmU0nfDFo+IqmmaG+q6PkLyz8H5EbEegHQ0/ibpZ9IdCplzvp3kawDWtSK/N02zfWpq6qfTiZrZ0wAeBFC344dFZAfJXrk2s3KuOuBzKaVHR4KMiE3u/jOAH3u93k1VVW0n+QqABVXd1hXNOd9J8i0Ab4vInqZpHoiIAwCeV9U9ZjYD4EhEHKyq6v3+83VdHyV5ciRId38kIh4jeb2IfNw68SaAu0REuyUys8MArm3Hlp1z918jYq2qbnD32YiYE5GL3P1SEfmB5Klh8Vmx3Gb2KoB7RGQdycV20eWFIuLKbj7NrETgPFW9oL+wmX0O4CpVXWtmHwK4EUDRmipzImI+pbRrJdAVId393Yi4TVX/m2dm9wN4geQuEZkfFDezExHRSyld3L+fc54nuVNVq5zzbyS3AHiR5LGlpaWHSW4u1UopzY5UbjMr+dvdgXwIwDMAZlT1qw7kAoBzVHXTgJOfALhOVVPJuJltSCl927q40d3/KJlX1a0jQeac50jOishmkieKSM75KZJ7z5DJLwBsU9VzByC/AbBFVS9swdb0d3qb8b8A9FR140iQ7n5zRBwiuU9EDraiXwO4ojjTFTWzlwHc2zTN5f0WZWYZwPeqOm1m/wA4qaqXtcClexwn+Y6I3DES5MCblp18K4DS0J8A8JKq3hcR57v7ZyRfF5HHFxcXL6nr+hcAxwDcTfJAyXRVVbfUdf1B/yUAPBcRH5F8FsBWkjtE5NORId19Z0S8B6A4FwCOish0KVnbR48P7lB33x8R+4Hlf9UGwBuqurt1rrShQwCubht6RMSTKaV9I+/uwQdzztOqunA2fS0i1rj7jIiUz+JSFyAixN2nReTL04135w/9LA5rtP/H+ARyXC5PnJw4OS4HxqWzKjL5L6xxgCzWFOC0AAAAAElFTkSuQmCC',
-            width: 41.248046875,
-            height: 28
-          },
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAcCAYAAAD815boAAADc0lEQVRYR+2VX4gbVRTGvzOTYYsuq5GuBbHuQxEsVK1SqJoHQ+YkYdnmSbdVSqFYfRAtlCJFqLisFkpZpIJ9KvRBW9QlKvgHdpM5l82DdEUU2gfRF+kf/yFaQVOMm83cIyMTGcJ2s8QgLGTeZs693/3d7373DGEdPLQOGDGA7NcpDZwcONkvB/qls+ZM5nK5LZ7n/VmpVH5aw+LEzNtardalWq12PTm+VCrdVK/XneS30dHRRrlcDm+k2xUyn8/vUNX3AdwViajqlwCKxphrK4n6vn+AiF4HMBzXT2cymWenp6dt9M7MDQAbOubuFZG3e4IcHx8fWV5evkpE54lofxiGW4joYwCLIlLqFGXmh6Kaqr4chuFJ13V3EdE7AA6KyKlcLjfmOM5lVd1vrf2sPV9Vf+h0PKm9qpO+7z9OROUwDLctLCx8FTvxEoBX0+l0qvOImPk0gH2ZTObmhHOfAhgRkfuYeTeA2UajMTI0NHSbtfbnWq32V7f4rArJzC8COJ5Op4fK5XIzhvxnIdd17+jMJzPXAGwSka3thZn5DIBdIrIpn8+/pqqHieh7Vb0zHjMjIkdWA+0GeQzAURH5d5zv+0xEgeu62yuVysWkuO/7XxBRU0QeSUDOADgkIh4znwfwMBEdstZeIaLIhJ1EtC8IgnM9ZdL3/SNEdCIJWSgUStbajwCMicjVpDAzi6reaozZkYB8A8CTIrIxynir1RoOguDHqJ7NZodTqVQdgBER7hVyLxGd8zzvlrm5uT/i434KwJkbZPItAI+KyFgCchbA3SLyYPRtamrKaec11vtaVZeMMdt7giwWi/eHYXgBwGMi8kEs+m7USSJnVrjdLwCYUdWN7RbFzL/GTu3J5/Pfqeq3IpKN5sbd43dVfcUYM9UTZHunRDRsrS0S0T0Aop55WEROZrPZDZ7nnbXWzhpj3puYmEgvLS39BuATa+3zjuM8E2WaiB4IguACM7c38ZzjOJ+r6vFow47jbK1Wq9/8F8h7AQiA2wG0AHyYyWR2R0fWdiJyr31Dfd9/gojOAkgBuE5Ex4IgONHOoOd5p1R1T9zQW6r6tDHmzZ5vd3JioVDY3Gw2f1lLX4tyt7i4OFatVi9HP6lOgMnJSbder2+en5+/slK9c3zX32K3Rvt/1AeQ/XJ54OTAyX450C+ddZHJvwHvVIMs/nRWRQAAAABJRU5ErkJggg==',
-            width: 41.248046875,
-            height: 28
-          }
-        }
-      },
-      '<5': {
-        addresses: [
-          'AI17',
-          'AI18',
-          'AI19',
-          'AI20',
-          'AI21',
-          'AI22',
-          'AI23',
-          'AI24',
-          'AI25',
-          'AI26',
-          'AI27',
-          'AI28',
-          'AI30',
-          'AI31',
-          'AI32',
-          'AI33',
-          'AI34',
-          'AI35',
-          'AI36',
-          'AI37',
-          'AI38',
-          'AI39',
-          'AI40',
-          'AI41',
-          'AI42',
-          'AI43',
-          'AI44',
-          'AI45',
-          'AI46',
-          'AI47',
-          'AJ17',
-          'AJ18',
-          'AJ19',
-          'AJ20',
-          'AJ21',
-          'AJ22',
-          'AJ23',
-          'AJ24',
-          'AJ25',
-          'AJ26',
-          'AJ27',
-          'AJ28',
-          'AJ29',
-          'AJ30',
-          'AJ31',
-          'AJ32',
-          'AJ33',
-          'AJ34',
-          'AJ35',
-          'AJ36',
-          'AJ37',
-          'AJ38',
-          'AJ39',
-          'AJ40',
-          'AJ41',
-          'AJ43',
-          'AJ44',
-          'AJ45',
-          'AJ46',
-          'AJ47',
-          'AK17',
-          'AK18',
-          'AK19',
-          'AK20',
-          'AK21',
-          'AK22',
-          'AK23',
-          'AK24',
-          'AK25',
-          'AK26',
-          'AK27',
-          'AK28',
-          'AK31',
-          'AK32',
-          'AK33',
-          'AK34',
-          'AK35',
-          'AK36',
-          'AK37',
-          'AK38',
-          'AK39',
-          'AK40',
-          'AK41',
-          'AK42',
-          'AK43',
-          'AK44',
-          'AK45',
-          'AK46',
-          'AK47'
-        ],
-        original: {
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAYAAACdz7SqAAACDElEQVRIS+2UPYgTURSFz30ZY4rFYiyWLXXBBX+qFIIxYZKZtxAbG8WfTrGwsxAUsYgBlUWFLRa0EEGwMypYhODMmzAS0lrIdhYptJAFEUFQNzvvysgMhODuOglLLPLaN/d+95xz5xEmcGgCTEyhO+r61N7/317LsmaGpwyC4Ptmk4+dqeM4RwC8HwYIIWZd1137Gzg1tFqt7u73++cBfFNKvZJSXmLmx2EYHgawkUBKpdKHer2ux4Latn2AiK4AuBg3OquUeu04zhMApUKhsNDpdPYVi8XeZrBkgC2V5vP5XaZpntJaXyWiPIAeM98xTfNZo9FYj5pIKVeZeT5WGWW7wcznfN9/MVKmUsrTzPw8spKITnqe93awUa1WE91uNwTwhZkvAzCJ6BaAOSHEftd1e6ntLZfLC4ZhvGTmQ0T0SWt9O5vNPm21Wr+SZrZtz+ZyufVms/k1Vr7IzG+Y+brv+/dSQ5OCSqVyTAhRA7AI4CeAFSHEg3g7k4g4+t6yrJxhGD8A3FdKXRsZOgCfF0LcBHCBme+GYfjIMIyPAG4opZZipSeYuUlExz3P644NHbB0byaTmXNdd9VxHAXgKBGdYeZI9cMoW6XUHgB/1A+f1P/pcAPbtg8S0XJsfXS9prWuttvtdyNtb5oHOH4KZ4Ig+Lxd3dhKtwPsiL1T6FYOTDMdZT/+uWYi9v4G5Ry1HTkvyasAAAAASUVORK5CYII=',
-            width: 29.9619140625,
-            height: 28
-          },
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAYAAACdz7SqAAAB50lEQVRIS+2UO4sUURCFT41Tt3sGUVYWDQRBFANjH8GaiCD4A0QQMVMQQRADRWVB8BWIoIFgsMGyiLmbqJhrsJmZgZiYyYIg43SVc4/cpRtkddyeHmQMpsPurvru+aq4ggk8MgEmptB/an2q9//XS3J2/SlF5Muwk489U3c/TvLVesBgMNjT6XQ+/gk8MpTkZjObb7Vaq6p638weArgsIscAWAVpt9tvRWQwFtTd50jeAzCXGonIVVV9YGbvAOxX1Rl3P6CqK8Ng1QH+mpRkbmbXROQCgO0AvgF4qqrzItJLTcxsFcBWABFAGwBF5Kaq3m00U3e/QfI2AAdwLoSw+Gsjkpvc/Udii8gtkjsAnAeQAzgYQlgZWa+7HyH5AsAMgJRsQVWvi0hKvPb0+/29Mcbv3W73c5k8WXkCYCmEcHZkaFVQFMUpEUnz3J00knwdY7yYtpNkq5xx0guSW9z9K8mXWZadaAytCs3sMIDHAA6JyHKMMaV+D+BZCOFMmfQSgEckT2dZ9nxsaNWg1+vtUtV9qvrGzD4B2AngSlpqAHcAZKqaicha+t8ujmEbVve9ux8luVCqT2VFjPFknufLjba3Lric5WxRFNvyPP+wUd3IN9JGDet8n0LrWGr8z1RvY3V1Ciei9ycUv7gdsp87kgAAAABJRU5ErkJggg==',
-            width: 29.9619140625,
-            height: 28
-          }
-        },
-        transform: {
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAcCAYAAACOGPReAAABU0lEQVRIS+2UMUsDQRCF30sye3cQFLTWSqxtLS3UIhIrf4CF2tlYCXb+AmvBH2ArWAjiLxBBsRTsFAQhReLtLt7ISa6JmOPuvEay9b5v3ryZXaKGwxqYmED/PtV/lKmqCoDpkZA8yd5vweW275w7A7A9AoiNMVEV6AOAeZKdDKKqfWPMXRVoH8CtiGw65+aCILjP25ex7avqlPc+zc4CMMD3CxyQ3BCRm1JOrbVbJM9V9YXkMcl1Ve0C+BCRGZJpsR8nz2nTe78kIo8k41TtnLsCsNpoNDqtVuuyMDQVqGqT5Gcmds7tAzgBsGuMOS0MtdamLR8lSdINw/Bi6PQawIqItEkOCkNVtT0c1Luq7pBcA7AH4MkYs1hqUKnIe3+gqocAZodxvCZJshxF0XNpaCaM43ghCIIeybdKe5onruy0SIHcD6UILLs7gZZJbbymlky/AE7ueB0XJLbWAAAAAElFTkSuQmCC',
-            width: 21.7861328125,
-            height: 28
-          },
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAcCAYAAACOGPReAAABfElEQVRIS+2UP0sDQRDFZ84DFUkRG8FC8AsoYqGNENhbJBK0SmVvYWkhdvF6U/gd7K4z2OT+cE2QKyJWsZYoimchCPFwLzuykIiI5riLaSQLWy3vt2/eDIMwgoMjYMIY+vep/qNMy+XyRBiG019DyuVyslardX4LLrF8xtgBIla/AR4cx5nPDOWcW0S01O12t/sQRIw8z7sdBtomonNN0w4BYLZer7eT5mVg+YVCYUrX9TcAeFJAANAR8U5Kuem6biuTU8Mw1gHgUl1EPCaiDQA4QsRHIcSi7/vxT+CBTiuVihYEwUIYhvfNZlMoAOe8SkSqeSu2bV+nhiqBApumKftizvkWEV0gomHbtpsayhjbRcQzKeWq53lXPaenRLSfz+dnLMt6Tw0tFouTQogXALhBxD0AWCOiEwBwHccpZWqUEhmGsUNEJiIu9yBBHMcl3/efM0P7QsbYXBRFnUaj8TrUnCaJh3aa5oPEhZIG9rkbsoiSNGOnSQmlf/8ALi6KHYBLLD0AAAAASUVORK5CYII=',
-            width: 21.7861328125,
-            height: 28
-          }
-        }
-      }
-    }
-  },
-  ol: {
-    count: 5,
-    originalValues: ['>84.000', '>100.0', '>500.8', '>10000'],
-    transformValues: ['42.000', '50.0', '250.4', '5000'],
-    addresses: ['G42', 'I24', 'I27', 'I29', 'I42'],
-    dataUrls: {
-      '>10000': {
-        addresses: ['G42'],
-        original: {
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD0AAAAcCAYAAADSkrd6AAAFP0lEQVRYR+1We4hUZRT/nTszu1FiTr6gSEETjEwtLcoRmuZ+M9OkK9HDCokeGiUZaJQZRduaaGa4RkIPWh89KNsSSnPduefOjtC6FZhSaER/WFraw7JC3Wbn3u/EF3dknNYxfMTS7vfX/e75zvnO7/zO4yP0wkW9EDP6QPcW1vuY7mP6fxyBvvQ+VXKVUsO01pTL5b6ttJVIJEZGIpEjra2t+7u5h5RSYzzP253P5w9VyjOZTK3WenShUNiZz+e9Snk8Hh9ERAPb2tq++jcYThvT6XT6It/3vwCwhplnly5PJpMTReQ9AMPMPxHZBiDtuu4vZm/b9kwiWgGgX6DzSiwWm93Q0KDNXin1MoB7AIQBeCIyy3XdtUYWj8cHhMPhTQCuDnR/B3AtM2+vBr4qaKXUVUQUKxaLTfl8/rfuDMXj8X6hUOgxIpofOPZSCXQmk+lfLBb3ENFWIrrL9/2RRLQBQAcz1xn75ltEnvR9vzEUCk0lorcAPMjMK5PJ5KMi8oyIZGpqarYWi8WnAMwTkUtc192llMoR0SjP864jokOWZb0OYGw0Gh3S3NzcdTzgVUEnk8nxItIKYAiAdwA0MvPH5caUUjcCeFNE5hLRQgDrS6Bt276ZiJp93x/T1ta2M2DuCQBPR6PR8MGDB18EcEcsFjunjNmPAPRn5rFKKVMmu5g5Y3QnTJgQiUajRwCsqK2tXVwoFH41QWBmkylIJBJXWpb1iYgkXdflkwIdKJl6mwbgcQBXANgNYLnneWtM/WUymcGdnZ2d5lsp9WM5aKXUAgBLotFobSnySqnpANaFQqHzfd83rA5l5otLDiqlmgBMZeahSqkigJXMPK+sXPaKyBat9XLLsrZpra/P5XItRp5Op8/zfd+UzZ3M/NqpgD6qm0qlxmitmwGMFpHFruuaQBxd3YBeZILFzEczyrZtRUROKBQa73leExF1MfOkMtDLAMxl5ohSSoio3nEck0F/L6XU5wB+sixrodZ6i4hMcl23w8jq6+ut9vZ2H8AjzPzcKYEOjN1gao+IxgHYLyIzXNdtqwbatu35RLS0HHQqlarTWn8AYDiAVSIywHXdiWWgXgBwOzMPMkyLyLPlwVVKfQ3gMyJaIiLbiSjuOM4Wo19XV3d2Z2fn4aDZmYzpdlWtadOkwuHw/QBMmg4EYLpiAzMbp6XSYiXTtm3PIKI3IpHIuS0tLX8ETJlO3BTU9GoA1zCzCUCJyXUARjHz5UqpfQA2MPN9ZfIDIvKq6S9E9AOAm5h5vZGnUqkLtdZ7RCRRSUi5rydqZLeIiGlgH2qtF+ZyuU+PF70A0DE1nU6nx/m+v6PcMaXU2yZLAyYfBrBMRAaVRphS6gAAl5lvVUqZZjSCmUdUgJo1efLk1e3t7YeJaK3jOIYYk/p3m+wxWcTMe06KafPYCIfD1ubNm7+pBraMhWNAB458SUT9tNZpIhoNwMzsh5i5ccqUKdGgA2/UWs+xLOte0wOI6DLHcXYkEomMZVmbiGhBKBRa53meYXiiZVkXZLPZw0qpRgBztNbTIpHIPt/3XQDbmDldzd/T9jgpY/pdZn6gLBCXAjCMmbFnXlPvx2Kx6aURZdv2bURk5qt5fBwiokWO4ywN9M3keN7MbbMnou8AzHQcJ2v2weNkI4BYcH671roul8t9/5+BrnaRqbeurq6f8/n8n5XnTKPs6OgYns1mTUb9o1fE4/GzampqBmez2b3d3WFGVaFQsPL5vCmNE67TyvQJb+shB/pA9xAizrgbfUyf8RD3kAv6mO4hRJxxN3ol038Bzx9+O7jn5wgAAAAASUVORK5CYII=',
-            width: 61.1064453125,
-            height: 28
-          },
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD0AAAAcCAYAAADSkrd6AAAEzElEQVRYR+1Wa6iUZRB+5vObec/x0gUtOyZk9cP6I/rDwjIjO1hZGQWGUZJgFJJdJKWjGQoWaWUFFViQpBlUWmR2w0IJzKLSblCZ/dBMwlAMrd2+mW934pVvY12Pa3iJQ+fMrz377Jl3nveZeeYldMOgbsgZPaS7i+o9Svco/T++gZ72PlZxVXU4ABKRLxtzqeoF7r4vhPBDI+buSZ7n7Wmabiai3Z3gffM8H52m6Xoiyhrxcrk8JE3Twcy84d9wOG5Km9kod4+HbhSRS2qHZ1l2HRG9DKBP8d1veZ6P7N2798/xb1V9HMA9ANIC38jMY4ioUuAfAxgVLxOAu/uiEMLsiLl7m6puIqK24n8tSZLr0zR9pxn5pqSzLJtIROOZeQ4R/dpZIncfkOf5Une/pihsQ420uw80sx0AtlcqlSuSJBlJRMsBbBORoUX+1wCsZOZpeZ5Pd/f5AJaIyDRVfQnALQCmM/MqM1sBoJ2IxjLzelXdDmAAEV3r7nuJaI27n87MpxBR6XDEm5LO83x8tVp9A0AA8K27LwghrKxPZmYd7v4wgGcB3A7g8xppM5sTMSK6nJnXFcq9CuBGZhYz+wjAhfFzTVkz2+nuLSLSX1X/ALBLRM4tlG0xs5K7r61UKlPTNP0FwAsiclvEsyy7gYheB3CHiDx/VKSLg+K8zXD3WQAGAoiFrGDmuUS0p1wun93S0rI/zqKq/lVPWlWjMjczc5/azZvZ3Hh57n4+Ea0F0E9ETq0VqKqfAhguIi2qWgWwTkTa6/A/AWypVqvzkiR5C8BdIvJMxEul0uA0TXe4+yMhhDlHTbpB1XZ3j0rH9lnDzBPq8UbSZrba3SeIyD8dpaqxG54joqvcfZm7V0IIg+o84H0iGiciiao6Ea1i5ol1pPcA2A/gQQDL3X1SCCF2T5zxXmaWA1gmIlOOiXRMluf5LHefCaA/gKjonSKytBlpVY3zO7mB9AwATwAYAeBNAK0iEjvoQKjqegAXiUiIShPR2/WXq6r7oickSdJRrVajYU0RkWUF6ZPN7HcAi0Uk1tppNJ1pd+9vZosB3ARAAOwmooVpmj5JRLH1DopGpbMsW0BEc5n5DCLaVczdY0Q0s5jp2MpDRaRvHelvALSJyGmqWgawWUQursMzd//A3e9NkmQrEc1m5oVF7mFE9DWAqY2C1BfalLSZPeDuDwHY6u4dIYRoaoeNTtr7Snd/j4g6mHlRoWQs6rxCyRcB3Jrn+Vl1Kyzu4S0iMkxVt8XOEpF+DaQWM/P9ZqYAPhGR0QX+KBFF7xkhIl8dldLFY6OXiGxqRrZOhYOMrCC5N3YJEcWVFh8oUZWlIjK1VCqdWTjwjwAmEdH86AFJklydpum7qjodwNPROAE8BSA68yBmHkhEe1X1QwBjAdxNRD+5+2oAO0XknGb1HrfHSUEwkv5MRMbUDjWzce4eXTauPQfwPTPHNjzw+DCzee4+r9jx0YReEZHJxYwmZhaJXVbki7v3PhFZUuBteZ5/4e41I9zt7peGEL77z0g3OyjLsmEiso2IohEdFIXrjmDm+Aw9xCvc/SRVHRJCiPN+SMRVRURpa2trHIcjxnFV+oindZEf9JDuIkKc8DJ6lD7hV9xFDuhRuosIccLL6JZK/w0ziGw79RW6AAAAAABJRU5ErkJggg==',
-            width: 61.1064453125,
-            height: 28
-          }
-        },
-        transform: {
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAcCAYAAAD1PDaSAAAD4UlEQVRYR+2VXYhWVRSG33Xa6z3fDGNWU8mYlVTUnehVWFIoU11YRoHgRZFhf8JkgUUZxQhd9ENCUYQEBVYX/dhFWRH2MzdlXaT9UWA/YJZUZJmV38xZ+8xZseV88PWR8w2TJMbsy/Pus86z3/2udQRH4ZKjkBnT0P/VrU07Pe30BA78P+Ph7gpgZsfBo4jsbz1z96wsy8EQwg4R2dtpkrv3lWW5KIQwIiJFpz46Ojo3hDBHVd+dTMS6Om1mTwG4tqPYGMme9MzMHgJwC4BQ79mmqheIyHitvwdgIXBwvLq7P5Dn+bqkufuAmW0XkYH63Zhl2RUhhNcmgp8M9GcAThORpW3OHiD5UVEUy0XkBQAvqurqsiyH3H09gI0kV5vZMwCuAjCkqptjjM8CGBSRJao6YmbfAjhRRC5z930issXdT1bV40SkeSjwyUAfALBdVS83s1PzPP+0VczMtgE4V1XZcjbGuMfdGyT7zexPAD+RPLN2thFjbLr71vHx8VUhhO8BPEnyuqQXRXGliLwE4EaST0wJ2t2PjTGm7KYcsr7ipohcWju1G8AMkse3HeQDAPNJNsysAvAOycE2PZmws6qq4SzLXgFwM8nHkt5sNueEEL5z9/vyPL9rStCt63f3H0TkXhG5xN2XARhV1RNijLvdfTzP89mtDxRF8YaIXEwyMzMXkc2qurwN+hcAfwC4B8DT7r4iz/Pn65s4JsZYAthEcuWUoN09FZmvqp+LyFjdWFsBXJRl2dKqqh4H0ENyVhvUCIDzSObJaRF5VVXTQQ8uM/sdwK4sy+6sqio13EqSm2romTHG3wBsIHnblKBbp2/ltf7oGgCPALgBwE0AziHZ1waVMj9A8iQzGwWwg+T5bXrh7m+6+61Zln0lIutU9f460/NE5BMAq0imqfWPa8JGLIoiReLuqqqWNRqNLTX02wAWq2pfjDE5fU1Zlqf39vamfCcnU/53kpxnZrsA9JOc0QG1QVXviDEagPdJLqr1B0XkdgALSH48Jej0U6gb8Vd3vz5lNXU2gG9Int1sNk+pJ8CXAFaIyPqU+RSdEMLrZjYE4FEAadQ9DCBNhtmqOktE9pnZWwCWAFgjIl+7+8sA9pA841DA6XnXkRdjXOvu6WfQX8flx6qqFvb09CQXEWMcdvfhulZqoudIXl3vzWKMCWxxDZFm71qSG2t9oCzLD9291ch73f3CPM+/+FfQrZfHxsbOyvN8v4j83FmwbtgFqpp+42nM/W2l0Wlmc9tnfPuGNOpEJLSMmAh4Uk53K3Ak9K7xOBJQ3b45Dd3NocOlTzt9uJzsVmfa6W4OHS79L0fA1izBMxd7AAAAAElFTkSuQmCC',
-            width: 45.14453125,
-            height: 28
-          },
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAcCAYAAAD1PDaSAAAEQ0lEQVRYR+2VXWhcRRiG3292k6g10q3RgqLBQkFRKpriT7fiujunMU1SLySoiBRt/aWKFdRCwTRF/GtrW+yNxR+qgpRAL0ytsOebky24xlykFcGKeKH9VUw1ik2T7Z4zn4ychSXYbIjBUsm5O+ed+c4z77zzDeE8fOg8ZMYs9H+1a7NOzzo9iQP/z3h0dXUlhoeHL6xeeGNjo+3r6ztd9Y201jeEYfhDoVA4NdGktra2BmvttaVS6ZtCoRBO1DOZTBMRXdrf3//dVCJW0+lcLvccEW2ZUOwnZr7CfcvlcquIaBuAi+MxO9Pp9JM9PT3WvWut3wbwCIAkgFBEVhtjdjktk8nMTSaT+wDcHs/9A8BdzHxwMvia0J7n9YrIoiiKVlQKEdF4EASHtda3ARgQkZeiKNqaSCQ6iOhjAE8z8w7P814UkddEpK2+vv6Lcrm8AcBaEbneGHNIax0Q0cIwDO8molNKqQ8BLEqlUpf39vaeORv4VKCPisgnSqkXAMzL5/NHK8W01jsBPJROp+dUOfs5gEuYeZHW+jCAQ8zc5ua0tLTUpVIpF6ttDQ0Nr5RKpd/cIpjZ7RSy2ewtSqlBEfGMMTwt6Ewmc0EymRwD8IsDdltMRMesta2xUwUA85n5uqqFvAugg5nna63LAHYw89qK7nmeM2G/tfZNpdSQtXZ5EASfOb21tXVeFEW/AljJzB9MC7qy/S4CRLRBRO4AsI6Ifi6Xy9ckEokviegMMy+pgt4E4FlmrtNaCxF1+76/sUr/2pmglNpord0vIkuMMQNO7+7uVsViMQLwPDNvnha0KzI4OHj18PDw8aGhIecaPM/bIiLucN4kIptFZK4xZnEV1FsAHmDmJue0iLxhjFlfpX8P4AARvSoiB4ko4/v+fqd3dnZeNDY2NhofVrdj//jUzLQDr+Q1hl4uIp8SkRaRlQDuZObmKqjdABYy881a6xMA+pj58Sr9pIi8A2Cr2zEA9zLzHqcvW7bsKmvtERHJGmP6pwWdy+UeJKKPrLUtQRAciKG3i8hTqVRqzsjIyDMANolIkzHGZdG1uJMADDPfp7V2h2kBMy+YALV66dKl7xeLxVEi2uX7/hPx3IcBvAegmZmPTAvaXQrlcvl3AN8S0WMAbnWRiKE62tvbU3EH2GutXaOUehTAehcd3/e/ymazbUqpfUS0LpFI7A7D0Dm8WCl1ZT6fH9VabwWwxlq7oq6u7kQURQbAEDO3ng3Yfa8ZD631PSLSQ0Q3xoUGwzDsKBQKzlF3udxPRK6/usvjFBG97Pv+6/FYd1Nud337758RHQOwyvf9vHuPL5e9ANLx+IPW2s4gCI7/K+jK5FwuN398fPx0sVj8c2JBl/uBgYHmfD7/IwCZqLvWWV9ff1l1j68e41pdqVRSFSMmA56S07UKnAu9ZjzOBVStf85C13JopvRZp2fKyVp1Zp2u5dBM6X8Bj4H9LAEOmPoAAAAASUVORK5CYII=',
-            width: 45.14453125,
-            height: 28
-          }
-        }
-      },
-      '>100.0': {
-        addresses: ['I24', 'I42'],
-        original: {
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAAcCAYAAADbeRcAAAAEeElEQVRYR+2Wf4hUVRTHv2fezBq0WEOaUKSgBRttabpBNH+0zDszw7Aa0Q8rLIgsSirQKDOKtjWpTGiNhH7gllFR26ZQVrs777zdCVo3gkoK9Y/+sDSSytoIc9ud9+6JKzPL7DbO6uo/m3P/ejPv3HPP53zPuecRzoBFZwAjapD/F5VrStaUnEYZqJXryYrFzHONMdTX1/fjxL3JZHJBLBY72tvbe6iCX2LmxiAI9ufz+SOTnZvNZmcYYxpGRkb25PP5YDL706ZkJpO5OAzD7wBsE5FVpYNTqVSTqm4HMNf+p6pfAcj4vv+7/e267koi2gygvrjntUQisaqtrc1UCp6ZXwVwF4AogEBV7/Z9/81qoFUhmflqIkoUCoWOfD7/ZyVHzc3N9Y7jPEZEa4sHv1KCzGazMwuFwgEi2kVEd4ZhuICIdgIYFJFl1r99VtUnwzBsdxxnKRG9C+BBEdky8bxUKvWoqj6nqtm6urpdhULhKQBrVPUy3/f3Hg+0KmQqlVqkqr0AzgfwPoB2Efmi3Bkz3wDgHVVdTUTrAewoQbquexMRdYVh2Njf37/H7mPmJwA8HY/Ho0NDQy8DuCORSJxdUo6ZPwcwU0SumBg0M9s22CsiWftuyZIlsXg8fhTAZhF5ZEqQxU22X64D8DiAqwDsB/BCEATbbP9ks9nZw8PDw/aZmX8ph2TmdQCejcfjM7q6ukaLkMsBdDqOc0EYhla1OSJyaSlAZu4AsFRE5lSALADYIiJrytrhoKp+JiK3nwrk2N50Ot1ojOkC0KCqz/i+b8HHVgXIDTY5IjJWMa7rMhF5juMsCoKgg4hGReSaMshNAFaLSKwCpBJRq+d5tmKOLWb+FsCvIsKnBNna2hoZGBi43vYOES0EcEhVV/i+318N0nXdtUS0sRwynU4vM8Z8BGAegNdV9Vzf95vKgn4JwG0iMquSkqr6fHlymfl7AF+LyC1TgrSXSjQavQ+ALbvzAHwDoE1EbJBaIYhx5eq67goiejsWi53T3d39VzHz9mbsKPbkGwCuFRELXFKmE8AlIrK4gv+fAewUkXvL7A+r6lbf922MFddkF8/NqmovnE+MMev7+vq+PJ6jIsA4yEwmszAMw90AbhSRHUWb92yVWaWY+WEAm1R1VmmkMPNhAH4lZZhZAMwXkfnWVzqdvsgYc6A4RmwvnzykHe7RaDTS09PzQzW4sqyOgyxC7SOiemNMhogaANiZ+ZCItLe0tMRHRkb+APCxMeaBSCRyj+1hIrrS87zdyWRysR1Ptk1EZF8ymcxGIpFPiWid4zidQRBsBdAUiUQuzOVyf08J8kTAKvTkByJyfxn45QCsAnYM2a+TDxOJxPLSyHBd91Yieqs4Y48Q0QbP8zYWE2TH03YiYs/zfAD2pn/RzlH7noh+ArDS87xctVhP2xfPZAmxpTU6OvpbPp//Z6KtvdgGBwfn5XI5WzH/6fWJ9s3NzWfV1dXNzuVyByc791gyTsRoutvUIKe7gqX4a0rWlJxGGaiV6zQSq2qo/wIFiwY77pfcJQAAAABJRU5ErkJggg==',
-            width: 57.2099609375,
-            height: 28
-          },
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAAcCAYAAADbeRcAAAAEIElEQVRYR+2WW4iVVRTH/+v4rbUnL1FYWPaQ0YP1IhpY2EWoBjMrezKKkh6CQBJCUphMULCLUlYQgREMXQwqLbpRYaEIJlFkVA/dXqYbYSiB1sx8a+2ZFUu+iTPH45lmcgZqzn465+x11t6/9V+XTZgEiyYBI9qQ/xeV20q2lfwPRaCdrqMVS1XnAyAR+bzxv6p6qbsfTSl907jn7rWcc2dRFAeJ6PBI57r79JzzlUVR7CWiciT7U6akmS1y9/0ADojIVUMHl2V5MxG9BGBa9dtvOeeFU6dO/TG+q+pjAO4FUFT7B5h5MRENNLu8qn4EYFEEE4C7+9aU0v2tQFtClmW5goiWMfN6Ivq1mSN3Pyvn3O3uN1YH7x+CdPdZZvYTgB8GBgauq9VqC4noBQA9IjK38v8qgJ3MvCrnvNrdNwHYLiKrmmTDiwDuALCamXeZ2Q4AnUR0DTPvPRloS8ic87LBwcHXASQAX7n75pTSznpnZtbl7g8BeBrA3QA+HYI0s/WxR0TXMvOeSrlXANzCzGJm+wBcFp+HlDOzX9y9Q0RmNoH8A8AhEbkw9sLOzHrdfXdKaemYICtHUS9r3H0dgFkA4qAdzLyBiI709fVd0NHRcSxqSVX76yFVNSJ9OzNPI6Le8GdmGyJY7n4xEe0GMENEzhy6oKp+DGC+iHQ0gRwEsEdEOuvs/wTwrYhcMmbIBtU63T2UPIOI3mbm5fX7jZBm9qa7LxeRvzNGVUPtZ4joend/3t0HUkqz62r4fSJaIiK1JpBORLuYeUUd5BEAx0Rkzr+CdPcpOed17r4WQKRRKHaPiHS3glTVqL+VDZBrADwOYAGANwCcJiKRIceXqkZtXS4iUSLDlqoOEtE79cFV1aNVjc8bE6S7zzSzbQBuAyAADhPRlqIoniCiSJ3GSwxL17IsNxPRBmY+h4gOhXFZlo8S0dqqJiM154rI9DrILwGcKyJnN/HfB+CgiFxRZ1+6+wcppWh8TVfLxmNmD7j7gwC+d/eulFI0oZOuJum61N3fI6IuZt5aKfUFgItCKVV9DsCdOefz60ZKzL2osROUUdWeyCQRmVEFbB4Rhb9tIhJZNnrIarhPEZHPWsHVRXWYkhXU75EFRBSRjgfBFgDdInJXb2/veUVR/AzgOwC3EtGmqOFarXZDURTv9vf331Sr1R4mohgZ+1R1NYCnovEBeBLAawBmM/MsIopzRg/5T8DqbSolPxGRxUO/m9kSd3+rGkMO4GtmDgWOD3sz2+juG6sZmwG8LCIrq70YT4/EaBKRZ+NlZGYfAri68h8d+z4R2d7qrqfsxTNSQMqynCciPUQUjWLYisZmZguYOZ51J9R6E/vTVXVOSinqd8Q1YZAj3mQcDdqQ4xjcCXXdVnJCwz2Oh7WVHMfgTqjrSaHkX8ei/Sw6C3CvAAAAAElFTkSuQmCC',
-            width: 57.2099609375,
-            height: 28
-          }
-        },
-        transform: {
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAcCAYAAAD815boAAADK0lEQVRYR+2VTagcVRCFT026zp15vCgaJBhRA4ruQnQjURGU5w8kxlXAhSIu/Ak8dBEXCkICgiIoKIIEBDe6EI0rRST+BBcGN0ZUXCgIISgqaiRqJtN1O11Sjx5onpP0MLwsAnOXt6pvfffUudWC82DJecCIOeRadWmu5FzJtVJgrc7p9KS7K4ALVxXMInJivOfuvaqqloqiOCIif3TBuftiVVU3F0VxSETKrvxOSDN7HcCDqw4akRzEnpm9AOBxAEWTc1hVbxGR05OKm9nnALYBK+PP3f35lNJTZwOdBvJbAFeIyPaWcidJflWW5S4ReRvAO6q6u6qqZXffB2A/yd2rC5vZGwDuA7Csqgdyzm8CWBKR21T10JlAp4E8CeBLVb3HzC5PKX0zPszMDgO4QVU5Vi7n/LO790lumAD5L4DfSF4VscjLOQ/d/WBK6a6ZIN39gpxzeC98w6ZFQxHZETc3s2MA1pO8qAX+BYCtJPsTIGsAn5JcauWHCN+TvH4myHE73f0XEXlGRO50950ATqnqxTnnY+5+OqW0aVygLMsPReQOkr0JkC4iB1R1VwvyTwD/kNw8E6S7r8s5b1XV70Rk1DyUgwBu7/V62+u6fhXAgOTGVtHw1o0k0yQlReR9VY2Lriwz+xvAUZJbZoJsfLOu/VLN7DEALwN4GMCjAK4ludgqGp69lOQlEyBPAThC8qZWfunuH6WUdswEWZZltPjpuq539vv995qbfwLgVlVdzDmHkg9UVXXlwsJC+DOUCf+Gx/6njJkdBbCB5PrILctyi4h8DeBFkk/MBBlDt3k4x939ofAagEcA/EjymuFweFlRFD8B+AHAvSKyLzwbViiK4oPRaHR3r9d7VkRi5HxmZssAXgEQo+clAO8C2KSqG0Xkr5kg46Oc8x53j2G7MlLc/de6rrcNBoNQJeJ73X1v8/IrAG+RvL+JPenuz4U1SL4Wf6ac88fRiQZoCGAPyf1nAoz9zjk5/ng0Gl2dUjohIr+vPrB5YNepavwWY8ycdcVoM7PN7Zm7JpBdhc9lfGolzyVE19lzyC6Fpo3PlZxWqa68uZJdCk0b/w+rBmcsMhdk9wAAAABJRU5ErkJggg==',
-            width: 41.248046875,
-            height: 28
-          },
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAcCAYAAAD815boAAADeElEQVRYR+2VX4gVdRTHv2dmvRm60Q1loShJCIpCyRUML9Jy5zcr110MgqWiIlBLigoNqg3BdaOHyiRFXxR9iAIR8aWtHmbO7zJB27YPKyKoDz2U2h/xWhv4p73N3N+RX9wLw3LduVzWB+HO43zP75zPfM/5nSHcAQ/dAYzoQM5XlzpOdpycLwfmK0/mTA4NDbmVSuXudMHu7m4zNjZ2I/WOlFJPJEnySxRF17LgSqXSXcaYR6vV6pkoipKs+ExIz/PeIaI9sxL9ycz323ee520mor0AFtdjDhUKhddHR0dNs+JKqYMANgHoApCIyBat9RdzgWZC+r5/XERW1Gq1jY1ERDRTLpfPK6WeAjAhIjtrtdrnrusOEtFRAG8x84HZhX3ff19EPhaRUi6X+zGO410AtovI41rrs7cCbQXyooh87TjOewDuC4LgYiOZUuoQgJcLhcKihnNKqR8A3MPMK2YXVUqdB3CWmUtW6+3tXZDP5+3Y7GXmd9uC7OvrW9jV1fUvgMsW0LaIiH4zxqy3X66UigD0MPNjKfAjAAaZuacJZAzgADNvb2i+71sTvmfml9qCbLTTtpSIdonIOgDDRHQpjuOHXdf9iYj+Y+a1KcjdALYx84ImkEJEI2EYfpiKP21NYGbVFuTIyIgzOTn5UKVS+X1qasq6AN/394iIvUxPishnInKv1np1quh+AC8w85JmTorIp1rrHan4nwGcZObn2oK0hyxo+qb6vr9BRL4lIiUirwB4mpmXpYoeA/AIM69qAvkHgDFm3pqKvyIih7XWw21Bep73IhF9ZYzpLZfLJ+tO7hORN/L5/KLp6em3AewWkSVa67+srpS6AkA3c0YpxQCWM/NyG9vf3/+gMeZCfQ3ZWW76zHm77dKN4/gfAOeI6DUAa2yL6xCDAwMD+Wq1+jeAb4wxbzqO8yqAHXYUwjA8VSwWV7mu+4FdUcx8rlgslhzH+Y6Ihl3XPZYkyWEAqx3HeSAIguttQdadeUZERoloZT3JZJIkg1EUWcfsMn+eiL6sL+drRPRRGIaf1M8+C+CEHY0wDDUA+2faZ/eo1e2mALA5DMPgVoD/x80lpjXP83pmZmZujI+PX519xs7txMTEsiAIfgUgWTntasvlckvTO3deILMK3069ZSdvJ0RW7g5klkOt6h0nW3UqK67jZJZDreo3ATVkhSzX/o4hAAAAAElFTkSuQmCC',
-            width: 41.248046875,
-            height: 28
-          }
-        }
-      },
-      '>500.8': {
-        addresses: ['I27'],
-        original: {
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAAcCAYAAADbeRcAAAAE6klEQVRYR+1WfWhVZRj/PeectUHDvCWtIhUbkYWViVF057rtvOdaqRXV9YOoRA0MEiKikqy1jMqEFhQJyawoMFuFfSzdPc/ZDtlaLlYWhX/0h31BobMrIZk7H0+8cq5cLnfTLYKV9/xz73ve9/n4Pb/n9z6HcAo8dApgRBXk/4XlKpNVJv9DFai268mSlclk6svP+r5/uPRdS0tLY01NzZ/d3d2/VvBLSqlZYRjuK7erlEMulzutUCg0MvPek8nxHzOplLoUwDflwQzDaMjn8/sdx5krIu8CmKbPiMgggPme5x3Ua9u2VxLRCwCKhXolnU7f29bWFpf7bG1tNfr6+jYDuAuABUAXbB0zbxkN7KgglVJXE1E6CIIO3/cPVXLkOM4qEdkcRdEsAGHxTHNz8/cDAwP1QRD8RESfEdHyKIoaiehDAP3MvEj71/9F5PEoitpN01xIRFsBrGHml8rjOY6zWkQ2EVFTEAS7Lctq1SDDMJzq+/4vIwEdFaTjOLNFpBvA2QDeBtDOzJ+XOlNKdQBoTqfTF+3atWvGvHnz9hVZsG37diLq1AXo7e39TtsppdYBWJ9KpaxCobAJwJ3pdPr0oo1S6lMAk5j5sgogN4jIQ2EYpnTRlVI3A9gO4Dpm9scFMjHSerkJwKMArgSwD8DzYRi+pvXjOM63ItKYsKhbLhSRZZ7nvaOUegTAM6lUqrazs3M4AbkYwDbTNM+Lokiz1sDMFxcTTIq2kJkbypPOZrMz4zj+AsABEfmYiO4mokNBEMzwff94F5XbjUmT2Wx2VhzHnQBmisjTTU1Nj/X19UUADorIagBnEtETAM41DOOCOI5X6uIw8/E4tm0rInJN05wdhmEHEQ0z8zUlIDcCuJ+ZayqAnBrHcV7HL+7pVvc8b/24NVk0TAR/i3ZIRJdrwYvIHZ7n9dq23VBXVzfc1dVV0Ocdx8nqFheRh/WaiDaUgsxms4viOP4AwHQAW0Rksud5c0tAvghgGTNPKU9cKaX1fL1hGLZpmruDIFgDYKOIrPI8T8um4jMqk3o0WJalGdJtdxaArwC0MbNOUortnPweW2cymTrLso4kwb8mojdramrO2LFjxx9Ju64A0JFo8lUA1zKzBnzsUUptA3AhM8+pAPIIEW13XXdZiZQOENGA67o3jguk4zg5EdEXTlccx0/29PQMlDrKZDLnW5b1M4C1zPxswuSNItKlb0DDMA5HUbQHwG3M/F4C4i2NRTOllHowKcaU4khRSg0B8Jh5yQggt7muu1zv5XI5s1Ao6Hn8CTPPHxdIpdQ0y7KMnTt3/jCSA6UUA7iKiJaIiO6Ml7U2mXmSZlsptZeI6uM4nk9EWkt6Zj7AzO0LFixIHT169HcAH8VxfJ9hGPdoDRPRFa7r7mlpaZljmuZaLRM9+B3H2SoiS0VkuWYPgC7SCr32PO/1cYEcTczFPdu2LyGidgDZ5N3+OI5v6Onp+TJhTn8s6ELoMaRvwPfT6fTikjGzlIjeSIb7YSJ6ynXdDYntrbooRKRc1/Uymcxky7J0Oxdjac0/57ruMf3/ayCLjpNPu3rf93+rFCybzU4dHh4+4Pv+X+X7+mLr7++fns/ndccUtT5i0jpWbW3tOUNDQz8ODg4GJyJjTCPkRM4m6n4V5ERlZqx5VZkca8Um6vkqkxOVmbHmdUow+TdNbCw7nupFZwAAAABJRU5ErkJggg==',
-            width: 57.2099609375,
-            height: 28
-          },
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAAcCAYAAADbeRcAAAAEhklEQVRYR+1WW6iVVRD+5vefWftsu3iLUh+iqxVlCmlQFERiZBfpQekmEkEgSSEqHMzQKE0pi0iiiKSLQiZUJKj1UPTQ5SG7GZQFoZZEYUkSx73W/HtPzOHfstttd3Y8cCjPvPyXdZn55vtm1iKcAEYnAEYMg/y/sDzM5DCT/6EMDMv1WMkys3Htc4noQOu/lNJ0MzsUQvimfa6ZZUVRzMjz/NP2dZ1iMLNqURTTmPn9Y4nxuJlU1Zlm9na7s3q9fk5PT8/3McbZRLQJwMhyzi8eYLVa3effKaXHAdwPIC/HP2Tmq4mo3iEZI1T1AwDTgf7jr2Zm60MIS7uB7QoyxjiHiGYx8zIi+qnTRimlJwAsIqJrPebmnDzPPwIwTlV/ALC3Xq9fl2XZNCJ6GcAeEZlU7v8agC3MvKAoioVmthLAsyKyoN1fSulpAD7ndhF5vSiKzWY228wuCSF8dTSgXUEWRTGr0Wi8DiAA2GVmD4cQtrTJ8GMAFzHzaFW9jJk/abKgqsvMbJUngJnfLZnbDGAuM4uqutwu9/eWNfvNrCIiY9uDjjFuI6LrmXmCJ11VF5uZK+EuEXlxQCB9UVkvi8zMJXE6gD8AbGTm5UT0a0rpNwCnAmiUkjMiWs7Mq1NKGwHcwcwjiajP91PV5Z4sM7uQiN4BcLKIjG4GmFLypE0RkUp70Kp6lZl5smoAdgK40tXDzGOIKA4YZOtCVZ1hZs7kKCLamuf5LapauCMiesjMPAn3APAAXZoPmtnNInJEMSklH3/OGTGzl8ysHkKY0PQTY9xBRDNFJOvA5GQicvZHtYxtEZG5A67J5kIzG1EUxVIzWwLAZeSZvFdENtRqtXMbjcbharW6v5Sj19IzAF4p189rA7kIgNfxVABvAugREU9Ov6WU3gNwhYh4ifzFUkq7AZwHYD4zv6Gq6/0dwDoR8dg6WteaNLOxqroOwG0ABMABIlqT5/mTROTy7JezP1u+T1HV381sBwCvT5fuGUT0s8+LMT5GREvKmnRpThKRk1pAfglgvIic1gGkd9xdIjKl6VtVDwPYJyIO/t+DVNUHzOwRAN+ZWW8IwZvQEYsxXkxEuwBsEpE7SybuA/CUd8Asyw6a2XYi6mXmteX4FwAucKZSSt4s5hdFcWbLkeK1tVtEJh8F5E4R8SPEE8yq6qraKyJnDwhkSskzNkJEvMg7WkppD4CJABaXZ9cq78bMHJzdlNJBVwER3ejnm5mtAbBBRO7u6+ubmOf5jwC+BXArEa30Gs6y7IY8z7fVarWbsixbTUQL/eBPKX0O4FIzW5tl2XZ/enf2Zwihd0Agj7ao9b+qXmNmLwA4q/wfG43GnEqlstW/y8vCW+UxZAC+ZmZvIP2HvaquMLMVZYK8ib0qIvPKsV4ze9SbmYg8b2bjy8tA05ezuT2EMKtbrMd942lu7le7GOOYSqXirPzNYoyTRWQPER1qH/TGpqpTmdmvdf213s28VxRFcX6e558Rkcu1qw0ayH9yNJTjwyCHMvuD6XuYycHM5lDuNczkUGZ/MH2fEEz+CS1iKTvHnF8ZAAAAAElFTkSuQmCC',
-            width: 57.2099609375,
-            height: 28
-          }
-        },
-        transform: {
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAcCAYAAADIrlf0AAADiElEQVRYR+1VSahcVRA91d1Vt38nDsSFKAYicUIwGKc4bb5ECCghCOJGBEVxIAhOJOKwEtSFKAh+dePCWaNudBOHIJiFwUQcQAIS4mxAjTg0eVX3vZIKr8Oz/T/fn/QH+faFt3j31q1bZ7h1CQtg0ALAgDGI/4qKYyXGSoyQgf+XnVT1zJzzT71e79smie7eAxBfc/SJqD+YcPfFOeeLO53OFiIq/o0Ikbcsy8l2u72ZiOxge2ZVwszucfcNAI6IRET0XVVVt6WUXo1/Vd0F4MShQ7aLyDn1+lYAF8RWAO7uD6eU7p4NiKp+COC8qqpO7na7Xx4yiH6/f0Kn0/kawAfMfEVRFEtarVYUtYSZu8GQqiqAHUR05+CgnPP3ExMTu1T1WQBXA1jPzJvM7DkAq4noEmbeMlNhZrbB3R+K9cMGYWZr3H1jzvmaXq8XYGBmb7j7upzz0vjvdDrfENFdOefX3V2bdlPVPwDsEZHlEevuXTPru/vmlNKa6UAURXE6EX0G4BMAKw8bxPAh7s5m9iuAtoh0VfVmAE8A+BPAojr+K2ZeRUR7VLUC8J6IrB7kUtWI3SkiZ02Tv21mPwL4gYhecPcHRw5CVXcEOwBuF5FHVfUVAFeG3QA8D+B6AGcD+DiKVFUnok3MHDH7h6r+DOB3EVk2DKJW+TJmXppzvnakIGoFtgM4A8AzInJdbY/FZnaaiHzUKPIXAEeLSCuUIKI3mXltY/03ALtFZEUTRFEUVxHRSwBuEZEpM9s4MhA1gM8BnALgaRG5sXm4u7eJqGwU+S6AuLiLzCxY3yEiFzXWC3d/O6V0eTOPqu6szxi00zaAFoAMYEpEbp2pEczaYlX101qBR0TkQAeqrbEt7MPMRxFRXOKwy15335dSOk5VdwM4RkT2t+eiKFYQUVzYf+Qys3urqjp/UCgRnQrgJADvu/tUSunlQwKhqjcE+wCC0b8lYeb7y7JcVVXVWwC2EdF97h4gLwXwlIjcpKrrATwOIFrrYwBeA3A8Mx9LRHuLoniAiNYOW6vugqOxU+MiT0fCuXEXVPVFAOsAdOugrcw8GW+Iu7fM7B0Ak/VavOJ3iMiTtWrx5lzIzGHJ6GQHxuCtKMtyebw5M6kQ87Pa6WCbhzy9kpm/IKJ9w3vc/UhVXZZSCmuOfIwMxMgrm0PCMYg5kDWvoWMl5pXeOSQfKzEHsuY1dEEo8RexacEsFZYtdQAAAABJRU5ErkJggg==',
-            width: 49.0341796875,
-            height: 28
-          },
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAcCAYAAADIrlf0AAADzUlEQVRYR+1VTWhcVRT+7p28SRdd5CmhajFCKKgUFIwLcRVezp0woCKFsYsU/38WaqD+tShlTBciXahFBSv1r2ihDKIQ6JA354aIpLowikXrQsHaimCjTkaqkM57c+SGN/Ac0iadTkDi3N2757zv3O983z1XYR0stQ44oEviv6JiV4muEh3swP/LTkQ0kMlkzk5NTf2RbmKhUMjOz89n03v9/f3nSqXSueZePp/vbTQa1y0uLn47MzMTrUYEh1utVrf6vn+8VCrFF/pnRSWMMQUReQHAlgToUwDPMPPn7puIpgDkWoocYuZ7kvgBAPcD6AEQiciD1tr3ViJCRG8DuE9ErrDW/to2idHR0cviOHYAb0ZRtAvAxp6enqMArvd9f6PrEBEtAPgwjuN9zUKe51XDMDxjjNklIi+KSD6bzR6r1+vPA9gpIluttSfOdzAi2uYwXbwTJG6MoughAEVr7e8O1BizV0T2ZDKZy913HMdu/06t9WdKqShtNyL6CcAJZs673KGhIc/3/b8BvMLMTy9HIgiCzVrrHxISY5dMorVIoVDILCwsnBSRLDNvMsbkRMTZ6RSAgSTfep63rVwu/0lEdQCvMfPOJpYx5rSIfMLMO1rxi8Winp2d/QLA9wCOOCIdJ0FE7wMY01rfEYbh5MjIyB6l1F4AbyilPhKRMQB3A/jAHZKIRClVrFQqLmdpEdFxAGeYmVpJJCqPe543UK/XXbxzJJwC1Wr1MIC7RORJa+1L7gBu6sRxfFUYhj+mOv2NiFzLzJ5TQkT2WWufS5FwXf6SmbenSQRBcKvWelYpNVqpVMLmveiIEgmBjwHcBmCcmV9NF3cWmJiYaKRI7BeRcd/3e6vV6kkAk8z8SIrEbyJy0Fq7O41DRJNJjVqy3wtgA4CzIvKUtdZNuWXXiiOWiJw3nQJuNL6VRjHGvCsi2z3P6yuXy4uJXb4DUGPmW4iIAQwy86CL5XK5qxuNxqnlsIjI1bipia+1vsFNNRF5XUQOT09PH2uLhDFmRERYRL52YzYNEsfxIc/ztojIVwDeAfCyUupeEXmiqVgQBHmt9VGl1O5MJnMkiqKDAG7WWm8Ow/AvY8wOEbm91VpJM5bG7CXbqXmRl+uA1nrQ3QVjzLMi8hiAK12eUupAX1/fo8krq4hoP4DHk9jPAB5wnk8O6izyMDNr9yS02GuJhNZ6k3tzzqfCEu6FghcTC4Lgmlqt9svc3Jwbq/9aw8PDG7LZbH8YhqcvBnO1uR0jsdqCa5HXJbEWXW0Hs6tEO11bi3+6SqxFV9vBXBdK/ANIHd8s9Z8WbgAAAABJRU5ErkJggg==',
-            width: 49.0341796875,
-            height: 28
-          }
-        }
-      },
-      '>84.000': {
-        addresses: ['I29'],
-        original: {
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAcCAYAAADRJblSAAAFlElEQVRYR+1WaWhcVRT+zpuZpLGixtZWFO2CYkWtS9yn4nTenUnGmKJIcN8rVlywuIJiTJG6VGyr/aHFXURqRMXWps47bzIFY1TUuqAoInWtC2ospq3jvHePnPISxpili4FAcv+9d+6559zvfOe7hzDGF43x+2McgHEGjHEExltgjBNgXAT/txaor6/fV0Qm5vP57wZjleu6k2Kx2H75fP7zYZhHxpgjgyDYWCwWe/rvzeVy1dbaWaVS6dNisRj0t6dSqclENKmjo+OL4Ri+2wCk0+kDHcd5DsBcDSYiHxHRAmZ+uzJ4c3NzVXd3t158AjMfMARIVxLRMgB7RntWJpPJa1pbW61+G2MeA3AFgDiAQETm+77/jNpSqdQ+8Xh8LYBTIt/Nmhczbxgs3pAAGGNOJqJkuVx+olgs/jHQIcaYVwCcFovFjurp6empqalZDWAGM09XPHp9MpnMoyJyNYAfBwNA4wHoEpG7wjBcGovFziSiFwBcz8wrMpnMbSJyn4jkqqqq3iqXy3cDWCgiR/i+/5kxpkBEhwZB0EBEPVFhZtfW1k5pa2v7e6D8hwQgk8kcIyJvAJgC4EUAS/tX1nXdD4mohpkP0wCu664gomsTicSE9vb2UlS1RgCvAmAARw8BwEoAFyeTyYkVFX8TwF7MPNsY8w2Az5g5p+fW1dUlamtrtwJYVl1dvbhUKv2ugDCzMgjpdPpEx3HeEZGM7/sa+z9rR1pA+3EegDsAnABgI4CHgiB4WvvTdd3zoir5AH4CcCGA55n5ooiW+8fjcfW5FsBJAJqGAKAIYCozH96bqTHmCQBnMvNUY0wZwApmXljBrO9EZL219iHHcd631p5RKBTa1a66FIbhbwAuZeZndxWAPr9sNnuktbYNwCwRWez7/h2u684lotcqelZ1oBdxBa8LwFZmTkf9OygAruu+R0R/M/OpFQAsAXAjMyeMMUJELZ7nLaqwfwzgF8dxFllr14vIqb7va0y0tLQ4nZ2dIYBbmPnBXQYgOugs7U0iOlr7WEQu9H2/wxjzJ4BNiry1dnMsFltJRGfH4/EZQRAoG+4Ukem+7/88HADGGBaRfXzfP77igo8AOJ+ZJysDROQBBb7C/iWAD4joXhHZQEQpz/PWq72pqWmPbdu2bYmEUpm0cy2QSqX2jMfjCwDcDmASAFXTVmbWiovrurOJ6CMRuaxXiRsaGqbr8wXgBgCLI2aoGuuaGKn35jAMkx0dHZ9WZmSMUZqezszTKi64CsChzHycMWYTgNXMrGK6fRljfhWRx1WfiEhb8Bxmfllt2Wz2IGvttyKS1mLtNACZTKZZRFT8XrfWLioUCu/2S/goAB8T0QWe56laa1Btk09E5CYA1QD27vVRZgA4WESWh2G4rFgsasJ9yxhzM4AlIjLZ933t3e0XBOAz87nKEAAzmXlmvwvOnzNnzlOdnZ1biOgZz/O0aOp7OYAnAUxj5m93GgBjzMHxeNxZt27d1wM5Nzc3x7q7u7Uq1SLSJCIhET1MRHXW2kMKhcJX/S6ob3ifBqRSqQmJROI5a+0q3/dfamxsrI2UfI219jrHca5S8SWiYz3P+zCdTuccx1lLRLfHYrFVQRBo5Y93HOfAfD6/xRizFMB11tp5iURiUxiGKszvM3P9QPnrvx15BQbz7aWgsmCNVjba+BcRXeJ5norlv1Y0C8zrfQVyudxe5XJZ22MJM9+qm6NXRQcrHXR6iOgez/Pujw5SUV2uc8H25Im+B3Cl53l5/Y4GIc0lGe3fYK1tKhQKP4wYAL0HZ7PZKUEQ1BQKBaVa3wA0JHqDGFV0u7q6puXzeWXef85S5lRVVelIPeDYrc9fqVRyisWits+Qa7cZMFyA0W4fB2C0V2ik8xtnwEgjPNrPH2fAaK/QSOc35hnwD+ZHoTtI8G7/AAAAAElFTkSuQmCC',
-            width: 64.99609375,
-            height: 28
-          },
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAcCAYAAADRJblSAAAFLElEQVRYR+1Wa4hVVRT+1rlnrX1n0iwtZUxUDJL6YT6CyixJBisjoUAwKJIMQrJ3ktpDo5dFZlQ/LOhhCT20oCy1DA1KK1DLgsQUsofUgGb0uDNn7TN3xRrOyGV0xlcDwsz+de9Ze++19vd969ub0MMH9fDzoxeAXgX0cAR6W6CHC6DXBP+3FqhUKkNKpVL/EMK3namqUqkMZeZhzPxZV8ozsyTP88Y0TbcS0d6Oc82sT57nE9I03UBEWcd4c3Pz8DRNhzDz54dT+HEDkGXZOUS0BsDQItk+M5sVQlhRm9zM6mOMTQBSEanrrDBVfQrA7T6vmLOJmS8holb/r6obAVwItKnXzOyJEMI8j5lZg6puIaKGYm1MkuTqNE0/7CxflwBkWTaNiKYw83wi+u1Qm6jqdgAjzOxcEdkXY9wCoD8zn0xE1fY1qupsXASgpTMAinxvA1jBzLPyPJ9tZgsBLBWRWar6OoDrAMxm5pUxxuUAGoloEjNvUNWfAJxGRFeZ2X4iWmVmA5n5FCKqHKr+LgHI83xKtVp9F0AA8J2ZPdyRWVV1ibKI9CsY+hTARGbuS0T/FN+c0SUAfgQwuDMAVHUTgPOZWdoZjzHuMbOyiAxQVd+vSUTOLBgvxxgrZvZxa2vrzDRNfwXwkojc5PEsy64honcA3CwiLx41AEUS78c7zWwOgEEAvIjlzHw/ETnjCwqWHP0/AIwB8LWIjPX1LS0tZyVJst3Mniai8QDGdgHAzwD6isipNcr5EsBoESmrqitqvYg01sT/BbCjWq0uSJLkfQC3isjzHndfStP0FzN7PIQw/5gAqF0UY2w0M+9tl9QqZp6qqjcCeKGmZ31JG+JuZqq6h4hURIYV/dsVAE1m1hpCGNyeN8uytUQ0WUR8LyOilcw8rQaAfQD+BvAAgNfMbHoI4a2CvFKMMQewTERmHDMAZlbK83yOmd0DYIATC+AWEXlZVaODDWBya2trU6lUWg3gbADnAXDVTKtWqyPL5fKuIwBgN4A6EXGltQ1V3QBgvIgEVwARfeDA18T/ArA7SZK51WrVzW6GiCwrAOgXY/wTwGIR8doPGl16gJkNiDEuBnAtAAGwl4gWpWm6xA0uxniZma0tnHhuUfA4AJsBeM+5OtzNHSQf/ttzRiK6nJnX11bkDg5gpIj0qTmgX6sNInK6qjYD2CoibqbtAGVmts7M7kiSZCcRzWPmRR7MsmwUEW0DMNPJOmoAYoz3mdkjAHaa2dwQghvigRFjnGxmH5nZQyEEd2sUbbIOwCtunmbWZo4+iOhiAH3MbI2Z3VUul3/oAMCrAG7I83xYfX29+4ErwO/5HSIySlVdIQNEpG+HAy5m5ntjjArgCxGZUMSfJCJX4RgR+eaoAVDV0QBKIuLMHDTMjGOM3n+JmTnbzuyzAAYCuEBEvupwQL/DD3iAmZ0cY9xIRG8w82OVSuWMwskdmOlEtNDMpiZJcmWapqtVdTaA59yEATwDwB1+MDMPIqL9qvoJgEkAbiOiXWb2HoA9IjLiUPW3kdJZ4Ei/FypwZZxUrPE+fZCZH+24R/EWGNd+C5jZoBjj795GIYQrCgX5rbKgqM0N7E0Rud5jbqoxRj/kpcXe7j13i8jSIt6Q5/lmM2s30b1mNjGE8H23AdC+cXNz84hSqdSPmbfVPoCOFMjaeW66McYxzOxP4QOPqfY5rhxVHd7Zs9uvPyJK6+rqvGW6HMetgMMlONHjvQCc6Ax1d329CuhuhE/0/XsVcKIz1N319XgF/AdRnoY72uH6XwAAAABJRU5ErkJggg==',
-            width: 64.99609375,
-            height: 28
-          }
-        },
-        transform: {
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAAcCAYAAAA0u3w+AAAEdUlEQVRYR+2Wa6hUVRTH//8zZ60z96pZZKYiagZZEEGGQaWEJpWQRoFRWBAY9sXehQpKQWRZaEF9KHqAllRgH+xlVChRUUFvIXsYaSZkL8NqHmvPPSu2nJHpNuP1ah9uMvvTzNn77L3/67fWfx3iKB88yvWhK/D/TrhLsEtwiEegm6KtgCqVygQRmSgib/cHF0KYmabpByQrA0F19+GNRmN6mqZbSNb7r69Wq5PSNB0vIu+028vMznb3fVmWfTnQWYdM0N17Qwh7AKSq2tPcOISw0d3nABAADmBrnufzy+Xy1x0u9y6Ac4D9LcrdfVWWZcviWncfa2YfkRxbvBuSJLksTdNX4v96vX4pyfUAhhXzPzUajWm9vb3fdxJ6yALNLEbzPAC1pkAzWwjgCZJ3pWm6stFozHD3NwDsUtVJ/Q81s6cBXA1gsYhsCCE8A2A2yVkissXMdgIYRXKuu+8l+ZK7jxaRYwGMCCHsArCzr6/voiRJppFcB2CHqk45IoFmdhOABwF8B2BcU2AIYUme59OzLJvbPMDMfoyXUdVmlA+cbWZ/AtijqicXxMohhIq7v97X17cwTdMfADypqtcVxC4n+QKA60mOcvd7SF4gIpvjvJk9D+AKEVGSoZ3IAQnWarVTkiTZ5u5rSJ4LYGprirZuWq/XzyD5GYBPVHVqG4I5gM2qOrslIH8B+CrP8zuTJHkRwA2q+kicr1Qq49M03eXu95KcAGCBiAxr1nkIYbm73+3up3Wqx4MKdPfEzHaTNFWdaGaxftoKdPcTQgjfAhju7qdnWfZFG4FOcoOIzG8R+CuAPwCsALDO3a/MsiySiTVZCiE0AKwleZy7z1PVA3c2s0UAHiM5R0ReGzRBM3sOwPw8z6eUy+XtnQRWq9WTSqVSJBfFLciy7NkOBpOTfFlE5rUI3BfrKEmSpXmeRzO5VlXXFgJHhhB+B7AawGgA1/QTeAuANQDOVNVPD0dgzOsUQDO/4+8YwUDy4lgL1Wp1cqlU2gqgx92vaka/g8AqgI9VNZrV/mFm9WhM7n5zkiTfkFwmIvcVNdhM+YXufhLJ5SIyhmR08+iqD5C8/bBr0MzWu/vI5mVIzigobXL3W7Ms+zmEEI2hnCTJvKadd3I0M9sB4HhVHdFPwGoRWRJCMADvqer0Yv5+kndEQiTHuPsmkktFZFURnJg1p6pqdkQu2hLtf9RgvV5/NeZ/pALg/eY6d/8ty7IVtVptbpIkK0nGtvCWmS0G8DCA2B4eAhAdcpyInEhyr5m9CWAWgBtJbnf3jQB2q+rkQtBeANExLwEQm30k/ZSqxnbVdgzooq1vFb3wrJY+WAPQLnpBVTWEsDQ6IIBFqvp4NK0QQhQxs9g3fvXcpqqPFjU3ttFofOju44r5X9z9/KZhhRAudPfotPHM+FGxTURiGvf9JwI7bTLY5+5+jJlNyrLs83bvxvZAMu3p6Ykp/a8R25Gq7iAZDeqgY1AEB9psKM53BQ5FKoO5U5fgYKI1FNd2CQ5FKoO501FP8G96mhU7o7inQAAAAABJRU5ErkJggg==',
-            width: 56.8203125,
-            height: 28
-          },
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAAcCAYAAAA0u3w+AAAE0ElEQVRYR+1WbYhUZRR+zr0zs1qGO+MHZpiiBNI3KUWOxHTnvbNNMUKFQhD0JRRUkEEfprRpkdmPVOhHQR+ICclgVIbLzj13dvwxWpFagR9REGlp1pZsrtrszH1PvHInpm22cbMfm8z7773nfc85z/uc85xLOM8Xnef40Ab4f2e4zWCbwTH+Au0SbSQonU5Psm17SqFQODicuHQ6fXkikfgmn88PtSI1m812aK3nViqVfaVSqTb8fCqVmkxEk/r6+r5q5stxnDnRaPRUb2/v0VaxzprBxYsXx44fP26AjWPm6XXHSqkXADwCYCIAk+zWWq32WKlU+rFZcKXU6wDuBxAx50Vkqe/7G83ZVCrVGYlEtgO4Mbw7AOBmZt5r9q7rzheRrQAuNXsR2Q2gy/f9X0YCetYAXdd9TUQeBHC0DjCTyThaa19E7kokEvn+/v65tm1/BqDMzGp4UNd1nxKRl0QkG4vFdlar1ecALBORK3zf36+UKhLRZbVa7RYiGrQsaxOAq+Px+NTBwcFx1Wr1EBHtJKJ7gyCYQ0TbAOxi5tw5AVRK3QbgfQAM4Jo6QKXUHUQ03/O8ZxoY/ZSILvY8b8bwoEqp7wDsZ+assc2bNy8aj8dPAVjf0dHxYqVS+dUAZub1xu44zvWWZX0iIi6ATiLKB0FwZV9f3z5jV0qtBPB8PB6P5PP5oBnIlgymUqlpkUjkWwAPA7gBQK6xRBudZjKZGVrrQwA2M/PdTQBWAbzKzMvqNtd1D4vIDq31K5Zl7dZa31osFnuMvaurKxEEgSm/ewCYtlgTj8c76n2ulFoCYItt29NH6sdWAEkptQvAKWZ2wv5pCjCZTF40fvz4PQBmEdFMz/OONAEoRNTted7qBsa/BPCTZVmrtdY7RGSB7/smJrq7u61yuWyYecIwCGAFM/+ZczqdVkTk2bZ9bW9v7xejZlAptQLAShGZ5fv+sZEAZrPZKdVqdWcILuV5XnkEgamKyMu+7xu/Z5ZS6msAe4hojYjsJSJzf4ex5XK5C06fPn3SCBGASUS0thFgJpPJaa0/BDCTmU3l/G39I4NKqRMAJgAwambWhaH6DQRBkDS9kMlkpho1E5FpInJT/fVHAGhY3cbMRqzqAPtF5A0A64jIKO+dzPyeMdZLXkQcU6JE9E40Gp3Y09PzW/g4Ro3f/Nc9mE6nl4fyfyYZIrrdSLSIbAiCYH0sFjshIgdFZDKABXU5bwYuTMiI1Gxmnj0MwNKFCxe+XS6XTxLRRs/zHgrP3wfgLcOQbdvxIAg+b3wApdS7pgiY2cRvulr14F8uDS9R13XXisiTADaJyMcNhwd839/sOM51tm0vF5FnmfmA4zhZy7K2E9HTtm1vqdVqhrn5lmVdUigUTiql1pmZqrVeFI1GjwRB4APYzcxdIeADRDRBa91FRHPNzAXwODObe+cOMJyFixrGxDEAU5t4HmDmTjNGTBJEpDzPM8ka0doA4NGwIr4H8IDneQWzDwf9RwCSoc+9WutcsVj8IQR4VTiqTEzzU/FBMplcsmrVKv2fABzJyWi/p1KpcbFYzPzyHW5214yHSqVilUql/mZ205tDQ0M/l0ql31vFHlWJtnI2Fu1tgGORldHk1GZwNK81Fs+2GRyLrIwmp/OewT8ADNwtO3DVPskAAAAASUVORK5CYII=',
-            width: 56.8203125,
-            height: 28
-          }
-        }
-      }
-    }
-  },
-  zero: {
-    count: 29,
-    originalValues: ['Rock'],
-    transformValues: ['0'],
-    addresses: [
-      'B17',
-      'B18',
-      'B19',
-      'B20',
-      'B21',
-      'B22',
-      'B23',
-      'B25',
-      'B26',
-      'B27',
-      'B28',
-      'B29',
-      'B30',
-      'B31',
-      'B32',
-      'B33',
-      'B34',
-      'B35',
-      'B36',
-      'B37',
-      'B38',
-      'B39',
-      'B40',
-      'B41',
-      'B43',
-      'B44',
-      'B45',
-      'B46',
-      'B47'
-    ],
-    dataUrls: {
-      Rock: {
-        addresses: [
-          'B17',
-          'B18',
-          'B19',
-          'B20',
-          'B21',
-          'B22',
-          'B23',
-          'B25',
-          'B26',
-          'B27',
-          'B28',
-          'B29',
-          'B30',
-          'B31',
-          'B32',
-          'B33',
-          'B34',
-          'B35',
-          'B36',
-          'B37',
-          'B38',
-          'B39',
-          'B40',
-          'B41',
-          'B43',
-          'B44',
-          'B45',
-          'B46',
-          'B47'
-        ],
-        original: {
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAcCAYAAAD1PDaSAAADSUlEQVRYR+2VX4gWVRjGn/c9s+GCS30hQv4BW40NFSLLC9vAkZn5NvwiKNgoEtOrQNIuMsKLWPdGBfNKFC9WQUwUF7tIcLeZMx8DskWgVwqlBP4tQcRtSVsXZs4bR+aDwXbXWRc+ML65nPPyvL/znOe8h/AMfvQMMqMF3axTazndcnoaB/6f8ejp6XktyzJubFwpZYhorKOj4+bg4GA220j09vY+Nzo6uoKZr4Rh+KCM3hOd9n1fphB6aIz5oF6vD5VpNFVNtVp91RjzK4B1WuukjFYpaBHZF8fxdivouq7DzKuY+RiAzra2trlDQ0MTZZpNVtMU6EZj3/f7AOxM03RxkiS3PM9bTkQDAFYDsMf8PTNvbRx5EAQLAAyIyDoAt4nouyiK+qrValfR6SAIPrYmAdittd4/2UZLOQ3goFLqGyuQZdlcAG8COEpE16MoWum67guO49wE4BDRXhHpBPAJgFBr3eO67hzHcS4CWJSvtwPYLiIblFIXGtDGmHZmPgvglNb6IwCTRrMs9GQbvkpEH0ZRdN7zvM+I6BAR1aIosk3h+/4BAFuMMcuUUktF5EcReSuO45/z9cMiMqqUGrDQRNQnIv0Afuju7n6/v7/fTBW5stChiBxh5nm58PPM/HoYhpdygCMANqdp2p4kyUP7LwiCqgVl5vdEZLmI7NFa/6dfIdOPGG19GIZnprsjpaAfu4iLHMe5CuDe+Pj4spGRkb+DILBZ/bRSqcxpjEHf998GcM4Ys56I1hLRl1rrtsdhCtDnbHwAvMjMC6cbfzOGzp3dDMC6e1xrvSEIgq+tk8aY7nq9/lPu9C4R2ZGm6UtKqZq9pI7jvDw8PHwt1zgKoIuZNxUy/Q8z/yIiB+I4/nxW8Sg63RDyPO88Eb0BYA0R3RCRPwD8RkRfGGOWEJGdAH9qrbtqtVplYmLiDhFdNsZsBTCfiE4C2MbMUXF6+L7/KGpEtNrel9lMj2+11l8VBQrH+rvW+hXP894lohMA7HSBiFzIsuydJEnuFjJ+Ol9PAZyuVCobx8bGOovQ+SS6DeCW1X0q6Jk+Gq7r2lz+lSTJ/Skek8VKqTuzeZCemOmZQjejvgXdDJdtj5bTLaencaAVj2bF418gaq4sKdeRVQAAAABJRU5ErkJggg==',
-            width: 45.896484375,
-            height: 28
-          },
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAcCAYAAAD1PDaSAAADCElEQVRYR+2VT6hVVRjF1zrv7G/z+vMehJRhETgJKyMtkhAhJynZQFAk5E0iyBTEMEWcFTiqQaBh0CSpHARNrFHiJIMySALLQRON/hApoak92Hufe1ZsOQcO+d7zPB9cMO4ZXe7e59u/s771rU3chg9vQ2aMoIfVtZHSI6XnUOD/aY+U0nqSY+2HSxpIuuicO0MyLdQSku4YDAZrx8bGviZ5qU+9myodY9QshWoAu8zs3T4HzbYnpbRG0kkAL5nZkT61ekFLOu69X5cLSvIxxg0kPwBwt3NuguS1PofNtGco0O3BKaVPJW2StNx7/2NKaW1d10dJLgZQAfjeOZetdb3lIYRHSB4DsBTANMkTZVluqqpqdVfpEMIbJPcB+NDMts30ob2UBvBVVVVbc4GyLBeRXCfpAICrZnaPpPtTSr8AKEh+JukhACsAnDezpZImUkq/Abgzr9d1Pd7WKIrieAsN4C4AhwD84Jx7gmS24A1PX+iZ3r0macp7fyzGeBDAzsbj+TdijNmnawCsArASwHuSXvTef9Ksn5L0d1EUBzI0ydy5zQB+cs49SnIwm+X6Qp8neURSbv3LABzJ55xzJxqAbwE87ZybJHml+W87gMMAdjfQU2Z2w3kdT7eMu83snblmpBd0dxBDCI+RPJPFdM49SPJijPGbrKhzzrcxGELYSvJo7oCk7O3nzaz4L0wLTfJ3SZMAvHPuvrnib97QzVC9RXJvHjYzWxlj/AjAVLf9IYTPSb5Q1/XDRVG8AuB1AE+Z2emmE99JWlIUxZbW05KuZpsA+NLMnl2QPbpKt4VijH8CuFfSFgBnSZ4FcBnAfgDLAOzIKWFmk9PT00vKsvy1Wd9D8gFJbwJ4n+TH3fSIMV63mqSNeV5ueRAlfeG9X98t0PFiTpCJGONrAN7OAdPsuzAYDFaNj4//3Cj7apMMeT1fWDkhnqmq6skudJNEOWn+yXVvCXq+l0b2vJn9QfKvmd4NITxuZucWciHd1NPzhR7G/hH0MFTOZ4yUHik9hwIjewzLHv8C2eCZLJaPy8EAAAAASUVORK5CYII=',
-            width: 45.896484375,
-            height: 28
-          }
-        },
-        transform: {
-          light: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAcCAYAAACOGPReAAABU0lEQVRIS+3UvUpDQRAF4HMCMxeSB9A3UJuARXwBwR8Q7WzESrAXLETSBUER7G0sRAtLbbTyGbTSMmqljZBC2J1cRi5ECzEJrqaRbL3zMXuGWWIAhwMwMUT/PtV/mGmMccrdW1mW3fcLrO/zQwhLJE8BVDrYS7vdrpXL5cdueE/U3UfM7AnAQ57ns6VSqUbyGEBTVceSUDPbdvcdktMicl0gMcYzAMsioiTtO7hnpzHGEwArIlIh+VYAZlZ394a7T3TLtydqZufuvqiqn/dijOsADknOi8hVSqdFfqtf0A0ABwAmVfXmx2gIoUGyLiKjJJ8LIISwT3IzOVMzm3P3S5JbIrLXGdQtgHFVzZKm30FeARSTXgBQLMAugCNVXUtGzWzG3S8AFJ05gDsRqZLMk9GPwhBCVVWbJFu/XtN+wI+nnwIWNX0/lBR4iKak1rtmIJm+AxDffh1YL1lGAAAAAElFTkSuQmCC',
-            width: 21.7861328125,
-            height: 28
-          },
-          dark: {
-            url:
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAcCAYAAACOGPReAAABb0lEQVRIS+3UMUvDQBQH8P8jBhdRAuIgqEMXB0UHt269NKFDJ6WLi/gRHETQpSiIk5/AzUE5FNShBF9ppzoJOoh7FwdxcRBJvYsEojjYhl7tIr353o93/3d3hD4s6oOJAfr3qf7DTHO5XMa27bcgCJ7SAks9fj6fX4qi6AzAdIxFUXQLwK9Wqy/t8I5ooVAYbbVaTSJqENGaUipDRFcAbpi5aIQKIVaISCql5mq12kOMuK67A2DXcZwhKaX6De7Yqeu6WwD2HccZllKGCVoCcGpZ1mS7fNPQPQDbzPy9TwjhEtG1ZVmLQRDcd92pEGKTiA5+op7nFbXWlwBmmLlpgq4S0bFt22OVSuU1Of46gCPjTH3fX1BK3QFYZubzBD2J58XM40bTT5BHIhrRWvtENAsgvrMbzHzYCzoPgAFMAPgAcJHNZkvlclkbo1+FnudNhWH4XK/X33t+pmlA19M3AeOa1A/FBB6gJql1rulLpp8zV3gdRyZmCgAAAABJRU5ErkJggg==',
-            width: 21.7861328125,
-            height: 28
-          }
-        }
-      }
-    }
-  },
-  all: {
-    B17: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B17',
-        coordinates: {
-          c: 1,
-          r: 16
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B18: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B18',
-        coordinates: {
-          c: 1,
-          r: 17
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B19: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B19',
-        coordinates: {
-          c: 1,
-          r: 18
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B20: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B20',
-        coordinates: {
-          c: 1,
-          r: 19
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B21: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B21',
-        coordinates: {
-          c: 1,
-          r: 20
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B22: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B22',
-        coordinates: {
-          c: 1,
-          r: 21
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B23: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B23',
-        coordinates: {
-          c: 1,
-          r: 22
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B25: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B25',
-        coordinates: {
-          c: 1,
-          r: 24
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B26: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B26',
-        coordinates: {
-          c: 1,
-          r: 25
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B27: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B27',
-        coordinates: {
-          c: 1,
-          r: 26
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B28: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B28',
-        coordinates: {
-          c: 1,
-          r: 27
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B29: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B29',
-        coordinates: {
-          c: 1,
-          r: 28
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B30: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B30',
-        coordinates: {
-          c: 1,
-          r: 29
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B31: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B31',
-        coordinates: {
-          c: 1,
-          r: 30
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B32: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B32',
-        coordinates: {
-          c: 1,
-          r: 31
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B33: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B33',
-        coordinates: {
-          c: 1,
-          r: 32
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B34: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B34',
-        coordinates: {
-          c: 1,
-          r: 33
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B35: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B35',
-        coordinates: {
-          c: 1,
-          r: 34
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B36: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B36',
-        coordinates: {
-          c: 1,
-          r: 35
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B37: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B37',
-        coordinates: {
-          c: 1,
-          r: 36
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B38: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B38',
-        coordinates: {
-          c: 1,
-          r: 37
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B39: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B39',
-        coordinates: {
-          c: 1,
-          r: 38
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B40: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B40',
-        coordinates: {
-          c: 1,
-          r: 39
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B41: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B41',
-        coordinates: {
-          c: 1,
-          r: 40
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B43: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B43',
-        coordinates: {
-          c: 1,
-          r: 42
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B44: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B44',
-        coordinates: {
-          c: 1,
-          r: 43
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B45: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B45',
-        coordinates: {
-          c: 1,
-          r: 44
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B46: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B46',
-        coordinates: {
-          c: 1,
-          r: 45
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    B47: {
-      t: 'n',
-      v: 0,
-      w: '0',
-      meta: {
-        address: 'B47',
-        coordinates: {
-          c: 1,
-          r: 46
-        },
-        caseType: 'zero',
-        trigger: 'Rock',
-        original: {
-          v: 'Rock',
-          t: 's',
-          w: 'Rock'
-        }
-      }
-    },
-    E27: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'E27',
-        coordinates: {
-          c: 4,
-          r: 26
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    E45: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'E45',
-        coordinates: {
-          c: 4,
-          r: 44
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    G42: {
-      t: 'n',
-      v: 5000,
-      w: '5000',
-      meta: {
-        address: 'G42',
-        coordinates: {
-          c: 6,
-          r: 41
-        },
-        caseType: 'ol',
-        trigger: '>',
-        original: {
-          v: '>10000',
-          t: 's',
-          w: '>10000'
-        }
-      }
-    },
-    I24: {
-      t: 'n',
-      v: 50,
-      z: '0.0',
-      w: '50.0',
-      meta: {
-        address: 'I24',
-        coordinates: {
-          c: 8,
-          r: 23
-        },
-        caseType: 'ol',
-        trigger: '>',
-        original: {
-          v: '>100.0',
-          t: 's',
-          w: '>100.0'
-        }
-      }
-    },
-    I27: {
-      t: 'n',
-      v: 250.4,
-      z: '0.0',
-      w: '250.4',
-      meta: {
-        address: 'I27',
-        coordinates: {
-          c: 8,
-          r: 26
-        },
-        caseType: 'ol',
-        trigger: '>',
-        original: {
-          v: '>500.8',
-          t: 's',
-          w: '>500.8'
-        }
-      }
-    },
-    I29: {
-      t: 'n',
-      v: 42,
-      z: '0.000',
-      w: '42.000',
-      meta: {
-        address: 'I29',
-        coordinates: {
-          c: 8,
-          r: 28
-        },
-        caseType: 'ol',
-        trigger: '>',
-        original: {
-          v: '>84.000',
-          t: 's',
-          w: '>84.000'
-        }
-      }
-    },
-    I42: {
-      t: 'n',
-      v: 50,
-      z: '0.0',
-      w: '50.0',
-      meta: {
-        address: 'I42',
-        coordinates: {
-          c: 8,
-          r: 41
-        },
-        caseType: 'ol',
-        trigger: '>',
-        original: {
-          v: '>100.0',
-          t: 's',
-          w: '>100.0'
-        }
-      }
-    },
-    J33: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'J33',
-        coordinates: {
-          c: 9,
-          r: 32
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    J35: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'J35',
-        coordinates: {
-          c: 9,
-          r: 34
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    J40: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'J40',
-        coordinates: {
-          c: 9,
-          r: 39
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    J41: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'J41',
-        coordinates: {
-          c: 9,
-          r: 40
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    J46: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'J46',
-        coordinates: {
-          c: 9,
-          r: 45
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    J47: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'J47',
-        coordinates: {
-          c: 9,
-          r: 46
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K17: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K17',
-        coordinates: {
-          c: 10,
-          r: 16
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K18: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K18',
-        coordinates: {
-          c: 10,
-          r: 17
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K19: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K19',
-        coordinates: {
-          c: 10,
-          r: 18
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K20: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K20',
-        coordinates: {
-          c: 10,
-          r: 19
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K21: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K21',
-        coordinates: {
-          c: 10,
-          r: 20
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K22: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K22',
-        coordinates: {
-          c: 10,
-          r: 21
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K23: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K23',
-        coordinates: {
-          c: 10,
-          r: 22
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K25: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K25',
-        coordinates: {
-          c: 10,
-          r: 24
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K26: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K26',
-        coordinates: {
-          c: 10,
-          r: 25
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K27: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K27',
-        coordinates: {
-          c: 10,
-          r: 26
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K28: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K28',
-        coordinates: {
-          c: 10,
-          r: 27
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K29: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K29',
-        coordinates: {
-          c: 10,
-          r: 28
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K30: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K30',
-        coordinates: {
-          c: 10,
-          r: 29
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K31: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K31',
-        coordinates: {
-          c: 10,
-          r: 30
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K32: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K32',
-        coordinates: {
-          c: 10,
-          r: 31
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K33: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K33',
-        coordinates: {
-          c: 10,
-          r: 32
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K34: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K34',
-        coordinates: {
-          c: 10,
-          r: 33
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K35: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K35',
-        coordinates: {
-          c: 10,
-          r: 34
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K36: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K36',
-        coordinates: {
-          c: 10,
-          r: 35
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K37: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K37',
-        coordinates: {
-          c: 10,
-          r: 36
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K38: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K38',
-        coordinates: {
-          c: 10,
-          r: 37
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K39: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K39',
-        coordinates: {
-          c: 10,
-          r: 38
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K40: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K40',
-        coordinates: {
-          c: 10,
-          r: 39
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K41: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K41',
-        coordinates: {
-          c: 10,
-          r: 40
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K43: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K43',
-        coordinates: {
-          c: 10,
-          r: 42
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K44: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K44',
-        coordinates: {
-          c: 10,
-          r: 43
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K45: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K45',
-        coordinates: {
-          c: 10,
-          r: 44
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K46: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K46',
-        coordinates: {
-          c: 10,
-          r: 45
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    K47: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'K47',
-        coordinates: {
-          c: 10,
-          r: 46
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    O30: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'O30',
-        coordinates: {
-          c: 14,
-          r: 29
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    O32: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'O32',
-        coordinates: {
-          c: 14,
-          r: 31
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    O33: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'O33',
-        coordinates: {
-          c: 14,
-          r: 32
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    O34: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'O34',
-        coordinates: {
-          c: 14,
-          r: 33
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    O35: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'O35',
-        coordinates: {
-          c: 14,
-          r: 34
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    O36: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'O36',
-        coordinates: {
-          c: 14,
-          r: 35
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    O37: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'O37',
-        coordinates: {
-          c: 14,
-          r: 36
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    O40: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'O40',
-        coordinates: {
-          c: 14,
-          r: 39
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    O41: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'O41',
-        coordinates: {
-          c: 14,
-          r: 40
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    O42: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'O42',
-        coordinates: {
-          c: 14,
-          r: 41
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    O43: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'O43',
-        coordinates: {
-          c: 14,
-          r: 42
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    O47: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'O47',
-        coordinates: {
-          c: 14,
-          r: 46
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    Q17: {
-      v: '0.5',
-      t: 's',
-      w: '0.5',
-      meta: {
-        address: 'Q17',
-        coordinates: {
-          c: 16,
-          r: 16
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.5',
-          t: 's',
-          w: '<0.5'
-        }
-      }
-    },
-    Q18: {
-      v: '0.5',
-      t: 's',
-      w: '0.5',
-      meta: {
-        address: 'Q18',
-        coordinates: {
-          c: 16,
-          r: 17
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.5',
-          t: 's',
-          w: '<0.5'
-        }
-      }
-    },
-    Q19: {
-      v: '0.5',
-      t: 's',
-      w: '0.5',
-      meta: {
-        address: 'Q19',
-        coordinates: {
-          c: 16,
-          r: 18
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.5',
-          t: 's',
-          w: '<0.5'
-        }
-      }
-    },
-    Q20: {
-      v: '0.5',
-      t: 's',
-      w: '0.5',
-      meta: {
-        address: 'Q20',
-        coordinates: {
-          c: 16,
-          r: 19
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.5',
-          t: 's',
-          w: '<0.5'
-        }
-      }
-    },
-    Q21: {
-      v: '0.5',
-      t: 's',
-      w: '0.5',
-      meta: {
-        address: 'Q21',
-        coordinates: {
-          c: 16,
-          r: 20
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.5',
-          t: 's',
-          w: '<0.5'
-        }
-      }
-    },
-    Q22: {
-      v: '0.5',
-      t: 's',
-      w: '0.5',
-      meta: {
-        address: 'Q22',
-        coordinates: {
-          c: 16,
-          r: 21
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.5',
-          t: 's',
-          w: '<0.5'
-        }
-      }
-    },
-    Q23: {
-      v: '0.5',
-      t: 's',
-      w: '0.5',
-      meta: {
-        address: 'Q23',
-        coordinates: {
-          c: 16,
-          r: 22
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.5',
-          t: 's',
-          w: '<0.5'
-        }
-      }
-    },
-    Q25: {
-      v: '0.5',
-      t: 's',
-      w: '0.5',
-      meta: {
-        address: 'Q25',
-        coordinates: {
-          c: 16,
-          r: 24
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.5',
-          t: 's',
-          w: '<0.5'
-        }
-      }
-    },
-    Q26: {
-      v: '0.5',
-      t: 's',
-      w: '0.5',
-      meta: {
-        address: 'Q26',
-        coordinates: {
-          c: 16,
-          r: 25
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.5',
-          t: 's',
-          w: '<0.5'
-        }
-      }
-    },
-    Q27: {
-      v: '0.5',
-      t: 's',
-      w: '0.5',
-      meta: {
-        address: 'Q27',
-        coordinates: {
-          c: 16,
-          r: 26
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.5',
-          t: 's',
-          w: '<0.5'
-        }
-      }
-    },
-    Q28: {
-      v: '0.5',
-      t: 's',
-      w: '0.5',
-      meta: {
-        address: 'Q28',
-        coordinates: {
-          c: 16,
-          r: 27
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.5',
-          t: 's',
-          w: '<0.5'
-        }
-      }
-    },
-    Q33: {
-      v: '0.5',
-      t: 's',
-      w: '0.5',
-      meta: {
-        address: 'Q33',
-        coordinates: {
-          c: 16,
-          r: 32
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.5',
-          t: 's',
-          w: '<0.5'
-        }
-      }
-    },
-    Q35: {
-      v: '0.5',
-      t: 's',
-      w: '0.5',
-      meta: {
-        address: 'Q35',
-        coordinates: {
-          c: 16,
-          r: 34
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.5',
-          t: 's',
-          w: '<0.5'
-        }
-      }
-    },
-    Q36: {
-      v: '0.5',
-      t: 's',
-      w: '0.5',
-      meta: {
-        address: 'Q36',
-        coordinates: {
-          c: 16,
-          r: 35
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.5',
-          t: 's',
-          w: '<0.5'
-        }
-      }
-    },
-    Q37: {
-      v: '0.5',
-      t: 's',
-      w: '0.5',
-      meta: {
-        address: 'Q37',
-        coordinates: {
-          c: 16,
-          r: 36
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.5',
-          t: 's',
-          w: '<0.5'
-        }
-      }
-    },
-    Q38: {
-      v: '0.5',
-      t: 's',
-      w: '0.5',
-      meta: {
-        address: 'Q38',
-        coordinates: {
-          c: 16,
-          r: 37
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.5',
-          t: 's',
-          w: '<0.5'
-        }
-      }
-    },
-    Q39: {
-      v: '0.5',
-      t: 's',
-      w: '0.5',
-      meta: {
-        address: 'Q39',
-        coordinates: {
-          c: 16,
-          r: 38
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.5',
-          t: 's',
-          w: '<0.5'
-        }
-      }
-    },
-    Q40: {
-      v: '0.5',
-      t: 's',
-      w: '0.5',
-      meta: {
-        address: 'Q40',
-        coordinates: {
-          c: 16,
-          r: 39
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.5',
-          t: 's',
-          w: '<0.5'
-        }
-      }
-    },
-    Q41: {
-      v: '0.5',
-      t: 's',
-      w: '0.5',
-      meta: {
-        address: 'Q41',
-        coordinates: {
-          c: 16,
-          r: 40
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.5',
-          t: 's',
-          w: '<0.5'
-        }
-      }
-    },
-    Q43: {
-      v: '0.5',
-      t: 's',
-      w: '0.5',
-      meta: {
-        address: 'Q43',
-        coordinates: {
-          c: 16,
-          r: 42
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.5',
-          t: 's',
-          w: '<0.5'
-        }
-      }
-    },
-    Q44: {
-      v: '0.5',
-      t: 's',
-      w: '0.5',
-      meta: {
-        address: 'Q44',
-        coordinates: {
-          c: 16,
-          r: 43
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.5',
-          t: 's',
-          w: '<0.5'
-        }
-      }
-    },
-    Q45: {
-      v: '0.5',
-      t: 's',
-      w: '0.5',
-      meta: {
-        address: 'Q45',
-        coordinates: {
-          c: 16,
-          r: 44
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.5',
-          t: 's',
-          w: '<0.5'
-        }
-      }
-    },
-    Q47: {
-      v: '0.5',
-      t: 's',
-      w: '0.5',
-      meta: {
-        address: 'Q47',
-        coordinates: {
-          c: 16,
-          r: 46
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.5',
-          t: 's',
-          w: '<0.5'
-        }
-      }
-    },
-    R35: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'R35',
-        coordinates: {
-          c: 17,
-          r: 34
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S17: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S17',
-        coordinates: {
-          c: 18,
-          r: 16
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S18: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S18',
-        coordinates: {
-          c: 18,
-          r: 17
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S19: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S19',
-        coordinates: {
-          c: 18,
-          r: 18
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S20: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S20',
-        coordinates: {
-          c: 18,
-          r: 19
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S21: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S21',
-        coordinates: {
-          c: 18,
-          r: 20
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S22: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S22',
-        coordinates: {
-          c: 18,
-          r: 21
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S23: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S23',
-        coordinates: {
-          c: 18,
-          r: 22
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S24: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S24',
-        coordinates: {
-          c: 18,
-          r: 23
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S25: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S25',
-        coordinates: {
-          c: 18,
-          r: 24
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S26: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S26',
-        coordinates: {
-          c: 18,
-          r: 25
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S27: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S27',
-        coordinates: {
-          c: 18,
-          r: 26
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S28: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S28',
-        coordinates: {
-          c: 18,
-          r: 27
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S29: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S29',
-        coordinates: {
-          c: 18,
-          r: 28
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S30: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S30',
-        coordinates: {
-          c: 18,
-          r: 29
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S31: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S31',
-        coordinates: {
-          c: 18,
-          r: 30
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S32: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S32',
-        coordinates: {
-          c: 18,
-          r: 31
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S33: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S33',
-        coordinates: {
-          c: 18,
-          r: 32
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S34: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S34',
-        coordinates: {
-          c: 18,
-          r: 33
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S35: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S35',
-        coordinates: {
-          c: 18,
-          r: 34
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S36: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S36',
-        coordinates: {
-          c: 18,
-          r: 35
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S37: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S37',
-        coordinates: {
-          c: 18,
-          r: 36
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S38: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S38',
-        coordinates: {
-          c: 18,
-          r: 37
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S39: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S39',
-        coordinates: {
-          c: 18,
-          r: 38
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S40: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S40',
-        coordinates: {
-          c: 18,
-          r: 39
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S41: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S41',
-        coordinates: {
-          c: 18,
-          r: 40
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S42: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S42',
-        coordinates: {
-          c: 18,
-          r: 41
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S43: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S43',
-        coordinates: {
-          c: 18,
-          r: 42
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S44: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S44',
-        coordinates: {
-          c: 18,
-          r: 43
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S45: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S45',
-        coordinates: {
-          c: 18,
-          r: 44
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S46: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S46',
-        coordinates: {
-          c: 18,
-          r: 45
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    S47: {
-      v: '3',
-      t: 's',
-      w: '3',
-      meta: {
-        address: 'S47',
-        coordinates: {
-          c: 18,
-          r: 46
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<3',
-          t: 's',
-          w: '<3'
-        }
-      }
-    },
-    U17: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U17',
-        coordinates: {
-          c: 20,
-          r: 16
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    U18: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U18',
-        coordinates: {
-          c: 20,
-          r: 17
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    U19: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U19',
-        coordinates: {
-          c: 20,
-          r: 18
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    U20: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U20',
-        coordinates: {
-          c: 20,
-          r: 19
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    U21: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U21',
-        coordinates: {
-          c: 20,
-          r: 20
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    U22: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U22',
-        coordinates: {
-          c: 20,
-          r: 21
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    U23: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U23',
-        coordinates: {
-          c: 20,
-          r: 22
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    U25: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U25',
-        coordinates: {
-          c: 20,
-          r: 24
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    U26: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U26',
-        coordinates: {
-          c: 20,
-          r: 25
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    U27: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U27',
-        coordinates: {
-          c: 20,
-          r: 26
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    U28: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U28',
-        coordinates: {
-          c: 20,
-          r: 27
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    U29: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U29',
-        coordinates: {
-          c: 20,
-          r: 28
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    U31: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U31',
-        coordinates: {
-          c: 20,
-          r: 30
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    U32: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U32',
-        coordinates: {
-          c: 20,
-          r: 31
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    U33: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U33',
-        coordinates: {
-          c: 20,
-          r: 32
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    U37: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U37',
-        coordinates: {
-          c: 20,
-          r: 36
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    U38: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U38',
-        coordinates: {
-          c: 20,
-          r: 37
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    U39: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U39',
-        coordinates: {
-          c: 20,
-          r: 38
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    U40: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U40',
-        coordinates: {
-          c: 20,
-          r: 39
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    U41: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U41',
-        coordinates: {
-          c: 20,
-          r: 40
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    U43: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U43',
-        coordinates: {
-          c: 20,
-          r: 42
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    U44: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U44',
-        coordinates: {
-          c: 20,
-          r: 43
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    U45: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U45',
-        coordinates: {
-          c: 20,
-          r: 44
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    U46: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U46',
-        coordinates: {
-          c: 20,
-          r: 45
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    U47: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'U47',
-        coordinates: {
-          c: 20,
-          r: 46
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AB17: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB17',
-        coordinates: {
-          c: 27,
-          r: 16
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB18: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB18',
-        coordinates: {
-          c: 27,
-          r: 17
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB19: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB19',
-        coordinates: {
-          c: 27,
-          r: 18
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB20: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB20',
-        coordinates: {
-          c: 27,
-          r: 19
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB21: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB21',
-        coordinates: {
-          c: 27,
-          r: 20
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB22: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB22',
-        coordinates: {
-          c: 27,
-          r: 21
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB23: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB23',
-        coordinates: {
-          c: 27,
-          r: 22
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB24: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB24',
-        coordinates: {
-          c: 27,
-          r: 23
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB25: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB25',
-        coordinates: {
-          c: 27,
-          r: 24
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB26: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB26',
-        coordinates: {
-          c: 27,
-          r: 25
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB27: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB27',
-        coordinates: {
-          c: 27,
-          r: 26
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB28: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB28',
-        coordinates: {
-          c: 27,
-          r: 27
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB29: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB29',
-        coordinates: {
-          c: 27,
-          r: 28
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB30: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB30',
-        coordinates: {
-          c: 27,
-          r: 29
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB31: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB31',
-        coordinates: {
-          c: 27,
-          r: 30
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB32: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB32',
-        coordinates: {
-          c: 27,
-          r: 31
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB33: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB33',
-        coordinates: {
-          c: 27,
-          r: 32
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB34: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB34',
-        coordinates: {
-          c: 27,
-          r: 33
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB35: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB35',
-        coordinates: {
-          c: 27,
-          r: 34
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB36: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB36',
-        coordinates: {
-          c: 27,
-          r: 35
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB37: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB37',
-        coordinates: {
-          c: 27,
-          r: 36
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB38: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB38',
-        coordinates: {
-          c: 27,
-          r: 37
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB39: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB39',
-        coordinates: {
-          c: 27,
-          r: 38
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB40: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB40',
-        coordinates: {
-          c: 27,
-          r: 39
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB41: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB41',
-        coordinates: {
-          c: 27,
-          r: 40
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB43: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB43',
-        coordinates: {
-          c: 27,
-          r: 42
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB44: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB44',
-        coordinates: {
-          c: 27,
-          r: 43
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB45: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB45',
-        coordinates: {
-          c: 27,
-          r: 44
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB46: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB46',
-        coordinates: {
-          c: 27,
-          r: 45
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AB47: {
-      v: '20',
-      t: 's',
-      w: '20',
-      meta: {
-        address: 'AB47',
-        coordinates: {
-          c: 27,
-          r: 46
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<20',
-          t: 's',
-          w: '<20'
-        }
-      }
-    },
-    AD17: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD17',
-        coordinates: {
-          c: 29,
-          r: 16
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD18: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD18',
-        coordinates: {
-          c: 29,
-          r: 17
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD19: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD19',
-        coordinates: {
-          c: 29,
-          r: 18
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD20: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD20',
-        coordinates: {
-          c: 29,
-          r: 19
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD21: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD21',
-        coordinates: {
-          c: 29,
-          r: 20
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD22: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD22',
-        coordinates: {
-          c: 29,
-          r: 21
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD23: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD23',
-        coordinates: {
-          c: 29,
-          r: 22
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD24: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD24',
-        coordinates: {
-          c: 29,
-          r: 23
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD25: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD25',
-        coordinates: {
-          c: 29,
-          r: 24
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD26: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD26',
-        coordinates: {
-          c: 29,
-          r: 25
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD27: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD27',
-        coordinates: {
-          c: 29,
-          r: 26
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD28: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD28',
-        coordinates: {
-          c: 29,
-          r: 27
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD29: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD29',
-        coordinates: {
-          c: 29,
-          r: 28
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD30: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD30',
-        coordinates: {
-          c: 29,
-          r: 29
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD31: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD31',
-        coordinates: {
-          c: 29,
-          r: 30
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD32: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD32',
-        coordinates: {
-          c: 29,
-          r: 31
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD33: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD33',
-        coordinates: {
-          c: 29,
-          r: 32
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD34: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD34',
-        coordinates: {
-          c: 29,
-          r: 33
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD35: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD35',
-        coordinates: {
-          c: 29,
-          r: 34
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD36: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD36',
-        coordinates: {
-          c: 29,
-          r: 35
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD37: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD37',
-        coordinates: {
-          c: 29,
-          r: 36
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD38: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD38',
-        coordinates: {
-          c: 29,
-          r: 37
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD39: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD39',
-        coordinates: {
-          c: 29,
-          r: 38
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD40: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD40',
-        coordinates: {
-          c: 29,
-          r: 39
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD41: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD41',
-        coordinates: {
-          c: 29,
-          r: 40
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD43: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD43',
-        coordinates: {
-          c: 29,
-          r: 42
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD44: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD44',
-        coordinates: {
-          c: 29,
-          r: 43
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD45: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD45',
-        coordinates: {
-          c: 29,
-          r: 44
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD46: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD46',
-        coordinates: {
-          c: 29,
-          r: 45
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AD47: {
-      v: '0.01',
-      t: 's',
-      w: '0.01',
-      meta: {
-        address: 'AD47',
-        coordinates: {
-          c: 29,
-          r: 46
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.01',
-          t: 's',
-          w: '<0.01'
-        }
-      }
-    },
-    AF17: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF17',
-        coordinates: {
-          c: 31,
-          r: 16
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF18: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF18',
-        coordinates: {
-          c: 31,
-          r: 17
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF19: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF19',
-        coordinates: {
-          c: 31,
-          r: 18
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF20: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF20',
-        coordinates: {
-          c: 31,
-          r: 19
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF21: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF21',
-        coordinates: {
-          c: 31,
-          r: 20
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF22: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF22',
-        coordinates: {
-          c: 31,
-          r: 21
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF23: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF23',
-        coordinates: {
-          c: 31,
-          r: 22
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF25: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF25',
-        coordinates: {
-          c: 31,
-          r: 24
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF26: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF26',
-        coordinates: {
-          c: 31,
-          r: 25
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF27: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF27',
-        coordinates: {
-          c: 31,
-          r: 26
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF28: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF28',
-        coordinates: {
-          c: 31,
-          r: 27
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF29: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF29',
-        coordinates: {
-          c: 31,
-          r: 28
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF30: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF30',
-        coordinates: {
-          c: 31,
-          r: 29
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF31: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF31',
-        coordinates: {
-          c: 31,
-          r: 30
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF32: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF32',
-        coordinates: {
-          c: 31,
-          r: 31
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF33: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF33',
-        coordinates: {
-          c: 31,
-          r: 32
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF34: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF34',
-        coordinates: {
-          c: 31,
-          r: 33
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF35: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF35',
-        coordinates: {
-          c: 31,
-          r: 34
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF36: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF36',
-        coordinates: {
-          c: 31,
-          r: 35
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF37: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF37',
-        coordinates: {
-          c: 31,
-          r: 36
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF38: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF38',
-        coordinates: {
-          c: 31,
-          r: 37
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF39: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF39',
-        coordinates: {
-          c: 31,
-          r: 38
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF40: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF40',
-        coordinates: {
-          c: 31,
-          r: 39
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF41: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF41',
-        coordinates: {
-          c: 31,
-          r: 40
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF42: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF42',
-        coordinates: {
-          c: 31,
-          r: 41
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF43: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF43',
-        coordinates: {
-          c: 31,
-          r: 42
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF44: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF44',
-        coordinates: {
-          c: 31,
-          r: 43
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF45: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF45',
-        coordinates: {
-          c: 31,
-          r: 44
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF46: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF46',
-        coordinates: {
-          c: 31,
-          r: 45
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AF47: {
-      v: '2',
-      t: 's',
-      w: '2',
-      meta: {
-        address: 'AF47',
-        coordinates: {
-          c: 31,
-          r: 46
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<2',
-          t: 's',
-          w: '<2'
-        }
-      }
-    },
-    AG17: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG17',
-        coordinates: {
-          c: 32,
-          r: 16
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG18: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG18',
-        coordinates: {
-          c: 32,
-          r: 17
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG19: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG19',
-        coordinates: {
-          c: 32,
-          r: 18
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG20: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG20',
-        coordinates: {
-          c: 32,
-          r: 19
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG21: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG21',
-        coordinates: {
-          c: 32,
-          r: 20
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG22: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG22',
-        coordinates: {
-          c: 32,
-          r: 21
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG23: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG23',
-        coordinates: {
-          c: 32,
-          r: 22
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG25: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG25',
-        coordinates: {
-          c: 32,
-          r: 24
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG26: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG26',
-        coordinates: {
-          c: 32,
-          r: 25
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG27: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG27',
-        coordinates: {
-          c: 32,
-          r: 26
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG28: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG28',
-        coordinates: {
-          c: 32,
-          r: 27
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG29: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG29',
-        coordinates: {
-          c: 32,
-          r: 28
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG30: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG30',
-        coordinates: {
-          c: 32,
-          r: 29
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG32: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG32',
-        coordinates: {
-          c: 32,
-          r: 31
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG33: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG33',
-        coordinates: {
-          c: 32,
-          r: 32
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG34: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG34',
-        coordinates: {
-          c: 32,
-          r: 33
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG35: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG35',
-        coordinates: {
-          c: 32,
-          r: 34
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG36: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG36',
-        coordinates: {
-          c: 32,
-          r: 35
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG37: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG37',
-        coordinates: {
-          c: 32,
-          r: 36
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG38: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG38',
-        coordinates: {
-          c: 32,
-          r: 37
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG39: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG39',
-        coordinates: {
-          c: 32,
-          r: 38
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG40: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG40',
-        coordinates: {
-          c: 32,
-          r: 39
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG41: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG41',
-        coordinates: {
-          c: 32,
-          r: 40
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG43: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG43',
-        coordinates: {
-          c: 32,
-          r: 42
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG44: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG44',
-        coordinates: {
-          c: 32,
-          r: 43
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG45: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG45',
-        coordinates: {
-          c: 32,
-          r: 44
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AG47: {
-      v: '0.05',
-      t: 's',
-      w: '0.05',
-      meta: {
-        address: 'AG47',
-        coordinates: {
-          c: 32,
-          r: 46
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<0.05',
-          t: 's',
-          w: '<0.05'
-        }
-      }
-    },
-    AH17: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH17',
-        coordinates: {
-          c: 33,
-          r: 16
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH18: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH18',
-        coordinates: {
-          c: 33,
-          r: 17
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH19: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH19',
-        coordinates: {
-          c: 33,
-          r: 18
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH20: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH20',
-        coordinates: {
-          c: 33,
-          r: 19
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH21: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH21',
-        coordinates: {
-          c: 33,
-          r: 20
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH22: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH22',
-        coordinates: {
-          c: 33,
-          r: 21
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH23: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH23',
-        coordinates: {
-          c: 33,
-          r: 22
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH24: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH24',
-        coordinates: {
-          c: 33,
-          r: 23
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH25: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH25',
-        coordinates: {
-          c: 33,
-          r: 24
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH26: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH26',
-        coordinates: {
-          c: 33,
-          r: 25
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH27: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH27',
-        coordinates: {
-          c: 33,
-          r: 26
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH28: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH28',
-        coordinates: {
-          c: 33,
-          r: 27
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH29: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH29',
-        coordinates: {
-          c: 33,
-          r: 28
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH31: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH31',
-        coordinates: {
-          c: 33,
-          r: 30
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH32: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH32',
-        coordinates: {
-          c: 33,
-          r: 31
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH33: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH33',
-        coordinates: {
-          c: 33,
-          r: 32
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH34: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH34',
-        coordinates: {
-          c: 33,
-          r: 33
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH35: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH35',
-        coordinates: {
-          c: 33,
-          r: 34
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH36: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH36',
-        coordinates: {
-          c: 33,
-          r: 35
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH37: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH37',
-        coordinates: {
-          c: 33,
-          r: 36
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH38: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH38',
-        coordinates: {
-          c: 33,
-          r: 37
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH39: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH39',
-        coordinates: {
-          c: 33,
-          r: 38
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH42: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH42',
-        coordinates: {
-          c: 33,
-          r: 41
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH43: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH43',
-        coordinates: {
-          c: 33,
-          r: 42
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH44: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH44',
-        coordinates: {
-          c: 33,
-          r: 43
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AH45: {
-      v: '1',
-      t: 's',
-      w: '1',
-      meta: {
-        address: 'AH45',
-        coordinates: {
-          c: 33,
-          r: 44
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<1',
-          t: 's',
-          w: '<1'
-        }
-      }
-    },
-    AI17: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI17',
-        coordinates: {
-          c: 34,
-          r: 16
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI18: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI18',
-        coordinates: {
-          c: 34,
-          r: 17
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI19: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI19',
-        coordinates: {
-          c: 34,
-          r: 18
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI20: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI20',
-        coordinates: {
-          c: 34,
-          r: 19
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI21: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI21',
-        coordinates: {
-          c: 34,
-          r: 20
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI22: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI22',
-        coordinates: {
-          c: 34,
-          r: 21
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI23: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI23',
-        coordinates: {
-          c: 34,
-          r: 22
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI24: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI24',
-        coordinates: {
-          c: 34,
-          r: 23
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI25: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI25',
-        coordinates: {
-          c: 34,
-          r: 24
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI26: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI26',
-        coordinates: {
-          c: 34,
-          r: 25
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI27: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI27',
-        coordinates: {
-          c: 34,
-          r: 26
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI28: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI28',
-        coordinates: {
-          c: 34,
-          r: 27
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI30: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI30',
-        coordinates: {
-          c: 34,
-          r: 29
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI31: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI31',
-        coordinates: {
-          c: 34,
-          r: 30
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI32: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI32',
-        coordinates: {
-          c: 34,
-          r: 31
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI33: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI33',
-        coordinates: {
-          c: 34,
-          r: 32
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI34: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI34',
-        coordinates: {
-          c: 34,
-          r: 33
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI35: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI35',
-        coordinates: {
-          c: 34,
-          r: 34
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI36: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI36',
-        coordinates: {
-          c: 34,
-          r: 35
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI37: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI37',
-        coordinates: {
-          c: 34,
-          r: 36
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI38: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI38',
-        coordinates: {
-          c: 34,
-          r: 37
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI39: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI39',
-        coordinates: {
-          c: 34,
-          r: 38
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI40: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI40',
-        coordinates: {
-          c: 34,
-          r: 39
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI41: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI41',
-        coordinates: {
-          c: 34,
-          r: 40
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI42: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI42',
-        coordinates: {
-          c: 34,
-          r: 41
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI43: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI43',
-        coordinates: {
-          c: 34,
-          r: 42
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI44: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI44',
-        coordinates: {
-          c: 34,
-          r: 43
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI45: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI45',
-        coordinates: {
-          c: 34,
-          r: 44
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI46: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI46',
-        coordinates: {
-          c: 34,
-          r: 45
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AI47: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AI47',
-        coordinates: {
-          c: 34,
-          r: 46
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ17: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ17',
-        coordinates: {
-          c: 35,
-          r: 16
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ18: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ18',
-        coordinates: {
-          c: 35,
-          r: 17
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ19: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ19',
-        coordinates: {
-          c: 35,
-          r: 18
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ20: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ20',
-        coordinates: {
-          c: 35,
-          r: 19
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ21: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ21',
-        coordinates: {
-          c: 35,
-          r: 20
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ22: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ22',
-        coordinates: {
-          c: 35,
-          r: 21
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ23: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ23',
-        coordinates: {
-          c: 35,
-          r: 22
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ24: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ24',
-        coordinates: {
-          c: 35,
-          r: 23
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ25: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ25',
-        coordinates: {
-          c: 35,
-          r: 24
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ26: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ26',
-        coordinates: {
-          c: 35,
-          r: 25
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ27: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ27',
-        coordinates: {
-          c: 35,
-          r: 26
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ28: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ28',
-        coordinates: {
-          c: 35,
-          r: 27
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ29: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ29',
-        coordinates: {
-          c: 35,
-          r: 28
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ30: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ30',
-        coordinates: {
-          c: 35,
-          r: 29
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ31: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ31',
-        coordinates: {
-          c: 35,
-          r: 30
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ32: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ32',
-        coordinates: {
-          c: 35,
-          r: 31
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ33: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ33',
-        coordinates: {
-          c: 35,
-          r: 32
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ34: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ34',
-        coordinates: {
-          c: 35,
-          r: 33
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ35: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ35',
-        coordinates: {
-          c: 35,
-          r: 34
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ36: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ36',
-        coordinates: {
-          c: 35,
-          r: 35
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ37: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ37',
-        coordinates: {
-          c: 35,
-          r: 36
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ38: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ38',
-        coordinates: {
-          c: 35,
-          r: 37
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ39: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ39',
-        coordinates: {
-          c: 35,
-          r: 38
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ40: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ40',
-        coordinates: {
-          c: 35,
-          r: 39
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ41: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ41',
-        coordinates: {
-          c: 35,
-          r: 40
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ43: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ43',
-        coordinates: {
-          c: 35,
-          r: 42
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ44: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ44',
-        coordinates: {
-          c: 35,
-          r: 43
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ45: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ45',
-        coordinates: {
-          c: 35,
-          r: 44
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ46: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ46',
-        coordinates: {
-          c: 35,
-          r: 45
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AJ47: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AJ47',
-        coordinates: {
-          c: 35,
-          r: 46
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK17: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK17',
-        coordinates: {
-          c: 36,
-          r: 16
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK18: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK18',
-        coordinates: {
-          c: 36,
-          r: 17
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK19: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK19',
-        coordinates: {
-          c: 36,
-          r: 18
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK20: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK20',
-        coordinates: {
-          c: 36,
-          r: 19
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK21: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK21',
-        coordinates: {
-          c: 36,
-          r: 20
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK22: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK22',
-        coordinates: {
-          c: 36,
-          r: 21
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK23: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK23',
-        coordinates: {
-          c: 36,
-          r: 22
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK24: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK24',
-        coordinates: {
-          c: 36,
-          r: 23
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK25: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK25',
-        coordinates: {
-          c: 36,
-          r: 24
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK26: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK26',
-        coordinates: {
-          c: 36,
-          r: 25
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK27: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK27',
-        coordinates: {
-          c: 36,
-          r: 26
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK28: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK28',
-        coordinates: {
-          c: 36,
-          r: 27
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK31: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK31',
-        coordinates: {
-          c: 36,
-          r: 30
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK32: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK32',
-        coordinates: {
-          c: 36,
-          r: 31
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK33: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK33',
-        coordinates: {
-          c: 36,
-          r: 32
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK34: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK34',
-        coordinates: {
-          c: 36,
-          r: 33
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK35: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK35',
-        coordinates: {
-          c: 36,
-          r: 34
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK36: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK36',
-        coordinates: {
-          c: 36,
-          r: 35
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK37: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK37',
-        coordinates: {
-          c: 36,
-          r: 36
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK38: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK38',
-        coordinates: {
-          c: 36,
-          r: 37
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK39: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK39',
-        coordinates: {
-          c: 36,
-          r: 38
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK40: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK40',
-        coordinates: {
-          c: 36,
-          r: 39
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK41: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK41',
-        coordinates: {
-          c: 36,
-          r: 40
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK42: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK42',
-        coordinates: {
-          c: 36,
-          r: 41
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK43: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK43',
-        coordinates: {
-          c: 36,
-          r: 42
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK44: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK44',
-        coordinates: {
-          c: 36,
-          r: 43
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK45: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK45',
-        coordinates: {
-          c: 36,
-          r: 44
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK46: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK46',
-        coordinates: {
-          c: 36,
-          r: 45
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    },
-    AK47: {
-      v: '5',
-      t: 's',
-      w: '5',
-      meta: {
-        address: 'AK47',
-        coordinates: {
-          c: 36,
-          r: 46
-        },
-        caseType: 'ul',
-        trigger: '<',
-        original: {
-          v: '<5',
-          t: 's',
-          w: '<5'
-        }
-      }
-    }
-  },
-  scope: {
-    s: {
-      c: 0,
-      r: 0
-    },
-    e: {
-      c: 38,
-      r: 46
-    }
-  }
-}
+         ul: {
+           count: 361,
+           originalValues: [
+             '<0.01',
+             '<0.05',
+             '<0.5',
+             '<1',
+             '<2',
+             '<3',
+             '<5',
+             '<20'
+           ],
+           transformValues: ['0.01', '0.05', '0.5', '1', '2', '3', '5', '20'],
+           addresses: [
+             'E27',
+             'E45',
+             'J33',
+             'J35',
+             'J40',
+             'J41',
+             'J46',
+             'J47',
+             'K17',
+             'K18',
+             'K19',
+             'K20',
+             'K21',
+             'K22',
+             'K23',
+             'K25',
+             'K26',
+             'K27',
+             'K28',
+             'K29',
+             'K30',
+             'K31',
+             'K32',
+             'K33',
+             'K34',
+             'K35',
+             'K36',
+             'K37',
+             'K38',
+             'K39',
+             'K40',
+             'K41',
+             'K43',
+             'K44',
+             'K45',
+             'K46',
+             'K47',
+             'O30',
+             'O32',
+             'O33',
+             'O34',
+             'O35',
+             'O36',
+             'O37',
+             'O40',
+             'O41',
+             'O42',
+             'O43',
+             'O47',
+             'Q17',
+             'Q18',
+             'Q19',
+             'Q20',
+             'Q21',
+             'Q22',
+             'Q23',
+             'Q25',
+             'Q26',
+             'Q27',
+             'Q28',
+             'Q33',
+             'Q35',
+             'Q36',
+             'Q37',
+             'Q38',
+             'Q39',
+             'Q40',
+             'Q41',
+             'Q43',
+             'Q44',
+             'Q45',
+             'Q47',
+             'R35',
+             'S17',
+             'S18',
+             'S19',
+             'S20',
+             'S21',
+             'S22',
+             'S23',
+             'S24',
+             'S25',
+             'S26',
+             'S27',
+             'S28',
+             'S29',
+             'S30',
+             'S31',
+             'S32',
+             'S33',
+             'S34',
+             'S35',
+             'S36',
+             'S37',
+             'S38',
+             'S39',
+             'S40',
+             'S41',
+             'S42',
+             'S43',
+             'S44',
+             'S45',
+             'S46',
+             'S47',
+             'U17',
+             'U18',
+             'U19',
+             'U20',
+             'U21',
+             'U22',
+             'U23',
+             'U25',
+             'U26',
+             'U27',
+             'U28',
+             'U29',
+             'U31',
+             'U32',
+             'U33',
+             'U37',
+             'U38',
+             'U39',
+             'U40',
+             'U41',
+             'U43',
+             'U44',
+             'U45',
+             'U46',
+             'U47',
+             'AB17',
+             'AB18',
+             'AB19',
+             'AB20',
+             'AB21',
+             'AB22',
+             'AB23',
+             'AB24',
+             'AB25',
+             'AB26',
+             'AB27',
+             'AB28',
+             'AB29',
+             'AB30',
+             'AB31',
+             'AB32',
+             'AB33',
+             'AB34',
+             'AB35',
+             'AB36',
+             'AB37',
+             'AB38',
+             'AB39',
+             'AB40',
+             'AB41',
+             'AB43',
+             'AB44',
+             'AB45',
+             'AB46',
+             'AB47',
+             'AD17',
+             'AD18',
+             'AD19',
+             'AD20',
+             'AD21',
+             'AD22',
+             'AD23',
+             'AD24',
+             'AD25',
+             'AD26',
+             'AD27',
+             'AD28',
+             'AD29',
+             'AD30',
+             'AD31',
+             'AD32',
+             'AD33',
+             'AD34',
+             'AD35',
+             'AD36',
+             'AD37',
+             'AD38',
+             'AD39',
+             'AD40',
+             'AD41',
+             'AD43',
+             'AD44',
+             'AD45',
+             'AD46',
+             'AD47',
+             'AF17',
+             'AF18',
+             'AF19',
+             'AF20',
+             'AF21',
+             'AF22',
+             'AF23',
+             'AF25',
+             'AF26',
+             'AF27',
+             'AF28',
+             'AF29',
+             'AF30',
+             'AF31',
+             'AF32',
+             'AF33',
+             'AF34',
+             'AF35',
+             'AF36',
+             'AF37',
+             'AF38',
+             'AF39',
+             'AF40',
+             'AF41',
+             'AF42',
+             'AF43',
+             'AF44',
+             'AF45',
+             'AF46',
+             'AF47',
+             'AG17',
+             'AG18',
+             'AG19',
+             'AG20',
+             'AG21',
+             'AG22',
+             'AG23',
+             'AG25',
+             'AG26',
+             'AG27',
+             'AG28',
+             'AG29',
+             'AG30',
+             'AG32',
+             'AG33',
+             'AG34',
+             'AG35',
+             'AG36',
+             'AG37',
+             'AG38',
+             'AG39',
+             'AG40',
+             'AG41',
+             'AG43',
+             'AG44',
+             'AG45',
+             'AG47',
+             'AH17',
+             'AH18',
+             'AH19',
+             'AH20',
+             'AH21',
+             'AH22',
+             'AH23',
+             'AH24',
+             'AH25',
+             'AH26',
+             'AH27',
+             'AH28',
+             'AH29',
+             'AH31',
+             'AH32',
+             'AH33',
+             'AH34',
+             'AH35',
+             'AH36',
+             'AH37',
+             'AH38',
+             'AH39',
+             'AH42',
+             'AH43',
+             'AH44',
+             'AH45',
+             'AI17',
+             'AI18',
+             'AI19',
+             'AI20',
+             'AI21',
+             'AI22',
+             'AI23',
+             'AI24',
+             'AI25',
+             'AI26',
+             'AI27',
+             'AI28',
+             'AI30',
+             'AI31',
+             'AI32',
+             'AI33',
+             'AI34',
+             'AI35',
+             'AI36',
+             'AI37',
+             'AI38',
+             'AI39',
+             'AI40',
+             'AI41',
+             'AI42',
+             'AI43',
+             'AI44',
+             'AI45',
+             'AI46',
+             'AI47',
+             'AJ17',
+             'AJ18',
+             'AJ19',
+             'AJ20',
+             'AJ21',
+             'AJ22',
+             'AJ23',
+             'AJ24',
+             'AJ25',
+             'AJ26',
+             'AJ27',
+             'AJ28',
+             'AJ29',
+             'AJ30',
+             'AJ31',
+             'AJ32',
+             'AJ33',
+             'AJ34',
+             'AJ35',
+             'AJ36',
+             'AJ37',
+             'AJ38',
+             'AJ39',
+             'AJ40',
+             'AJ41',
+             'AJ43',
+             'AJ44',
+             'AJ45',
+             'AJ46',
+             'AJ47',
+             'AK17',
+             'AK18',
+             'AK19',
+             'AK20',
+             'AK21',
+             'AK22',
+             'AK23',
+             'AK24',
+             'AK25',
+             'AK26',
+             'AK27',
+             'AK28',
+             'AK31',
+             'AK32',
+             'AK33',
+             'AK34',
+             'AK35',
+             'AK36',
+             'AK37',
+             'AK38',
+             'AK39',
+             'AK40',
+             'AK41',
+             'AK42',
+             'AK43',
+             'AK44',
+             'AK45',
+             'AK46',
+             'AK47'
+           ],
+           dataUrls: {
+             '<1': {
+               addresses: [
+                 'E27',
+                 'E45',
+                 'J33',
+                 'J35',
+                 'J40',
+                 'J41',
+                 'J46',
+                 'J47',
+                 'K17',
+                 'K18',
+                 'K19',
+                 'K20',
+                 'K21',
+                 'K22',
+                 'K23',
+                 'K25',
+                 'K26',
+                 'K27',
+                 'K28',
+                 'K29',
+                 'K30',
+                 'K31',
+                 'K32',
+                 'K33',
+                 'K34',
+                 'K35',
+                 'K36',
+                 'K37',
+                 'K38',
+                 'K39',
+                 'K40',
+                 'K41',
+                 'K43',
+                 'K44',
+                 'K45',
+                 'K46',
+                 'K47',
+                 'AH17',
+                 'AH18',
+                 'AH19',
+                 'AH20',
+                 'AH21',
+                 'AH22',
+                 'AH23',
+                 'AH24',
+                 'AH25',
+                 'AH26',
+                 'AH27',
+                 'AH28',
+                 'AH29',
+                 'AH31',
+                 'AH32',
+                 'AH33',
+                 'AH34',
+                 'AH35',
+                 'AH36',
+                 'AH37',
+                 'AH38',
+                 'AH39',
+                 'AH42',
+                 'AH43',
+                 'AH44',
+                 'AH45'
+               ],
+               original: {
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAYAAACdz7SqAAABa0lEQVRIS+2UMUsDQRBGv9k7Y2N1YmFjo2hheZ1VktsYrhKCgthpJxYKgiAWgqiVnY1lQGyMBqwCl02Iv0F7EWy0E4RTQ3YkkEgKDRzZGISbaovdeTNvliEMIGgATMTQvlqP9f4fvVLKCa01VavVx25VG5tpNpudajQadwDySql1o1Df94fr9foKgFelVDGZTI5YlrVLRDsAbABnxqCe500T0SaAtVYXy0qpGyllDsAFM28R0QGAYk9Q13WHHMdZ1FpvE5EL4IGZjxzHOS8UCp9NuO/7Y2EYhrVa7U1K+dwzNJPJLDHzZVMlES2Uy+XbbrMyAk2lUjO2bV8z8ywRPWmtDxOJRL5UKn38BDcCbSdOp9NzQoh9APMA3gGcCiFOgiB46YQbhXbAJ4UQewBWmfm4Uqk0z9/RF2g7u+d5o5ZljQdBcP9n0N8+U6vTK6XUhtHlYGIpG1uDUYqJoVFsRb4b642sLMqDgej9AiXoix337+TJAAAAAElFTkSuQmCC',
+                   width: 29.9619140625,
+                   height: 28
+                 },
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAYAAACdz7SqAAABRklEQVRIS+2UMUoDURCG/wnMYwM2glgKaaytFIl6ArH1BAriAQwRUilaWAkWFgpeQTuxDBZaeANPIDbKrpkJ+8uCAUEMLHkxCPvq9+ab/5vHCCZwZAJMVNCxWq/0/h+9ZrYAQEIIT8O6jjZTd18m2QVwH0JYjQolOWVmnVqt9qqqxyRn+v3+Jcn1IiWAbjSouzdJHgFoFilEZE9VT9y9RfIQwBmAbQCPI0FJJmbWEpEdALMA3gGcq2pHRNICnmVZI0mSNxF5MbOPkaHuvk/yAIAD2AohXA2bVSzoCslrANMAimQXqtoWkSLxjxMFOqja6/U2RaSYZwNATvI2z/Pder3+/J0cFToobGZLAE4BLIrIjapujB06AKRpOqeq86p692fQ3z7Tl96HEMJa1OUQYylHW4NlmqmgZWyVvlvpLa2szIOJ6P0EEzSLHb8vBqMAAAAASUVORK5CYII=',
+                   width: 29.9619140625,
+                   height: 28
+                 }
+               },
+               transform: {
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAcCAYAAACOGPReAAAAn0lEQVRIS+3UMQoCMRCF4fcWpsk9FBtB8Q7eSJstFSz0Dp7GCwgiHsA7JDPFiIWtZN1soSZ1+CA/MyEGOBzAREXLV/3Rpma2NLNLCOH+Llr2882sdfctybWI7HuhqroAcAQwfUKl0BOAGcmdu29KoXMROavqiOS1CPpql1KaVPQLmsYYx03T3EiuROTQa/g/+cOy17QLXtEutfLu/nnTBzmFRR19QsQjAAAAAElFTkSuQmCC',
+                   width: 21.7861328125,
+                   height: 28
+                 },
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAcCAYAAACOGPReAAAAqElEQVRIS2NkoAFgpIGZDKOGUj9Uh2mYuri46LKzsz/ZunXre3yBRrT3XV1dQ////7/q////gXv37t1AkaEeHh4Kf/786WRgYAgDGUQVQ11cXGYyMjJ6/f//v5iBgWElVQx1cnKSt7W1fXzixAnxv3//PqOKobCwc3d3lxw1dAiEqYODgwQLC8tzBgaGgD179mykKPGTU4YRnU1JMXzUUFJCizi1IzxMAdEech06jTF0AAAAAElFTkSuQmCC',
+                   width: 21.7861328125,
+                   height: 28
+                 }
+               }
+             },
+             '<2': {
+               addresses: [
+                 'O30',
+                 'O32',
+                 'O33',
+                 'O34',
+                 'O35',
+                 'O36',
+                 'O37',
+                 'O40',
+                 'O41',
+                 'O42',
+                 'O43',
+                 'O47',
+                 'AF17',
+                 'AF18',
+                 'AF19',
+                 'AF20',
+                 'AF21',
+                 'AF22',
+                 'AF23',
+                 'AF25',
+                 'AF26',
+                 'AF27',
+                 'AF28',
+                 'AF29',
+                 'AF30',
+                 'AF31',
+                 'AF32',
+                 'AF33',
+                 'AF34',
+                 'AF35',
+                 'AF36',
+                 'AF37',
+                 'AF38',
+                 'AF39',
+                 'AF40',
+                 'AF41',
+                 'AF42',
+                 'AF43',
+                 'AF44',
+                 'AF45',
+                 'AF46',
+                 'AF47'
+               ],
+               original: {
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAYAAACdz7SqAAAB20lEQVRIS+2UP2gUQRTGvze7rq27VmlsBC208io9i7ud2YMjRUCUBIWIWmgRVEgZUA5ULIQUFoKkiKiNqxaBcDA3cxAES+3TpFBQ7GJlvLt5YeFs4pnbPQlBvCln3nu/N9/7Q9iHQ/vAxBi6p6qP5f035K1UKoeCIAi11hvDMv7rmtZqtZPOuacATvdh68z8wFr77E/wwtB6vX6w0+lcBLBpjHmrlPqQBfc8b5KZvzvnHgKYA3DKGPNxEDg3VEp5jIhuAbjaDzTT7XbXfN+/45x73W6332f3SqmzAN4BmDbGvCoMLZVKB6IoOu+cmyeiEoANZr4fRdHzNE1/DgqolHoB4JIQ4ojW+lNhaJIkF5g5y3aTiKZardbabk0ipbxMRMsAHhtjbo5U02q1etz3/TfMfIKIPjvn7gVBsNxsNrd2BkyS5AYzPwGwGobhVJqmvZGgv5ziOD4jhLgLoAbgR/YTIcQjrfW3fh1vA1gEsBKG4bndgJl97kbKjOM4PiqEWABwpT8WC1LKa0S0BOBluVyebTQabk/mVEp52PO8iV6v94WIvgLoMvP8Dpix1q4XbqRhGSulZgEMXALMfN1amy2N304heYclkfd9DM2r1Eh2Y3lHki2v0/8j7zZrDZ4dDj0UyQAAAABJRU5ErkJggg==',
+                   width: 29.9619140625,
+                   height: 28
+                 },
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAYAAACdz7SqAAABvklEQVRIS+2TPWhUQRSFz3nMncmCjY0QBCFNGhGxUIsoiFhKWsE2WIiChYVRMZUYC6tYqBALAxFsUhhsbKzSSQJ2KoitCBYiC3MvvisjChE2+/J2lUXYW76f89055wwxguEImBhD/6nrY3v/D3vdfdLM9scYXzdtPHSmZnamrusVkpO/YF/d/UFKaX4neGuou+9R1YWqqr6IyF1V/VzE3f1kjPGTma0BOFVV1dkQwote4F1DzWzG3RcBzBQhktdCCKtmtuLuyymlZ+V5zvk8yVWSt0Tkdmuou0+o6jzJiwD2AfgG4JGILJDs9hJU1U0AR9z9cErpTWuomd1097KtAbgQY3zSryQ550WSJctXMcbTA2VqZifc/TmAvQDKyR6LyA2S5cR/jKreB3AZwHsROUiyLNpzdpVpzvkcyZLnFIDa3V/WdX2p0+l8KKqqugxgDsBbETnUD/izD013avt7VT0OYAnAMZLrIjKrqvcAXAWwJSJHSX5v0mwF/S3W7XYPiMi0mb0LIXwsNwbAw+0wkk9FZKN1kZo2zjnfIXl9h++WYoxX/jq0aamhijSo+Bg6UHuHtXsMHdbBvv+PxN4fQDqbHdOHLH8AAAAASUVORK5CYII=',
+                   width: 29.9619140625,
+                   height: 28
+                 }
+               },
+               transform: {
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAcCAYAAACOGPReAAABIklEQVRIS+2TsUrEQBCG/4nZybFgc7W2doIWvoOl+AAWglgrgsKBbyD2NtZi4UtopxbiE4h2ClaBzCwZiUQ49C7r5bxGMuUy8/H//8wSZlA0AyY66N+n+g8zFZGVEMKr9/45FljUvqoOzOwQwHwFI6KXsiz3siy7HAdvhOZ5vpCm6ROAa+fcZlEU/SRJbgD0nXM9ItJR4Eaoqq6b2VEIYct7X8GhqldmthFCWBwXRdT+sBIzc6r6DmCOmXut7H8fEpF7AKsA9pn5dCporfAOwDKAc2bebrqAqP0a+AhgCcAZM+9OfVIi8lArPGHmgxjw8+yamkRkp1IH4A3AxXCvc+6YiKr3HxWDfi1m1OwaM99ODP2N1Q462aK6TFslEP37bagf+F5hHbn0YbMAAAAASUVORK5CYII=',
+                   width: 21.7861328125,
+                   height: 28
+                 },
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAcCAYAAACOGPReAAABL0lEQVRIS+2SMUvDQBiG394Fpy7Rwc1BXJz6I7wji7jFxVVXF0EnETo4urgJLkUEySIIQo47CLi4+gt0ddBk6HjHJ4EIRducTdtFkjV8D+/73NvBAr7OAphoofO3+g+dCiHWOOfDNE0/fcK89aWUMRGdA9ioYE8AjrXWz5PgtdAoipadc+8Arqy1JwC6QRA8AtgMw7CbJIkbB/ZBe9baAwBnxpiPEiCl7BPRKed8ZZIKb/3RJHEc86Io3ohoSWu92qj+zyMhxA2APcbYjlLqYSZomTDP81sAu0R0ZIy5qFuAt34FvAewDeBQa30586SEEHdVwn1jzLUPWP6vTSql3CIiTUQv5axGgc65QZZlw6kn9f0w4w4ZY+tKqdepoX+p2kJ/GfDutInXFtrEWv3NF7fVah0iNlH6AAAAAElFTkSuQmCC',
+                   width: 21.7861328125,
+                   height: 28
+                 }
+               }
+             },
+             '<0.5': {
+               addresses: [
+                 'Q17',
+                 'Q18',
+                 'Q19',
+                 'Q20',
+                 'Q21',
+                 'Q22',
+                 'Q23',
+                 'Q25',
+                 'Q26',
+                 'Q27',
+                 'Q28',
+                 'Q33',
+                 'Q35',
+                 'Q36',
+                 'Q37',
+                 'Q38',
+                 'Q39',
+                 'Q40',
+                 'Q41',
+                 'Q43',
+                 'Q44',
+                 'Q45',
+                 'Q47'
+               ],
+               original: {
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAcCAYAAAD815boAAADPUlEQVRYR+1UT2gcZRT/vS87u+Bpd2sKLWgPoj0IUgyI1lA2M99sjBAVNSgq1ooHoaWipRelhBQttBRa6UUPam3x4lK9iEtm3mxSYSkellwK4qlY2iKNta4Y4jaZ78kHszKEJKXZuQT23eb9+/3m9973CJvAaBNwRJ9kVlPqK9lXMisFsuqT2U5WKpX7iWjLzMzMr+uRm5iYyM/Pz+fTOYODg3dqtdqdtep6JlmpVIq5XO5HAE8lIG0AI8w8txqo1noaQHVF7Bwz782M5NjYWGFpaek1AG1m/k5r3SCih5eXl58hon+UUucBPFYqlbaupo7W+i8AF+I4PtEl5TjO7SAIbvZM0vO8R4joPQBvJ81eLRQKP3U6nT8BvM/Mp63fdd0nlFI/i4gfRRGngUdHR8txHN8C8IJS6hIRLU9PT9v6dW3dcQ8NDTnlcvllY8whIhoCcEVEPimXy+etSq7rPq6Uahljnm00GnWLlCKyl5nPpdF936+KiB33VQAPJrHIcZwX6/X63xtS0vf9CRH51o6WiJ4Pw/BiulG1Wt1jjLkoIrujKLpkY5OTk6rZbMYADjPzyXS+53lHiOgogM+I6HsReR3AmwC+YeY3NkRyZGRkZy6XuyAijxLRNWPMx/l8/my9Xu/Yhr7v7xKROSKqdH9gfHz8vsXFxQUReSeKoi/SwHaf4zjeHgTBla7f9/3LIrKTmZ0NkewWua67Wyk1mbzKfwGcUUqdjOOYiOh3AC/ZR2Tzq9XqA8aYqyLiRlE0sxLYKj01NWVSJD8VkYOlUqmw1hm6pxPkuu5DSqmPAOwTkWPDw8NHms3mAhF9HYbhuxZYa70PwJcAdjCz3b3/zff9syLyiuM4xe40tNa/JJfiyZ6UXFnsed6WgYGBbUEQXNZanwJwwBjznOM4N+I4jgC0mHk0WYnjABbCMDzaXQ8AXwE4RURvicgHAA4y85lMSaabJcf8BwBPJ/45Y8x4o9G4nij7m4jcjqJoV0L6QxE5AGCb/Saiz4vF4v5arWYf26p2T+Neq4n129PT6XTU7OzsH+vlpfZ8R7vdvtFqtZbulp8ZybsB9RLvk+xFvXRtX8m+klkpkFWfTbGT/wGKr1csO0n+AgAAAABJRU5ErkJggg==',
+                   width: 41.6376953125,
+                   height: 28
+                 },
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAcCAYAAAD815boAAAC6klEQVRYR+2UT6iUZRTGn+ftO+dzroIGIigi6iJcBabkQiEK2giCCqIbQbDQkFoVqZGroAjaRAQFBQoiCgoquhDdKYL4Jze6UETJgiC0Rc6dOe/nHDnwTUzTONq9s7kwB2Yx3/uec573d/4QM8A4AzRiLHJUVRqTHJMcFYFRxRlZT05OTi4timKxiFwcJs7dJwDEr9eaJJvP85u2SHdfaGbXSC6sk+SU0qaiKM4MSmpm9wAs6zu7pqqrRybS3eeY2YGU0iMR+crMHgCYT3KDuz8medrdF4jIvEF0zMwAXCf5cVdUVVW/NxqNED/QXppkznmtu38JYG1EIvlpzvlIURQPAfykqu/F93a7vZnkcQC7VPXHf9W02VxcFMWvJD+pquqEu9vExET4D7WhIt19lpntJfkBgAUA/gbwg4gcCEqtVmtDSukUgA9V9bvI1KyFxIPKstzfm93MIs73AJ4AmF2fPRCRNST/mBLJnPNn7v4FgAzgfVU92Jd0O4BD7r6tLMujcebur+ScKwAHVXVH3/1jALYAiOE6DCDorwJwQ1XfmKrIde4epF4NSFFWEdlPMoiiqqr1nU4nBmRH9wHuPjfn/BeAb1T1n76rHzAn57xCVa92BZnZIwDzVDVNSWTXqd1ubyUZ/RhT2XH3c51OZw/JlFK6Q3JfDFHdk6+TvAlgp6r+3J84SJN82iPyAoB3RGT289bQSw9OBDWzNQC+BfBmTHFRFJtyzjGtl1V1XS3y6xgMACtV9Ze+cl+J8orI3G41zOyxu7fKsuyusP8A/V8iu97NZnOJiLwmIufN7HyQAPARybvufhLAb6q6vBZ9NqX0RES29LTHFZKfu3u0w7sxjKq6e1rlHrYfYplXVXXV3RfV9/5097fKsrxV04/+banq/Pr/EQAbAcyq718SkbdJxnAOtCmRHBQpVg/JotFo3B/2qJ5eXCkit0m2XnR/ZCJflGg652OR06HX6zsmOSY5KgKjijMjevIZwSszLOFUqU4AAAAASUVORK5CYII=',
+                   width: 41.6376953125,
+                   height: 28
+                 }
+               },
+               transform: {
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAcCAYAAADvANYcAAACUklEQVRIS+2UPWgUURSFz1lz75iNqJ0KNlZqE4garVX8iYjaaCNWimgpKIjEKhgUwVKwsRAlaCEoiGm0Mk3wt4qVJEZELRSCLpn7ZnPlwYyMS5JNNk2KfTDN3PfO+965P8QyWFwGDGhDFFloO9F2orEjF1wTZrbT3aeSJPk4X1u7exVA/MqrRrI217mmEGmaHiX5AEBXLvIjy7LearX6eTZRM/sEYFND7I2q7mgJwt3XhRAmAUzU6/UDlUqll+Q9AOOqunkOCAPwluTFIp5l2dfOzs4IN+ua14kQwhV3v0Zyr4i8jApm9hDACRFRkuE/z2u1jR0dHZMkL2VZ9tjdrVqtfmk2leeFMLP7AE6KSFeR0xBCv7sPuPvWxvows/MAbgP4U0rfhIjsIvm9VSeeuPsRVf0Ha2ZnAdwh2Sciw2VhM3sE4DiAVwBiHZ0BsB3AO1Xd1hKEmcX8n2qAuADgFoAeVX1fFnb3VSGELar6uvhvZj8BrFXVSksQaZoOkOwXkfWFnWma3oxFN1tNxEvcfQXJegniBYA95ZQuak6EEA66+3OSl0XkRl6YHwDE1yaNYmY2Gu0XkTUkf+f7f7n7dJIkG1pyohABEDvhMIA4sK4DuKuqp919dQhhhOSQiAxmWXZoZmbmGYBRklfdPbbpvlhDqnquZYgQwn53fwogvtwBjIlId7Q8nyPf3H04SZK+HHoIwDEAK/NLR0Rkd2M7l4GaTsxic5qm3ao6TnKqWd/nMD0iMkZyutn+BUM0E1pKvA1RuNd2ou3Eosb2UtpuMWf/Au+z+R2H3MyPAAAAAElFTkSuQmCC',
+                   width: 33.4619140625,
+                   height: 28
+                 },
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAcCAYAAADvANYcAAACkElEQVRIS+2UPWhTURTH/yfxtg6iiVjBgnbooINiBwehS8m79z0yFERtHSoqrkqHDkW0UqqCqEMRFx1E8QMssYo6hBdPaCc7BRUUR6GDgsGPOIgmve/Ig74SQtu06dIhb3vvnPu/v/c/H4R18NA6YEATIqpC04mmE7UTueKeSKVSnUqpP77vf11urPv6+lqKxWJLdU5bW1s5k8mUlzpXF8IYc0BEJgHsCkVEpADAy+fz3xcT1Vr7ANya2ANmPtkQRDqd3lypVGaJ6A0RnbLWdhLRKwAzzNy7BMQvAJPW2utRXCn1M5fLfWsIwnGco0SUsdbunZqa+hiKaK1HAFxOJpMbMpmMrRb2PG+rtTZ06FAsFpshojnf93/U28rLlkNrfQ7A1WQy2RrVVGvdD2AiHo+31/aHMcYVkbAcs1H5AOSVUoez2ezvhpzQWl8BcIGZF2Adx9FE9Doej3f5vv++WthxnItEdAnAbSJ6LiIDAE4AeMzMxxuCcBxnmIiuVUO4rtsbBMFLAB3MHP7xwpNOp1utte25XO5z9NEY80FEdjOzahRigIgeKaW2RHZqrU8DuLtYT4SXjI6OxsbGxoIqiJsiMlhd0lXtCc/z9ltr3wE4wszP5hvzSdifzLytVswYc19EjimlEtls9t98/icAJWY+2JATkQgRbQqCwCOiPeH4ARhi5vGenp6NSqmHQRBM5PP5p8aYLhF5C+AegPFwrEVkCMAgM99aC8Q+AAxgO4A5AC+6u7v7Q8vn90gJwA1mHg4vMcacF5GzAHaE70R0J5FInKkd52qguhszSnZdd2e5XC5OT0//rTf3YTyVSnWUSqUvhUKhUi9/xRD1hNYSb0JE7jWdaDqxqrW9lrFbzdn/y6UCLCbiV4IAAAAASUVORK5CYII=',
+                   width: 33.4619140625,
+                   height: 28
+                 }
+               }
+             },
+             '<3': {
+               addresses: [
+                 'R35',
+                 'S17',
+                 'S18',
+                 'S19',
+                 'S20',
+                 'S21',
+                 'S22',
+                 'S23',
+                 'S24',
+                 'S25',
+                 'S26',
+                 'S27',
+                 'S28',
+                 'S29',
+                 'S30',
+                 'S31',
+                 'S32',
+                 'S33',
+                 'S34',
+                 'S35',
+                 'S36',
+                 'S37',
+                 'S38',
+                 'S39',
+                 'S40',
+                 'S41',
+                 'S42',
+                 'S43',
+                 'S44',
+                 'S45',
+                 'S46',
+                 'S47'
+               ],
+               original: {
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAYAAACdz7SqAAACCklEQVRIS+2UPYgTQRiG3292TVJ4SlYsFNRCUdRCJFhoLJKd2eMWBAt/OK5TBDsttBO08KfSQg6usBDBQjAoWEiS3cmClkI6tRMFTw4ECZJC44b5ZCGB44gkt1GCkCnnm+99hmd+CBMYNAEmptB/an2q9//Q63nedsuyMrVa7dOwHY99pkqp/cz8hIgO9WArQojZIAje/gm+bqjv+9k4jhcAfM/n8y9ardZ7Zv6Ry+XKCaTT6bwCsFlrvWtsqJRyLxFdBnC+Fzbf7XZf2rZ93BjzOYqiD8m8Uuo1gMNa65lU0EKhsMFxnNPGmCtEVADwkZlvO47zuFKp/FodKqUsE9EFAAvMfL3RaNxMBfU87wwzP01UEtHJMAwTdQOHUuoNgCO94imt9fNU0HK5vM+27WfMfJCIlo0xtzKZzKNqtdoZFOj7/tY4jh8COGGM2dNXvnbtSBfJdd1jQogbAGYB/ASwKIS4GwTB11KptLHdbneazWachEspDxDROwCXtNaLgzY3ErTf6LrubiHENQDnmPkOMy8JIZaJ6GoYhvd60DkiqjLzxUaj8WBsaD9ASrnFsqxtyVtUSlUBHGXm+aROREsAdliWtbNer6/8NeiaW5s8pfsA5nrz34QQZ4MgiFJdpGHf2ep6sVicyWazm6Io+jKsb11nOixs1PoUOqqpVOumelNpG7VpInp/A81frR3rYzzuAAAAAElFTkSuQmCC',
+                   width: 29.9619140625,
+                   height: 28
+                 },
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAYAAACdz7SqAAAB0ElEQVRIS+2Uv2tUQRDHP3P3dp6HaURiKoVYpEijlSkiiH+ArWKpIKJBxMpfkErQxkZtFAJqKzbaiIh/gGAjGGy0srAQq+Qub/Z4Iwvv4FDDvbxTDuG23J2Zz873O7vCBJZMgMkU+k9Vn8r7f8hbFMWiiHRU9f2oG4/taYzxmLs/B/ZWsC0RORFCeLMdfMdQd58xs9VWq/Ujy7K7McbvQOz3+4cSJMuyD0CuqjNjQ2OMy+5+G1hOxUTkapZl92OMp4F1VX2X9mOMX919TlVDI6i77zKzayJyAdgHbAAPQwirItIdLmpmZ4FLwGHgmaqebASNMd5091upAeCcqj7ZrpCZfQPmKhWuhxDuNIUedfcXwB4gdbYWQrghIqnj31av15tvt9uvgAVgaSD5r4G1BqkoilMikvycB0p3f12W5Uqn0/ni7mlqN0Vkq/L0uLu/BR6p6vk/Xa4WdJBoZkvAPeCIiLwsyzL5/RF4rKpnUpyZrQAPUpyqXh4bOijQ7XYPhBAW0ls0s8/AfuBKdZ683O3ui3mef/pr0OFC1VN6Chys9g24qKprjQZp1Hc2fO7us2Y2m+f5+qi8HXk6qljd8ym0rlKN4qbyNpKtbtJE5P0JuuOkHas1nEQAAAAASUVORK5CYII=',
+                   width: 29.9619140625,
+                   height: 28
+                 }
+               },
+               transform: {
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAcCAYAAACOGPReAAABRklEQVRIS+3UoUtDYRQF8HPG7mW8smAQsQuCYFoRBEURNJgNxlXNBtFg9T8QwT/CIJoUBIMgGC0Wh0VmUB573x3vypMNDLrH3rYi+/r5wT0f9xIjeByBiTE6/Fb/Yadmtmhmz1EUveQVlju+me25+yGASoaRbJTL5RrJ17/wnmiSJHMkHwHciMhGu92ed/dbAHequlAIdfcpM9sSkTOS7+5eNbMmgCdVnS2E/gyFEI4BbAOYBFBX1dOBUHevmFmcVQogIbkpIpcDod2wmS27+zkAUVUtjMZxPB1FUaMLhBBOsvFJLonI9W9w3u8fkdwnuS4iFxkQQrgCsAqgpqr3faOdLj8ANNM0rZdKpRUAOwA+VbVaePwQwi6AAwATHeQNwJqqPhRGu8FWqzWTpmk8lDXN2/O+Oy0Cft+HosFeuTE6/FZH0ukXZIFxHSLPKNcAAAAASUVORK5CYII=',
+                   width: 21.7861328125,
+                   height: 28
+                 },
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAcCAYAAACOGPReAAABY0lEQVRIS+3UsUoDQRAG4H83ZwKCkEulIBY2ShqFw1I42L0UhgixtRRiKfoQliJiY2XjKwS8ZTgCPoCIhVgFLQNGCWhAkhsJJCCIObImjWT6/4P5h12BCYyYgIkpOv5W/2GnhUJhVQjRCMOwmVRY4vpa6x0A5wAW+thNp9PZrtVqb7/hQ1Hf9xcdx6kz80UulztqtVpL3W73AcAlEVVs0Ww6nd4EEBlj3kul0my73X4BcE1EZSv0e0gptSeE2AewIaVUxpjoT6jneTOu634AcAA0AGgiuv8TOggrpfJSypCZ54goa40Wi0W3Wq2+DoAgCA6Y+RRAnoh6R/sxQ6+vlNoVQlylUqn1MAzvemmt9QmAQynlsjGmPjLa77LJzI/MXJFSegDOADwT0Yr1+kEQbMVxfCyEWOsjt3Ecl6MoerJGB0Hf9+czmcznWJ5p0jsfuVMbsJdJ/FBs4Clq09rwzEQ6/QL1TnEdkqG55wAAAABJRU5ErkJggg==',
+                   width: 21.7861328125,
+                   height: 28
+                 }
+               }
+             },
+             '<0.01': {
+               addresses: [
+                 'U17',
+                 'U18',
+                 'U19',
+                 'U20',
+                 'U21',
+                 'U22',
+                 'U23',
+                 'U25',
+                 'U26',
+                 'U27',
+                 'U28',
+                 'U29',
+                 'U31',
+                 'U32',
+                 'U33',
+                 'U37',
+                 'U38',
+                 'U39',
+                 'U40',
+                 'U41',
+                 'U43',
+                 'U44',
+                 'U45',
+                 'U46',
+                 'U47',
+                 'AD17',
+                 'AD18',
+                 'AD19',
+                 'AD20',
+                 'AD21',
+                 'AD22',
+                 'AD23',
+                 'AD24',
+                 'AD25',
+                 'AD26',
+                 'AD27',
+                 'AD28',
+                 'AD29',
+                 'AD30',
+                 'AD31',
+                 'AD32',
+                 'AD33',
+                 'AD34',
+                 'AD35',
+                 'AD36',
+                 'AD37',
+                 'AD38',
+                 'AD39',
+                 'AD40',
+                 'AD41',
+                 'AD43',
+                 'AD44',
+                 'AD45',
+                 'AD46',
+                 'AD47'
+               ],
+               original: {
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAcCAYAAADIrlf0AAADi0lEQVRYR+2VT2hcVRTGv3NnJgG10kyDxYUEkSqilLYR0Zmok/fumxjT6MKKVaxS/6BCRUVdFQ2RKEgLVepCCoo1C9Ggq2Jg3rmTqTgMgiUu3LhKLSpdVKWQEKd57x65MiPPoU0sM22lzN3dew/nnN93zj2XcBksugwY0IX4v1SxW4luJTqoQLedkmIWCoV+ItowNzf3438QmbTWt0ZRtFCpVBbPYU9BEORyuVxtcnLSruaz7UoUCoX16XT6KwB3NgKdBjDMzPNnC+z7/lNE9C6Aqxr3h/L5/POtiQZB8IGIPBtF0bpVQP92cd4Qo6OjvSsrK48COM3MX2qty0S0KYqie4loUSk1DWBzX1/fNTMzM2eSIFrrOwDUROSNOI4PpFKp7UT0KYAXmPl9Z+v7/l1E9B6ArW7fUQjf928kohcBPNlIbGdvb+/X9Xr9dwAvM7NTF57n3a6U+lZEAmMMt0AcArArn89f2VRea/0NgKuZebOz1Vr/BGABQAhgqm2IwcHBTDab3WGtfYWIBp1zEXkrm81OO5U9z9umlDpmrb2vXC7PuiRGRkaycRz/BuAJZv6kBaICYCMz39w811p/CGA7M290Z8Vi8fpSqbSgtX4cwOG2IYIgeEhEPnetQ0QPhGF4NJlUsVi821p7VERyxpiau5uYmFDVajUG8Boz70/a+77/HRGdYeZcAmIfgJeYOdMC3BmI4eHhm9Lp9BcicgsR/Wytnerp6fl4dna27gIGQbBFROaJqNAEHB8fv2J5eXlJRJ42xjiV/1laaxaR9caY2xIQBwE8wsz9FwSi6dTzvJxSasJVG8CfAA4qpfbHcUxEdBLAg+6RN9rhOmvtCRHxjDFzLYm59rqHmQcSEJ8B2MTM2y4oRALmBqXUXgC7ReTtoaGh16vV6hIRHQ7D8LnGw9wN4CMAA8x8oiWxVwHsE5F+Y4x7N+4hnwJgmPnhiwLRDOL7/oZUKnVtqVT6QWt9AMAea+39mUzm1ziODYBjzDzSaLl3ACyFYfjm2NhYX2OaHbHW7lFKPQNgLxFtDcPw+4sKkQzW+OyOAMg3zuettePlcvmX5sgUkT+MMVvc3vf9nUTk/pI0gEUimgrD0IH+awVB8JiITLc9nVodr7Z3o7Ver6tKpeLaY9XlJlitVhsolUrHAcha9mvdn/ePvZbDS3HfhbgUqp8tZrcS3Up0UIFuO3VQzLZc/QVpW64sYLNBhgAAAABJRU5ErkJggg==',
+                   width: 49.423828125,
+                   height: 28
+                 },
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAcCAYAAADIrlf0AAADQklEQVRYR+2WT6hVVRTGv7Xb6zu+h1FSGq+kf4OcSYIkpBSENEgMDOQ5KBIqQjKbJJWCOpCSSIRokIGRTiqjQUUSITQJa6BRDYL+DCxzEJg1qPPeWft4V+w4F04H9XF570o87p7tsxZr7d+39lr7CObBknnAgBHE/6WKo0qMKjGHCoyuU1vMqampW2OMS1X185lEdvdQ1/XaGONXInLuYv7Zx8wmSR4VkQuXiznrSrj7hJmdEpGJJlEKIWyIMX58scRm9gqAZwDExn5CVe/pHtTMshirVXXxpUD78QeGcPeFZrYrhHBeVfeZ2c8ArheR9e7+h4h85O5LVPVaESnbIFVVbRSRowDeU9UtdV1vdfc9AF4nuSX7VlX1sIgcyDHzfk4hUkqr3f2lrE4OLiLPpZTejjH+CuAQycebQzwkIu8DeJLkG20IMzsBYJWqsq98Sumsuy8geV32NbO/AJwHkH0nZw2Rg5vZ8yKSVVoCICc4qKq7ssrT09PrQwgfAnia5Gv5EGVZLo0xnsnARVHs6ED8AuBqkov6383sSwB3klzQQKwkebKqqhdF5IVZQ6SUdrr7XgAJwBMkD3cO9QiAI+6+qSiKd7PN3a9KKdUADpPc3PH/zd0vFEVxY/97VVWfiMj9JEPn6s0ZxBp3z0pn5fL9PqSqO0QkVwR1XT/Q6/VyA2/uA7r7NSmlPwHsJ/lsB+I0gDGSN7Qq8RmAu0kWQ4FoqTUpIrkfbgPQc/dPe73eUyISQgg/NmXf1/TEchH5BsBjJN/sQJwCsIzkwhbEtwAmSC4eKkQr4SoArwK4K0+hGOOGlJIB+ILkmgbiZRHZDmAFya87EG8BeLSu61vGx8dzf+RGrgB8T3L5FYHoJynL8mZVvUNVj5vZcQD3AdgmIj+5+wcAzpK8vYE6FkL4W1U3lmV5UzPNfgCwSUT2uPuDIYR1McZjVxSinSw/dnVdn3T3frOec/d7i6L4rjUyp0n+O/dTSrvdfXee0rmtALxDMg+I/6yqqvaKyE5VzW/Q7117ez/wY3epYHm0ikgcGxvLzXvZ1UywFaqafzt6M/nPZJ8ziJkSDdM+ghimuoPEHlViELWG6TuqxDDVHST2vKjEP1SofizSQ//ZAAAAAElFTkSuQmCC',
+                   width: 49.423828125,
+                   height: 28
+                 }
+               },
+               transform: {
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAcCAYAAAD815boAAACo0lEQVRYR+2WO2gVURCG/1l3ZmNiAiIaH4iNEkUIpoiChY0SDYpWiiDBQhACoggWIoEEgmJQrLUREcVXpYWmUiwMNga18VHFFxgRhCAXzpxzHdmwVy5LZIV7rxC4287Zme/8+5//LGEePDQPGNGErNdXairZVLJeCtSrzz97UlU3m9lMkiRvi4abWRRC2BHH8SQRfZ9rvZl1hhB6mHm8qF8hpHNuHxHdBNCWNfsWQuhtbW39OFdzVb0I4ASAOKtPMPM2IipX1ptZh/d+CgCLSHtNkOluvfefAHwol8s7oyjqJaLrAKZEpCvf3Dm3n4juArjHzIMhhGNmNgLgsogMpgqr6hgRHQcgAH7WDOm9P2NmZ4loOzM/TqFU9Q6AA8wsROSrQVV1AsCWrDarnPf+i5m1iMiSbNNfATwFsAzA6pohVfUGgEPM3EZEpWzokJmNmtmGvD9VNbVAu4gsrsCr6nMAm0SkxczYe79RRF6q6iSAdTVDeu/vm9leEfnjXVU9CuAKEfXnTa+q02ZWTpJkZQXSOTdORH0iEuVUrw+kqqb+G8hBngRwCUBPqkhucHoYFopIZ5WSTwBsFZGkIZDOuVEiGmLm5UQ0nQ5xzl0golN/8eQLAF0isqgK8jWAFSKytCGQ3vtdZvaIiE4z81h2cF4BWJ9XJqtdA3A4hLCmElGq6gC8E5HuhkBmg3+kcUFEewCkgX4ewFUROZLl3TMiusXM50ql0qo4jj8DeA/gIBGNpJ6Oomh3HMcPGwbpve8zswcAUk8ZgDfM3J2GcyVSzGw8SZL+7PQPm9kwMPuvGgDcFpGBfKZmp3utiHTUFObVLzvnukVkiohmipqa2QLvfXrlpdfir6L1RfXCa7Gowf+oNyHrpXJTyaaS9VKgXn3mhSd/A/cIRSwcg4jCAAAAAElFTkSuQmCC',
+                   width: 41.248046875,
+                   height: 28
+                 },
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAcCAYAAAD815boAAAC00lEQVRYR+2VT0hUURTGvzPPR1FiDUmCUVIiFFhZCIVvkXivM4i6Kq2IoD+0CAoiQoIikYQwFwbVRnCTQslU0B+Qcc7DWUSzMahFtDTctOiPFBI5zrs3LryRYTBGmGcgzN2e8777u98993uENbBoDTCiBBnULZWcLDkZlANB6ax4JltaWmpt2/4dj8e/rGBzklLWZzKZmWQyOb9cf1tbW4VSamc8Hv9QSK8gZGtra6PW+hmAHUZMa/0OQNR13e/LiQshzhPRPQDlfn3YcZyLfX19Ktvf3Ny83rbtaa31BmbeVRSkOe3i4uIsEb0lojOe59US0SsAKWbuzBeXUh42Na31Lc/zhizL6iCixwAuM/MDAMbhswDuAtgCYKZoSCHEMSKKeZ5XPzU19dFASSlvArgdDofLYrGYlwsqpRwGcNpxnI1Z56SUbwBUMPM+/9A/tdYPAVQTUUPRkFLK6wDuhMPhdbFYLO1DdgMYtyyrOn8+pZRJAFXMvCcLL6UcAdDBzFVdXV3W3NzcNmaelVKOAWgKArIfwA1mXppdIYQkooRlWQ35Qy+EmCaiNDM35UAOArjCzHae68FACiF6iGggFzISiXQqpV4CqDGO5G3MWuvNrus25kDeB3CSmStXC/IUEY3Ztr1pYmLil3/d5wCM/GMmHwE4wsw1OZDjAOqY+eCqQEaj0f2e570HcJSZn/uQT8z7yXfGr10DMKi1rsxGlJTyGwCXmY+vCqS/8SciKldKRYloNwCTmVeZecjPu1Gl1Ljruk/b29vDCwsLPwC8VkpdCoVCF8xME9GBRCJhDru0Ans4PuReAAxgK4AMgBeO43SbiMlGinGPmXtMvxDiBBGNAigDME9E/YlEYmCZTDUP5xAz1xUV5rkfRyKR7el0+msymfxTSLS3tzeUSqVqJicnP5ufVKH+QvWCv8VCAv+jXoIMyuWSkyUng3IgKJ01MZN/AQ3rOSyPWw4TAAAAAElFTkSuQmCC',
+                   width: 41.248046875,
+                   height: 28
+                 }
+               }
+             },
+             '<20': {
+               addresses: [
+                 'AB17',
+                 'AB18',
+                 'AB19',
+                 'AB20',
+                 'AB21',
+                 'AB22',
+                 'AB23',
+                 'AB24',
+                 'AB25',
+                 'AB26',
+                 'AB27',
+                 'AB28',
+                 'AB29',
+                 'AB30',
+                 'AB31',
+                 'AB32',
+                 'AB33',
+                 'AB34',
+                 'AB35',
+                 'AB36',
+                 'AB37',
+                 'AB38',
+                 'AB39',
+                 'AB40',
+                 'AB41',
+                 'AB43',
+                 'AB44',
+                 'AB45',
+                 'AB46',
+                 'AB47'
+               ],
+               original: {
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAcCAYAAADm63ZmAAAC3UlEQVRYR+2UTWgTQRTH/283m14E3SiCgvVQUMGKYr1oPLSZ2Q1FSsGPKhbq10EPomLBS0Up1i8QPHgQikLFCmqsYEVC0tl+IOhJ0YMIBSkUoaJ4sAfRJDtPVlIJoU1TK9JD3m123rz32//83xAWYNACZEIFqtxbqShVUapcBcrN+2eeqq+vXxIOh+10Oj02XfNYLFZjWdb3VCo1MRvcvKFc163VWncD2JpvNsrMlzzPuxOsHcfZwsx9AKqDNTO/AhD3PO/rTHBzhmpsbKzKZrP7AXxTSj2WUr4OipumuYOZJ7XWVwAcB7DZsqwP2Wx2nIheENFB3/driOgpgJdKqaZ5Qwkh1hDRSQCH88X25XK5kVAodE5r/WhwcPBF8F1KuR3AcwB7mVkTUcL3/dqhoaF3+f2zAC7Yth1KJBL+dGAllaqrq7MikchurXU7EdUBGGPmi5FI5G4ikchMV1BK2Qug1TCMaq11K4DLtm1XTeVLKVsAPDBNc+VM/ioJ5TjOHmZ+GFwVETUPDAyMlDKpEOIAEfUAuKGUOiGl7ALQoZT600cIIYlowDTNTalU6u2clWpoaFgbCoX6mHk9EX3UWneFw+GeZDL5s7iY4zjHmPkmgGe2bTcHVyOEOENEVwuhXNdt0lr3A1itlBqfM9TUgVgsts0wjPMAXAA/AiUMw7iWTqc/531yCsB1AP22be+c8ooQopWIei3LWpxMJifzuYEnb/+1p4r/InhrDMPoAHAoP/YdQogjRHQLwL1oNNrW2dmpp87F4/GNvu+/AbArmNQ81P1gHpRSy+Y9fYUFhBBLTdNc4fv+BBF9ApBj5vaiJsrzvFEp5XsiWqS1jhPROgDBm3VaKRUoO23M+Z0qrCKlbAPw+5EsDmY+6nlet5RyAwAFYHkAD+BJNBptKVS0+Oy8oEpNYvGe67qrMpnMl+Hh4cCTJeO/Qc0GUrhfgSpXrYpSFaXKVaDcvAXpqV+HnxIsAGrq0QAAAABJRU5ErkJggg==',
+                   width: 37.748046875,
+                   height: 28
+                 },
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAcCAYAAADm63ZmAAACl0lEQVRYR+2UOWhVURCG///mzVyT2NiIQRBsXBAjFolFFETFBSR2CoqVKIiCiKJxbeKKYqGFCioYiGAjqIVioZVdcKncQKJWKigECZwzeW/kwIvEkOU9IyHFO93lzMz555t/LjEFD6egJtREVTqVGqkaqUoJVBr33zzl7k1mNltVe0Z6PMbY6u59eZ6/HU/chEWZ2ZpSqdRFsqn8WJ+7X83zvCN9hxA2kewG0Fi+/zYwMNDS0NDweTRxVYty9+kxxpNZlv0QkXMxxu+puLuvUNWvZnYPwMosyzbW1dX1mNkXAJ+KxeK6LMtaSHYB6FXV+RMWZWZt7n4WQFsqRvJwoVDoNrMud7+R5/ndMpmtiQzJEwBK7n6a5GoReZruY4wpbrOIKEkbSdiYpNx9Woyxg+RuADMB/AJwXUROkuwfxTsvACx19yUkDwHYJiKNg/FmdtzdO9194Wj+GlOUmR1z91MAUkc7VfX2WCYNIZwlmbz0TFVXmdl9d29X1T/vxBh3pcZIbhCRx1WTMrPl7v4AwAwAicxNETlKMhH768QYrwDYC+CDiCxKo4kxJv9sHyZqP4BLiaaqvqpa1GBCCGELyeSnuWWfPCmVSnvq6+s/ln1yA8AOAO9EZPGgV0IInSSPi8gskl/LnrtA8uA/e2oEGssAXAbQSvKhiLTHGC8COADgpYik7SoO5pnZend/lEYqIufLDbwGsEBV8wlv39AC/f39c0Rknpm9LxQKvemPAODa0BiSd0TkeYzxJ4C0aRtTM+5+DsAtVU1kRzxV/6eGVgkhnCF5ZJTal1V1n5mtLfsykUni34hI81Ciw/MnJGqsTRx+F0JoVtVekn3j5U2aqPGE/DX6aoInK7ZGqlLSNVI1UpUSqDTuN02SDywzSk0qAAAAAElFTkSuQmCC',
+                   width: 37.748046875,
+                   height: 28
+                 }
+               },
+               transform: {
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAYAAACdz7SqAAAB/UlEQVRIS+2UsWsVQRDGv73sfPc8TGFERFHstFKSQgQLKxFBkGBlo4IgEhBEERQEkz9AsRUbLdUUdmJno2KhKcRGKxFTCBGs3uNmN29k4R0cIeZ4Z+RZvOv2ZnZ+M98On8MIPjcCJsbQf6r6WN7/Q15VnY4xrhRF8X1tR2aWxRiPe++XnHMrTR03vmkI4baZ3QQwmYo555b7/f61PM8X01lV7wK4CsAPYG9F5JhzbvVP8A2h3W53j/f+G4DXInKmLMupLMveAJgSkY6qzjrnngFYFJG5GOMVM1sA8IDkXCtoCOGkmd2KMZ4viiLBEUJ4bmazMca93vsEPCIirCYLISybWYfk9lbQdd5OQgi/AEyQTJOmRiZJbqtyVfUdgOkU3xSoqi4BmAFwneR9Vf1hZqt5nu+uAGVZvnTOnSCZ/RXUzNKEHwAcBPCI5MXBEn0FsIXkztqkrwAcJZm3hg6AnwDsB/CQ5OUaIDVygOTW2r+PAHaR3NEaqqqpSJrwHskb9UKq+hjAhRjjvmrRVLUE8JnkoVZQVb2UpgPwE8DTehERudPr9Tre+2QWXwCcdc4tmNnpLMtOee9ftIVWi7Pe/cMk34cQ5s1sPvkGgAjgCclzG7lSoyM1WVqKm9lECGFGRJIN9pvubAq0CbI2PoYOq9hQ+WN5h5Jr2OSRyPsbaEHOHUW0EqEAAAAASUVORK5CYII=',
+                   width: 29.572265625,
+                   height: 28
+                 },
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAYAAACdz7SqAAACH0lEQVRIS+2Uv4sTQRTHv7Obs8khRg+u80C0OBBF0cYtLOYtaQ67+AOxUgtBRVC0EA0REeXgTtDqwOYUxU5QhOy+gYBCLCz0L7hrBXVTpIns5MlIIuE4b8l6EotMN/ve+37mfWf2KYxgqREwMYb+U9fH9v4f9hLRTt/32/V6/fs6J1JEtDdN05VGo9HOOnHmnYZhWBGRewB298TeAbjOzB/cXmt9Vin1EMBkL74UBMGFWq3W/RN8Q2i5XN5urf0CYClN0xtOuFAovAUwWyqVJpMkOQygKSK3rbWLvu/PKaVeALjEzI/zQvenaXoeQNUY882JhGF4R0Ru+b6/w1p7H8CZIAiK/c6I6D2Arcy8Lxd0bVGlUvFbrdaqiGxh5mkiagCYZubZfi4RPQEw5+KbAiWiZwBOe553LIqi11rrj0qpH8x8ZAA6D+AKM0/8FdR1mCTJcwDHReSqMWbBCRIRi8g2Y8yhAegjAKeYeSo3tAd85SwDcJmZneivRUTLAI4y88zAt5cA9jDzwdxQInIirsNzxhh3X78XEV0DMC8iU/2HRkRfARhmPpELGoahFhFn4Wf32wyKWGuXi8XiRKfTccPiTbfbveh5nnvpN5VSB+I4/pQL2n846xV7nrcriqIVrfVJpdRTAAUAbaXU3TiOH2w0lTInUtZIc/Fqteo1m82ZKIpWAUhWzaZAsyBr42PosI4NlT+2dyi7hk0eib0/Ae6x1B21PO77AAAAAElFTkSuQmCC',
+                   width: 29.572265625,
+                   height: 28
+                 }
+               }
+             },
+             '<0.05': {
+               addresses: [
+                 'AG17',
+                 'AG18',
+                 'AG19',
+                 'AG20',
+                 'AG21',
+                 'AG22',
+                 'AG23',
+                 'AG25',
+                 'AG26',
+                 'AG27',
+                 'AG28',
+                 'AG29',
+                 'AG30',
+                 'AG32',
+                 'AG33',
+                 'AG34',
+                 'AG35',
+                 'AG36',
+                 'AG37',
+                 'AG38',
+                 'AG39',
+                 'AG40',
+                 'AG41',
+                 'AG43',
+                 'AG44',
+                 'AG45',
+                 'AG47'
+               ],
+               original: {
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAcCAYAAADIrlf0AAAEIElEQVRYR+1VXWgcVRT+zs1OAiqS3SaWCpoHqUWUUhsR7RbdzNzZGNOoqKH1t9YfUIz1/8VSQ0oVtIUq9UELam0RsaH6Ulyyc2azFUMQDPWhID5VixYxao201E127pErszKENrVp+kPZ83bvPfOd+b7z3XMJF0DQBcABdRLnSxfrnah3Yg4VqNspKWYul2shonnDw8Pf/w+RSWt9XbVaPVAul48k83t7exvHx8cbk3utra2Tg4ODkyfCPe1O5HK55lQq9QWAm+MiEwA6mHnf8Yp6nvcYEb0F4JL4fFs2m31qYGDA2LXWeghAftq3O5h59ZyR6OrqapqamrofwAQzf6a1LhHRwmq1ehsRHVFK7QSwOJ1OXzZdPa31TQBGReTVKIq2NDQ0rCCiTwA8w8zvxCT+BLA7iqI3az/tOM7hYrH462mT8DzvaiJ6FsCjMdiqpqamLyuVyh8Anmdmqy5c171RKfW1iPhhGHKysNZ6G4CHstnsxQnlvwJwKTMv7uzszERR9DuAu5RSo0RUHRoasvgzxox2am9vdzKZzL3GmBeJqB3AARF5LZPJ7LQqu667VCk1Zoy5vVQqFWylxI+sZuYd00iUAcxn5mtq+1rr9wGsYOb5vu/nRcTa6SCAK+Oc0HGcuwuFwl+z6oTv+70isstah4juDIJgbxIon8/fYozZKyLLwjActWf9/f1qZGQkAvAyM29O5nue9w0RTTLzsgSJTQCeY2bH87z1RLQBwLtE9LmIPADgYQAfM/ODsyLR0dGxKJVK7RaRa4noJ2PMxsbGxu2FQqFiAX3fXyIi+4goVyPY09Nz0bFjx46KyONhGFqV/wutNYtIcxiGNyRIbAVwHzO32PsWRdHlxWLxQO3c9/39IrLIkpwVidpHrusuU0r1x1PjbwBblVKboygiIvoFwD32ktv8fD5/hTHmoIi4YRgOTyNh7XUrM7clSHwKYCEzL611snZfYqHeFpG16XS66URj9pRGrOu6Vyml1gFYIyKvL1++fP3IyMhRIvooCIInbVGt9RoAHwBoY2br7WQnXgKwSURawjC0F9jm/wYgZOaVvu9vF5GVjuM017qttf4unoR2sh03TolEDcHzvHkNDQ0LisXifq31FgB9xpg7HMc5FEVRCGCMmTtjJd8AcDQIgg3d3d3peJrtMcb0KaWeALCOiK4PguDbmj0BfAhgCxE9IiIvAFjLzNZ2c0ciiRQ/dnsAZOP9fcaYnlKp9HOs9I8icjgMwyV27XneKiKyb0kKwBEi2hgEgSX6b/i+/4qI9AFYYNdE9F5zc/PTg4ODdlicGRI1VDtaK5WKKpfL1h4zhp1go6OjbcVi8QcAcrxk13XbJiYmDo2NjU2dDG9WdjoZ6Nk+r5M424qf8TtxLgnV7XQu1U/WrnfifOnEPwf7xyzrKag8AAAAAElFTkSuQmCC',
+                   width: 49.423828125,
+                   height: 28
+                 },
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAcCAYAAADIrlf0AAADvElEQVRYR+1VS4gdVRA9db1VnfcSScQYGQ3+FuoqGBUHTFAUdaFEjDCYjRhQ0eBvo6gRkywERXQjIipEjCDxg4KKQSTiRqOEjL+F4gcxaoRASFyYntd1b15JSbc8ni8zmckMyPAKetH33q6655yq04R5EDQPMGAI4v+i4lCJoRKzyMCwnXrJnJiYOCvGuJyZP5mKZDMLOeerYoxfENGB3vNm1gbgT2+URFQeLe9xK2FmI6o6TkQjdZEUQlgbY3x/UFFVfQrAfQBivb+LmS8joiP+rqo/Azi779txEbl41kCY2SJV3RRCOMjMT6jqXgBLiWiNmR0iovfMbBkzL+lnr6qqMSJ6A8CbzLwh53y3mW0B8LyIbKhBKABX6P7m0jnnP1qtloMbGMesREpplZk9DmCVZyKiB1NK22OMvwPYKiK3+XpVVTcS0VsA7hCRF3urquouAKPMLA3zKaV9ZrZARE4uy3J5jPE3Inog5/y2mWm73fb8k8akIDy5qj5ERM7SMgB/AXiBmTc5y51OZ00I4V0A94jIs16puYgDLopiYx+IXwGcKCInNeuq+jmAC0TEa3md5wAcBrCwPrOXmUeJaP+MlEgpPWJmjwFIAG4XkW19l7oZwCtmtq4oitd9z8xOSCllANtEZH3f+f1mdqQoitOa9aqqPiCia0QkqKq32hgAN4dXAbi6FwH4UkQunCmI1WbmTDtz7g5bmXkjEbkiyDlf2+12fYDXNwDNbHFK6U8AT4vIv31d9/svAFoicmqPEh8DuFRECp+3lNL5IrKnZ/8ggCUOckYgeti6iYh8Htw1umb2YbfbvYuIQgjhRyJ62Ie8nokVRPQ1gFtF5KU+JcYBnCcii3ou+Q2AERE5pVGymZca+EcArmTmhUez2WMe7DrhKIBnAFziLhRjXJtScjf5TERW1yCe9MEEsFJEvuoD8TKAW3LOZ7bbbZ8Pt9QKwPciskJVd3v7MPPiRm1VPWRmnaIoGgv/jyDTAtF8XZblGcx8LjPvVNWdzhSAe4noJzN7B8A+ETmnBrUjhHCYmcfKsjy9drMfAKwjoi1mdn0I4boY446e9txNRI+ambfj1W4mInLncbXTZP7mP7uc8x4za4b1gJldXhTFtzXTPj8dEVnq7ymlzWa22V3axwrAayLiBvFPqOp2ADcAWFAvfcrMVxCRm8vAmJESgzK5tRJRbLVaPryTRu1gK5nZf2rdQYdV1fe/I6LOVPlmDcRUheZyfwhiLtmdTu6hEtNhay7PDpWYS3ank3teKPE3cAemLOABSm8AAAAASUVORK5CYII=',
+                   width: 49.423828125,
+                   height: 28
+                 }
+               },
+               transform: {
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAcCAYAAAD815boAAADKklEQVRYR+2WTYgdVRCFz+l01Y0TNUiiSVQ0u+hmcJAouMhGjQZFQVAECS4EISCIkkWQwQQGxajoThRERBT/FqKIGRR0IQY3xp+F0YAw/pKoQQw4cKv6Tckd+smjSeaFx0MYeL1puu/tc78+dW51E6vg4CpgxARyXFWaODlxclwOjEvnrDNpZtdExKmU0nfDFo+IqmmaG+q6PkLyz8H5EbEegHQ0/ibpZ9IdCplzvp3kawDWtSK/N02zfWpq6qfTiZrZ0wAeBFC344dFZAfJXrk2s3KuOuBzKaVHR4KMiE3u/jOAH3u93k1VVW0n+QqABVXd1hXNOd9J8i0Ab4vInqZpHoiIAwCeV9U9ZjYD4EhEHKyq6v3+83VdHyV5ciRId38kIh4jeb2IfNw68SaAu0REuyUys8MArm3Hlp1z918jYq2qbnD32YiYE5GL3P1SEfmB5Klh8Vmx3Gb2KoB7RGQdycV20eWFIuLKbj7NrETgPFW9oL+wmX0O4CpVXWtmHwK4EUDRmipzImI+pbRrJdAVId393Yi4TVX/m2dm9wN4geQuEZkfFDezExHRSyld3L+fc54nuVNVq5zzbyS3AHiR5LGlpaWHSW4u1UopzY5UbjMr+dvdgXwIwDMAZlT1qw7kAoBzVHXTgJOfALhOVVPJuJltSCl927q40d3/KJlX1a0jQeac50jOishmkieKSM75KZJ7z5DJLwBsU9VzByC/AbBFVS9swdb0d3qb8b8A9FR140iQ7n5zRBwiuU9EDraiXwO4ojjTFTWzlwHc2zTN5f0WZWYZwPeqOm1m/wA4qaqXtcClexwn+Y6I3DES5MCblp18K4DS0J8A8JKq3hcR57v7ZyRfF5HHFxcXL6nr+hcAxwDcTfJAyXRVVbfUdf1B/yUAPBcRH5F8FsBWkjtE5NORId19Z0S8B6A4FwCOish0KVnbR48P7lB33x8R+4Hlf9UGwBuqurt1rrShQwCubht6RMSTKaV9I+/uwQdzztOqunA2fS0i1rj7jIiUz+JSFyAixN2nReTL04135w/9LA5rtP/H+ARyXC5PnJw4OS4HxqWzKjL5L6xxgCzWFOC0AAAAAElFTkSuQmCC',
+                   width: 41.248046875,
+                   height: 28
+                 },
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAcCAYAAAD815boAAADc0lEQVRYR+2VX4gbVRTGvzOTYYsuq5GuBbHuQxEsVK1SqJoHQ+YkYdnmSbdVSqFYfRAtlCJFqLisFkpZpIJ9KvRBW9QlKvgHdpM5l82DdEUU2gfRF+kf/yFaQVOMm83cIyMTGcJ2s8QgLGTeZs693/3d7373DGEdPLQOGDGA7NcpDZwcONkvB/qls+ZM5nK5LZ7n/VmpVH5aw+LEzNtardalWq12PTm+VCrdVK/XneS30dHRRrlcDm+k2xUyn8/vUNX3AdwViajqlwCKxphrK4n6vn+AiF4HMBzXT2cymWenp6dt9M7MDQAbOubuFZG3e4IcHx8fWV5evkpE54lofxiGW4joYwCLIlLqFGXmh6Kaqr4chuFJ13V3EdE7AA6KyKlcLjfmOM5lVd1vrf2sPV9Vf+h0PKm9qpO+7z9OROUwDLctLCx8FTvxEoBX0+l0qvOImPk0gH2ZTObmhHOfAhgRkfuYeTeA2UajMTI0NHSbtfbnWq32V7f4rArJzC8COJ5Op4fK5XIzhvxnIdd17+jMJzPXAGwSka3thZn5DIBdIrIpn8+/pqqHieh7Vb0zHjMjIkdWA+0GeQzAURH5d5zv+0xEgeu62yuVysWkuO/7XxBRU0QeSUDOADgkIh4znwfwMBEdstZeIaLIhJ1EtC8IgnM9ZdL3/SNEdCIJWSgUStbajwCMicjVpDAzi6reaozZkYB8A8CTIrIxynir1RoOguDHqJ7NZodTqVQdgBER7hVyLxGd8zzvlrm5uT/i434KwJkbZPItAI+KyFgCchbA3SLyYPRtamrKaec11vtaVZeMMdt7giwWi/eHYXgBwGMi8kEs+m7USSJnVrjdLwCYUdWN7RbFzL/GTu3J5/Pfqeq3IpKN5sbd43dVfcUYM9UTZHunRDRsrS0S0T0Aop55WEROZrPZDZ7nnbXWzhpj3puYmEgvLS39BuATa+3zjuM8E2WaiB4IguACM7c38ZzjOJ+r6vFow47jbK1Wq9/8F8h7AQiA2wG0AHyYyWR2R0fWdiJyr31Dfd9/gojOAkgBuE5Ex4IgONHOoOd5p1R1T9zQW6r6tDHmzZ5vd3JioVDY3Gw2f1lLX4tyt7i4OFatVi9HP6lOgMnJSbder2+en5+/slK9c3zX32K3Rvt/1AeQ/XJ54OTAyX450C+ddZHJvwHvVIMs/nRWRQAAAABJRU5ErkJggg==',
+                   width: 41.248046875,
+                   height: 28
+                 }
+               }
+             },
+             '<5': {
+               addresses: [
+                 'AI17',
+                 'AI18',
+                 'AI19',
+                 'AI20',
+                 'AI21',
+                 'AI22',
+                 'AI23',
+                 'AI24',
+                 'AI25',
+                 'AI26',
+                 'AI27',
+                 'AI28',
+                 'AI30',
+                 'AI31',
+                 'AI32',
+                 'AI33',
+                 'AI34',
+                 'AI35',
+                 'AI36',
+                 'AI37',
+                 'AI38',
+                 'AI39',
+                 'AI40',
+                 'AI41',
+                 'AI42',
+                 'AI43',
+                 'AI44',
+                 'AI45',
+                 'AI46',
+                 'AI47',
+                 'AJ17',
+                 'AJ18',
+                 'AJ19',
+                 'AJ20',
+                 'AJ21',
+                 'AJ22',
+                 'AJ23',
+                 'AJ24',
+                 'AJ25',
+                 'AJ26',
+                 'AJ27',
+                 'AJ28',
+                 'AJ29',
+                 'AJ30',
+                 'AJ31',
+                 'AJ32',
+                 'AJ33',
+                 'AJ34',
+                 'AJ35',
+                 'AJ36',
+                 'AJ37',
+                 'AJ38',
+                 'AJ39',
+                 'AJ40',
+                 'AJ41',
+                 'AJ43',
+                 'AJ44',
+                 'AJ45',
+                 'AJ46',
+                 'AJ47',
+                 'AK17',
+                 'AK18',
+                 'AK19',
+                 'AK20',
+                 'AK21',
+                 'AK22',
+                 'AK23',
+                 'AK24',
+                 'AK25',
+                 'AK26',
+                 'AK27',
+                 'AK28',
+                 'AK31',
+                 'AK32',
+                 'AK33',
+                 'AK34',
+                 'AK35',
+                 'AK36',
+                 'AK37',
+                 'AK38',
+                 'AK39',
+                 'AK40',
+                 'AK41',
+                 'AK42',
+                 'AK43',
+                 'AK44',
+                 'AK45',
+                 'AK46',
+                 'AK47'
+               ],
+               original: {
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAYAAACdz7SqAAACDElEQVRIS+2UPYgTURSFz30ZY4rFYiyWLXXBBX+qFIIxYZKZtxAbG8WfTrGwsxAUsYgBlUWFLRa0EEGwMypYhODMmzAS0lrIdhYptJAFEUFQNzvvysgMhODuOglLLPLaN/d+95xz5xEmcGgCTEyhO+r61N7/317LsmaGpwyC4Ptmk4+dqeM4RwC8HwYIIWZd1137Gzg1tFqt7u73++cBfFNKvZJSXmLmx2EYHgawkUBKpdKHer2ux4Latn2AiK4AuBg3OquUeu04zhMApUKhsNDpdPYVi8XeZrBkgC2V5vP5XaZpntJaXyWiPIAeM98xTfNZo9FYj5pIKVeZeT5WGWW7wcznfN9/MVKmUsrTzPw8spKITnqe93awUa1WE91uNwTwhZkvAzCJ6BaAOSHEftd1e6ntLZfLC4ZhvGTmQ0T0SWt9O5vNPm21Wr+SZrZtz+ZyufVms/k1Vr7IzG+Y+brv+/dSQ5OCSqVyTAhRA7AI4CeAFSHEg3g7k4g4+t6yrJxhGD8A3FdKXRsZOgCfF0LcBHCBme+GYfjIMIyPAG4opZZipSeYuUlExz3P644NHbB0byaTmXNdd9VxHAXgKBGdYeZI9cMoW6XUHgB/1A+f1P/pcAPbtg8S0XJsfXS9prWuttvtdyNtb5oHOH4KZ4Ig+Lxd3dhKtwPsiL1T6FYOTDMdZT/+uWYi9v4G5Ry1HTkvyasAAAAASUVORK5CYII=',
+                   width: 29.9619140625,
+                   height: 28
+                 },
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAYAAACdz7SqAAAB50lEQVRIS+2UO4sUURCFT41Tt3sGUVYWDQRBFANjH8GaiCD4A0QQMVMQQRADRWVB8BWIoIFgsMGyiLmbqJhrsJmZgZiYyYIg43SVc4/cpRtkddyeHmQMpsPurvru+aq4ggk8MgEmptB/an2q9//XS3J2/SlF5Muwk489U3c/TvLVesBgMNjT6XQ+/gk8MpTkZjObb7Vaq6p638weArgsIscAWAVpt9tvRWQwFtTd50jeAzCXGonIVVV9YGbvAOxX1Rl3P6CqK8Ng1QH+mpRkbmbXROQCgO0AvgF4qqrzItJLTcxsFcBWABFAGwBF5Kaq3m00U3e/QfI2AAdwLoSw+Gsjkpvc/Udii8gtkjsAnAeQAzgYQlgZWa+7HyH5AsAMgJRsQVWvi0hKvPb0+/29Mcbv3W73c5k8WXkCYCmEcHZkaFVQFMUpEUnz3J00knwdY7yYtpNkq5xx0guSW9z9K8mXWZadaAytCs3sMIDHAA6JyHKMMaV+D+BZCOFMmfQSgEckT2dZ9nxsaNWg1+vtUtV9qvrGzD4B2AngSlpqAHcAZKqaicha+t8ujmEbVve9ux8luVCqT2VFjPFknufLjba3Lric5WxRFNvyPP+wUd3IN9JGDet8n0LrWGr8z1RvY3V1Ciei9ycUv7gdsp87kgAAAABJRU5ErkJggg==',
+                   width: 29.9619140625,
+                   height: 28
+                 }
+               },
+               transform: {
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAcCAYAAACOGPReAAABU0lEQVRIS+2UMUsDQRCF30sye3cQFLTWSqxtLS3UIhIrf4CF2tlYCXb+AmvBH2ArWAjiLxBBsRTsFAQhReLtLt7ISa6JmOPuvEay9b5v3ryZXaKGwxqYmED/PtV/lKmqCoDpkZA8yd5vweW275w7A7A9AoiNMVEV6AOAeZKdDKKqfWPMXRVoH8CtiGw65+aCILjP25ex7avqlPc+zc4CMMD3CxyQ3BCRm1JOrbVbJM9V9YXkMcl1Ve0C+BCRGZJpsR8nz2nTe78kIo8k41TtnLsCsNpoNDqtVuuyMDQVqGqT5Gcmds7tAzgBsGuMOS0MtdamLR8lSdINw/Bi6PQawIqItEkOCkNVtT0c1Luq7pBcA7AH4MkYs1hqUKnIe3+gqocAZodxvCZJshxF0XNpaCaM43ghCIIeybdKe5onruy0SIHcD6UILLs7gZZJbbymlky/AE7ueB0XJLbWAAAAAElFTkSuQmCC',
+                   width: 21.7861328125,
+                   height: 28
+                 },
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAcCAYAAACOGPReAAABfElEQVRIS+2UP0sDQRDFZ84DFUkRG8FC8AsoYqGNENhbJBK0SmVvYWkhdvF6U/gd7K4z2OT+cE2QKyJWsZYoimchCPFwLzuykIiI5riLaSQLWy3vt2/eDIMwgoMjYMIY+vep/qNMy+XyRBiG019DyuVyslardX4LLrF8xtgBIla/AR4cx5nPDOWcW0S01O12t/sQRIw8z7sdBtomonNN0w4BYLZer7eT5mVg+YVCYUrX9TcAeFJAANAR8U5Kuem6biuTU8Mw1gHgUl1EPCaiDQA4QsRHIcSi7/vxT+CBTiuVihYEwUIYhvfNZlMoAOe8SkSqeSu2bV+nhiqBApumKftizvkWEV0gomHbtpsayhjbRcQzKeWq53lXPaenRLSfz+dnLMt6Tw0tFouTQogXALhBxD0AWCOiEwBwHccpZWqUEhmGsUNEJiIu9yBBHMcl3/efM0P7QsbYXBRFnUaj8TrUnCaJh3aa5oPEhZIG9rkbsoiSNGOnSQmlf/8ALi6KHYBLLD0AAAAASUVORK5CYII=',
+                   width: 21.7861328125,
+                   height: 28
+                 }
+               }
+             }
+           }
+         },
+         ol: {
+           count: 5,
+           originalValues: ['>84.000', '>100.0', '>500.8', '>10000'],
+           transformValues: ['42.000', '50.0', '250.4', '5000'],
+           addresses: ['G42', 'I24', 'I27', 'I29', 'I42'],
+           dataUrls: {
+             '>10000': {
+               addresses: ['G42'],
+               original: {
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD0AAAAcCAYAAADSkrd6AAAFP0lEQVRYR+1We4hUZRT/nTszu1FiTr6gSEETjEwtLcoRmuZ+M9OkK9HDCokeGiUZaJQZRduaaGa4RkIPWh89KNsSSnPduefOjtC6FZhSaER/WFraw7JC3Wbn3u/EF3dknNYxfMTS7vfX/e75zvnO7/zO4yP0wkW9EDP6QPcW1vuY7mP6fxyBvvQ+VXKVUsO01pTL5b6ttJVIJEZGIpEjra2t+7u5h5RSYzzP253P5w9VyjOZTK3WenShUNiZz+e9Snk8Hh9ERAPb2tq++jcYThvT6XT6It/3vwCwhplnly5PJpMTReQ9AMPMPxHZBiDtuu4vZm/b9kwiWgGgX6DzSiwWm93Q0KDNXin1MoB7AIQBeCIyy3XdtUYWj8cHhMPhTQCuDnR/B3AtM2+vBr4qaKXUVUQUKxaLTfl8/rfuDMXj8X6hUOgxIpofOPZSCXQmk+lfLBb3ENFWIrrL9/2RRLQBQAcz1xn75ltEnvR9vzEUCk0lorcAPMjMK5PJ5KMi8oyIZGpqarYWi8WnAMwTkUtc192llMoR0SjP864jokOWZb0OYGw0Gh3S3NzcdTzgVUEnk8nxItIKYAiAdwA0MvPH5caUUjcCeFNE5hLRQgDrS6Bt276ZiJp93x/T1ta2M2DuCQBPR6PR8MGDB18EcEcsFjunjNmPAPRn5rFKKVMmu5g5Y3QnTJgQiUajRwCsqK2tXVwoFH41QWBmkylIJBJXWpb1iYgkXdflkwIdKJl6mwbgcQBXANgNYLnneWtM/WUymcGdnZ2d5lsp9WM5aKXUAgBLotFobSnySqnpANaFQqHzfd83rA5l5otLDiqlmgBMZeahSqkigJXMPK+sXPaKyBat9XLLsrZpra/P5XItRp5Op8/zfd+UzZ3M/NqpgD6qm0qlxmitmwGMFpHFruuaQBxd3YBeZILFzEczyrZtRUROKBQa73leExF1MfOkMtDLAMxl5ohSSoio3nEck0F/L6XU5wB+sixrodZ6i4hMcl23w8jq6+ut9vZ2H8AjzPzcKYEOjN1gao+IxgHYLyIzXNdtqwbatu35RLS0HHQqlarTWn8AYDiAVSIywHXdiWWgXgBwOzMPMkyLyLPlwVVKfQ3gMyJaIiLbiSjuOM4Wo19XV3d2Z2fn4aDZmYzpdlWtadOkwuHw/QBMmg4EYLpiAzMbp6XSYiXTtm3PIKI3IpHIuS0tLX8ETJlO3BTU9GoA1zCzCUCJyXUARjHz5UqpfQA2MPN9ZfIDIvKq6S9E9AOAm5h5vZGnUqkLtdZ7RCRRSUi5rydqZLeIiGlgH2qtF+ZyuU+PF70A0DE1nU6nx/m+v6PcMaXU2yZLAyYfBrBMRAaVRphS6gAAl5lvVUqZZjSCmUdUgJo1efLk1e3t7YeJaK3jOIYYk/p3m+wxWcTMe06KafPYCIfD1ubNm7+pBraMhWNAB458SUT9tNZpIhoNwMzsh5i5ccqUKdGgA2/UWs+xLOte0wOI6DLHcXYkEomMZVmbiGhBKBRa53meYXiiZVkXZLPZw0qpRgBztNbTIpHIPt/3XQDbmDldzd/T9jgpY/pdZn6gLBCXAjCMmbFnXlPvx2Kx6aURZdv2bURk5qt5fBwiokWO4ywN9M3keN7MbbMnou8AzHQcJ2v2weNkI4BYcH671roul8t9/5+BrnaRqbeurq6f8/n8n5XnTKPs6OgYns1mTUb9o1fE4/GzampqBmez2b3d3WFGVaFQsPL5vCmNE67TyvQJb+shB/pA9xAizrgbfUyf8RD3kAv6mO4hRJxxN3ol038Bzx9+O7jn5wgAAAAASUVORK5CYII=',
+                   width: 61.1064453125,
+                   height: 28
+                 },
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD0AAAAcCAYAAADSkrd6AAAEzElEQVRYR+1Wa6iUZRB+5vObec/x0gUtOyZk9cP6I/rDwjIjO1hZGQWGUZJgFJJdJKWjGQoWaWUFFViQpBlUWmR2w0IJzKLSblCZ/dBMwlAMrd2+mW934pVvY12Pa3iJQ+fMrz377Jl3nveZeeYldMOgbsgZPaS7i+o9Svco/T++gZ72PlZxVXU4ABKRLxtzqeoF7r4vhPBDI+buSZ7n7Wmabiai3Z3gffM8H52m6Xoiyhrxcrk8JE3Twcy84d9wOG5Km9kod4+HbhSRS2qHZ1l2HRG9DKBP8d1veZ6P7N2798/xb1V9HMA9ANIC38jMY4ioUuAfAxgVLxOAu/uiEMLsiLl7m6puIqK24n8tSZLr0zR9pxn5pqSzLJtIROOZeQ4R/dpZIncfkOf5Une/pihsQ420uw80sx0AtlcqlSuSJBlJRMsBbBORoUX+1wCsZOZpeZ5Pd/f5AJaIyDRVfQnALQCmM/MqM1sBoJ2IxjLzelXdDmAAEV3r7nuJaI27n87MpxBR6XDEm5LO83x8tVp9A0AA8K27LwghrKxPZmYd7v4wgGcB3A7g8xppM5sTMSK6nJnXFcq9CuBGZhYz+wjAhfFzTVkz2+nuLSLSX1X/ALBLRM4tlG0xs5K7r61UKlPTNP0FwAsiclvEsyy7gYheB3CHiDx/VKSLg+K8zXD3WQAGAoiFrGDmuUS0p1wun93S0rI/zqKq/lVPWlWjMjczc5/azZvZ3Hh57n4+Ea0F0E9ETq0VqKqfAhguIi2qWgWwTkTa6/A/AWypVqvzkiR5C8BdIvJMxEul0uA0TXe4+yMhhDlHTbpB1XZ3j0rH9lnDzBPq8UbSZrba3SeIyD8dpaqxG54joqvcfZm7V0IIg+o84H0iGiciiao6Ea1i5ol1pPcA2A/gQQDL3X1SCCF2T5zxXmaWA1gmIlOOiXRMluf5LHefCaA/gKjonSKytBlpVY3zO7mB9AwATwAYAeBNAK0iEjvoQKjqegAXiUiIShPR2/WXq6r7oickSdJRrVajYU0RkWUF6ZPN7HcAi0Uk1tppNJ1pd+9vZosB3ARAAOwmooVpmj5JRLH1DopGpbMsW0BEc5n5DCLaVczdY0Q0s5jp2MpDRaRvHelvALSJyGmqWgawWUQursMzd//A3e9NkmQrEc1m5oVF7mFE9DWAqY2C1BfalLSZPeDuDwHY6u4dIYRoaoeNTtr7Snd/j4g6mHlRoWQs6rxCyRcB3Jrn+Vl1Kyzu4S0iMkxVt8XOEpF+DaQWM/P9ZqYAPhGR0QX+KBFF7xkhIl8dldLFY6OXiGxqRrZOhYOMrCC5N3YJEcWVFh8oUZWlIjK1VCqdWTjwjwAmEdH86AFJklydpum7qjodwNPROAE8BSA68yBmHkhEe1X1QwBjAdxNRD+5+2oAO0XknGb1HrfHSUEwkv5MRMbUDjWzce4eXTauPQfwPTPHNjzw+DCzee4+r9jx0YReEZHJxYwmZhaJXVbki7v3PhFZUuBteZ5/4e41I9zt7peGEL77z0g3OyjLsmEiso2IohEdFIXrjmDm+Aw9xCvc/SRVHRJCiPN+SMRVRURpa2trHIcjxnFV+oindZEf9JDuIkKc8DJ6lD7hV9xFDuhRuosIccLL6JZK/w0ziGw79RW6AAAAAABJRU5ErkJggg==',
+                   width: 61.1064453125,
+                   height: 28
+                 }
+               },
+               transform: {
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAcCAYAAAD1PDaSAAAD4UlEQVRYR+2VXYhWVRSG33Xa6z3fDGNWU8mYlVTUnehVWFIoU11YRoHgRZFhf8JkgUUZxQhd9ENCUYQEBVYX/dhFWRH2MzdlXaT9UWA/YJZUZJmV38xZ+8xZseV88PWR8w2TJMbsy/Pus86z3/2udQRH4ZKjkBnT0P/VrU07Pe30BA78P+Ph7gpgZsfBo4jsbz1z96wsy8EQwg4R2dtpkrv3lWW5KIQwIiJFpz46Ojo3hDBHVd+dTMS6Om1mTwG4tqPYGMme9MzMHgJwC4BQ79mmqheIyHitvwdgIXBwvLq7P5Dn+bqkufuAmW0XkYH63Zhl2RUhhNcmgp8M9GcAThORpW3OHiD5UVEUy0XkBQAvqurqsiyH3H09gI0kV5vZMwCuAjCkqptjjM8CGBSRJao6YmbfAjhRRC5z930issXdT1bV40SkeSjwyUAfALBdVS83s1PzPP+0VczMtgE4V1XZcjbGuMfdGyT7zexPAD+RPLN2thFjbLr71vHx8VUhhO8BPEnyuqQXRXGliLwE4EaST0wJ2t2PjTGm7KYcsr7ipohcWju1G8AMkse3HeQDAPNJNsysAvAOycE2PZmws6qq4SzLXgFwM8nHkt5sNueEEL5z9/vyPL9rStCt63f3H0TkXhG5xN2XARhV1RNijLvdfTzP89mtDxRF8YaIXEwyMzMXkc2qurwN+hcAfwC4B8DT7r4iz/Pn65s4JsZYAthEcuWUoN09FZmvqp+LyFjdWFsBXJRl2dKqqh4H0ENyVhvUCIDzSObJaRF5VVXTQQ8uM/sdwK4sy+6sqio13EqSm2romTHG3wBsIHnblKBbp2/ltf7oGgCPALgBwE0AziHZ1waVMj9A8iQzGwWwg+T5bXrh7m+6+61Zln0lIutU9f460/NE5BMAq0imqfWPa8JGLIoiReLuqqqWNRqNLTX02wAWq2pfjDE5fU1Zlqf39vamfCcnU/53kpxnZrsA9JOc0QG1QVXviDEagPdJLqr1B0XkdgALSH48Jej0U6gb8Vd3vz5lNXU2gG9Int1sNk+pJ8CXAFaIyPqU+RSdEMLrZjYE4FEAadQ9DCBNhtmqOktE9pnZWwCWAFgjIl+7+8sA9pA841DA6XnXkRdjXOvu6WfQX8flx6qqFvb09CQXEWMcdvfhulZqoudIXl3vzWKMCWxxDZFm71qSG2t9oCzLD9291ch73f3CPM+/+FfQrZfHxsbOyvN8v4j83FmwbtgFqpp+42nM/W2l0Wlmc9tnfPuGNOpEJLSMmAh4Uk53K3Ak9K7xOBJQ3b45Dd3NocOlTzt9uJzsVmfa6W4OHS79L0fA1izBMxd7AAAAAElFTkSuQmCC',
+                   width: 45.14453125,
+                   height: 28
+                 },
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAcCAYAAAD1PDaSAAAEQ0lEQVRYR+2VXWhcRRiG3292k6g10q3RgqLBQkFRKpriT7fiujunMU1SLySoiBRt/aWKFdRCwTRF/GtrW+yNxR+qgpRAL0ytsOebky24xlykFcGKeKH9VUw1ik2T7Z4zn4ychSXYbIjBUsm5O+ed+c4z77zzDeE8fOg8ZMYs9H+1a7NOzzo9iQP/z3h0dXUlhoeHL6xeeGNjo+3r6ztd9Y201jeEYfhDoVA4NdGktra2BmvttaVS6ZtCoRBO1DOZTBMRXdrf3//dVCJW0+lcLvccEW2ZUOwnZr7CfcvlcquIaBuAi+MxO9Pp9JM9PT3WvWut3wbwCIAkgFBEVhtjdjktk8nMTSaT+wDcHs/9A8BdzHxwMvia0J7n9YrIoiiKVlQKEdF4EASHtda3ARgQkZeiKNqaSCQ6iOhjAE8z8w7P814UkddEpK2+vv6Lcrm8AcBaEbneGHNIax0Q0cIwDO8molNKqQ8BLEqlUpf39vaeORv4VKCPisgnSqkXAMzL5/NHK8W01jsBPJROp+dUOfs5gEuYeZHW+jCAQ8zc5ua0tLTUpVIpF6ttDQ0Nr5RKpd/cIpjZ7RSy2ewtSqlBEfGMMTwt6Ewmc0EymRwD8IsDdltMRMesta2xUwUA85n5uqqFvAugg5nna63LAHYw89qK7nmeM2G/tfZNpdSQtXZ5EASfOb21tXVeFEW/AljJzB9MC7qy/S4CRLRBRO4AsI6Ifi6Xy9ckEokviegMMy+pgt4E4FlmrtNaCxF1+76/sUr/2pmglNpord0vIkuMMQNO7+7uVsViMQLwPDNvnha0KzI4OHj18PDw8aGhIecaPM/bIiLucN4kIptFZK4xZnEV1FsAHmDmJue0iLxhjFlfpX8P4AARvSoiB4ko4/v+fqd3dnZeNDY2NhofVrdj//jUzLQDr+Q1hl4uIp8SkRaRlQDuZObmKqjdABYy881a6xMA+pj58Sr9pIi8A2Cr2zEA9zLzHqcvW7bsKmvtERHJGmP6pwWdy+UeJKKPrLUtQRAciKG3i8hTqVRqzsjIyDMANolIkzHGZdG1uJMADDPfp7V2h2kBMy+YALV66dKl7xeLxVEi2uX7/hPx3IcBvAegmZmPTAvaXQrlcvl3AN8S0WMAbnWRiKE62tvbU3EH2GutXaOUehTAehcd3/e/ymazbUqpfUS0LpFI7A7D0Dm8WCl1ZT6fH9VabwWwxlq7oq6u7kQURQbAEDO3ng3Yfa8ZD631PSLSQ0Q3xoUGwzDsKBQKzlF3udxPRK6/usvjFBG97Pv+6/FYd1Nud337758RHQOwyvf9vHuPL5e9ANLx+IPW2s4gCI7/K+jK5FwuN398fPx0sVj8c2JBl/uBgYHmfD7/IwCZqLvWWV9ff1l1j68e41pdqVRSFSMmA56S07UKnAu9ZjzOBVStf85C13JopvRZp2fKyVp1Zp2u5dBM6X8Bj4H9LAEOmPoAAAAASUVORK5CYII=',
+                   width: 45.14453125,
+                   height: 28
+                 }
+               }
+             },
+             '>100.0': {
+               addresses: ['I24', 'I42'],
+               original: {
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAAcCAYAAADbeRcAAAAEeElEQVRYR+2Wf4hUVRTHv2fezBq0WEOaUKSgBRttabpBNH+0zDszw7Aa0Q8rLIgsSirQKDOKtjWpTGiNhH7gllFR26ZQVrs777zdCVo3gkoK9Y/+sDSSytoIc9ud9+6JKzPL7DbO6uo/m3P/ejPv3HPP53zPuecRzoBFZwAjapD/F5VrStaUnEYZqJXryYrFzHONMdTX1/fjxL3JZHJBLBY72tvbe6iCX2LmxiAI9ufz+SOTnZvNZmcYYxpGRkb25PP5YDL706ZkJpO5OAzD7wBsE5FVpYNTqVSTqm4HMNf+p6pfAcj4vv+7/e267koi2gygvrjntUQisaqtrc1UCp6ZXwVwF4AogEBV7/Z9/81qoFUhmflqIkoUCoWOfD7/ZyVHzc3N9Y7jPEZEa4sHv1KCzGazMwuFwgEi2kVEd4ZhuICIdgIYFJFl1r99VtUnwzBsdxxnKRG9C+BBEdky8bxUKvWoqj6nqtm6urpdhULhKQBrVPUy3/f3Hg+0KmQqlVqkqr0AzgfwPoB2Efmi3Bkz3wDgHVVdTUTrAewoQbquexMRdYVh2Njf37/H7mPmJwA8HY/Ho0NDQy8DuCORSJxdUo6ZPwcwU0SumBg0M9s22CsiWftuyZIlsXg8fhTAZhF5ZEqQxU22X64D8DiAqwDsB/BCEATbbP9ks9nZw8PDw/aZmX8ph2TmdQCejcfjM7q6ukaLkMsBdDqOc0EYhla1OSJyaSlAZu4AsFRE5lSALADYIiJrytrhoKp+JiK3nwrk2N50Ot1ojOkC0KCqz/i+b8HHVgXIDTY5IjJWMa7rMhF5juMsCoKgg4hGReSaMshNAFaLSKwCpBJRq+d5tmKOLWb+FsCvIsKnBNna2hoZGBi43vYOES0EcEhVV/i+318N0nXdtUS0sRwynU4vM8Z8BGAegNdV9Vzf95vKgn4JwG0iMquSkqr6fHlymfl7AF+LyC1TgrSXSjQavQ+ALbvzAHwDoE1EbJBaIYhx5eq67goiejsWi53T3d39VzHz9mbsKPbkGwCuFRELXFKmE8AlIrK4gv+fAewUkXvL7A+r6lbf922MFddkF8/NqmovnE+MMev7+vq+PJ6jIsA4yEwmszAMw90AbhSRHUWb92yVWaWY+WEAm1R1VmmkMPNhAH4lZZhZAMwXkfnWVzqdvsgYc6A4RmwvnzykHe7RaDTS09PzQzW4sqyOgyxC7SOiemNMhogaANiZ+ZCItLe0tMRHRkb+APCxMeaBSCRyj+1hIrrS87zdyWRysR1Ptk1EZF8ymcxGIpFPiWid4zidQRBsBdAUiUQuzOVyf08J8kTAKvTkByJyfxn45QCsAnYM2a+TDxOJxPLSyHBd91Yieqs4Y48Q0QbP8zYWE2TH03YiYs/zfAD2pn/RzlH7noh+ArDS87xctVhP2xfPZAmxpTU6OvpbPp//Z6KtvdgGBwfn5XI5WzH/6fWJ9s3NzWfV1dXNzuVyByc791gyTsRoutvUIKe7gqX4a0rWlJxGGaiV6zQSq2qo/wIFiwY77pfcJQAAAABJRU5ErkJggg==',
+                   width: 57.2099609375,
+                   height: 28
+                 },
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAAcCAYAAADbeRcAAAAEIElEQVRYR+2WW4iVVRTH/+v4rbUnL1FYWPaQ0YP1IhpY2EWoBjMrezKKkh6CQBJCUphMULCLUlYQgREMXQwqLbpRYaEIJlFkVA/dXqYbYSiB1sx8a+2ZFUu+iTPH45lmcgZqzn465+x11t6/9V+XTZgEiyYBI9qQ/xeV20q2lfwPRaCdrqMVS1XnAyAR+bzxv6p6qbsfTSl907jn7rWcc2dRFAeJ6PBI57r79JzzlUVR7CWiciT7U6akmS1y9/0ADojIVUMHl2V5MxG9BGBa9dtvOeeFU6dO/TG+q+pjAO4FUFT7B5h5MRENNLu8qn4EYFEEE4C7+9aU0v2tQFtClmW5goiWMfN6Ivq1mSN3Pyvn3O3uN1YH7x+CdPdZZvYTgB8GBgauq9VqC4noBQA9IjK38v8qgJ3MvCrnvNrdNwHYLiKrmmTDiwDuALCamXeZ2Q4AnUR0DTPvPRloS8ic87LBwcHXASQAX7n75pTSznpnZtbl7g8BeBrA3QA+HYI0s/WxR0TXMvOeSrlXANzCzGJm+wBcFp+HlDOzX9y9Q0RmNoH8A8AhEbkw9sLOzHrdfXdKaemYICtHUS9r3H0dgFkA4qAdzLyBiI709fVd0NHRcSxqSVX76yFVNSJ9OzNPI6Le8GdmGyJY7n4xEe0GMENEzhy6oKp+DGC+iHQ0gRwEsEdEOuvs/wTwrYhcMmbIBtU63T2UPIOI3mbm5fX7jZBm9qa7LxeRvzNGVUPtZ4joend/3t0HUkqz62r4fSJaIiK1JpBORLuYeUUd5BEAx0Rkzr+CdPcpOed17r4WQKRRKHaPiHS3glTVqL+VDZBrADwOYAGANwCcJiKRIceXqkZtXS4iUSLDlqoOEtE79cFV1aNVjc8bE6S7zzSzbQBuAyAADhPRlqIoniCiSJ3GSwxL17IsNxPRBmY+h4gOhXFZlo8S0dqqJiM154rI9DrILwGcKyJnN/HfB+CgiFxRZ1+6+wcppWh8TVfLxmNmD7j7gwC+d/eulFI0oZOuJum61N3fI6IuZt5aKfUFgItCKVV9DsCdOefz60ZKzL2osROUUdWeyCQRmVEFbB4Rhb9tIhJZNnrIarhPEZHPWsHVRXWYkhXU75EFRBSRjgfBFgDdInJXb2/veUVR/AzgOwC3EtGmqOFarXZDURTv9vf331Sr1R4mohgZ+1R1NYCnovEBeBLAawBmM/MsIopzRg/5T8DqbSolPxGRxUO/m9kSd3+rGkMO4GtmDgWOD3sz2+juG6sZmwG8LCIrq70YT4/EaBKRZ+NlZGYfAri68h8d+z4R2d7qrqfsxTNSQMqynCciPUQUjWLYisZmZguYOZ51J9R6E/vTVXVOSinqd8Q1YZAj3mQcDdqQ4xjcCXXdVnJCwz2Oh7WVHMfgTqjrSaHkX8ei/Sw6C3CvAAAAAElFTkSuQmCC',
+                   width: 57.2099609375,
+                   height: 28
+                 }
+               },
+               transform: {
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAcCAYAAAD815boAAADK0lEQVRYR+2VTagcVRCFT026zp15vCgaJBhRA4ruQnQjURGU5w8kxlXAhSIu/Ak8dBEXCkICgiIoKIIEBDe6EI0rRST+BBcGN0ZUXCgIISgqaiRqJtN1O11Sjx5onpP0MLwsAnOXt6pvfffUudWC82DJecCIOeRadWmu5FzJtVJgrc7p9KS7K4ALVxXMInJivOfuvaqqloqiOCIif3TBuftiVVU3F0VxSETKrvxOSDN7HcCDqw4akRzEnpm9AOBxAEWTc1hVbxGR05OKm9nnALYBK+PP3f35lNJTZwOdBvJbAFeIyPaWcidJflWW5S4ReRvAO6q6u6qqZXffB2A/yd2rC5vZGwDuA7Csqgdyzm8CWBKR21T10JlAp4E8CeBLVb3HzC5PKX0zPszMDgO4QVU5Vi7n/LO790lumAD5L4DfSF4VscjLOQ/d/WBK6a6ZIN39gpxzeC98w6ZFQxHZETc3s2MA1pO8qAX+BYCtJPsTIGsAn5JcauWHCN+TvH4myHE73f0XEXlGRO50950ATqnqxTnnY+5+OqW0aVygLMsPReQOkr0JkC4iB1R1VwvyTwD/kNw8E6S7r8s5b1XV70Rk1DyUgwBu7/V62+u6fhXAgOTGVtHw1o0k0yQlReR9VY2Lriwz+xvAUZJbZoJsfLOu/VLN7DEALwN4GMCjAK4ludgqGp69lOQlEyBPAThC8qZWfunuH6WUdswEWZZltPjpuq539vv995qbfwLgVlVdzDmHkg9UVXXlwsJC+DOUCf+Gx/6njJkdBbCB5PrILctyi4h8DeBFkk/MBBlDt3k4x939ofAagEcA/EjymuFweFlRFD8B+AHAvSKyLzwbViiK4oPRaHR3r9d7VkRi5HxmZssAXgEQo+clAO8C2KSqG0Xkr5kg46Oc8x53j2G7MlLc/de6rrcNBoNQJeJ73X1v8/IrAG+RvL+JPenuz4U1SL4Wf6ac88fRiQZoCGAPyf1nAoz9zjk5/ng0Gl2dUjohIr+vPrB5YNepavwWY8ycdcVoM7PN7Zm7JpBdhc9lfGolzyVE19lzyC6Fpo3PlZxWqa68uZJdCk0b/w+rBmcsMhdk9wAAAABJRU5ErkJggg==',
+                   width: 41.248046875,
+                   height: 28
+                 },
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAcCAYAAAD815boAAADeElEQVRYR+2VX4gVdRTHv2dmvRm60Q1loShJCIpCyRUML9Jy5zcr110MgqWiIlBLigoNqg3BdaOHyiRFXxR9iAIR8aWtHmbO7zJB27YPKyKoDz2U2h/xWhv4p73N3N+RX9wLw3LduVzWB+HO43zP75zPfM/5nSHcAQ/dAYzoQM5XlzpOdpycLwfmK0/mTA4NDbmVSuXudMHu7m4zNjZ2I/WOlFJPJEnySxRF17LgSqXSXcaYR6vV6pkoipKs+ExIz/PeIaI9sxL9ycz323ee520mor0AFtdjDhUKhddHR0dNs+JKqYMANgHoApCIyBat9RdzgWZC+r5/XERW1Gq1jY1ERDRTLpfPK6WeAjAhIjtrtdrnrusOEtFRAG8x84HZhX3ff19EPhaRUi6X+zGO410AtovI41rrs7cCbQXyooh87TjOewDuC4LgYiOZUuoQgJcLhcKihnNKqR8A3MPMK2YXVUqdB3CWmUtW6+3tXZDP5+3Y7GXmd9uC7OvrW9jV1fUvgMsW0LaIiH4zxqy3X66UigD0MPNjKfAjAAaZuacJZAzgADNvb2i+71sTvmfml9qCbLTTtpSIdonIOgDDRHQpjuOHXdf9iYj+Y+a1KcjdALYx84ImkEJEI2EYfpiKP21NYGbVFuTIyIgzOTn5UKVS+X1qasq6AN/394iIvUxPishnInKv1np1quh+AC8w85JmTorIp1rrHan4nwGcZObn2oK0hyxo+qb6vr9BRL4lIiUirwB4mpmXpYoeA/AIM69qAvkHgDFm3pqKvyIih7XWw21Bep73IhF9ZYzpLZfLJ+tO7hORN/L5/KLp6em3AewWkSVa67+srpS6AkA3c0YpxQCWM/NyG9vf3/+gMeZCfQ3ZWW76zHm77dKN4/gfAOeI6DUAa2yL6xCDAwMD+Wq1+jeAb4wxbzqO8yqAHXYUwjA8VSwWV7mu+4FdUcx8rlgslhzH+Y6Ihl3XPZYkyWEAqx3HeSAIguttQdadeUZERoloZT3JZJIkg1EUWcfsMn+eiL6sL+drRPRRGIaf1M8+C+CEHY0wDDUA+2faZ/eo1e2mALA5DMPgVoD/x80lpjXP83pmZmZujI+PX519xs7txMTEsiAIfgUgWTntasvlckvTO3deILMK3069ZSdvJ0RW7g5klkOt6h0nW3UqK67jZJZDreo3ATVkhSzX/o4hAAAAAElFTkSuQmCC',
+                   width: 41.248046875,
+                   height: 28
+                 }
+               }
+             },
+             '>500.8': {
+               addresses: ['I27'],
+               original: {
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAAcCAYAAADbeRcAAAAE6klEQVRYR+1WfWhVZRj/PeectUHDvCWtIhUbkYWViVF057rtvOdaqRXV9YOoRA0MEiKikqy1jMqEFhQJyawoMFuFfSzdPc/ZDtlaLlYWhX/0h31BobMrIZk7H0+8cq5cLnfTLYKV9/xz73ve9/n4Pb/n9z6HcAo8dApgRBXk/4XlKpNVJv9DFai268mSlclk6svP+r5/uPRdS0tLY01NzZ/d3d2/VvBLSqlZYRjuK7erlEMulzutUCg0MvPek8nxHzOplLoUwDflwQzDaMjn8/sdx5krIu8CmKbPiMgggPme5x3Ua9u2VxLRCwCKhXolnU7f29bWFpf7bG1tNfr6+jYDuAuABUAXbB0zbxkN7KgglVJXE1E6CIIO3/cPVXLkOM4qEdkcRdEsAGHxTHNz8/cDAwP1QRD8RESfEdHyKIoaiehDAP3MvEj71/9F5PEoitpN01xIRFsBrGHml8rjOY6zWkQ2EVFTEAS7Lctq1SDDMJzq+/4vIwEdFaTjOLNFpBvA2QDeBtDOzJ+XOlNKdQBoTqfTF+3atWvGvHnz9hVZsG37diLq1AXo7e39TtsppdYBWJ9KpaxCobAJwJ3pdPr0oo1S6lMAk5j5sgogN4jIQ2EYpnTRlVI3A9gO4Dpm9scFMjHSerkJwKMArgSwD8DzYRi+pvXjOM63ItKYsKhbLhSRZZ7nvaOUegTAM6lUqrazs3M4AbkYwDbTNM+Lokiz1sDMFxcTTIq2kJkbypPOZrMz4zj+AsABEfmYiO4mokNBEMzwff94F5XbjUmT2Wx2VhzHnQBmisjTTU1Nj/X19UUADorIagBnEtETAM41DOOCOI5X6uIw8/E4tm0rInJN05wdhmEHEQ0z8zUlIDcCuJ+ZayqAnBrHcV7HL+7pVvc8b/24NVk0TAR/i3ZIRJdrwYvIHZ7n9dq23VBXVzfc1dVV0Ocdx8nqFheRh/WaiDaUgsxms4viOP4AwHQAW0Rksud5c0tAvghgGTNPKU9cKaX1fL1hGLZpmruDIFgDYKOIrPI8T8um4jMqk3o0WJalGdJtdxaArwC0MbNOUortnPweW2cymTrLso4kwb8mojdramrO2LFjxx9Ju64A0JFo8lUA1zKzBnzsUUptA3AhM8+pAPIIEW13XXdZiZQOENGA67o3jguk4zg5EdEXTlccx0/29PQMlDrKZDLnW5b1M4C1zPxswuSNItKlb0DDMA5HUbQHwG3M/F4C4i2NRTOllHowKcaU4khRSg0B8Jh5yQggt7muu1zv5XI5s1Ao6Hn8CTPPHxdIpdQ0y7KMnTt3/jCSA6UUA7iKiJaIiO6Ml7U2mXmSZlsptZeI6uM4nk9EWkt6Zj7AzO0LFixIHT169HcAH8VxfJ9hGPdoDRPRFa7r7mlpaZljmuZaLRM9+B3H2SoiS0VkuWYPgC7SCr32PO/1cYEcTczFPdu2LyGidgDZ5N3+OI5v6Onp+TJhTn8s6ELoMaRvwPfT6fTikjGzlIjeSIb7YSJ6ynXdDYntrbooRKRc1/Uymcxky7J0Oxdjac0/57ruMf3/ayCLjpNPu3rf93+rFCybzU4dHh4+4Pv+X+X7+mLr7++fns/ndccUtT5i0jpWbW3tOUNDQz8ODg4GJyJjTCPkRM4m6n4V5ERlZqx5VZkca8Um6vkqkxOVmbHmdUow+TdNbCw7nupFZwAAAABJRU5ErkJggg==',
+                   width: 57.2099609375,
+                   height: 28
+                 },
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAAcCAYAAADbeRcAAAAEhklEQVRYR+1WW6iVVRD+5vefWftsu3iLUh+iqxVlCmlQFERiZBfpQekmEkEgSSEqHMzQKE0pi0iiiKSLQiZUJKj1UPTQ5SG7GZQFoZZEYUkSx73W/HtPzOHfstttd3Y8cCjPvPyXdZn55vtm1iKcAEYnAEYMg/y/sDzM5DCT/6EMDMv1WMkys3Htc4noQOu/lNJ0MzsUQvimfa6ZZUVRzMjz/NP2dZ1iMLNqURTTmPn9Y4nxuJlU1Zlm9na7s3q9fk5PT8/3McbZRLQJwMhyzi8eYLVa3effKaXHAdwPIC/HP2Tmq4mo3iEZI1T1AwDTgf7jr2Zm60MIS7uB7QoyxjiHiGYx8zIi+qnTRimlJwAsIqJrPebmnDzPPwIwTlV/ALC3Xq9fl2XZNCJ6GcAeEZlU7v8agC3MvKAoioVmthLAsyKyoN1fSulpAD7ndhF5vSiKzWY228wuCSF8dTSgXUEWRTGr0Wi8DiAA2GVmD4cQtrTJ8GMAFzHzaFW9jJk/abKgqsvMbJUngJnfLZnbDGAuM4uqutwu9/eWNfvNrCIiY9uDjjFuI6LrmXmCJ11VF5uZK+EuEXlxQCB9UVkvi8zMJXE6gD8AbGTm5UT0a0rpNwCnAmiUkjMiWs7Mq1NKGwHcwcwjiajP91PV5Z4sM7uQiN4BcLKIjG4GmFLypE0RkUp70Kp6lZl5smoAdgK40tXDzGOIKA4YZOtCVZ1hZs7kKCLamuf5LapauCMiesjMPAn3APAAXZoPmtnNInJEMSklH3/OGTGzl8ysHkKY0PQTY9xBRDNFJOvA5GQicvZHtYxtEZG5A67J5kIzG1EUxVIzWwLAZeSZvFdENtRqtXMbjcbharW6v5Sj19IzAF4p189rA7kIgNfxVABvAugREU9Ov6WU3gNwhYh4ifzFUkq7AZwHYD4zv6Gq6/0dwDoR8dg6WteaNLOxqroOwG0ABMABIlqT5/mTROTy7JezP1u+T1HV381sBwCvT5fuGUT0s8+LMT5GREvKmnRpThKRk1pAfglgvIic1gGkd9xdIjKl6VtVDwPYJyIO/t+DVNUHzOwRAN+ZWW8IwZvQEYsxXkxEuwBsEpE7SybuA/CUd8Asyw6a2XYi6mXmteX4FwAucKZSSt4s5hdFcWbLkeK1tVtEJh8F5E4R8SPEE8yq6qraKyJnDwhkSskzNkJEvMg7WkppD4CJABaXZ9cq78bMHJzdlNJBVwER3ejnm5mtAbBBRO7u6+ubmOf5jwC+BXArEa30Gs6y7IY8z7fVarWbsixbTUQL/eBPKX0O4FIzW5tl2XZ/enf2Zwihd0Agj7ao9b+qXmNmLwA4q/wfG43GnEqlstW/y8vCW+UxZAC+ZmZvIP2HvaquMLMVZYK8ib0qIvPKsV4ze9SbmYg8b2bjy8tA05ezuT2EMKtbrMd942lu7le7GOOYSqXirPzNYoyTRWQPER1qH/TGpqpTmdmvdf213s28VxRFcX6e558Rkcu1qw0ayH9yNJTjwyCHMvuD6XuYycHM5lDuNczkUGZ/MH2fEEz+CS1iKTvHnF8ZAAAAAElFTkSuQmCC',
+                   width: 57.2099609375,
+                   height: 28
+                 }
+               },
+               transform: {
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAcCAYAAADIrlf0AAADiElEQVRYR+1VSahcVRA91d1Vt38nDsSFKAYicUIwGKc4bb5ECCghCOJGBEVxIAhOJOKwEtSFKAh+dePCWaNudBOHIJiFwUQcQAIS4mxAjTg0eVX3vZIKr8Oz/T/fn/QH+faFt3j31q1bZ7h1CQtg0ALAgDGI/4qKYyXGSoyQgf+XnVT1zJzzT71e79smie7eAxBfc/SJqD+YcPfFOeeLO53OFiIq/o0Ikbcsy8l2u72ZiOxge2ZVwszucfcNAI6IRET0XVVVt6WUXo1/Vd0F4MShQ7aLyDn1+lYAF8RWAO7uD6eU7p4NiKp+COC8qqpO7na7Xx4yiH6/f0Kn0/kawAfMfEVRFEtarVYUtYSZu8GQqiqAHUR05+CgnPP3ExMTu1T1WQBXA1jPzJvM7DkAq4noEmbeMlNhZrbB3R+K9cMGYWZr3H1jzvmaXq8XYGBmb7j7upzz0vjvdDrfENFdOefX3V2bdlPVPwDsEZHlEevuXTPru/vmlNKa6UAURXE6EX0G4BMAKw8bxPAh7s5m9iuAtoh0VfVmAE8A+BPAojr+K2ZeRUR7VLUC8J6IrB7kUtWI3SkiZ02Tv21mPwL4gYhecPcHRw5CVXcEOwBuF5FHVfUVAFeG3QA8D+B6AGcD+DiKVFUnok3MHDH7h6r+DOB3EVk2DKJW+TJmXppzvnakIGoFtgM4A8AzInJdbY/FZnaaiHzUKPIXAEeLSCuUIKI3mXltY/03ALtFZEUTRFEUVxHRSwBuEZEpM9s4MhA1gM8BnALgaRG5sXm4u7eJqGwU+S6AuLiLzCxY3yEiFzXWC3d/O6V0eTOPqu6szxi00zaAFoAMYEpEbp2pEczaYlX101qBR0TkQAeqrbEt7MPMRxFRXOKwy15335dSOk5VdwM4RkT2t+eiKFYQUVzYf+Qys3urqjp/UCgRnQrgJADvu/tUSunlQwKhqjcE+wCC0b8lYeb7y7JcVVXVWwC2EdF97h4gLwXwlIjcpKrrATwOIFrrYwBeA3A8Mx9LRHuLoniAiNYOW6vugqOxU+MiT0fCuXEXVPVFAOsAdOugrcw8GW+Iu7fM7B0Ak/VavOJ3iMiTtWrx5lzIzGHJ6GQHxuCtKMtyebw5M6kQ87Pa6WCbhzy9kpm/IKJ9w3vc/UhVXZZSCmuOfIwMxMgrm0PCMYg5kDWvoWMl5pXeOSQfKzEHsuY1dEEo8RexacEsFZYtdQAAAABJRU5ErkJggg==',
+                   width: 49.0341796875,
+                   height: 28
+                 },
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAcCAYAAADIrlf0AAADzUlEQVRYR+1VTWhcVRT+7p28SRdd5CmhajFCKKgUFIwLcRVezp0woCKFsYsU/38WaqD+tShlTBciXahFBSv1r2ihDKIQ6JA354aIpLowikXrQsHaimCjTkaqkM57c+SGN/Ac0iadTkDi3N2757zv3O983z1XYR0stQ44oEviv6JiV4muEh3swP/LTkQ0kMlkzk5NTf2RbmKhUMjOz89n03v9/f3nSqXSueZePp/vbTQa1y0uLn47MzMTrUYEh1utVrf6vn+8VCrFF/pnRSWMMQUReQHAlgToUwDPMPPn7puIpgDkWoocYuZ7kvgBAPcD6AEQiciD1tr3ViJCRG8DuE9ErrDW/to2idHR0cviOHYAb0ZRtAvAxp6enqMArvd9f6PrEBEtAPgwjuN9zUKe51XDMDxjjNklIi+KSD6bzR6r1+vPA9gpIluttSfOdzAi2uYwXbwTJG6MoughAEVr7e8O1BizV0T2ZDKZy913HMdu/06t9WdKqShtNyL6CcAJZs673KGhIc/3/b8BvMLMTy9HIgiCzVrrHxISY5dMorVIoVDILCwsnBSRLDNvMsbkRMTZ6RSAgSTfep63rVwu/0lEdQCvMfPOJpYx5rSIfMLMO1rxi8Winp2d/QLA9wCOOCIdJ0FE7wMY01rfEYbh5MjIyB6l1F4AbyilPhKRMQB3A/jAHZKIRClVrFQqLmdpEdFxAGeYmVpJJCqPe543UK/XXbxzJJwC1Wr1MIC7RORJa+1L7gBu6sRxfFUYhj+mOv2NiFzLzJ5TQkT2WWufS5FwXf6SmbenSQRBcKvWelYpNVqpVMLmveiIEgmBjwHcBmCcmV9NF3cWmJiYaKRI7BeRcd/3e6vV6kkAk8z8SIrEbyJy0Fq7O41DRJNJjVqy3wtgA4CzIvKUtdZNuWXXiiOWiJw3nQJuNL6VRjHGvCsi2z3P6yuXy4uJXb4DUGPmW4iIAQwy86CL5XK5qxuNxqnlsIjI1bipia+1vsFNNRF5XUQOT09PH2uLhDFmRERYRL52YzYNEsfxIc/ztojIVwDeAfCyUupeEXmiqVgQBHmt9VGl1O5MJnMkiqKDAG7WWm8Ow/AvY8wOEbm91VpJM5bG7CXbqXmRl+uA1nrQ3QVjzLMi8hiAK12eUupAX1/fo8krq4hoP4DHk9jPAB5wnk8O6izyMDNr9yS02GuJhNZ6k3tzzqfCEu6FghcTC4Lgmlqt9svc3Jwbq/9aw8PDG7LZbH8YhqcvBnO1uR0jsdqCa5HXJbEWXW0Hs6tEO11bi3+6SqxFV9vBXBdK/ANIHd8s9Z8WbgAAAABJRU5ErkJggg==',
+                   width: 49.0341796875,
+                   height: 28
+                 }
+               }
+             },
+             '>84.000': {
+               addresses: ['I29'],
+               original: {
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAcCAYAAADRJblSAAAFlElEQVRYR+1WaWhcVRT+zpuZpLGixtZWFO2CYkWtS9yn4nTenUnGmKJIcN8rVlywuIJiTJG6VGyr/aHFXURqRMXWps47bzIFY1TUuqAoInWtC2ospq3jvHePnPISxpili4FAcv+9d+6559zvfOe7hzDGF43x+2McgHEGjHEExltgjBNgXAT/txaor6/fV0Qm5vP57wZjleu6k2Kx2H75fP7zYZhHxpgjgyDYWCwWe/rvzeVy1dbaWaVS6dNisRj0t6dSqclENKmjo+OL4Ri+2wCk0+kDHcd5DsBcDSYiHxHRAmZ+uzJ4c3NzVXd3t158AjMfMARIVxLRMgB7RntWJpPJa1pbW61+G2MeA3AFgDiAQETm+77/jNpSqdQ+8Xh8LYBTIt/Nmhczbxgs3pAAGGNOJqJkuVx+olgs/jHQIcaYVwCcFovFjurp6empqalZDWAGM09XPHp9MpnMoyJyNYAfBwNA4wHoEpG7wjBcGovFziSiFwBcz8wrMpnMbSJyn4jkqqqq3iqXy3cDWCgiR/i+/5kxpkBEhwZB0EBEPVFhZtfW1k5pa2v7e6D8hwQgk8kcIyJvAJgC4EUAS/tX1nXdD4mohpkP0wCu664gomsTicSE9vb2UlS1RgCvAmAARw8BwEoAFyeTyYkVFX8TwF7MPNsY8w2Az5g5p+fW1dUlamtrtwJYVl1dvbhUKv2ugDCzMgjpdPpEx3HeEZGM7/sa+z9rR1pA+3EegDsAnABgI4CHgiB4WvvTdd3zoir5AH4CcCGA55n5ooiW+8fjcfW5FsBJAJqGAKAIYCozH96bqTHmCQBnMvNUY0wZwApmXljBrO9EZL219iHHcd631p5RKBTa1a66FIbhbwAuZeZndxWAPr9sNnuktbYNwCwRWez7/h2u684lotcqelZ1oBdxBa8LwFZmTkf9OygAruu+R0R/M/OpFQAsAXAjMyeMMUJELZ7nLaqwfwzgF8dxFllr14vIqb7va0y0tLQ4nZ2dIYBbmPnBXQYgOugs7U0iOlr7WEQu9H2/wxjzJ4BNiry1dnMsFltJRGfH4/EZQRAoG+4Ukem+7/88HADGGBaRfXzfP77igo8AOJ+ZJysDROQBBb7C/iWAD4joXhHZQEQpz/PWq72pqWmPbdu2bYmEUpm0cy2QSqX2jMfjCwDcDmASAFXTVmbWiovrurOJ6CMRuaxXiRsaGqbr8wXgBgCLI2aoGuuaGKn35jAMkx0dHZ9WZmSMUZqezszTKi64CsChzHycMWYTgNXMrGK6fRljfhWRx1WfiEhb8Bxmfllt2Wz2IGvttyKS1mLtNACZTKZZRFT8XrfWLioUCu/2S/goAB8T0QWe56laa1Btk09E5CYA1QD27vVRZgA4WESWh2G4rFgsasJ9yxhzM4AlIjLZ933t3e0XBOAz87nKEAAzmXlmvwvOnzNnzlOdnZ1biOgZz/O0aOp7OYAnAUxj5m93GgBjzMHxeNxZt27d1wM5Nzc3x7q7u7Uq1SLSJCIhET1MRHXW2kMKhcJX/S6ob3ifBqRSqQmJROI5a+0q3/dfamxsrI2UfI219jrHca5S8SWiYz3P+zCdTuccx1lLRLfHYrFVQRBo5Y93HOfAfD6/xRizFMB11tp5iURiUxiGKszvM3P9QPnrvx15BQbz7aWgsmCNVjba+BcRXeJ5norlv1Y0C8zrfQVyudxe5XJZ22MJM9+qm6NXRQcrHXR6iOgez/Pujw5SUV2uc8H25Im+B3Cl53l5/Y4GIc0lGe3fYK1tKhQKP4wYAL0HZ7PZKUEQ1BQKBaVa3wA0JHqDGFV0u7q6puXzeWXef85S5lRVVelIPeDYrc9fqVRyisWits+Qa7cZMFyA0W4fB2C0V2ik8xtnwEgjPNrPH2fAaK/QSOc35hnwD+ZHoTtI8G7/AAAAAElFTkSuQmCC',
+                   width: 64.99609375,
+                   height: 28
+                 },
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAcCAYAAADRJblSAAAFLElEQVRYR+1Wa4hVVRT+1rlnrX1n0iwtZUxUDJL6YT6CyixJBisjoUAwKJIMQrJ3ktpDo5dFZlQ/LOhhCT20oCy1DA1KK1DLgsQUsofUgGb0uDNn7TN3xRrOyGV0xlcDwsz+de9Ze++19vd969ub0MMH9fDzoxeAXgX0cAR6W6CHC6DXBP+3FqhUKkNKpVL/EMK3namqUqkMZeZhzPxZV8ozsyTP88Y0TbcS0d6Oc82sT57nE9I03UBEWcd4c3Pz8DRNhzDz54dT+HEDkGXZOUS0BsDQItk+M5sVQlhRm9zM6mOMTQBSEanrrDBVfQrA7T6vmLOJmS8holb/r6obAVwItKnXzOyJEMI8j5lZg6puIaKGYm1MkuTqNE0/7CxflwBkWTaNiKYw83wi+u1Qm6jqdgAjzOxcEdkXY9wCoD8zn0xE1fY1qupsXASgpTMAinxvA1jBzLPyPJ9tZgsBLBWRWar6OoDrAMxm5pUxxuUAGoloEjNvUNWfAJxGRFeZ2X4iWmVmA5n5FCKqHKr+LgHI83xKtVp9F0AA8J2ZPdyRWVV1ibKI9CsY+hTARGbuS0T/FN+c0SUAfgQwuDMAVHUTgPOZWdoZjzHuMbOyiAxQVd+vSUTOLBgvxxgrZvZxa2vrzDRNfwXwkojc5PEsy64honcA3CwiLx41AEUS78c7zWwOgEEAvIjlzHw/ETnjCwqWHP0/AIwB8LWIjPX1LS0tZyVJst3Mniai8QDGdgHAzwD6isipNcr5EsBoESmrqitqvYg01sT/BbCjWq0uSJLkfQC3isjzHndfStP0FzN7PIQw/5gAqF0UY2w0M+9tl9QqZp6qqjcCeKGmZ31JG+JuZqq6h4hURIYV/dsVAE1m1hpCGNyeN8uytUQ0WUR8LyOilcw8rQaAfQD+BvAAgNfMbHoI4a2CvFKMMQewTERmHDMAZlbK83yOmd0DYIATC+AWEXlZVaODDWBya2trU6lUWg3gbADnAXDVTKtWqyPL5fKuIwBgN4A6EXGltQ1V3QBgvIgEVwARfeDA18T/ArA7SZK51WrVzW6GiCwrAOgXY/wTwGIR8doPGl16gJkNiDEuBnAtAAGwl4gWpWm6xA0uxniZma0tnHhuUfA4AJsBeM+5OtzNHSQf/ttzRiK6nJnX11bkDg5gpIj0qTmgX6sNInK6qjYD2CoibqbtAGVmts7M7kiSZCcRzWPmRR7MsmwUEW0DMNPJOmoAYoz3mdkjAHaa2dwQghvigRFjnGxmH5nZQyEEd2sUbbIOwCtunmbWZo4+iOhiAH3MbI2Z3VUul3/oAMCrAG7I83xYfX29+4ErwO/5HSIySlVdIQNEpG+HAy5m5ntjjArgCxGZUMSfJCJX4RgR+eaoAVDV0QBKIuLMHDTMjGOM3n+JmTnbzuyzAAYCuEBEvupwQL/DD3iAmZ0cY9xIRG8w82OVSuWMwskdmOlEtNDMpiZJcmWapqtVdTaA59yEATwDwB1+MDMPIqL9qvoJgEkAbiOiXWb2HoA9IjLiUPW3kdJZ4Ei/FypwZZxUrPE+fZCZH+24R/EWGNd+C5jZoBjj795GIYQrCgX5rbKgqM0N7E0Rud5jbqoxRj/kpcXe7j13i8jSIt6Q5/lmM2s30b1mNjGE8H23AdC+cXNz84hSqdSPmbfVPoCOFMjaeW66McYxzOxP4QOPqfY5rhxVHd7Zs9uvPyJK6+rqvGW6HMetgMMlONHjvQCc6Ax1d329CuhuhE/0/XsVcKIz1N319XgF/AdRnoY72uH6XwAAAABJRU5ErkJggg==',
+                   width: 64.99609375,
+                   height: 28
+                 }
+               },
+               transform: {
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAAcCAYAAAA0u3w+AAAEdUlEQVRYR+2Wa6hUVRTH//8zZ60z96pZZKYiagZZEEGGQaWEJpWQRoFRWBAY9sXehQpKQWRZaEF9KHqAllRgH+xlVChRUUFvIXsYaSZkL8NqHmvPPSu2nJHpNuP1ah9uMvvTzNn77L3/67fWfx3iKB88yvWhK/D/TrhLsEtwiEegm6KtgCqVygQRmSgib/cHF0KYmabpByQrA0F19+GNRmN6mqZbSNb7r69Wq5PSNB0vIu+028vMznb3fVmWfTnQWYdM0N17Qwh7AKSq2tPcOISw0d3nABAADmBrnufzy+Xy1x0u9y6Ac4D9LcrdfVWWZcviWncfa2YfkRxbvBuSJLksTdNX4v96vX4pyfUAhhXzPzUajWm9vb3fdxJ6yALNLEbzPAC1pkAzWwjgCZJ3pWm6stFozHD3NwDsUtVJ/Q81s6cBXA1gsYhsCCE8A2A2yVkissXMdgIYRXKuu+8l+ZK7jxaRYwGMCCHsArCzr6/voiRJppFcB2CHqk45IoFmdhOABwF8B2BcU2AIYUme59OzLJvbPMDMfoyXUdVmlA+cbWZ/AtijqicXxMohhIq7v97X17cwTdMfADypqtcVxC4n+QKA60mOcvd7SF4gIpvjvJk9D+AKEVGSoZ3IAQnWarVTkiTZ5u5rSJ4LYGprirZuWq/XzyD5GYBPVHVqG4I5gM2qOrslIH8B+CrP8zuTJHkRwA2q+kicr1Qq49M03eXu95KcAGCBiAxr1nkIYbm73+3up3Wqx4MKdPfEzHaTNFWdaGaxftoKdPcTQgjfAhju7qdnWfZFG4FOcoOIzG8R+CuAPwCsALDO3a/MsiySiTVZCiE0AKwleZy7z1PVA3c2s0UAHiM5R0ReGzRBM3sOwPw8z6eUy+XtnQRWq9WTSqVSJBfFLciy7NkOBpOTfFlE5rUI3BfrKEmSpXmeRzO5VlXXFgJHhhB+B7AawGgA1/QTeAuANQDOVNVPD0dgzOsUQDO/4+8YwUDy4lgL1Wp1cqlU2gqgx92vaka/g8AqgI9VNZrV/mFm9WhM7n5zkiTfkFwmIvcVNdhM+YXufhLJ5SIyhmR08+iqD5C8/bBr0MzWu/vI5mVIzigobXL3W7Ms+zmEEI2hnCTJvKadd3I0M9sB4HhVHdFPwGoRWRJCMADvqer0Yv5+kndEQiTHuPsmkktFZFURnJg1p6pqdkQu2hLtf9RgvV5/NeZ/pALg/eY6d/8ty7IVtVptbpIkK0nGtvCWmS0G8DCA2B4eAhAdcpyInEhyr5m9CWAWgBtJbnf3jQB2q+rkQtBeANExLwEQm30k/ZSqxnbVdgzooq1vFb3wrJY+WAPQLnpBVTWEsDQ6IIBFqvp4NK0QQhQxs9g3fvXcpqqPFjU3ttFofOju44r5X9z9/KZhhRAudPfotPHM+FGxTURiGvf9JwI7bTLY5+5+jJlNyrLs83bvxvZAMu3p6Ykp/a8R25Gq7iAZDeqgY1AEB9psKM53BQ5FKoO5U5fgYKI1FNd2CQ5FKoO501FP8G96mhU7o7inQAAAAABJRU5ErkJggg==',
+                   width: 56.8203125,
+                   height: 28
+                 },
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAAcCAYAAAA0u3w+AAAE0ElEQVRYR+1WbYhUZRR+zr0zs1qGO+MHZpiiBNI3KUWOxHTnvbNNMUKFQhD0JRRUkEEfprRpkdmPVOhHQR+ICclgVIbLzj13dvwxWpFagR9REGlp1pZsrtrszH1PvHInpm22cbMfm8z7773nfc85z/uc85xLOM8Xnef40Ab4f2e4zWCbwTH+Au0SbSQonU5Psm17SqFQODicuHQ6fXkikfgmn88PtSI1m812aK3nViqVfaVSqTb8fCqVmkxEk/r6+r5q5stxnDnRaPRUb2/v0VaxzprBxYsXx44fP26AjWPm6XXHSqkXADwCYCIAk+zWWq32WKlU+rFZcKXU6wDuBxAx50Vkqe/7G83ZVCrVGYlEtgO4Mbw7AOBmZt5r9q7rzheRrQAuNXsR2Q2gy/f9X0YCetYAXdd9TUQeBHC0DjCTyThaa19E7kokEvn+/v65tm1/BqDMzGp4UNd1nxKRl0QkG4vFdlar1ecALBORK3zf36+UKhLRZbVa7RYiGrQsaxOAq+Px+NTBwcFx1Wr1EBHtJKJ7gyCYQ0TbAOxi5tw5AVRK3QbgfQAM4Jo6QKXUHUQ03/O8ZxoY/ZSILvY8b8bwoEqp7wDsZ+assc2bNy8aj8dPAVjf0dHxYqVS+dUAZub1xu44zvWWZX0iIi6ATiLKB0FwZV9f3z5jV0qtBPB8PB6P5PP5oBnIlgymUqlpkUjkWwAPA7gBQK6xRBudZjKZGVrrQwA2M/PdTQBWAbzKzMvqNtd1D4vIDq31K5Zl7dZa31osFnuMvaurKxEEgSm/ewCYtlgTj8c76n2ulFoCYItt29NH6sdWAEkptQvAKWZ2wv5pCjCZTF40fvz4PQBmEdFMz/OONAEoRNTted7qBsa/BPCTZVmrtdY7RGSB7/smJrq7u61yuWyYecIwCGAFM/+ZczqdVkTk2bZ9bW9v7xejZlAptQLAShGZ5fv+sZEAZrPZKdVqdWcILuV5XnkEgamKyMu+7xu/Z5ZS6msAe4hojYjsJSJzf4ex5XK5C06fPn3SCBGASUS0thFgJpPJaa0/BDCTmU3l/G39I4NKqRMAJgAwambWhaH6DQRBkDS9kMlkpho1E5FpInJT/fVHAGhY3cbMRqzqAPtF5A0A64jIKO+dzPyeMdZLXkQcU6JE9E40Gp3Y09PzW/g4Ro3f/Nc9mE6nl4fyfyYZIrrdSLSIbAiCYH0sFjshIgdFZDKABXU5bwYuTMiI1Gxmnj0MwNKFCxe+XS6XTxLRRs/zHgrP3wfgLcOQbdvxIAg+b3wApdS7pgiY2cRvulr14F8uDS9R13XXisiTADaJyMcNhwd839/sOM51tm0vF5FnmfmA4zhZy7K2E9HTtm1vqdVqhrn5lmVdUigUTiql1pmZqrVeFI1GjwRB4APYzcxdIeADRDRBa91FRHPNzAXwODObe+cOMJyFixrGxDEAU5t4HmDmTjNGTBJEpDzPM8ka0doA4NGwIr4H8IDneQWzDwf9RwCSoc+9WutcsVj8IQR4VTiqTEzzU/FBMplcsmrVKv2fABzJyWi/p1KpcbFYzPzyHW5214yHSqVilUql/mZ205tDQ0M/l0ql31vFHlWJtnI2Fu1tgGORldHk1GZwNK81Fs+2GRyLrIwmp/OewT8ADNwtO3DVPskAAAAASUVORK5CYII=',
+                   width: 56.8203125,
+                   height: 28
+                 }
+               }
+             }
+           }
+         },
+         zero: {
+           count: 29,
+           originalValues: ['Rock'],
+           transformValues: ['0'],
+           addresses: [
+             'B17',
+             'B18',
+             'B19',
+             'B20',
+             'B21',
+             'B22',
+             'B23',
+             'B25',
+             'B26',
+             'B27',
+             'B28',
+             'B29',
+             'B30',
+             'B31',
+             'B32',
+             'B33',
+             'B34',
+             'B35',
+             'B36',
+             'B37',
+             'B38',
+             'B39',
+             'B40',
+             'B41',
+             'B43',
+             'B44',
+             'B45',
+             'B46',
+             'B47'
+           ],
+           dataUrls: {
+             Rock: {
+               addresses: [
+                 'B17',
+                 'B18',
+                 'B19',
+                 'B20',
+                 'B21',
+                 'B22',
+                 'B23',
+                 'B25',
+                 'B26',
+                 'B27',
+                 'B28',
+                 'B29',
+                 'B30',
+                 'B31',
+                 'B32',
+                 'B33',
+                 'B34',
+                 'B35',
+                 'B36',
+                 'B37',
+                 'B38',
+                 'B39',
+                 'B40',
+                 'B41',
+                 'B43',
+                 'B44',
+                 'B45',
+                 'B46',
+                 'B47'
+               ],
+               original: {
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAcCAYAAAD1PDaSAAADSUlEQVRYR+2VX4gWVRjGn/c9s+GCS30hQv4BW40NFSLLC9vAkZn5NvwiKNgoEtOrQNIuMsKLWPdGBfNKFC9WQUwUF7tIcLeZMx8DskWgVwqlBP4tQcRtSVsXZs4bR+aDwXbXWRc+ML65nPPyvL/znOe8h/AMfvQMMqMF3axTazndcnoaB/6f8ejp6XktyzJubFwpZYhorKOj4+bg4GA220j09vY+Nzo6uoKZr4Rh+KCM3hOd9n1fphB6aIz5oF6vD5VpNFVNtVp91RjzK4B1WuukjFYpaBHZF8fxdivouq7DzKuY+RiAzra2trlDQ0MTZZpNVtMU6EZj3/f7AOxM03RxkiS3PM9bTkQDAFYDsMf8PTNvbRx5EAQLAAyIyDoAt4nouyiK+qrValfR6SAIPrYmAdittd4/2UZLOQ3goFLqGyuQZdlcAG8COEpE16MoWum67guO49wE4BDRXhHpBPAJgFBr3eO67hzHcS4CWJSvtwPYLiIblFIXGtDGmHZmPgvglNb6IwCTRrMs9GQbvkpEH0ZRdN7zvM+I6BAR1aIosk3h+/4BAFuMMcuUUktF5EcReSuO45/z9cMiMqqUGrDQRNQnIv0Afuju7n6/v7/fTBW5stChiBxh5nm58PPM/HoYhpdygCMANqdp2p4kyUP7LwiCqgVl5vdEZLmI7NFa/6dfIdOPGG19GIZnprsjpaAfu4iLHMe5CuDe+Pj4spGRkb+DILBZ/bRSqcxpjEHf998GcM4Ys56I1hLRl1rrtsdhCtDnbHwAvMjMC6cbfzOGzp3dDMC6e1xrvSEIgq+tk8aY7nq9/lPu9C4R2ZGm6UtKqZq9pI7jvDw8PHwt1zgKoIuZNxUy/Q8z/yIiB+I4/nxW8Sg63RDyPO88Eb0BYA0R3RCRPwD8RkRfGGOWEJGdAH9qrbtqtVplYmLiDhFdNsZsBTCfiE4C2MbMUXF6+L7/KGpEtNrel9lMj2+11l8VBQrH+rvW+hXP894lohMA7HSBiFzIsuydJEnuFjJ+Ol9PAZyuVCobx8bGOovQ+SS6DeCW1X0q6Jk+Gq7r2lz+lSTJ/Skek8VKqTuzeZCemOmZQjejvgXdDJdtj5bTLaencaAVj2bF418gaq4sKdeRVQAAAABJRU5ErkJggg==',
+                   width: 45.896484375,
+                   height: 28
+                 },
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAcCAYAAAD1PDaSAAADCElEQVRYR+2VT6hVVRjF1zrv7G/z+vMehJRhETgJKyMtkhAhJynZQFAk5E0iyBTEMEWcFTiqQaBh0CSpHARNrFHiJIMySALLQRON/hApoak92Hufe1ZsOQcO+d7zPB9cMO4ZXe7e59u/s771rU3chg9vQ2aMoIfVtZHSI6XnUOD/aY+U0nqSY+2HSxpIuuicO0MyLdQSku4YDAZrx8bGviZ5qU+9myodY9QshWoAu8zs3T4HzbYnpbRG0kkAL5nZkT61ekFLOu69X5cLSvIxxg0kPwBwt3NuguS1PofNtGco0O3BKaVPJW2StNx7/2NKaW1d10dJLgZQAfjeOZetdb3lIYRHSB4DsBTANMkTZVluqqpqdVfpEMIbJPcB+NDMts30ob2UBvBVVVVbc4GyLBeRXCfpAICrZnaPpPtTSr8AKEh+JukhACsAnDezpZImUkq/Abgzr9d1Pd7WKIrieAsN4C4AhwD84Jx7gmS24A1PX+iZ3r0macp7fyzGeBDAzsbj+TdijNmnawCsArASwHuSXvTef9Ksn5L0d1EUBzI0ydy5zQB+cs49SnIwm+X6Qp8neURSbv3LABzJ55xzJxqAbwE87ZybJHml+W87gMMAdjfQU2Z2w3kdT7eMu83snblmpBd0dxBDCI+RPJPFdM49SPJijPGbrKhzzrcxGELYSvJo7oCk7O3nzaz4L0wLTfJ3SZMAvHPuvrnib97QzVC9RXJvHjYzWxlj/AjAVLf9IYTPSb5Q1/XDRVG8AuB1AE+Z2emmE99JWlIUxZbW05KuZpsA+NLMnl2QPbpKt4VijH8CuFfSFgBnSZ4FcBnAfgDLAOzIKWFmk9PT00vKsvy1Wd9D8gFJbwJ4n+TH3fSIMV63mqSNeV5ueRAlfeG9X98t0PFiTpCJGONrAN7OAdPsuzAYDFaNj4//3Cj7apMMeT1fWDkhnqmq6skudJNEOWn+yXVvCXq+l0b2vJn9QfKvmd4NITxuZucWciHd1NPzhR7G/hH0MFTOZ4yUHik9hwIjewzLHv8C2eCZLJaPy8EAAAAASUVORK5CYII=',
+                   width: 45.896484375,
+                   height: 28
+                 }
+               },
+               transform: {
+                 light: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAcCAYAAACOGPReAAABU0lEQVRIS+3UvUpDQRAF4HMCMxeSB9A3UJuARXwBwR8Q7WzESrAXLETSBUER7G0sRAtLbbTyGbTSMmqljZBC2J1cRi5ECzEJrqaRbL3zMXuGWWIAhwMwMUT/PtV/mGmMccrdW1mW3fcLrO/zQwhLJE8BVDrYS7vdrpXL5cdueE/U3UfM7AnAQ57ns6VSqUbyGEBTVceSUDPbdvcdktMicl0gMcYzAMsioiTtO7hnpzHGEwArIlIh+VYAZlZ394a7T3TLtydqZufuvqiqn/dijOsADknOi8hVSqdFfqtf0A0ABwAmVfXmx2gIoUGyLiKjJJ8LIISwT3IzOVMzm3P3S5JbIrLXGdQtgHFVzZKm30FeARSTXgBQLMAugCNVXUtGzWzG3S8AFJ05gDsRqZLMk9GPwhBCVVWbJFu/XtN+wI+nnwIWNX0/lBR4iKak1rtmIJm+AxDffh1YL1lGAAAAAElFTkSuQmCC',
+                   width: 21.7861328125,
+                   height: 28
+                 },
+                 dark: {
+                   url:
+                     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAcCAYAAACOGPReAAABb0lEQVRIS+3UMUvDQBQH8P8jBhdRAuIgqEMXB0UHt269NKFDJ6WLi/gRHETQpSiIk5/AzUE5FNShBF9ppzoJOoh7FwdxcRBJvYsEojjYhl7tIr353o93/3d3hD4s6oOJAfr3qf7DTHO5XMa27bcgCJ7SAks9fj6fX4qi6AzAdIxFUXQLwK9Wqy/t8I5ooVAYbbVaTSJqENGaUipDRFcAbpi5aIQKIVaISCql5mq12kOMuK67A2DXcZwhKaX6De7Yqeu6WwD2HccZllKGCVoCcGpZ1mS7fNPQPQDbzPy9TwjhEtG1ZVmLQRDcd92pEGKTiA5+op7nFbXWlwBmmLlpgq4S0bFt22OVSuU1Of46gCPjTH3fX1BK3QFYZubzBD2J58XM40bTT5BHIhrRWvtENAsgvrMbzHzYCzoPgAFMAPgAcJHNZkvlclkbo1+FnudNhWH4XK/X33t+pmlA19M3AeOa1A/FBB6gJql1rulLpp8zV3gdRyZmCgAAAABJRU5ErkJggg==',
+                   width: 21.7861328125,
+                   height: 28
+                 }
+               }
+             }
+           }
+         },
+         all: {
+           B17: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B17',
+               coordinates: {
+                 c: 1,
+                 r: 16
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B18: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B18',
+               coordinates: {
+                 c: 1,
+                 r: 17
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B19: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B19',
+               coordinates: {
+                 c: 1,
+                 r: 18
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B20: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B20',
+               coordinates: {
+                 c: 1,
+                 r: 19
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B21: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B21',
+               coordinates: {
+                 c: 1,
+                 r: 20
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B22: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B22',
+               coordinates: {
+                 c: 1,
+                 r: 21
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B23: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B23',
+               coordinates: {
+                 c: 1,
+                 r: 22
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B25: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B25',
+               coordinates: {
+                 c: 1,
+                 r: 24
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B26: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B26',
+               coordinates: {
+                 c: 1,
+                 r: 25
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B27: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B27',
+               coordinates: {
+                 c: 1,
+                 r: 26
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B28: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B28',
+               coordinates: {
+                 c: 1,
+                 r: 27
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B29: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B29',
+               coordinates: {
+                 c: 1,
+                 r: 28
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B30: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B30',
+               coordinates: {
+                 c: 1,
+                 r: 29
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B31: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B31',
+               coordinates: {
+                 c: 1,
+                 r: 30
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B32: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B32',
+               coordinates: {
+                 c: 1,
+                 r: 31
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B33: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B33',
+               coordinates: {
+                 c: 1,
+                 r: 32
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B34: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B34',
+               coordinates: {
+                 c: 1,
+                 r: 33
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B35: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B35',
+               coordinates: {
+                 c: 1,
+                 r: 34
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B36: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B36',
+               coordinates: {
+                 c: 1,
+                 r: 35
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B37: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B37',
+               coordinates: {
+                 c: 1,
+                 r: 36
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B38: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B38',
+               coordinates: {
+                 c: 1,
+                 r: 37
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B39: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B39',
+               coordinates: {
+                 c: 1,
+                 r: 38
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B40: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B40',
+               coordinates: {
+                 c: 1,
+                 r: 39
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B41: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B41',
+               coordinates: {
+                 c: 1,
+                 r: 40
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B43: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B43',
+               coordinates: {
+                 c: 1,
+                 r: 42
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B44: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B44',
+               coordinates: {
+                 c: 1,
+                 r: 43
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B45: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B45',
+               coordinates: {
+                 c: 1,
+                 r: 44
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B46: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B46',
+               coordinates: {
+                 c: 1,
+                 r: 45
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           B47: {
+             t: 'n',
+             v: 0,
+             w: '0',
+             meta: {
+               address: 'B47',
+               coordinates: {
+                 c: 1,
+                 r: 46
+               },
+               caseType: 'zero',
+               trigger: 'Rock',
+               original: {
+                 v: 'Rock',
+                 t: 's',
+                 w: 'Rock'
+               }
+             }
+           },
+           E27: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'E27',
+               coordinates: {
+                 c: 4,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           E45: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'E45',
+               coordinates: {
+                 c: 4,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           G42: {
+             t: 'n',
+             v: 5000,
+             w: '5000',
+             meta: {
+               address: 'G42',
+               coordinates: {
+                 c: 6,
+                 r: 41
+               },
+               caseType: 'ol',
+               trigger: '>',
+               original: {
+                 v: '>10000',
+                 t: 's',
+                 w: '>10000'
+               }
+             }
+           },
+           I24: {
+             t: 'n',
+             v: 50,
+             z: '0.0',
+             w: '50.0',
+             meta: {
+               address: 'I24',
+               coordinates: {
+                 c: 8,
+                 r: 23
+               },
+               caseType: 'ol',
+               trigger: '>',
+               original: {
+                 v: '>100.0',
+                 t: 's',
+                 w: '>100.0'
+               }
+             }
+           },
+           I27: {
+             t: 'n',
+             v: 250.4,
+             z: '0.0',
+             w: '250.4',
+             meta: {
+               address: 'I27',
+               coordinates: {
+                 c: 8,
+                 r: 26
+               },
+               caseType: 'ol',
+               trigger: '>',
+               original: {
+                 v: '>500.8',
+                 t: 's',
+                 w: '>500.8'
+               }
+             }
+           },
+           I29: {
+             t: 'n',
+             v: 42,
+             z: '0.000',
+             w: '42.000',
+             meta: {
+               address: 'I29',
+               coordinates: {
+                 c: 8,
+                 r: 28
+               },
+               caseType: 'ol',
+               trigger: '>',
+               original: {
+                 v: '>84.000',
+                 t: 's',
+                 w: '>84.000'
+               }
+             }
+           },
+           I42: {
+             t: 'n',
+             v: 50,
+             z: '0.0',
+             w: '50.0',
+             meta: {
+               address: 'I42',
+               coordinates: {
+                 c: 8,
+                 r: 41
+               },
+               caseType: 'ol',
+               trigger: '>',
+               original: {
+                 v: '>100.0',
+                 t: 's',
+                 w: '>100.0'
+               }
+             }
+           },
+           J33: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'J33',
+               coordinates: {
+                 c: 9,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           J35: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'J35',
+               coordinates: {
+                 c: 9,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           J40: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'J40',
+               coordinates: {
+                 c: 9,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           J41: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'J41',
+               coordinates: {
+                 c: 9,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           J46: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'J46',
+               coordinates: {
+                 c: 9,
+                 r: 45
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           J47: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'J47',
+               coordinates: {
+                 c: 9,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K17: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K17',
+               coordinates: {
+                 c: 10,
+                 r: 16
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K18: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K18',
+               coordinates: {
+                 c: 10,
+                 r: 17
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K19: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K19',
+               coordinates: {
+                 c: 10,
+                 r: 18
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K20: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K20',
+               coordinates: {
+                 c: 10,
+                 r: 19
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K21: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K21',
+               coordinates: {
+                 c: 10,
+                 r: 20
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K22: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K22',
+               coordinates: {
+                 c: 10,
+                 r: 21
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K23: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K23',
+               coordinates: {
+                 c: 10,
+                 r: 22
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K25: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K25',
+               coordinates: {
+                 c: 10,
+                 r: 24
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K26: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K26',
+               coordinates: {
+                 c: 10,
+                 r: 25
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K27: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K27',
+               coordinates: {
+                 c: 10,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K28: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K28',
+               coordinates: {
+                 c: 10,
+                 r: 27
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K29: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K29',
+               coordinates: {
+                 c: 10,
+                 r: 28
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K30: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K30',
+               coordinates: {
+                 c: 10,
+                 r: 29
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K31: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K31',
+               coordinates: {
+                 c: 10,
+                 r: 30
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K32: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K32',
+               coordinates: {
+                 c: 10,
+                 r: 31
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K33: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K33',
+               coordinates: {
+                 c: 10,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K34: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K34',
+               coordinates: {
+                 c: 10,
+                 r: 33
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K35: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K35',
+               coordinates: {
+                 c: 10,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K36: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K36',
+               coordinates: {
+                 c: 10,
+                 r: 35
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K37: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K37',
+               coordinates: {
+                 c: 10,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K38: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K38',
+               coordinates: {
+                 c: 10,
+                 r: 37
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K39: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K39',
+               coordinates: {
+                 c: 10,
+                 r: 38
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K40: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K40',
+               coordinates: {
+                 c: 10,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K41: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K41',
+               coordinates: {
+                 c: 10,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K43: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K43',
+               coordinates: {
+                 c: 10,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K44: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K44',
+               coordinates: {
+                 c: 10,
+                 r: 43
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K45: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K45',
+               coordinates: {
+                 c: 10,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K46: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K46',
+               coordinates: {
+                 c: 10,
+                 r: 45
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           K47: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'K47',
+               coordinates: {
+                 c: 10,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           O30: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'O30',
+               coordinates: {
+                 c: 14,
+                 r: 29
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           O32: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'O32',
+               coordinates: {
+                 c: 14,
+                 r: 31
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           O33: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'O33',
+               coordinates: {
+                 c: 14,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           O34: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'O34',
+               coordinates: {
+                 c: 14,
+                 r: 33
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           O35: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'O35',
+               coordinates: {
+                 c: 14,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           O36: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'O36',
+               coordinates: {
+                 c: 14,
+                 r: 35
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           O37: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'O37',
+               coordinates: {
+                 c: 14,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           O40: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'O40',
+               coordinates: {
+                 c: 14,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           O41: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'O41',
+               coordinates: {
+                 c: 14,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           O42: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'O42',
+               coordinates: {
+                 c: 14,
+                 r: 41
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           O43: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'O43',
+               coordinates: {
+                 c: 14,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           O47: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'O47',
+               coordinates: {
+                 c: 14,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           Q17: {
+             v: '0.5',
+             t: 's',
+             w: '0.5',
+             meta: {
+               address: 'Q17',
+               coordinates: {
+                 c: 16,
+                 r: 16
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q18: {
+             v: '0.5',
+             t: 's',
+             w: '0.5',
+             meta: {
+               address: 'Q18',
+               coordinates: {
+                 c: 16,
+                 r: 17
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q19: {
+             v: '0.5',
+             t: 's',
+             w: '0.5',
+             meta: {
+               address: 'Q19',
+               coordinates: {
+                 c: 16,
+                 r: 18
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q20: {
+             v: '0.5',
+             t: 's',
+             w: '0.5',
+             meta: {
+               address: 'Q20',
+               coordinates: {
+                 c: 16,
+                 r: 19
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q21: {
+             v: '0.5',
+             t: 's',
+             w: '0.5',
+             meta: {
+               address: 'Q21',
+               coordinates: {
+                 c: 16,
+                 r: 20
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q22: {
+             v: '0.5',
+             t: 's',
+             w: '0.5',
+             meta: {
+               address: 'Q22',
+               coordinates: {
+                 c: 16,
+                 r: 21
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q23: {
+             v: '0.5',
+             t: 's',
+             w: '0.5',
+             meta: {
+               address: 'Q23',
+               coordinates: {
+                 c: 16,
+                 r: 22
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q25: {
+             v: '0.5',
+             t: 's',
+             w: '0.5',
+             meta: {
+               address: 'Q25',
+               coordinates: {
+                 c: 16,
+                 r: 24
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q26: {
+             v: '0.5',
+             t: 's',
+             w: '0.5',
+             meta: {
+               address: 'Q26',
+               coordinates: {
+                 c: 16,
+                 r: 25
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q27: {
+             v: '0.5',
+             t: 's',
+             w: '0.5',
+             meta: {
+               address: 'Q27',
+               coordinates: {
+                 c: 16,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q28: {
+             v: '0.5',
+             t: 's',
+             w: '0.5',
+             meta: {
+               address: 'Q28',
+               coordinates: {
+                 c: 16,
+                 r: 27
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q33: {
+             v: '0.5',
+             t: 's',
+             w: '0.5',
+             meta: {
+               address: 'Q33',
+               coordinates: {
+                 c: 16,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q35: {
+             v: '0.5',
+             t: 's',
+             w: '0.5',
+             meta: {
+               address: 'Q35',
+               coordinates: {
+                 c: 16,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q36: {
+             v: '0.5',
+             t: 's',
+             w: '0.5',
+             meta: {
+               address: 'Q36',
+               coordinates: {
+                 c: 16,
+                 r: 35
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q37: {
+             v: '0.5',
+             t: 's',
+             w: '0.5',
+             meta: {
+               address: 'Q37',
+               coordinates: {
+                 c: 16,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q38: {
+             v: '0.5',
+             t: 's',
+             w: '0.5',
+             meta: {
+               address: 'Q38',
+               coordinates: {
+                 c: 16,
+                 r: 37
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q39: {
+             v: '0.5',
+             t: 's',
+             w: '0.5',
+             meta: {
+               address: 'Q39',
+               coordinates: {
+                 c: 16,
+                 r: 38
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q40: {
+             v: '0.5',
+             t: 's',
+             w: '0.5',
+             meta: {
+               address: 'Q40',
+               coordinates: {
+                 c: 16,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q41: {
+             v: '0.5',
+             t: 's',
+             w: '0.5',
+             meta: {
+               address: 'Q41',
+               coordinates: {
+                 c: 16,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q43: {
+             v: '0.5',
+             t: 's',
+             w: '0.5',
+             meta: {
+               address: 'Q43',
+               coordinates: {
+                 c: 16,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q44: {
+             v: '0.5',
+             t: 's',
+             w: '0.5',
+             meta: {
+               address: 'Q44',
+               coordinates: {
+                 c: 16,
+                 r: 43
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q45: {
+             v: '0.5',
+             t: 's',
+             w: '0.5',
+             meta: {
+               address: 'Q45',
+               coordinates: {
+                 c: 16,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           Q47: {
+             v: '0.5',
+             t: 's',
+             w: '0.5',
+             meta: {
+               address: 'Q47',
+               coordinates: {
+                 c: 16,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.5',
+                 t: 's',
+                 w: '<0.5'
+               }
+             }
+           },
+           R35: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'R35',
+               coordinates: {
+                 c: 17,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S17: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S17',
+               coordinates: {
+                 c: 18,
+                 r: 16
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S18: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S18',
+               coordinates: {
+                 c: 18,
+                 r: 17
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S19: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S19',
+               coordinates: {
+                 c: 18,
+                 r: 18
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S20: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S20',
+               coordinates: {
+                 c: 18,
+                 r: 19
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S21: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S21',
+               coordinates: {
+                 c: 18,
+                 r: 20
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S22: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S22',
+               coordinates: {
+                 c: 18,
+                 r: 21
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S23: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S23',
+               coordinates: {
+                 c: 18,
+                 r: 22
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S24: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S24',
+               coordinates: {
+                 c: 18,
+                 r: 23
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S25: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S25',
+               coordinates: {
+                 c: 18,
+                 r: 24
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S26: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S26',
+               coordinates: {
+                 c: 18,
+                 r: 25
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S27: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S27',
+               coordinates: {
+                 c: 18,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S28: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S28',
+               coordinates: {
+                 c: 18,
+                 r: 27
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S29: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S29',
+               coordinates: {
+                 c: 18,
+                 r: 28
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S30: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S30',
+               coordinates: {
+                 c: 18,
+                 r: 29
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S31: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S31',
+               coordinates: {
+                 c: 18,
+                 r: 30
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S32: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S32',
+               coordinates: {
+                 c: 18,
+                 r: 31
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S33: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S33',
+               coordinates: {
+                 c: 18,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S34: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S34',
+               coordinates: {
+                 c: 18,
+                 r: 33
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S35: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S35',
+               coordinates: {
+                 c: 18,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S36: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S36',
+               coordinates: {
+                 c: 18,
+                 r: 35
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S37: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S37',
+               coordinates: {
+                 c: 18,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S38: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S38',
+               coordinates: {
+                 c: 18,
+                 r: 37
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S39: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S39',
+               coordinates: {
+                 c: 18,
+                 r: 38
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S40: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S40',
+               coordinates: {
+                 c: 18,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S41: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S41',
+               coordinates: {
+                 c: 18,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S42: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S42',
+               coordinates: {
+                 c: 18,
+                 r: 41
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S43: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S43',
+               coordinates: {
+                 c: 18,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S44: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S44',
+               coordinates: {
+                 c: 18,
+                 r: 43
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S45: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S45',
+               coordinates: {
+                 c: 18,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S46: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S46',
+               coordinates: {
+                 c: 18,
+                 r: 45
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           S47: {
+             v: '3',
+             t: 's',
+             w: '3',
+             meta: {
+               address: 'S47',
+               coordinates: {
+                 c: 18,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<3',
+                 t: 's',
+                 w: '<3'
+               }
+             }
+           },
+           U17: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U17',
+               coordinates: {
+                 c: 20,
+                 r: 16
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U18: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U18',
+               coordinates: {
+                 c: 20,
+                 r: 17
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U19: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U19',
+               coordinates: {
+                 c: 20,
+                 r: 18
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U20: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U20',
+               coordinates: {
+                 c: 20,
+                 r: 19
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U21: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U21',
+               coordinates: {
+                 c: 20,
+                 r: 20
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U22: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U22',
+               coordinates: {
+                 c: 20,
+                 r: 21
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U23: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U23',
+               coordinates: {
+                 c: 20,
+                 r: 22
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U25: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U25',
+               coordinates: {
+                 c: 20,
+                 r: 24
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U26: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U26',
+               coordinates: {
+                 c: 20,
+                 r: 25
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U27: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U27',
+               coordinates: {
+                 c: 20,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U28: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U28',
+               coordinates: {
+                 c: 20,
+                 r: 27
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U29: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U29',
+               coordinates: {
+                 c: 20,
+                 r: 28
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U31: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U31',
+               coordinates: {
+                 c: 20,
+                 r: 30
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U32: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U32',
+               coordinates: {
+                 c: 20,
+                 r: 31
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U33: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U33',
+               coordinates: {
+                 c: 20,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U37: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U37',
+               coordinates: {
+                 c: 20,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U38: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U38',
+               coordinates: {
+                 c: 20,
+                 r: 37
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U39: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U39',
+               coordinates: {
+                 c: 20,
+                 r: 38
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U40: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U40',
+               coordinates: {
+                 c: 20,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U41: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U41',
+               coordinates: {
+                 c: 20,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U43: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U43',
+               coordinates: {
+                 c: 20,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U44: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U44',
+               coordinates: {
+                 c: 20,
+                 r: 43
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U45: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U45',
+               coordinates: {
+                 c: 20,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U46: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U46',
+               coordinates: {
+                 c: 20,
+                 r: 45
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           U47: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'U47',
+               coordinates: {
+                 c: 20,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AB17: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB17',
+               coordinates: {
+                 c: 27,
+                 r: 16
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB18: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB18',
+               coordinates: {
+                 c: 27,
+                 r: 17
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB19: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB19',
+               coordinates: {
+                 c: 27,
+                 r: 18
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB20: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB20',
+               coordinates: {
+                 c: 27,
+                 r: 19
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB21: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB21',
+               coordinates: {
+                 c: 27,
+                 r: 20
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB22: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB22',
+               coordinates: {
+                 c: 27,
+                 r: 21
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB23: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB23',
+               coordinates: {
+                 c: 27,
+                 r: 22
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB24: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB24',
+               coordinates: {
+                 c: 27,
+                 r: 23
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB25: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB25',
+               coordinates: {
+                 c: 27,
+                 r: 24
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB26: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB26',
+               coordinates: {
+                 c: 27,
+                 r: 25
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB27: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB27',
+               coordinates: {
+                 c: 27,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB28: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB28',
+               coordinates: {
+                 c: 27,
+                 r: 27
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB29: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB29',
+               coordinates: {
+                 c: 27,
+                 r: 28
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB30: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB30',
+               coordinates: {
+                 c: 27,
+                 r: 29
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB31: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB31',
+               coordinates: {
+                 c: 27,
+                 r: 30
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB32: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB32',
+               coordinates: {
+                 c: 27,
+                 r: 31
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB33: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB33',
+               coordinates: {
+                 c: 27,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB34: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB34',
+               coordinates: {
+                 c: 27,
+                 r: 33
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB35: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB35',
+               coordinates: {
+                 c: 27,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB36: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB36',
+               coordinates: {
+                 c: 27,
+                 r: 35
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB37: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB37',
+               coordinates: {
+                 c: 27,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB38: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB38',
+               coordinates: {
+                 c: 27,
+                 r: 37
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB39: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB39',
+               coordinates: {
+                 c: 27,
+                 r: 38
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB40: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB40',
+               coordinates: {
+                 c: 27,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB41: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB41',
+               coordinates: {
+                 c: 27,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB43: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB43',
+               coordinates: {
+                 c: 27,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB44: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB44',
+               coordinates: {
+                 c: 27,
+                 r: 43
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB45: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB45',
+               coordinates: {
+                 c: 27,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB46: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB46',
+               coordinates: {
+                 c: 27,
+                 r: 45
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AB47: {
+             v: '20',
+             t: 's',
+             w: '20',
+             meta: {
+               address: 'AB47',
+               coordinates: {
+                 c: 27,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<20',
+                 t: 's',
+                 w: '<20'
+               }
+             }
+           },
+           AD17: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD17',
+               coordinates: {
+                 c: 29,
+                 r: 16
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD18: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD18',
+               coordinates: {
+                 c: 29,
+                 r: 17
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD19: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD19',
+               coordinates: {
+                 c: 29,
+                 r: 18
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD20: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD20',
+               coordinates: {
+                 c: 29,
+                 r: 19
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD21: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD21',
+               coordinates: {
+                 c: 29,
+                 r: 20
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD22: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD22',
+               coordinates: {
+                 c: 29,
+                 r: 21
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD23: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD23',
+               coordinates: {
+                 c: 29,
+                 r: 22
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD24: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD24',
+               coordinates: {
+                 c: 29,
+                 r: 23
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD25: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD25',
+               coordinates: {
+                 c: 29,
+                 r: 24
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD26: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD26',
+               coordinates: {
+                 c: 29,
+                 r: 25
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD27: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD27',
+               coordinates: {
+                 c: 29,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD28: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD28',
+               coordinates: {
+                 c: 29,
+                 r: 27
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD29: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD29',
+               coordinates: {
+                 c: 29,
+                 r: 28
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD30: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD30',
+               coordinates: {
+                 c: 29,
+                 r: 29
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD31: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD31',
+               coordinates: {
+                 c: 29,
+                 r: 30
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD32: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD32',
+               coordinates: {
+                 c: 29,
+                 r: 31
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD33: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD33',
+               coordinates: {
+                 c: 29,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD34: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD34',
+               coordinates: {
+                 c: 29,
+                 r: 33
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD35: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD35',
+               coordinates: {
+                 c: 29,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD36: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD36',
+               coordinates: {
+                 c: 29,
+                 r: 35
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD37: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD37',
+               coordinates: {
+                 c: 29,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD38: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD38',
+               coordinates: {
+                 c: 29,
+                 r: 37
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD39: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD39',
+               coordinates: {
+                 c: 29,
+                 r: 38
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD40: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD40',
+               coordinates: {
+                 c: 29,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD41: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD41',
+               coordinates: {
+                 c: 29,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD43: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD43',
+               coordinates: {
+                 c: 29,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD44: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD44',
+               coordinates: {
+                 c: 29,
+                 r: 43
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD45: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD45',
+               coordinates: {
+                 c: 29,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD46: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD46',
+               coordinates: {
+                 c: 29,
+                 r: 45
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AD47: {
+             v: '0.01',
+             t: 's',
+             w: '0.01',
+             meta: {
+               address: 'AD47',
+               coordinates: {
+                 c: 29,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.01',
+                 t: 's',
+                 w: '<0.01'
+               }
+             }
+           },
+           AF17: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF17',
+               coordinates: {
+                 c: 31,
+                 r: 16
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF18: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF18',
+               coordinates: {
+                 c: 31,
+                 r: 17
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF19: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF19',
+               coordinates: {
+                 c: 31,
+                 r: 18
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF20: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF20',
+               coordinates: {
+                 c: 31,
+                 r: 19
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF21: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF21',
+               coordinates: {
+                 c: 31,
+                 r: 20
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF22: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF22',
+               coordinates: {
+                 c: 31,
+                 r: 21
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF23: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF23',
+               coordinates: {
+                 c: 31,
+                 r: 22
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF25: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF25',
+               coordinates: {
+                 c: 31,
+                 r: 24
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF26: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF26',
+               coordinates: {
+                 c: 31,
+                 r: 25
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF27: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF27',
+               coordinates: {
+                 c: 31,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF28: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF28',
+               coordinates: {
+                 c: 31,
+                 r: 27
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF29: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF29',
+               coordinates: {
+                 c: 31,
+                 r: 28
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF30: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF30',
+               coordinates: {
+                 c: 31,
+                 r: 29
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF31: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF31',
+               coordinates: {
+                 c: 31,
+                 r: 30
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF32: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF32',
+               coordinates: {
+                 c: 31,
+                 r: 31
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF33: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF33',
+               coordinates: {
+                 c: 31,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF34: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF34',
+               coordinates: {
+                 c: 31,
+                 r: 33
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF35: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF35',
+               coordinates: {
+                 c: 31,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF36: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF36',
+               coordinates: {
+                 c: 31,
+                 r: 35
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF37: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF37',
+               coordinates: {
+                 c: 31,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF38: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF38',
+               coordinates: {
+                 c: 31,
+                 r: 37
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF39: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF39',
+               coordinates: {
+                 c: 31,
+                 r: 38
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF40: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF40',
+               coordinates: {
+                 c: 31,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF41: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF41',
+               coordinates: {
+                 c: 31,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF42: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF42',
+               coordinates: {
+                 c: 31,
+                 r: 41
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF43: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF43',
+               coordinates: {
+                 c: 31,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF44: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF44',
+               coordinates: {
+                 c: 31,
+                 r: 43
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF45: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF45',
+               coordinates: {
+                 c: 31,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF46: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF46',
+               coordinates: {
+                 c: 31,
+                 r: 45
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AF47: {
+             v: '2',
+             t: 's',
+             w: '2',
+             meta: {
+               address: 'AF47',
+               coordinates: {
+                 c: 31,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<2',
+                 t: 's',
+                 w: '<2'
+               }
+             }
+           },
+           AG17: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG17',
+               coordinates: {
+                 c: 32,
+                 r: 16
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG18: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG18',
+               coordinates: {
+                 c: 32,
+                 r: 17
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG19: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG19',
+               coordinates: {
+                 c: 32,
+                 r: 18
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG20: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG20',
+               coordinates: {
+                 c: 32,
+                 r: 19
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG21: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG21',
+               coordinates: {
+                 c: 32,
+                 r: 20
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG22: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG22',
+               coordinates: {
+                 c: 32,
+                 r: 21
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG23: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG23',
+               coordinates: {
+                 c: 32,
+                 r: 22
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG25: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG25',
+               coordinates: {
+                 c: 32,
+                 r: 24
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG26: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG26',
+               coordinates: {
+                 c: 32,
+                 r: 25
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG27: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG27',
+               coordinates: {
+                 c: 32,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG28: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG28',
+               coordinates: {
+                 c: 32,
+                 r: 27
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG29: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG29',
+               coordinates: {
+                 c: 32,
+                 r: 28
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG30: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG30',
+               coordinates: {
+                 c: 32,
+                 r: 29
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG32: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG32',
+               coordinates: {
+                 c: 32,
+                 r: 31
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG33: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG33',
+               coordinates: {
+                 c: 32,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG34: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG34',
+               coordinates: {
+                 c: 32,
+                 r: 33
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG35: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG35',
+               coordinates: {
+                 c: 32,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG36: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG36',
+               coordinates: {
+                 c: 32,
+                 r: 35
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG37: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG37',
+               coordinates: {
+                 c: 32,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG38: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG38',
+               coordinates: {
+                 c: 32,
+                 r: 37
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG39: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG39',
+               coordinates: {
+                 c: 32,
+                 r: 38
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG40: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG40',
+               coordinates: {
+                 c: 32,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG41: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG41',
+               coordinates: {
+                 c: 32,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG43: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG43',
+               coordinates: {
+                 c: 32,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG44: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG44',
+               coordinates: {
+                 c: 32,
+                 r: 43
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG45: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG45',
+               coordinates: {
+                 c: 32,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AG47: {
+             v: '0.05',
+             t: 's',
+             w: '0.05',
+             meta: {
+               address: 'AG47',
+               coordinates: {
+                 c: 32,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<0.05',
+                 t: 's',
+                 w: '<0.05'
+               }
+             }
+           },
+           AH17: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH17',
+               coordinates: {
+                 c: 33,
+                 r: 16
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH18: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH18',
+               coordinates: {
+                 c: 33,
+                 r: 17
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH19: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH19',
+               coordinates: {
+                 c: 33,
+                 r: 18
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH20: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH20',
+               coordinates: {
+                 c: 33,
+                 r: 19
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH21: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH21',
+               coordinates: {
+                 c: 33,
+                 r: 20
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH22: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH22',
+               coordinates: {
+                 c: 33,
+                 r: 21
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH23: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH23',
+               coordinates: {
+                 c: 33,
+                 r: 22
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH24: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH24',
+               coordinates: {
+                 c: 33,
+                 r: 23
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH25: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH25',
+               coordinates: {
+                 c: 33,
+                 r: 24
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH26: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH26',
+               coordinates: {
+                 c: 33,
+                 r: 25
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH27: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH27',
+               coordinates: {
+                 c: 33,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH28: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH28',
+               coordinates: {
+                 c: 33,
+                 r: 27
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH29: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH29',
+               coordinates: {
+                 c: 33,
+                 r: 28
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH31: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH31',
+               coordinates: {
+                 c: 33,
+                 r: 30
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH32: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH32',
+               coordinates: {
+                 c: 33,
+                 r: 31
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH33: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH33',
+               coordinates: {
+                 c: 33,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH34: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH34',
+               coordinates: {
+                 c: 33,
+                 r: 33
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH35: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH35',
+               coordinates: {
+                 c: 33,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH36: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH36',
+               coordinates: {
+                 c: 33,
+                 r: 35
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH37: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH37',
+               coordinates: {
+                 c: 33,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH38: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH38',
+               coordinates: {
+                 c: 33,
+                 r: 37
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH39: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH39',
+               coordinates: {
+                 c: 33,
+                 r: 38
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH42: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH42',
+               coordinates: {
+                 c: 33,
+                 r: 41
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH43: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH43',
+               coordinates: {
+                 c: 33,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH44: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH44',
+               coordinates: {
+                 c: 33,
+                 r: 43
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AH45: {
+             v: '1',
+             t: 's',
+             w: '1',
+             meta: {
+               address: 'AH45',
+               coordinates: {
+                 c: 33,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<1',
+                 t: 's',
+                 w: '<1'
+               }
+             }
+           },
+           AI17: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI17',
+               coordinates: {
+                 c: 34,
+                 r: 16
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI18: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI18',
+               coordinates: {
+                 c: 34,
+                 r: 17
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI19: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI19',
+               coordinates: {
+                 c: 34,
+                 r: 18
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI20: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI20',
+               coordinates: {
+                 c: 34,
+                 r: 19
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI21: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI21',
+               coordinates: {
+                 c: 34,
+                 r: 20
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI22: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI22',
+               coordinates: {
+                 c: 34,
+                 r: 21
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI23: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI23',
+               coordinates: {
+                 c: 34,
+                 r: 22
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI24: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI24',
+               coordinates: {
+                 c: 34,
+                 r: 23
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI25: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI25',
+               coordinates: {
+                 c: 34,
+                 r: 24
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI26: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI26',
+               coordinates: {
+                 c: 34,
+                 r: 25
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI27: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI27',
+               coordinates: {
+                 c: 34,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI28: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI28',
+               coordinates: {
+                 c: 34,
+                 r: 27
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI30: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI30',
+               coordinates: {
+                 c: 34,
+                 r: 29
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI31: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI31',
+               coordinates: {
+                 c: 34,
+                 r: 30
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI32: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI32',
+               coordinates: {
+                 c: 34,
+                 r: 31
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI33: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI33',
+               coordinates: {
+                 c: 34,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI34: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI34',
+               coordinates: {
+                 c: 34,
+                 r: 33
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI35: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI35',
+               coordinates: {
+                 c: 34,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI36: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI36',
+               coordinates: {
+                 c: 34,
+                 r: 35
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI37: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI37',
+               coordinates: {
+                 c: 34,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI38: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI38',
+               coordinates: {
+                 c: 34,
+                 r: 37
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI39: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI39',
+               coordinates: {
+                 c: 34,
+                 r: 38
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI40: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI40',
+               coordinates: {
+                 c: 34,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI41: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI41',
+               coordinates: {
+                 c: 34,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI42: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI42',
+               coordinates: {
+                 c: 34,
+                 r: 41
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI43: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI43',
+               coordinates: {
+                 c: 34,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI44: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI44',
+               coordinates: {
+                 c: 34,
+                 r: 43
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI45: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI45',
+               coordinates: {
+                 c: 34,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI46: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI46',
+               coordinates: {
+                 c: 34,
+                 r: 45
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AI47: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AI47',
+               coordinates: {
+                 c: 34,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ17: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ17',
+               coordinates: {
+                 c: 35,
+                 r: 16
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ18: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ18',
+               coordinates: {
+                 c: 35,
+                 r: 17
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ19: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ19',
+               coordinates: {
+                 c: 35,
+                 r: 18
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ20: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ20',
+               coordinates: {
+                 c: 35,
+                 r: 19
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ21: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ21',
+               coordinates: {
+                 c: 35,
+                 r: 20
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ22: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ22',
+               coordinates: {
+                 c: 35,
+                 r: 21
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ23: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ23',
+               coordinates: {
+                 c: 35,
+                 r: 22
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ24: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ24',
+               coordinates: {
+                 c: 35,
+                 r: 23
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ25: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ25',
+               coordinates: {
+                 c: 35,
+                 r: 24
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ26: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ26',
+               coordinates: {
+                 c: 35,
+                 r: 25
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ27: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ27',
+               coordinates: {
+                 c: 35,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ28: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ28',
+               coordinates: {
+                 c: 35,
+                 r: 27
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ29: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ29',
+               coordinates: {
+                 c: 35,
+                 r: 28
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ30: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ30',
+               coordinates: {
+                 c: 35,
+                 r: 29
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ31: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ31',
+               coordinates: {
+                 c: 35,
+                 r: 30
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ32: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ32',
+               coordinates: {
+                 c: 35,
+                 r: 31
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ33: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ33',
+               coordinates: {
+                 c: 35,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ34: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ34',
+               coordinates: {
+                 c: 35,
+                 r: 33
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ35: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ35',
+               coordinates: {
+                 c: 35,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ36: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ36',
+               coordinates: {
+                 c: 35,
+                 r: 35
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ37: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ37',
+               coordinates: {
+                 c: 35,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ38: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ38',
+               coordinates: {
+                 c: 35,
+                 r: 37
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ39: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ39',
+               coordinates: {
+                 c: 35,
+                 r: 38
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ40: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ40',
+               coordinates: {
+                 c: 35,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ41: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ41',
+               coordinates: {
+                 c: 35,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ43: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ43',
+               coordinates: {
+                 c: 35,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ44: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ44',
+               coordinates: {
+                 c: 35,
+                 r: 43
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ45: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ45',
+               coordinates: {
+                 c: 35,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ46: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ46',
+               coordinates: {
+                 c: 35,
+                 r: 45
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AJ47: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AJ47',
+               coordinates: {
+                 c: 35,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK17: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK17',
+               coordinates: {
+                 c: 36,
+                 r: 16
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK18: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK18',
+               coordinates: {
+                 c: 36,
+                 r: 17
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK19: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK19',
+               coordinates: {
+                 c: 36,
+                 r: 18
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK20: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK20',
+               coordinates: {
+                 c: 36,
+                 r: 19
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK21: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK21',
+               coordinates: {
+                 c: 36,
+                 r: 20
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK22: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK22',
+               coordinates: {
+                 c: 36,
+                 r: 21
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK23: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK23',
+               coordinates: {
+                 c: 36,
+                 r: 22
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK24: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK24',
+               coordinates: {
+                 c: 36,
+                 r: 23
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK25: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK25',
+               coordinates: {
+                 c: 36,
+                 r: 24
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK26: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK26',
+               coordinates: {
+                 c: 36,
+                 r: 25
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK27: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK27',
+               coordinates: {
+                 c: 36,
+                 r: 26
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK28: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK28',
+               coordinates: {
+                 c: 36,
+                 r: 27
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK31: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK31',
+               coordinates: {
+                 c: 36,
+                 r: 30
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK32: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK32',
+               coordinates: {
+                 c: 36,
+                 r: 31
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK33: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK33',
+               coordinates: {
+                 c: 36,
+                 r: 32
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK34: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK34',
+               coordinates: {
+                 c: 36,
+                 r: 33
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK35: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK35',
+               coordinates: {
+                 c: 36,
+                 r: 34
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK36: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK36',
+               coordinates: {
+                 c: 36,
+                 r: 35
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK37: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK37',
+               coordinates: {
+                 c: 36,
+                 r: 36
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK38: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK38',
+               coordinates: {
+                 c: 36,
+                 r: 37
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK39: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK39',
+               coordinates: {
+                 c: 36,
+                 r: 38
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK40: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK40',
+               coordinates: {
+                 c: 36,
+                 r: 39
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK41: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK41',
+               coordinates: {
+                 c: 36,
+                 r: 40
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK42: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK42',
+               coordinates: {
+                 c: 36,
+                 r: 41
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK43: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK43',
+               coordinates: {
+                 c: 36,
+                 r: 42
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK44: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK44',
+               coordinates: {
+                 c: 36,
+                 r: 43
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK45: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK45',
+               coordinates: {
+                 c: 36,
+                 r: 44
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK46: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK46',
+               coordinates: {
+                 c: 36,
+                 r: 45
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           },
+           AK47: {
+             v: '5',
+             t: 's',
+             w: '5',
+             meta: {
+               address: 'AK47',
+               coordinates: {
+                 c: 36,
+                 r: 46
+               },
+               caseType: 'ul',
+               trigger: '<',
+               original: {
+                 v: '<5',
+                 t: 's',
+                 w: '<5'
+               }
+             }
+           }
+         },
+         scope: {
+           s: {
+             c: 0,
+             r: 0
+           },
+           e: {
+             c: 38,
+             r: 46
+           }
+         }
+       }
 
 export const sheetData = {
   '!margins': {

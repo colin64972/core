@@ -76,8 +76,6 @@ export const getScopeOffsets = scope => {
   }
 }
 
-export const convertColNumToId = int => toBase26(int).toUpperCase()
-
 export const sortAddresses = input => {
   const keysByColNums = input.reduce((acc, cur) => {
     let temp = acc

@@ -44,14 +44,16 @@ export const PreviewCell: React.FC<Props> = ({
   if (transform && dataUrls) {
     const dynamicStyles = makeStyles(theme => ({
       valueBg: {
-        'backgroundImage': `url(${dataUrls[1]})`,
+        'backgroundImage': `url(${dataUrls.transform.url})`,
         'backgroundPosition': 'center',
         'backgroundRepeat': 'no-repeat',
-        'height': 40,
-        'width': 100,
+        'width': dataUrls.transform.width,
+        'height': dataUrls.transform.height,
         'transition': 'all 250ms ease-out',
         '&:hover': {
-          backgroundImage: `url(${dataUrls[0]})`,
+          backgroundImage: `url(${dataUrls.original.url})`,
+          width: dataUrls.original.width,
+          height: dataUrls.original.height,
           backgroundColor: theme.palette.pass[300],
           cursor: 'pointer'
         }
@@ -72,9 +74,9 @@ export const PreviewCell: React.FC<Props> = ({
           id={cellAddress}
           align="center"
           className={clsx(classes.PreviewCell_base, dynamicClasses.valueBg, {
-            [classes.PreviewCell_ul]: transform.transformKind === 'ul',
-            [classes.PreviewCell_ol]: transform.transformKind === 'ol',
-            [classes.PreviewCell_zero]: transform.transformKind === 'zero'
+            [classes.PreviewCell_ul]: transform.meta.caseType === 'ul',
+            [classes.PreviewCell_ol]: transform.meta.caseType === 'ol',
+            [classes.PreviewCell_zero]: transform.meta.caseType === 'zero'
           })}
         />
       </Tooltip>

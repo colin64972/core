@@ -2,6 +2,7 @@ import {
   sheetData as sheetDataMock,
   transformResult as transformResultMock
 } from '@cjo3/shared/react/mocks/dlc'
+import * as XLSX from 'xlsx'
 import {
   convertColNumToId,
   convertSheet,
@@ -24,6 +25,7 @@ import {
   transformResultSelector
 } from '../../../../store/selectors'
 import { PreviewCell } from './PreviewCell'
+import { convertSheetOptions } from '@cjo3/shared/react/xlsx'
 
 const useStyles = makeStyles(theme => ({
   PreviewTable_tableContainer: {
@@ -66,17 +68,30 @@ export const PreviewTable: React.FC = (): JSX.Element => {
   //   transformResult = transformResultMock
   // }
 
-  const { scope } = transformResult
+  // const { scope } = transformResult
 
-  const { colOffset, rowOffset } = getScopeOffsets(scope)
+  // const options = convertSheetOptions
 
-  const tableRows = convertSheet(sheetData, scope)
+  const previewData = {
+    ...sheetData
+    // ...transformResult.all
+  }
+
+  const tableRows = XLSX.utils.sheet_to_json(previewData, convertSheetOptions)
 
   const findDataUrls = (address: string): string[] | null => {
     if (!transformResult.all[address]) return null
-    const { transformKind, original } = transformResult.all[address]
-    const urlObject = transformResult[transformKind].dataUrls[original]
-    return [urlObject.original, urlObject.transform]
+    const {
+      meta: {
+        caseType,
+        original: { w }
+      }
+    } = transformResult.all[address]
+    const urlObject = transformResult[caseType].dataUrls[w]
+    return {
+      original: urlObject.original.dark,
+      transform: urlObject.transform.dark
+    }
   }
 
   return (
@@ -87,7 +102,7 @@ export const PreviewTable: React.FC = (): JSX.Element => {
             <TableCell className={classes.PreviewTable_headCell} />
             {tableRows[0].map(
               (col: any, colIndex: number): JSX.Element => {
-                const colId = convertColNumToId(colOffset + colIndex)
+                const colId = XLSX.utils.encode_col(colIndex)
                 return (
                   <TableCell
                     key={`th-${colId}`}
@@ -104,7 +119,7 @@ export const PreviewTable: React.FC = (): JSX.Element => {
         <TableBody>
           {tableRows.map(
             (row: any[], rowIndex: number): JSX.Element => {
-              const rowId = rowOffset + rowIndex
+              const rowId = XLSX.utils.encode_row(rowIndex)
               return (
                 <TableRow key={`tr-${rowId}`}>
                   <TableCell
@@ -116,8 +131,10 @@ export const PreviewTable: React.FC = (): JSX.Element => {
                   </TableCell>
                   {tableRows[rowIndex].map(
                     (cell: any, cellIndex: number): JSX.Element => {
-                      const colId = convertColNumToId(colOffset + cellIndex)
-                      const cellAddress = `${colId}${rowId}`
+                      const cellAddress = XLSX.utils.encode_cell({
+                        c: rowIndex,
+                        r: cellIndex
+                      })
                       const dataUrls = findDataUrls(cellAddress)
                       return (
                         <PreviewCell
