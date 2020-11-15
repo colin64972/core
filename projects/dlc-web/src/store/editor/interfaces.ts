@@ -1,19 +1,25 @@
-import { WorkBook } from 'xlsx'
+import * as XLSX from 'xlsx'
 import {
+  CLOSE_PREVIEW,
+  DISCARD_TRANSFORM_RESULT,
   LOAD_WORKBOOK,
-  UNLOAD_WORKBOOK,
+  OPEN_PREVIEW,
+  SAVE_TRANSFORM_RESULT,
   SELECT_SHEET,
   SET_PROCESSING,
   SET_TRANSFORM_SETTINGS,
-  SAVE_TRANSFORM_RESULT
+  UNLOAD_WORKBOOK,
+  SAVE_FILENAME
 } from './types'
 
 export interface EditorState {
-  workbook: WorkBook | null
-  currentSheet: string
+  workbook: XLSX.WorkBook | null
+  workbookName: string
+  currentSheetName: string
   transformSettings: TransformSettings
   isProcessing: boolean
   transformResult: TransformResult | null
+  previewOpen: boolean
 }
 
 export interface RawFile {
@@ -31,36 +37,86 @@ export interface TransformSettings {
   olTransform: string
 }
 
-export interface TransformResult {
+export interface DataUrlCollection {
   [key: string]: {
-    address: string
-    colNum: number
-    rowNum: number
-    original: string
-    result: {
-      t: string
-      v: string | number
-      w: string
+    addresses: string[]
+    original: {
+      dark: TransformImageData
+      light: TransformImageData
+    }
+    transform: {
+      dark: TransformImageData
+      light: TransformImageData
     }
   }
 }
 
+export interface TransformSummary {
+  count: number
+  originalValues: string[]
+  transformValues: string[]
+  addresses: string[]
+  dataUrls: DataUrlCollection
+}
+
+export interface TransformResultCellMeta {
+  address: string
+  coordinates: { c: number; r: number }
+  caseType: string
+  trigger: string
+  original: XLSX.CellObject
+}
+
+export interface JSSStyleObject {
+  [key: string]: string | number
+}
+
+export interface TransformImageData {
+  url: string
+  width: number
+  height: number
+}
+
+export interface TransformResultCell {
+  t: string
+  v: string | number
+  w?: string
+  z?: string
+  meta: TransformResultCellMeta
+}
+
+export interface TransformResultCellCollection {
+  [key: string]: TransformResultCell
+}
+
 export interface ScopeRange {
-  start: {
-    colId: string
-    colNum: number
-    rowNum: number
+  e: {
+    c: number
+    r: number
   }
-  end: {
-    colId: string
-    colNum: number
-    rowNum: number
+  s: {
+    c: number
+    r: number
   }
+}
+
+export interface TransformResult {
+  ul: TransformSummary
+  ol: TransformSummary
+  zero: TransformSummary
+  all: TransformResultCellCollection
+  scope: ScopeRange
+}
+
+export interface CellValue {
+  t: string
+  v: string | number
+  w: string
 }
 
 export interface LoadWorkbookAction {
   type: typeof LOAD_WORKBOOK
-  workbook: WorkBook
+  workbook: XLSX.WorkBook
 }
 
 export interface UnloadWorkbookAction {
@@ -87,6 +143,23 @@ export interface SaveResultAction {
   result: TransformResult
 }
 
+export interface OpenPreviewAction {
+  type: typeof OPEN_PREVIEW
+}
+
+export interface ClosePreviewAction {
+  type: typeof CLOSE_PREVIEW
+}
+
+export interface DiscardTransformResultAction {
+  type: typeof DISCARD_TRANSFORM_RESULT
+}
+
+export interface SaveFilenameAction {
+  type: typeof SAVE_FILENAME
+  name: string
+}
+
 export type EditorActionTypes =
   | LoadWorkbookAction
   | UnloadWorkbookAction
@@ -94,3 +167,7 @@ export type EditorActionTypes =
   | SetProcessingAction
   | SetTransformSettingsAction
   | SaveResultAction
+  | OpenPreviewAction
+  | ClosePreviewAction
+  | DiscardTransformResultAction
+  | SaveFilenameAction

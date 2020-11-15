@@ -118,7 +118,16 @@ export const setCustomTheme = (
       }),
       borderRadius,
       setLinearGradient: (deg, color1, color2) =>
-        `linear-gradient(${deg}deg, ${color1}, ${color2})`
+        `linear-gradient(${deg}deg, ${color1}, ${color2})`,
+      noSelect: {
+        'userSelect': 'none',
+        '-ms-user-select': 'none',
+        '-o-user-select': 'none',
+        '-moz-user-select': 'none',
+        '-khtml-user-select': 'none',
+        '-webkit-user-select': 'none',
+        '-webkit-touch-callout': 'none'
+      }
     },
     debug: {
       border: {

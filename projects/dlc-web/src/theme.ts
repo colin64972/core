@@ -1,6 +1,6 @@
+import { setCustomTheme } from '@cjo3/shared/react/themes/theming'
 import primary from '@material-ui/core/colors/lightBlue'
 import secondary from '@material-ui/core/colors/pink'
-import { setCustomTheme } from '@cjo3/shared/react/themes/theming'
 
 export const theme = setCustomTheme(
   14,
@@ -56,4 +56,8 @@ theme.overrides.MuiInputLabel = {
       transform: 'translate(14px, 1px) scale(0.75)'
     }
   }
+}
+
+theme.custom.tableBorder = {
+  border: `${theme.custom.setSpace() / 4}px solid ${theme.palette.grey[50]}`
 }

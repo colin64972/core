@@ -1,21 +1,30 @@
 import { WorkBook } from 'xlsx'
 import {
   EditorActionTypes,
-  TransformSettings,
-  TransformResult
+  TransformResult,
+  TransformSettings
 } from './interfaces'
 import {
+  CLOSE_PREVIEW,
   LOAD_WORKBOOK,
-  UNLOAD_WORKBOOK,
+  OPEN_PREVIEW,
+  SAVE_TRANSFORM_RESULT,
   SELECT_SHEET,
   SET_PROCESSING,
   SET_TRANSFORM_SETTINGS,
-  SAVE_TRANSFORM_RESULT
+  UNLOAD_WORKBOOK,
+  DISCARD_TRANSFORM_RESULT,
+  SAVE_FILENAME
 } from './types'
 
 export const loadWorkbook = (workbook: WorkBook): EditorActionTypes => ({
   type: LOAD_WORKBOOK,
   workbook
+})
+
+export const saveFilename = (name: string): EditorActionTypes => ({
+  type: SAVE_FILENAME,
+  name
 })
 
 export const unloadWorkbook = (): EditorActionTypes => ({
@@ -44,4 +53,16 @@ export const saveTransformResult = (
 ): EditorActionTypes => ({
   type: SAVE_TRANSFORM_RESULT,
   result
+})
+
+export const discardTransformResult = (): EditorActionTypes => ({
+  type: DISCARD_TRANSFORM_RESULT
+})
+
+export const openPreview = (): EditorActionTypes => ({
+  type: OPEN_PREVIEW
+})
+
+export const closePreview = (): EditorActionTypes => ({
+  type: CLOSE_PREVIEW
 })

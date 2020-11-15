@@ -12,6 +12,11 @@ const reMerge = (left, right, field, direction) => {
       rightOpponent = rightOpponent[field]
     }
 
+    if (/\d+(\.\d+)?/.test(leftOpponent) && /\d+(\.\d+)?/.test(rightOpponent)) {
+      leftOpponent = parseFloat(leftOpponent.replace(/[^0-9\.]+/gi, ''))
+      rightOpponent = parseFloat(rightOpponent.replace(/[^0-9\.]+/gi, ''))
+    }
+
     if (direction === 'up') {
       if (leftOpponent < rightOpponent) {
         result.push(left[leftIndex])
@@ -44,3 +49,5 @@ export const mergeSort = (input = [], field = null, direction = 'up') => {
 
   return reMerge(mergeSort(left), mergeSort(right), field, direction)
 }
+
+export const deduplicate = input => [...new Set(input)]

@@ -1,16 +1,21 @@
 import { EditorActionTypes, EditorState } from './interfaces'
 import {
+  CLOSE_PREVIEW,
   LOAD_WORKBOOK,
-  UNLOAD_WORKBOOK,
+  OPEN_PREVIEW,
+  SAVE_TRANSFORM_RESULT,
   SELECT_SHEET,
   SET_PROCESSING,
   SET_TRANSFORM_SETTINGS,
-  SAVE_TRANSFORM_RESULT
+  UNLOAD_WORKBOOK,
+  DISCARD_TRANSFORM_RESULT,
+  SAVE_FILENAME
 } from './types'
 
 export const initialState: EditorState = {
   workbook: null,
-  currentSheet: '',
+  workbookName: '',
+  currentSheetName: '',
   isProcessing: false,
   transformSettings: {
     rangeStart: '',
@@ -21,7 +26,8 @@ export const initialState: EditorState = {
     olTrigger: '',
     olTransform: ''
   },
-  transformResult: null
+  transformResult: null,
+  previewOpen: false
 }
 
 export const editorReducer = (
@@ -35,6 +41,12 @@ export const editorReducer = (
         workbook: action.workbook
       }
 
+    case SAVE_FILENAME:
+      return {
+        ...state,
+        workbookName: action.name
+      }
+
     case UNLOAD_WORKBOOK:
       return {
         ...initialState
@@ -43,7 +55,8 @@ export const editorReducer = (
     case SELECT_SHEET:
       return {
         ...state,
-        currentSheet: action.name
+        currentSheetName: action.name,
+        transformResult: initialState.transformResult
       }
     case SET_PROCESSING:
       return {
@@ -56,11 +69,31 @@ export const editorReducer = (
         ...state,
         transformSettings: action.settings
       }
+
     case SAVE_TRANSFORM_RESULT:
       return {
         ...state,
         transformResult: action.result
       }
+
+    case OPEN_PREVIEW:
+      return {
+        ...state,
+        previewOpen: true
+      }
+
+    case CLOSE_PREVIEW:
+      return {
+        ...state,
+        previewOpen: false
+      }
+
+    case DISCARD_TRANSFORM_RESULT:
+      return {
+        ...state,
+        transformResult: initialState.transformResult
+      }
+
     default:
       return state
   }
