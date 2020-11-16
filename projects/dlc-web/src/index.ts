@@ -8,6 +8,8 @@ import { ThemedApp } from './ThemedApp'
 
 const preLoadedState: State = null
 
+document.getElementById('loader').remove()
+
 render(
   createElement(
     BrowserRouter,
