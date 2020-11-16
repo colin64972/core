@@ -6,6 +6,7 @@ import VpnLockIcon from '@material-ui/icons/VpnLock'
 import WebIcon from '@material-ui/icons/Web'
 import clsx from 'clsx'
 import React, { useState } from 'react'
+import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 
 const TermsAndConditionsLoadable = createLoadable(
   'TermsAndConditions',
@@ -115,16 +116,16 @@ export const Footer: React.FC<Props> = ({ style }): JSX.Element => {
 
   const closePPHandler = (): void => setPPOpen(false)
 
-  const badgeClickHandler = (event: React.MouseEvent<HTMLDivElement>): void => {
+  const badgeClickHandler = (): void => {
     if (window)
       window.open(process.env.SITE_URL, '_blank') ||
         window.location.replace(process.env.SITE_URL)
   }
-  const homeLinkHandler = (event: React.MouseEvent<HTMLDivElement>): void => {
-    const url = process.env.USE_MOCKS
-      ? '/'
-      : `${process.env.SITE_URL}${process.env.APP_PATH}/`
-    if (window) window.location.replace(url)
+  const homeLinkHandler = (): void => {
+    if (window)
+      window.location.replace(
+        switchLinkRoutePath('/', process.env.APP_ROOT_PATH)
+      )
   }
 
   return (

@@ -7,6 +7,7 @@ import { Route, Switch } from 'react-router-dom'
 import { ExportPanel } from './Editor/ExportPanel'
 import { Footer } from './Footer'
 import { TopNav } from './TopNav'
+import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 
 const HomeLoadable = createLoadable(
   'Home',
@@ -62,8 +63,19 @@ export const App: React.FC = (): JSX.Element => {
         {withNav && <TopNav style={classes.App_topNavPosition} />}
         <div className={classes.App_contentPosition}>
           <Switch>
-            <Route path="/" exact component={HomeLoadable} />
-            <Route path="/editor" exact component={EditorLoadable} />
+            <Route
+              path={switchLinkRoutePath('/', process.env.APP_ROOT_PATH)}
+              exact
+              component={HomeLoadable}
+            />
+            <Route
+              path={switchLinkRoutePath(
+                '/editor',
+                `${process.env.APP_ROOT_PATH}editor`
+              )}
+              exact
+              component={EditorLoadable}
+            />
             <Route path="/test" exact component={ExportPanel} />
             <Route path="/*" component={NotFoundLoadable} />
           </Switch>

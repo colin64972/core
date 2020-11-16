@@ -4,16 +4,16 @@ import { createElement } from 'react'
 
 export const createLoadable = (
   name: string,
-  importModule
+  importModule: any
 ): Loadable.LoadableComponent =>
   Loadable({
-    loader: () => importModule,
+    loader: (): typeof importModule => importModule,
     loading: (): React.ReactElement =>
       createElement(BackDropScreen, {
         isOpen: true,
         spinner: true
       }),
-    render: (loaded, props): React.ReactElement =>
+    render: (loaded: any, props: any): React.ReactElement =>
       createElement(loaded[name], {
         ...props
       })
