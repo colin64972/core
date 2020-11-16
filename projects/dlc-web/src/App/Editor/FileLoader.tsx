@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   noWorkbookBg: {
     background: theme.custom.setLinearGradient(
       180,
-      theme.palette.primary[100],
+      theme.palette.grey[200],
       'white'
     )
   },
