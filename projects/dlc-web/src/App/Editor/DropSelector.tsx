@@ -15,8 +15,8 @@ const useStyles = makeStyles(theme => ({
     transition: 'all 250ms linear'
   },
   dragColor: {
-    backgroundColor: theme.palette.primary[400],
-    boxShadow: '0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.1)'
+    boxShadow: theme.custom.boxShadow,
+    backgroundColor: theme.palette.primary[400]
   },
   dropIcon: {
     color: theme.palette.grey[50],

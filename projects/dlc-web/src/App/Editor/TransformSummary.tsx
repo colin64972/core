@@ -1,21 +1,10 @@
-import {
-  DataUrlCollection,
-  TransformSummary as ITransformSummary
-} from '../../store/editor/interfaces'
-import {
-  Button,
-  Chip,
-  Grid,
-  List,
-  ListItem,
-  ListItemText,
-  Typography
-} from '@material-ui/core'
+import { setTransformStyle } from '@cjo3/shared/logic/dlc'
+import { Button, Chip, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import DoubleArrowIcon from '@material-ui/icons/DoubleArrow'
 import clsx from 'clsx'
 import React from 'react'
-import { setTransformStyle } from '@cjo3/shared/logic/dlc'
+import { TransformSummary as ITransformSummary } from '../../store/editor/interfaces'
 
 const useStyles = makeStyles(theme => ({
   TransformSummary_panel: {
@@ -28,7 +17,7 @@ const useStyles = makeStyles(theme => ({
       marginTop: 0
     },
     '&:hover': {
-      boxShadow: '0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.1)'
+      boxShadow: theme.custom.boxShadow
     }
   },
   grey_bg: {
