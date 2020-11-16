@@ -8,15 +8,15 @@ import { FileUpload } from '../../interfaces'
 const useStyles = makeStyles(theme => ({
   dropContainer: {
     ...theme.custom.setFlex('column'),
-    width: 200,
+    width: '100%',
     height: 200,
     borderRadius: theme.custom.setSpace() / 4,
     backgroundColor: theme.palette.primary[300],
     transition: 'all 250ms linear'
   },
   dragColor: {
-    backgroundColor: theme.palette.primary[400],
-    boxShadow: '0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.1)'
+    boxShadow: theme.custom.boxShadow,
+    backgroundColor: theme.palette.primary[400]
   },
   dropIcon: {
     color: theme.palette.grey[50],

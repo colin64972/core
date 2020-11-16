@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     height: `calc(100% - ${theme.custom.setSpace('md')}px * 2)`,
     padding: theme.custom.setSpace('sm'),
     backgroundColor: theme.palette.grey[50],
-    boxShadow: '0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.1)',
+    boxShadow: theme.custom.boxShadow,
     overflow: 'hidden'
   }
 }))

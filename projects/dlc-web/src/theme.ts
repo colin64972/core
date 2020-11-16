@@ -61,3 +61,9 @@ theme.overrides.MuiInputLabel = {
 theme.custom.tableBorder = {
   border: `${theme.custom.setSpace() / 4}px solid ${theme.palette.grey[50]}`
 }
+
+theme.custom.unorderedList = {
+  paddingLeft: theme.custom.setSpace('sm')
+}
+
+theme.custom.boxShadow = '0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.1)'

@@ -102,11 +102,15 @@ export const setCustomTheme = (
         padding: 0,
         margin: 0
       },
+      fullScreen: {
+        maxWidth: '100vw',
+        minHeight: '100vh'
+      },
       setGrid: (columnCount, rowCount, gapSpace = 0) => ({
         display: 'grid',
         gridTemplateColumns: `repeat(${columnCount}, 1fr)`,
         gridTemplateRows:
-          rowCount === 'auto' ? 'auto' : `repeat(${rowCount}, 1fr)`,
+          typeof rowCount === 'string' ? rowCount : `repeat(${rowCount}, 1fr)`,
         gridRowGap: gapSpace,
         gridColumnGap: gapSpace
       }),

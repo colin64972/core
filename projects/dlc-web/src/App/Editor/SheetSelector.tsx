@@ -20,9 +20,6 @@ const useStyles = makeStyles(theme => ({
   section: {
     padding: theme.custom.setSpace('sm')
   },
-  noFileHeight: {
-    height: '25vh'
-  },
   topMargin: {
     marginTop: theme.custom.setSpace()
   },
@@ -70,7 +67,7 @@ export const SheetSelector: React.FC = (): JSX.Element => {
         container
         justify="center"
         alignItems="center"
-        className={clsx(classes.section, classes.noFileHeight)}>
+        className={clsx(classes.section)}>
         <Typography variant="h3">No file loaded</Typography>
       </Grid>
     )
