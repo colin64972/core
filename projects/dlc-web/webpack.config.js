@@ -18,6 +18,11 @@ module.exports = {
     writeToDisk: true,
     historyApiFallback: true
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
+  },
   target: 'web',
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']

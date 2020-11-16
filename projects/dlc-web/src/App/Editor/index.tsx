@@ -2,7 +2,6 @@ import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 import { FileLoader } from './FileLoader'
-import { Preview } from './Preview/'
 import { SheetSelector } from './SheetSelector'
 import { TransformResults } from './TransformResults'
 import { TransformSettings } from './TransformSettings'
@@ -42,7 +41,6 @@ export const Editor: React.FC = (): JSX.Element => {
       <SheetSelector />
       <TransformSettings />
       <TransformResults />
-      <Preview />
     </Grid>
   )
 }

@@ -1,29 +1,36 @@
+import { createLoadable } from '@cjo3/shared/react/createLoadable'
 import {
-  Drawer,
   Button,
   Grid,
   Hidden,
   LinearProgress,
-  List,
-  ListItem,
-  ListItemText,
   Typography
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
-import { AddressInspector } from './AddressInspector'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { openPreview } from '../../store/editor/actions'
-
+import {
+  TransformSummary as ITransformSummary,
+  TransformResult as ITransformResult,
+  DataUrlCollection
+} from '../../store/editor/interfaces'
 import {
   isProcessingSelector,
+  previewOpenSelector,
   transformResultSelector
 } from '../../store/selectors'
-import { TransformSummary } from './TransformSummary'
-import { TransformSummary as ITransformSummary } from '../../store/editor/interfaces'
-import { transformResult as transformResultMock } from '@cjo3/shared/react/mocks/dlc'
+import { AddressInspector } from './AddressInspector'
 import { ExportPanel } from './ExportPanel'
+import { TransformSummary } from './TransformSummary'
+
+const PreviewLoadable = createLoadable(
+  'Preview',
+  import(
+    /* webpackChunkName: "chunk-Preview" */
+    './Preview'
+  )
+)
 
 const useStyles = makeStyles(theme => ({
   TransformResults_bg: {
@@ -63,9 +70,9 @@ export const TransformResults: React.FC = (): JSX.Element => {
 
   const dispatch = useDispatch()
 
-  const isProcessing = useSelector(isProcessingSelector)
-
-  let transformResult = useSelector(transformResultSelector)
+  const isProcessing: boolean = useSelector(isProcessingSelector)
+  const transformResult: ITransformResult = useSelector(transformResultSelector)
+  const previewOpen: boolean = useSelector(previewOpenSelector)
 
   // if (process.env.USE_MOCKS) {
   //   transformResult = transformResultMock
@@ -74,7 +81,7 @@ export const TransformResults: React.FC = (): JSX.Element => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false)
   const [drawerDataName, setDrawerDataName] = useState<string | null>(null)
 
-  const openDrawerHandler = (event: React.MouseEvent) => {
+  const openDrawerHandler = (event: React.MouseEvent): void => {
     setDrawerDataName(event.currentTarget.name)
     setDrawerOpen(true)
   }
@@ -94,7 +101,7 @@ export const TransformResults: React.FC = (): JSX.Element => {
     ? transformResult[drawerDataName].addresses
     : []
 
-  const dataUrlsByTransform = drawerDataName
+  const dataUrlsByTransform: DataUrlCollection = drawerDataName
     ? transformResult[drawerDataName].dataUrls
     : {}
 
@@ -115,6 +122,7 @@ export const TransformResults: React.FC = (): JSX.Element => {
       alignItems="center"
       data-testid="TransformResults"
       className={classes.TransformResults_bg}>
+      {previewOpen && <PreviewLoadable />}
       <Hidden xsDown>
         <Grid item md={1} xl={2} />
       </Hidden>

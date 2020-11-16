@@ -1,10 +1,10 @@
 import { Backdrop, Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { closePreview } from '../../../store/editor/actions'
 import { previewOpenSelector } from '../../../store/selectors'
-import { PreviewTable } from './PreviewTable/'
+import { PreviewTable } from './PreviewTable'
 
 const useStyles = makeStyles(theme => ({
   Preview_backdrop: {
@@ -31,15 +31,24 @@ export const Preview: React.FC = (): JSX.Element => {
 
   const dispatch = useDispatch()
 
-  let previewOpen = useSelector(previewOpenSelector)
+  const previewOpen = useSelector(previewOpenSelector)
 
-  // if (process.env.USE_MOCKS) {
-  //   previewOpen = true
-  // }
-
-  const closeHandler = (event: React.MouseEvent<HTMLDivElement>): void => {
+  const closePreviewHandler = (
+    event: React.MouseEvent<HTMLDivElement>
+  ): void => {
     dispatch(closePreview())
   }
+
+  const keyupHandler = (event: React.KeyboardEvent<Window>): void => {
+    if (event.keyCode === 27) dispatch(closePreview())
+  }
+
+  useEffect(() => {
+    if (window) {
+      window.addEventListener('keyup', keyupHandler)
+    }
+    return () => window.removeEventListener('keyup', keyupHandler)
+  })
 
   if (!previewOpen) return null
 
@@ -52,7 +61,7 @@ export const Preview: React.FC = (): JSX.Element => {
             type="button"
             color="primary"
             variant="outlined"
-            onClick={closeHandler}>
+            onClick={closePreviewHandler}>
             Close
           </Button>
         </Grid>

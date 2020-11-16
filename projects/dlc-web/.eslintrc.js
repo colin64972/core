@@ -27,6 +27,7 @@ module.exports = {
     'no-loops/no-loops': 'warn',
     'prettier/prettier': 'error',
     '@typescript-eslint/no-var-requires': 'off',
-    'react/prop-types': 'off'
+    'react/prop-types': 'off',
+    'react/display-name': 'off'
   }
 }

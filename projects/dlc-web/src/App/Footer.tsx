@@ -1,4 +1,4 @@
-import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
+import { createLoadable } from '@cjo3/shared/react/createLoadable'
 import { Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import GavelIcon from '@material-ui/icons/Gavel'
@@ -6,35 +6,22 @@ import VpnLockIcon from '@material-ui/icons/VpnLock'
 import WebIcon from '@material-ui/icons/Web'
 import clsx from 'clsx'
 import React, { useState } from 'react'
-import Loadable from 'react-loadable'
 
-const TermsAndConditionsLoadable = Loadable({
-  loader: () =>
-    import(
-      /* webpackChunkName: "chunk-TermsAndConditions" */
-      /* webpackPrefetch: false */
-      '@cjo3/shared/react/components/TermsAndConditions'
-    ),
-  loading: () => <BackDropScreen isOpen spinner />,
-  render: (loaded, props) => {
-    let Component = loaded.TermsAndConditions
-    return <Component {...props} />
-  }
-})
+const TermsAndConditionsLoadable = createLoadable(
+  'TermsAndConditions',
+  import(
+    /* webpackChunkName: "chunk-TermsAndConditions"*/
+    '@cjo3/shared/react/components/TermsAndConditions'
+  )
+)
 
-const PPLoadable = Loadable({
-  loader: () =>
-    import(
-      /* webpackChunkName: "chunk-PrivacyPolicy" */
-      /* webpackPrefetch: false */
-      '@cjo3/shared/react/components/PrivacyPolicy'
-    ),
-  loading: () => <BackDropScreen isOpen spinner />,
-  render: (loaded, props) => {
-    let Component = loaded.PrivacyPolicy
-    return <Component {...props} />
-  }
-})
+const PPLoadable = createLoadable(
+  'PrivacyPolicy',
+  import(
+    /* webpackChunkName: "chunk-PrivacyPolicy" */
+    '@cjo3/shared/react/components/PrivacyPolicy'
+  )
+)
 
 const useStyles = makeStyles(theme => ({
   Footer_container: {
