@@ -1,7 +1,12 @@
 const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
 const { EnvironmentPlugin } = require('webpack')
+const {
+  setFileOutputPath,
+  setFilePublicPath
+} = require('@cjo3/shared/raw/general')
 const localEnv = require('dotenv').config()
 
 module.exports = {
@@ -25,7 +30,17 @@ module.exports = {
   },
   target: 'web',
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
+    extensions: [
+      '.ts',
+      '.tsx',
+      '.js',
+      '.jsx',
+      '.json',
+      '.png',
+      '.jpg',
+      '.svg',
+      '.gif'
+    ]
   },
   module: {
     rules: [
@@ -38,6 +53,20 @@ module.exports = {
         test: /\.pug$/,
         exclude: /(node_modules)/,
         loader: 'pug-loader'
+      },
+      {
+        test: /\.(woff(2)?|jpg|gif|png|svg|ico)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              emitFile: true,
+              name: '[folder]/[name].[ext]',
+              outputPath: setFileOutputPath,
+              publicPath: setFilePublicPath
+            }
+          }
+        ]
       }
     ]
   },
@@ -55,6 +84,20 @@ module.exports = {
       templateLocals: {
         title: 'Hello'
       }
+    }),
+    new ImageminWebpWebpackPlugin({
+      config: [
+        {
+          test: /\.(jpe?g|png)/,
+          options: {
+            quality: 75
+          }
+        }
+      ],
+      overrideExtension: true,
+      detailedLogs: false,
+      silent: false,
+      strict: true
     }),
     new EnvironmentPlugin({
       APP_ROOT_PATH: localEnv.parsed.APP_ROOT_PATH,

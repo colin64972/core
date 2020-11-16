@@ -7,6 +7,8 @@ import WebIcon from '@material-ui/icons/Web'
 import clsx from 'clsx'
 import React, { useState } from 'react'
 import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
+import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
+import { ProfilePic } from '../../assets/'
 
 const TermsAndConditionsLoadable = createLoadable(
   'TermsAndConditions',
@@ -46,7 +48,7 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     top: -2
   },
-  Footer_badgeTitleImage: {
+  Footer_badgeTitleImageContainer: {
     ...theme.custom.setFlex('row', 'flex-end'),
     [theme.breakpoints.down('xs')]: {
       ...theme.custom.setFlex('row', 'flex-start'),
@@ -56,13 +58,11 @@ const useStyles = makeStyles(theme => ({
       cursor: 'pointer'
     }
   },
-  Footer_image: {
+  Footer_badgeProfilePic: {
     'order': 2,
     'borderRadius': theme.custom.setSpace() / 4,
-    'margin': `0 0 0 ${theme.custom.setSpace()}px`,
     [theme.breakpoints.down('xs')]: {
-      order: 1,
-      margin: `0 ${theme.custom.setSpace()}px 0 0`
+      order: 1
     },
     'transition': 'all 250ms ease-out',
     '&:hover': {
@@ -72,9 +72,12 @@ const useStyles = makeStyles(theme => ({
   Footer_badgeTitle: {
     'textAlign': 'right',
     'order': 1,
+    'marginRight': theme.custom.setSpace(),
     [theme.breakpoints.down('xs')]: {
       order: 2,
-      textAlign: 'left'
+      textAlign: 'left',
+      marginLeft: theme.custom.setSpace(),
+      marginRight: 0
     },
     'transition': 'all 250ms ease-out',
     '&:hover': {
@@ -186,7 +189,7 @@ export const Footer: React.FC<Props> = ({ style }): JSX.Element => {
       <Grid item xs={12} sm={6}>
         <Grid
           container
-          className={classes.Footer_badgeTitleImage}
+          className={classes.Footer_badgeTitleImageContainer}
           onClick={badgeClickHandler}>
           <Typography
             variant="h5"
@@ -196,10 +199,9 @@ export const Footer: React.FC<Props> = ({ style }): JSX.Element => {
             <br />
             App Development?
           </Typography>
-          <img
-            className={classes.Footer_image}
-            width={64}
-            src="https://cdn.nebocat.ca/keyword-multiplier/assets/images/profile-pic-48w.jpg"
+          <ImageHandler
+            asset={ProfilePic}
+            styleClass={classes.Footer_badgeProfilePic}
           />
         </Grid>
         <Typography variant="body1" className={classes.Footer_badgeSubtitle}>
