@@ -33,7 +33,7 @@ module.exports = {
       '.gif'
     ]
   },
-  externals: ['canvas'],
+  externals: [nodeExternals(), 'canvas'],
   module: {
     rules: [
       {
