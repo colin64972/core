@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     color: theme.palette.grey[50],
-    textShadow: '0 0 0.5rem rgba(0, 0, 0, 0.5)'
+    textShadow: theme.custom.textShadow
   }
 }))
 

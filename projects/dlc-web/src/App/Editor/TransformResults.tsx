@@ -1,4 +1,3 @@
-import { createLoadable } from '@cjo3/shared/react/createLoadable'
 import {
   Button,
   Grid,
@@ -23,14 +22,7 @@ import {
 import { AddressInspector } from './AddressInspector'
 import { ExportPanel } from './ExportPanel'
 import { TransformSummary } from './TransformSummary'
-
-const PreviewLoadable = createLoadable(
-  'Preview',
-  import(
-    /* webpackChunkName: "chunk-Preview" */
-    './Preview'
-  )
-)
+import { Preview } from './Preview'
 
 const useStyles = makeStyles(theme => ({
   TransformResults_bg: {
@@ -122,7 +114,7 @@ export const TransformResults: React.FC = (): JSX.Element => {
       alignItems="center"
       data-testid="TransformResults"
       className={classes.TransformResults_bg}>
-      {previewOpen && <PreviewLoadable />}
+      {previewOpen && <Preview />}
       <Hidden xsDown>
         <Grid item md={1} xl={2} />
       </Hidden>

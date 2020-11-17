@@ -1,4 +1,7 @@
-import { createLoadable } from '@cjo3/shared/react/createLoadable'
+import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
+import { PrivacyPolicy } from '@cjo3/shared/react/components/PrivacyPolicy'
+import { TermsAndConditions } from '@cjo3/shared/react/components/TermsAndConditions'
+import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 import { Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import GavelIcon from '@material-ui/icons/Gavel'
@@ -6,25 +9,7 @@ import VpnLockIcon from '@material-ui/icons/VpnLock'
 import WebIcon from '@material-ui/icons/Web'
 import clsx from 'clsx'
 import React, { useState } from 'react'
-import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
-import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
 import { ProfilePic } from '../../assets/'
-
-const TermsAndConditionsLoadable = createLoadable(
-  'TermsAndConditions',
-  import(
-    /* webpackChunkName: "chunk-TermsAndConditions"*/
-    '@cjo3/shared/react/components/TermsAndConditions'
-  )
-)
-
-const PPLoadable = createLoadable(
-  'PrivacyPolicy',
-  import(
-    /* webpackChunkName: "chunk-PrivacyPolicy" */
-    '@cjo3/shared/react/components/PrivacyPolicy'
-  )
-)
 
 const useStyles = makeStyles(theme => ({
   Footer_container: {
@@ -137,7 +122,7 @@ export const Footer: React.FC<Props> = ({ style }): JSX.Element => {
       component="footer"
       className={clsx(style, classes.Footer_container)}>
       {TAndCOpen && (
-        <TermsAndConditionsLoadable
+        <TermsAndConditions
           open={TAndCOpen}
           closeHandler={closeTAndCHandler}
           siteName={process.env.SITE_NAME}
@@ -146,7 +131,7 @@ export const Footer: React.FC<Props> = ({ style }): JSX.Element => {
         />
       )}
       {PPOpen && (
-        <PPLoadable
+        <PrivacyPolicy
           open={PPOpen}
           closeHandler={closePPHandler}
           siteName={process.env.SITE_NAME}

@@ -1,6 +1,8 @@
 import { Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
+import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
+import { HomeHeader } from '../../assets'
 
 const useStyles = makeStyles(theme => ({
   Home_contentContainer: {
@@ -9,12 +11,12 @@ const useStyles = makeStyles(theme => ({
   Home_header: {
     ...theme.custom.setFlex('column'),
     padding: theme.custom.setSpace('md'),
-    backgroundImage:
-      'url(https://image.freepik.com/free-photo/abstract-background-with-low-poly-design_1048-8478.jpg)',
+    backgroundImage: `url(${HomeHeader.paths[0]})`,
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    color: theme.palette.grey[50]
+    color: theme.palette.grey[50],
+    textShadow: theme.custom.textShadow
   },
   Home_startButton: {
     marginTop: theme.custom.setSpace('sm')
@@ -39,7 +41,10 @@ export const Home: React.FC = (): JSX.Element => {
         <Button
           type="button"
           variant="contained"
-          href="/editor"
+          href={switchLinkRoutePath(
+            '/editor',
+            `${process.env.APP_ROOT_PATH}/editor`
+          )}
           color="secondary"
           className={classes.Home_startButton}>
           Start

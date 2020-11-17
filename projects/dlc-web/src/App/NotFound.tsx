@@ -1,4 +1,5 @@
 import { Button, Grid, Typography } from '@material-ui/core'
+import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 
@@ -35,7 +36,7 @@ export const NotFound: React.FC = (): JSX.Element => {
         <Button
           type="button"
           variant="contained"
-          href="/"
+          href={switchLinkRoutePath('/', process.env.APP_ROOT_PATH)}
           color="secondary"
           className={classes.NotFound_startButton}>
           Home

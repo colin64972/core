@@ -1,4 +1,5 @@
 import { Button } from '@material-ui/core'
+import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 import { makeStyles } from '@material-ui/core/styles'
 import ErrorIcon from '@material-ui/icons/Error'
 import clsx from 'clsx'
@@ -34,7 +35,10 @@ export const TopNav: React.FC<Props> = ({ style }): JSX.Element => {
       {topNavItems.map(link => (
         <Button
           key={link.key}
-          href={link.to}
+          href={switchLinkRoutePath(
+            link.to,
+            `${process.env.APP_ROOT_PATH}${link.to}`
+          )}
           startIcon={iconMap[link.to]}
           className={classes.navItem}>
           {link.label}

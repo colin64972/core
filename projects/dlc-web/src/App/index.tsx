@@ -1,37 +1,15 @@
-import { createLoadable } from '@cjo3/shared/react/createLoadable'
+import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 import { CssBaseline } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 import { useLocation } from 'react-router'
 import { Route, Switch } from 'react-router-dom'
+import { Editor } from './Editor'
 import { ExportPanel } from './Editor/ExportPanel'
 import { Footer } from './Footer'
+import { Home } from './Home'
+import { NotFound } from './NotFound'
 import { TopNav } from './TopNav'
-import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
-
-const HomeLoadable = createLoadable(
-  'Home',
-  import(
-    /* webpackChunkName: "chunk-Home" */
-    './Home'
-  )
-)
-
-const EditorLoadable = createLoadable(
-  'Editor',
-  import(
-    /* webpackChunkName: "chunk-Editor" */
-    './Editor'
-  )
-)
-
-const NotFoundLoadable = createLoadable(
-  'NotFound',
-  import(
-    /* webpackChunkName: "chunk-NotFound" */
-    './NotFound'
-  )
-)
 
 const useStyles = makeStyles(theme => ({
   App_pageContainer: {
@@ -55,8 +33,11 @@ const useStyles = makeStyles(theme => ({
 
 export const App: React.FC = (): JSX.Element => {
   const classes = useStyles()
-  const location = useLocation()
-  const withNav = location.pathname.includes('editor')
+  let withNav = true
+  if (!process.env.IS_SERVER) {
+    const location = useLocation()
+    withNav = location.pathname.includes('editor')
+  }
   return (
     <CssBaseline>
       <div className={classes.App_pageContainer}>
@@ -66,18 +47,18 @@ export const App: React.FC = (): JSX.Element => {
             <Route
               path={switchLinkRoutePath('/', process.env.APP_ROOT_PATH)}
               exact
-              component={HomeLoadable}
+              component={Home}
             />
             <Route
               path={switchLinkRoutePath(
                 '/editor',
-                `${process.env.APP_ROOT_PATH}editor`
+                `${process.env.APP_ROOT_PATH}/editor`
               )}
               exact
-              component={EditorLoadable}
+              component={Editor}
             />
             <Route path="/test" exact component={ExportPanel} />
-            <Route path="/*" component={NotFoundLoadable} />
+            <Route path="/*" component={NotFound} />
           </Switch>
         </div>
         <Footer style={classes.App_footerPosition} />

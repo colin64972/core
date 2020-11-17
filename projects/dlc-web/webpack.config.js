@@ -5,14 +5,15 @@ const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
 const { EnvironmentPlugin } = require('webpack')
 const {
   setFileOutputPath,
-  setFilePublicPath
+  setFilePublicPath,
+  setPreRenderFilePublicPath
 } = require('@cjo3/shared/raw/general')
 const localEnv = require('dotenv').config()
 
 module.exports = {
   mode: process.env.NODE_ENV,
   entry: {
-    index: path.resolve('src', 'index.ts')
+    src: path.resolve('src', 'index.ts')
   },
   devServer: {
     contentBase: path.resolve('dist'),

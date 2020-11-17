@@ -7,11 +7,16 @@
   "author": "cjo3",
   "private": true,
   "scripts": {
-    "build": "webpack -c webpack.config.js",
-    "start": "NODE_ENV=development webpack-dev-server -c webpack.config.ts",
-    "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix",
-    "prettier:format": "prettier --config prettier.config.js src/** --write",
+    "start": "NODE_ENV=development webpack-dev-server --config webpack.config.js",
+    "build": "NODE_ENV=development webpack --config webpack.config.js --progress",
+    "lite": "lite-server -c config/lite-server",
+    "preRender": "NODE_ENV=development webpack --config webpack.preRender.js --progress",
+    "sync:web": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").web)'",
+    "sync:js": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").js)'",
+    "sync:preRenders": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").preRenders)'",
+    "invalidate": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").invalidate(require(\"./cliParams\").invalidate)'",
+    "deploy": "yarn invalidate && yarn build && yarn sync:web && yarn preRender && yarn sync:preRenders",
+    "update": "yarn invalidate && yarn build && yarn sync:js && yarn preRender && yarn sync:preRenders",
     "test": "jest --watch --detectOpenHandles",
     "snapshots": "jest --updateSnapshot --detectOpenHandles --forceExit"
   },
@@ -71,6 +76,7 @@
     "redux-logger": "~3.0.6",
     "typescript": "~4.0.5",
     "webpack": "~4.44.2",
-    "webpack-dev-server": "~3.11.0"
+    "webpack-dev-server": "~3.11.0",
+    "webpack-node-externals": "~2.5.2"
   }
 }
