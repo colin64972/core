@@ -1,4 +1,5 @@
 import { exportFile } from '@cjo3/shared/logic/dlc'
+import { Elements } from '@stripe/react-stripe-js'
 import {
   currentSheetName as currentSheetNameMock,
   sheetData as sheetDataMock,
@@ -7,7 +8,8 @@ import {
 } from '@cjo3/shared/react/mocks/dlc'
 import { Button, ButtonGroup, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import React from 'react'
+import { loadStripe } from '@stripe/stripe-js'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { exportButtons } from '../../constants'
 import {
@@ -16,6 +18,9 @@ import {
   transformResultSelector,
   workbookNameSelector
 } from '../../store/selectors'
+import { PaymentDialog } from './PaymentDialog'
+
+const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY)
 
 const useStyles = makeStyles(theme => ({
   ExportPanel_container: {
@@ -48,29 +53,49 @@ export const ExportPanel: React.FC = (): JSX.Element => {
   let sheetData = useSelector(sheetDataSelector)
   let transformResult = useSelector(transformResultSelector)
 
-  // if (process.env.USE_MOCKS) {
-  //   workbookName = workbookNameMock
-  //   currentSheetName = currentSheetNameMock
-  //   sheetData = sheetDataMock
-  //   transformResult = transformResultMock
-  // }
+  if (process.env.USE_MOCKS) {
+    workbookName = workbookNameMock
+    currentSheetName = currentSheetNameMock
+    sheetData = sheetDataMock
+    transformResult = transformResultMock
+  }
 
-  const clickHandler = (event: React.MouseEvent<HTMLButtonElement>): void => {
+  const [paymentOpen, setPaymentOpen] = useState<boolean>(false)
+
+  const openPaymentHandler = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ): void => {
+    setPaymentOpen(true)
     try {
-      exportFile(
-        sheetData,
-        transformResult.all,
-        currentSheetName,
-        workbookName,
-        event.currentTarget.dataset.booktype,
-        event.currentTarget.name
-      )
+      // exportFile(
+      //   sheetData,
+      //   transformResult.all,
+      //   currentSheetName,
+      //   workbookName,
+      //   event.currentTarget.dataset.booktype,
+      //   event.currentTarget.name
+      // )
     } catch (error) {
       console.error('%c ERROR', 'color: yellow; font-size: large', error)
     }
   }
+
+  const closePaymentHandler = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ): void => {
+    setPaymentOpen(false)
+  }
+
   return (
     <Grid item xs={12} sm={6} className={classes.ExportPanel_container}>
+      {paymentOpen && (
+        <Elements stripe={stripePromise}>
+          <PaymentDialog
+            open={paymentOpen}
+            closeHandler={closePaymentHandler}
+          />
+        </Elements>
+      )}
       <Typography variant="h5">Export Options</Typography>
       <Typography variant="body1">
         Copy or download your transformed sheet for only $
@@ -83,7 +108,7 @@ export const ExportPanel: React.FC = (): JSX.Element => {
             type="button"
             name={item.name}
             data-booktype={item.bookType}
-            onClick={clickHandler}>
+            onClick={openPaymentHandler}>
             {item.label}
           </Button>
         ))}

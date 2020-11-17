@@ -108,7 +108,8 @@ module.exports = {
       USE_MOCKS: localEnv.parsed.USE_MOCKS,
       SITE_CONTACT_EMAIL: localEnv.parsed.SITE_CONTACT_EMAIL,
       SITE_NAME: localEnv.parsed.SITE_NAME,
-      SITE_URL: localEnv.parsed.SITE_URL
+      SITE_URL: localEnv.parsed.SITE_URL,
+      STRIPE_PUBLIC_KEY: localEnv.parsed.STRIPE_PUBLIC_KEY_TEST
     })
   ]
 }
