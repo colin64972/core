@@ -1,5 +1,4 @@
 import { transformFunctionValues } from '@cjo3/dlc-web/src/constants'
-import FileSaver from 'file-saver'
 import {
   DataUrlCollection,
   JSSStyleObject,
@@ -9,14 +8,12 @@ import {
   TransformResultCell,
   TransformResultCellCollection,
   TransformSettings,
-  TransformSummary,
-  ExportFile
+  TransformSummary
 } from '@cjo3/dlc-web/src/store/editor/interfaces'
-import { createCanvas } from 'canvas'
 import * as XLSX from 'xlsx'
 import { deduplicate, mergeSort } from '../general/sorting'
 import { EXCEL_CELL_ADDRESS } from '../raw/constants/regex'
-import { convertSheetOptions, sortAddresses } from '../react/xlsx'
+import { sortAddresses } from '../react/xlsx'
 
 const splitFloats = (value: string): string => {
   const splitIndex = value.lastIndexOf('.')
@@ -44,12 +41,20 @@ const setTransformValue = (
 ): XLSX.CellObject => {
   let temp
 
+  const comment = [
+    {
+      a: 'asdf',
+      t: value
+    }
+  ]
+
   switch (kind) {
     case transformFunctionValues.leave:
       temp = value.replace(trigger, '')
       return {
         v: temp,
-        t: 's'
+        t: 's',
+        c: comment
       }
 
     case transformFunctionValues.halve:
@@ -58,19 +63,22 @@ const setTransformValue = (
       return {
         t: 'n',
         v: halved,
+        c: comment,
         z: setSigFigFormat(value, halved)
       }
 
     case transformFunctionValues.zero:
       return {
         t: 'n',
-        v: 0
+        v: 0,
+        c: comment
       }
 
     case transformFunctionValues.none:
       return {
         t: 's',
-        v: value
+        v: value,
+        c: comment
       }
   }
 }
@@ -114,8 +122,8 @@ export const processSheet = (
     address: string,
     cell: XLSX.CellObject
   ): TransformResultCell => {
-    const ulPattern = new RegExp(`\\${ulTrigger}\\s*?\\d*(\\.\\d*)?`)
-    const olPattern = new RegExp(`\\${olTrigger}\\s*?\\d*(\\.\\d*)?`)
+    const ulPattern = new RegExp(`\\${ulTrigger}\\s*?\\d*(\\.\\d*)?`, 'i')
+    const olPattern = new RegExp(`\\${olTrigger}\\s*?\\d*(\\.\\d*)?`, 'i')
 
     const cellValue: string = cell.v.toString().trim()
 
@@ -296,7 +304,16 @@ export const createPngDataUrl = (
 ): TransformImageData => {
   const fontSize = 14
 
-  const canvas1 = createCanvas(100, 40)
+  if (process.env.IS_SERVER)
+    return {
+      url: '',
+      width: 0,
+      height: 0
+    }
+
+  const canvas = require('canvas')
+
+  const canvas1 = canvas.createCanvas(100, 40)
   const ctx1 = canvas1.getContext('2d')
   ctx1.font = `${fontSize}px Arial`
   ctx1.textAlign = 'center'
@@ -305,12 +322,13 @@ export const createPngDataUrl = (
   width += 14
   let height = fontSize + 14
 
-  const canvas2 = createCanvas(width, height)
+  const canvas2 = canvas.createCanvas(width, height)
   const ctx2 = canvas2.getContext('2d')
   ctx2.font = '14px Arial'
   ctx2.textAlign = 'center'
   ctx2.fillStyle = color
   ctx2.fillText(text, width / 2, fontSize + 5, width)
+
   return {
     url: canvas2.toDataURL(),
     width,
@@ -392,6 +410,7 @@ const mergeResults = (
       temp[cur] = sheet[cur]
     } else {
       temp[cur] = transforms[cur]
+      temp[cur].c.hidden = true
     }
 
     return temp

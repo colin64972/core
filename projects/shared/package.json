@@ -7,6 +7,9 @@
   "author": "cjo3",
   "private": true,
   "prettier": "@cjo3/configs/prettier",
+  "scripts": {
+    "cp:locals": "node -e 'require(\"./raw/s3Manager\").copy(require(\"./site-configs/cliParams\").copy)'"
+  },
   "devDependencies": {
     "@cjo3/configs": "~0.0.1",
     "aws-cli-js": "~2.0.6",

@@ -1,4 +1,7 @@
-import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
+import { PrivacyPolicy } from '@cjo3/shared/react/components/PrivacyPolicy'
+import { TermsAndConditions } from '@cjo3/shared/react/components/TermsAndConditions'
+import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
+import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 import { Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import GavelIcon from '@material-ui/icons/Gavel'
@@ -6,35 +9,7 @@ import VpnLockIcon from '@material-ui/icons/VpnLock'
 import WebIcon from '@material-ui/icons/Web'
 import clsx from 'clsx'
 import React, { useState } from 'react'
-import Loadable from 'react-loadable'
-
-const TermsAndConditionsLoadable = Loadable({
-  loader: () =>
-    import(
-      /* webpackChunkName: "chunk-TermsAndConditions" */
-      /* webpackPrefetch: false */
-      '@cjo3/shared/react/components/TermsAndConditions'
-    ),
-  loading: () => <BackDropScreen isOpen spinner />,
-  render: (loaded, props) => {
-    let Component = loaded.TermsAndConditions
-    return <Component {...props} />
-  }
-})
-
-const PPLoadable = Loadable({
-  loader: () =>
-    import(
-      /* webpackChunkName: "chunk-PrivacyPolicy" */
-      /* webpackPrefetch: false */
-      '@cjo3/shared/react/components/PrivacyPolicy'
-    ),
-  loading: () => <BackDropScreen isOpen spinner />,
-  render: (loaded, props) => {
-    let Component = loaded.PrivacyPolicy
-    return <Component {...props} />
-  }
-})
+import { ProfilePic } from '../../assets/'
 
 const useStyles = makeStyles(theme => ({
   Footer_container: {
@@ -58,7 +33,7 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     top: -2
   },
-  Footer_badgeTitleImage: {
+  Footer_badgeTitleImageContainer: {
     ...theme.custom.setFlex('row', 'flex-end'),
     [theme.breakpoints.down('xs')]: {
       ...theme.custom.setFlex('row', 'flex-start'),
@@ -68,13 +43,11 @@ const useStyles = makeStyles(theme => ({
       cursor: 'pointer'
     }
   },
-  Footer_image: {
+  Footer_badgeProfilePic: {
     'order': 2,
     'borderRadius': theme.custom.setSpace() / 4,
-    'margin': `0 0 0 ${theme.custom.setSpace()}px`,
     [theme.breakpoints.down('xs')]: {
-      order: 1,
-      margin: `0 ${theme.custom.setSpace()}px 0 0`
+      order: 1
     },
     'transition': 'all 250ms ease-out',
     '&:hover': {
@@ -84,9 +57,12 @@ const useStyles = makeStyles(theme => ({
   Footer_badgeTitle: {
     'textAlign': 'right',
     'order': 1,
+    'marginRight': theme.custom.setSpace(),
     [theme.breakpoints.down('xs')]: {
       order: 2,
-      textAlign: 'left'
+      textAlign: 'left',
+      marginLeft: theme.custom.setSpace(),
+      marginRight: 0
     },
     'transition': 'all 250ms ease-out',
     '&:hover': {
@@ -128,16 +104,17 @@ export const Footer: React.FC<Props> = ({ style }): JSX.Element => {
 
   const closePPHandler = (): void => setPPOpen(false)
 
-  const badgeClickHandler = (event: React.MouseEvent<HTMLDivElement>): void => {
+  const badgeClickHandler = (): void => {
     if (window)
       window.open(process.env.SITE_URL, '_blank') ||
         window.location.replace(process.env.SITE_URL)
   }
-  const homeLinkHandler = (event: React.MouseEvent<HTMLDivElement>): void => {
-    const url = process.env.USE_MOCKS
-      ? '/'
-      : `${process.env.SITE_URL}${process.env.APP_PATH}/`
-    if (window) window.location.replace(url)
+
+  const homeLinkHandler = (): void => {
+    if (window)
+      window.location.replace(
+        switchLinkRoutePath('/', process.env.APP_ROOT_PATH)
+      )
   }
 
   return (
@@ -146,7 +123,7 @@ export const Footer: React.FC<Props> = ({ style }): JSX.Element => {
       component="footer"
       className={clsx(style, classes.Footer_container)}>
       {TAndCOpen && (
-        <TermsAndConditionsLoadable
+        <TermsAndConditions
           open={TAndCOpen}
           closeHandler={closeTAndCHandler}
           siteName={process.env.SITE_NAME}
@@ -155,7 +132,7 @@ export const Footer: React.FC<Props> = ({ style }): JSX.Element => {
         />
       )}
       {PPOpen && (
-        <PPLoadable
+        <PrivacyPolicy
           open={PPOpen}
           closeHandler={closePPHandler}
           siteName={process.env.SITE_NAME}
@@ -198,7 +175,7 @@ export const Footer: React.FC<Props> = ({ style }): JSX.Element => {
       <Grid item xs={12} sm={6}>
         <Grid
           container
-          className={classes.Footer_badgeTitleImage}
+          className={classes.Footer_badgeTitleImageContainer}
           onClick={badgeClickHandler}>
           <Typography
             variant="h5"
@@ -208,10 +185,9 @@ export const Footer: React.FC<Props> = ({ style }): JSX.Element => {
             <br />
             App Development?
           </Typography>
-          <img
-            className={classes.Footer_image}
-            width={64}
-            src="https://cdn.nebocat.ca/keyword-multiplier/assets/images/profile-pic-48w.jpg"
+          <ImageHandler
+            asset={ProfilePic}
+            styleClass={classes.Footer_badgeProfilePic}
           />
         </Grid>
         <Typography variant="body1" className={classes.Footer_badgeSubtitle}>

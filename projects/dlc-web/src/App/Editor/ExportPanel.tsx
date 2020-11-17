@@ -20,15 +20,19 @@ import {
 const useStyles = makeStyles(theme => ({
   ExportPanel_container: {
     ...theme.custom.borderRadius,
-    padding: theme.custom.setSpace('sm'),
-    background: theme.custom.setLinearGradient(
+    'padding': theme.custom.setSpace('sm'),
+    'background': theme.custom.setLinearGradient(
       180,
       theme.palette.secondary.main,
       theme.palette.secondary[300]
     ),
-    color: theme.palette.secondary[50],
+    'color': theme.palette.secondary[50],
+    'transition': 'all 250ms ease-out',
     [theme.breakpoints.down('xs')]: {
       marginTop: theme.custom.setSpace('sm')
+    },
+    '&:hover': {
+      boxShadow: theme.custom.boxShadow
     }
   },
   ExportPanel_topMargin: {

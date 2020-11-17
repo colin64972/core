@@ -1,3 +1,6 @@
+const babelLoaderPlugins =
+  process.env.NODE_ENV === 'production' ? ['transform-remove-console'] : []
+
 module.exports = api => {
   // Testing if babel is being run in test mode
   const isTest = api.env('test')
@@ -31,6 +34,6 @@ module.exports = api => {
         }
       ]
     ],
-    plugins: []
+    plugins: babelLoaderPlugins
   }
 }

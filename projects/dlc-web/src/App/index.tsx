@@ -1,15 +1,14 @@
+import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 import { CssBaseline } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 import { useLocation } from 'react-router'
 import { Route, Switch } from 'react-router-dom'
 import { Editor } from './Editor'
-import { Preview } from './Editor/Preview/'
+import { ExportPanel } from './Editor/ExportPanel'
 import { Footer } from './Footer'
 import { Home } from './Home'
 import { NotFound } from './NotFound'
-import { ExportPanel } from './Editor/ExportPanel'
-import { Test } from './Test'
 import { TopNav } from './TopNav'
 
 const useStyles = makeStyles(theme => ({
@@ -34,16 +33,28 @@ const useStyles = makeStyles(theme => ({
 
 export const App: React.FC = (): JSX.Element => {
   const classes = useStyles()
+  let withNav = false
   const location = useLocation()
-  const withNav = location.pathname.includes('editor')
+  withNav = location.pathname.includes('editor')
   return (
     <CssBaseline>
       <div className={classes.App_pageContainer}>
         {withNav && <TopNav style={classes.App_topNavPosition} />}
         <div className={classes.App_contentPosition}>
           <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/editor" exact component={Editor} />
+            <Route
+              path={switchLinkRoutePath('/', process.env.APP_ROOT_PATH)}
+              exact
+              component={Home}
+            />
+            <Route
+              path={switchLinkRoutePath(
+                '/editor',
+                `${process.env.APP_ROOT_PATH}/editor`
+              )}
+              exact
+              component={Editor}
+            />
             <Route path="/test" exact component={ExportPanel} />
             <Route path="/*" component={NotFound} />
           </Switch>
