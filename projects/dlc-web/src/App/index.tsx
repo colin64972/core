@@ -33,11 +33,9 @@ const useStyles = makeStyles(theme => ({
 
 export const App: React.FC = (): JSX.Element => {
   const classes = useStyles()
-  let withNav = true
-  if (!process.env.IS_SERVER) {
-    const location = useLocation()
-    withNav = location.pathname.includes('editor')
-  }
+  let withNav = false
+  const location = useLocation()
+  withNav = location.pathname.includes('editor')
   return (
     <CssBaseline>
       <div className={classes.App_pageContainer}>

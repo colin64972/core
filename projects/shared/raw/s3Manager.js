@@ -65,9 +65,23 @@ const invalidate = async ({ id, paths }) => {
   return process.exit()
 }
 
+const copy = async ({ dryrun, srcPath, s3Path }) => {
+  try {
+    let params = `s3 cp ${srcPath} s3://${s3Path}`
+
+    const result = await aws.command(params)
+
+    console.log('PASS copy'.green, result.raw)
+  } catch (error) {
+    console.log('FAIL copy'.red, error)
+  }
+  return process.exit()
+}
+
 module.exports = {
   create,
   rm,
   sync,
-  invalidate
+  invalidate,
+  copy
 }

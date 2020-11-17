@@ -4,7 +4,11 @@ const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
 const { EnvironmentPlugin } = require('webpack')
 const { setPreRenderFilePublicPath } = require('@cjo3/shared/raw/general')
 const nodeExternals = require('webpack-node-externals')
+
 const localEnv = require('dotenv').config()
+
+const babelLoaderPlugins =
+  process.env.NODE_ENV === 'production' ? ['transform-remove-console'] : []
 
 module.exports = {
   entry: {
@@ -54,8 +58,8 @@ module.exports = {
                   modules: 'commonjs'
                 }
               ]
-            ]
-            // plugins: babelLoaderPlugins
+            ],
+            plugins: babelLoaderPlugins
           }
         }
       },

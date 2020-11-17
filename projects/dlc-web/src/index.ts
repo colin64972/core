@@ -9,7 +9,9 @@ import { ThemedApp } from './ThemedApp'
 
 const preloadedState: State = window?.__PRELOADED_STATE__
 
-document.getElementById('loader').remove()
+const loader = document.getElementById('loader')
+
+if (loader) loader.remove()
 
 let renderMethod = render
 let store = setReduxStore()
