@@ -102,8 +102,7 @@ export const PaymentDialog: React.FC<Props> = ({
     cardNumber: cardElementInitialValue,
     cardExpiry: cardElementInitialValue,
     cardCvc: cardElementInitialValue,
-    billingEmail: '',
-    acceptTerms: false
+    billingEmail: ''
   }
 
   const submitHandler = (values, actions) => {
@@ -111,7 +110,9 @@ export const PaymentDialog: React.FC<Props> = ({
       '%c submitHandler',
       'color: yellow; font-size: large',
       values,
-      actions
+      actions,
+      stripe,
+      elements
     )
   }
 

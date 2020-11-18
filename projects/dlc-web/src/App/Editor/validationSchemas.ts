@@ -41,6 +41,5 @@ export const PaymentFormSchema: Yup.ObjectSchema = Yup.object().shape({
   billingEmail: Yup.string().matches(
     EMAIL_ADDRESS,
     schemaErrors.invalidEmailAddress
-  ),
-  acceptTerms: Yup.boolean().default(false).required(schemaErrors.required)
+  )
 })
