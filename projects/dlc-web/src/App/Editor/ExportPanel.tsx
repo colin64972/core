@@ -1,4 +1,5 @@
 import { exportFile } from '@cjo3/shared/logic/dlc'
+import { ExportType } from '../../store/editor/interfaces'
 import {
   currentSheetName as currentSheetNameMock,
   sheetData as sheetDataMock,
@@ -61,20 +62,24 @@ export const ExportPanel: React.FC = (): JSX.Element => {
   }
 
   const [paymentOpen, setPaymentOpen] = useState<boolean>(false)
+  const [exportType, setExportType] = useState<ExportType | null>(null)
 
   const openPaymentHandler = (
     event: React.MouseEvent<HTMLButtonElement>
   ): void => {
+    setExportType({
+      bookType: event.currentTarget.dataset.booktype,
+      name: event.currentTarget.name
+    })
     setPaymentOpen(true)
   }
 
-  const closePaymentHandler = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ): void => {
+  const closePaymentHandler = (): void => {
+    setExportType(null)
     setPaymentOpen(false)
   }
 
-  const sendExport = (bookType, name) => {
+  const sendExport = (name: string, bookType: string): void => {
     exportFile(
       sheetData,
       transformResult.all,
@@ -93,6 +98,7 @@ export const ExportPanel: React.FC = (): JSX.Element => {
             open={paymentOpen}
             closeHandler={closePaymentHandler}
             sendExport={sendExport}
+            exportType={exportType}
           />
         </Elements>
       )}

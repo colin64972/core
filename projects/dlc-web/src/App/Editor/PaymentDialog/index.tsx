@@ -10,6 +10,7 @@ import { StripeElement } from '@stripe/stripe-js'
 import clsx from 'clsx'
 import { Form, Formik, FormikValues } from 'formik'
 import React from 'react'
+import { ExportType } from '../../../store/editor/interfaces'
 import { makePreOrder } from '../../fetchers'
 import { FormikField } from '../FormikField'
 import { PaymentFormSchema } from '../validationSchemas'
@@ -104,14 +105,16 @@ const useStyles = makeStyles(theme => ({
 
 interface Props {
   open: boolean
-  closeHandler: (event: React.MouseEvent) => void
-  sendExport: () => void
+  closeHandler: () => void
+  sendExport: (name: string, bookType: string) => void
+  exportType: ExportType
 }
 
 export const PaymentDialog: React.FC<Props> = ({
   open,
   closeHandler,
-  sendExport
+  sendExport,
+  exportType
 }): JSX.Element => {
   const classes = useStyles()
 
@@ -152,11 +155,12 @@ export const PaymentDialog: React.FC<Props> = ({
 
       const res = await stripe.confirmCardPayment(clientSecret, options)
 
-      sendExport('xlsx', 'xlsx')
+      sendExport(exportType.name, exportType.bookType)
 
       closeHandler()
     } catch (error) {
       console.error(error)
+      closeHandler()
     }
   }
 
@@ -221,7 +225,7 @@ export const PaymentDialog: React.FC<Props> = ({
                   type="submit"
                   color="primary"
                   variant="contained"
-                  disabled={isSubmitting || !isValid || !dirty}
+                  disabled={!exportType || isSubmitting || !isValid || !dirty}
                   className={clsx(
                     classes.PaymentDialog_actionButton,
                     classes.PaymentDialog_submitButton
