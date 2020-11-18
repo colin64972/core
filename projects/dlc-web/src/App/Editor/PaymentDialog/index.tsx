@@ -1,10 +1,16 @@
 import clsx from 'clsx'
+import { StripeBanner } from '@cjo3/shared/react/components/StripeBanner'
 import {
   CardCvcElement,
   CardExpiryElement,
   CardNumberElement
 } from '@stripe/react-stripe-js'
 import { FormikCardElement } from './FormikCardElement'
+import CachedIcon from '@material-ui/icons/Cached'
+import CloseIcon from '@material-ui/icons/Close'
+import HttpsIcon from '@material-ui/icons/Https'
+import PaymentIcon from '@material-ui/icons/Payment'
+import RestorePageIcon from '@material-ui/icons/RestorePage'
 import {
   Button,
   Dialog,
@@ -21,15 +27,46 @@ import {
 } from '@material-ui/core'
 import { useElements, useStripe } from '@stripe/react-stripe-js'
 import { makeStyles } from '@material-ui/core/styles'
-import { Formik, Form, useFormik, Field } from 'formik'
-import { PaymentFormSchema } from './validationSchemas'
-import { FormikField } from './FormikField'
+import {
+  Formik,
+  Form,
+  useFormik,
+  Field,
+  FormikValues,
+  FormikHelpers,
+  FormikBag
+} from 'formik'
+import { PaymentFormSchema } from '../validationSchemas'
+import { FormikField } from '../FormikField'
 import { FormikAcceptTerms } from './FormikAcceptTerms'
 import React from 'react'
+import Stripe from 'stripe'
+import { StripeElement } from '@stripe/stripe-js'
 
 const useStyles = makeStyles(theme => ({
   PaymentDialog_container: {
     padding: theme.custom.setSpace('sm')
+  },
+  PaymentDialog_lockIcon: {
+    fontSize: theme.typography.fontSize * 2,
+    position: 'relative',
+    top: 5,
+    marginRight: theme.custom.setSpace() / 2
+  },
+  PaymentDialog_stripeButton: {
+    ...theme.custom.setFlex(),
+    'border': 'none',
+    'padding': 0,
+    'margin': 0,
+    'backgroundColor': 'white',
+    'transition': 'background-color 250ms ease-out',
+    '&:hover': {
+      cursor: 'pointer',
+      backgroundColor: theme.palette.primary[50]
+    }
+  },
+  PaymentDialog_stripeIcon: {
+    height: theme.custom.setSpace('sm')
   },
   PaymentDialog_form: {
     ...theme.custom.setGrid(2, 'auto', theme.custom.setSpace('sm')),
@@ -103,7 +140,7 @@ export const PaymentDialog: React.FC<Props> = ({
   const stripe = useStripe()
   const elements = useElements()
 
-  const cardElementInitialValue = {
+  const cardElementInitialValue: { status: boolean; message: string } = {
     status: false,
     message: 'Required'
   }
@@ -116,7 +153,7 @@ export const PaymentDialog: React.FC<Props> = ({
     acceptTerms: false
   }
 
-  const submitHandler = (values, actions) => {
+  const submitHandler = (values, actions): void => {
     console.log(
       '%c submitHandler',
       'color: yellow; font-size: large',
@@ -127,20 +164,37 @@ export const PaymentDialog: React.FC<Props> = ({
     )
   }
 
-  const resetHandler = (event, resetForm) => {
+  const resetHandler = (
+    event: React.MouseEvent<HTMLButtonElement>,
+    resetForm: (nextState: FormikValues) => void
+  ): void => {
+    event.preventDefault()
     if (!elements) return null
-    elements?._elements.forEach(element => element.clear())
+    elements?._elements.forEach((element: StripeElement) => element.clear())
     resetForm(initialValues)
   }
 
   return (
     <Dialog open={open}>
       <Grid container className={classes.PaymentDialog_container}>
-        <Typography variant="h3">Payment</Typography>
-        <Typography variant="body1">
-          Magna et aliquyam amet no dolores ipsum diam elitr et ea, sadipscing
-          sadipscing justo eirmod dolores, accusam dolor labore ipsum.
-        </Typography>
+        <Grid item xs={12}>
+          <Grid container justify="space-between" alignItems="center">
+            <Typography variant="h3" color="primary">
+              <HttpsIcon className={classes.PaymentDialog_lockIcon} />
+              Secure Payment
+            </Typography>
+            <StripeBanner
+              fillColor="#03a9f4"
+              className={classes.PaymentDialog_stripeButton}
+              iconClass={classes.PaymentDialog_stripeIcon}
+              url={process.env.STRIPE_URL}
+            />
+          </Grid>
+          <Typography variant="body1">
+            Magna et aliquyam amet no dolores ipsum diam elitr et ea, sadipscing
+            sadipscing justo eirmod dolores, accusam dolor labore ipsum.
+          </Typography>
+        </Grid>
         <Formik
           initialValues={initialValues}
           onSubmit={submitHandler}
@@ -176,7 +230,8 @@ export const PaymentDialog: React.FC<Props> = ({
                   className={clsx(
                     classes.PaymentDialog_actionButton,
                     classes.PaymentDialog_submitButton
-                  )}>
+                  )}
+                  startIcon={<PaymentIcon />}>
                   Purchase
                 </Button>
                 <Button
@@ -187,14 +242,16 @@ export const PaymentDialog: React.FC<Props> = ({
                   onClick={event => {
                     resetHandler(event, props.resetForm)
                   }}
-                  className={classes.PaymentDialog_actionButton}>
+                  className={classes.PaymentDialog_actionButton}
+                  startIcon={<CachedIcon />}>
                   Reset
                 </Button>
                 <Button
                   type="button"
                   onClick={closeHandler}
                   variant="outlined"
-                  className={classes.PaymentDialog_actionButton}>
+                  className={classes.PaymentDialog_actionButton}
+                  startIcon={<CloseIcon />}>
                   Cancel
                 </Button>
               </Grid>

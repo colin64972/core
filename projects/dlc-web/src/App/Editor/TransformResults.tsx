@@ -22,7 +22,7 @@ import {
 import { AddressInspector } from './AddressInspector'
 import { ExportPanel } from './ExportPanel'
 import { TransformSummary } from './TransformSummary'
-import { Preview } from './Preview'
+import { Preview } from './Preview/'
 
 const useStyles = makeStyles(theme => ({
   TransformResults_bg: {

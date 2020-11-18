@@ -18,7 +18,7 @@ import {
   transformResultSelector,
   workbookNameSelector
 } from '../../store/selectors'
-import { PaymentDialog } from './PaymentDialog'
+import { PaymentDialog } from './PaymentDialog/'
 
 const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY)
 

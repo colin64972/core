@@ -19,7 +19,7 @@ import * as XLSX from 'xlsx'
 import {
   sheetDataSelector,
   transformResultSelector
-} from '../../../../store/selectors'
+} from '../../../store/selectors'
 import { PreviewCell } from './PreviewCell'
 
 const useStyles = makeStyles(theme => ({

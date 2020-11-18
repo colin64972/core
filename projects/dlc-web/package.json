@@ -32,6 +32,7 @@
     "@types/react-redux": "~7.1.11",
     "@types/react-router-dom": "~5.1.6",
     "@types/redux-logger": "~3.0.8",
+    "@types/stripe": "~7.13.25",
     "canvas": "~2.6.1",
     "clsx": "~1.1.1",
     "formik": "~2.2.3",
