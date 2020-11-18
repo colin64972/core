@@ -1,47 +1,20 @@
-import clsx from 'clsx'
 import { StripeBanner } from '@cjo3/shared/react/components/StripeBanner'
-import {
-  CardCvcElement,
-  CardExpiryElement,
-  CardNumberElement
-} from '@stripe/react-stripe-js'
-import { FormikCardElement } from './FormikCardElement'
+import { Button, Dialog, Grid, Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
 import CachedIcon from '@material-ui/icons/Cached'
 import CloseIcon from '@material-ui/icons/Close'
 import HttpsIcon from '@material-ui/icons/Https'
 import PaymentIcon from '@material-ui/icons/Payment'
-import RestorePageIcon from '@material-ui/icons/RestorePage'
-import {
-  Button,
-  Dialog,
-  FormHelperText,
-  Grid,
-  Typography,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  TextField,
-  DialogActions,
-  InputLabel,
-  FormControl
-} from '@material-ui/core'
 import { useElements, useStripe } from '@stripe/react-stripe-js'
-import { makeStyles } from '@material-ui/core/styles'
-import {
-  Formik,
-  Form,
-  useFormik,
-  Field,
-  FormikValues,
-  FormikHelpers,
-  FormikBag
-} from 'formik'
-import { PaymentFormSchema } from '../validationSchemas'
-import { FormikField } from '../FormikField'
-import { FormikAcceptTerms } from './FormikAcceptTerms'
-import React from 'react'
-import Stripe from 'stripe'
 import { StripeElement } from '@stripe/stripe-js'
+import clsx from 'clsx'
+import { Form, Formik, FormikValues } from 'formik'
+import React from 'react'
+import { makePreOrder } from '../../fetchers'
+import { FormikField } from '../FormikField'
+import { PaymentFormSchema } from '../validationSchemas'
+import { FormikAcceptTerms } from './FormikAcceptTerms'
+import { FormikCardElement } from './FormikCardElement'
 
 const useStyles = makeStyles(theme => ({
   PaymentDialog_container: {
@@ -67,6 +40,9 @@ const useStyles = makeStyles(theme => ({
   },
   PaymentDialog_stripeIcon: {
     height: theme.custom.setSpace('sm')
+  },
+  PaymentDialog_intro: {
+    marginTop: theme.custom.setSpace('sm')
   },
   PaymentDialog_form: {
     ...theme.custom.setGrid(2, 'auto', theme.custom.setSpace('sm')),
@@ -129,11 +105,13 @@ const useStyles = makeStyles(theme => ({
 interface Props {
   open: boolean
   closeHandler: (event: React.MouseEvent) => void
+  sendExport: () => void
 }
 
 export const PaymentDialog: React.FC<Props> = ({
   open,
-  closeHandler
+  closeHandler,
+  sendExport
 }): JSX.Element => {
   const classes = useStyles()
 
@@ -153,15 +131,33 @@ export const PaymentDialog: React.FC<Props> = ({
     acceptTerms: false
   }
 
-  const submitHandler = (values, actions): void => {
-    console.log(
-      '%c submitHandler',
-      'color: yellow; font-size: large',
-      values,
-      actions,
-      stripe,
-      elements
-    )
+  const submitHandler = async (values, actions): void => {
+    try {
+      const { billingEmail } = values
+
+      const clientSecret = await makePreOrder()
+
+      const options = {
+        payment_method: {
+          card: elements.getElement('cardNumber')
+        }
+      }
+
+      if (billingEmail !== '') {
+        options.receipt_email = billingEmail
+        options.payment_method.billing_details = {
+          email: billingEmail
+        }
+      }
+
+      const res = await stripe.confirmCardPayment(clientSecret, options)
+
+      sendExport('xlsx', 'xlsx')
+
+      closeHandler()
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   const resetHandler = (
@@ -190,9 +186,8 @@ export const PaymentDialog: React.FC<Props> = ({
               url={process.env.STRIPE_URL}
             />
           </Grid>
-          <Typography variant="body1">
-            Magna et aliquyam amet no dolores ipsum diam elitr et ea, sadipscing
-            sadipscing justo eirmod dolores, accusam dolor labore ipsum.
+          <Typography variant="body1" className={classes.PaymentDialog_intro}>
+            Complete the payment form and your download will be initiated
           </Typography>
         </Grid>
         <Formik

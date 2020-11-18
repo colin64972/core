@@ -110,7 +110,8 @@ module.exports = {
       SITE_NAME: localEnv.parsed.SITE_NAME,
       SITE_URL: localEnv.parsed.SITE_URL,
       STRIPE_PUBLIC_KEY: localEnv.parsed.STRIPE_PUBLIC_KEY_TEST,
-      STRIPE_URL: localEnv.parsed.STRIPE_URL
+      STRIPE_URL: localEnv.parsed.STRIPE_URL,
+      API_URL: localEnv.parsed.API_URL
     })
   ]
 }

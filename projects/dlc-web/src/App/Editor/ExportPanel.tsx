@@ -1,5 +1,4 @@
 import { exportFile } from '@cjo3/shared/logic/dlc'
-import { Elements } from '@stripe/react-stripe-js'
 import {
   currentSheetName as currentSheetNameMock,
   sheetData as sheetDataMock,
@@ -8,6 +7,7 @@ import {
 } from '@cjo3/shared/react/mocks/dlc'
 import { Button, ButtonGroup, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
@@ -66,24 +66,23 @@ export const ExportPanel: React.FC = (): JSX.Element => {
     event: React.MouseEvent<HTMLButtonElement>
   ): void => {
     setPaymentOpen(true)
-    try {
-      // exportFile(
-      //   sheetData,
-      //   transformResult.all,
-      //   currentSheetName,
-      //   workbookName,
-      //   event.currentTarget.dataset.booktype,
-      //   event.currentTarget.name
-      // )
-    } catch (error) {
-      console.error('%c ERROR', 'color: yellow; font-size: large', error)
-    }
   }
 
   const closePaymentHandler = (
     event: React.MouseEvent<HTMLButtonElement>
   ): void => {
     setPaymentOpen(false)
+  }
+
+  const sendExport = (bookType, name) => {
+    exportFile(
+      sheetData,
+      transformResult.all,
+      currentSheetName,
+      workbookName,
+      bookType,
+      name
+    )
   }
 
   return (
@@ -93,6 +92,7 @@ export const ExportPanel: React.FC = (): JSX.Element => {
           <PaymentDialog
             open={paymentOpen}
             closeHandler={closePaymentHandler}
+            sendExport={sendExport}
           />
         </Elements>
       )}

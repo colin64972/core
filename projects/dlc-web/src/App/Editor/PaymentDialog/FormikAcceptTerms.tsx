@@ -1,8 +1,5 @@
-import { Field } from 'formik'
-import React, { useState } from 'react'
 import { TermsAndConditions } from '@cjo3/shared/react/components/TermsAndConditions'
 import {
-  IconButton,
   Button,
   Checkbox,
   FormControl,
@@ -11,6 +8,8 @@ import {
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import SearchIcon from '@material-ui/icons/Search'
+import { Field } from 'formik'
+import React, { useState } from 'react'
 
 const useStyles = makeStyles(theme => ({
   AcceptTerms_checkboxPadding: {
