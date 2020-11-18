@@ -38,9 +38,6 @@ export const TransformSettingsSchema: Yup.ObjectSchema<TransformSettings> = Yup.
 )
 
 export const PaymentFormSchema: Yup.ObjectSchema = Yup.object().shape({
-  cardNumber: Yup.boolean().required(schemaErrors.required),
-  cardExpiry: Yup.boolean().required(schemaErrors.required),
-  cardCvc: Yup.boolean().required(schemaErrors.required),
   billingEmail: Yup.string().matches(
     EMAIL_ADDRESS,
     schemaErrors.invalidEmailAddress
