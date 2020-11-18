@@ -25,7 +25,7 @@ export const preOrder = async (body: BodyEvent, reqId: string) => {
 
     return {
       statusCode: 200,
-      body: paymentIntent.client_secret
+      body: JSON.stringify(paymentIntent.client_secret)
     }
   } catch (error) {
     return {

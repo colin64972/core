@@ -9,6 +9,9 @@ const {
 } = require('@cjo3/shared/raw/general')
 
 const localEnv = require('dotenv').config()
+const sharedEnv = require('dotenv').config({
+  path: path.resolve('..', 'shared', '.env')
+})
 
 module.exports = {
   mode: process.env.NODE_ENV,
@@ -111,7 +114,9 @@ module.exports = {
       SITE_URL: localEnv.parsed.SITE_URL,
       STRIPE_PUBLIC_KEY: localEnv.parsed.STRIPE_PUBLIC_KEY_TEST,
       STRIPE_URL: localEnv.parsed.STRIPE_URL,
-      API_URL: localEnv.parsed.API_URL
+      API_URL: localEnv.parsed.API_URL,
+      AUTH_SECRET: sharedEnv.parsed.AUTH_SECRET,
+      JWT_PRIVATE_KEY: sharedEnv.parsed.JWT_PRIVATE_KEY
     })
   ]
 }
