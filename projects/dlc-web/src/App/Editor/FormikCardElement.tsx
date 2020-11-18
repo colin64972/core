@@ -27,13 +27,12 @@ const inputStyle = {
 }
 
 const stripeElementValidator = value => {
-  if (value.status && value.status === false) return value.errorMessage
+  if (!value.status && value.status === false) return value.message
 }
 
 const fieldIsDirty = meta => {
   const { error, value } = meta
-  if (error || value) return true
-  return false
+  return value && error
 }
 
 const setStripeValue = (meta, name, setValue) => {
@@ -41,15 +40,15 @@ const setStripeValue = (meta, name, setValue) => {
 
   let value = {
     status: false,
-    errorMessage: ''
+    message: ''
   }
 
   if (complete && !error) {
     value.status = true
   } else if (empty) {
-    value.errorMessage = 'Required'
+    value.message = 'Required'
   } else {
-    value.errorMessage = error?.message
+    value.message = error?.message.toString().replace('.', '')
   }
 
   setValue(name, value, true)
@@ -142,8 +141,8 @@ export const FormikCardElement: React.FC<Props> = ({
               form.setFieldTouched(field.name, true, true)
             }}
           />
-          {meta.touched && field.value && (
-            <FormHelperText>{field.value?.errorMessage}</FormHelperText>
+          {meta.touched && !field.value?.status && (
+            <FormHelperText>{field.value?.message}</FormHelperText>
           )}
         </FormControl>
       )}

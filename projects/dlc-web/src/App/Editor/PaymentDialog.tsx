@@ -24,6 +24,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Formik, Form, useFormik, Field } from 'formik'
 import { PaymentFormSchema } from './validationSchemas'
 import { FormikField } from './FormikField'
+import { FormikAcceptTerms } from './FormikAcceptTerms'
 import React from 'react'
 
 const useStyles = makeStyles(theme => ({
@@ -31,9 +32,9 @@ const useStyles = makeStyles(theme => ({
     padding: theme.custom.setSpace('sm')
   },
   PaymentDialog_form: {
-    ...theme.custom.setGrid(2, 'auto', theme.custom.setSpace()),
-    width: '100%',
-    marginTop: theme.custom.setSpace('sm')
+    ...theme.custom.setGrid(2, 'auto', theme.custom.setSpace('sm')),
+    marginTop: theme.custom.setSpace('sm'),
+    width: '100%'
   },
   PaymentDialog_grid1: {
     gridColumn: '1 / 3',
@@ -62,12 +63,18 @@ const useStyles = makeStyles(theme => ({
     }
   },
   PaymentDialog_grid5: {
-    ...theme.custom.setFlex(),
     gridColumn: '1 / 3',
     gridRow: 4,
-    marginTop: theme.custom.setSpace(),
     [theme.breakpoints.down('xs')]: {
       gridRow: 5
+    }
+  },
+  PaymentDialog_grid6: {
+    ...theme.custom.setFlex(),
+    gridColumn: '1 / 3',
+    gridRow: 5,
+    [theme.breakpoints.down('xs')]: {
+      gridRow: 6
     }
   },
   PaymentDialog_actionButton: {
@@ -76,6 +83,9 @@ const useStyles = makeStyles(theme => ({
     '&:last-child': {
       marginRight: 0
     }
+  },
+  PaymentDialog_submitButton: {
+    color: theme.palette.primary[50]
   }
 }))
 
@@ -95,14 +105,15 @@ export const PaymentDialog: React.FC<Props> = ({
 
   const cardElementInitialValue = {
     status: false,
-    errorMessage: ''
+    message: 'Required'
   }
 
   const initialValues = {
     cardNumber: cardElementInitialValue,
     cardExpiry: cardElementInitialValue,
     cardCvc: cardElementInitialValue,
-    billingEmail: ''
+    billingEmail: '',
+    acceptTerms: false
   }
 
   const submitHandler = (values, actions) => {
@@ -114,6 +125,12 @@ export const PaymentDialog: React.FC<Props> = ({
       stripe,
       elements
     )
+  }
+
+  const resetHandler = (event, resetForm) => {
+    if (!elements) return null
+    elements?._elements.forEach(element => element.clear())
+    resetForm(initialValues)
   }
 
   return (
@@ -128,50 +145,61 @@ export const PaymentDialog: React.FC<Props> = ({
           initialValues={initialValues}
           onSubmit={submitHandler}
           validationSchema={PaymentFormSchema}>
-          <Form className={classes.PaymentDialog_form}>
-            <div className={classes.PaymentDialog_grid1}>
-              <FormikCardElement name="cardNumber" label="Card Number" />
-            </div>
-            <div className={classes.PaymentDialog_grid2}>
-              <FormikCardElement name="cardExpiry" label="Card Expiry" />
-            </div>
-            <div className={classes.PaymentDialog_grid3}>
-              <FormikCardElement name="cardCvc" label="Card CVC" />
-            </div>
-            <FormikField
-              id="billingEmail"
-              label="Email for Receipt"
-              name="billingEmail"
-              placeholder="Email Address"
-              helperMessage="No receipt if left blank"
-              style={classes.PaymentDialog_grid4}
-            />
-            <Grid className={classes.PaymentDialog_grid5}>
-              <Button
-                type="submit"
-                color="primary"
-                variant="contained"
-                className={classes.PaymentDialog_actionButton}>
-                Purchase
-              </Button>
-              <Button
-                type="reset"
-                onClick={closeHandler}
-                color="primary"
-                variant="contained"
-                className={classes.PaymentDialog_actionButton}>
-                Reset
-              </Button>
-              <Button
-                type="button"
-                onClick={closeHandler}
-                color="primary"
-                variant="contained"
-                className={classes.PaymentDialog_actionButton}>
-                Cancel
-              </Button>
-            </Grid>
-          </Form>
+          {({ isValid, isSubmitting, dirty, setValues, ...props }) => (
+            <Form className={classes.PaymentDialog_form}>
+              <div className={classes.PaymentDialog_grid1}>
+                <FormikCardElement name="cardNumber" label="Card Number" />
+              </div>
+              <div className={classes.PaymentDialog_grid2}>
+                <FormikCardElement name="cardExpiry" label="Card Expiry" />
+              </div>
+              <div className={classes.PaymentDialog_grid3}>
+                <FormikCardElement name="cardCvc" label="Card CVC" />
+              </div>
+              <FormikField
+                id="billingEmail"
+                label="Email for Receipt"
+                name="billingEmail"
+                placeholder="Email Address"
+                helperMessage="No receipt if left blank"
+                style={classes.PaymentDialog_grid4}
+              />
+              <div className={classes.PaymentDialog_grid5}>
+                <FormikAcceptTerms />
+              </div>
+              <Grid className={classes.PaymentDialog_grid6}>
+                <Button
+                  type="submit"
+                  color="primary"
+                  variant="contained"
+                  disabled={isSubmitting || !isValid || !dirty}
+                  className={clsx(
+                    classes.PaymentDialog_actionButton,
+                    classes.PaymentDialog_submitButton
+                  )}>
+                  Purchase
+                </Button>
+                <Button
+                  type="button"
+                  color="secondary"
+                  disabled={!dirty}
+                  variant="contained"
+                  onClick={event => {
+                    resetHandler(event, props.resetForm)
+                  }}
+                  className={classes.PaymentDialog_actionButton}>
+                  Reset
+                </Button>
+                <Button
+                  type="button"
+                  onClick={closeHandler}
+                  variant="outlined"
+                  className={classes.PaymentDialog_actionButton}>
+                  Cancel
+                </Button>
+              </Grid>
+            </Form>
+          )}
         </Formik>
       </Grid>
     </Dialog>

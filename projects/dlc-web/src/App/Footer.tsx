@@ -160,7 +160,7 @@ export const Footer: React.FC<Props> = ({ style }): JSX.Element => {
             className={classes.Footer_linkButton}
             onClick={openTAndCHandler}>
             <GavelIcon className={classes.Footer_linkButtonIcon} />
-            Terms of Service
+            Terms &amp; Conditions
           </Button>
           <Button
             type="button"
