@@ -9,27 +9,18 @@ export const preOrder = async (body: BodyEvent, reqId: string) => {
     stripeSecret = process.env.STRIPE_SECRET_KEY_TEST
   }
 
-  try {
-    const { paymentIntents } = new Stripe(stripeSecret, {
-      apiVersion: '2020-08-27'
-    })
+  const { paymentIntents } = new Stripe(stripeSecret, {
+    apiVersion: '2020-08-27'
+  })
 
-    const paymentIntent: Stripe.PaymentIntent = await paymentIntents.create({
-      amount: parseInt(process.env.SHEET_PRICE),
-      currency: 'cad',
-      description: `${process.env.READABLE_PROJECT_NAME} sheet transform order ${reqId}`,
-      metadata: {
-        orderId: reqId
-      }
-    })
+  const paymentIntent: Stripe.PaymentIntent = await paymentIntents.create({
+    amount: parseInt(process.env.SHEET_PRICE),
+    currency: 'cad',
+    description: `${process.env.READABLE_PROJECT_NAME} sheet transform order ${reqId}`,
+    metadata: {
+      orderId: reqId
+    }
+  })
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify(paymentIntent.client_secret)
-    }
-  } catch (error) {
-    return {
-      statusCode: 500
-    }
-  }
+  return paymentIntent.client_secret
 }

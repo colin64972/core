@@ -16,8 +16,8 @@ export const makePreOrder = async () => {
   try {
     const res = await post(
       `${apiUrl}/pre-order`,
-      null,
-      addAuthHeaderToOptions(otherHeaders)
+      null
+      // addAuthHeaderToOptions(otherHeaders)
     )
     return res.data
   } catch (error) {

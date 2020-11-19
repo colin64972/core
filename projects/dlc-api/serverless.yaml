@@ -25,17 +25,6 @@ provider:
         - OPTIONS
       allowCredentials: true
       maxAge: 6000
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - dynamodb:DeleteItem
-        - dynamodb:GetItem
-        - dynamodb:PutItem
-        - dynamodb:Query
-        - dynamodb:Scan
-        - dynamodb:UpdateItem
-      Resource:
-        - arn:aws:dynamodb:${env:REGION}:*:table/${env:ORDERS_TABLE_NAME}
 
 functions:
   preOrderHandler:
@@ -65,7 +54,7 @@ custom:
   serverless-offline:
     httpPort: ${env:SLS_OFFLINE_PORT}
     noPrependStageInUrl: true
-    resourceRoutes: true
+    resourceRoutes: false
   webpack:
     webpackConfig: webpackConfig.js
     packager: yarn
@@ -80,19 +69,3 @@ custom:
     endpointType: regional
     apiType: http
     autoDomain: true
-
-resources:
-  Resources:
-    dlcOrders:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: ${env:ORDERS_TABLE_NAME}
-        AttributeDefinitions:
-          - AttributeName: id
-            AttributeType: S
-        KeySchema:
-          - AttributeName: id
-            KeyType: HASH
-        ProvisionedThroughput:
-          ReadCapacityUnits: 5
-          WriteCapacityUnits: 1

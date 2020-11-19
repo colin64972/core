@@ -11,5 +11,18 @@ export const preOrderHandler = middy(async (event, context, callback) => {
     process.env.AUTH_SECRET,
     callback
   )
-  return await preOrder(event.body, context.awsRequestId)
+
+  try {
+    let secret = await preOrder(event.body, context.awsRequestId)
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify(secret)
+    }
+  } catch (error) {
+    return {
+      statusCode: error.statusCode,
+      body: JSON.stringify(error.message)
+    }
+  }
 }).use(jsonBodyParser())
