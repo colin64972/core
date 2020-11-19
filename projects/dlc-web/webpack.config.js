@@ -83,7 +83,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve('..', 'shared', 'react', 'template.pug'),
       inject: true,
-      scriptLoading: 'defer',
+      publicPath: '/',
+      scriptLoading: 'async',
       cache: false,
       templateLocals: {
         title: 'Hello'

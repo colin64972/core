@@ -16,6 +16,7 @@ import { Footer } from './Footer'
 import { Home } from './Home'
 import { NotFound } from './NotFound'
 import { TopNav } from './TopNav'
+import { Instructions } from './Instructions/'
 
 const useStyles = makeStyles(theme => ({
   App_pageContainer: {
@@ -96,6 +97,14 @@ export const App: React.FC = (): JSX.Element => {
               )}
               exact
               component={Editor}
+            />
+            <Route
+              path={switchLinkRoutePath(
+                '/editor/instructions',
+                `${process.env.APP_ROOT_PATH}/editor/instructions`
+              )}
+              exact
+              component={Instructions}
             />
             <Route path="/test" exact component={ExportPanel} />
             <Route path="/*" component={NotFound} />

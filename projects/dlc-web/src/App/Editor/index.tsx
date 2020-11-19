@@ -1,10 +1,12 @@
-import { Grid, Typography } from '@material-ui/core'
+import { Grid, Button, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 import { FileLoader } from './FileLoader'
 import { SheetSelector } from './SheetSelector'
 import { TransformResults } from './TransformResults'
 import { TransformSettings } from './TransformSettings'
+import { Link } from 'react-router-dom'
+import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 
 const useStyles = makeStyles(theme => ({
   Editor_header: {
@@ -16,7 +18,11 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     color: theme.palette.grey[50],
-    textShadow: theme.custom.textShadow
+    textShadow: theme.custom.textShadow,
+    textAlign: 'center'
+  },
+  Editor_header_instructionsButton: {
+    marginTop: theme.custom.setSpace('sm')
   }
 }))
 
@@ -36,6 +42,17 @@ export const Editor: React.FC = (): JSX.Element => {
           at rebum, et nonumy lorem lorem diam ipsum, sadipscing diam voluptua
           accusam sit sit, dolor.
         </Typography>
+        <Button
+          type="button"
+          variant="contained"
+          color="secondary"
+          className={classes.Editor_header_instructionsButton}
+          href={switchLinkRoutePath(
+            '/editor/instructions',
+            `${process.env.APP_ROOT_PATH}/editor/instructions`
+          )}>
+          Instructions
+        </Button>
       </Grid>
       <FileLoader />
       <SheetSelector />
