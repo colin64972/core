@@ -104,19 +104,21 @@ module.exports = {
       strict: true
     }),
     new EnvironmentPlugin({
-      APP_ROOT_PATH: localEnv.parsed.APP_ROOT_PATH,
-      APP_NAME: localEnv.parsed.APP_NAME,
+      IS_SERVER: false,
       ACCEPTED_FILETYPES: localEnv.parsed.ACCEPTED_FILETYPES,
+      API_URL: localEnv.parsed.API_URL,
+      APP_NAME: localEnv.parsed.APP_NAME,
+      APP_ROOT_PATH: localEnv.parsed.APP_ROOT_PATH,
+      AUTH_SECRET: sharedEnv.parsed.AUTH_SECRET,
+      CDN_APP_FOLDER: localEnv.parsed.CDN_APP_FOLDER,
       EXPORT_PRICE: localEnv.parsed.EXPORT_PRICE,
-      USE_MOCKS: localEnv.parsed.USE_MOCKS,
+      JWT_PRIVATE_KEY: sharedEnv.parsed.JWT_PRIVATE_KEY,
       SITE_CONTACT_EMAIL: localEnv.parsed.SITE_CONTACT_EMAIL,
       SITE_NAME: localEnv.parsed.SITE_NAME,
       SITE_URL: localEnv.parsed.SITE_URL,
+      // STRIPE_PUBLIC_KEY: localEnv.parsed.STRIPE_PUBLIC_KEY_LIVE,
       STRIPE_PUBLIC_KEY: localEnv.parsed.STRIPE_PUBLIC_KEY_TEST,
-      STRIPE_URL: localEnv.parsed.STRIPE_URL,
-      API_URL: localEnv.parsed.API_URL,
-      AUTH_SECRET: sharedEnv.parsed.AUTH_SECRET,
-      JWT_PRIVATE_KEY: sharedEnv.parsed.JWT_PRIVATE_KEY
+      STRIPE_URL: localEnv.parsed.STRIPE_URL
     })
   ]
 }

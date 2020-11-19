@@ -11,7 +11,7 @@ export const makePreOrder = async (email: string) => {
   let apiUrl = 'http://localhost:2000'
 
   if (process.env.NODE_ENV === 'production')
-    apiUrl = process.env.API_URL + '/detection-limit-corrector'
+    apiUrl = `${process.env.API_URL}/${process.env.CDN_APP_FOLDER}`
 
   const res = await post(
     `${apiUrl}/pre-order`,

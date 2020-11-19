@@ -1,15 +1,8 @@
-import colors from 'colors'
 import Stripe from 'stripe'
 import { BodyEvent } from './interfaces'
 
 export const preOrder = async (body: BodyEvent, reqId: string) => {
-  let stripeSecret = process.env.STRIPE_SECRET_KEY_LIVE
-
-  if (process.env.IS_LOCAL || process.env.IS_OFFLINE) {
-    stripeSecret = process.env.STRIPE_SECRET_KEY_TEST
-  }
-
-  const { paymentIntents } = new Stripe(stripeSecret, {
+  const { paymentIntents } = new Stripe(process.env.STRIPE_SECRET_KEY, {
     apiVersion: '2020-08-27'
   })
 

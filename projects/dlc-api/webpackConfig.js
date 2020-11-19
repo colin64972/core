@@ -1,10 +1,12 @@
 const path = require('path')
-const sharedEnv = require('dotenv').config({
-  path: path.resolve('..', 'shared', '.env')
-})
 const nodeExternals = require('webpack-node-externals')
 const slsw = require('serverless-webpack')
 const { EnvironmentPlugin } = require('webpack')
+
+const localEnv = require('dotenv').config()
+const sharedEnv = require('dotenv').config({
+  path: path.resolve('..', 'shared', '.env')
+})
 
 const serverlessConfig = {
   target: 'node',
@@ -12,7 +14,11 @@ const serverlessConfig = {
   entry: slsw.lib.entries,
   optimization: { minimize: true },
   performance: { hints: 'warning' },
-  externals: [nodeExternals()],
+  externals: [
+    nodeExternals({
+      allowlist: ['semver']
+    })
+  ],
   resolve: {
     extensions: ['.ts', '.js', '.json']
   },
@@ -35,7 +41,9 @@ const serverlessConfig = {
 serverlessConfig.plugins = [
   new EnvironmentPlugin({
     AUTH_SECRET: sharedEnv.parsed.AUTH_SECRET,
-    JWT_PRIVATE_KEY: sharedEnv.parsed.JWT_PRIVATE_KEY
+    JWT_PRIVATE_KEY: sharedEnv.parsed.JWT_PRIVATE_KEY,
+    // STRIPE_SECRET_KEY: localEnv.parsed.STRIPE_SECRET_KEY_LIVE,
+    STRIPE_SECRET_KEY: localEnv.parsed.STRIPE_SECRET_KEY_TEST
   })
 ]
 
