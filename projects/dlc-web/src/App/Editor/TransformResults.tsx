@@ -10,9 +10,9 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { openPreview } from '../../store/editor/actions'
 import {
-  TransformSummary as ITransformSummary,
+  DataUrlCollection,
   TransformResult as ITransformResult,
-  DataUrlCollection
+  TransformSummary as ITransformSummary
 } from '../../store/editor/interfaces'
 import {
   isProcessingSelector,
@@ -21,8 +21,8 @@ import {
 } from '../../store/selectors'
 import { AddressInspector } from './AddressInspector'
 import { ExportPanel } from './ExportPanel'
+import { Preview } from './Preview/'
 import { TransformSummary } from './TransformSummary'
-import { Preview } from './Preview'
 
 const useStyles = makeStyles(theme => ({
   TransformResults_bg: {

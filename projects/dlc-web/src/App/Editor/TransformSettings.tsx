@@ -16,12 +16,12 @@ import {
 import { TransformSettings as ITransformSettings } from '../../store/editor/interfaces'
 import { initialState } from '../../store/editor/reducers'
 import {
+  currentSheetNameSelector,
   sheetDataSelector,
-  transformResultSelector,
-  currentSheetNameSelector
+  transformResultSelector
 } from '../../store/selectors'
 import { FormikField } from './FormikField'
-import { TransformSettingsSchema } from './schema'
+import { TransformSettingsSchema } from './validationSchemas'
 
 const useStyles = makeStyles(theme => ({
   section: {

@@ -40,11 +40,11 @@ export const schemaErrors = {
   required: 'Required',
   excelCellAddress: 'Invalid cell address',
   detectionLimitTrigger: 'Cannot include spaces or digits',
-  alphaOnlyString: 'Must contain only letters'
+  alphaOnlyString: 'Must contain only letters',
+  invalidEmailAddress: 'Invalid email address'
 }
 
 export const exportButtons = [
-  { label: 'CSV', name: 'csv', bookType: 'csv', key: createHashId() },
   {
     label: 'XLS',
     name: 'xls',
@@ -71,3 +71,5 @@ export const topNavItems = [
     label: 'Error'
   }
 ]
+
+export const SNACKBAR_TIMEOUT = 5000

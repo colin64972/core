@@ -1,6 +1,7 @@
 import {
   ALPHA_ONLY_STRING,
   DETICTION_LIMIT_TRIGGER,
+  EMAIL_ADDRESS,
   EXCEL_CELL_ADDRESS
 } from '@cjo3/shared/raw/constants/regex'
 import * as Yup from 'yup'
@@ -35,3 +36,11 @@ export const TransformSettingsSchema: Yup.ObjectSchema<TransformSettings> = Yup.
       .required(schemaErrors.required)
   }
 )
+
+export const PaymentFormSchema: Yup.ObjectSchema = Yup.object().shape({
+  billingEmail: Yup.string().matches(
+    EMAIL_ADDRESS,
+    schemaErrors.invalidEmailAddress
+  ),
+  acceptTerms: Yup.boolean().required(schemaErrors.required)
+})

@@ -9,5 +9,6 @@
   "prettier.configPath": "",
   "sort-imports.on-save": false,
   "sort-imports.ignore-type-defs": true,
-  "sort-imports.languages": ["javascript"]
+  "sort-imports.languages": ["javascript"],
+  "explorer.compactFolders": false
 }

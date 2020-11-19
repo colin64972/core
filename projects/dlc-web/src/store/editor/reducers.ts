@@ -1,15 +1,15 @@
 import { EditorActionTypes, EditorState } from './interfaces'
 import {
   CLOSE_PREVIEW,
+  DISCARD_TRANSFORM_RESULT,
   LOAD_WORKBOOK,
   OPEN_PREVIEW,
+  SAVE_FILENAME,
   SAVE_TRANSFORM_RESULT,
   SELECT_SHEET,
   SET_PROCESSING,
   SET_TRANSFORM_SETTINGS,
-  UNLOAD_WORKBOOK,
-  DISCARD_TRANSFORM_RESULT,
-  SAVE_FILENAME
+  UNLOAD_WORKBOOK
 } from './types'
 
 export const initialState: EditorState = {

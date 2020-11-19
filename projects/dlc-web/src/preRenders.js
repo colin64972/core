@@ -1,7 +1,6 @@
 import { generatePreRenders } from '@cjo3/shared/react/helpers'
-import { ThemedApp } from './ThemedApp'
-import __webpack_public_path__ from './publicPath'
 import { setReduxStore } from './store'
+import { ThemedApp } from './ThemedApp'
 
 const pages = [
   {

@@ -16,11 +16,11 @@ export const createAuthToken = (payloadSecret, jwtSecret) => {
 }
 
 export const checkAuthorization = (jwtToken, jwtKey, authSecret, callback) => {
-  if (!jwtToken) return callback(null, res)
-
   let res = {
     statusCode: 401
   }
+
+  if (!jwtToken) return callback(null, res)
 
   try {
     const decoded = jwt.verify(jwtToken.substring(7), jwtKey)
@@ -30,3 +30,13 @@ export const checkAuthorization = (jwtToken, jwtKey, authSecret, callback) => {
     return callback(null, res)
   }
 }
+
+export const addAuthHeaderToOptions = options => ({
+  headers: {
+    ...options.headers,
+    authorization: createAuthToken(
+      process.env.AUTH_SECRET,
+      process.env.JWT_PRIVATE_KEY
+    )
+  }
+})

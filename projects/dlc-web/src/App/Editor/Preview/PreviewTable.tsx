@@ -1,7 +1,3 @@
-import {
-  sheetData as sheetDataMock,
-  transformResult as transformResultMock
-} from '@cjo3/shared/react/mocks/dlc'
 import { convertSheetOptions } from '@cjo3/shared/react/xlsx'
 import {
   Table,
@@ -19,7 +15,7 @@ import * as XLSX from 'xlsx'
 import {
   sheetDataSelector,
   transformResultSelector
-} from '../../../../store/selectors'
+} from '../../../store/selectors'
 import { PreviewCell } from './PreviewCell'
 
 const useStyles = makeStyles(theme => ({

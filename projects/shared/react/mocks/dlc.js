@@ -1221,6 +1221,12 @@ export const transformResult = {
     B17: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B17',
@@ -1240,6 +1246,12 @@ export const transformResult = {
     B18: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B18',
@@ -1259,6 +1271,12 @@ export const transformResult = {
     B19: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B19',
@@ -1278,6 +1296,12 @@ export const transformResult = {
     B20: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B20',
@@ -1297,6 +1321,12 @@ export const transformResult = {
     B21: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B21',
@@ -1316,6 +1346,12 @@ export const transformResult = {
     B22: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B22',
@@ -1335,6 +1371,12 @@ export const transformResult = {
     B23: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B23',
@@ -1354,6 +1396,12 @@ export const transformResult = {
     B25: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B25',
@@ -1373,6 +1421,12 @@ export const transformResult = {
     B26: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B26',
@@ -1392,6 +1446,12 @@ export const transformResult = {
     B27: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B27',
@@ -1411,6 +1471,12 @@ export const transformResult = {
     B28: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B28',
@@ -1430,6 +1496,12 @@ export const transformResult = {
     B29: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B29',
@@ -1449,6 +1521,12 @@ export const transformResult = {
     B30: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B30',
@@ -1468,6 +1546,12 @@ export const transformResult = {
     B31: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B31',
@@ -1487,6 +1571,12 @@ export const transformResult = {
     B32: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B32',
@@ -1506,6 +1596,12 @@ export const transformResult = {
     B33: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B33',
@@ -1525,6 +1621,12 @@ export const transformResult = {
     B34: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B34',
@@ -1544,6 +1646,12 @@ export const transformResult = {
     B35: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B35',
@@ -1563,6 +1671,12 @@ export const transformResult = {
     B36: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B36',
@@ -1582,6 +1696,12 @@ export const transformResult = {
     B37: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B37',
@@ -1601,6 +1721,12 @@ export const transformResult = {
     B38: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B38',
@@ -1620,6 +1746,12 @@ export const transformResult = {
     B39: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B39',
@@ -1639,6 +1771,12 @@ export const transformResult = {
     B40: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B40',
@@ -1658,6 +1796,12 @@ export const transformResult = {
     B41: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B41',
@@ -1677,6 +1821,12 @@ export const transformResult = {
     B43: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B43',
@@ -1696,6 +1846,12 @@ export const transformResult = {
     B44: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B44',
@@ -1715,6 +1871,12 @@ export const transformResult = {
     B45: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B45',
@@ -1734,6 +1896,12 @@ export const transformResult = {
     B46: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B46',
@@ -1753,6 +1921,12 @@ export const transformResult = {
     B47: {
       t: 'n',
       v: 0,
+      c: [
+        {
+          a: 'asdf',
+          t: 'Rock'
+        }
+      ],
       w: '0',
       meta: {
         address: 'B47',
@@ -1772,6 +1946,12 @@ export const transformResult = {
     E27: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'E27',
@@ -1791,6 +1971,12 @@ export const transformResult = {
     E45: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'E45',
@@ -1810,6 +1996,12 @@ export const transformResult = {
     G42: {
       t: 'n',
       v: 5000,
+      c: [
+        {
+          a: 'asdf',
+          t: '>10000'
+        }
+      ],
       w: '5000',
       meta: {
         address: 'G42',
@@ -1829,6 +2021,12 @@ export const transformResult = {
     I24: {
       t: 'n',
       v: 50,
+      c: [
+        {
+          a: 'asdf',
+          t: '>100.0'
+        }
+      ],
       z: '0.0',
       w: '50.0',
       meta: {
@@ -1849,6 +2047,12 @@ export const transformResult = {
     I27: {
       t: 'n',
       v: 250.4,
+      c: [
+        {
+          a: 'asdf',
+          t: '>500.8'
+        }
+      ],
       z: '0.0',
       w: '250.4',
       meta: {
@@ -1869,6 +2073,12 @@ export const transformResult = {
     I29: {
       t: 'n',
       v: 42,
+      c: [
+        {
+          a: 'asdf',
+          t: '>84.000'
+        }
+      ],
       z: '0.000',
       w: '42.000',
       meta: {
@@ -1889,6 +2099,12 @@ export const transformResult = {
     I42: {
       t: 'n',
       v: 50,
+      c: [
+        {
+          a: 'asdf',
+          t: '>100.0'
+        }
+      ],
       z: '0.0',
       w: '50.0',
       meta: {
@@ -1909,6 +2125,12 @@ export const transformResult = {
     J33: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'J33',
@@ -1928,6 +2150,12 @@ export const transformResult = {
     J35: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'J35',
@@ -1947,6 +2175,12 @@ export const transformResult = {
     J40: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'J40',
@@ -1966,6 +2200,12 @@ export const transformResult = {
     J41: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'J41',
@@ -1985,6 +2225,12 @@ export const transformResult = {
     J46: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'J46',
@@ -2004,6 +2250,12 @@ export const transformResult = {
     J47: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'J47',
@@ -2023,6 +2275,12 @@ export const transformResult = {
     K17: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K17',
@@ -2042,6 +2300,12 @@ export const transformResult = {
     K18: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K18',
@@ -2061,6 +2325,12 @@ export const transformResult = {
     K19: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K19',
@@ -2080,6 +2350,12 @@ export const transformResult = {
     K20: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K20',
@@ -2099,6 +2375,12 @@ export const transformResult = {
     K21: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K21',
@@ -2118,6 +2400,12 @@ export const transformResult = {
     K22: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K22',
@@ -2137,6 +2425,12 @@ export const transformResult = {
     K23: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K23',
@@ -2156,6 +2450,12 @@ export const transformResult = {
     K25: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K25',
@@ -2175,6 +2475,12 @@ export const transformResult = {
     K26: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K26',
@@ -2194,6 +2500,12 @@ export const transformResult = {
     K27: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K27',
@@ -2213,6 +2525,12 @@ export const transformResult = {
     K28: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K28',
@@ -2232,6 +2550,12 @@ export const transformResult = {
     K29: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K29',
@@ -2251,6 +2575,12 @@ export const transformResult = {
     K30: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K30',
@@ -2270,6 +2600,12 @@ export const transformResult = {
     K31: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K31',
@@ -2289,6 +2625,12 @@ export const transformResult = {
     K32: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K32',
@@ -2308,6 +2650,12 @@ export const transformResult = {
     K33: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K33',
@@ -2327,6 +2675,12 @@ export const transformResult = {
     K34: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K34',
@@ -2346,6 +2700,12 @@ export const transformResult = {
     K35: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K35',
@@ -2365,6 +2725,12 @@ export const transformResult = {
     K36: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K36',
@@ -2384,6 +2750,12 @@ export const transformResult = {
     K37: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K37',
@@ -2403,6 +2775,12 @@ export const transformResult = {
     K38: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K38',
@@ -2422,6 +2800,12 @@ export const transformResult = {
     K39: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K39',
@@ -2441,6 +2825,12 @@ export const transformResult = {
     K40: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K40',
@@ -2460,6 +2850,12 @@ export const transformResult = {
     K41: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K41',
@@ -2479,6 +2875,12 @@ export const transformResult = {
     K43: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K43',
@@ -2498,6 +2900,12 @@ export const transformResult = {
     K44: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K44',
@@ -2517,6 +2925,12 @@ export const transformResult = {
     K45: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K45',
@@ -2536,6 +2950,12 @@ export const transformResult = {
     K46: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K46',
@@ -2555,6 +2975,12 @@ export const transformResult = {
     K47: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'K47',
@@ -2574,6 +3000,12 @@ export const transformResult = {
     O30: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'O30',
@@ -2593,6 +3025,12 @@ export const transformResult = {
     O32: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'O32',
@@ -2612,6 +3050,12 @@ export const transformResult = {
     O33: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'O33',
@@ -2631,6 +3075,12 @@ export const transformResult = {
     O34: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'O34',
@@ -2650,6 +3100,12 @@ export const transformResult = {
     O35: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'O35',
@@ -2669,6 +3125,12 @@ export const transformResult = {
     O36: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'O36',
@@ -2688,6 +3150,12 @@ export const transformResult = {
     O37: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'O37',
@@ -2707,6 +3175,12 @@ export const transformResult = {
     O40: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'O40',
@@ -2726,6 +3200,12 @@ export const transformResult = {
     O41: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'O41',
@@ -2745,6 +3225,12 @@ export const transformResult = {
     O42: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'O42',
@@ -2764,6 +3250,12 @@ export const transformResult = {
     O43: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'O43',
@@ -2783,6 +3275,12 @@ export const transformResult = {
     O47: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'O47',
@@ -2802,6 +3300,12 @@ export const transformResult = {
     Q17: {
       t: 'n',
       v: 0.25,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.5'
+        }
+      ],
       z: '0.00',
       w: '0.25',
       meta: {
@@ -2822,6 +3326,12 @@ export const transformResult = {
     Q18: {
       t: 'n',
       v: 0.25,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.5'
+        }
+      ],
       z: '0.00',
       w: '0.25',
       meta: {
@@ -2842,6 +3352,12 @@ export const transformResult = {
     Q19: {
       t: 'n',
       v: 0.25,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.5'
+        }
+      ],
       z: '0.00',
       w: '0.25',
       meta: {
@@ -2862,6 +3378,12 @@ export const transformResult = {
     Q20: {
       t: 'n',
       v: 0.25,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.5'
+        }
+      ],
       z: '0.00',
       w: '0.25',
       meta: {
@@ -2882,6 +3404,12 @@ export const transformResult = {
     Q21: {
       t: 'n',
       v: 0.25,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.5'
+        }
+      ],
       z: '0.00',
       w: '0.25',
       meta: {
@@ -2902,6 +3430,12 @@ export const transformResult = {
     Q22: {
       t: 'n',
       v: 0.25,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.5'
+        }
+      ],
       z: '0.00',
       w: '0.25',
       meta: {
@@ -2922,6 +3456,12 @@ export const transformResult = {
     Q23: {
       t: 'n',
       v: 0.25,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.5'
+        }
+      ],
       z: '0.00',
       w: '0.25',
       meta: {
@@ -2942,6 +3482,12 @@ export const transformResult = {
     Q25: {
       t: 'n',
       v: 0.25,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.5'
+        }
+      ],
       z: '0.00',
       w: '0.25',
       meta: {
@@ -2962,6 +3508,12 @@ export const transformResult = {
     Q26: {
       t: 'n',
       v: 0.25,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.5'
+        }
+      ],
       z: '0.00',
       w: '0.25',
       meta: {
@@ -2982,6 +3534,12 @@ export const transformResult = {
     Q27: {
       t: 'n',
       v: 0.25,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.5'
+        }
+      ],
       z: '0.00',
       w: '0.25',
       meta: {
@@ -3002,6 +3560,12 @@ export const transformResult = {
     Q28: {
       t: 'n',
       v: 0.25,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.5'
+        }
+      ],
       z: '0.00',
       w: '0.25',
       meta: {
@@ -3022,6 +3586,12 @@ export const transformResult = {
     Q33: {
       t: 'n',
       v: 0.25,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.5'
+        }
+      ],
       z: '0.00',
       w: '0.25',
       meta: {
@@ -3042,6 +3612,12 @@ export const transformResult = {
     Q35: {
       t: 'n',
       v: 0.25,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.5'
+        }
+      ],
       z: '0.00',
       w: '0.25',
       meta: {
@@ -3062,6 +3638,12 @@ export const transformResult = {
     Q36: {
       t: 'n',
       v: 0.25,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.5'
+        }
+      ],
       z: '0.00',
       w: '0.25',
       meta: {
@@ -3082,6 +3664,12 @@ export const transformResult = {
     Q37: {
       t: 'n',
       v: 0.25,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.5'
+        }
+      ],
       z: '0.00',
       w: '0.25',
       meta: {
@@ -3102,6 +3690,12 @@ export const transformResult = {
     Q38: {
       t: 'n',
       v: 0.25,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.5'
+        }
+      ],
       z: '0.00',
       w: '0.25',
       meta: {
@@ -3122,6 +3716,12 @@ export const transformResult = {
     Q39: {
       t: 'n',
       v: 0.25,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.5'
+        }
+      ],
       z: '0.00',
       w: '0.25',
       meta: {
@@ -3142,6 +3742,12 @@ export const transformResult = {
     Q40: {
       t: 'n',
       v: 0.25,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.5'
+        }
+      ],
       z: '0.00',
       w: '0.25',
       meta: {
@@ -3162,6 +3768,12 @@ export const transformResult = {
     Q41: {
       t: 'n',
       v: 0.25,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.5'
+        }
+      ],
       z: '0.00',
       w: '0.25',
       meta: {
@@ -3182,6 +3794,12 @@ export const transformResult = {
     Q43: {
       t: 'n',
       v: 0.25,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.5'
+        }
+      ],
       z: '0.00',
       w: '0.25',
       meta: {
@@ -3202,6 +3820,12 @@ export const transformResult = {
     Q44: {
       t: 'n',
       v: 0.25,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.5'
+        }
+      ],
       z: '0.00',
       w: '0.25',
       meta: {
@@ -3222,6 +3846,12 @@ export const transformResult = {
     Q45: {
       t: 'n',
       v: 0.25,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.5'
+        }
+      ],
       z: '0.00',
       w: '0.25',
       meta: {
@@ -3242,6 +3872,12 @@ export const transformResult = {
     Q47: {
       t: 'n',
       v: 0.25,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.5'
+        }
+      ],
       z: '0.00',
       w: '0.25',
       meta: {
@@ -3262,6 +3898,12 @@ export const transformResult = {
     R35: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'R35',
@@ -3281,6 +3923,12 @@ export const transformResult = {
     S17: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S17',
@@ -3300,6 +3948,12 @@ export const transformResult = {
     S18: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S18',
@@ -3319,6 +3973,12 @@ export const transformResult = {
     S19: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S19',
@@ -3338,6 +3998,12 @@ export const transformResult = {
     S20: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S20',
@@ -3357,6 +4023,12 @@ export const transformResult = {
     S21: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S21',
@@ -3376,6 +4048,12 @@ export const transformResult = {
     S22: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S22',
@@ -3395,6 +4073,12 @@ export const transformResult = {
     S23: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S23',
@@ -3414,6 +4098,12 @@ export const transformResult = {
     S24: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S24',
@@ -3433,6 +4123,12 @@ export const transformResult = {
     S25: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S25',
@@ -3452,6 +4148,12 @@ export const transformResult = {
     S26: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S26',
@@ -3471,6 +4173,12 @@ export const transformResult = {
     S27: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S27',
@@ -3490,6 +4198,12 @@ export const transformResult = {
     S28: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S28',
@@ -3509,6 +4223,12 @@ export const transformResult = {
     S29: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S29',
@@ -3528,6 +4248,12 @@ export const transformResult = {
     S30: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S30',
@@ -3547,6 +4273,12 @@ export const transformResult = {
     S31: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S31',
@@ -3566,6 +4298,12 @@ export const transformResult = {
     S32: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S32',
@@ -3585,6 +4323,12 @@ export const transformResult = {
     S33: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S33',
@@ -3604,6 +4348,12 @@ export const transformResult = {
     S34: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S34',
@@ -3623,6 +4373,12 @@ export const transformResult = {
     S35: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S35',
@@ -3642,6 +4398,12 @@ export const transformResult = {
     S36: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S36',
@@ -3661,6 +4423,12 @@ export const transformResult = {
     S37: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S37',
@@ -3680,6 +4448,12 @@ export const transformResult = {
     S38: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S38',
@@ -3699,6 +4473,12 @@ export const transformResult = {
     S39: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S39',
@@ -3718,6 +4498,12 @@ export const transformResult = {
     S40: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S40',
@@ -3737,6 +4523,12 @@ export const transformResult = {
     S41: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S41',
@@ -3756,6 +4548,12 @@ export const transformResult = {
     S42: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S42',
@@ -3775,6 +4573,12 @@ export const transformResult = {
     S43: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S43',
@@ -3794,6 +4598,12 @@ export const transformResult = {
     S44: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S44',
@@ -3813,6 +4623,12 @@ export const transformResult = {
     S45: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S45',
@@ -3832,6 +4648,12 @@ export const transformResult = {
     S46: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S46',
@@ -3851,6 +4673,12 @@ export const transformResult = {
     S47: {
       t: 'n',
       v: 1.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<3'
+        }
+      ],
       w: '1.5',
       meta: {
         address: 'S47',
@@ -3870,6 +4698,12 @@ export const transformResult = {
     U17: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -3890,6 +4724,12 @@ export const transformResult = {
     U18: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -3910,6 +4750,12 @@ export const transformResult = {
     U19: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -3930,6 +4776,12 @@ export const transformResult = {
     U20: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -3950,6 +4802,12 @@ export const transformResult = {
     U21: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -3970,6 +4828,12 @@ export const transformResult = {
     U22: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -3990,6 +4854,12 @@ export const transformResult = {
     U23: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -4010,6 +4880,12 @@ export const transformResult = {
     U25: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -4030,6 +4906,12 @@ export const transformResult = {
     U26: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -4050,6 +4932,12 @@ export const transformResult = {
     U27: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -4070,6 +4958,12 @@ export const transformResult = {
     U28: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -4090,6 +4984,12 @@ export const transformResult = {
     U29: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -4110,6 +5010,12 @@ export const transformResult = {
     U31: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -4130,6 +5036,12 @@ export const transformResult = {
     U32: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -4150,6 +5062,12 @@ export const transformResult = {
     U33: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -4170,6 +5088,12 @@ export const transformResult = {
     U37: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -4190,6 +5114,12 @@ export const transformResult = {
     U38: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -4210,6 +5140,12 @@ export const transformResult = {
     U39: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -4230,6 +5166,12 @@ export const transformResult = {
     U40: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -4250,6 +5192,12 @@ export const transformResult = {
     U41: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -4270,6 +5218,12 @@ export const transformResult = {
     U43: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -4290,6 +5244,12 @@ export const transformResult = {
     U44: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -4310,6 +5270,12 @@ export const transformResult = {
     U45: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -4330,6 +5296,12 @@ export const transformResult = {
     U46: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -4350,6 +5322,12 @@ export const transformResult = {
     U47: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -4370,6 +5348,12 @@ export const transformResult = {
     AB17: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB17',
@@ -4389,6 +5373,12 @@ export const transformResult = {
     AB18: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB18',
@@ -4408,6 +5398,12 @@ export const transformResult = {
     AB19: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB19',
@@ -4427,6 +5423,12 @@ export const transformResult = {
     AB20: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB20',
@@ -4446,6 +5448,12 @@ export const transformResult = {
     AB21: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB21',
@@ -4465,6 +5473,12 @@ export const transformResult = {
     AB22: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB22',
@@ -4484,6 +5498,12 @@ export const transformResult = {
     AB23: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB23',
@@ -4503,6 +5523,12 @@ export const transformResult = {
     AB24: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB24',
@@ -4522,6 +5548,12 @@ export const transformResult = {
     AB25: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB25',
@@ -4541,6 +5573,12 @@ export const transformResult = {
     AB26: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB26',
@@ -4560,6 +5598,12 @@ export const transformResult = {
     AB27: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB27',
@@ -4579,6 +5623,12 @@ export const transformResult = {
     AB28: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB28',
@@ -4598,6 +5648,12 @@ export const transformResult = {
     AB29: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB29',
@@ -4617,6 +5673,12 @@ export const transformResult = {
     AB30: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB30',
@@ -4636,6 +5698,12 @@ export const transformResult = {
     AB31: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB31',
@@ -4655,6 +5723,12 @@ export const transformResult = {
     AB32: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB32',
@@ -4674,6 +5748,12 @@ export const transformResult = {
     AB33: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB33',
@@ -4693,6 +5773,12 @@ export const transformResult = {
     AB34: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB34',
@@ -4712,6 +5798,12 @@ export const transformResult = {
     AB35: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB35',
@@ -4731,6 +5823,12 @@ export const transformResult = {
     AB36: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB36',
@@ -4750,6 +5848,12 @@ export const transformResult = {
     AB37: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB37',
@@ -4769,6 +5873,12 @@ export const transformResult = {
     AB38: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB38',
@@ -4788,6 +5898,12 @@ export const transformResult = {
     AB39: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB39',
@@ -4807,6 +5923,12 @@ export const transformResult = {
     AB40: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB40',
@@ -4826,6 +5948,12 @@ export const transformResult = {
     AB41: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB41',
@@ -4845,6 +5973,12 @@ export const transformResult = {
     AB43: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB43',
@@ -4864,6 +5998,12 @@ export const transformResult = {
     AB44: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB44',
@@ -4883,6 +6023,12 @@ export const transformResult = {
     AB45: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB45',
@@ -4902,6 +6048,12 @@ export const transformResult = {
     AB46: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB46',
@@ -4921,6 +6073,12 @@ export const transformResult = {
     AB47: {
       t: 'n',
       v: 10,
+      c: [
+        {
+          a: 'asdf',
+          t: '<20'
+        }
+      ],
       w: '10',
       meta: {
         address: 'AB47',
@@ -4940,6 +6098,12 @@ export const transformResult = {
     AD17: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -4960,6 +6124,12 @@ export const transformResult = {
     AD18: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -4980,6 +6150,12 @@ export const transformResult = {
     AD19: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5000,6 +6176,12 @@ export const transformResult = {
     AD20: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5020,6 +6202,12 @@ export const transformResult = {
     AD21: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5040,6 +6228,12 @@ export const transformResult = {
     AD22: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5060,6 +6254,12 @@ export const transformResult = {
     AD23: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5080,6 +6280,12 @@ export const transformResult = {
     AD24: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5100,6 +6306,12 @@ export const transformResult = {
     AD25: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5120,6 +6332,12 @@ export const transformResult = {
     AD26: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5140,6 +6358,12 @@ export const transformResult = {
     AD27: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5160,6 +6384,12 @@ export const transformResult = {
     AD28: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5180,6 +6410,12 @@ export const transformResult = {
     AD29: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5200,6 +6436,12 @@ export const transformResult = {
     AD30: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5220,6 +6462,12 @@ export const transformResult = {
     AD31: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5240,6 +6488,12 @@ export const transformResult = {
     AD32: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5260,6 +6514,12 @@ export const transformResult = {
     AD33: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5280,6 +6540,12 @@ export const transformResult = {
     AD34: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5300,6 +6566,12 @@ export const transformResult = {
     AD35: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5320,6 +6592,12 @@ export const transformResult = {
     AD36: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5340,6 +6618,12 @@ export const transformResult = {
     AD37: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5360,6 +6644,12 @@ export const transformResult = {
     AD38: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5380,6 +6670,12 @@ export const transformResult = {
     AD39: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5400,6 +6696,12 @@ export const transformResult = {
     AD40: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5420,6 +6722,12 @@ export const transformResult = {
     AD41: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5440,6 +6748,12 @@ export const transformResult = {
     AD43: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5460,6 +6774,12 @@ export const transformResult = {
     AD44: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5480,6 +6800,12 @@ export const transformResult = {
     AD45: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5500,6 +6826,12 @@ export const transformResult = {
     AD46: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5520,6 +6852,12 @@ export const transformResult = {
     AD47: {
       t: 'n',
       v: 0.005,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.01'
+        }
+      ],
       z: '0.000',
       w: '0.005',
       meta: {
@@ -5540,6 +6878,12 @@ export const transformResult = {
     AF17: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF17',
@@ -5559,6 +6903,12 @@ export const transformResult = {
     AF18: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF18',
@@ -5578,6 +6928,12 @@ export const transformResult = {
     AF19: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF19',
@@ -5597,6 +6953,12 @@ export const transformResult = {
     AF20: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF20',
@@ -5616,6 +6978,12 @@ export const transformResult = {
     AF21: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF21',
@@ -5635,6 +7003,12 @@ export const transformResult = {
     AF22: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF22',
@@ -5654,6 +7028,12 @@ export const transformResult = {
     AF23: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF23',
@@ -5673,6 +7053,12 @@ export const transformResult = {
     AF25: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF25',
@@ -5692,6 +7078,12 @@ export const transformResult = {
     AF26: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF26',
@@ -5711,6 +7103,12 @@ export const transformResult = {
     AF27: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF27',
@@ -5730,6 +7128,12 @@ export const transformResult = {
     AF28: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF28',
@@ -5749,6 +7153,12 @@ export const transformResult = {
     AF29: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF29',
@@ -5768,6 +7178,12 @@ export const transformResult = {
     AF30: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF30',
@@ -5787,6 +7203,12 @@ export const transformResult = {
     AF31: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF31',
@@ -5806,6 +7228,12 @@ export const transformResult = {
     AF32: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF32',
@@ -5825,6 +7253,12 @@ export const transformResult = {
     AF33: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF33',
@@ -5844,6 +7278,12 @@ export const transformResult = {
     AF34: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF34',
@@ -5863,6 +7303,12 @@ export const transformResult = {
     AF35: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF35',
@@ -5882,6 +7328,12 @@ export const transformResult = {
     AF36: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF36',
@@ -5901,6 +7353,12 @@ export const transformResult = {
     AF37: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF37',
@@ -5920,6 +7378,12 @@ export const transformResult = {
     AF38: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF38',
@@ -5939,6 +7403,12 @@ export const transformResult = {
     AF39: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF39',
@@ -5958,6 +7428,12 @@ export const transformResult = {
     AF40: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF40',
@@ -5977,6 +7453,12 @@ export const transformResult = {
     AF41: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF41',
@@ -5996,6 +7478,12 @@ export const transformResult = {
     AF42: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF42',
@@ -6015,6 +7503,12 @@ export const transformResult = {
     AF43: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF43',
@@ -6034,6 +7528,12 @@ export const transformResult = {
     AF44: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF44',
@@ -6053,6 +7553,12 @@ export const transformResult = {
     AF45: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF45',
@@ -6072,6 +7578,12 @@ export const transformResult = {
     AF46: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF46',
@@ -6091,6 +7603,12 @@ export const transformResult = {
     AF47: {
       t: 'n',
       v: 1,
+      c: [
+        {
+          a: 'asdf',
+          t: '<2'
+        }
+      ],
       w: '1',
       meta: {
         address: 'AF47',
@@ -6110,6 +7628,12 @@ export const transformResult = {
     AG17: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6130,6 +7654,12 @@ export const transformResult = {
     AG18: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6150,6 +7680,12 @@ export const transformResult = {
     AG19: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6170,6 +7706,12 @@ export const transformResult = {
     AG20: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6190,6 +7732,12 @@ export const transformResult = {
     AG21: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6210,6 +7758,12 @@ export const transformResult = {
     AG22: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6230,6 +7784,12 @@ export const transformResult = {
     AG23: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6250,6 +7810,12 @@ export const transformResult = {
     AG25: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6270,6 +7836,12 @@ export const transformResult = {
     AG26: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6290,6 +7862,12 @@ export const transformResult = {
     AG27: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6310,6 +7888,12 @@ export const transformResult = {
     AG28: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6330,6 +7914,12 @@ export const transformResult = {
     AG29: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6350,6 +7940,12 @@ export const transformResult = {
     AG30: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6370,6 +7966,12 @@ export const transformResult = {
     AG32: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6390,6 +7992,12 @@ export const transformResult = {
     AG33: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6410,6 +8018,12 @@ export const transformResult = {
     AG34: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6430,6 +8044,12 @@ export const transformResult = {
     AG35: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6450,6 +8070,12 @@ export const transformResult = {
     AG36: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6470,6 +8096,12 @@ export const transformResult = {
     AG37: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6490,6 +8122,12 @@ export const transformResult = {
     AG38: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6510,6 +8148,12 @@ export const transformResult = {
     AG39: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6530,6 +8174,12 @@ export const transformResult = {
     AG40: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6550,6 +8200,12 @@ export const transformResult = {
     AG41: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6570,6 +8226,12 @@ export const transformResult = {
     AG43: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6590,6 +8252,12 @@ export const transformResult = {
     AG44: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6610,6 +8278,12 @@ export const transformResult = {
     AG45: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6630,6 +8304,12 @@ export const transformResult = {
     AG47: {
       t: 'n',
       v: 0.025,
+      c: [
+        {
+          a: 'asdf',
+          t: '<0.05'
+        }
+      ],
       z: '0.000',
       w: '0.025',
       meta: {
@@ -6650,6 +8330,12 @@ export const transformResult = {
     AH17: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH17',
@@ -6669,6 +8355,12 @@ export const transformResult = {
     AH18: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH18',
@@ -6688,6 +8380,12 @@ export const transformResult = {
     AH19: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH19',
@@ -6707,6 +8405,12 @@ export const transformResult = {
     AH20: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH20',
@@ -6726,6 +8430,12 @@ export const transformResult = {
     AH21: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH21',
@@ -6745,6 +8455,12 @@ export const transformResult = {
     AH22: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH22',
@@ -6764,6 +8480,12 @@ export const transformResult = {
     AH23: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH23',
@@ -6783,6 +8505,12 @@ export const transformResult = {
     AH24: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH24',
@@ -6802,6 +8530,12 @@ export const transformResult = {
     AH25: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH25',
@@ -6821,6 +8555,12 @@ export const transformResult = {
     AH26: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH26',
@@ -6840,6 +8580,12 @@ export const transformResult = {
     AH27: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH27',
@@ -6859,6 +8605,12 @@ export const transformResult = {
     AH28: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH28',
@@ -6878,6 +8630,12 @@ export const transformResult = {
     AH29: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH29',
@@ -6897,6 +8655,12 @@ export const transformResult = {
     AH31: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH31',
@@ -6916,6 +8680,12 @@ export const transformResult = {
     AH32: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH32',
@@ -6935,6 +8705,12 @@ export const transformResult = {
     AH33: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH33',
@@ -6954,6 +8730,12 @@ export const transformResult = {
     AH34: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH34',
@@ -6973,6 +8755,12 @@ export const transformResult = {
     AH35: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH35',
@@ -6992,6 +8780,12 @@ export const transformResult = {
     AH36: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH36',
@@ -7011,6 +8805,12 @@ export const transformResult = {
     AH37: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH37',
@@ -7030,6 +8830,12 @@ export const transformResult = {
     AH38: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH38',
@@ -7049,6 +8855,12 @@ export const transformResult = {
     AH39: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH39',
@@ -7068,6 +8880,12 @@ export const transformResult = {
     AH42: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH42',
@@ -7087,6 +8905,12 @@ export const transformResult = {
     AH43: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH43',
@@ -7106,6 +8930,12 @@ export const transformResult = {
     AH44: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH44',
@@ -7125,6 +8955,12 @@ export const transformResult = {
     AH45: {
       t: 'n',
       v: 0.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<1'
+        }
+      ],
       w: '0.5',
       meta: {
         address: 'AH45',
@@ -7144,6 +8980,12 @@ export const transformResult = {
     AI17: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI17',
@@ -7163,6 +9005,12 @@ export const transformResult = {
     AI18: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI18',
@@ -7182,6 +9030,12 @@ export const transformResult = {
     AI19: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI19',
@@ -7201,6 +9055,12 @@ export const transformResult = {
     AI20: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI20',
@@ -7220,6 +9080,12 @@ export const transformResult = {
     AI21: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI21',
@@ -7239,6 +9105,12 @@ export const transformResult = {
     AI22: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI22',
@@ -7258,6 +9130,12 @@ export const transformResult = {
     AI23: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI23',
@@ -7277,6 +9155,12 @@ export const transformResult = {
     AI24: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI24',
@@ -7296,6 +9180,12 @@ export const transformResult = {
     AI25: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI25',
@@ -7315,6 +9205,12 @@ export const transformResult = {
     AI26: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI26',
@@ -7334,6 +9230,12 @@ export const transformResult = {
     AI27: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI27',
@@ -7353,6 +9255,12 @@ export const transformResult = {
     AI28: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI28',
@@ -7372,6 +9280,12 @@ export const transformResult = {
     AI30: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI30',
@@ -7391,6 +9305,12 @@ export const transformResult = {
     AI31: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI31',
@@ -7410,6 +9330,12 @@ export const transformResult = {
     AI32: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI32',
@@ -7429,6 +9355,12 @@ export const transformResult = {
     AI33: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI33',
@@ -7448,6 +9380,12 @@ export const transformResult = {
     AI34: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI34',
@@ -7467,6 +9405,12 @@ export const transformResult = {
     AI35: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI35',
@@ -7486,6 +9430,12 @@ export const transformResult = {
     AI36: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI36',
@@ -7505,6 +9455,12 @@ export const transformResult = {
     AI37: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI37',
@@ -7524,6 +9480,12 @@ export const transformResult = {
     AI38: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI38',
@@ -7543,6 +9505,12 @@ export const transformResult = {
     AI39: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI39',
@@ -7562,6 +9530,12 @@ export const transformResult = {
     AI40: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI40',
@@ -7581,6 +9555,12 @@ export const transformResult = {
     AI41: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI41',
@@ -7600,6 +9580,12 @@ export const transformResult = {
     AI42: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI42',
@@ -7619,6 +9605,12 @@ export const transformResult = {
     AI43: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI43',
@@ -7638,6 +9630,12 @@ export const transformResult = {
     AI44: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI44',
@@ -7657,6 +9655,12 @@ export const transformResult = {
     AI45: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI45',
@@ -7676,6 +9680,12 @@ export const transformResult = {
     AI46: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI46',
@@ -7695,6 +9705,12 @@ export const transformResult = {
     AI47: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AI47',
@@ -7714,6 +9730,12 @@ export const transformResult = {
     AJ17: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ17',
@@ -7733,6 +9755,12 @@ export const transformResult = {
     AJ18: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ18',
@@ -7752,6 +9780,12 @@ export const transformResult = {
     AJ19: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ19',
@@ -7771,6 +9805,12 @@ export const transformResult = {
     AJ20: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ20',
@@ -7790,6 +9830,12 @@ export const transformResult = {
     AJ21: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ21',
@@ -7809,6 +9855,12 @@ export const transformResult = {
     AJ22: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ22',
@@ -7828,6 +9880,12 @@ export const transformResult = {
     AJ23: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ23',
@@ -7847,6 +9905,12 @@ export const transformResult = {
     AJ24: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ24',
@@ -7866,6 +9930,12 @@ export const transformResult = {
     AJ25: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ25',
@@ -7885,6 +9955,12 @@ export const transformResult = {
     AJ26: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ26',
@@ -7904,6 +9980,12 @@ export const transformResult = {
     AJ27: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ27',
@@ -7923,6 +10005,12 @@ export const transformResult = {
     AJ28: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ28',
@@ -7942,6 +10030,12 @@ export const transformResult = {
     AJ29: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ29',
@@ -7961,6 +10055,12 @@ export const transformResult = {
     AJ30: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ30',
@@ -7980,6 +10080,12 @@ export const transformResult = {
     AJ31: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ31',
@@ -7999,6 +10105,12 @@ export const transformResult = {
     AJ32: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ32',
@@ -8018,6 +10130,12 @@ export const transformResult = {
     AJ33: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ33',
@@ -8037,6 +10155,12 @@ export const transformResult = {
     AJ34: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ34',
@@ -8056,6 +10180,12 @@ export const transformResult = {
     AJ35: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ35',
@@ -8075,6 +10205,12 @@ export const transformResult = {
     AJ36: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ36',
@@ -8094,6 +10230,12 @@ export const transformResult = {
     AJ37: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ37',
@@ -8113,6 +10255,12 @@ export const transformResult = {
     AJ38: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ38',
@@ -8132,6 +10280,12 @@ export const transformResult = {
     AJ39: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ39',
@@ -8151,6 +10305,12 @@ export const transformResult = {
     AJ40: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ40',
@@ -8170,6 +10330,12 @@ export const transformResult = {
     AJ41: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ41',
@@ -8189,6 +10355,12 @@ export const transformResult = {
     AJ43: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ43',
@@ -8208,6 +10380,12 @@ export const transformResult = {
     AJ44: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ44',
@@ -8227,6 +10405,12 @@ export const transformResult = {
     AJ45: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ45',
@@ -8246,6 +10430,12 @@ export const transformResult = {
     AJ46: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ46',
@@ -8265,6 +10455,12 @@ export const transformResult = {
     AJ47: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AJ47',
@@ -8284,6 +10480,12 @@ export const transformResult = {
     AK17: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK17',
@@ -8303,6 +10505,12 @@ export const transformResult = {
     AK18: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK18',
@@ -8322,6 +10530,12 @@ export const transformResult = {
     AK19: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK19',
@@ -8341,6 +10555,12 @@ export const transformResult = {
     AK20: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK20',
@@ -8360,6 +10580,12 @@ export const transformResult = {
     AK21: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK21',
@@ -8379,6 +10605,12 @@ export const transformResult = {
     AK22: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK22',
@@ -8398,6 +10630,12 @@ export const transformResult = {
     AK23: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK23',
@@ -8417,6 +10655,12 @@ export const transformResult = {
     AK24: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK24',
@@ -8436,6 +10680,12 @@ export const transformResult = {
     AK25: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK25',
@@ -8455,6 +10705,12 @@ export const transformResult = {
     AK26: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK26',
@@ -8474,6 +10730,12 @@ export const transformResult = {
     AK27: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK27',
@@ -8493,6 +10755,12 @@ export const transformResult = {
     AK28: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK28',
@@ -8512,6 +10780,12 @@ export const transformResult = {
     AK31: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK31',
@@ -8531,6 +10805,12 @@ export const transformResult = {
     AK32: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK32',
@@ -8550,6 +10830,12 @@ export const transformResult = {
     AK33: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK33',
@@ -8569,6 +10855,12 @@ export const transformResult = {
     AK34: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK34',
@@ -8588,6 +10880,12 @@ export const transformResult = {
     AK35: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK35',
@@ -8607,6 +10905,12 @@ export const transformResult = {
     AK36: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK36',
@@ -8626,6 +10930,12 @@ export const transformResult = {
     AK37: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK37',
@@ -8645,6 +10955,12 @@ export const transformResult = {
     AK38: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK38',
@@ -8664,6 +10980,12 @@ export const transformResult = {
     AK39: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK39',
@@ -8683,6 +11005,12 @@ export const transformResult = {
     AK40: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK40',
@@ -8702,6 +11030,12 @@ export const transformResult = {
     AK41: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK41',
@@ -8721,6 +11055,12 @@ export const transformResult = {
     AK42: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK42',
@@ -8740,6 +11080,12 @@ export const transformResult = {
     AK43: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK43',
@@ -8759,6 +11105,12 @@ export const transformResult = {
     AK44: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK44',
@@ -8778,6 +11130,12 @@ export const transformResult = {
     AK45: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK45',
@@ -8797,6 +11155,12 @@ export const transformResult = {
     AK46: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK46',
@@ -8816,6 +11180,12 @@ export const transformResult = {
     AK47: {
       t: 'n',
       v: 2.5,
+      c: [
+        {
+          a: 'asdf',
+          t: '<5'
+        }
+      ],
       w: '2.5',
       meta: {
         address: 'AK47',
@@ -8835,8 +11205,8 @@ export const transformResult = {
   },
   scope: {
     s: {
-      c: 0,
-      r: 0
+      c: 1,
+      r: 16
     },
     e: {
       c: 38,
