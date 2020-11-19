@@ -4,13 +4,12 @@ import {
   DISCARD_TRANSFORM_RESULT,
   LOAD_WORKBOOK,
   OPEN_PREVIEW,
+  SAVE_FILENAME,
   SAVE_TRANSFORM_RESULT,
   SELECT_SHEET,
   SET_PROCESSING,
   SET_TRANSFORM_SETTINGS,
-  UNLOAD_WORKBOOK,
-  SAVE_FILENAME,
-  OPEN_SNACKBAR
+  UNLOAD_WORKBOOK
 } from './types'
 
 export interface EditorState {
@@ -21,7 +20,6 @@ export interface EditorState {
   isProcessing: boolean
   transformResult: TransformResult | null
   previewOpen: boolean
-  snackbar: Snackbar
 }
 
 export interface RawFile {
@@ -37,11 +35,6 @@ export interface TransformSettings {
   ulTransform: string
   olTrigger: string
   olTransform: string
-}
-
-export interface Snackbar {
-  open: boolean
-  message: string
 }
 
 export interface DataUrlCollection {
@@ -172,11 +165,6 @@ export interface SaveFilenameAction {
   name: string
 }
 
-export interface OpenSnackbarAction {
-  type: typeof OPEN_SNACKBAR
-  message: string
-}
-
 export type EditorActionTypes =
   | LoadWorkbookAction
   | UnloadWorkbookAction
@@ -188,4 +176,3 @@ export type EditorActionTypes =
   | ClosePreviewAction
   | DiscardTransformResultAction
   | SaveFilenameAction
-  | OpenSnackbarAction

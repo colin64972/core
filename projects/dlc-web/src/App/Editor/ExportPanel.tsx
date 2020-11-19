@@ -1,5 +1,4 @@
 import { exportFile } from '@cjo3/shared/logic/dlc'
-import { ExportType } from '../../store/editor/interfaces'
 import {
   currentSheetName as currentSheetNameMock,
   sheetData as sheetDataMock,
@@ -13,6 +12,7 @@ import { loadStripe } from '@stripe/stripe-js'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { exportButtons } from '../../constants'
+import { ExportType } from '../../store/editor/interfaces'
 import {
   currentSheetNameSelector,
   sheetDataSelector,

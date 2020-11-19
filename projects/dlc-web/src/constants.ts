@@ -72,3 +72,5 @@ export const topNavItems = [
     label: 'Error'
   }
 ]
+
+export const SNACKBAR_TIMEOUT = 5000

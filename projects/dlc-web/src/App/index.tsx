@@ -2,17 +2,18 @@ import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 import { CssBaseline, Snackbar } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router'
 import { Route, Switch } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
+import { SNACKBAR_TIMEOUT } from '../constants'
+import { closeSnackbar } from '../store/app/actions'
+import { Snackbar as ISnackbar } from '../store/app/interfaces'
+import { snackbarSelector } from '../store/selectors'
 import { Editor } from './Editor'
 import { ExportPanel } from './Editor/ExportPanel'
 import { Footer } from './Footer'
 import { Home } from './Home'
 import { NotFound } from './NotFound'
-import { snackbarSelector } from '../store/selectors'
-import { Snackbar as ISnackbar } from '../store/editor/interfaces'
-import { closeSnackbar } from '../store/editor/actions'
 import { TopNav } from './TopNav'
 
 const useStyles = makeStyles(theme => ({
@@ -48,22 +49,32 @@ export const App: React.FC = (): JSX.Element => {
 
   const snackbar: ISnackbar = useSelector(snackbarSelector)
 
+  let snackbarTimeout
+
   const closeSnackbarHandler = (
-    event: React.MouseEvent<HTMLButtonElement>
+    event: React.MouseEvent<HTMLButtonElement>,
+    reason: string
   ): void => {
-    dispatch(closeSnackbar())
+    if (snackbarTimeout && reason === 'clickaway') {
+      dispatch(closeSnackbar())
+      clearTimeout(snackbarTimeout)
+    } else {
+      snackbarTimeout = setTimeout(() => {
+        dispatch(closeSnackbar())
+      }, SNACKBAR_TIMEOUT)
+    }
   }
 
   return (
     <CssBaseline>
       <div className={classes.App_pageContainer}>
         <Snackbar
+          key={snackbar.key}
           anchorOrigin={{
             vertical: 'top',
             horizontal: 'left'
           }}
           open={snackbar.open}
-          autoHideDuration={5000}
           onClose={closeSnackbarHandler}
           message={snackbar.message}
         />

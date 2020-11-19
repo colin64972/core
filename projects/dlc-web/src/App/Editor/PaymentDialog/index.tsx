@@ -1,4 +1,6 @@
+import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 import { StripeBanner } from '@cjo3/shared/react/components/StripeBanner'
+import { createHashId } from '@cjo3/shared/react/helpers'
 import { Button, Dialog, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import CachedIcon from '@material-ui/icons/Cached'
@@ -7,11 +9,11 @@ import HttpsIcon from '@material-ui/icons/Https'
 import PaymentIcon from '@material-ui/icons/Payment'
 import { useElements, useStripe } from '@stripe/react-stripe-js'
 import { StripeElement } from '@stripe/stripe-js'
-import { useDispatch } from 'react-redux'
-import { openSnackbar } from '../../../store/editor/actions'
 import clsx from 'clsx'
 import { Form, Formik, FormikValues } from 'formik'
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { openSnackbar } from '../../../store/app/actions'
 import { ExportType } from '../../../store/editor/interfaces'
 import { makePreOrder } from '../../fetchers'
 import { FormikField } from '../FormikField'
@@ -158,12 +160,23 @@ export const PaymentDialog: React.FC<Props> = ({
 
       await stripe.confirmCardPayment(clientSecret, options)
 
-      dispatch(openSnackbar('File exported. Thank you for your purchase!'))
+      dispatch(
+        openSnackbar(
+          'File exported. Thank you for your purchase!',
+          createHashId()
+        )
+      )
 
       sendExport(exportType.name, exportType.bookType)
+
       closeHandler()
     } catch (error) {
-      dispatch(openSnackbar('Something went wrong. Please try again later.'))
+      dispatch(
+        openSnackbar(
+          'Something went wrong. Please try again later.',
+          createHashId()
+        )
+      )
 
       closeHandler()
     }
@@ -205,6 +218,7 @@ export const PaymentDialog: React.FC<Props> = ({
           validationSchema={PaymentFormSchema}>
           {({ isValid, isSubmitting, dirty, setValues, ...props }) => (
             <Form className={classes.PaymentDialog_form}>
+              <BackDropScreen isOpen={isSubmitting} spinner />
               <div className={classes.PaymentDialog_grid1}>
                 <FormikCardElement name="cardNumber" label="Card Number" />
               </div>

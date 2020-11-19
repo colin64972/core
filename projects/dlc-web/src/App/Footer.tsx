@@ -1,6 +1,6 @@
+import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
 import { PrivacyPolicy } from '@cjo3/shared/react/components/PrivacyPolicy'
 import { TermsAndConditions } from '@cjo3/shared/react/components/TermsAndConditions'
-import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
 import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 import { Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'

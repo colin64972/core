@@ -1,7 +1,3 @@
-import {
-  sheetData as sheetDataMock,
-  transformResult as transformResultMock
-} from '@cjo3/shared/react/mocks/dlc'
 import { convertSheetOptions } from '@cjo3/shared/react/xlsx'
 import {
   Table,

@@ -7,8 +7,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { WorkBook } from 'xlsx'
 import {
   loadWorkbook,
-  unloadWorkbook,
-  saveFilename
+  saveFilename,
+  unloadWorkbook
 } from '../../store/editor/actions'
 import { RawFile } from '../../store/editor/interfaces'
 import { workbookSelector } from '../../store/selectors'

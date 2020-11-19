@@ -1,8 +1,8 @@
 import {
   ALPHA_ONLY_STRING,
   DETICTION_LIMIT_TRIGGER,
-  EXCEL_CELL_ADDRESS,
-  EMAIL_ADDRESS
+  EMAIL_ADDRESS,
+  EXCEL_CELL_ADDRESS
 } from '@cjo3/shared/raw/constants/regex'
 import * as Yup from 'yup'
 import { schemaErrors, transformFunctionValues } from '../../constants'

@@ -1,10 +1,10 @@
-import { Button } from '@material-ui/core'
 import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
+import { Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import ErrorIcon from '@material-ui/icons/Error'
-import clsx from 'clsx'
 import HomeIcon from '@material-ui/icons/Home'
 import SettingsIcon from '@material-ui/icons/Settings'
+import clsx from 'clsx'
 import React from 'react'
 import { topNavItems } from '../constants'
 

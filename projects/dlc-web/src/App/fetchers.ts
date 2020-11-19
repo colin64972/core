@@ -1,5 +1,5 @@
-import { post } from 'axios'
 import { addAuthHeaderToOptions } from '@cjo3/shared/security/authToken'
+import { post } from 'axios'
 
 const otherHeaders = {
   headers: {
