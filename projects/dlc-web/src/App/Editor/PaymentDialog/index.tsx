@@ -1,6 +1,5 @@
 import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 import { StripeBanner } from '@cjo3/shared/react/components/StripeBanner'
-import { createHashId } from '@cjo3/shared/react/helpers'
 import { Button, Dialog, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import CachedIcon from '@material-ui/icons/Cached'
@@ -10,11 +9,12 @@ import PaymentIcon from '@material-ui/icons/Payment'
 import { useElements, useStripe } from '@stripe/react-stripe-js'
 import { StripeElement } from '@stripe/stripe-js'
 import clsx from 'clsx'
+import { saveAs } from 'file-saver'
 import { Form, Formik, FormikValues } from 'formik'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { openSnackbar } from '../../../store/app/actions'
-import { ExportType } from '../../../store/editor/interfaces'
+import { ExportData } from '../../../store/editor/interfaces'
 import { makePreOrder } from '../../fetchers'
 import { FormikField } from '../FormikField'
 import { PaymentFormSchema } from '../validationSchemas'
@@ -110,15 +110,13 @@ const useStyles = makeStyles(theme => ({
 interface Props {
   open: boolean
   closeHandler: () => void
-  sendExport: (name: string, bookType: string) => void
-  exportType: ExportType
+  exportData: ExportData
 }
 
 export const PaymentDialog: React.FC<Props> = ({
   open,
   closeHandler,
-  sendExport,
-  exportType
+  exportData
 }): JSX.Element => {
   const classes = useStyles()
 
@@ -161,21 +159,13 @@ export const PaymentDialog: React.FC<Props> = ({
       await stripe.confirmCardPayment(clientSecret, options)
 
       dispatch(
-        openSnackbar(
-          'File exported. Thank you for your purchase!',
-          createHashId(),
-          'success'
-        )
+        openSnackbar('File exported. Thank you for your purchase!', 'success')
       )
 
-      sendExport(exportType.name, exportType.bookType)
+      saveAs(exportData.blob, exportData.fileName)
     } catch (error) {
       dispatch(
-        openSnackbar(
-          'Something went wrong. Please try again later.',
-          createHashId(),
-          'error'
-        )
+        openSnackbar('Something went wrong. Please try again later.', 'error')
       )
     } finally {
       closeHandler()
@@ -244,7 +234,7 @@ export const PaymentDialog: React.FC<Props> = ({
                   type="submit"
                   color="primary"
                   variant="contained"
-                  disabled={!exportType || isSubmitting || !isValid || !dirty}
+                  disabled={!exportData || isSubmitting || !isValid || !dirty}
                   className={clsx(
                     classes.PaymentDialog_actionButton,
                     classes.PaymentDialog_submitButton

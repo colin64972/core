@@ -1,4 +1,5 @@
 import { AppActionTypes, AppState } from './interfaces'
+import { createHashId } from '@cjo3/shared/react/helpers'
 import { CLOSE_SNACKBAR, OPEN_SNACKBAR } from './types'
 
 export const initialState: AppState = {
@@ -21,8 +22,8 @@ export const appReducer = (
         snackbar: {
           open: true,
           message: action.message,
-          key: action.key,
-          severity: action.severity
+          severity: action.severity,
+          key: createHashId()
         }
       }
 

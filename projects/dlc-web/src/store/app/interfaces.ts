@@ -14,7 +14,6 @@ export interface Snackbar {
 export interface OpenSnackbarAction {
   type: typeof OPEN_SNACKBAR
   message: string
-  key: string
   severity: string
 }
 

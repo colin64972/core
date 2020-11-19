@@ -1,4 +1,4 @@
-import { exportFile } from '@cjo3/shared/logic/dlc'
+import { writeWorkbook } from '@cjo3/shared/logic/dlc'
 import {
   currentSheetName as currentSheetNameMock,
   sheetData as sheetDataMock,
@@ -10,9 +10,10 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { exportButtons } from '../../constants'
-import { ExportType } from '../../store/editor/interfaces'
+import { openSnackbar } from '../../store/app/actions'
+import { ExportData } from '../../store/editor/interfaces'
 import {
   currentSheetNameSelector,
   sheetDataSelector,
@@ -61,37 +62,46 @@ export const ExportPanel: React.FC = (): JSX.Element => {
     transformResult = transformResultMock
   }
 
+  const dispatch = useDispatch()
+
   const [paymentOpen, setPaymentOpen] = useState<boolean>(false)
-  const [exportType, setExportType] = useState<ExportType | null>(null)
+  const [exportData, setExportData] = useState<ExportData | null>(null)
 
   const openPaymentHandler = (
     event: React.MouseEvent<HTMLButtonElement>
   ): void => {
-    setExportType({
-      bookType: event.currentTarget.dataset.booktype,
-      name: event.currentTarget.name
-    })
-    setPaymentOpen(true)
-  }
-
-  const closePaymentHandler = (): void => {
-    setExportType(null)
-    setPaymentOpen(false)
-  }
-
-  const sendExport = (name: string, bookType: string) => {
     try {
-      return exportFile(
+      const wbBuffer = writeWorkbook(
         sheetData,
         transformResult.all,
         currentSheetName,
-        workbookName,
-        bookType,
-        name
+        event.currentTarget.dataset.booktype
       )
+
+      const fileName = `${workbookName}-edited.${event.currentTarget.name}`
+
+      const blob: Blob = new Blob([wbBuffer], {
+        type: 'application/octet-stream'
+      })
+
+      setExportData({
+        fileName,
+        blob
+      })
+      setPaymentOpen(true)
     } catch (error) {
-      throw error
+      dispatch(
+        openSnackbar(
+          'Sorry, file export cannot be processed at this time',
+          'error'
+        )
+      )
     }
+  }
+
+  const closePaymentHandler = (): void => {
+    setExportData(null)
+    setPaymentOpen(false)
   }
 
   return (
@@ -101,8 +111,7 @@ export const ExportPanel: React.FC = (): JSX.Element => {
           <PaymentDialog
             open={paymentOpen}
             closeHandler={closePaymentHandler}
-            sendExport={sendExport}
-            exportType={exportType}
+            exportData={exportData}
           />
         </Elements>
       )}

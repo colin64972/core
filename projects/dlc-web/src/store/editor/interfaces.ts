@@ -114,9 +114,9 @@ export interface CellValue {
   w: string
 }
 
-export interface ExportType {
-  name: string
-  bookType: string
+export interface ExportData {
+  fileName: string
+  blob: Blob
 }
 
 export interface LoadWorkbookAction {

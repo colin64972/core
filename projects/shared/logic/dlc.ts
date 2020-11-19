@@ -336,38 +336,30 @@ export const createPngDataUrl = (
   }
 }
 
-export const exportFile = (
+export const writeWorkbook = (
   sheetData: XLSX.Sheet,
   transformResults: TransformResultCellCollection,
   currentSheetName: string,
-  workbookName: string,
-  bookType: string,
-  ext: string
+  bookType: string
 ): void => {
-  try {
-    const output = mergeResults(sheetData, transformResults)
+  const output = mergeResults(sheetData, transformResults)
 
-    let outputSheetName: string = `${currentSheetName}-edited`.substring(0, 31)
+  const outputSheetName: string = `${currentSheetName}-edited`.substring(0, 31)
 
-    const wb: XLSX.WorkBook = {
-      Sheets: { [outputSheetName]: output },
-      SheetNames: [outputSheetName]
-    }
-
-    const file: string = workbookName.substring(
-      0,
-      workbookName.lastIndexOf('.')
-    )
-
-    return XLSX.writeFile(wb, `${file}-edited.${ext}`, {
-      type: 'file',
-      bookType,
-      cellDates: true,
-      compression: true
-    })
-  } catch (error) {
-    throw error
+  const wb: XLSX.WorkBook = {
+    Sheets: { [outputSheetName]: output },
+    SheetNames: [outputSheetName]
   }
+
+  const opts = {
+    type: 'array',
+    bookSST: false,
+    bookType,
+    cellDates: true,
+    compression: true
+  }
+
+  return XLSX.write(wb, opts)
 }
 
 export const setTransformStyle = (
