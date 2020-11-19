@@ -115,10 +115,14 @@ export const ExportPanel: React.FC = (): JSX.Element => {
           />
         </Elements>
       )}
-      <Typography variant="h5">Export Options</Typography>
+      <Typography variant="h5">
+        Export for only ${process.env.EXPORT_PRICE}
+      </Typography>
       <Typography variant="body1">
-        Copy or download your transformed sheet for only $
-        {process.env.EXPORT_PRICE}
+        Download your transformed sheet after purchase by selecting a file type
+        below. If your sheet cannot be exported, we will let you know before
+        checkout. Also, we do not save copies of exported sheets so please be
+        careful with them after download!
       </Typography>
       <ButtonGroup className={classes.ExportPanel_topMargin}>
         {exportButtons.map(item => (

@@ -141,7 +141,7 @@ export const PaymentDialog: React.FC<Props> = ({
     try {
       const { billingEmail } = values
 
-      const clientSecret = await makePreOrder()
+      const clientSecret = await makePreOrder(billingEmail)
 
       const options = {
         payment_method: {
@@ -199,7 +199,10 @@ export const PaymentDialog: React.FC<Props> = ({
             />
           </Grid>
           <Typography variant="body1" className={classes.PaymentDialog_intro}>
-            Complete the payment form and your download will be initiated
+            Complete the payment form and your download will be initiated.
+            Please note that since we value your privacy, no contact info is
+            required for purchase; however, no customer service can be provided
+            for such orders.
           </Typography>
         </Grid>
         <Formik

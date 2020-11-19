@@ -7,7 +7,7 @@ const otherHeaders = {
   }
 }
 
-export const makePreOrder = async () => {
+export const makePreOrder = async (email: string) => {
   let apiUrl = 'http://localhost:2000'
 
   if (process.env.NODE_ENV === 'production')
@@ -15,7 +15,7 @@ export const makePreOrder = async () => {
 
   const res = await post(
     `${apiUrl}/pre-order`,
-    null,
+    { email },
     addAuthHeaderToOptions(otherHeaders)
   )
   return res.data

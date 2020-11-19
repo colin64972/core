@@ -18,7 +18,8 @@ export const preOrder = async (body: BodyEvent, reqId: string) => {
     currency: 'cad',
     description: `${process.env.READABLE_PROJECT_NAME} sheet transform order ${reqId}`,
     metadata: {
-      orderId: reqId
+      orderId: reqId,
+      email: body.email
     }
   })
 
