@@ -1,6 +1,7 @@
 import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 import { CssBaseline, Snackbar } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import MuiAlert from '@material-ui/lab/Alert'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router'
@@ -75,9 +76,11 @@ export const App: React.FC = (): JSX.Element => {
             horizontal: 'left'
           }}
           open={snackbar.open}
-          onClose={closeSnackbarHandler}
-          message={snackbar.message}
-        />
+          onClose={closeSnackbarHandler}>
+          <MuiAlert elevation={6} variant="filled" severity={snackbar.severity}>
+            {snackbar.message}
+          </MuiAlert>
+        </Snackbar>
         {withNav && <TopNav style={classes.App_topNavPosition} />}
         <div className={classes.App_contentPosition}>
           <Switch>

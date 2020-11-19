@@ -359,7 +359,7 @@ export const exportFile = (
       workbookName.lastIndexOf('.')
     )
 
-    XLSX.writeFile(wb, `${file}-edited.${ext}`, {
+    return XLSX.writeFile(wb, `${file}-edited.${ext}`, {
       type: 'file',
       bookType,
       cellDates: true,

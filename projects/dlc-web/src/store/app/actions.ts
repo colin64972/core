@@ -1,10 +1,15 @@
 import { AppActionTypes } from './interfaces'
 import { CLOSE_SNACKBAR, OPEN_SNACKBAR } from './types'
 
-export const openSnackbar = (message: string, key: string): AppActionTypes => ({
+export const openSnackbar = (
+  message: string,
+  key: string,
+  severity: string
+): AppActionTypes => ({
   type: OPEN_SNACKBAR,
   message,
-  key
+  key,
+  severity
 })
 
 export const closeSnackbar = (): AppActionTypes => ({

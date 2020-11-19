@@ -79,15 +79,19 @@ export const ExportPanel: React.FC = (): JSX.Element => {
     setPaymentOpen(false)
   }
 
-  const sendExport = (name: string, bookType: string): void => {
-    exportFile(
-      sheetData,
-      transformResult.all,
-      currentSheetName,
-      workbookName,
-      bookType,
-      name
-    )
+  const sendExport = (name: string, bookType: string) => {
+    try {
+      return exportFile(
+        sheetData,
+        transformResult.all,
+        currentSheetName,
+        workbookName,
+        bookType,
+        name
+      )
+    } catch (error) {
+      throw error
+    }
   }
 
   return (

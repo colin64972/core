@@ -163,21 +163,21 @@ export const PaymentDialog: React.FC<Props> = ({
       dispatch(
         openSnackbar(
           'File exported. Thank you for your purchase!',
-          createHashId()
+          createHashId(),
+          'success'
         )
       )
 
       sendExport(exportType.name, exportType.bookType)
-
-      closeHandler()
     } catch (error) {
       dispatch(
         openSnackbar(
           'Something went wrong. Please try again later.',
-          createHashId()
+          createHashId(),
+          'error'
         )
       )
-
+    } finally {
       closeHandler()
     }
   }

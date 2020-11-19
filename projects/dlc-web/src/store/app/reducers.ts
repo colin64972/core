@@ -5,7 +5,8 @@ export const initialState: AppState = {
   snackbar: {
     open: false,
     message: '',
-    key: ''
+    key: '',
+    severity: ''
   }
 }
 
@@ -20,7 +21,8 @@ export const appReducer = (
         snackbar: {
           open: true,
           message: action.message,
-          key: action.key
+          key: action.key,
+          severity: action.severity
         }
       }
 

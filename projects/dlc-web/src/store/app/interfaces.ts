@@ -8,12 +8,14 @@ export interface Snackbar {
   key: string
   open: boolean
   message: string
+  severity: string
 }
 
 export interface OpenSnackbarAction {
   type: typeof OPEN_SNACKBAR
   message: string
   key: string
+  severity: string
 }
 
 export interface CloseSnackbarAction {
