@@ -1,4 +1,3 @@
-import colors from 'colors'
 import middy from '@middy/core'
 import { checkAuthorization } from '@cjo3/shared/security/authToken'
 import jsonBodyParser from '@middy/http-json-body-parser'

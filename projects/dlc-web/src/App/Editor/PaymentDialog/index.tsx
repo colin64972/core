@@ -7,6 +7,8 @@ import HttpsIcon from '@material-ui/icons/Https'
 import PaymentIcon from '@material-ui/icons/Payment'
 import { useElements, useStripe } from '@stripe/react-stripe-js'
 import { StripeElement } from '@stripe/stripe-js'
+import { useDispatch } from 'react-redux'
+import { openSnackbar } from '../../../store/editor/actions'
 import clsx from 'clsx'
 import { Form, Formik, FormikValues } from 'formik'
 import React from 'react'
@@ -120,6 +122,7 @@ export const PaymentDialog: React.FC<Props> = ({
 
   const stripe = useStripe()
   const elements = useElements()
+  const dispatch = useDispatch()
 
   const cardElementInitialValue: { status: boolean; message: string } = {
     status: false,
@@ -153,13 +156,15 @@ export const PaymentDialog: React.FC<Props> = ({
         }
       }
 
-      const res = await stripe.confirmCardPayment(clientSecret, options)
+      await stripe.confirmCardPayment(clientSecret, options)
+
+      dispatch(openSnackbar('File exported. Thank you for your purchase!'))
 
       sendExport(exportType.name, exportType.bookType)
-
       closeHandler()
     } catch (error) {
-      console.error(error)
+      dispatch(openSnackbar('Something went wrong. Please try again later.'))
+
       closeHandler()
     }
   }

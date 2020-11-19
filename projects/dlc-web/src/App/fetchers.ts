@@ -13,14 +13,10 @@ export const makePreOrder = async () => {
   if (process.env.NODE_ENV === 'production')
     apiUrl = process.env.API_URL + '/detection-limit-corrector'
 
-  try {
-    const res = await post(
-      `${apiUrl}/pre-order`,
-      null
-      // addAuthHeaderToOptions(otherHeaders)
-    )
-    return res.data
-  } catch (error) {
-    console.error(error)
-  }
+  const res = await post(
+    `${apiUrl}/pre-order`,
+    null,
+    addAuthHeaderToOptions(otherHeaders)
+  )
+  return res.data
 }

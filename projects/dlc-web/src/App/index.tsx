@@ -1,14 +1,18 @@
 import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
-import { CssBaseline } from '@material-ui/core'
+import { CssBaseline, Snackbar } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 import { useLocation } from 'react-router'
 import { Route, Switch } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
 import { Editor } from './Editor'
 import { ExportPanel } from './Editor/ExportPanel'
 import { Footer } from './Footer'
 import { Home } from './Home'
 import { NotFound } from './NotFound'
+import { snackbarSelector } from '../store/selectors'
+import { Snackbar as ISnackbar } from '../store/editor/interfaces'
+import { closeSnackbar } from '../store/editor/actions'
 import { TopNav } from './TopNav'
 
 const useStyles = makeStyles(theme => ({
@@ -33,12 +37,36 @@ const useStyles = makeStyles(theme => ({
 
 export const App: React.FC = (): JSX.Element => {
   const classes = useStyles()
+
+  const dispatch = useDispatch()
+
   let withNav = false
+
   const location = useLocation()
+
   withNav = location.pathname.includes('editor')
+
+  const snackbar: ISnackbar = useSelector(snackbarSelector)
+
+  const closeSnackbarHandler = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ): void => {
+    dispatch(closeSnackbar())
+  }
+
   return (
     <CssBaseline>
       <div className={classes.App_pageContainer}>
+        <Snackbar
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'left'
+          }}
+          open={snackbar.open}
+          autoHideDuration={5000}
+          onClose={closeSnackbarHandler}
+          message={snackbar.message}
+        />
         {withNav && <TopNav style={classes.App_topNavPosition} />}
         <div className={classes.App_contentPosition}>
           <Switch>

@@ -1,5 +1,4 @@
-import { TransformResult } from './editor/interfaces'
-import { editorReducer } from './editor/reducers'
+import { TransformResult, Snackbar } from './editor/interfaces'
 import { State } from './index'
 
 export const workbookSelector = (state: State) => state.editor.workbook
@@ -21,3 +20,6 @@ export const previewOpenSelector = (state: State): boolean =>
 
 export const workbookNameSelector = (state: State): string =>
   state.editor.workbookName
+
+export const snackbarSelector = (state: State): Snackbar =>
+  state.editor.snackbar

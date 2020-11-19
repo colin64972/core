@@ -9,7 +9,9 @@ import {
   SET_TRANSFORM_SETTINGS,
   UNLOAD_WORKBOOK,
   DISCARD_TRANSFORM_RESULT,
-  SAVE_FILENAME
+  SAVE_FILENAME,
+  OPEN_SNACKBAR,
+  CLOSE_SNACKBAR
 } from './types'
 
 export const initialState: EditorState = {
@@ -27,7 +29,11 @@ export const initialState: EditorState = {
     olTransform: ''
   },
   transformResult: null,
-  previewOpen: false
+  previewOpen: false,
+  snackbar: {
+    open: false,
+    message: ''
+  }
 }
 
 export const editorReducer = (
@@ -94,6 +100,20 @@ export const editorReducer = (
         transformResult: initialState.transformResult
       }
 
+    case OPEN_SNACKBAR:
+      return {
+        ...state,
+        snackbar: {
+          open: true,
+          message: action.message
+        }
+      }
+
+    case CLOSE_SNACKBAR:
+      return {
+        ...state,
+        snackbar: initialState.snackbar
+      }
     default:
       return state
   }

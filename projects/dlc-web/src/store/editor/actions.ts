@@ -14,7 +14,9 @@ import {
   SET_TRANSFORM_SETTINGS,
   UNLOAD_WORKBOOK,
   DISCARD_TRANSFORM_RESULT,
-  SAVE_FILENAME
+  SAVE_FILENAME,
+  OPEN_SNACKBAR,
+  CLOSE_SNACKBAR
 } from './types'
 
 export const loadWorkbook = (workbook: WorkBook): EditorActionTypes => ({
@@ -65,4 +67,13 @@ export const openPreview = (): EditorActionTypes => ({
 
 export const closePreview = (): EditorActionTypes => ({
   type: CLOSE_PREVIEW
+})
+
+export const openSnackbar = (message: string): EditorActionTypes => ({
+  type: OPEN_SNACKBAR,
+  message
+})
+
+export const closeSnackbar = (): EditorActionTypes => ({
+  type: CLOSE_SNACKBAR
 })
