@@ -45,7 +45,6 @@ export const schemaErrors = {
 }
 
 export const exportButtons = [
-  { label: 'CSV', name: 'csv', bookType: 'csv', key: createHashId() },
   {
     label: 'XLS',
     name: 'xls',

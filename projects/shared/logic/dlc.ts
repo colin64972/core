@@ -217,7 +217,7 @@ export const processSheet = (
 
       const cell: XLSX.CellObject = sheet[cur]
 
-      if (cell.t === 's' && cell.w !== '' && isInScope(cur, scope)) {
+      if (isInScope(cur, scope)) {
         temp[cur] = processCell(cur, cell)
       }
 
