@@ -48,10 +48,10 @@ export const Editor: React.FC = (): JSX.Element => {
           color="secondary"
           className={classes.Editor_header_instructionsButton}
           href={switchLinkRoutePath(
-            '/editor/instructions',
-            `${process.env.APP_ROOT_PATH}/editor/instructions`
+            '/editor/Guide',
+            `${process.env.APP_ROOT_PATH}/editor/Guide`
           )}>
-          Instructions
+          Guide
         </Button>
       </Grid>
       <FileLoader />
