@@ -3,25 +3,31 @@ import { Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
-  Guid_header: {
+  Guide_header: {
     maxWidth: 1280,
     padding: theme.custom.setSpace('sm')
   },
-  Guid_container: {
+  Guide_container: {
     maxWidth: 1280,
-    padding: theme.custom.setSpace('sm')
+    padding: theme.custom.setSpace('sm'),
+    background: theme.custom.setLinearGradient(
+      180,
+      theme.palette.grey[100],
+      'white'
+    )
   },
-  Guid_sectionTitle: {
-    marginTop: theme.custom.setSpace('sm')
+  Guide_sectionTitle: {
+    marginTop: theme.custom.setSpace('sm'),
+    textTransform: 'uppercase'
   },
-  Guid_sectionSubTitle: {
+  Guide_sectionSubTitle: {
     marginTop: theme.custom.setSpace()
   },
-  Guid_functionList: {
+  Guide_functionList: {
     margin: `${theme.custom.setSpace('sm')}px 0`,
     paddingLeft: theme.custom.setSpace('sm')
   },
-  Guid_functionListItem: {
+  Guide_functionListItem: {
     'marginBottom': theme.custom.setSpace(),
     '&:last-child': {
       marginBottom: 0
@@ -35,7 +41,7 @@ export const Guide: React.FC<Props> = (): JSX.Element => {
   const classes = useStyles()
   return (
     <Grid container justify="center">
-      <Grid item component="header" className={classes.Guid_header}>
+      <Grid item component="header" className={classes.Guide_header}>
         <Typography variant="h1" align="center">
           Guide
         </Typography>
@@ -47,19 +53,19 @@ export const Guide: React.FC<Props> = (): JSX.Element => {
           accusam sit sit, dolor.
         </Typography>
       </Grid>
-      <Grid container className={classes.Guid_container}>
+      <Grid container className={classes.Guide_container}>
         <Grid item xs={12}>
           <Typography
             variant="h3"
             color="primary"
-            className={classes.Guid_sectionTitle}>
+            className={classes.Guide_sectionTitle}>
             Loading a File
           </Typography>
           <Typography variant="body1">
             There are two methods for loading a file, selecting a file using the
             browser dialog, or dragging &amp; dropping.
           </Typography>
-          <Typography variant="h5" className={classes.Guid_sectionSubTitle}>
+          <Typography variant="h5" className={classes.Guide_sectionSubTitle}>
             Selecting a File
           </Typography>
           <Typography variant="body1">
@@ -68,7 +74,7 @@ export const Guide: React.FC<Props> = (): JSX.Element => {
             will be shown in a browser dialog. Navigate to the file you wish to
             use, and click &quot;Open&quot; or similar.
           </Typography>
-          <Typography variant="h5" className={classes.Guid_sectionSubTitle}>
+          <Typography variant="h5" className={classes.Guide_sectionSubTitle}>
             Drag and Drop
           </Typography>
           <Typography variant="body1">
@@ -78,7 +84,7 @@ export const Guide: React.FC<Props> = (): JSX.Element => {
             will darken in color and a light shadow will appear. Drop the file
             by releasing the mouse drag.
           </Typography>
-          <Typography variant="h5" className={classes.Guid_sectionSubTitle}>
+          <Typography variant="h5" className={classes.Guide_sectionSubTitle}>
             Accepted Files
           </Typography>
           <Typography variant="body1">
@@ -112,7 +118,7 @@ export const Guide: React.FC<Props> = (): JSX.Element => {
           <Typography
             variant="h3"
             color="primary"
-            className={classes.Guid_sectionTitle}>
+            className={classes.Guide_sectionTitle}>
             Selecting a Worksheet
           </Typography>
           <Typography variant="body1">
@@ -145,7 +151,7 @@ export const Guide: React.FC<Props> = (): JSX.Element => {
           <Typography
             variant="h3"
             color="primary"
-            className={classes.Guid_sectionTitle}>
+            className={classes.Guide_sectionTitle}>
             Editor Settings
           </Typography>
           <Typography variant="body1">
@@ -155,7 +161,7 @@ export const Guide: React.FC<Props> = (): JSX.Element => {
             your sheet data. There are three categories of options to set
             parameters for.
           </Typography>
-          <Typography variant="h5" className={classes.Guid_sectionSubTitle}>
+          <Typography variant="h5" className={classes.Guide_sectionSubTitle}>
             Scope Range
           </Typography>
           <Typography variant="body1">
@@ -180,7 +186,7 @@ export const Guide: React.FC<Props> = (): JSX.Element => {
             If left unset, the app will check and process all cells within the
             sheet.
           </Typography>
-          <Typography variant="h5" className={classes.Guid_sectionSubTitle}>
+          <Typography variant="h5" className={classes.Guide_sectionSubTitle}>
             Under Limit Settings
           </Typography>
           <Typography variant="body1">
@@ -207,20 +213,20 @@ export const Guide: React.FC<Props> = (): JSX.Element => {
             The &quot;Transform Function&quot; setting is where you set how you
             want to transform any instances of under limit values that the app
             finds. There are four options to choose from&#58;
-            <ol className={classes.Guid_functionList}>
-              <li className={classes.Guid_functionListItem}>
+            <ol className={classes.Guide_functionList}>
+              <li className={classes.Guide_functionListItem}>
                 <strong>Leave&#58;</strong> leaves behind the detection limit
                 value by removing the trigger character&#40;s&#41;.
               </li>
-              <li className={classes.Guid_functionListItem}>
+              <li className={classes.Guide_functionListItem}>
                 <strong>Halve&#58;</strong> divides the detection limit value by
                 2 and keeps significant figures intact.
               </li>
-              <li className={classes.Guid_functionListItem}>
+              <li className={classes.Guide_functionListItem}>
                 <strong>Zero&#58;</strong> changes any detection limit value
                 into a 0 number value.
               </li>
-              <li className={classes.Guid_functionListItem}>
+              <li className={classes.Guide_functionListItem}>
                 <strong>No transform&#58;</strong> does nothing to a detectin
                 limit value once found.
               </li>
@@ -238,7 +244,7 @@ export const Guide: React.FC<Props> = (): JSX.Element => {
             applied.
           </Typography>
 
-          <Typography variant="h5" className={classes.Guid_sectionSubTitle}>
+          <Typography variant="h5" className={classes.Guide_sectionSubTitle}>
             Over Limit Settings
           </Typography>
           <Typography variant="body1">
@@ -259,7 +265,7 @@ export const Guide: React.FC<Props> = (): JSX.Element => {
             like. This is a required setting.
           </Typography>
 
-          <Typography variant="h5" className={classes.Guid_sectionSubTitle}>
+          <Typography variant="h5" className={classes.Guide_sectionSubTitle}>
             Editor Settings Actions
           </Typography>
           <Typography variant="body1">
@@ -290,7 +296,7 @@ export const Guide: React.FC<Props> = (): JSX.Element => {
           <Typography
             variant="h3"
             color="primary"
-            className={classes.Guid_sectionTitle}>
+            className={classes.Guide_sectionTitle}>
             Transform Results
           </Typography>
           <Typography variant="body1">
@@ -301,7 +307,7 @@ export const Guide: React.FC<Props> = (): JSX.Element => {
             instances of a particular case were found, then no transformations
             were made, and the summary panel for that case will not be included.
           </Typography>
-          <Typography variant="h5" className={classes.Guid_sectionSubTitle}>
+          <Typography variant="h5" className={classes.Guide_sectionSubTitle}>
             Case Summaries
           </Typography>
           <Typography variant="body1">
@@ -314,7 +320,7 @@ export const Guide: React.FC<Props> = (): JSX.Element => {
             each cell that was transformed, along with the original and
             transformed values.
           </Typography>
-          <Typography variant="h5" className={classes.Guid_sectionSubTitle}>
+          <Typography variant="h5" className={classes.Guide_sectionSubTitle}>
             Viewing a Preview
           </Typography>
           <Typography variant="body1">
@@ -347,7 +353,7 @@ export const Guide: React.FC<Props> = (): JSX.Element => {
           <Typography
             variant="h3"
             color="primary"
-            className={classes.Guid_sectionTitle}>
+            className={classes.Guide_sectionTitle}>
             Exporting a Processed Sheet
           </Typography>
           <Typography variant="body1">
@@ -359,7 +365,7 @@ export const Guide: React.FC<Props> = (): JSX.Element => {
             your file export cannot be generated, you will be notified after
             clicking the export button and the payment form will not open.
           </Typography>
-          <Typography variant="h5" className={classes.Guid_sectionSubTitle}>
+          <Typography variant="h5" className={classes.Guide_sectionSubTitle}>
             Export Filetypes
           </Typography>
           <Typography variant="body1">
@@ -368,7 +374,7 @@ export const Guide: React.FC<Props> = (): JSX.Element => {
             &nbsp;
             <strong>Excel 97 &ndash; 2004 Workbook Format .xls</strong> formats.
           </Typography>
-          <Typography variant="h5" className={classes.Guid_sectionSubTitle}>
+          <Typography variant="h5" className={classes.Guide_sectionSubTitle}>
             Payment
           </Typography>
           <Typography variant="body1">
@@ -381,16 +387,16 @@ export const Guide: React.FC<Props> = (): JSX.Element => {
             Conditions and you&apos;re good to go.
           </Typography>
           <Typography variant="body1">
-            Please note that if you choose to not provide an email address, we
-            cannot provide any after&ndash;sale customer support as we have no
-            way of tracking down your order or purchase without an email. In
-            addition, even if you provide an email address, we cannot retreive
-            or resend any lost files since we not save any of our clients&apos;
-            processed sheets or data. If you have purchased and downloaded a
-            file export, please save it carefully for if you need a new copy, we
-            cannot provide a backup.
+            Please note that if you choose <strong>not</strong> to provide an
+            email address, we cannot provide any after&ndash;sale customer
+            support as we have no way of tracking down your order or purchase
+            without an email. In addition, even if you provide an email address,
+            we cannot retreive or resend any lost files since we do not save any
+            of our clients&apos; processed sheets or data. If you have purchased
+            and downloaded a file export, please save it carefully, for if you
+            need a new copy, we cannot provide a backup.
           </Typography>
-          <Typography variant="h5" className={classes.Guid_sectionSubTitle}>
+          <Typography variant="h5" className={classes.Guide_sectionSubTitle}>
             File Downloads
           </Typography>
           <Typography variant="body1">
@@ -403,6 +409,14 @@ export const Guide: React.FC<Props> = (): JSX.Element => {
             export will include a single sheet suffixed with the same
             &quot;&ndash;edited&quot; tag to denote it has been edited by our
             app.
+          </Typography>
+          <Typography variant="body1">
+            Exported files of <strong>Excel 2007&#43; XML Format .xlsx</strong>{' '}
+            type include comments containing the original cell data for easy
+            comparison. If you open up your sheet and see a swath of open
+            comments, you can quickly turn hide them by toggling the &quot;Show
+            All Comments&quot; button in the Excel &quot;Ribbon&quot; under the
+            &quot;Review&quot; tab.
           </Typography>
         </Grid>
       </Grid>

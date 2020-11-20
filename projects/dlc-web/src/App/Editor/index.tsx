@@ -48,8 +48,8 @@ export const Editor: React.FC = (): JSX.Element => {
           color="secondary"
           className={classes.Editor_header_instructionsButton}
           href={switchLinkRoutePath(
-            '/editor/Guide',
-            `${process.env.APP_ROOT_PATH}/editor/Guide`
+            '/editor/guide',
+            `${process.env.APP_ROOT_PATH}/editor/guide`
           )}>
           Guide
         </Button>

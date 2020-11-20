@@ -12,6 +12,10 @@ const pages = [
     path: `${process.env.APP_ROOT_PATH}/editor`
   },
   {
+    name: 'editorGuide',
+    path: `${process.env.APP_ROOT_PATH}/editor/guide`
+  },
+  {
     name: 'error',
     path: `${process.env.APP_ROOT_PATH}/*`
   }
