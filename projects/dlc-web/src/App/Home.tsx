@@ -2,7 +2,7 @@ import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 import { Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
-import { HomeHeader } from '../../assets'
+import { HomeHeader } from '../assets'
 
 const useStyles = makeStyles(theme => ({
   Home_contentContainer: {

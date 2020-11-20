@@ -9,7 +9,7 @@ import VpnLockIcon from '@material-ui/icons/VpnLock'
 import WebIcon from '@material-ui/icons/Web'
 import clsx from 'clsx'
 import React, { useState } from 'react'
-import { ProfilePic } from '../../assets/'
+import { ProfilePic } from '../assets'
 
 const useStyles = makeStyles(theme => ({
   Footer_container: {
