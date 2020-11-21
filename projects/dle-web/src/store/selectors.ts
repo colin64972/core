@@ -23,3 +23,5 @@ export const workbookNameSelector = (state: State): string =>
   state.converter.workbookName
 
 export const snackbarSelector = (state: State): Snackbar => state.app.snackbar
+
+export const tcOpenSelector = (state: State): boolean => state.app.tcOpen

@@ -1,4 +1,3 @@
-import { TermsAndConditions } from '@cjo3/shared/react/components/TermsAndConditions'
 import {
   Button,
   Checkbox,
@@ -10,6 +9,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import SearchIcon from '@material-ui/icons/Search'
 import { useDispatch } from 'react-redux'
 import { Field } from 'formik'
+import { toggleTc } from '../../../store/app/actions'
 import React from 'react'
 
 const useStyles = makeStyles(theme => ({
@@ -39,7 +39,7 @@ export const FormikAcceptTerms = () => {
   const dispatch = useDispatch()
 
   const openTAndCHandler = (): void => {
-    // dispatch(openTAndC(true))
+    dispatch(toggleTc(true))
   }
 
   const validator = value => {

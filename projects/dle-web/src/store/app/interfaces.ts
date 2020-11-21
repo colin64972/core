@@ -1,7 +1,8 @@
-import { CLOSE_SNACKBAR, OPEN_SNACKBAR } from './types'
+import { CLOSE_SNACKBAR, OPEN_SNACKBAR, TOGGLE_TC } from './types'
 
 export interface AppState {
   snackbar: Snackbar
+  tcOpen: boolean
 }
 
 export interface Snackbar {
@@ -19,6 +20,11 @@ export interface OpenSnackbarAction {
 
 export interface CloseSnackbarAction {
   type: typeof CLOSE_SNACKBAR
+}
+
+export interface ToggleTcAction {
+  type: typeof TOGGLE_TC
+  status: boolean
 }
 
 export type AppActionTypes = OpenSnackbarAction | CloseSnackbarAction

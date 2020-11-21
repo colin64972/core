@@ -10,6 +10,9 @@ import WebIcon from '@material-ui/icons/Web'
 import clsx from 'clsx'
 import React, { useState } from 'react'
 import { ProfilePic } from '../assets'
+import { useDispatch, useSelector } from 'react-redux'
+import { tcOpenSelector } from '../store/selectors'
+import { toggleTc } from '../store/app/actions'
 
 const useStyles = makeStyles(theme => ({
   Footer_container: {
@@ -95,13 +98,19 @@ interface Props {
 export const Footer: React.FC<Props> = ({ style }): JSX.Element => {
   const classes = useStyles()
 
-  const [TAndCOpen, setTAndCOpen] = useState<boolean>(false)
+  const dispatch = useDispatch()
+
+  const tcOpen = useSelector(tcOpenSelector)
 
   const [PPOpen, setPPOpen] = useState<boolean>(false)
 
-  const openTAndCHandler = (): void => setTAndCOpen(true)
+  const openTAndCHandler = (): void => {
+    dispatch(toggleTc(true))
+  }
 
-  const closeTAndCHandler = (): void => setTAndCOpen(false)
+  const closeTAndCHandler = (): void => {
+    dispatch(toggleTc(false))
+  }
 
   const openPPHandler = (): void => setPPOpen(true)
 
@@ -185,9 +194,9 @@ export const Footer: React.FC<Props> = ({ style }): JSX.Element => {
           </Typography>
         </Grid>
       </Grid>
-      {TAndCOpen && (
+      {tcOpen && (
         <TermsAndConditions
-          open={TAndCOpen}
+          open={tcOpen}
           closeHandler={closeTAndCHandler}
           siteName={process.env.SITE_NAME}
           siteUrl={process.env.SITE_URL}
