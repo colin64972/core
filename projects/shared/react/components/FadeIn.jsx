@@ -5,9 +5,11 @@ import { useInView } from 'react-intersection-observer'
 
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   innerClass: {
-    ...theme.custom.setFlex(),
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     width: '100%',
     opacity: 0
   }

@@ -1,13 +1,12 @@
-import { Header } from '@cjo3/shared/react/components/Header'
+import { Header } from './Header'
 import { Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 import { HomeHeader } from '../assets'
+import { theme } from '../theme'
 
 const useStyles = makeStyles(theme => ({
-  Home_container: {
-    // height: '100%'
-  }
+  Home_container: {}
 }))
 
 export const Home: React.FC = (): JSX.Element => {
@@ -15,6 +14,7 @@ export const Home: React.FC = (): JSX.Element => {
   return (
     <Grid container className={classes.Home_container}>
       <Header
+        name="Home"
         title={process.env.APP_NAME}
         subTitle="Quickly change detection limit values"
         bgColor="theme.palette.primary.main"

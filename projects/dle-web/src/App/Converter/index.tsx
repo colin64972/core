@@ -1,4 +1,4 @@
-import { Header } from '@cjo3/shared/react/components/Header'
+import { Header } from '../Header'
 import { Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
@@ -6,6 +6,7 @@ import { FileLoader } from './FileLoader'
 import { SheetSelector } from './SheetSelector'
 import { TransformResults } from './TransformResults'
 import { TransformSettings } from './TransformSettings'
+import { theme } from '../../theme'
 
 const useStyles = makeStyles(theme => ({
   Converter_headerBg: {
@@ -35,6 +36,8 @@ export const Converter: React.FC = (): JSX.Element => {
   return (
     <Grid container justify="center">
       <Header
+        name="Converter"
+        theme={theme}
         title="Converter"
         subTitle="Load a File and Process your Sheet"
         bgColor="theme.palette.primary.main"

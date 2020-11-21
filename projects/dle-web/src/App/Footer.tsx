@@ -1,6 +1,6 @@
 import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
-import { PrivacyPolicy } from '@cjo3/shared/react/components/PrivacyPolicy'
-import { TermsAndConditions } from '@cjo3/shared/react/components/TermsAndConditions'
+import { PrivacyPolicy } from './PrivacyPolicy'
+import { TermsAndConditions } from './TermsAndConditions'
 import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 import { Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
@@ -171,7 +171,7 @@ export const Footer: React.FC<Props> = ({ style }): JSX.Element => {
             </Typography>
             <ImageHandler
               asset={ProfilePic}
-              styleClass={classes.Footer_badgeProfilePic}
+              outerClass={classes.Footer_badgeProfilePic}
             />
           </Grid>
           <Typography variant="body1" className={classes.Footer_badgeSubtitle}>

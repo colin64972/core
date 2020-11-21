@@ -1,7 +1,8 @@
-import { Header } from '@cjo3/shared/react/components/Header'
+import { Header } from '../Header'
 import { Grid, Paper, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
+import { theme } from '../../theme'
 
 const useStyles = makeStyles(theme => ({
   Guide_section: {
@@ -57,6 +58,8 @@ export const Guide: React.FC = (): JSX.Element => {
   return (
     <Grid container justify="center">
       <Header
+        name="ConverterGuide"
+        theme={theme}
         title="Converter Guide"
         subTitle="How to Use this App"
         bgColor="theme.palette.primary.main"

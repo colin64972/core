@@ -8,8 +8,9 @@ import {
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import SearchIcon from '@material-ui/icons/Search'
+import { useDispatch } from 'react-redux'
 import { Field } from 'formik'
-import React, { useState } from 'react'
+import React from 'react'
 
 const useStyles = makeStyles(theme => ({
   AcceptTerms_checkboxPadding: {
@@ -35,11 +36,11 @@ const useStyles = makeStyles(theme => ({
 export const FormikAcceptTerms = () => {
   const classes = useStyles()
 
-  const [TAndCOpen, setTAndCOpen] = useState<boolean>(false)
+  const dispatch = useDispatch()
 
-  const openTAndCHandler = (): void => setTAndCOpen(true)
-
-  const closeTAndCHandler = (): void => setTAndCOpen(false)
+  const openTAndCHandler = (): void => {
+    // dispatch(openTAndC(true))
+  }
 
   const validator = value => {
     if (!value)
@@ -69,13 +70,6 @@ export const FormikAcceptTerms = () => {
                   className={classes.AcceptTerms_termsButton}>
                   <SearchIcon className={classes.AcceptTerms_termsButtonIcon} />
                 </Button>
-                <TermsAndConditions
-                  open={TAndCOpen}
-                  closeHandler={closeTAndCHandler}
-                  siteName={process.env.SITE_NAME}
-                  siteUrl={process.env.SITE_URL}
-                  siteContactEmail={process.env.SITE_CONTACT_EMAIL}
-                />
               </div>
             }
             classes={{

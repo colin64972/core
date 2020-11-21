@@ -11,16 +11,15 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     height: '100%',
     borderRadius: theme.custom.setSpace() / 4,
-    backgroundColor: theme.palette.primary[300],
+    backgroundColor: theme.palette.primary.main,
     transition: 'all 250ms linear'
   },
   DropSelector_dragColor: {
-    boxShadow: theme.custom.boxShadow,
-    backgroundColor: theme.palette.primary[400]
+    boxShadow: theme.custom.boxShadow
   },
   DropSelector_dropIcon: {
-    color: theme.palette.grey[50],
-    fontSize: theme.typography.fontSize * 10
+    color: theme.palette.primary[50],
+    fontSize: `${theme.custom.setSpace('lg')}px !important`
   }
 }))
 

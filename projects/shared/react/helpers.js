@@ -124,3 +124,16 @@ export const generatePreRenders = (pages, app, store) =>
     }
     return temp
   }, {})
+
+export const setSrcSet = (paths, format = null) =>
+  paths
+    .reduce((acc, cur, ind) => {
+      let result = acc
+      let filePath = cur
+      if (format === 'webp') {
+        filePath = cur.replace(/.\w+$/i, '.webp')
+      }
+      result += `${filePath} ${ind + 1}x, `
+      return result
+    }, '')
+    .replace(/,\s$/i, '')

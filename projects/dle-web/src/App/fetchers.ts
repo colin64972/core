@@ -14,7 +14,7 @@ export const makePreOrder = async (email: string) => {
     apiUrl = `${process.env.API_URL}/${process.env.CDN_APP_FOLDER}`
 
   const res = await post(
-    `${apiUrl}/pre-order`,
+    `${apiUrl}/payment`,
     { email },
     addAuthHeaderToOptions(otherHeaders)
   )

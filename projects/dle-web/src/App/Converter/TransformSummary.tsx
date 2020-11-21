@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   doubleArrow: {
-    fontSize: theme.typography.fontSize * 10,
+    fontSize: `${theme.typography.fontSize * 10}px !important`,
     color: 'white',
     opacity: 0.25
   },

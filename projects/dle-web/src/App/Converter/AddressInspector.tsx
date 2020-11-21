@@ -27,6 +27,9 @@ const useStyles = makeStyles(theme => ({
       color: theme.palette.grey[50]
     }
   },
+  AddressInspector_transformRow: {
+    marginTop: theme.custom.setSpace()
+  },
   AddressInspector_doubleArrow: {
     fontSize: theme.typography.fontSize * 1.5,
     color: theme.palette.grey[800]
@@ -88,7 +91,11 @@ export const AddressInspector: React.FC<Props> = ({
                     variant: 'h5'
                   }}
                 />
-                <Grid container justify="center" alignItems="center">
+                <Grid
+                  container
+                  justify="center"
+                  alignItems="center"
+                  className={classes.AddressInspector_transformRow}>
                   <div style={originalStyle} />
                   &emsp;
                   <DoubleArrowIcon
