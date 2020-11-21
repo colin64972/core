@@ -9,15 +9,15 @@ import {
 } from '../../store/editor/interfaces'
 
 const useStyles = makeStyles(theme => ({
-  TransformResults_sideDrawer: {
+  AddressInspector_sideDrawer: {
     ...theme.custom.setFlex('column'),
     padding: theme.custom.setSpace(),
     backgroundColor: theme.palette.grey[900]
   },
-  TransformResults_innerList: {
+  AddressInspector_innerList: {
     height: '100%'
   },
-  TransformResults_addressListItem: {
+  AddressInspector_addressListItem: {
     'marginTop': theme.custom.setSpace(),
     ...theme.custom.noSelect,
     ...theme.custom.setFlex('column'),
@@ -64,10 +64,10 @@ export const AddressInspector: React.FC<Props> = ({
       onClose={closeDrawerHandler}
       PaperProps={{
         classes: {
-          root: classes.TransformResults_sideDrawer
+          root: classes.AddressInspector_sideDrawer
         }
       }}>
-      <List className={classes.TransformResults_innerList}>
+      <List className={classes.AddressInspector_innerList}>
         {drawerDataName &&
           addresses.map(address => {
             const transformImage =
@@ -79,7 +79,7 @@ export const AddressInspector: React.FC<Props> = ({
             return (
               <ListItem
                 key={`drawer-data-item-${address}`}
-                className={classes.TransformResults_addressListItem}
+                className={classes.AddressInspector_addressListItem}
                 alignItems="center">
                 <ListItemText
                   primary={address}

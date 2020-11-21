@@ -55,17 +55,17 @@ const setStripeValue = (meta, name, setValue) => {
 }
 
 const useStyles = makeStyles(theme => ({
-  inputLabel: {
+  StripeElement_inputLabel: {
     position: 'relative',
     top: -25,
     transition: 'font-size 250ms linear',
     fontSize: theme.typography.fontSize,
     marginBottom: theme.custom.setSpace() / 4
   },
-  inputLabelShrink: {
+  StripeElement_inputLabelShrink: {
     fontSize: theme.typography.fontSize * 0.75
   },
-  stripeBase: {
+  StripeElement_stripeBase: {
     'padding': '6px 0 7px 0',
     'transition': 'border 250ms linear',
     'borderBottom': '1px solid rgb(118, 118, 118)',
@@ -73,19 +73,19 @@ const useStyles = makeStyles(theme => ({
       borderBottom: `2px solid ${theme.palette.primary.main}`
     }
   },
-  stripeComplete: {
+  StripeElement_stripeComplete: {
     borderBottom: '1px solid rgb(118, 118, 118)'
   },
-  stripeFocus: {
+  StripeElement_stripeFocus: {
     borderBottom: `2px solid ${theme.palette.primary.main}`
   },
-  stripeInvalid: {
+  StripeElement_stripeInvalid: {
     'borderBottom': `2px solid ${theme.palette.error.main}`,
     '&:hover': {
       borderBottom: `2px solid ${theme.palette.error.main}`
     }
   },
-  fontSize: {
+  StripeElement_fontSize: {
     fontSize: `${theme.typography.fontSize}px`
   }
 }))
@@ -118,8 +118,8 @@ export const FormikCardElement: React.FC<Props> = ({
           error={meta.touched && !field.value?.status}>
           <InputLabel
             htmlFor={`stripe-element-${field.name}`}
-            className={clsx(classes.inputLabel, {
-              [classes.inputLabelShrink]: fieldIsDirty(meta)
+            className={clsx(classes.StripeElement_inputLabel, {
+              [classes.StripeElement_inputLabelShrink]: fieldIsDirty(meta)
             })}>
             {label}
           </InputLabel>
@@ -128,10 +128,10 @@ export const FormikCardElement: React.FC<Props> = ({
             options={{
               style: inputStyle,
               classes: {
-                base: classes.stripeBase,
-                complete: classes.stripeComplete,
-                focus: classes.stripeFocus,
-                invalid: classes.stripeInvalid
+                base: classes.StripeElement_stripeBase,
+                complete: classes.StripeElement_stripeComplete,
+                focus: classes.StripeElement_stripeFocus,
+                invalid: classes.StripeElement_stripeInvalid
               }
             }}
             onChange={elementMeta =>

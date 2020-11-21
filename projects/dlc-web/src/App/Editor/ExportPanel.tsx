@@ -105,7 +105,7 @@ export const ExportPanel: React.FC = (): JSX.Element => {
   }
 
   return (
-    <Grid item xs={12} sm={6} className={classes.ExportPanel_container}>
+    <Grid className={classes.ExportPanel_container}>
       {paymentOpen && (
         <Elements stripe={stripePromise}>
           <PaymentDialog

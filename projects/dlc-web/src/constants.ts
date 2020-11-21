@@ -73,3 +73,21 @@ export const topNavItems = [
 ]
 
 export const SNACKBAR_TIMEOUT = 5000
+
+export const summaryPanels = [
+  {
+    caseType: 'ul',
+    title: 'Under Limit Cases',
+    key: createHashId()
+  },
+  {
+    caseType: 'ol',
+    title: 'Over Limit Cases',
+    key: createHashId()
+  },
+  {
+    caseType: 'zero',
+    title: 'Zero Trigger Cases',
+    key: createHashId()
+  }
+]

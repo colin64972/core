@@ -5,6 +5,7 @@ import {
   LinearProgress,
   Typography
 } from '@material-ui/core'
+import { summaryPanels } from '../../constants'
 import { makeStyles } from '@material-ui/core/styles'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -25,25 +26,15 @@ import { Preview } from './Preview/'
 import { TransformSummary } from './TransformSummary'
 
 const useStyles = makeStyles(theme => ({
-  TransformResults_bg: {
-    padding: theme.custom.setSpace('sm'),
+  TransformResults_containerBg: {
     backgroundColor: theme.palette.grey[300]
+  },
+  TransformResults_contentContainer: {
+    ...theme.custom.contentContainer,
+    padding: theme.custom.setSpace('sm')
   },
   TransformResults_changeSummaries: {
     marginTop: theme.custom.setSpace('sm')
-  },
-  TransformResults_sideDrawer: {
-    ...theme.custom.setFlex('column'),
-    height: '100%',
-    padding: theme.custom.setSpace(),
-    backgroundColor: theme.palette.grey[900]
-  },
-  TransformResults_addressListItem: {
-    'transition': 'all 250ms linear',
-    'color': theme.palette.grey[400],
-    '&:hover': {
-      color: theme.palette.grey[50]
-    }
   },
   TransformResults_intro: {
     paddingRight: theme.custom.setSpace('sm'),
@@ -52,7 +43,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   TransformResults_previewButton: {
-    margin: `${theme.custom.setSpace('sm')}px 0 0 0`,
+    marginTop: theme.custom.setSpace('sm'),
     color: theme.palette.primary[50]
   }
 }))
@@ -111,72 +102,54 @@ export const TransformResults: React.FC = (): JSX.Element => {
       container
       component="section"
       justify="center"
-      alignItems="center"
       data-testid="TransformResults"
-      className={classes.TransformResults_bg}>
-      {previewOpen && <Preview />}
-      <Hidden xsDown>
-        <Grid item md={1} xl={2} />
-      </Hidden>
-      <Grid item xs={12} md={10} xl={8}>
-        <Grid container alignItems="flex-end">
-          <Grid item xs={12} sm={6} className={classes.TransformResults_intro}>
-            <Typography variant="h3">Transform Results</Typography>
-            <Typography variant="body1">
-              Dolor ut voluptua sadipscing sea duo erat. Et labore est elitr
-              sanctus amet dolor et at et, ipsum tempor diam lorem sit magna sed
-              sadipscing consetetur, diam diam vero lorem aliquyam ut duo ut.
-              Diam et et et invidunt sit invidunt voluptua sea et, sed labore no
-              sed diam. Et.
-            </Typography>
-            <Button
-              type="button"
-              variant="contained"
-              color="primary"
-              onClick={openPreviewHandler}
-              className={classes.TransformResults_previewButton}>
-              View Preview
-            </Button>
-          </Grid>
+      className={classes.TransformResults_containerBg}>
+      <Grid
+        container
+        justify="center"
+        className={classes.TransformResults_contentContainer}>
+        <Grid item xs={12} sm={6} className={classes.TransformResults_intro}>
+          <Typography variant="h3">Transform Results</Typography>
+          <Typography variant="body1">
+            Dolor ut voluptua sadipscing sea duo erat. Et labore est elitr
+            sanctus amet dolor et at et, ipsum tempor diam lorem sit magna sed
+            sadipscing consetetur, diam diam vero lorem aliquyam ut duo ut. Diam
+            et et et invidunt sit invidunt voluptua sea et, sed labore no sed
+            diam. Et.
+          </Typography>
+          <Button
+            type="button"
+            variant="contained"
+            color="primary"
+            onClick={openPreviewHandler}
+            className={classes.TransformResults_previewButton}>
+            View Preview
+          </Button>
+        </Grid>
+        <Grid item xs={12} sm={6}>
           <ExportPanel />
         </Grid>
-        <Grid container>
-          <Grid
-            item
-            xs={12}
-            className={classes.TransformResults_changeSummaries}>
+        <Grid item xs={12} className={classes.TransformResults_changeSummaries}>
+          {summaryPanels.map(summary => (
             <TransformSummary
-              buttonName="ul"
-              title="Under Limit Cases"
-              caseData={transformResult.ul}
+              key={summary.key}
+              buttonName={summary.caseType}
+              title={summary.title}
+              caseData={transformResult[summary.caseType]}
               openDrawerHandler={openDrawerHandler}
             />
-            <TransformSummary
-              buttonName="ol"
-              title="Over Limit Cases"
-              caseData={transformResult.ol}
-              openDrawerHandler={openDrawerHandler}
-            />
-            <TransformSummary
-              buttonName="zero"
-              title="Zero Cases"
-              caseData={transformResult.zero}
-              openDrawerHandler={openDrawerHandler}
-            />
-            <AddressInspector
-              drawerOpen={drawerOpen}
-              closeDrawerHandler={closeDrawerHandler}
-              drawerDataName={drawerDataName}
-              allTransforms={transformResult.all}
-              addresses={addressesByTransform}
-              dataUrls={dataUrlsByTransform}
-            />
-          </Grid>
+          ))}
+          <AddressInspector
+            drawerOpen={drawerOpen}
+            closeDrawerHandler={closeDrawerHandler}
+            drawerDataName={drawerDataName}
+            allTransforms={transformResult.all}
+            addresses={addressesByTransform}
+            dataUrls={dataUrlsByTransform}
+          />
+          {previewOpen && <Preview />}
         </Grid>
       </Grid>
-      <Hidden xsDown>
-        <Grid item md={1} xl={2} />
-      </Hidden>
     </Grid>
   )
 }

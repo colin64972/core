@@ -70,15 +70,10 @@ export const Editor: React.FC = (): JSX.Element => {
           </Button>
         </Grid>
       </Grid>
-      <Grid
-        container
-        justify="center"
-        className={classes.Editor_containerContent}>
-        <FileLoader />
-        <SheetSelector />
-        <TransformSettings />
-        <TransformResults />
-      </Grid>
+      <FileLoader />
+      <SheetSelector />
+      <TransformSettings />
+      <TransformResults />
     </Grid>
   )
 }
