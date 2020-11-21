@@ -46,10 +46,7 @@ export const TopNav: React.FC<Props> = ({ style }): JSX.Element => {
         {topNavItems.map(link => (
           <Button
             key={link.key}
-            href={switchLinkRoutePath(
-              link.to,
-              `${process.env.APP_ROOT_PATH}${link.to}`
-            )}
+            href={switchLinkRoutePath(link.to)}
             startIcon={iconMap[link.to]}
             className={classes.TopNav_navItem}>
             {link.label}

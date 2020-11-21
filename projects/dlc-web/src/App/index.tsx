@@ -85,24 +85,14 @@ export const App: React.FC = (): JSX.Element => {
         {withNav && <TopNav style={classes.App_topNavPosition} />}
         <div className={classes.App_contentPosition}>
           <Switch>
+            <Route path={switchLinkRoutePath('/')} exact component={Home} />
             <Route
-              path={switchLinkRoutePath('/', process.env.APP_ROOT_PATH)}
-              exact
-              component={Home}
-            />
-            <Route
-              path={switchLinkRoutePath(
-                '/editor',
-                `${process.env.APP_ROOT_PATH}/editor`
-              )}
+              path={switchLinkRoutePath('/editor')}
               exact
               component={Editor}
             />
             <Route
-              path={switchLinkRoutePath(
-                '/editor/guide',
-                `${process.env.APP_ROOT_PATH}/editor/guide`
-              )}
+              path={switchLinkRoutePath('/editor/guide')}
               exact
               component={Guide}
             />

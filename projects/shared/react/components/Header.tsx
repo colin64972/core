@@ -90,10 +90,7 @@ export const Header: React.FC<Props> = ({
               color="secondary"
               variant="contained"
               className={classes.Header_button}
-              href={switchLinkRoutePath(
-                buttonHref,
-                `${process.env.APP_ROOT_PATH}/${buttonHref}`
-              )}>
+              href={switchLinkRoutePath(buttonHref)}>
               {buttonLabel}
             </Button>
           </FadeIn>

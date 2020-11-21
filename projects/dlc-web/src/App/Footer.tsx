@@ -114,10 +114,7 @@ export const Footer: React.FC<Props> = ({ style }): JSX.Element => {
   }
 
   const homeLinkHandler = (): void => {
-    if (window)
-      window.location.replace(
-        switchLinkRoutePath('/', process.env.APP_ROOT_PATH)
-      )
+    if (window) window.location.replace(switchLinkRoutePath('/'))
   }
 
   return (

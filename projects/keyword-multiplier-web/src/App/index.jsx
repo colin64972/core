@@ -31,15 +31,8 @@ export const App = () => {
   return (
     <CssBaseline>
       <Switch>
-        <Route
-          path={switchLinkRoutePath('/', process.env.APP_ROOT_PATH)}
-          exact
-          component={Home}
-        />
-        <Route
-          path={switchLinkRoutePath('/*', process.env.APP_ROOT_PATH)}
-          component={NotFound}
-        />
+        <Route path={switchLinkRoutePath('/')} exact component={Home} />
+        <Route path={switchLinkRoutePath('/*')} component={NotFound} />
       </Switch>
     </CssBaseline>
   )

@@ -48,8 +48,10 @@ export const copyToClipboard = data => {
   }
 }
 
-export const switchLinkRoutePath = (devPath, prodPath) =>
-  process.env.NODE_ENV === 'production' ? prodPath : devPath
+export const switchLinkRoutePath = path =>
+  process.env.NODE_ENV === 'production'
+    ? `${process.env.APP_ROOT_PATH}${path}`
+    : path
 
 export const removeAppUrlPrefix = (prefix, path) => {
   let result = path.replace(prefix, '')
