@@ -4,6 +4,36 @@ import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 import { FadeIn } from './FadeIn'
 
+const useStyles = makeStyles(theme => ({
+  Header_containerBg: {
+    backgroundColor: props => eval(props.bgColor),
+    backgroundImage: props => `url(${props.bgUrl})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat'
+  },
+  Header_contentContainer: {
+    ...theme.custom.contentContainer,
+    ...theme.custom.setFlex('column'),
+    height: 300,
+    padding: theme.custom.setSpace('sm')
+  },
+  Header_title: {
+    color: props => eval(props.titleColor),
+    marginTop: theme.custom.setSpace(),
+    textShadow: theme.custom.textShadow
+  },
+  Header_subTitle: {
+    color: props => eval(props.subTitleColor),
+    marginTop: theme.custom.setSpace(),
+    textShadow: theme.custom.textShadow,
+    fontWeight: 'normal'
+  },
+  Header_button: {
+    marginTop: theme.custom.setSpace('sm')
+  }
+}))
+
 interface Props {
   title: string
   titleColor?: string
@@ -25,37 +55,12 @@ export const Header: React.FC<Props> = ({
   buttonHref,
   buttonLabel
 }): JSX.Element => {
-  const useStyles = makeStyles(theme => ({
-    Header_containerBg: {
-      backgroundColor: eval(bgColor),
-      backgroundImage: `url(${bgUrl})`,
-      backgroundPosition: 'center',
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat'
-    },
-    Header_contentContainer: {
-      ...theme.custom.contentContainer,
-      ...theme.custom.setFlex('column'),
-      height: 300,
-      padding: theme.custom.setSpace('sm')
-    },
-    Header_title: {
-      color: eval(titleColor),
-      marginTop: theme.custom.setSpace(),
-      textShadow: theme.custom.textShadow
-    },
-    Header_subTitle: {
-      color: eval(subTitleColor),
-      marginTop: theme.custom.setSpace(),
-      textShadow: theme.custom.textShadow,
-      fontWeight: 'normal'
-    },
-    Header_button: {
-      marginTop: theme.custom.setSpace('sm')
-    }
-  }))
-
-  const classes = useStyles()
+  const classes = useStyles({
+    titleColor,
+    subTitleColor,
+    bgColor,
+    bgUrl
+  })
 
   return (
     <Grid
