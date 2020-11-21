@@ -16,7 +16,7 @@ import { Footer } from './Footer'
 import { Home } from './Home'
 import { NotFound } from './NotFound'
 import { TopNav } from './TopNav'
-import { Guide } from './Guide/'
+import { Guide } from './Editor/Guide'
 
 const useStyles = makeStyles(theme => ({
   App_pageContainer: {

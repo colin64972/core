@@ -6,21 +6,21 @@ import React, { useState } from 'react'
 import { FileUpload } from '../../interfaces'
 
 const useStyles = makeStyles(theme => ({
-  dropContainer: {
+  DropSelector_dropZone: {
     ...theme.custom.setFlex('column'),
     width: '100%',
-    height: 200,
+    height: '100%',
     borderRadius: theme.custom.setSpace() / 4,
     backgroundColor: theme.palette.primary[300],
     transition: 'all 250ms linear'
   },
-  dragColor: {
+  DropSelector_dragColor: {
     boxShadow: theme.custom.boxShadow,
     backgroundColor: theme.palette.primary[400]
   },
-  dropIcon: {
+  DropSelector_dropIcon: {
     color: theme.palette.grey[50],
-    fontSize: theme.typography.fontSize * 5
+    fontSize: theme.typography.fontSize * 10
   }
 }))
 
@@ -64,14 +64,14 @@ export const DropSelector: React.FC<Props> = ({
   return (
     <div
       data-testid="DropSelector"
-      className={clsx(classes.dropContainer, {
-        [classes.dragColor]: dragCount > 0
+      className={clsx(classes.DropSelector_dropZone, {
+        [classes.DropSelector_dragColor]: dragCount > 0
       })}
       onDragEnter={dragEnterHandler}
       onDragLeave={dragLeaveHandler}
       onDragOver={dragOverHandler}
       onDrop={dropHandler}>
-      <GetAppIcon className={classes.dropIcon} />
+      <GetAppIcon className={classes.DropSelector_dropIcon} />
     </div>
   )
 }

@@ -1,7 +1,6 @@
 import { createWorkbook } from '@cjo3/shared/react/xlsx'
 import { Button, Grid, Hidden, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import clsx from 'clsx'
 import React, { useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { WorkBook } from 'xlsx'
@@ -15,29 +14,26 @@ import { workbookSelector } from '../../store/selectors'
 import { DropSelector } from './DropSelector'
 
 const useStyles = makeStyles(theme => ({
-  section: {
-    padding: theme.custom.setSpace('sm')
-  },
-  FileLoader_unloadFile: {
-    padding: theme.custom.setSpace('sm'),
-    backgroundColor: theme.palette.grey[200]
-  },
-  noWorkbookBg: {
+  FileLoader_bg: {
+    backgroundColor: theme.palette.grey[100],
     background: theme.custom.setLinearGradient(
       180,
-      theme.palette.grey[200],
+      theme.palette.grey[300],
       'white'
     )
   },
-  form: {
-    ...theme.custom.setGrid(2, 3, theme.custom.setSpace()),
-    gridTemplateRows: 'repeat(3, auto)',
-    maxWidth: '50%',
-    [theme.breakpoints.down('sm')]: {
-      maxWidth: '100%'
-    }
+  FileLoader_contentContainer: {
+    ...theme.custom.contentContainer,
+    padding: theme.custom.setSpace('sm')
   },
-  title: {
+  FileLoader_form: {
+    ...theme.custom.setGrid(2, 3, theme.custom.setSpace('sm')),
+    gridTemplateRows: 'repeat(3, auto)'
+  },
+  FileLoader_unloadFile: {
+    backgroundColor: theme.palette.secondary.main
+  },
+  FileLoader_formTitle: {
     gridColumn: '1 / 2',
     gridRow: 1,
     [theme.breakpoints.down('xs')]: {
@@ -46,7 +42,7 @@ const useStyles = makeStyles(theme => ({
       textAlign: 'center'
     }
   },
-  fileSelect: {
+  FileLoader_FileLoader: {
     ...theme.custom.setFlex('row', 'flex-start'),
     gridColumn: '1 / 2',
     gridRow: 2,
@@ -55,7 +51,7 @@ const useStyles = makeStyles(theme => ({
       justifyContent: 'center'
     }
   },
-  dropLoader: {
+  FileLoader_formDropSelector: {
     gridColumn: '2 / 3',
     gridRow: '1 / 4',
     ...theme.custom.setFlex(),
@@ -63,7 +59,7 @@ const useStyles = makeStyles(theme => ({
       display: 'none'
     }
   },
-  actionButtons: {
+  FileLoader_formActionButtons: {
     ...theme.custom.setFlex('row', 'flex-start'),
     gridColumn: '1 / 2',
     gridRow: 3,
@@ -72,25 +68,20 @@ const useStyles = makeStyles(theme => ({
       justifyContent: 'center'
     }
   },
-  hiddenInput: {
+  FileLoader_formHiddenInput: {
     visibility: 'hidden',
     display: 'inline-block',
     width: 1
   },
-  fileName: {
+  FileLoader_formFileName: {
     margin: `0 0 0 ${theme.custom.setSpace()}px`
   },
-  formButton: {
+  FileLoader_formActionButton: {
+    'color': 'white',
     'marginRight': theme.custom.setSpace(),
     '&:last-of-type': {
       marginRight: 0
     }
-  },
-  submitButton: {
-    color: 'white'
-  },
-  resetButton: {
-    color: theme.palette.grey[600]
   }
 }))
 
@@ -134,15 +125,21 @@ export const FileLoader: React.FC = (): JSX.Element => {
     return (
       <Grid
         container
+        component="section"
         justify="center"
         className={classes.FileLoader_unloadFile}>
-        <Button
-          type="button"
-          variant="contained"
-          color="secondary"
-          onClick={unloadWorkbookHandler}>
-          Unload File
-        </Button>
+        <Grid
+          container
+          justify="center"
+          className={classes.FileLoader_contentContainer}>
+          <Button
+            type="button"
+            variant="contained"
+            color="secondary"
+            onClick={unloadWorkbookHandler}>
+            Unload File
+          </Button>
+        </Grid>
       </Grid>
     )
 
@@ -150,67 +147,68 @@ export const FileLoader: React.FC = (): JSX.Element => {
     <Grid
       component="section"
       container
-      justify="center"
-      alignItems="center"
-      className={clsx(classes.section, {
-        [classes.noWorkbookBg]: !workbook
-      })}
-      data-testid="FileLoader">
-      <form
-        onSubmit={submitHandler}
-        onReset={resetHandler}
-        className={classes.form}>
-        <div className={classes.title}>
-          <Typography variant="h3">File Loader</Typography>
-          <Typography variant="body1">
-            Select a file using the button below
-            <Hidden xsDown>
-              &nbsp;
-              <span>
-                or drag and drop a file on the attchment box to the right
-              </span>
-            </Hidden>
-            . The selected file name will be displayed once selected.
-          </Typography>
-        </div>
-        <div className={classes.fileSelect}>
-          <Button type="button" variant="outlined" color="primary">
-            <label htmlFor="file-upload-input">Select File</label>
-          </Button>
-          <Typography variant="body1" className={classes.fileName}>
-            {selectedFile?.name ? selectedFile.name : 'No File Selected'}
-          </Typography>
-          <input
-            className={classes.hiddenInput}
-            id="file-upload-input"
-            name="file-upload-input"
-            type="file"
-            accept={process.env.ACCEPTED_FILETYPES}
-            onChange={changeHandler}
-            ref={fileInput}
-          />
-        </div>
-        <div className={classes.dropLoader}>
-          <DropSelector setSelectedFileHandler={setSelectedFile} />
-        </div>
-        <div className={classes.actionButtons}>
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            disabled={!selectedFile?.size}
-            className={clsx(classes.formButton, classes.submitButton)}>
-            Load
-          </Button>
-          <Button
-            type="reset"
-            variant="contained"
-            disabled={!selectedFile?.size}
-            className={clsx(classes.formButton, classes.resetButton)}>
-            Reset
-          </Button>
-        </div>
-      </form>
+      className={classes.FileLoader_bg}
+      justify="center">
+      <Grid container className={classes.FileLoader_contentContainer}>
+        <form
+          onSubmit={submitHandler}
+          onReset={resetHandler}
+          className={classes.FileLoader_form}>
+          <div className={classes.FileLoader_formTitle}>
+            <Typography variant="h3">File Loader</Typography>
+            <Typography variant="body1">
+              Select a file using the button below
+              <Hidden xsDown>
+                &nbsp;
+                <span>
+                  or drag and drop a file on the attchment box to the right
+                </span>
+              </Hidden>
+              . The selected file name will be displayed once selected.
+            </Typography>
+          </div>
+          <div className={classes.FileLoader_FileLoader}>
+            <Button type="button" variant="outlined" color="primary">
+              <label htmlFor="file-upload-input">Select File</label>
+            </Button>
+            <Typography
+              variant="body1"
+              className={classes.FileLoader_formFileName}>
+              {selectedFile?.name ? selectedFile.name : 'No File Selected'}
+            </Typography>
+            <input
+              className={classes.FileLoader_formHiddenInput}
+              id="file-upload-input"
+              name="file-upload-input"
+              type="file"
+              accept={process.env.ACCEPTED_FILETYPES}
+              onChange={changeHandler}
+              ref={fileInput}
+            />
+          </div>
+          <div className={classes.FileLoader_formDropSelector}>
+            <DropSelector setSelectedFileHandler={setSelectedFile} />
+          </div>
+          <div className={classes.FileLoader_formActionButtons}>
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              disabled={!selectedFile?.size}
+              className={classes.FileLoader_formActionButton}>
+              Load
+            </Button>
+            <Button
+              type="reset"
+              variant="contained"
+              color="secondary"
+              disabled={!selectedFile?.size}
+              className={classes.FileLoader_formActionButton}>
+              Reset
+            </Button>
+          </div>
+        </form>
+      </Grid>
     </Grid>
   )
 }

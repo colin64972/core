@@ -13,12 +13,15 @@ import { ProfilePic } from '../assets'
 
 const useStyles = makeStyles(theme => ({
   Footer_container: {
-    padding: theme.custom.setSpace('sm'),
     background: theme.custom.setLinearGradient(
       180,
       theme.palette.grey[900],
       theme.palette.grey[800]
     )
+  },
+  Footer_contentContainer: {
+    ...theme.custom.contentContainer,
+    padding: theme.custom.setSpace('sm')
   },
   Footer_linkButton: {
     ...theme.custom.setFlex('row', 'flext-start', 'center'),
@@ -121,7 +124,70 @@ export const Footer: React.FC<Props> = ({ style }): JSX.Element => {
     <Grid
       container
       component="footer"
+      justify="center"
       className={clsx(style, classes.Footer_container)}>
+      <Grid container className={classes.Footer_contentContainer}>
+        <Grid item xs={12} sm={6}>
+          <Grid
+            container
+            justify="flex-start"
+            alignItems="flex-start"
+            direction="column">
+            <Button
+              type="button"
+              color="primary"
+              onClick={homeLinkHandler}
+              className={classes.Footer_linkButton}>
+              <WebIcon className={classes.Footer_linkButtonIcon} />
+              Home
+            </Button>
+            <Button
+              type="button"
+              color="primary"
+              className={classes.Footer_linkButton}
+              onClick={openTAndCHandler}>
+              <GavelIcon className={classes.Footer_linkButtonIcon} />
+              Terms &amp; Conditions
+            </Button>
+            <Button
+              type="button"
+              color="primary"
+              className={classes.Footer_linkButton}
+              onClick={openPPHandler}>
+              <VpnLockIcon className={classes.Footer_linkButtonIcon} />
+              Privacy Policy
+            </Button>
+          </Grid>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Grid
+            container
+            className={classes.Footer_badgeTitleImageContainer}
+            onClick={badgeClickHandler}>
+            <Typography
+              variant="h5"
+              color="primary"
+              className={classes.Footer_badgeTitle}>
+              Need Help with JavaScript
+              <br />
+              App Development?
+            </Typography>
+            <ImageHandler
+              asset={ProfilePic}
+              styleClass={classes.Footer_badgeProfilePic}
+            />
+          </Grid>
+          <Typography variant="body1" className={classes.Footer_badgeSubtitle}>
+            Available for Hire!
+          </Typography>
+          <Typography
+            variant="body1"
+            color="primary"
+            className={classes.Footer_copyright}>
+            &copy; 2020 {process.env.SITE_NAME}. All rights reserved.
+          </Typography>
+        </Grid>
+      </Grid>
       {TAndCOpen && (
         <TermsAndConditions
           open={TAndCOpen}
@@ -140,66 +206,6 @@ export const Footer: React.FC<Props> = ({ style }): JSX.Element => {
           siteContactEmail={process.env.SITE_CONTACT_EMAIL}
         />
       )}
-      <Grid item xs={12} sm={6}>
-        <Grid
-          container
-          justify="flex-start"
-          alignItems="flex-start"
-          direction="column">
-          <Button
-            type="button"
-            color="primary"
-            onClick={homeLinkHandler}
-            className={classes.Footer_linkButton}>
-            <WebIcon className={classes.Footer_linkButtonIcon} />
-            Home
-          </Button>
-          <Button
-            type="button"
-            color="primary"
-            className={classes.Footer_linkButton}
-            onClick={openTAndCHandler}>
-            <GavelIcon className={classes.Footer_linkButtonIcon} />
-            Terms &amp; Conditions
-          </Button>
-          <Button
-            type="button"
-            color="primary"
-            className={classes.Footer_linkButton}
-            onClick={openPPHandler}>
-            <VpnLockIcon className={classes.Footer_linkButtonIcon} />
-            Privacy Policy
-          </Button>
-        </Grid>
-      </Grid>
-      <Grid item xs={12} sm={6}>
-        <Grid
-          container
-          className={classes.Footer_badgeTitleImageContainer}
-          onClick={badgeClickHandler}>
-          <Typography
-            variant="h5"
-            color="primary"
-            className={classes.Footer_badgeTitle}>
-            Need Help with JavaScript
-            <br />
-            App Development?
-          </Typography>
-          <ImageHandler
-            asset={ProfilePic}
-            styleClass={classes.Footer_badgeProfilePic}
-          />
-        </Grid>
-        <Typography variant="body1" className={classes.Footer_badgeSubtitle}>
-          Available for Hire!
-        </Typography>
-        <Typography
-          variant="body1"
-          color="primary"
-          className={classes.Footer_copyright}>
-          &copy; 2020 {process.env.SITE_NAME}. All rights reserved.
-        </Typography>
-      </Grid>
     </Grid>
   )
 }

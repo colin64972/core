@@ -17,33 +17,31 @@ import {
 } from '../../store/selectors'
 
 const useStyles = makeStyles(theme => ({
-  section: {
+  SheetSelector_contentContainer: {
+    ...theme.custom.contentContainer,
     padding: theme.custom.setSpace('sm')
   },
-  topMargin: {
-    marginTop: theme.custom.setSpace()
-  },
-  Editor_SheetSelector_bg: {
+  SheetSelector_bg: {
     background: theme.custom.setLinearGradient(
       180,
-      theme.palette.grey[200],
+      theme.palette.grey[300],
       'white'
     )
   },
-  Editor_SheetSelector_title: {
+  SheetSelector_title: {
     textAlign: 'right',
     [theme.breakpoints.down('xs')]: {
       textAlign: 'center'
     }
   },
-  Editor_SheetSelector_selectFormControl: {
+  SheetSelector_selectFormControl: {
     minWidth: theme.custom.setSpace('xl'),
     margin: `0 0 0 ${theme.custom.setSpace()}px`,
     [theme.breakpoints.down('xs')]: {
       margin: `${theme.custom.setSpace()}px 0 0 0`
     }
   },
-  sheetSelection_inputLabel: {
+  SheetSelector_selectFormControlInputLabel: {
     top: -5
   }
 }))
@@ -62,13 +60,13 @@ export const SheetSelector: React.FC = (): JSX.Element => {
 
   if (!workbook)
     return (
-      <Grid
-        component="section"
-        container
-        justify="center"
-        alignItems="center"
-        className={clsx(classes.section)}>
-        <Typography variant="h3">No file loaded</Typography>
+      <Grid component="section" container justify="center">
+        <Grid
+          container
+          justify="center"
+          className={classes.SheetSelector_contentContainer}>
+          <Typography variant="h3">No file loaded</Typography>
+        </Grid>
       </Grid>
     )
 
@@ -80,36 +78,41 @@ export const SheetSelector: React.FC = (): JSX.Element => {
       container
       justify="center"
       alignItems="center"
-      className={clsx(classes.section, classes.Editor_SheetSelector_bg)}
-      data-testid="SheetSelector">
-      <Typography variant="h3" className={classes.Editor_SheetSelector_title}>
-        Choose a Sheet to Edit
-      </Typography>
-      <FormControl
-        variant="outlined"
-        className={classes.Editor_SheetSelector_selectFormControl}>
-        <InputLabel
-          htmlFor="sheet-selection"
-          id="sheetSelection-label"
-          classes={{
-            formControl: classes.sheetSelection_inputLabel
-          }}>
-          Sheet Selection
-        </InputLabel>
-        <Select
-          labelId="sheetSelection-label"
-          id="sheet-selection"
-          name="sheet-selection"
-          label="Sheet Selection"
-          value={currentSheetName}
-          onChange={changeHandler}>
-          {SheetNames.map((name, ind) => (
-            <MenuItem key={`sheet-selection-${ind}`} value={name}>
-              {name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+      className={classes.SheetSelector_bg}>
+      <Grid
+        container
+        justify="center"
+        alignItems="center"
+        className={classes.SheetSelector_contentContainer}>
+        <Typography variant="h3" className={classes.SheetSelector_title}>
+          Choose a Sheet to Edit
+        </Typography>
+        <FormControl
+          variant="outlined"
+          className={classes.SheetSelector_selectFormControl}>
+          <InputLabel
+            htmlFor="sheet-selection"
+            id="sheetSelection-label"
+            classes={{
+              formControl: classes.SheetSelector_selectFormControlInputLabel
+            }}>
+            Sheet Selection
+          </InputLabel>
+          <Select
+            labelId="sheetSelection-label"
+            id="sheet-selection"
+            name="sheet-selection"
+            label="Sheet Selection"
+            value={currentSheetName}
+            onChange={changeHandler}>
+            {SheetNames.map((name, ind) => (
+              <MenuItem key={`sheet-selection-${ind}`} value={name}>
+                {name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Grid>
     </Grid>
   )
 }

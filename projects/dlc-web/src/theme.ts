@@ -69,3 +69,7 @@ theme.custom.unorderedList = {
 theme.custom.boxShadow = '0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.1)'
 
 theme.custom.textShadow = '0 0 0.5rem rgba(0, 0, 0, 0.5)'
+
+theme.custom.contentContainer = {
+  maxWidth: 1024
+}
