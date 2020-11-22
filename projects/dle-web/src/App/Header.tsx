@@ -4,8 +4,37 @@ import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 
+const useStyles = makeStyles(theme => ({
+  Header_containerBg: {
+    backgroundColor: ({ bgColor }) => eval(bgColor),
+    backgroundImage: ({ bgUrl }) => `url(${bgUrl})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat'
+  },
+  Header_contentContainer: {
+    ...theme.custom.contentContainer,
+    ...theme.custom.setFlex('column'),
+    height: 300,
+    padding: theme.custom.setSpace('sm')
+  },
+  Header_title: {
+    color: ({ titleColor }) => eval(titleColor),
+    marginTop: theme.custom.setSpace(),
+    textShadow: theme.custom.textShadow
+  },
+  Header_subTitle: {
+    color: ({ subTitleColor }) => eval(subTitleColor),
+    marginTop: theme.custom.setSpace(),
+    textShadow: theme.custom.textShadow,
+    fontWeight: 'normal'
+  },
+  Header_button: {
+    marginTop: theme.custom.setSpace('sm')
+  }
+}))
+
 interface Props {
-  name: string
   title: string
   titleColor?: string
   subTitle?: string
@@ -17,7 +46,6 @@ interface Props {
 }
 
 export const Header: React.FC<Props> = ({
-  name,
   title,
   titleColor = 'theme.palette.grey[50]',
   subTitle,
@@ -27,36 +55,12 @@ export const Header: React.FC<Props> = ({
   buttonHref,
   buttonLabel
 }): JSX.Element => {
-  const useStyles = makeStyles(theme => ({
-    [`Header_${name}_containerBg`]: {
-      backgroundColor: eval(bgColor),
-      backgroundImage: `url(${bgUrl})`,
-      backgroundPosition: 'center',
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat'
-    },
-    [`Header_${name}_contentContainer`]: {
-      ...theme.custom.contentContainer,
-      ...theme.custom.setFlex('column'),
-      height: 300,
-      padding: theme.custom.setSpace('sm')
-    },
-    [`Header_${name}_title`]: {
-      color: eval(titleColor),
-      marginTop: theme.custom.setSpace(),
-      textShadow: theme.custom.textShadow
-    },
-    [`Header_${name}_subTitle`]: {
-      color: eval(subTitleColor),
-      marginTop: theme.custom.setSpace(),
-      textShadow: theme.custom.textShadow,
-      fontWeight: 'normal'
-    },
-    [`Header_${name}_button`]: {
-      marginTop: theme.custom.setSpace('sm')
-    }
-  }))
-  const classes = useStyles()
+  const classes = useStyles({
+    titleColor,
+    subTitleColor,
+    bgColor,
+    bgUrl
+  })
 
   return (
     <Grid
@@ -64,13 +68,13 @@ export const Header: React.FC<Props> = ({
       container
       justify="center"
       alignItems="center"
-      className={classes[`Header_${name}_containerBg`]}>
-      <Grid className={classes[`Header_${name}_contentContainer`]}>
+      className={classes.Header_containerBg}>
+      <Grid className={classes.Header_contentContainer}>
         <FadeIn direction="x" position={100}>
           <Typography
             variant="h1"
             align="center"
-            className={classes[`Header_${name}_title`]}>
+            className={classes.Header_title}>
             {title}
           </Typography>
         </FadeIn>
@@ -79,7 +83,7 @@ export const Header: React.FC<Props> = ({
             <Typography
               variant="h4"
               align="center"
-              className={classes[`Header_${name}_subTitle`]}>
+              className={classes.Header_subTitle}>
               {subTitle}
             </Typography>
           </FadeIn>
@@ -90,7 +94,7 @@ export const Header: React.FC<Props> = ({
               type="button"
               color="secondary"
               variant="contained"
-              className={classes[`Header_${name}_button`]}
+              className={classes.Header_button}
               href={switchLinkRoutePath(buttonHref)}>
               {buttonLabel}
             </Button>
