@@ -14,82 +14,87 @@ import { useDispatch, useSelector } from 'react-redux'
 import { tcOpenSelector } from '../store/selectors'
 import { toggleTc } from '../store/app/actions'
 
-const useStyles = makeStyles(theme => ({
-  Footer_container: {
-    background: theme.custom.setLinearGradient(
-      180,
-      theme.palette.grey[900],
-      theme.palette.grey[800]
-    )
-  },
-  Footer_contentContainer: {
-    ...theme.custom.contentContainer,
-    padding: theme.custom.setSpace('sm')
-  },
-  Footer_linkButton: {
-    ...theme.custom.setFlex('row', 'flext-start', 'center'),
-    'marginTop': theme.custom.setSpace(),
-    '&:first-child': {
-      marginTop: 0
-    }
-  },
-  Footer_linkButtonIcon: {
-    fontSize: theme.typography.fontSize * 1.5,
-    marginRight: theme.custom.setSpace() / 2,
-    position: 'relative',
-    top: -2
-  },
-  Footer_badgeTitleImageContainer: {
-    ...theme.custom.setFlex('row', 'flex-end'),
-    [theme.breakpoints.down('xs')]: {
-      ...theme.custom.setFlex('row', 'flex-start'),
-      margin: `${theme.custom.setSpace('sm')}px 0 0 0`
+const useStyles = makeStyles(
+  theme => ({
+    Footer_container: {
+      background: theme.custom.setLinearGradient(
+        180,
+        theme.palette.grey[900],
+        theme.palette.grey[800]
+      )
     },
-    '&:hover': {
-      cursor: 'pointer'
-    }
-  },
-  Footer_badgeProfilePic: {
-    'order': 2,
-    'borderRadius': theme.custom.setSpace() / 4,
-    [theme.breakpoints.down('xs')]: {
-      order: 1
+    Footer_contentContainer: {
+      ...theme.custom.contentContainer,
+      padding: theme.custom.setSpace('sm')
     },
-    'transition': 'all 250ms ease-out',
-    '&:hover': {
-      boxShadow: theme.custom.boxShadow
-    }
-  },
-  Footer_badgeTitle: {
-    'textAlign': 'right',
-    'order': 1,
-    'marginRight': theme.custom.setSpace(),
-    [theme.breakpoints.down('xs')]: {
-      order: 2,
-      textAlign: 'left',
-      marginLeft: theme.custom.setSpace(),
-      marginRight: 0
+    Footer_linkButton: {
+      ...theme.custom.setFlex('row', 'flext-start', 'center'),
+      'marginTop': theme.custom.setSpace(),
+      '&:first-child': {
+        marginTop: 0
+      }
     },
-    'transition': 'all 250ms ease-out',
-    '&:hover': {
-      color: theme.palette.primary[400]
+    Footer_linkButtonIcon: {
+      fontSize: theme.typography.fontSize * 1.5,
+      marginRight: theme.custom.setSpace() / 2,
+      position: 'relative',
+      top: -2
+    },
+    Footer_badgeTitleImageContainer: {
+      ...theme.custom.setFlex('row', 'flex-end'),
+      [theme.breakpoints.down('xs')]: {
+        ...theme.custom.setFlex('row', 'flex-start'),
+        margin: `${theme.custom.setSpace('sm')}px 0 0 0`
+      },
+      '&:hover': {
+        cursor: 'pointer'
+      }
+    },
+    Footer_badgeProfilePic: {
+      'order': 2,
+      'borderRadius': theme.custom.setSpace() / 4,
+      [theme.breakpoints.down('xs')]: {
+        order: 1
+      },
+      'transition': 'all 250ms ease-out',
+      '&:hover': {
+        boxShadow: theme.custom.boxShadow
+      }
+    },
+    Footer_badgeTitle: {
+      'textAlign': 'right',
+      'order': 1,
+      'marginRight': theme.custom.setSpace(),
+      [theme.breakpoints.down('xs')]: {
+        order: 2,
+        textAlign: 'left',
+        marginLeft: theme.custom.setSpace(),
+        marginRight: 0
+      },
+      'transition': 'all 250ms ease-out',
+      '&:hover': {
+        color: theme.palette.primary[400]
+      }
+    },
+    Footer_badgeSubtitle: {
+      color: theme.palette.grey[400],
+      textAlign: 'right',
+      [theme.breakpoints.down('xs')]: {
+        textAlign: 'left'
+      }
+    },
+    Footer_copyright: {
+      marginTop: theme.custom.setSpace('sm'),
+      textAlign: 'right',
+      [theme.breakpoints.down('xs')]: {
+        textAlign: 'left'
+      }
     }
-  },
-  Footer_badgeSubtitle: {
-    color: theme.palette.grey[400],
-    textAlign: 'right',
-    [theme.breakpoints.down('xs')]: {
-      textAlign: 'left'
-    }
-  },
-  Footer_copyright: {
-    marginTop: theme.custom.setSpace('sm'),
-    textAlign: 'right',
-    [theme.breakpoints.down('xs')]: {
-      textAlign: 'left'
-    }
+  }),
+  {
+    name: 'Footer'
   }
-}))
+)
 
 interface Props {
   style: string

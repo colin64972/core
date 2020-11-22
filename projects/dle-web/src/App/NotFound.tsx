@@ -4,11 +4,16 @@ import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 import { theme } from '../theme'
 
-const useStyles = makeStyles(theme => ({
-  NotFound_container: {
-    height: '100%'
+const useStyles = makeStyles(
+  theme => ({
+    NotFound_container: {
+      height: '100%'
+    }
+  }),
+  {
+    name: 'NotFound'
   }
-}))
+)
 
 export const NotFound: React.FC = (): JSX.Element => {
   const classes = useStyles()

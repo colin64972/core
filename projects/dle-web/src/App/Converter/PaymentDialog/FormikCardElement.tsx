@@ -54,41 +54,46 @@ const setStripeValue = (meta, name, setValue) => {
   setValue(name, value, true)
 }
 
-const useStyles = makeStyles(theme => ({
-  StripeElement_inputLabel: {
-    position: 'relative',
-    top: -25,
-    transition: 'font-size 250ms linear',
-    fontSize: theme.typography.fontSize,
-    marginBottom: theme.custom.setSpace() / 4
-  },
-  StripeElement_inputLabelShrink: {
-    fontSize: theme.typography.fontSize * 0.75
-  },
-  StripeElement_stripeBase: {
-    'padding': '6px 0 7px 0',
-    'transition': 'border 250ms linear',
-    'borderBottom': '1px solid rgb(118, 118, 118)',
-    '&:hover': {
+const useStyles = makeStyles(
+  theme => ({
+    StripeElement_inputLabel: {
+      position: 'relative',
+      top: -25,
+      transition: 'font-size 250ms linear',
+      fontSize: theme.typography.fontSize,
+      marginBottom: theme.custom.setSpace() / 4
+    },
+    StripeElement_inputLabelShrink: {
+      fontSize: theme.typography.fontSize * 0.75
+    },
+    StripeElement_stripeBase: {
+      'padding': '6px 0 7px 0',
+      'transition': 'border 250ms linear',
+      'borderBottom': '1px solid rgb(118, 118, 118)',
+      '&:hover': {
+        borderBottom: `2px solid ${theme.palette.primary.main}`
+      }
+    },
+    StripeElement_stripeComplete: {
+      borderBottom: '1px solid rgb(118, 118, 118)'
+    },
+    StripeElement_stripeFocus: {
       borderBottom: `2px solid ${theme.palette.primary.main}`
+    },
+    StripeElement_stripeInvalid: {
+      'borderBottom': `2px solid ${theme.palette.error.main}`,
+      '&:hover': {
+        borderBottom: `2px solid ${theme.palette.error.main}`
+      }
+    },
+    StripeElement_fontSize: {
+      fontSize: `${theme.typography.fontSize}px`
     }
-  },
-  StripeElement_stripeComplete: {
-    borderBottom: '1px solid rgb(118, 118, 118)'
-  },
-  StripeElement_stripeFocus: {
-    borderBottom: `2px solid ${theme.palette.primary.main}`
-  },
-  StripeElement_stripeInvalid: {
-    'borderBottom': `2px solid ${theme.palette.error.main}`,
-    '&:hover': {
-      borderBottom: `2px solid ${theme.palette.error.main}`
-    }
-  },
-  StripeElement_fontSize: {
-    fontSize: `${theme.typography.fontSize}px`
+  }),
+  {
+    name: 'FormikCardElement'
   }
-}))
+)
 
 const componentMap = {
   cardNumber: CardNumberElement,

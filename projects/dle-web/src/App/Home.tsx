@@ -20,209 +20,218 @@ import {
 } from '../assets'
 import { Header } from './Header'
 
-const useStyles = makeStyles(theme => ({
-  Home_contentContainer: {
-    ...theme.custom.contentContainer
-  },
+const useStyles = makeStyles(
+  theme => ({
+    Home_contentContainer: {
+      ...theme.custom.contentContainer
+    },
 
-  Home_introContainerBg: {
-    background: theme.custom.setLinearGradient(
-      180,
-      theme.palette.grey[300],
-      'white'
-    )
-  },
-  Home_introContent: {
-    padding: `${theme.custom.setSpace('md')}px ${theme.custom.setSpace('sm')}px`
-  },
-  Home_introImage: {
-    marginBottom: theme.custom.setSpace('sm')
-  },
+    Home_introContainerBg: {
+      background: theme.custom.setLinearGradient(
+        180,
+        theme.palette.grey[300],
+        'white'
+      )
+    },
+    Home_introContent: {
+      padding: `${theme.custom.setSpace('md')}px ${theme.custom.setSpace(
+        'sm'
+      )}px`
+    },
+    Home_introImage: {
+      marginBottom: theme.custom.setSpace('sm')
+    },
 
-  Home_fbContainer: {
-    padding: `${theme.custom.setSpace('md')}px 0`
-  },
-  Home_fbLeftBg: {
-    ...theme.custom.setFlex('row', 'flex-end'),
-    background: theme.custom.setLinearGradient(
-      180,
-      theme.palette.grey[300],
-      'white'
-    )
-  },
-  Home_fbPanel: {
-    width: 512,
-    padding: theme.custom.setSpace('sm'),
-    [theme.breakpoints.down('xs')]: {
-      width: '100%'
-    }
-  },
-  Home_fbLeftHeading: {
-    textAlign: 'right',
-    width: '100%',
-    marginBottom: theme.custom.setSpace('sm'),
-    [theme.breakpoints.down('xs')]: {
-      textAlign: 'center'
-    }
-  },
-  Home_fbLeftCopy: {
-    textAlign: 'right',
-    [theme.breakpoints.down('xs')]: {
-      textAlign: 'left'
-    }
-  },
-  Home_fbBenefit: {
-    'width': `calc(50% - ${theme.custom.setSpace()}px)`,
-    'marginLeft': theme.custom.setSpace('sm'),
-    '&:first-child': {
-      marginLeft: 0
-    }
-  },
-  Home_fbBenefitIcon: {
-    fontSize: `${theme.typography.fontSize * 3}px !important`,
-    marginBottom: theme.custom.setSpace()
-  },
-  Home_fbBenefitEfficiency: {
-    color: theme.palette.primary.main
-  },
-  Home_fbBenefitAccuracy: {
-    color: theme.palette.secondary.main
-  },
-  Home_bodyColorText: {
-    color: theme.palette.bodyColor
-  },
-  Home_fbRightHeading: {
-    marginBottom: theme.custom.setSpace('sm')
-  },
-
-  Home_fbList: {
-    ...theme.custom.cleanList,
-    maxWidth: 512,
-    [theme.breakpoints.down('xs')]: {
+    Home_fbContainer: {
+      padding: `${theme.custom.setSpace('md')}px 0`
+    },
+    Home_fbLeftBg: {
+      ...theme.custom.setFlex('row', 'flex-end'),
+      background: theme.custom.setLinearGradient(
+        180,
+        theme.palette.grey[300],
+        'white'
+      )
+    },
+    Home_fbPanel: {
+      width: 512,
+      padding: theme.custom.setSpace('sm'),
+      [theme.breakpoints.down('xs')]: {
+        width: '100%'
+      }
+    },
+    Home_fbLeftHeading: {
+      textAlign: 'right',
       width: '100%',
-      paddingLeft: theme.custom.setSpace()
-    }
-  },
-  Home_fbListItem: {
-    ...theme.custom.setFlex('row', 'flex-start'),
-    'marginBottom': theme.custom.setSpace() / 2,
-    'transition': 'all 250ms ease-out',
-    '&:last-child': {
-      marginBottom: 0
-    }
-  },
-  Home_fbListItemIcon: {
-    fontSize: `${theme.typography.fontSize * 2}px !important`,
-    marginRight: theme.custom.setSpace(),
-    color: theme.palette.pass[500]
-  },
+      marginBottom: theme.custom.setSpace('sm'),
+      [theme.breakpoints.down('xs')]: {
+        textAlign: 'center'
+      }
+    },
+    Home_fbLeftCopy: {
+      textAlign: 'right',
+      [theme.breakpoints.down('xs')]: {
+        textAlign: 'left'
+      }
+    },
+    Home_fbBenefit: {
+      'width': `calc(50% - ${theme.custom.setSpace()}px)`,
+      'marginLeft': theme.custom.setSpace('sm'),
+      '&:first-child': {
+        marginLeft: 0
+      }
+    },
+    Home_fbBenefitIcon: {
+      fontSize: `${theme.typography.fontSize * 3}px !important`,
+      marginBottom: theme.custom.setSpace()
+    },
+    Home_fbBenefitEfficiency: {
+      color: theme.palette.primary.main
+    },
+    Home_fbBenefitAccuracy: {
+      color: theme.palette.secondary.main
+    },
+    Home_bodyColorText: {
+      color: theme.palette.bodyColor
+    },
+    Home_fbRightHeading: {
+      marginBottom: theme.custom.setSpace('sm')
+    },
 
-  Home_midCtaContainer: {
-    padding: `${theme.custom.setSpace('md')}px ${theme.custom.setSpace(
-      'sm'
-    )}px`,
-    backgroundImage: `url(${HomeSpreadsheetBg.paths[0]})`,
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat'
-  },
-  Home_midCta: {
-    'width': theme.custom.setSpace('xl') * 2,
-    'padding': theme.custom.setSpace('sm'),
-    'borderRadius': theme.custom.setSpace('xl'),
-    'background': theme.custom.setLinearGradient(
-      180,
-      theme.palette.secondary.main,
-      theme.palette.secondary[500]
-    ),
-    'boxShadow': theme.custom.boxShadow,
-    'color': theme.palette.secondary[100],
-    'transition': 'all 250ms ease-out',
-    '&:hover': {
-      color: 'white',
-      cursor: 'pointer'
-    }
-  },
-  Home_midCtaText: {},
+    Home_fbList: {
+      ...theme.custom.cleanList,
+      maxWidth: 512,
+      [theme.breakpoints.down('xs')]: {
+        width: '100%',
+        paddingLeft: theme.custom.setSpace()
+      }
+    },
+    Home_fbListItem: {
+      ...theme.custom.setFlex('row', 'flex-start'),
+      'marginBottom': theme.custom.setSpace() / 2,
+      'transition': 'all 250ms ease-out',
+      '&:last-child': {
+        marginBottom: 0
+      }
+    },
+    Home_fbListItemIcon: {
+      fontSize: `${theme.typography.fontSize * 2}px !important`,
+      marginRight: theme.custom.setSpace(),
+      color: theme.palette.pass[500]
+    },
 
-  Home_useCaseContent: {
-    padding: `${theme.custom.setSpace('md')}px ${theme.custom.setSpace('sm')}px`
-  },
-  Home_useCaseContainer: {
-    marginTop: theme.custom.setSpace('sm'),
-    ...theme.custom.setGrid(3, 'auto', theme.custom.setSpace('sm')),
-    width: '100%'
-  },
-  Home_useCase0: {
-    gridColumn: '1 / 2',
-    gridRow: 1,
-    backgroundImage: `url(${HomeEnvironment.paths[0]})`,
-    [theme.breakpoints.down('xs')]: {
-      gridColumn: '1 / 4'
+    Home_midCtaContainer: {
+      padding: `${theme.custom.setSpace('md')}px ${theme.custom.setSpace(
+        'sm'
+      )}px`,
+      backgroundImage: `url(${HomeSpreadsheetBg.paths[0]})`,
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat'
+    },
+    Home_midCta: {
+      'width': theme.custom.setSpace('xl') * 2,
+      'padding': theme.custom.setSpace('sm'),
+      'borderRadius': theme.custom.setSpace('xl'),
+      'background': theme.custom.setLinearGradient(
+        180,
+        theme.palette.secondary.main,
+        theme.palette.secondary[500]
+      ),
+      'boxShadow': theme.custom.boxShadow,
+      'color': theme.palette.secondary[100],
+      'transition': 'all 250ms ease-out',
+      '&:hover': {
+        color: 'white',
+        cursor: 'pointer'
+      }
+    },
+    Home_midCtaText: {},
+
+    Home_useCaseContent: {
+      padding: `${theme.custom.setSpace('md')}px ${theme.custom.setSpace(
+        'sm'
+      )}px`
+    },
+    Home_useCaseContainer: {
+      marginTop: theme.custom.setSpace('sm'),
+      ...theme.custom.setGrid(3, 'auto', theme.custom.setSpace('sm')),
+      width: '100%'
+    },
+    Home_useCase0: {
+      gridColumn: '1 / 2',
+      gridRow: 1,
+      backgroundImage: `url(${HomeEnvironment.paths[0]})`,
+      [theme.breakpoints.down('xs')]: {
+        gridColumn: '1 / 4'
+      }
+    },
+    Home_useCase1: {
+      gridColumn: '2 / 3',
+      gridRow: 1,
+      backgroundImage: `url(${HomeGeochemistry.paths[0]})`,
+      [theme.breakpoints.down('xs')]: {
+        gridColumn: '1 / 4',
+        gridRow: 2
+      }
+    },
+    Home_useCase2: {
+      gridColumn: '3 / 4',
+      gridRow: 1,
+      backgroundImage: `url(${HomeOilGas.paths[0]})`,
+      backgroundPosition: 'top middle',
+      [theme.breakpoints.down('xs')]: {
+        gridColumn: '1 / 4',
+        gridRow: 3
+      }
+    },
+    Home_useCase3: {
+      gridColumn: '1 / 2',
+      gridRow: 2,
+      backgroundImage: `url(${HomePharmaceutical.paths[0]})`,
+      [theme.breakpoints.down('xs')]: {
+        gridColumn: '1 / 4',
+        gridRow: 4
+      }
+    },
+    Home_useCase4: {
+      gridColumn: '2 / 3',
+      gridRow: 2,
+      backgroundImage: `url(${HomePaperPulp.paths[0]})`,
+      [theme.breakpoints.down('xs')]: {
+        gridColumn: '1 / 4',
+        gridRow: 5
+      }
+    },
+    Home_useCase5: {
+      gridColumn: '3 / 4',
+      gridRow: 2,
+      backgroundImage: `url(${HomeFoodSafety.paths[0]})`,
+      [theme.breakpoints.down('xs')]: {
+        gridColumn: '1 / 4',
+        gridRow: 6
+      }
+    },
+    Home_useCase: {
+      'padding': theme.custom.setSpace('sm'),
+      ...theme.custom.setFlex(),
+      ...theme.custom.borderRadius,
+      'boxShadow': theme.custom.boxShadow,
+      'color': theme.palette.grey[50],
+      'textShadow': theme.custom.textShadow,
+      'backgroundSize': 'cover',
+      'backgroundRepeat': 'no-repeat',
+      'backgroundBlendMode': 'multiply',
+      'backgroundColor': 'rgba(0, 0, 0, 0.5)',
+      'transition': 'background-color 250ms ease-out',
+      '&:hover': {
+        backgroundColor: 'rgba(0, 0, 0, 0.25)'
+      }
     }
-  },
-  Home_useCase1: {
-    gridColumn: '2 / 3',
-    gridRow: 1,
-    backgroundImage: `url(${HomeGeochemistry.paths[0]})`,
-    [theme.breakpoints.down('xs')]: {
-      gridColumn: '1 / 4',
-      gridRow: 2
-    }
-  },
-  Home_useCase2: {
-    gridColumn: '3 / 4',
-    gridRow: 1,
-    backgroundImage: `url(${HomeOilGas.paths[0]})`,
-    backgroundPosition: 'top middle',
-    [theme.breakpoints.down('xs')]: {
-      gridColumn: '1 / 4',
-      gridRow: 3
-    }
-  },
-  Home_useCase3: {
-    gridColumn: '1 / 2',
-    gridRow: 2,
-    backgroundImage: `url(${HomePharmaceutical.paths[0]})`,
-    [theme.breakpoints.down('xs')]: {
-      gridColumn: '1 / 4',
-      gridRow: 4
-    }
-  },
-  Home_useCase4: {
-    gridColumn: '2 / 3',
-    gridRow: 2,
-    backgroundImage: `url(${HomePaperPulp.paths[0]})`,
-    [theme.breakpoints.down('xs')]: {
-      gridColumn: '1 / 4',
-      gridRow: 5
-    }
-  },
-  Home_useCase5: {
-    gridColumn: '3 / 4',
-    gridRow: 2,
-    backgroundImage: `url(${HomeFoodSafety.paths[0]})`,
-    [theme.breakpoints.down('xs')]: {
-      gridColumn: '1 / 4',
-      gridRow: 6
-    }
-  },
-  Home_useCase: {
-    'padding': theme.custom.setSpace('sm'),
-    ...theme.custom.setFlex(),
-    ...theme.custom.borderRadius,
-    'boxShadow': theme.custom.boxShadow,
-    'color': theme.palette.grey[50],
-    'textShadow': theme.custom.textShadow,
-    'backgroundSize': 'cover',
-    'backgroundRepeat': 'no-repeat',
-    'backgroundBlendMode': 'multiply',
-    'backgroundColor': 'rgba(0, 0, 0, 0.5)',
-    'transition': 'background-color 250ms ease-out',
-    '&:hover': {
-      backgroundColor: 'rgba(0, 0, 0, 0.25)'
-    }
+  }),
+  {
+    name: 'Home'
   }
-}))
+)
 
 export const Home: React.FC = (): JSX.Element => {
   const classes = useStyles()

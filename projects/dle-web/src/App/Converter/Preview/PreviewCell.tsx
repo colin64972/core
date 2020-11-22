@@ -5,42 +5,47 @@ import clsx from 'clsx'
 import React from 'react'
 import { TransformResultCell } from '../../../store/converter/interfaces'
 
-const useStyles = makeStyles(theme => ({
-  PreviewCell_base: {
-    ...theme.custom.tableBorder,
-    ...theme.custom.noSelect,
-    padding: theme.custom.setSpace(),
-    margin: 0,
-    textAlign: 'center'
-  },
-  PreviewCell_ul: {
-    backgroundColor: theme.palette.primary[100]
-  },
-  PreviewCell_ol: {
-    backgroundColor: theme.palette.secondary[100]
-  },
-  PreviewCell_zero: {
-    backgroundColor: theme.palette.grey[300]
-  },
-  PreviewCell_tooltip: {
-    fontSize: theme.typography.fontSize
-  },
-  PreviewCell_valueBg: {
-    ...theme.custom.noSelect,
-    ...theme.custom.valueImage,
-    'width': ({ transformWidth }) => transformWidth,
-    'height': ({ transformHeight }) => transformHeight,
-    'backgroundImage': ({ transformUrl }) => transformUrl,
-    'transition': 'all 250ms ease-out',
-    '&:hover': {
-      backgroundImage: ({ originalUrl }) => `url(${originalUrl})`,
-      width: ({ originalWidth }) => originalWidth,
-      height: ({ originalHeight }) => originalHeight,
-      backgroundColor: theme.palette.pass[300],
-      cursor: 'pointer'
+const useStyles = makeStyles(
+  theme => ({
+    PreviewCell_base: {
+      ...theme.custom.tableBorder,
+      ...theme.custom.noSelect,
+      padding: theme.custom.setSpace(),
+      margin: 0,
+      textAlign: 'center'
+    },
+    PreviewCell_ul: {
+      backgroundColor: theme.palette.primary[100]
+    },
+    PreviewCell_ol: {
+      backgroundColor: theme.palette.secondary[100]
+    },
+    PreviewCell_zero: {
+      backgroundColor: theme.palette.grey[300]
+    },
+    PreviewCell_tooltip: {
+      fontSize: theme.typography.fontSize
+    },
+    PreviewCell_valueBg: {
+      ...theme.custom.noSelect,
+      ...theme.custom.valueImage,
+      'width': ({ transformWidth }) => transformWidth,
+      'height': ({ transformHeight }) => transformHeight,
+      'backgroundImage': ({ transformUrl }) => transformUrl,
+      'transition': 'all 250ms ease-out',
+      '&:hover': {
+        backgroundImage: ({ originalUrl }) => `url(${originalUrl})`,
+        width: ({ originalWidth }) => originalWidth,
+        height: ({ originalHeight }) => originalHeight,
+        backgroundColor: theme.palette.pass[300],
+        cursor: 'pointer'
+      }
     }
+  }),
+  {
+    name: 'PreviewCell'
   }
-}))
+)
 
 interface Props {
   transform: TransformResultCell

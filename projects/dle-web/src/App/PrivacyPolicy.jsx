@@ -13,76 +13,81 @@ import {
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles(theme => {
-  const baseFont = {
-    fontFamily: theme.typography.fontFamily,
-    fontSize: theme.typography.fontSize,
-    color: theme.palette.bodyColor,
-    margin: 0,
-    padding: 0
-  }
-  return {
-    PP_mainHeading: {
-      ...baseFont,
-      ...theme.typography.bold,
-      fontSize: theme.typography.fontSize * 1.25,
-      color: theme.palette.primary.main,
-      textTransform: 'uppercase'
-    },
-    PP_subHeading: {
-      ...baseFont
-    },
-    PP_section: {
-      'marginTop': theme.custom.setSpace(),
-      '&:first-child': {
-        marginTop: 0
-      }
-    },
-    PP_sectionHeading: {
-      ...baseFont,
-      ...theme.typography.bold,
-      textTransform: 'uppercase'
-    },
-    PP_copy: {
-      ...baseFont,
-      'marginTop': theme.custom.setSpace(),
-      '&:first-child': {
-        marginTop: 0
-      }
-    },
-    PP_unorderedList: {
-      ...theme.custom.unorderedList
-    },
-    PP_listItem: {
-      ...baseFont,
-      '&:first-child': {
-        marginTop: theme.custom.setSpace() / 2
-      }
-    },
-    PP_siteLink: {
-      ...baseFont,
-      'color': theme.palette.primary[600],
-      'textDecoration': 'none',
-      'transition': 'all 250ms ease-out',
-      '&:hover': {
-        color: theme.palette.primary[400],
-        cursor: 'pointer'
-      }
-    },
-    PP_secionSub: {
-      ...theme.custom.borderRadius,
-      backgroundColor: theme.palette.grey[100],
-      padding: theme.custom.setSpace()
-    },
-    PP_sectionSubHeading: {
-      'marginTop': theme.custom.setSpace(),
-      '&:first-child': {
-        marginTop: 0
-      },
-      'color': theme.palette.primary.main
+const useStyles = makeStyles(
+  theme => {
+    const baseFont = {
+      fontFamily: theme.typography.fontFamily,
+      fontSize: theme.typography.fontSize,
+      color: theme.palette.bodyColor,
+      margin: 0,
+      padding: 0
     }
+    return {
+      PP_mainHeading: {
+        ...baseFont,
+        ...theme.typography.bold,
+        fontSize: theme.typography.fontSize * 1.25,
+        color: theme.palette.primary.main,
+        textTransform: 'uppercase'
+      },
+      PP_subHeading: {
+        ...baseFont
+      },
+      PP_section: {
+        'marginTop': theme.custom.setSpace(),
+        '&:first-child': {
+          marginTop: 0
+        }
+      },
+      PP_sectionHeading: {
+        ...baseFont,
+        ...theme.typography.bold,
+        textTransform: 'uppercase'
+      },
+      PP_copy: {
+        ...baseFont,
+        'marginTop': theme.custom.setSpace(),
+        '&:first-child': {
+          marginTop: 0
+        }
+      },
+      PP_unorderedList: {
+        ...theme.custom.unorderedList
+      },
+      PP_listItem: {
+        ...baseFont,
+        '&:first-child': {
+          marginTop: theme.custom.setSpace() / 2
+        }
+      },
+      PP_siteLink: {
+        ...baseFont,
+        'color': theme.palette.primary[600],
+        'textDecoration': 'none',
+        'transition': 'all 250ms ease-out',
+        '&:hover': {
+          color: theme.palette.primary[400],
+          cursor: 'pointer'
+        }
+      },
+      PP_secionSub: {
+        ...theme.custom.borderRadius,
+        backgroundColor: theme.palette.grey[100],
+        padding: theme.custom.setSpace()
+      },
+      PP_sectionSubHeading: {
+        'marginTop': theme.custom.setSpace(),
+        '&:first-child': {
+          marginTop: 0
+        },
+        'color': theme.palette.primary.main
+      }
+    }
+  },
+  {
+    name: 'PrivacyPolicy'
   }
-})
+)
 
 export const PrivacyPolicy = ({
   closeHandler,

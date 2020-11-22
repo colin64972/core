@@ -21,91 +21,96 @@ import { PaymentFormSchema } from '../validationSchemas'
 import { FormikAcceptTerms } from './FormikAcceptTerms'
 import { FormikCardElement } from './FormikCardElement'
 
-const useStyles = makeStyles(theme => ({
-  PaymentDialog_container: {
-    padding: theme.custom.setSpace('sm')
-  },
-  PaymentDialog_lockIcon: {
-    fontSize: `${theme.typography.fontSize * 2}px !important`,
-    position: 'relative',
-    top: 5,
-    marginRight: theme.custom.setSpace() / 2
-  },
-  PaymentDialog_stripeButton: {
-    ...theme.custom.setFlex(),
-    'border': 'none',
-    'padding': 0,
-    'margin': 0,
-    'backgroundColor': 'white',
-    'transition': 'background-color 250ms ease-out',
-    '&:hover': {
-      cursor: 'pointer',
-      backgroundColor: theme.palette.primary[50]
-    }
-  },
-  PaymentDialog_stripeIcon: {
-    height: theme.custom.setSpace('sm')
-  },
-  PaymentDialog_intro: {
-    marginTop: theme.custom.setSpace('sm')
-  },
-  PaymentDialog_form: {
-    ...theme.custom.setGrid(2, 'auto', theme.custom.setSpace('sm')),
-    marginTop: theme.custom.setSpace('sm'),
-    width: '100%'
-  },
-  PaymentDialog_grid1: {
-    gridColumn: '1 / 3',
-    gridRow: 1
-  },
-  PaymentDialog_grid2: {
-    gridColumn: '1 / 2',
-    gridRow: 2,
-    [theme.breakpoints.down('xs')]: {
-      gridColumn: '1 / 3'
-    }
-  },
-  PaymentDialog_grid3: {
-    gridColumn: '2 / 3',
-    gridRow: 2,
-    [theme.breakpoints.down('xs')]: {
+const useStyles = makeStyles(
+  theme => ({
+    PaymentDialog_container: {
+      padding: theme.custom.setSpace('sm')
+    },
+    PaymentDialog_lockIcon: {
+      fontSize: `${theme.typography.fontSize * 2}px !important`,
+      position: 'relative',
+      top: 5,
+      marginRight: theme.custom.setSpace() / 2
+    },
+    PaymentDialog_stripeButton: {
+      ...theme.custom.setFlex(),
+      'border': 'none',
+      'padding': 0,
+      'margin': 0,
+      'backgroundColor': 'white',
+      'transition': 'background-color 250ms ease-out',
+      '&:hover': {
+        cursor: 'pointer',
+        backgroundColor: theme.palette.primary[50]
+      }
+    },
+    PaymentDialog_stripeIcon: {
+      height: theme.custom.setSpace('sm')
+    },
+    PaymentDialog_intro: {
+      marginTop: theme.custom.setSpace('sm')
+    },
+    PaymentDialog_form: {
+      ...theme.custom.setGrid(2, 'auto', theme.custom.setSpace('sm')),
+      marginTop: theme.custom.setSpace('sm'),
+      width: '100%'
+    },
+    PaymentDialog_grid1: {
       gridColumn: '1 / 3',
-      gridRow: 3
+      gridRow: 1
+    },
+    PaymentDialog_grid2: {
+      gridColumn: '1 / 2',
+      gridRow: 2,
+      [theme.breakpoints.down('xs')]: {
+        gridColumn: '1 / 3'
+      }
+    },
+    PaymentDialog_grid3: {
+      gridColumn: '2 / 3',
+      gridRow: 2,
+      [theme.breakpoints.down('xs')]: {
+        gridColumn: '1 / 3',
+        gridRow: 3
+      }
+    },
+    PaymentDialog_grid4: {
+      gridColumn: '1 / 3',
+      gridRow: 3,
+      [theme.breakpoints.down('xs')]: {
+        gridRow: 4
+      }
+    },
+    PaymentDialog_grid5: {
+      gridColumn: '1 / 3',
+      gridRow: 4,
+      [theme.breakpoints.down('xs')]: {
+        gridRow: 5
+      }
+    },
+    PaymentDialog_grid6: {
+      ...theme.custom.setFlex(),
+      gridColumn: '1 / 3',
+      gridRow: 5,
+      [theme.breakpoints.down('xs')]: {
+        gridRow: 6
+      }
+    },
+    PaymentDialog_actionButton: {
+      'width': '100%',
+      'marginRight': theme.custom.setSpace(),
+      '&:last-child': {
+        marginRight: 0
+      }
+    },
+    PaymentDialog_submitButton: {
+      color: theme.palette.primary[50]
     }
-  },
-  PaymentDialog_grid4: {
-    gridColumn: '1 / 3',
-    gridRow: 3,
-    [theme.breakpoints.down('xs')]: {
-      gridRow: 4
-    }
-  },
-  PaymentDialog_grid5: {
-    gridColumn: '1 / 3',
-    gridRow: 4,
-    [theme.breakpoints.down('xs')]: {
-      gridRow: 5
-    }
-  },
-  PaymentDialog_grid6: {
-    ...theme.custom.setFlex(),
-    gridColumn: '1 / 3',
-    gridRow: 5,
-    [theme.breakpoints.down('xs')]: {
-      gridRow: 6
-    }
-  },
-  PaymentDialog_actionButton: {
-    'width': '100%',
-    'marginRight': theme.custom.setSpace(),
-    '&:last-child': {
-      marginRight: 0
-    }
-  },
-  PaymentDialog_submitButton: {
-    color: theme.palette.primary[50]
+  }),
+  {
+    name: 'PaymentDialog'
   }
-}))
+)
 
 interface Props {
   open: boolean

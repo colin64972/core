@@ -24,28 +24,33 @@ import { PaymentDialog } from './PaymentDialog/'
 
 const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY)
 
-const useStyles = makeStyles(theme => ({
-  ExportPanel_container: {
-    ...theme.custom.borderRadius,
-    'padding': theme.custom.setSpace('sm'),
-    'background': theme.custom.setLinearGradient(
-      180,
-      theme.palette.secondary.main,
-      theme.palette.secondary[300]
-    ),
-    'color': theme.palette.secondary[50],
-    'transition': 'all 250ms ease-out',
-    [theme.breakpoints.down('xs')]: {
-      marginTop: theme.custom.setSpace('sm')
+const useStyles = makeStyles(
+  theme => ({
+    ExportPanel_container: {
+      ...theme.custom.borderRadius,
+      'padding': theme.custom.setSpace('sm'),
+      'background': theme.custom.setLinearGradient(
+        180,
+        theme.palette.secondary.main,
+        theme.palette.secondary[300]
+      ),
+      'color': theme.palette.secondary[50],
+      'transition': 'all 250ms ease-out',
+      [theme.breakpoints.down('xs')]: {
+        marginTop: theme.custom.setSpace('sm')
+      },
+      '&:hover': {
+        boxShadow: theme.custom.boxShadow
+      }
     },
-    '&:hover': {
-      boxShadow: theme.custom.boxShadow
+    ExportPanel_topMargin: {
+      marginTop: theme.custom.setSpace('sm')
     }
-  },
-  ExportPanel_topMargin: {
-    marginTop: theme.custom.setSpace('sm')
+  }),
+  {
+    name: 'ExportPanel'
   }
-}))
+)
 
 export const ExportPanel: React.FC = (): JSX.Element => {
   const classes = useStyles()

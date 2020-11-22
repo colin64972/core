@@ -18,38 +18,43 @@ import {
 } from '../../../store/selectors'
 import { PreviewCell } from './PreviewCell'
 
-const useStyles = makeStyles(theme => ({
-  PreviewTable_tableContainer: {
-    height: `calc(100% - ${theme.custom.setSpace('sm') * 2.4}px)`,
-    overflow: 'scroll',
-    marginTop: theme.custom.setSpace('sm')
-  },
-  PreviewTable_tableRow: {
-    ...theme.custom.tableBorder,
-    backgroundColor: theme.palette.primary.main
-  },
-  PreviewTable_originCell: {
-    width: 40
-  },
-  PreviewTable_headCell: {
-    ...theme.custom.noSelect,
-    ...theme.custom.tableBorder,
-    ...theme.typography.bold,
-    color: theme.palette.primary[50],
-    padding: theme.custom.setSpace(),
-    margin: 0,
-    textAlign: 'center'
-  },
-  PreviewTable_rowHeadCell: {
-    ...theme.custom.noSelect,
-    ...theme.typography.bold,
-    ...theme.custom.tableBorder,
-    color: theme.palette.primary[50],
-    backgroundColor: theme.palette.primary.main,
-    margin: 0,
-    textAlign: 'center'
+const useStyles = makeStyles(
+  theme => ({
+    PreviewTable_tableContainer: {
+      height: `calc(100% - ${theme.custom.setSpace('sm') * 2.4}px)`,
+      overflow: 'scroll',
+      marginTop: theme.custom.setSpace('sm')
+    },
+    PreviewTable_tableRow: {
+      ...theme.custom.tableBorder,
+      backgroundColor: theme.palette.primary.main
+    },
+    PreviewTable_originCell: {
+      width: 40
+    },
+    PreviewTable_headCell: {
+      ...theme.custom.noSelect,
+      ...theme.custom.tableBorder,
+      ...theme.typography.bold,
+      color: theme.palette.primary[50],
+      padding: theme.custom.setSpace(),
+      margin: 0,
+      textAlign: 'center'
+    },
+    PreviewTable_rowHeadCell: {
+      ...theme.custom.noSelect,
+      ...theme.typography.bold,
+      ...theme.custom.tableBorder,
+      color: theme.palette.primary[50],
+      backgroundColor: theme.palette.primary.main,
+      margin: 0,
+      textAlign: 'center'
+    }
+  }),
+  {
+    name: 'PreviewTable'
   }
-}))
+)
 
 export const PreviewTable: React.FC = (): JSX.Element => {
   const classes = useStyles()

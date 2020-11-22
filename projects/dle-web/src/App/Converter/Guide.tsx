@@ -4,54 +4,59 @@ import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 import { theme } from '../../theme'
 
-const useStyles = makeStyles(theme => ({
-  Guide_section: {
-    'color': theme.palette.bodyColor,
-    'padding': theme.custom.setSpace('sm'),
-    'marginBottom': theme.custom.setSpace('sm'),
-    'boxShadow': theme.custom.boxShadow,
-    '&:last-of-type': {
-      marginBottom: 0
+const useStyles = makeStyles(
+  theme => ({
+    Guide_section: {
+      'color': theme.palette.bodyColor,
+      'padding': theme.custom.setSpace('sm'),
+      'marginBottom': theme.custom.setSpace('sm'),
+      'boxShadow': theme.custom.boxShadow,
+      '&:last-of-type': {
+        marginBottom: 0
+      }
+    },
+    Guide_sectionTitle: {
+      marginBottom: theme.custom.setSpace()
+    },
+    Guide_accordionDetails: {
+      ...theme.custom.setFlex('column', 'flex-start', 'flex-start')
+    },
+    Guide_accordionDetails_firstChild: {
+      marginTop: 0
+    },
+    Guide_sectionSubTitle: {
+      marginTop: theme.custom.setSpace()
+    },
+    Guide_functionList: {
+      margin: `${theme.custom.setSpace('sm')}px 0`,
+      paddingLeft: theme.custom.setSpace('sm')
+    },
+    Guide_functionListItem: {
+      'marginBottom': theme.custom.setSpace(),
+      '&:last-child': {
+        marginBottom: 0
+      }
+    },
+    Guide_accordion: {
+      marginBottom: theme.custom.setSpace('sm')
+    },
+    Guide_contentSectionBg: {
+      ...theme.custom.setFlex(),
+      background: theme.custom.setLinearGradient(
+        180,
+        theme.palette.grey[700],
+        theme.palette.grey[900]
+      )
+    },
+    Guide_contentContainer: {
+      padding: theme.custom.setSpace('sm'),
+      ...theme.custom.contentContainer
     }
-  },
-  Guide_sectionTitle: {
-    marginBottom: theme.custom.setSpace()
-  },
-  Guide_accordionDetails: {
-    ...theme.custom.setFlex('column', 'flex-start', 'flex-start')
-  },
-  Guide_accordionDetails_firstChild: {
-    marginTop: 0
-  },
-  Guide_sectionSubTitle: {
-    marginTop: theme.custom.setSpace()
-  },
-  Guide_functionList: {
-    margin: `${theme.custom.setSpace('sm')}px 0`,
-    paddingLeft: theme.custom.setSpace('sm')
-  },
-  Guide_functionListItem: {
-    'marginBottom': theme.custom.setSpace(),
-    '&:last-child': {
-      marginBottom: 0
-    }
-  },
-  Guide_accordion: {
-    marginBottom: theme.custom.setSpace('sm')
-  },
-  Guide_contentSectionBg: {
-    ...theme.custom.setFlex(),
-    background: theme.custom.setLinearGradient(
-      180,
-      theme.palette.grey[700],
-      theme.palette.grey[900]
-    )
-  },
-  Guide_contentContainer: {
-    padding: theme.custom.setSpace('sm'),
-    ...theme.custom.contentContainer
+  }),
+  {
+    name: 'Guide'
   }
-}))
+)
 
 export const Guide: React.FC = (): JSX.Element => {
   const classes = useStyles()

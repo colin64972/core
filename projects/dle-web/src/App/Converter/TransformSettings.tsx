@@ -23,65 +23,70 @@ import {
 import { FormikField } from './FormikField'
 import { TransformSettingsSchema } from './validationSchemas'
 
-const useStyles = makeStyles(theme => ({
-  TransformSettings_contentContainer: {
-    ...theme.custom.contentContainer,
-    padding: theme.custom.setSpace('sm')
-  },
-  TransformSettings_formPanel: {
-    ...theme.custom.borderRadius,
-    padding: theme.custom.setSpace('sm'),
-    backgroundColor: theme.palette.grey[100]
-  },
-  TransformSettings_formGrid: {
-    ...theme.custom.setGrid(3, 1, theme.custom.setSpace('sm')),
-    [theme.breakpoints.down('xs')]: {
-      ...theme.custom.setGrid(3, 3, theme.custom.setSpace('sm'))
+const useStyles = makeStyles(
+  theme => ({
+    TransformSettings_contentContainer: {
+      ...theme.custom.contentContainer,
+      padding: theme.custom.setSpace('sm')
+    },
+    TransformSettings_formPanel: {
+      ...theme.custom.borderRadius,
+      padding: theme.custom.setSpace('sm'),
+      backgroundColor: theme.palette.grey[100]
+    },
+    TransformSettings_formGrid: {
+      ...theme.custom.setGrid(3, 1, theme.custom.setSpace('sm')),
+      [theme.breakpoints.down('xs')]: {
+        ...theme.custom.setGrid(3, 3, theme.custom.setSpace('sm'))
+      }
+    },
+    TransformSettings_formGridPosition0: {
+      gridColumn: '1 / 2',
+      gridRow: 1,
+      [theme.breakpoints.down('xs')]: {
+        gridColumn: '1 / 4'
+      }
+    },
+    TransformSettings_formGridPosition1: {
+      gridColumn: '2 / 3',
+      gridRow: 1,
+      [theme.breakpoints.down('xs')]: {
+        gridColumn: '1 / 4',
+        gridRow: 2
+      }
+    },
+    TransformSettings_formGridPosition2: {
+      gridColumn: '3 / 4',
+      gridRow: 1,
+      [theme.breakpoints.down('xs')]: {
+        gridColumn: '1 / 4',
+        gridRow: 3
+      }
+    },
+    TransformSettings_formGridPosition3: {
+      ...theme.custom.setFlex(),
+      gridColumn: '2 / 3',
+      gridRow: 2,
+      [theme.breakpoints.down('xs')]: {
+        gridColumn: '1 / 4',
+        gridRow: 4
+      }
+    },
+    TransformSettings_formFieldTopMargin: {
+      margin: `${theme.custom.setSpace('sm')}px 0 0 0`
+    },
+    TransformSettings_formButton: {
+      'color': 'white',
+      'marginRight': theme.custom.setSpace(),
+      '&:last-of-type': {
+        marginRight: 0
+      }
     }
-  },
-  TransformSettings_formGridPosition0: {
-    gridColumn: '1 / 2',
-    gridRow: 1,
-    [theme.breakpoints.down('xs')]: {
-      gridColumn: '1 / 4'
-    }
-  },
-  TransformSettings_formGridPosition1: {
-    gridColumn: '2 / 3',
-    gridRow: 1,
-    [theme.breakpoints.down('xs')]: {
-      gridColumn: '1 / 4',
-      gridRow: 2
-    }
-  },
-  TransformSettings_formGridPosition2: {
-    gridColumn: '3 / 4',
-    gridRow: 1,
-    [theme.breakpoints.down('xs')]: {
-      gridColumn: '1 / 4',
-      gridRow: 3
-    }
-  },
-  TransformSettings_formGridPosition3: {
-    ...theme.custom.setFlex(),
-    gridColumn: '2 / 3',
-    gridRow: 2,
-    [theme.breakpoints.down('xs')]: {
-      gridColumn: '1 / 4',
-      gridRow: 4
-    }
-  },
-  TransformSettings_formFieldTopMargin: {
-    margin: `${theme.custom.setSpace('sm')}px 0 0 0`
-  },
-  TransformSettings_formButton: {
-    'color': 'white',
-    'marginRight': theme.custom.setSpace(),
-    '&:last-of-type': {
-      marginRight: 0
-    }
+  }),
+  {
+    name: 'TransformSettings'
   }
-}))
+)
 
 export const TransformSettings: React.FC = (): JSX.Element => {
   const classes = useStyles()

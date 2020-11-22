@@ -8,27 +8,32 @@ import { TransformResults } from './TransformResults'
 import { TransformSettings } from './TransformSettings'
 import { theme } from '../../theme'
 
-const useStyles = makeStyles(theme => ({
-  Converter_headerBg: {
-    backgroundImage:
-      'url(https://eskipaper.com/images/high-tech-wallpapers-3.jpg)',
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat'
-  },
-  Converter_headerContent: {
-    ...theme.custom.setFlex('column'),
-    padding: theme.custom.setSpace('sm'),
-    color: theme.palette.grey[50],
-    textShadow: theme.custom.textShadow
-  },
-  Converter_headerInstructionsButton: {
-    marginTop: theme.custom.setSpace('sm')
-  },
-  Converter_contentContainer: {
-    ...theme.custom.contentContainer
+const useStyles = makeStyles(
+  theme => ({
+    Converter_headerBg: {
+      backgroundImage:
+        'url(https://eskipaper.com/images/high-tech-wallpapers-3.jpg)',
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat'
+    },
+    Converter_headerContent: {
+      ...theme.custom.setFlex('column'),
+      padding: theme.custom.setSpace('sm'),
+      color: theme.palette.grey[50],
+      textShadow: theme.custom.textShadow
+    },
+    Converter_headerInstructionsButton: {
+      marginTop: theme.custom.setSpace('sm')
+    },
+    Converter_contentContainer: {
+      ...theme.custom.contentContainer
+    }
+  }),
+  {
+    name: 'Converter'
   }
-}))
+)
 
 export const Converter: React.FC = (): JSX.Element => {
   const classes = useStyles()

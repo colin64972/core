@@ -18,25 +18,30 @@ import { NotFound } from './NotFound'
 import { TopNav } from './TopNav'
 import { Guide } from './Converter/Guide'
 
-const useStyles = makeStyles(theme => ({
-  App_pageContainer: {
-    ...theme.custom.setGrid(12, 'auto 1fr auto'),
-    ...theme.custom.fullScreen
-  },
-  App_topNavPosition: {
-    gridColumn: '1 / 13',
-    gridRow: 1
-  },
-  App_contentPosition: {
-    ...theme.custom.setFlex('column', 'flex-start'),
-    gridColumn: '1 / 13',
-    gridRow: 2
-  },
-  App_footerPosition: {
-    gridColumn: '1 / 13',
-    gridRow: 3
+const useStyles = makeStyles(
+  theme => ({
+    App_pageContainer: {
+      ...theme.custom.setGrid(12, 'auto 1fr auto'),
+      ...theme.custom.fullScreen
+    },
+    App_topNavPosition: {
+      gridColumn: '1 / 13',
+      gridRow: 1
+    },
+    App_contentPosition: {
+      ...theme.custom.setFlex('column', 'flex-start'),
+      gridColumn: '1 / 13',
+      gridRow: 2
+    },
+    App_footerPosition: {
+      gridColumn: '1 / 13',
+      gridRow: 3
+    }
+  }),
+  {
+    name: 'App'
   }
-}))
+)
 
 export const App: React.FC = (): JSX.Element => {
   const classes = useStyles()

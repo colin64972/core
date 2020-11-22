@@ -25,28 +25,33 @@ import { ExportPanel } from './ExportPanel'
 import { Preview } from './Preview/'
 import { TransformSummary } from './TransformSummary'
 
-const useStyles = makeStyles(theme => ({
-  TransformResults_containerBg: {
-    backgroundColor: theme.palette.grey[300]
-  },
-  TransformResults_contentContainer: {
-    ...theme.custom.contentContainer,
-    padding: theme.custom.setSpace('sm')
-  },
-  TransformResults_changeSummaries: {
-    marginTop: theme.custom.setSpace('sm')
-  },
-  TransformResults_intro: {
-    paddingRight: theme.custom.setSpace('sm'),
-    [theme.breakpoints.down('xs')]: {
-      paddingRight: 'unset'
+const useStyles = makeStyles(
+  theme => ({
+    TransformResults_containerBg: {
+      backgroundColor: theme.palette.grey[300]
+    },
+    TransformResults_contentContainer: {
+      ...theme.custom.contentContainer,
+      padding: theme.custom.setSpace('sm')
+    },
+    TransformResults_changeSummaries: {
+      marginTop: theme.custom.setSpace('sm')
+    },
+    TransformResults_intro: {
+      paddingRight: theme.custom.setSpace('sm'),
+      [theme.breakpoints.down('xs')]: {
+        paddingRight: 'unset'
+      }
+    },
+    TransformResults_previewButton: {
+      marginTop: theme.custom.setSpace('sm'),
+      color: theme.palette.primary[50]
     }
-  },
-  TransformResults_previewButton: {
-    marginTop: theme.custom.setSpace('sm'),
-    color: theme.palette.primary[50]
+  }),
+  {
+    name: 'TransformResults'
   }
-}))
+)
 
 export const TransformResults: React.FC = (): JSX.Element => {
   const classes = useStyles()

@@ -12,26 +12,31 @@ import { Field } from 'formik'
 import { toggleTc } from '../../../store/app/actions'
 import React from 'react'
 
-const useStyles = makeStyles(theme => ({
-  AcceptTerms_checkboxPadding: {
-    paddingLeft: 0
-  },
-  AcceptTerms_noMargin: {
-    margin: 0
-  },
-  AcceptTerms_labelContainer: {
-    ...theme.custom.setFlex()
-  },
-  AcceptTerms_termsButton: {
-    ...theme.custom.setFlex(),
-    marginLeft: theme.custom.setSpace(),
-    minWidth: 'unset',
-    padding: theme.custom.setSpace() / 3
-  },
-  AcceptTerms_termsButtonIcon: {
-    fontSize: theme.typography.fontSize * 1.5
+const useStyles = makeStyles(
+  theme => ({
+    AcceptTerms_checkboxPadding: {
+      paddingLeft: 0
+    },
+    AcceptTerms_noMargin: {
+      margin: 0
+    },
+    AcceptTerms_labelContainer: {
+      ...theme.custom.setFlex()
+    },
+    AcceptTerms_termsButton: {
+      ...theme.custom.setFlex(),
+      marginLeft: theme.custom.setSpace(),
+      minWidth: 'unset',
+      padding: theme.custom.setSpace() / 3
+    },
+    AcceptTerms_termsButtonIcon: {
+      fontSize: theme.typography.fontSize * 1.5
+    }
+  }),
+  {
+    name: 'AcceptTerms'
   }
-}))
+)
 
 export const FormikAcceptTerms = () => {
   const classes = useStyles()

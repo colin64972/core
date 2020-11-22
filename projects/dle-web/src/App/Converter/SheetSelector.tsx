@@ -16,35 +16,40 @@ import {
   workbookSelector
 } from '../../store/selectors'
 
-const useStyles = makeStyles(theme => ({
-  SheetSelector_contentContainer: {
-    ...theme.custom.contentContainer,
-    padding: theme.custom.setSpace('sm')
-  },
-  SheetSelector_bg: {
-    background: theme.custom.setLinearGradient(
-      180,
-      theme.palette.grey[300],
-      'white'
-    )
-  },
-  SheetSelector_title: {
-    textAlign: 'right',
-    [theme.breakpoints.down('xs')]: {
-      textAlign: 'center'
+const useStyles = makeStyles(
+  theme => ({
+    SheetSelector_contentContainer: {
+      ...theme.custom.contentContainer,
+      padding: theme.custom.setSpace('sm')
+    },
+    SheetSelector_bg: {
+      background: theme.custom.setLinearGradient(
+        180,
+        theme.palette.grey[300],
+        'white'
+      )
+    },
+    SheetSelector_title: {
+      textAlign: 'right',
+      [theme.breakpoints.down('xs')]: {
+        textAlign: 'center'
+      }
+    },
+    SheetSelector_selectFormControl: {
+      minWidth: theme.custom.setSpace('xl'),
+      margin: `0 0 0 ${theme.custom.setSpace()}px`,
+      [theme.breakpoints.down('xs')]: {
+        margin: `${theme.custom.setSpace()}px 0 0 0`
+      }
+    },
+    SheetSelector_selectFormControlInputLabel: {
+      top: -5
     }
-  },
-  SheetSelector_selectFormControl: {
-    minWidth: theme.custom.setSpace('xl'),
-    margin: `0 0 0 ${theme.custom.setSpace()}px`,
-    [theme.breakpoints.down('xs')]: {
-      margin: `${theme.custom.setSpace()}px 0 0 0`
-    }
-  },
-  SheetSelector_selectFormControlInputLabel: {
-    top: -5
+  }),
+  {
+    name: 'SheetSelector'
   }
-}))
+)
 
 export const SheetSelector: React.FC = (): JSX.Element => {
   const classes = useStyles()

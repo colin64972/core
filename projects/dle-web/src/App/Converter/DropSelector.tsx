@@ -5,23 +5,28 @@ import path from 'path'
 import React, { useState } from 'react'
 import { FileUpload } from '../../interfaces'
 
-const useStyles = makeStyles(theme => ({
-  DropSelector_dropZone: {
-    ...theme.custom.setFlex('column'),
-    width: '100%',
-    height: '100%',
-    borderRadius: theme.custom.setSpace() / 4,
-    backgroundColor: theme.palette.primary.main,
-    transition: 'all 250ms linear'
-  },
-  DropSelector_dragColor: {
-    boxShadow: theme.custom.boxShadow
-  },
-  DropSelector_dropIcon: {
-    color: theme.palette.primary[50],
-    fontSize: `${theme.custom.setSpace('lg')}px !important`
+const useStyles = makeStyles(
+  theme => ({
+    DropSelector_dropZone: {
+      ...theme.custom.setFlex('column'),
+      width: '100%',
+      height: '100%',
+      borderRadius: theme.custom.setSpace() / 4,
+      backgroundColor: theme.palette.primary.main,
+      transition: 'all 250ms linear'
+    },
+    DropSelector_dragColor: {
+      boxShadow: theme.custom.boxShadow
+    },
+    DropSelector_dropIcon: {
+      color: theme.palette.primary[50],
+      fontSize: `${theme.custom.setSpace('lg')}px !important`
+    }
+  }),
+  {
+    name: 'DropSelector'
   }
-}))
+)
 
 interface Props {
   setSelectedFileHandler: (file: FileUpload) => void

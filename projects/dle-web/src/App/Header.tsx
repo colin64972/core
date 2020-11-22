@@ -1,38 +1,43 @@
-import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
+import { switchLinkRoutePath, createHashId } from '@cjo3/shared/react/helpers'
 import { Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 
-const useStyles = makeStyles(theme => ({
-  Header_containerBg: {
-    backgroundColor: ({ bgColor }) => eval(bgColor),
-    backgroundImage: ({ bgUrl }) => `url(${bgUrl})`,
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat'
-  },
-  Header_contentContainer: {
-    ...theme.custom.contentContainer,
-    ...theme.custom.setFlex('column'),
-    height: 300,
-    padding: theme.custom.setSpace('sm')
-  },
-  Header_title: {
-    color: ({ titleColor }) => eval(titleColor),
-    marginTop: theme.custom.setSpace(),
-    textShadow: theme.custom.textShadow
-  },
-  Header_subTitle: {
-    color: ({ subTitleColor }) => eval(subTitleColor),
-    marginTop: theme.custom.setSpace(),
-    textShadow: theme.custom.textShadow,
-    fontWeight: 'normal'
-  },
-  Header_button: {
-    marginTop: theme.custom.setSpace('sm')
+const useStyles = makeStyles(
+  theme => ({
+    Header_containerBg: {
+      backgroundColor: ({ bgColor }) => eval(bgColor),
+      backgroundImage: ({ bgUrl }) => `url(${bgUrl})`,
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat'
+    },
+    Header_contentContainer: {
+      ...theme.custom.contentContainer,
+      ...theme.custom.setFlex('column'),
+      height: 300,
+      padding: theme.custom.setSpace('sm')
+    },
+    Header_title: {
+      color: ({ titleColor }) => eval(titleColor),
+      marginTop: theme.custom.setSpace(),
+      textShadow: theme.custom.textShadow
+    },
+    Header_subTitle: {
+      color: ({ subTitleColor }) => eval(subTitleColor),
+      marginTop: theme.custom.setSpace(),
+      textShadow: theme.custom.textShadow,
+      fontWeight: 'normal'
+    },
+    Header_button: {
+      marginTop: theme.custom.setSpace('sm')
+    }
+  }),
+  {
+    name: `Header-${createHashId()}`
   }
-}))
+)
 
 interface Props {
   title: string

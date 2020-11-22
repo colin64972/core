@@ -6,82 +6,87 @@ import clsx from 'clsx'
 import React from 'react'
 import { TransformSummary as ITransformSummary } from '../../store/converter/interfaces'
 
-const useStyles = makeStyles(theme => ({
-  TransformSummary_panel: {
-    'padding': theme.custom.setSpace('sm'),
-    'marginTop': theme.custom.setSpace('sm'),
-    ...theme.custom.borderRadius,
-    'transition': 'box-shadow 250ms ease-out',
-    'background': theme.custom.setLinearGradient(180, 'whitesmoke', 'white'),
-    '&:first-of-type': {
-      marginTop: 0
+const useStyles = makeStyles(
+  theme => ({
+    TransformSummary_panel: {
+      'padding': theme.custom.setSpace('sm'),
+      'marginTop': theme.custom.setSpace('sm'),
+      ...theme.custom.borderRadius,
+      'transition': 'box-shadow 250ms ease-out',
+      'background': theme.custom.setLinearGradient(180, 'whitesmoke', 'white'),
+      '&:first-of-type': {
+        marginTop: 0
+      },
+      '&:hover': {
+        boxShadow: theme.custom.boxShadow
+      }
     },
-    '&:hover': {
-      boxShadow: theme.custom.boxShadow
-    }
-  },
-  grey_bg: {
-    background: theme.custom.setLinearGradient(
-      180,
-      theme.palette.grey[300],
-      'white'
-    )
-  },
-  primary_bg: {
-    background: theme.custom.setLinearGradient(
-      180,
-      theme.palette.primary[100],
-      'white'
-    )
-  },
-  secondary_bg: {
-    background: theme.custom.setLinearGradient(
-      180,
-      theme.palette.secondary[100],
-      'white'
-    )
-  },
-  TransformSummary_panel_left: {
-    ...theme.custom.borderRadius,
-    backgroundColor: theme.palette.primary[100],
-    padding: theme.custom.setSpace('sm'),
-    [theme.breakpoints.down('xs')]: {
+    grey_bg: {
+      background: theme.custom.setLinearGradient(
+        180,
+        theme.palette.grey[300],
+        'white'
+      )
+    },
+    primary_bg: {
+      background: theme.custom.setLinearGradient(
+        180,
+        theme.palette.primary[100],
+        'white'
+      )
+    },
+    secondary_bg: {
+      background: theme.custom.setLinearGradient(
+        180,
+        theme.palette.secondary[100],
+        'white'
+      )
+    },
+    TransformSummary_panel_left: {
+      ...theme.custom.borderRadius,
+      backgroundColor: theme.palette.primary[100],
+      padding: theme.custom.setSpace('sm'),
+      [theme.breakpoints.down('xs')]: {
+        marginTop: theme.custom.setSpace('sm')
+      }
+    },
+    doubleArrow: {
+      fontSize: `${theme.typography.fontSize * 10}px !important`,
+      color: 'white',
+      opacity: 0.25
+    },
+    noPadding: {
+      padding: 0
+    },
+    marginTop: {
       marginTop: theme.custom.setSpace('sm')
-    }
-  },
-  doubleArrow: {
-    fontSize: `${theme.typography.fontSize * 10}px !important`,
-    color: 'white',
-    opacity: 0.25
-  },
-  noPadding: {
-    padding: 0
-  },
-  marginTop: {
-    marginTop: theme.custom.setSpace('sm')
-  },
-  heading: {
-    position: 'relative',
-    zIndex: 5
-  },
-  chip: {
-    ...theme.typography.bold,
-    fontSize: theme.typography.fontSize * 1.25,
-    padding: theme.custom.setSpace(),
-    color: 'white',
-    marginTop: theme.custom.setSpace()
-  },
-  TransformSummary_resultList: {
-    ...theme.custom.cleanList
-  },
-  TransformSummary_resultListItem: {
-    'width': '100%',
-    ...theme.custom.setFlex(),
-    '&:first-child': {
+    },
+    heading: {
+      position: 'relative',
+      zIndex: 5
+    },
+    chip: {
+      ...theme.typography.bold,
+      fontSize: theme.typography.fontSize * 1.25,
+      padding: theme.custom.setSpace(),
+      color: 'white',
       marginTop: theme.custom.setSpace()
+    },
+    TransformSummary_resultList: {
+      ...theme.custom.cleanList
+    },
+    TransformSummary_resultListItem: {
+      'width': '100%',
+      ...theme.custom.setFlex(),
+      '&:first-child': {
+        marginTop: theme.custom.setSpace()
+      }
     }
+  }),
+  {
+    name: 'TransformSummary'
   }
-}))
+)
 
 interface Props {
   title: string

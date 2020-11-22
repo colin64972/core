@@ -8,18 +8,23 @@ import clsx from 'clsx'
 import React from 'react'
 import { topNavItems } from '../constants'
 
-const useStyles = makeStyles(theme => ({
-  TopNav_background: {
-    backgroundColor: theme.palette.primary.main
-  },
-  TopNav_navItem: {
-    padding: theme.custom.setSpace()
-  },
-  TopNav_contentContainer: {
-    ...theme.custom.contentContainer,
-    padding: `0 ${theme.custom.setSpace('sm')}px`
+const useStyles = makeStyles(
+  theme => ({
+    TopNav_background: {
+      backgroundColor: theme.palette.primary.main
+    },
+    TopNav_navItem: {
+      padding: theme.custom.setSpace()
+    },
+    TopNav_contentContainer: {
+      ...theme.custom.contentContainer,
+      padding: `0 ${theme.custom.setSpace('sm')}px`
+    }
+  }),
+  {
+    name: 'TopNav'
   }
-}))
+)
 
 interface Props {
   style: string

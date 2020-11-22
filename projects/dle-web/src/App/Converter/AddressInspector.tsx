@@ -8,33 +8,38 @@ import {
   TransformSummary
 } from '../../store/converter/interfaces'
 
-const useStyles = makeStyles(theme => ({
-  AddressInspector_sideDrawer: {
-    ...theme.custom.setFlex('column'),
-    padding: theme.custom.setSpace(),
-    backgroundColor: theme.palette.grey[900]
-  },
-  AddressInspector_innerList: {
-    height: '100%'
-  },
-  AddressInspector_addressListItem: {
-    'marginTop': theme.custom.setSpace(),
-    ...theme.custom.noSelect,
-    ...theme.custom.setFlex('column'),
-    'transition': 'all 250ms linear',
-    'color': theme.palette.grey[400],
-    '&:hover': {
-      color: theme.palette.grey[50]
+const useStyles = makeStyles(
+  theme => ({
+    AddressInspector_sideDrawer: {
+      ...theme.custom.setFlex('column'),
+      padding: theme.custom.setSpace(),
+      backgroundColor: theme.palette.grey[900]
+    },
+    AddressInspector_innerList: {
+      height: '100%'
+    },
+    AddressInspector_addressListItem: {
+      'marginTop': theme.custom.setSpace(),
+      ...theme.custom.noSelect,
+      ...theme.custom.setFlex('column'),
+      'transition': 'all 250ms linear',
+      'color': theme.palette.grey[400],
+      '&:hover': {
+        color: theme.palette.grey[50]
+      }
+    },
+    AddressInspector_transformRow: {
+      marginTop: theme.custom.setSpace()
+    },
+    AddressInspector_doubleArrow: {
+      fontSize: theme.typography.fontSize * 1.5,
+      color: theme.palette.grey[800]
     }
-  },
-  AddressInspector_transformRow: {
-    marginTop: theme.custom.setSpace()
-  },
-  AddressInspector_doubleArrow: {
-    fontSize: theme.typography.fontSize * 1.5,
-    color: theme.palette.grey[800]
+  }),
+  {
+    name: 'AddressInspector'
   }
-}))
+)
 
 interface Props {
   drawerOpen: boolean
