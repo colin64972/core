@@ -26,6 +26,11 @@ const useStyles = makeStyles(
       ...theme.custom.contentContainer
     },
 
+    Home_body1Text: {
+      color: theme.palette.bodyColor,
+      maxWidth: '67%'
+    },
+
     Home_introContainerBg: {
       background: theme.custom.setLinearGradient(
         180,
@@ -138,14 +143,13 @@ const useStyles = makeStyles(
         theme.palette.secondary[500]
       ),
       'boxShadow': theme.custom.boxShadow,
-      'color': theme.palette.secondary[100],
+      'color': 'white',
       'transition': 'all 250ms ease-out',
       '&:hover': {
-        color: 'white',
+        color: theme.palette.secondary[50],
         cursor: 'pointer'
       }
     },
-    Home_midCtaText: {},
 
     Home_useCaseContent: {
       padding: `${theme.custom.setSpace('md')}px ${theme.custom.setSpace(
@@ -274,15 +278,21 @@ export const Home: React.FC = (): JSX.Element => {
           <Typography variant="h3" align="center">
             Easily Convert MDL Text to Actionable Number Values
           </Typography>
-          <Typography variant="body1" align="center">
+          <Typography
+            variant="body1"
+            align="center"
+            className={classes.Home_body1Text}>
             Depending on the lab you work with and their data output
-            capabilities, importing their results into your workflow can be
-            error prone and a major time sink. If you&apos;ve ever had to
-            manually comb through sheets of data looking for and changing
-            detection level text values to number values, you&apos;ve found
-            yourself in the right place!
+            capabilities, importing results into your workflow can be error
+            prone and time consuming. If you&apos;ve ever had to manually comb
+            through sheets of data looking for and changing detection level text
+            values to number values, you&apos;ve found yourself in the right
+            place!
           </Typography>
-          <Typography variant="body1" align="center">
+          <Typography
+            variant="body1"
+            align="center"
+            className={classes.Home_body1Text}>
             Specifically, {process.env.APP_NAME} allows you to bypass the
             tedious operation of &quot;Finding &amp; Replacing&quot; each cell
             of text data in a traditional spreadsheet program like Microsoft
@@ -292,8 +302,11 @@ export const Home: React.FC = (): JSX.Element => {
             data, but do not have access to expensive, proprietary software that
             may have these features built-in.
           </Typography>
-          <Typography variant="body1" align="center">
-            With {process.env.APP_NAME}, you can quickly replace those limiting
+          <Typography
+            variant="body1"
+            align="center"
+            className={classes.Home_body1Text}>
+            With {process.env.APP_NAME}, you can quickly replace limiting
             threshold characters in just a few clicks by selecting parameters
             and processing your sheet. After processing, the transformed sheet
             can be reviewed prior to downloading as a convenient Microsoft Excel
@@ -361,7 +374,6 @@ export const Home: React.FC = (): JSX.Element => {
                 </Typography>
               </Grid>
             </Grid>
-            <Typography variant="body1"></Typography>
           </Grid>
         </Grid>
         <Grid item xs={12} sm={6} className={classes.Home_fbPanel}>
@@ -429,6 +441,16 @@ export const Home: React.FC = (): JSX.Element => {
           )}>
           <Typography variant="h3" align="center">
             Applied Science Applications
+          </Typography>
+          <Typography
+            variant="body1"
+            align="center"
+            className={classes.Home_body1Text}>
+            Whether your discipline is environmental testing, geochemistry, oil
+            &amp; gas, pharmaceutical, pulp &amp; paper, or food safety&mdash;to
+            list a few&mdash;{process.env.APP_NAME}&nbsp;is an easy way to
+            incorporate raw, analytical results from labs like ALS, SGS, and
+            Alex Stewart International into your workflow!
           </Typography>
           <div className={classes.Home_useCaseContainer}>
             <div className={clsx(classes.Home_useCase0, classes.Home_useCase)}>
