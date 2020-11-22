@@ -367,25 +367,13 @@ export const setTransformStyle = (
   borderColor?: string
 ): JSSStyleObject => {
   const style = {
-    userSelect: 'none',
-    msUserSelect: 'none',
-    OUserSelect: 'none',
-    MozUserSelect: 'none',
-    KhtmlUserSelect: 'none',
-    WebkitUserSelect: 'none',
-    WebkitTouchCallout: 'none',
     width: imageData.width,
     height: imageData.height,
-    boxSizing: 'content-box',
-    backgroundImage: `url(${imageData.url})`,
-    backgroundPosition: 'center',
-    backgroundSize: 'initial',
-    backgroundRepeat: 'no-repeat'
+    backgroundImage: `url(${imageData.url})`
   }
 
   if (borderColor) {
     style.border = `1px solid ${borderColor}`
-    style.borderRadius = 4
   }
 
   return style

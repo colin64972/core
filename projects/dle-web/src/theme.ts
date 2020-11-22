@@ -74,3 +74,10 @@ theme.custom.contentContainer = {
   width: '100%',
   maxWidth: 1024
 }
+
+theme.custom.valueImage = {
+  boxSizing: 'content-box',
+  backgroundPosition: 'center',
+  backgroundSize: 'initial',
+  backgroundRepeat: 'no-repeat'
+}

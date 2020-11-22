@@ -1,6 +1,6 @@
 import { setTransformStyle } from '@cjo3/shared/logic/dle'
 import { Drawer, Grid, List, ListItem, ListItemText } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
 import DoubleArrowIcon from '@material-ui/icons/DoubleArrow'
 import React from 'react'
 import {
@@ -59,7 +59,11 @@ export const AddressInspector: React.FC<Props> = ({
   dataUrls
 }): JSX.Element => {
   const classes = useStyles()
+
+  const appTheme = useTheme()
+
   if (!addresses) return null
+
   return (
     <Drawer
       anchor="left"
@@ -77,8 +81,21 @@ export const AddressInspector: React.FC<Props> = ({
               dataUrls[allTransforms[address].meta.original.w].transform.light
             const originalImage =
               dataUrls[allTransforms[address].meta.original.w].original.light
-            const originalStyle = setTransformStyle(originalImage, '#03a9f4')
-            const transformStyle = setTransformStyle(transformImage, '#f50057')
+
+            const additionalStyle = {
+              ...appTheme.custom.borderRadius,
+              ...appTheme.custom.valueImage
+            }
+
+            const originalStyle = {
+              ...setTransformStyle(originalImage, '#03a9f4'),
+              ...additionalStyle
+            }
+            const transformStyle = {
+              ...setTransformStyle(transformImage, '#f50057'),
+              ...additionalStyle
+            }
+
             return (
               <ListItem
                 key={`drawer-data-item-${address}`}

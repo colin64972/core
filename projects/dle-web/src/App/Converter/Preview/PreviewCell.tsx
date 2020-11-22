@@ -24,6 +24,21 @@ const useStyles = makeStyles(theme => ({
   },
   PreviewCell_tooltip: {
     fontSize: theme.typography.fontSize
+  },
+  PreviewCell_valueBg: {
+    ...theme.custom.noSelect,
+    ...theme.custom.valueImage,
+    'width': ({ transformWidth }) => transformWidth,
+    'height': ({ transformHeight }) => transformHeight,
+    'backgroundImage': ({ transformUrl }) => transformUrl,
+    'transition': 'all 250ms ease-out',
+    '&:hover': {
+      backgroundImage: ({ originalUrl }) => `url(${originalUrl})`,
+      width: ({ originalWidth }) => originalWidth,
+      height: ({ originalHeight }) => originalHeight,
+      backgroundColor: theme.palette.pass[300],
+      cursor: 'pointer'
+    }
   }
 }))
 
@@ -40,24 +55,16 @@ export const PreviewCell: React.FC<Props> = ({
   unprocessedData,
   dataUrls
 }): JSX.Element => {
-  const classes = useStyles()
-
   if (transform && dataUrls) {
-    const dynamicStyles = makeStyles(theme => ({
-      valueBg: {
-        ...setTransformStyle(dataUrls.transform),
-        'transition': 'all 250ms ease-out',
-        '&:hover': {
-          backgroundImage: `url(${dataUrls.original.url})`,
-          width: dataUrls.original.width,
-          height: dataUrls.original.height,
-          backgroundColor: theme.palette.pass[300],
-          cursor: 'pointer'
-        }
-      }
-    }))
-
-    const dynamicClasses = dynamicStyles()
+    const tStyle = setTransformStyle(dataUrls.transform)
+    const classes = useStyles({
+      originalUrl: dataUrls.original.url,
+      originalWidth: dataUrls.original.width,
+      originalHeight: dataUrls.original.height,
+      transformWidth: tStyle.width,
+      transformHeight: tStyle.height,
+      transformUrl: tStyle.backgroundImage
+    })
 
     return (
       <Tooltip
@@ -70,15 +77,20 @@ export const PreviewCell: React.FC<Props> = ({
         <TableCell
           id={cellAddress}
           align="center"
-          className={clsx(classes.PreviewCell_base, dynamicClasses.valueBg, {
-            [classes.PreviewCell_ul]: transform.meta.caseType === 'ul',
-            [classes.PreviewCell_ol]: transform.meta.caseType === 'ol',
-            [classes.PreviewCell_zero]: transform.meta.caseType === 'zero'
-          })}
+          className={clsx(
+            classes.PreviewCell_base,
+            classes.PreviewCell_valueBg,
+            {
+              [classes.PreviewCell_ul]: transform.meta.caseType === 'ul',
+              [classes.PreviewCell_ol]: transform.meta.caseType === 'ol',
+              [classes.PreviewCell_zero]: transform.meta.caseType === 'zero'
+            }
+          )}
         />
       </Tooltip>
     )
   }
+  const classes = useStyles()
 
   return (
     <TableCell align="center" className={classes.PreviewCell_base}>
