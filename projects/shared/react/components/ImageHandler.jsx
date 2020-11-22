@@ -13,13 +13,20 @@ const classes = makeStyles(() => ({
   }
 }))
 
-export const ImageHandler = ({ asset, outerClass }) => {
+export const ImageHandler = ({ asset, outerClass, height }) => {
+  if (!asset) return null
   const { alt, mimeType, paths } = asset
 
   return (
     <picture className={clsx(classes.picture, outerClass)}>
       <source srcSet={setSrcSet(paths, 'webp')} type="image/webp" />
-      <img srcSet={setSrcSet(paths)} src={paths[0]} alt={alt} type={mimeType} />
+      <img
+        srcSet={setSrcSet(paths)}
+        src={paths[0]}
+        alt={alt}
+        type={mimeType}
+        height={height}
+      />
     </picture>
   )
 }
