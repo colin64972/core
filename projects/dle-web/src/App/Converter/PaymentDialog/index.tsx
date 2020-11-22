@@ -27,7 +27,7 @@ const useStyles = makeStyles(
       padding: theme.custom.setSpace('sm')
     },
     PaymentDialog_lockIcon: {
-      fontSize: `${theme.typography.fontSize * 2}px !important`,
+      fontSize: theme.typography.fontSize * 2,
       position: 'relative',
       top: 5,
       marginRight: theme.custom.setSpace() / 2

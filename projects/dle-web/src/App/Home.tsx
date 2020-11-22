@@ -82,7 +82,7 @@ const useStyles = makeStyles(
       }
     },
     Home_fbBenefitIcon: {
-      fontSize: `${theme.typography.fontSize * 3}px !important`,
+      fontSize: theme.typography.fontSize * 3,
       marginBottom: theme.custom.setSpace()
     },
     Home_fbBenefitEfficiency: {
@@ -115,7 +115,7 @@ const useStyles = makeStyles(
       }
     },
     Home_fbListItemIcon: {
-      fontSize: `${theme.typography.fontSize * 2}px !important`,
+      fontSize: theme.typography.fontSize * 2,
       marginRight: theme.custom.setSpace(),
       color: theme.palette.pass[500]
     },

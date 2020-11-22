@@ -20,7 +20,7 @@ const useStyles = makeStyles(
     },
     DropSelector_dropIcon: {
       color: theme.palette.primary[50],
-      fontSize: `${theme.custom.setSpace('lg')}px !important`
+      fontSize: theme.custom.setSpace('lg')
     }
   }),
   {
