@@ -9,8 +9,8 @@ const sharedEnv = require('dotenv').config({
   path: path.resolve('..', 'shared', '.env')
 })
 
-const babelLoaderPlugins =
-  process.env.NODE_ENV === 'production' ? ['transform-remove-console'] : []
+const babelLoaderPlugins = []
+// process.env.NODE_ENV === 'production' ? ['transform-remove-console'] : []
 
 module.exports = {
   entry: {

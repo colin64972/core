@@ -5,7 +5,7 @@ import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
 import DoneIcon from '@material-ui/icons/Done'
 import ScheduleIcon from '@material-ui/icons/Schedule'
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn'
-
+import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 import React from 'react'
 import {
   HomeHeader,
@@ -15,10 +15,10 @@ import {
   HomeOilGas,
   HomeFoodSafety,
   HomePaperPulp,
-  HomePharmaceutical
+  HomePharmaceutical,
+  HomeSpreadsheetBg
 } from '../assets'
 import { Header } from './Header'
-import { typography } from 'material-ui/styles'
 
 const useStyles = makeStyles(theme => ({
   Home_contentContainer: {
@@ -39,12 +39,15 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.custom.setSpace('sm')
   },
 
+  Home_fbContainer: {
+    padding: `${theme.custom.setSpace('md')}px 0`
+  },
   Home_fbLeftBg: {
     ...theme.custom.setFlex('row', 'flex-end'),
     background: theme.custom.setLinearGradient(
       180,
       theme.palette.grey[300],
-      theme.palette.grey[200]
+      'white'
     )
   },
   Home_fbPanel: {
@@ -113,6 +116,33 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.custom.setSpace(),
     color: theme.palette.pass[500]
   },
+
+  Home_midCtaContainer: {
+    padding: `${theme.custom.setSpace('md')}px ${theme.custom.setSpace(
+      'sm'
+    )}px`,
+    backgroundImage: `url(${HomeSpreadsheetBg.paths[0]})`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat'
+  },
+  Home_midCta: {
+    'width': theme.custom.setSpace('xl') * 2,
+    'padding': theme.custom.setSpace('sm'),
+    'borderRadius': theme.custom.setSpace('xl'),
+    'background': theme.custom.setLinearGradient(
+      180,
+      theme.palette.secondary.main,
+      theme.palette.secondary[500]
+    ),
+    'boxShadow': theme.custom.boxShadow,
+    'color': theme.palette.secondary[100],
+    'transition': 'all 250ms ease-out',
+    '&:hover': {
+      color: 'white',
+      cursor: 'pointer'
+    }
+  },
+  Home_midCtaText: {},
 
   Home_useCaseContent: {
     padding: `${theme.custom.setSpace('md')}px ${theme.custom.setSpace('sm')}px`
@@ -197,6 +227,12 @@ const useStyles = makeStyles(theme => ({
 export const Home: React.FC = (): JSX.Element => {
   const classes = useStyles()
 
+  const midCtaClickHandler = (
+    event: React.MouseEvent<HTMLDivElement>
+  ): void => {
+    if (window) window.location.replace(switchLinkRoutePath('/converter'))
+  }
+
   return (
     <Grid container>
       <Header
@@ -262,7 +298,8 @@ export const Home: React.FC = (): JSX.Element => {
         container
         component="section"
         justify="center"
-        alignItems="flex-start">
+        alignItems="flex-start"
+        className={classes.Home_fbContainer}>
         <Grid item xs={12} sm={6} className={classes.Home_fbLeftBg}>
           <Grid container className={classes.Home_fbPanel}>
             <Typography variant="h3" className={classes.Home_fbLeftHeading}>
@@ -348,6 +385,28 @@ export const Home: React.FC = (): JSX.Element => {
               Export with original data in cell comments
             </li>
           </ul>
+        </Grid>
+      </Grid>
+
+      <Grid component="section" container justify="center">
+        <Grid
+          container
+          justify="center"
+          className={clsx(
+            classes.Home_contentContainer,
+            classes.Home_midCtaContainer
+          )}>
+          <Grid
+            item
+            className={classes.Home_midCta}
+            onClick={midCtaClickHandler}>
+            <Typography
+              variant="h3"
+              align="center"
+              className={classes.Home_midCtaText}>
+              Try It Out!
+            </Typography>
+          </Grid>
         </Grid>
       </Grid>
 

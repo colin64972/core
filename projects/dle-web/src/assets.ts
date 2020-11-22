@@ -9,6 +9,7 @@ import Pharmaceutical from '@cjo3/shared/assets/images/pharmaceutical.jpg'
 import PaperPulp from '@cjo3/shared/assets/images/pulp-paper.jpg'
 import FoodSafety from '@cjo3/shared/assets/images/food-safety.jpg'
 import StarBg from '@cjo3/shared/assets/images/star-background.jpg'
+import SpreadsheetBg from '@cjo3/shared/assets/images/spreadsheet-bg.jpg'
 
 interface ImageAsset {
   alt: string
@@ -64,4 +65,10 @@ export const HomeStarBg: ImageAsset = {
   alt: 'star-background',
   mimeType: 'image/jpeg',
   paths: [StarBg]
+}
+
+export const HomeSpreadsheetBg: ImageAsset = {
+  alt: 'spreadsheet-background',
+  mimeType: 'image/jpeg',
+  paths: [SpreadsheetBg]
 }
