@@ -8,10 +8,10 @@ export const switchPathPageName = appPath => {
       return 'home'
     case '/feedback':
       return 'feedback'
-    case '/editor':
-      return 'editor'
-    case '/editor/guide':
-      return 'editorGuide'
+    case '/converter':
+      return 'converter'
+    case '/converter/guide':
+      return 'converterGuide'
     default:
       return 'error'
   }

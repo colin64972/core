@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { createHashId } from '../helpers'
 import {
   Button,
   Dialog,
@@ -71,7 +70,7 @@ const useStyles = makeStyles(
     }
   },
   {
-    name: `PrivacyPolicy-${createHashId()}`
+    name: 'TermsAndConditions'
   }
 )
 
@@ -95,7 +94,7 @@ export const TermsAndConditions = ({
   )
 
   return (
-    <Dialog open={open} onClose={closeHandler} maxWidth={false}>
+    <Dialog open={open} onClose={closeHandler} maxWidth="md">
       <DialogTitle>
         <Typography className={classes.mainHeading}>
           Terms &amp; Conditions

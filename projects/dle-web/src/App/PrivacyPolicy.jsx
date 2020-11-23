@@ -1,7 +1,6 @@
 import clsx from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { createHashId } from '../helpers'
 
 import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
 import {
@@ -24,44 +23,44 @@ const useStyles = makeStyles(
       padding: 0
     }
     return {
-      mainHeading: {
+      PP_mainHeading: {
         ...baseFont,
         ...theme.typography.bold,
         fontSize: theme.typography.fontSize * 1.25,
         color: theme.palette.primary.main,
         textTransform: 'uppercase'
       },
-      subHeading: {
+      PP_subHeading: {
         ...baseFont
       },
-      section: {
+      PP_section: {
         'marginTop': theme.custom.setSpace(),
         '&:first-child': {
           marginTop: 0
         }
       },
-      sectionHeading: {
+      PP_sectionHeading: {
         ...baseFont,
         ...theme.typography.bold,
         textTransform: 'uppercase'
       },
-      copy: {
+      PP_copy: {
         ...baseFont,
         'marginTop': theme.custom.setSpace(),
         '&:first-child': {
           marginTop: 0
         }
       },
-      unorderedList: {
+      PP_unorderedList: {
         ...theme.custom.unorderedList
       },
-      listItem: {
+      PP_listItem: {
         ...baseFont,
         '&:first-child': {
           marginTop: theme.custom.setSpace() / 2
         }
       },
-      siteLink: {
+      PP_siteLink: {
         ...baseFont,
         'color': theme.palette.primary[600],
         'textDecoration': 'none',
@@ -71,12 +70,12 @@ const useStyles = makeStyles(
           cursor: 'pointer'
         }
       },
-      secionSub: {
+      PP_secionSub: {
         ...theme.custom.borderRadius,
         backgroundColor: theme.palette.grey[100],
         padding: theme.custom.setSpace()
       },
-      sectionSubHeading: {
+      PP_sectionSubHeading: {
         'marginTop': theme.custom.setSpace(),
         '&:first-child': {
           marginTop: 0
@@ -86,7 +85,7 @@ const useStyles = makeStyles(
     }
   },
   {
-    name: `PrivacyPolicy-${createHashId()}`
+    name: 'PrivacyPolicy'
   }
 )
 
@@ -99,42 +98,44 @@ export const PrivacyPolicy = ({
 }) => {
   const classes = useStyles()
 
-  const setSiteLink = () => (
+  const setPP_siteLink = () => (
     <a
       href={siteUrl}
       _target="blank"
       rel="nofollow"
-      className={classes.siteLink}>
+      className={classes.PP_siteLink}>
       {siteName}
     </a>
   )
   return (
-    <Dialog open={open} onClose={closeHandler} maxWidth={false}>
+    <Dialog open={open} onClose={closeHandler} maxWidth="md">
       <DialogTitle>
-        <Typography className={classes.mainHeading}>Privacy Policy</Typography>
-        <Typography className={classes.subHeading}>
+        <Typography className={classes.PP_mainHeading}>
+          Privacy Policy
+        </Typography>
+        <Typography className={classes.PP_subHeading}>
           Updated on October 13th, 2020
         </Typography>
       </DialogTitle>
 
       <DialogContent dividers>
-        <section className={classes.section}>
-          <Typography className={classes.sectionHeading}>
+        <section className={classes.PP_section}>
+          <Typography className={classes.PP_sectionHeading}>
             General Terms
           </Typography>
-          <Typography className={classes.copy}>
-            {setSiteLink()}&nbsp;&#40;&quot;we&quot;, &quot;our&quot; or
+          <Typography className={classes.PP_copy}>
+            {setPP_siteLink()}&nbsp;&#40;&quot;we&quot;, &quot;our&quot; or
             &quot;us&quot;&#41; is committed to protecting your privacy. This
             Privacy Policy explains how your personal information is collected,
-            used, and disclosed by {setSiteLink()}&nbsp;This Privacy Policy
+            used, and disclosed by {setPP_siteLink()}&nbsp;This Privacy Policy
             applies to our website,&nbsp;
-            <a href={siteUrl} className={classes.siteLink}>
+            <a href={siteUrl} className={classes.PP_siteLink}>
               {siteUrl}
             </a>
             , and its associated subdomains &#40;collectively, our
             &quot;Service&quot;&#41;.
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             By accessing or using our Service, you signify that you have read,
             understood, and agree to our collection, storage, use, and
             disclosure of your personal information as described in this Privacy
@@ -142,148 +143,148 @@ export const PrivacyPolicy = ({
           </Typography>
         </section>
 
-        <section className={classes.section}>
-          <Typography className={classes.sectionHeading}>
+        <section className={classes.PP_section}>
+          <Typography className={classes.PP_sectionHeading}>
             Definitions and key terms
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             To help explain things as clearly as possible in this Privacy
             Policy, every time any of these terms are referenced, are strictly
             defined as&#58;
           </Typography>
-          <ul className={classes.unorderedList}>
-            <li className={classes.listItem}>
+          <ul className={classes.PP_unorderedList}>
+            <li className={classes.PP_listItem}>
               <strong>Cookie&#58;</strong> small amount of data generated by a
               website and saved by your web browser. It is used to identify your
               browser, provide analytics, remember information about you such as
               your language preference or login information.
             </li>
-            <li className={classes.listItem}>
+            <li className={classes.PP_listItem}>
               <strong>Company&#58;</strong> when this policy mentions
               &quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or
               &quot;our&quot;, it refers to&nbsp;
-              {setSiteLink()}
+              {setPP_siteLink()}
               &nbsp;that is responsible for your information under this Privacy
               Policy.
             </li>
-            <li className={classes.listItem}>
+            <li className={classes.PP_listItem}>
               <strong>Country&#58;</strong> where&nbsp;
-              {setSiteLink()}
+              {setPP_siteLink()}
               &nbsp;or the owners&frasl;founders of&nbsp;
-              {setSiteLink()}
+              {setPP_siteLink()}
               &nbsp;are based, in this case is <a>Canada</a>.
             </li>
-            <li className={classes.listItem}>
+            <li className={classes.PP_listItem}>
               <strong>Customer&#58;</strong> refers to the company, organization
               or person that signs up to use the&nbsp;
-              {setSiteLink()}
+              {setPP_siteLink()}
               &nbsp;Service to manage the relationships with your consumers or
               service users.
             </li>
-            <li className={classes.listItem}>
+            <li className={classes.PP_listItem}>
               <strong>Device&#58;</strong> any internet connected device such as
               a phone, tablet, computer or any other device that can be used to
               visit&nbsp;
-              {setSiteLink()}
+              {setPP_siteLink()}
               &nbsp;and use the services.
             </li>
-            <li className={classes.listItem}>
+            <li className={classes.PP_listItem}>
               <strong>IP address&#58;</strong> Every device connected to the
               Internet is assigned a number known as an Internet protocol
               &#40;IP&#41; address. These numbers are usually assigned in
               geographic blocks. An IP address can often be used to identify the
               location from which a device is connecting to the Internet.
             </li>
-            <li className={classes.listItem}>
+            <li className={classes.PP_listItem}>
               <strong>Personnel&#58;</strong> refers to those individuals who
               are employed by&nbsp;
-              {setSiteLink()}
+              {setPP_siteLink()}
               &nbsp;or are under contract to perform a service on behalf of one
               of the Parties.
             </li>
-            <li className={classes.listItem}>
+            <li className={classes.PP_listItem}>
               <strong>Personal Data&#58;</strong> any information that directly,
               indirectly, or in connection with other
               information&mdash;including a personal identification
               number&mdash;allows for the identification or identifiability of a
               natural person.
             </li>
-            <li className={classes.listItem}>
+            <li className={classes.PP_listItem}>
               <strong>Service&#58;</strong> refers to the service provided
               by&nbsp;
-              {setSiteLink()}
+              {setPP_siteLink()}
               &nbsp;as described in the relative terms &#40;if available&#41;
               and on this platform.
             </li>
-            <li className={classes.listItem}>
+            <li className={classes.PP_listItem}>
               <strong>Third&ndash;Party Service&#58;</strong> refers to
               advertisers, contest sponsors, promotional and marketing partners,
               and others who provide our content or whose products or services
               we think may interest you.
             </li>
-            <li className={classes.listItem}>
-              <strong>Website&#58;</strong>&nbsp;{setSiteLink()}&apos;s site,
+            <li className={classes.PP_listItem}>
+              <strong>Website&#58;</strong>&nbsp;{setPP_siteLink()}&apos;s site,
               which can be accessed via this URL&#58;&nbsp;
-              <a href={siteUrl} className={classes.siteLink}>
+              <a href={siteUrl} className={classes.PP_siteLink}>
                 {siteUrl}
               </a>
             </li>
-            <li className={classes.listItem}>
+            <li className={classes.PP_listItem}>
               <strong>You&#58;</strong> a person or entity that is registered
               with&nbsp;
-              {setSiteLink()}
+              {setPP_siteLink()}
               &nbsp;to use the Services.
             </li>
           </ul>
         </section>
 
-        <section className={classes.section}>
-          <Typography className={classes.sectionHeading}>
+        <section className={classes.PP_section}>
+          <Typography className={classes.PP_sectionHeading}>
             What Information Do We Collect?
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             We collect information from you when you visit our service,
             register, place an order, subscribe to our newsletter, respond to a
             survey or fill out a form.
           </Typography>
-          <ul className={classes.unorderedList}>
-            <li className={classes.listItem}>IP address</li>
-            <li className={classes.listItem}>Order details</li>
-            <li className={classes.listItem}>Email address, if submitted</li>
+          <ul className={classes.PP_unorderedList}>
+            <li className={classes.PP_listItem}>IP address</li>
+            <li className={classes.PP_listItem}>Order details</li>
+            <li className={classes.PP_listItem}>Email address, if submitted</li>
           </ul>
         </section>
 
-        <section className={classes.section}>
-          <Typography className={classes.sectionHeading}>
+        <section className={classes.PP_section}>
+          <Typography className={classes.PP_sectionHeading}>
             How Do We Use The Information We Collect?
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             Any of the information we collect from you may be used in one of the
             following ways&#58;
           </Typography>
-          <ul className={classes.unorderedList}>
-            <li className={classes.listItem}>
+          <ul className={classes.PP_unorderedList}>
+            <li className={classes.PP_listItem}>
               To personalize your experience &#40;your information helps us to
               better respond to your individual needs&#41;
             </li>
-            <li className={classes.listItem}>
+            <li className={classes.PP_listItem}>
               To improve our service &#40;we continually strive to improve our
               service offerings based on the information and feedback we receive
               from you&#41;
             </li>
-            <li className={classes.listItem}>To process transactions</li>
-            <li className={classes.listItem}>
+            <li className={classes.PP_listItem}>To process transactions</li>
+            <li className={classes.PP_listItem}>
               To administer a contest, promotion, survey or other site feature
             </li>
-            <li className={classes.listItem}>To send periodic emails</li>
+            <li className={classes.PP_listItem}>To send periodic emails</li>
           </ul>
         </section>
 
-        <section className={classes.section}>
-          <Typography className={classes.sectionHeading}>
+        <section className={classes.PP_section}>
+          <Typography className={classes.PP_sectionHeading}>
             When do we use customer information from Third&ndash;Parties?
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             We receive some information from the Third&ndash;Parties when you
             contact us. For example, when you submit your email address to us to
             show interest in becoming our customer, we receive information from
@@ -295,11 +296,11 @@ export const PrivacyPolicy = ({
           </Typography>
         </section>
 
-        <section className={classes.section}>
-          <Typography className={classes.sectionHeading}>
+        <section className={classes.PP_section}>
+          <Typography className={classes.PP_sectionHeading}>
             Do we share the information we collect with Third&ndash;Parties?
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             We may share the information that we collect, both personal and
             non&ndash;personal, with Third&ndash;Parties such as advertisers,
             contest sponsors, promotional and marketing partners, and others who
@@ -310,7 +311,7 @@ export const PrivacyPolicy = ({
             also share or transfer your personal and non&ndash;personal
             information to our successors&ndash;in&ndash;interest.
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             We may share portions of our log file data, including IP addresses,
             for analytics purposes with Third&ndash;Parties such as web
             analytics partners, application developers, and ad networks. If your
@@ -321,7 +322,7 @@ export const PrivacyPolicy = ({
             advertising and what you see on the service and then provide
             auditing, research and reporting for us and our advertisers.
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             We may also disclose personal and non&ndash;personal information
             about you to government or law enforcement officials or private
             Parties as we, in our sole discretion, believe necessary or
@@ -334,23 +335,23 @@ export const PrivacyPolicy = ({
           </Typography>
         </section>
 
-        <section className={classes.section}>
-          <Typography className={classes.sectionHeading}>
+        <section className={classes.PP_section}>
+          <Typography className={classes.PP_sectionHeading}>
             Where and when is information collected from customers and end
             users?
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             We will collect personal information that you submit to us. We may
             also receive personal information about you from Third&ndash;Parties
             as described above.
           </Typography>
         </section>
 
-        <section className={classes.section}>
-          <Typography className={classes.sectionHeading}>
+        <section className={classes.PP_section}>
+          <Typography className={classes.PP_sectionHeading}>
             Could my information be transferred to other countries?
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             We are incorporated in Canada. Information collected via our
             website, through direct interactions with you, or from use of our
             help services may be transferred from time to time to our offices or
@@ -363,11 +364,11 @@ export const PrivacyPolicy = ({
           </Typography>
         </section>
 
-        <section className={classes.section}>
-          <Typography className={classes.sectionHeading}>
+        <section className={classes.PP_section}>
+          <Typography className={classes.PP_sectionHeading}>
             Is the information collected through our service secure?
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             We take precautions to protect the security of your information. We
             have physical, electronic, and managerial procedures to help
             safeguard, prevent unauthorized access, maintain data security, and
@@ -383,11 +384,11 @@ export const PrivacyPolicy = ({
           </Typography>
         </section>
 
-        <section className={classes.section}>
-          <Typography className={classes.sectionHeading}>
+        <section className={classes.PP_section}>
+          <Typography className={classes.PP_sectionHeading}>
             Can I update or correct my information?
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             The rights you have to request updates or corrections to the
             information we collect depend on your relationship with us.
             Personnel may update or correct their information as detailed in our
@@ -411,7 +412,7 @@ export const PrivacyPolicy = ({
             technologically possible to remove each and every record of the
             information you have provided to us from our system. The need to
             back up our systems to protect information from inadvertent loss
-            means that a copy of your information may exist in a non-erasable
+            means that a PP_copy of your information may exist in a non-erasable
             form that will be difficult or impossible for us to locate. Promptly
             after receiving your request, all personal information stored in
             databases we actively use, and other readily searchable media will
@@ -423,11 +424,11 @@ export const PrivacyPolicy = ({
           </Typography>
         </section>
 
-        <section className={classes.section}>
-          <Typography className={classes.sectionHeading}>
+        <section className={classes.PP_section}>
+          <Typography className={classes.PP_sectionHeading}>
             Sale of Business
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             We reserve the right to transfer information to a Third-Party in the
             event of a sale, merger or other transfer of all or substantially
             all of the assets of us or any of its Corporate Affiliates (as
@@ -440,9 +441,11 @@ export const PrivacyPolicy = ({
           </Typography>
         </section>
 
-        <section className={classes.section}>
-          <Typography className={classes.sectionHeading}>Affiliates</Typography>
-          <Typography className={classes.copy}>
+        <section className={classes.PP_section}>
+          <Typography className={classes.PP_sectionHeading}>
+            Affiliates
+          </Typography>
+          <Typography className={classes.PP_copy}>
             We may disclose information (including personal information) about
             you to our Corporate Affiliates. For purposes of this Privacy
             Policy, &quot;Corporate Affiliate&quot; means any person or entity
@@ -454,11 +457,11 @@ export const PrivacyPolicy = ({
           </Typography>
         </section>
 
-        <section className={classes.section}>
-          <Typography className={classes.sectionHeading}>
+        <section className={classes.PP_section}>
+          <Typography className={classes.PP_sectionHeading}>
             How Long Do We Keep Your Information?
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             We keep your information only so long as we need it to provide
             service to you and fulfill the purposes described in this policy.
             This is also the case for anyone that we share your information with
@@ -470,11 +473,11 @@ export const PrivacyPolicy = ({
           </Typography>
         </section>
 
-        <section className={classes.section}>
-          <Typography className={classes.sectionHeading}>
+        <section className={classes.PP_section}>
+          <Typography className={classes.PP_sectionHeading}>
             How Do We Protect Your Information?
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             We implement a variety of security measures to maintain the safety
             of your personal information when you place an order or enter,
             submit, or access your personal information. We offer the use of a
@@ -493,11 +496,11 @@ export const PrivacyPolicy = ({
           </Typography>
         </section>
 
-        <section className={classes.section}>
-          <Typography className={classes.sectionHeading}>
+        <section className={classes.PP_section}>
+          <Typography className={classes.PP_sectionHeading}>
             Governing Law
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             The laws of Canada, excluding its conflicts of law rules, shall
             govern this Agreement and your use of our service. Your use of our
             service may also be subject to other local, state, national, or
@@ -505,21 +508,21 @@ export const PrivacyPolicy = ({
           </Typography>
         </section>
 
-        <section className={classes.section}>
-          <Typography className={classes.sectionHeading}>
+        <section className={classes.PP_section}>
+          <Typography className={classes.PP_sectionHeading}>
             Your Consent
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             By using our service, registering an account, or making a purchase,
             you consent to this Privacy Policy.
           </Typography>
         </section>
 
-        <section className={classes.section}>
-          <Typography className={classes.sectionHeading}>
+        <section className={classes.PP_section}>
+          <Typography className={classes.PP_sectionHeading}>
             Links to Other Websites
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             This Privacy Policy applies only to the Services. The Services may
             contain links to other websites not operated or controlled by us. We
             are not responsible for the content, accuracy or opinions expressed
@@ -534,9 +537,9 @@ export const PrivacyPolicy = ({
           </Typography>
         </section>
 
-        <section className={classes.section}>
-          <Typography className={classes.sectionHeading}>Cookies</Typography>
-          <Typography className={classes.copy}>
+        <section className={classes.PP_section}>
+          <Typography className={classes.PP_sectionHeading}>Cookies</Typography>
+          <Typography className={classes.PP_copy}>
             We use &quot;Cookies&quot; to identify the areas of our website that
             you have visited. A Cookie is a small piece of data stored on your
             computer or mobile device by your web browser. We use Cookies to
@@ -548,25 +551,25 @@ export const PrivacyPolicy = ({
           </Typography>
         </section>
 
-        <section className={classes.section}>
-          <Typography className={classes.sectionHeading}>
+        <section className={classes.PP_section}>
+          <Typography className={classes.PP_sectionHeading}>
             Payment Details
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             We do not collect, store or keep any confidential credit card
             information or payment details. Payments are handled by&nbsp;
-            <a href={constants.URLS.STRIPE} className={classes.siteLink}>
+            <a href={constants.URLS.STRIPE} className={classes.PP_siteLink}>
               Stripe
             </a>
             .
           </Typography>
         </section>
 
-        <section className={classes.section}>
-          <Typography className={classes.sectionHeading}>
+        <section className={classes.PP_section}>
+          <Typography className={classes.PP_sectionHeading}>
             Kids&apos; Privacy
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             We collect information from kids under the age of 13 just to better
             our services. If You are a parent or guardian and You are aware that
             Your child has provided Us with Personal Data without your
@@ -577,36 +580,36 @@ export const PrivacyPolicy = ({
           </Typography>
         </section>
 
-        <section className={classes.section}>
-          <Typography className={classes.sectionHeading}>
+        <section className={classes.PP_section}>
+          <Typography className={classes.PP_sectionHeading}>
             Changes To Our Privacy Policy
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             If we decide to change our privacy policy, we will post those
             changes on this page, and&frasl;or update the Privacy Policy
             modification date below.
           </Typography>
         </section>
 
-        <section className={classes.section}>
-          <Typography className={classes.sectionHeading}>
+        <section className={classes.PP_section}>
+          <Typography className={classes.PP_sectionHeading}>
             Third&ndash;Party Services
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             We may display, include or make available Third&ndash;Party content
             (including data, information, applications and other products
             services) or provide links to Third&ndash;Party websites or services
             (&quot;Third&ndash;Party Services&quot;).
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             You acknowledge and agree that we shall not be responsible for any
             Third&ndash;Party Services, including their accuracy, completeness,
-            timeliness, validity, copyright compliance, legality, decency,
+            timeliness, validity, PP_copyright compliance, legality, decency,
             quality or any other aspect thereof. We do not assume and shall not
             have any liability or responsibility to you or any other person or
             entity for any Third&ndash;Party Services.
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             Third&ndash;Party Services and links thereto are provided solely as
             a convenience to you and you access and use them entirely at your
             own risk and subject to such Third&ndash;Parties&apos; terms and
@@ -614,33 +617,42 @@ export const PrivacyPolicy = ({
           </Typography>
         </section>
 
-        <section className={clsx(classes.section, classes.secionSub)}>
+        <section className={clsx(classes.PP_section, classes.PP_secionSub)}>
           <Typography
-            className={clsx(classes.sectionHeading, classes.sectionSubHeading)}>
+            className={clsx(
+              classes.PP_sectionHeading,
+              classes.PP_sectionSubHeading
+            )}>
             Information about General Data Protection Regulation &#40;GDPR&#41;
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             We may be collecting and using information from you if you are from
-            the European Economic Area &#40;EEA&#41;, and in this section of our
-            Privacy Policy we are going to explain exactly how and why is this
-            data collected, and how we maintain this data under protection from
-            being replicated or used in the wrong way.
+            the European Economic Area &#40;EEA&#41;, and in this PP_section of
+            our Privacy Policy we are going to explain exactly how and why is
+            this data collected, and how we maintain this data under protection
+            from being replicated or used in the wrong way.
           </Typography>
           <Typography
-            className={clsx(classes.sectionHeading, classes.sectionSubHeading)}>
+            className={clsx(
+              classes.PP_sectionHeading,
+              classes.PP_sectionSubHeading
+            )}>
             What is GDPR?
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             GDPR is an EU&ndash;wide privacy and data protection law that
             regulates how EU residents&apos; data is protected by companies and
             enhances the control the EU residents have, over their personal
             data.
           </Typography>
           <Typography
-            className={clsx(classes.sectionHeading, classes.sectionSubHeading)}>
+            className={clsx(
+              classes.PP_sectionHeading,
+              classes.PP_sectionSubHeading
+            )}>
             What is personal data?
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             Any data that relates to an identifiable or identified individual.
             GDPR covers a broad spectrum of information that could be used on
             its own, or in combination with other pieces of information, to
@@ -650,33 +662,36 @@ export const PrivacyPolicy = ({
             physical address, sexual orientation, and ethnicity. The Data
             Protection Principles include requirements such as&#58;
           </Typography>
-          <ul className={classes.unorderedList}>
-            <li className={classes.listItem}>
+          <ul className={classes.PP_unorderedList}>
+            <li className={classes.PP_listItem}>
               Personal data collected must be processed in a fair, legal, and
               transparent way and should only be used in a way that a person
               would reasonably expect.
             </li>
-            <li className={classes.listItem}>
+            <li className={classes.PP_listItem}>
               Personal data should only be collected to fulfil a specific
               purpose and it should only be used for that purpose. Organizations
               must specify why they need the personal data when they collect it.
             </li>
-            <li className={classes.listItem}>
+            <li className={classes.PP_listItem}>
               Personal data should be held no longer than necessary to fulfil
               its purpose.
             </li>
-            <li className={classes.listItem}>
+            <li className={classes.PP_listItem}>
               People covered by the GDPR have the right to access their own
-              personal data. They can also request a copy of their data, and
+              personal data. They can also request a PP_copy of their data, and
               that their data be updated, deleted, restricted, or moved to
               another organization.
             </li>
           </ul>
           <Typography
-            className={clsx(classes.sectionHeading, classes.sectionSubHeading)}>
+            className={clsx(
+              classes.PP_sectionHeading,
+              classes.PP_sectionSubHeading
+            )}>
             Why is GDPR important?
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             GDPR adds some new requirements regarding how companies should
             protect individuals&apos; personal data that they collect and
             process. It also raises the stakes for compliance by increasing
@@ -687,11 +702,14 @@ export const PrivacyPolicy = ({
             beyond the requirements of this new regulation.
           </Typography>
           <Typography
-            className={clsx(classes.sectionHeading, classes.sectionSubHeading)}>
+            className={clsx(
+              classes.PP_sectionHeading,
+              classes.PP_sectionSubHeading
+            )}>
             Individual Data Subject&apos;s Rights &ndash; Data Access,
             Portability and Deletion
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             We are committed to helping our customers meet the data subject
             rights requirements of GDPR. processes or stores all personal data
             in fully vetted, DPA compliant vendors. We do store all conversation
@@ -700,7 +718,7 @@ export const PrivacyPolicy = ({
             of Service and Privacy Policy, but we will not hold it longer than
             60 days.
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             We are aware that if you are working with EU customers, you need to
             be able to provide them with the ability to access, update, retrieve
             and remove personal data. We got you! We&apos;ve been set up as self
@@ -710,25 +728,28 @@ export const PrivacyPolicy = ({
           </Typography>
         </section>
 
-        <section className={clsx(classes.section, classes.secionSub)}>
+        <section className={clsx(classes.PP_section, classes.PP_secionSub)}>
           <Typography
-            className={clsx(classes.sectionHeading, classes.sectionSubHeading)}>
+            className={clsx(
+              classes.PP_sectionHeading,
+              classes.PP_sectionSubHeading
+            )}>
             California Residents
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             The California Consumer Privacy Act &#40;CCPA&#41; requires us to
             disclose categories of Personal Information we collect and how we
             use it, the categories of sources from whom we collect Personal
             Information, and the Third&ndash;Parties with whom we share it,
             which we have explained above.
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             We are also required to communicate information about rights
             California residents have under California law. You may exercise the
             following rights&#58;
           </Typography>
-          <ul className={classes.unorderedList}>
-            <li className={classes.listItem}>
+          <ul className={classes.PP_unorderedList}>
+            <li className={classes.PP_listItem}>
               Right to Know and Access. You may submit a verifiable request for
               information regarding the&#58; &#40;1&#41; categories of Personal
               Information we collect, use, or share; &#40;2&#41; purposes for
@@ -737,48 +758,51 @@ export const PrivacyPolicy = ({
               Personal Information; and &#40;4&#41; specific pieces of Personal
               Information we have collected about you.
             </li>
-            <li className={classes.listItem}>
+            <li className={classes.PP_listItem}>
               Right to Equal Service. We will not discriminate against you if
               you exercise your privacy rights.
             </li>
-            <li className={classes.listItem}>
+            <li className={classes.PP_listItem}>
               Right to Delete. You may submit a verifiable request to close your
               account and we will delete Personal Information about you that we
               have collected.
             </li>
-            <li className={classes.listItem}>
+            <li className={classes.PP_listItem}>
               Request that a business that sells a consumer&apos;s personal
               data, not sell the consumer&apos;s personal data.
             </li>
           </ul>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             If you make a request, we have one month to respond to you. If you
             would like to exercise any of these rights, please contact us.
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             We do not sell the Personal Information of our users.
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             For more information about these rights, please contact us.
           </Typography>
         </section>
 
-        <section className={clsx(classes.section, classes.secionSub)}>
+        <section className={clsx(classes.PP_section, classes.PP_secionSub)}>
           <Typography
-            className={clsx(classes.sectionHeading, classes.sectionSubHeading)}>
+            className={clsx(
+              classes.PP_sectionHeading,
+              classes.PP_sectionSubHeading
+            )}>
             California Online Privacy Protection Act &#40;CalOPPA&#41;
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             CalOPPA requires us to disclose categories of Personal Information
             we collect and how we use it, the categories of sources from whom we
             collect Personal Information, and the Third&ndash;Parties with whom
             we share it, which we have explained above.
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             CalOPPA users have the following rights&#58;
           </Typography>
-          <ul className={classes.unorderedList}>
-            <li className={classes.listItem}>
+          <ul className={classes.PP_unorderedList}>
+            <li className={classes.PP_listItem}>
               Right to Know and Access. You may submit a verifiable request for
               information regarding the&#58; &#40;1&#41; categories of Personal
               Information we collect, use, or share; &#40;2&#41; purposes for
@@ -787,39 +811,41 @@ export const PrivacyPolicy = ({
               Personal Information; and &#40;4&#41; specific pieces of Personal
               Information we have collected about you.
             </li>
-            <li className={classes.listItem}>
+            <li className={classes.PP_listItem}>
               Right to Equal Service. We will not discriminate against you if
               you exercise your privacy rights.
             </li>
-            <li className={classes.listItem}>
+            <li className={classes.PP_listItem}>
               Right to Delete. You may submit a verifiable request to close your
               account and we will delete Personal Information about you that we
               have collected.
             </li>
-            <li className={classes.listItem}>
+            <li className={classes.PP_listItem}>
               Right to request that a business that sells a consumer&apos;s
               personal data, not sell the consumer&apos;s personal data.
             </li>
           </ul>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             If you make a request, we have one month to respond to you. If you
             would like to exercise any of these rights, please contact us.
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             We do not sell the Personal Information of our users.
           </Typography>
-          <Typography className={classes.copy}>
+          <Typography className={classes.PP_copy}>
             For more information about these rights, please contact us.
           </Typography>
         </section>
 
-        <section className={classes.section}>
-          <Typography className={classes.sectionHeading}>Contact Us</Typography>
-          <Typography className={classes.copy}>
+        <section className={classes.PP_section}>
+          <Typography className={classes.PP_sectionHeading}>
+            Contact Us
+          </Typography>
+          <Typography className={classes.PP_copy}>
             Don&apos;t hesitate to contact us if you have any questions.
           </Typography>
-          <ul className={classes.unorderedList}>
-            <li className={classes.listItem}>
+          <ul className={classes.PP_unorderedList}>
+            <li className={classes.PP_listItem}>
               <strong>Via Email&#58;</strong>
               &nbsp;{siteContactEmail}
             </li>
