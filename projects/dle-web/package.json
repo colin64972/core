@@ -7,6 +7,7 @@
   "author": "cjo3",
   "private": true,
   "scripts": {
+    "render": "NODE_ENV=development webpack --config webpack.render.js --progress",
     "start": "NODE_ENV=development webpack-dev-server --config webpack.config.js",
     "build": "NODE_ENV=production webpack --config webpack.config.js --progress",
     "lite": "lite-server -c lite-server.js",
