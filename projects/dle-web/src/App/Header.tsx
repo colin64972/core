@@ -2,7 +2,6 @@ import { switchLinkRoutePath, createHashId } from '@cjo3/shared/react/helpers'
 import { Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
-import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 
 const useStyles = makeStyles(
   theme => ({
@@ -87,35 +86,29 @@ export const Header: React.FC<Props> = ({
       alignItems="center"
       className={classes.Header_containerBg}>
       <Grid className={classes.Header_contentContainer}>
-        <FadeIn direction="x" position={100}>
-          <Typography
-            variant="h1"
-            align="center"
-            className={classes.Header_title}>
-            {title}
-          </Typography>
-        </FadeIn>
+        <Typography
+          variant="h1"
+          align="center"
+          className={classes.Header_title}>
+          {title}
+        </Typography>
         {subTitle && (
-          <FadeIn direction="x" position={100}>
-            <Typography
-              variant="h4"
-              align="center"
-              className={classes.Header_subTitle}>
-              {subTitle}
-            </Typography>
-          </FadeIn>
+          <Typography
+            variant="h4"
+            align="center"
+            className={classes.Header_subTitle}>
+            {subTitle}
+          </Typography>
         )}
         {buttonHref && (
-          <FadeIn direction="x" position={100}>
-            <Button
-              type="button"
-              color="secondary"
-              variant="contained"
-              className={classes.Header_button}
-              href={switchLinkRoutePath(buttonHref)}>
-              {buttonLabel}
-            </Button>
-          </FadeIn>
+          <Button
+            type="button"
+            color="secondary"
+            variant="contained"
+            className={classes.Header_button}
+            href={switchLinkRoutePath(buttonHref)}>
+            {buttonLabel}
+          </Button>
         )}
       </Grid>
     </Grid>
