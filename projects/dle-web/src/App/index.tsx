@@ -17,6 +17,7 @@ import { Home } from './Home'
 import { NotFound } from './NotFound'
 import { TopNav } from './TopNav'
 import { Guide } from './Converter/Guide'
+import { useLayoutEffect } from 'react'
 
 const useStyles = makeStyles(
   theme => ({
@@ -71,6 +72,20 @@ export const App: React.FC = (): JSX.Element => {
       }, SNACKBAR_TIMEOUT)
     }
   }
+
+  useLayoutEffect(() => {
+    const styleTags = document.getElementsByTagName('style')
+    const injectionPoint = document.getElementById('jssInjectionPoint')
+
+    if (styleTags.length > 0) {
+      for (let tag of styleTags) {
+        if (tag.dataset?.meta && tag.dataset.meta.includes('Mui')) {
+          tag.remove()
+          injectionPoint.insertAdjacentElement('beforebegin', tag)
+        }
+      }
+    }
+  })
 
   return (
     <CssBaseline>

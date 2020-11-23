@@ -15,8 +15,7 @@ import {
   HomeOilGas,
   HomeFoodSafety,
   HomePaperPulp,
-  HomePharmaceutical,
-  HomeSpreadsheetBg
+  HomePharmaceutical
 } from '../assets'
 import { Header } from './Header'
 
@@ -128,10 +127,7 @@ const useStyles = makeStyles(
     Home_midCtaContainer: {
       padding: `${theme.custom.setSpace('md')}px ${theme.custom.setSpace(
         'sm'
-      )}px`,
-      backgroundImage: `url(${HomeSpreadsheetBg.paths[0]})`,
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat'
+      )}px`
     },
     Home_midCta: {
       'width': theme.custom.setSpace('xl') * 2,
@@ -154,7 +150,8 @@ const useStyles = makeStyles(
     Home_useCaseContent: {
       padding: `${theme.custom.setSpace('md')}px ${theme.custom.setSpace(
         'sm'
-      )}px`
+      )}px`,
+      paddingBottom: theme.custom.setSpace('lg')
     },
     Home_useCaseContainer: {
       marginTop: theme.custom.setSpace('sm'),

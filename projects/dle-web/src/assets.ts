@@ -9,7 +9,9 @@ import Pharmaceutical from '@cjo3/shared/assets/images/pharmaceutical.jpg'
 import PaperPulp from '@cjo3/shared/assets/images/pulp-paper.jpg'
 import FoodSafety from '@cjo3/shared/assets/images/food-safety.jpg'
 import StarBg from '@cjo3/shared/assets/images/star-background.jpg'
-import SpreadsheetBg from '@cjo3/shared/assets/images/spreadsheet-bg.jpg'
+import ConverterBg from '@cjo3/shared/assets/images/converter-bg.jpg'
+import GuideBg1x from '@cjo3/shared/assets/images/guide-bg.jpg'
+import NotFoundBg1x from '@cjo3/shared/assets/images/not-found-bg.jpg'
 
 interface ImageAsset {
   alt: string
@@ -67,8 +69,20 @@ export const HomeStarBg: ImageAsset = {
   paths: [StarBg]
 }
 
-export const HomeSpreadsheetBg: ImageAsset = {
-  alt: 'spreadsheet-background',
+export const HeaderConverterBg: ImageAsset = {
+  alt: 'converter-background',
   mimeType: 'image/jpeg',
-  paths: [SpreadsheetBg]
+  paths: [ConverterBg]
+}
+
+export const GuideBg: ImageAsset = {
+  alt: 'guide-background',
+  mimeType: 'image/jpeg',
+  paths: [GuideBg1x]
+}
+
+export const NotFoundBg: ImageAsset = {
+  alt: 'not-found-background',
+  mimeType: 'image/jpeg',
+  paths: [NotFoundBg1x]
 }

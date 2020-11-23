@@ -2,7 +2,7 @@ import { Header } from '../Header'
 import { Grid, Paper, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
-import { theme } from '../../theme'
+import { GuideBg } from '../../assets'
 
 const useStyles = makeStyles(
   theme => ({
@@ -63,12 +63,10 @@ export const Guide: React.FC = (): JSX.Element => {
   return (
     <Grid container justify="center">
       <Header
-        name="ConverterGuide"
-        theme={theme}
         title="Converter Guide"
         subTitle="How to Use this App"
         bgColor="theme.palette.primary.main"
-        bgUrl="https://eskipaper.com/images/high-tech-wallpapers-3.jpg"
+        bgUrl={GuideBg.paths[0]}
         buttonHref="/converter"
         buttonLabel="Start"
       />

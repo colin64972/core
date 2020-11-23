@@ -1,4 +1,5 @@
 import { Header } from '../Header'
+import { HeaderConverterBg } from '../../assets'
 import { Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
@@ -6,17 +7,9 @@ import { FileLoader } from './FileLoader'
 import { SheetSelector } from './SheetSelector'
 import { TransformResults } from './TransformResults'
 import { TransformSettings } from './TransformSettings'
-import { theme } from '../../theme'
 
 const useStyles = makeStyles(
   theme => ({
-    Converter_headerBg: {
-      backgroundImage:
-        'url(https://eskipaper.com/images/high-tech-wallpapers-3.jpg)',
-      backgroundPosition: 'center',
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat'
-    },
     Converter_headerContent: {
       ...theme.custom.setFlex('column'),
       padding: theme.custom.setSpace('sm'),
@@ -41,12 +34,10 @@ export const Converter: React.FC = (): JSX.Element => {
   return (
     <Grid container justify="center">
       <Header
-        name="Converter"
-        theme={theme}
         title="Converter"
         subTitle="Load a File and Process your Sheet"
         bgColor="theme.palette.primary.main"
-        bgUrl="https://eskipaper.com/images/high-tech-wallpapers-3.jpg"
+        bgUrl={HeaderConverterBg.paths[0]}
         buttonHref="/converter/guide"
         buttonLabel="Read the Guide"
       />
