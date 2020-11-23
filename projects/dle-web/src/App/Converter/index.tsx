@@ -1,5 +1,5 @@
 import { Header } from '../Header'
-import { HeaderConverterBg } from '../../assets'
+import { ConverterBg } from '../../assets'
 import { Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
@@ -37,7 +37,7 @@ export const Converter: React.FC = (): JSX.Element => {
         title="Converter"
         subTitle="Load a File and Process your Sheet"
         bgColor="theme.palette.primary.main"
-        bgUrl={HeaderConverterBg.paths[0]}
+        bgUrls={ConverterBg.paths}
         buttonHref="/converter/guide"
         buttonLabel="Read the Guide"
       />

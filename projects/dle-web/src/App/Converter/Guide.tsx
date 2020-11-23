@@ -66,7 +66,7 @@ export const Guide: React.FC = (): JSX.Element => {
         title="Converter Guide"
         subTitle="How to Use this App"
         bgColor="theme.palette.primary.main"
-        bgUrl={GuideBg.paths[0]}
+        bgUrls={GuideBg.paths}
         buttonHref="/converter"
         buttonLabel="Start"
       />

@@ -1,5 +1,5 @@
-import { AppActionTypes } from './interfaces'
-import { CLOSE_SNACKBAR, OPEN_SNACKBAR, TOGGLE_TC } from './types'
+import { AppActionTypes, Tracker } from './interfaces'
+import { CLOSE_SNACKBAR, OPEN_SNACKBAR, TOGGLE_TC, ADD_TRACKER } from './types'
 
 export const openSnackbar = (
   message: string,
@@ -17,4 +17,9 @@ export const closeSnackbar = (): AppActionTypes => ({
 export const toggleTc = (status: boolean): AppActionTypes => ({
   type: TOGGLE_TC,
   status
+})
+
+export const addTracker = (tracker: Tracker): AppActionTypes => ({
+  type: ADD_TRACKER,
+  tracker
 })

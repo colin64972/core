@@ -3,7 +3,7 @@ import { Grid, Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import ErrorIcon from '@material-ui/icons/Error'
 import HomeIcon from '@material-ui/icons/Home'
-import SettingsIcon from '@material-ui/icons/Settings'
+import ShuffleIcon from '@material-ui/icons/Shuffle'
 import clsx from 'clsx'
 import React from 'react'
 import { topNavItems } from '../constants'
@@ -14,7 +14,12 @@ const useStyles = makeStyles(
       backgroundColor: theme.palette.primary.main
     },
     TopNav_navItem: {
-      padding: theme.custom.setSpace()
+      'padding': theme.custom.setSpace(),
+      'color': theme.palette.primary[100],
+      'transition': 'all 250ms ease-out',
+      '&:hover': {
+        color: theme.palette.primary[50]
+      }
     },
     TopNav_contentContainer: {
       ...theme.custom.contentContainer,
@@ -33,9 +38,9 @@ interface Props {
 export const TopNav: React.FC<Props> = ({ style }): JSX.Element => {
   const classes = useStyles()
 
-  const iconMap = {
+  const iconMap: { [key: string]: JSX.Element } = {
     '/': <HomeIcon size="small" />,
-    '/converter': <SettingsIcon size="small" />,
+    '/converter': <ShuffleIcon size="small" />,
     '/error': <ErrorIcon size="small" />
   }
 

@@ -23,7 +23,7 @@ export const NotFound: React.FC = (): JSX.Element => {
         title="Error"
         subTitle="Sorry, something went wrong"
         bgColor="theme.palette.grey[900]"
-        bgUrl={NotFoundBg.paths[0]}
+        bgUrls={NotFoundBg.paths}
         buttonHref="/"
         buttonLabel="Home"
       />

@@ -10,7 +10,7 @@ import React from 'react'
 import {
   HomeHeader,
   HomeEnvironment,
-  HomeStarBg,
+  HomeBg,
   HomeGeochemistry,
   HomeOilGas,
   HomeFoodSafety,
@@ -27,7 +27,10 @@ const useStyles = makeStyles(
 
     Home_body1Text: {
       color: theme.palette.bodyColor,
-      maxWidth: '67%'
+      maxWidth: '67%',
+      [theme.breakpoints.down('xs')]: {
+        maxWidth: 'unset'
+      }
     },
 
     Home_introContainerBg: {
@@ -143,7 +146,8 @@ const useStyles = makeStyles(
       'transition': 'all 250ms ease-out',
       '&:hover': {
         color: theme.palette.secondary[50],
-        cursor: 'pointer'
+        cursor: 'pointer',
+        boxShadow: 'unset'
       }
     },
 
@@ -246,11 +250,10 @@ export const Home: React.FC = (): JSX.Element => {
   return (
     <Grid container>
       <Header
-        name="Home"
         title={process.env.APP_NAME}
         subTitle="Conversion tool for spreadsheet-based, raw analytical data"
         bgColor="theme.palette.primary.main"
-        bgUrl={HomeStarBg.paths[0]}
+        bgUrls={HomeBg.paths}
         buttonHref="/converter"
         buttonLabel="Start"
       />

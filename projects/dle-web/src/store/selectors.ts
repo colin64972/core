@@ -1,6 +1,7 @@
 import { Snackbar } from './app/interfaces'
 import { TransformResult } from './converter/interfaces'
 import { State } from './index'
+import { Tracker } from './app/interfaces'
 
 export const workbookSelector = (state: State) => state.converter.workbook
 
@@ -25,3 +26,5 @@ export const workbookNameSelector = (state: State): string =>
 export const snackbarSelector = (state: State): Snackbar => state.app.snackbar
 
 export const tcOpenSelector = (state: State): boolean => state.app.tcOpen
+
+export const trackerSelector = (state: State): Tracker => state.app.tracker

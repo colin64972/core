@@ -1,8 +1,10 @@
-import { CLOSE_SNACKBAR, OPEN_SNACKBAR, TOGGLE_TC } from './types'
+import { ADD_TRACKER, CLOSE_SNACKBAR, OPEN_SNACKBAR, TOGGLE_TC } from './types'
+import * as ReactGA from 'react-ga'
 
 export interface AppState {
   snackbar: Snackbar
   tcOpen: boolean
+  tracker: Tracker
 }
 
 export interface Snackbar {
@@ -10,6 +12,15 @@ export interface Snackbar {
   open: boolean
   message: string
   severity: string
+}
+
+export interface Tracker {
+  config: {
+    gaTag: string
+  }
+  initialize: () => ReactGA.InitializeOptions
+  pageHit: (rootPath: string, pathname: string) => void
+  eventHit: (event: ReactGA.EventArgs) => void
 }
 
 export interface OpenSnackbarAction {
@@ -27,4 +38,13 @@ export interface ToggleTcAction {
   status: boolean
 }
 
-export type AppActionTypes = OpenSnackbarAction | CloseSnackbarAction
+export interface AddTrackerAction {
+  type: typeof ADD_TRACKER
+  tracker: Tracker
+}
+
+export type AppActionTypes =
+  | OpenSnackbarAction
+  | CloseSnackbarAction
+  | ToggleTcAction
+  | AddTrackerAction

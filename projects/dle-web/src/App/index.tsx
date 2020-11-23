@@ -1,23 +1,21 @@
-import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
+import { setTracker, switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 import { CssBaseline, Snackbar } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import MuiAlert from '@material-ui/lab/Alert'
-import React from 'react'
+import React, { useEffect, useLayoutEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router'
 import { Route, Switch } from 'react-router-dom'
 import { SNACKBAR_TIMEOUT } from '../constants'
-import { closeSnackbar } from '../store/app/actions'
+import { addTracker, closeSnackbar } from '../store/app/actions'
 import { Snackbar as ISnackbar } from '../store/app/interfaces'
-import { snackbarSelector } from '../store/selectors'
+import { snackbarSelector, trackerSelector } from '../store/selectors'
 import { Converter } from './Converter'
-import { ExportPanel } from './Converter/ExportPanel'
+import { Guide } from './Converter/Guide'
 import { Footer } from './Footer'
 import { Home } from './Home'
 import { NotFound } from './NotFound'
 import { TopNav } from './TopNav'
-import { Guide } from './Converter/Guide'
-import { useLayoutEffect } from 'react'
 
 const useStyles = makeStyles(
   theme => ({
@@ -57,7 +55,7 @@ export const App: React.FC = (): JSX.Element => {
 
   const snackbar: ISnackbar = useSelector(snackbarSelector)
 
-  let snackbarTimeout
+  let snackbarTimeout: any
 
   const closeSnackbarHandler = (
     event: React.MouseEvent<HTMLButtonElement>,
@@ -79,13 +77,26 @@ export const App: React.FC = (): JSX.Element => {
 
     if (styleTags.length > 0) {
       for (let tag of styleTags) {
-        if (tag.dataset?.meta && tag.dataset.meta.includes('Mui')) {
-          tag.remove()
+        if (tag.dataset?.meta && tag.dataset.meta === 'MuiSvgIcon') {
           injectionPoint.insertAdjacentElement('beforebegin', tag)
         }
       }
     }
   })
+
+  let tracker = useSelector(trackerSelector)
+
+  useEffect(() => {
+    if (!tracker) {
+      tracker = setTracker(process.env.GA_TAG)
+      tracker.initialize()
+      dispatch(addTracker(tracker))
+    }
+  }, [tracker])
+
+  useEffect(() => {
+    tracker.pageHit(process.env.APP_ROOT_PATH, location.pathname)
+  }, [location])
 
   return (
     <CssBaseline>

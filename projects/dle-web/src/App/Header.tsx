@@ -8,10 +8,22 @@ const useStyles = makeStyles(
   theme => ({
     Header_containerBg: {
       backgroundColor: ({ bgColor }) => eval(bgColor),
-      backgroundImage: ({ bgUrl }) => `url(${bgUrl})`,
+      backgroundImage: ({ bgUrls }) => `url(${bgUrls[0]})`,
       backgroundPosition: 'center',
       backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat'
+      backgroundRepeat: 'no-repeat',
+      [theme.breakpoints.up('sm')]: {
+        backgroundImage: ({ bgUrls }) => `url(${bgUrls[1]})`
+      },
+      [theme.breakpoints.up('md')]: {
+        backgroundImage: ({ bgUrls }) => `url(${bgUrls[2]})`
+      },
+      [theme.breakpoints.up('lg')]: {
+        backgroundImage: ({ bgUrls }) => `url(${bgUrls[3]})`
+      },
+      [theme.breakpoints.up('xl')]: {
+        backgroundImage: ({ bgUrls }) => `url(${bgUrls[4]})`
+      }
     },
     Header_contentContainer: {
       ...theme.custom.contentContainer,
@@ -45,7 +57,7 @@ interface Props {
   subTitle?: string
   subTitleColor?: string
   bgColor?: string
-  bgUrl?: string
+  bgUrls?: string[]
   buttonHref?: string
   buttonLabel?: string
 }
@@ -56,7 +68,7 @@ export const Header: React.FC<Props> = ({
   subTitle,
   subTitleColor = 'theme.palette.grey[300]',
   bgColor,
-  bgUrl,
+  bgUrls,
   buttonHref,
   buttonLabel
 }): JSX.Element => {
@@ -64,7 +76,7 @@ export const Header: React.FC<Props> = ({
     titleColor,
     subTitleColor,
     bgColor,
-    bgUrl
+    bgUrls
   })
 
   return (
