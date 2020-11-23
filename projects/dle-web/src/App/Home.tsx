@@ -18,6 +18,7 @@ import {
   HomePharmaceutical
 } from '../assets'
 import { Header } from './Header'
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 
 const useStyles = makeStyles(
   theme => ({
@@ -45,19 +46,19 @@ const useStyles = makeStyles(
         'sm'
       )}px`
     },
-    Home_introImage: {
-      marginBottom: theme.custom.setSpace('sm')
-    },
 
     Home_fbContainer: {
-      padding: `${theme.custom.setSpace('md')}px 0`
+      padding: `${theme.custom.setSpace('md')}px 0`,
+      [theme.breakpoints.down('xs')]: {
+        padding: 0
+      }
     },
     Home_fbLeftBg: {
       ...theme.custom.setFlex('row', 'flex-end'),
       background: theme.custom.setLinearGradient(
         180,
         theme.palette.grey[300],
-        'white'
+        theme.palette.grey[200]
       )
     },
     Home_fbPanel: {
@@ -128,9 +129,7 @@ const useStyles = makeStyles(
     },
 
     Home_midCtaContainer: {
-      padding: `${theme.custom.setSpace('md')}px ${theme.custom.setSpace(
-        'sm'
-      )}px`
+      padding: theme.custom.setSpace('sm')
     },
     Home_midCta: {
       'width': theme.custom.setSpace('xl') * 2,
@@ -154,8 +153,7 @@ const useStyles = makeStyles(
     Home_useCaseContent: {
       padding: `${theme.custom.setSpace('md')}px ${theme.custom.setSpace(
         'sm'
-      )}px`,
-      paddingBottom: theme.custom.setSpace('lg')
+      )}px`
     },
     Home_useCaseContainer: {
       marginTop: theme.custom.setSpace('sm'),
@@ -271,48 +269,52 @@ export const Home: React.FC = (): JSX.Element => {
             classes.Home_contentContainer,
             classes.Home_introContent
           )}>
-          <ImageHandler
-            asset={HomeHeader}
-            outerClass={classes.Home_introImage}
-          />
-          <Typography variant="h3" align="center">
-            Easily Convert MDL Text to Actionable Number Values
-          </Typography>
-          <Typography
-            variant="body1"
-            align="center"
-            className={classes.Home_body1Text}>
-            Depending on the lab you work with and their data output
-            capabilities, importing results into your workflow can be error
-            prone and time consuming. If you&apos;ve ever had to manually comb
-            through sheets of data looking for and changing detection level text
-            values to number values, you&apos;ve found yourself in the right
-            place!
-          </Typography>
-          <Typography
-            variant="body1"
-            align="center"
-            className={classes.Home_body1Text}>
-            Specifically, {process.env.APP_NAME} allows you to bypass the
-            tedious operation of &quot;Finding &amp; Replacing&quot; each cell
-            of text data in a traditional spreadsheet program like Microsoft
-            Excel. As a browser&ndash;based tool,&nbsp;
-            {process.env.APP_NAME} is a suited for independent consultants or
-            other users who need to prepare large amounts of raw, analytical
-            data, but do not have access to expensive, proprietary software that
-            may have these features built-in.
-          </Typography>
-          <Typography
-            variant="body1"
-            align="center"
-            className={classes.Home_body1Text}>
-            With {process.env.APP_NAME}, you can quickly replace limiting
-            threshold characters in just a few clicks by selecting parameters
-            and processing your sheet. After processing, the transformed sheet
-            can be reviewed prior to downloading as a convenient Microsoft Excel
-            workbook, and is available for the low price of $
-            {process.env.EXPORT_PRICE}.
-          </Typography>
+          <FadeIn direction="x" position={-100}>
+            <Typography variant="h3" align="center">
+              Easily Convert MDL Text to Actionable Number Values
+            </Typography>
+          </FadeIn>
+          <FadeIn direction="x" position={-100}>
+            <Typography
+              variant="body1"
+              align="center"
+              className={classes.Home_body1Text}>
+              Depending on the lab you work with and their data output
+              capabilities, importing results into your workflow can be error
+              prone and time consuming. If you&apos;ve ever had to manually comb
+              through sheets of data looking for and changing detection level
+              text values to number values, you&apos;ve found yourself in the
+              right place!
+            </Typography>
+          </FadeIn>
+          <FadeIn direction="x" position={100}>
+            <Typography
+              variant="body1"
+              align="center"
+              className={classes.Home_body1Text}>
+              Specifically, {process.env.APP_NAME} allows you to bypass the
+              tedious operation of &quot;Finding &amp; Replacing&quot; each cell
+              of text data in a traditional spreadsheet program like Microsoft
+              Excel. As a browser&ndash;based tool,&nbsp;
+              {process.env.APP_NAME} is a suited for independent consultants or
+              other users who need to prepare large amounts of raw, analytical
+              data, but do not have access to expensive, proprietary software
+              that may have these features built-in.
+            </Typography>
+          </FadeIn>
+          <FadeIn direction="x" position={-100}>
+            <Typography
+              variant="body1"
+              align="center"
+              className={classes.Home_body1Text}>
+              With {process.env.APP_NAME}, you can quickly replace limiting
+              threshold characters in just a few clicks by selecting parameters
+              and processing your sheet. After processing, the transformed sheet
+              can be reviewed prior to downloading as a convenient Microsoft
+              Excel workbook, and is available for the low price of $
+              {process.env.EXPORT_PRICE}.
+            </Typography>
+          </FadeIn>
         </Grid>
       </Grid>
 
@@ -336,10 +338,14 @@ export const Home: React.FC = (): JSX.Element => {
                   classes.Home_fbBenefit,
                   classes.Home_fbBenefitEfficiency
                 )}>
-                <ScheduleIcon className={classes.Home_fbBenefitIcon} />
-                <Typography variant="h5" align="center">
-                  Efficiency
-                </Typography>
+                <FadeIn direction="y" position={-100}>
+                  <ScheduleIcon className={classes.Home_fbBenefitIcon} />
+                </FadeIn>
+                <FadeIn direction="x" position={-100}>
+                  <Typography variant="h5" align="center">
+                    Efficiency
+                  </Typography>
+                </FadeIn>
                 <Typography
                   variant="body1"
                   align="center"
@@ -357,12 +363,16 @@ export const Home: React.FC = (): JSX.Element => {
                   classes.Home_fbBenefit,
                   classes.Home_fbBenefitAccuracy
                 )}>
-                <AssignmentTurnedInIcon
-                  className={classes.Home_fbBenefitIcon}
-                />
-                <Typography variant="h5" align="center">
-                  Accuracy
-                </Typography>
+                <FadeIn direction="y" position={-100}>
+                  <AssignmentTurnedInIcon
+                    className={classes.Home_fbBenefitIcon}
+                  />
+                </FadeIn>
+                <FadeIn direction="x" position={100}>
+                  <Typography variant="h5" align="center">
+                    Accuracy
+                  </Typography>
+                </FadeIn>
                 <Typography
                   variant="body1"
                   align="center"
@@ -382,28 +392,40 @@ export const Home: React.FC = (): JSX.Element => {
           </Typography>
           <ul className={classes.Home_fbList}>
             <li className={classes.Home_fbListItem}>
-              <DoneIcon className={classes.Home_fbListItemIcon} />
-              Custom Under and Over Limit triggers
+              <FadeIn direction="x" position={100}>
+                <DoneIcon className={classes.Home_fbListItemIcon} />
+                Custom Under and Over Limit triggers
+              </FadeIn>
             </li>
             <li className={classes.Home_fbListItem}>
-              <DoneIcon className={classes.Home_fbListItemIcon} />
-              Preset transform functions
+              <FadeIn direction="x" position={100}>
+                <DoneIcon className={classes.Home_fbListItemIcon} />
+                Preset transform functions
+              </FadeIn>
             </li>
             <li className={classes.Home_fbListItem}>
-              <DoneIcon className={classes.Home_fbListItemIcon} />
-              Unique value-to-zero trigger
+              <FadeIn direction="x" position={100}>
+                <DoneIcon className={classes.Home_fbListItemIcon} />
+                Unique value-to-zero trigger
+              </FadeIn>
             </li>
             <li className={classes.Home_fbListItem}>
-              <DoneIcon className={classes.Home_fbListItemIcon} />
-              Scope range protection
+              <FadeIn direction="x" position={100}>
+                <DoneIcon className={classes.Home_fbListItemIcon} />
+                Scope range protection
+              </FadeIn>
             </li>
             <li className={classes.Home_fbListItem}>
-              <DoneIcon className={classes.Home_fbListItemIcon} />
-              Detailed sheet previews
+              <FadeIn direction="x" position={100}>
+                <DoneIcon className={classes.Home_fbListItemIcon} />
+                Detailed sheet previews
+              </FadeIn>
             </li>
             <li className={classes.Home_fbListItem}>
-              <DoneIcon className={classes.Home_fbListItemIcon} />
-              Export with original data in cell comments
+              <FadeIn direction="x" position={100}>
+                <DoneIcon className={classes.Home_fbListItemIcon} />
+                Export with original data in cell comments
+              </FadeIn>
             </li>
           </ul>
         </Grid>
@@ -417,17 +439,16 @@ export const Home: React.FC = (): JSX.Element => {
             classes.Home_contentContainer,
             classes.Home_midCtaContainer
           )}>
-          <Grid
-            item
-            className={classes.Home_midCta}
-            onClick={midCtaClickHandler}>
-            <Typography
-              variant="h3"
-              align="center"
-              className={classes.Home_midCtaText}>
-              Try It Out!
-            </Typography>
-          </Grid>
+          <FadeIn direction="x" position={-100}>
+            <Grid
+              item
+              className={classes.Home_midCta}
+              onClick={midCtaClickHandler}>
+              <Typography variant="h3" align="center">
+                Try It Out!
+              </Typography>
+            </Grid>
+          </FadeIn>
         </Grid>
       </Grid>
 
@@ -439,19 +460,23 @@ export const Home: React.FC = (): JSX.Element => {
             classes.Home_contentContainer,
             classes.Home_useCaseContent
           )}>
-          <Typography variant="h3" align="center">
-            Applied Science Applications
-          </Typography>
-          <Typography
-            variant="body1"
-            align="center"
-            className={classes.Home_body1Text}>
-            Whether your discipline is environmental testing, geochemistry, oil
-            &amp; gas, pharmaceutical, pulp &amp; paper, or food safety&mdash;to
-            list a few&mdash;{process.env.APP_NAME}&nbsp;is an easy way to
-            incorporate raw, analytical results from labs like ALS, SGS, and
-            Alex Stewart International into your workflow!
-          </Typography>
+          <FadeIn direction="x" position={-100}>
+            <Typography variant="h3" align="center">
+              Applied Science Applications
+            </Typography>
+          </FadeIn>
+          <FadeIn direction="x" position={-100}>
+            <Typography
+              variant="body1"
+              align="center"
+              className={classes.Home_body1Text}>
+              Whether your discipline is environmental testing, geochemistry,
+              oil &amp; gas, pharmaceutical, pulp &amp; paper, or food
+              safety&mdash;to list a few&mdash;{process.env.APP_NAME}&nbsp;is an
+              easy way to incorporate raw, analytical results from labs like
+              ALS, SGS, and Alex Stewart International into your workflow!
+            </Typography>
+          </FadeIn>
           <div className={classes.Home_useCaseContainer}>
             <div className={clsx(classes.Home_useCase0, classes.Home_useCase)}>
               <Typography variant="h5" align="center">
