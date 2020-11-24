@@ -116,11 +116,12 @@ export const TransformResults: React.FC = (): JSX.Element => {
         <Grid item xs={12} sm={6} className={classes.TransformResults_intro}>
           <Typography variant="h3">Transform Results</Typography>
           <Typography variant="body1">
-            Dolor ut voluptua sadipscing sea duo erat. Et labore est elitr
-            sanctus amet dolor et at et, ipsum tempor diam lorem sit magna sed
-            sadipscing consetetur, diam diam vero lorem aliquyam ut duo ut. Diam
-            et et et invidunt sit invidunt voluptua sea et, sed labore no sed
-            diam. Et.
+            Here are your transform results! From here you can view stats on
+            your transformed sheet, view a preview, and export a file if you
+            wish. Based on the settings you selected, any applicable
+            transformations are shown in a summary panel below. If none were
+            found, such a summary panel will not be shown. If your sheet was
+            large, please be patient for the prevew to load.
           </Typography>
           <Button
             type="button"
@@ -128,7 +129,7 @@ export const TransformResults: React.FC = (): JSX.Element => {
             color="primary"
             onClick={openPreviewHandler}
             className={classes.TransformResults_previewButton}>
-            View Preview
+            Preview
           </Button>
         </Grid>
         <Grid item xs={12} sm={6}>

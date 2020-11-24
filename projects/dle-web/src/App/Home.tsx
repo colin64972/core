@@ -292,7 +292,7 @@ export const Home: React.FC = (): JSX.Element => {
             Excel. As a browser&ndash;based tool,&nbsp;
             {process.env.APP_NAME} is a suited for independent consultants or
             other users who need to prepare large amounts of raw, analytical
-            data, but do not have access to expensive, proprietary software that
+            data but do not have access to expensive, proprietary software that
             may have these features built-in.
           </Typography>
 
@@ -304,7 +304,7 @@ export const Home: React.FC = (): JSX.Element => {
             threshold characters in just a few clicks by selecting parameters
             and processing your sheet. After processing, the transformed sheet
             can be reviewed prior to downloading as a convenient Microsoft Excel
-            workbook, and is available for the low price of $
+            workbook and is available for the low price of $
             {process.env.EXPORT_PRICE}.
           </Typography>
         </Grid>
@@ -340,9 +340,9 @@ export const Home: React.FC = (): JSX.Element => {
                   variant="body1"
                   align="center"
                   className={classes.Home_bodyColorText}>
-                  Save time and mental capacity by eliminating monotonous data
-                  preparation woes. You&apos;re time is better spent analysing
-                  executive results, not repetitive data&ndash;entry.
+                  Save time by eliminating monotonous data preparation woes.
+                  You&apos;re time is better spent analysing executive results,
+                  not repetitive data&ndash;entry.
                 </Typography>
               </Grid>
               <Grid
@@ -365,8 +365,7 @@ export const Home: React.FC = (): JSX.Element => {
                   className={classes.Home_bodyColorText}>
                   &quot;Find &amp; Replace&quot; is great, but when you have to
                   do it manually across multiple sheets and files, it can be
-                  easy to miss cases, or even introduce errors into your
-                  dataset!
+                  easy to miss cases or even introduce errors into your dataset!
                 </Typography>
               </Grid>
             </Grid>
@@ -443,8 +442,8 @@ export const Home: React.FC = (): JSX.Element => {
             Whether your discipline is environmental testing, geochemistry, oil
             &amp; gas, pharmaceutical, pulp &amp; paper, or food safety&mdash;to
             list a few&mdash;{process.env.APP_NAME}&nbsp;is an easy way to
-            incorporate raw, analytical results from labs like ALS, SGS, and
-            Alex Stewart International into your workflow!
+            incorporate raw, analytical results from labs like ALS, SGS, Bureau
+            Veritas, and Alex Stewart International into your workflow!
           </Typography>
 
           <div className={classes.Home_useCaseContainer}>
