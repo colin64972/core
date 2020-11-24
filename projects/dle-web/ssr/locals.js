@@ -47,7 +47,7 @@ const locals = {
   '/converter/guide': {
     fileName: 'home-converter-guide',
     title: `Converter Guide | ${process.env.APP_NAME}`,
-    canonical: `${process.env.SITE_URL}/${process.env.APP_ROOT_PATH}/converter/guide/`,
+    canonical: `${process.env.SITE_URL}${process.env.APP_ROOT_PATH}/converter/guide/`,
     metaDescription: `A practical guide to using the ${process.env.APP_NAME} convert for speedy preparation of raw, analytical spreadsheet data.`,
     robots: robotsDirectives.default,
     gsvCode: sharedEnv.parsed.GSV_TAG,
@@ -58,7 +58,7 @@ const locals = {
   '/error': {
     fileName: 'error',
     title: `Error | ${process.env.APP_NAME}`,
-    canonical: `${process.env.SITE_URL}/${process.env.APP_ROOT_PATH}/error.html`,
+    canonical: `${process.env.SITE_URL}${process.env.APP_ROOT_PATH}/error.html`,
     metaDescription: metaDescriptions.error,
     robots: robotsDirectives.error,
     gsvCode: sharedEnv.parsed.GSV_TAG,
