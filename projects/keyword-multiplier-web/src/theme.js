@@ -3,7 +3,7 @@ import secondary from '@material-ui/core/colors/indigo'
 
 import { setCustomTheme } from '@cjo3/shared/react/themes/theming'
 
-const customTheme = setCustomTheme(
+export const theme = setCustomTheme(
   15,
   'Heebo',
   [
@@ -34,16 +34,16 @@ const customTheme = setCustomTheme(
   3
 )
 
-customTheme.custom.buttons = {
+theme.custom.buttons = {
   base: {
     'border': 'none',
     'backgroundColor': 'transparent',
-    'color': customTheme.palette.bodyColor,
+    'color': theme.palette.bodyColor,
     'padding': 0,
     'margin': 0,
     'cursor': 'pointer',
-    'fontFamily': customTheme.typography.fontFamily,
-    'fontSize': customTheme.typography.fontSize,
+    'fontFamily': theme.typography.fontFamily,
+    'fontSize': theme.typography.fontSize,
     'transition': 'all 250ms ease-out',
     '&:focus': {
       outline: 'none'
@@ -51,55 +51,55 @@ customTheme.custom.buttons = {
   }
 }
 
-customTheme.custom.unorderedList = {
-  paddingLeft: customTheme.custom.setSpace('sm')
+theme.custom.unorderedList = {
+  paddingLeft: theme.custom.setSpace('sm')
 }
-customTheme.typography.mainHeading = {
-  ...customTheme.typography.bold,
-  fontSize: customTheme.typography.fontSize * 1.5,
+theme.typography.mainHeading = {
+  ...theme.typography.bold,
+  fontSize: theme.typography.fontSize * 1.5,
   width: '100%',
   textTransform: 'uppercase',
   lineHeight: 1.125,
   margin: '0.5rem 0'
 }
 
-customTheme.typography.subHeading = {
-  ...customTheme.typography.italic,
-  fontSize: customTheme.typography.fontSize * 1.25,
+theme.typography.subHeading = {
+  ...theme.typography.italic,
+  fontSize: theme.typography.fontSize * 1.25,
   fontWeight: 'normal',
   width: '100%',
   lineHeight: 1.125
 }
 
-customTheme.palette.screens = {
+theme.palette.screens = {
   backdrop: 'rgba(0, 0, 0, 0.5)'
 }
 
-customTheme.shadows.concat([
-  `inset ${customTheme.custom.setSpace() / 2}px ${
-    customTheme.custom.setSpace() / 2
-  }px ${customTheme.custom.setSpace() / 2}px ${customTheme.palette.grey[50]}`
+theme.shadows.concat([
+  `inset ${theme.custom.setSpace() / 2}px ${theme.custom.setSpace() / 2}px ${
+    theme.custom.setSpace() / 2
+  }px ${theme.palette.grey[50]}`
 ])
 
-customTheme.custom.buttons.formButton = {
-  padding: customTheme.custom.setSpace(),
-  borderRadius: customTheme.custom.borderRadius,
-  fontFamily: customTheme.typography.fontFamily,
+theme.custom.buttons.formButton = {
+  padding: theme.custom.setSpace(),
+  borderRadius: theme.custom.borderRadius,
+  fontFamily: theme.typography.fontFamily,
   width: '100%',
   border: 'none',
   fontSize: 13,
   fontWeight: 'bold',
   textTransform: 'uppercase',
   transition: 'all 250ms ease-out',
-  color: customTheme.palette.bodyColor
+  color: theme.palette.bodyColor
 }
 
-customTheme.custom.buttons.iconButton = {
+theme.custom.buttons.iconButton = {
   'border': 'none',
-  'fontSize': customTheme.custom.setSpace(),
-  'padding': customTheme.custom.setSpace() / 3,
-  'margin': `0 ${customTheme.custom.setSpace() / 2}px 0 0`,
-  'borderRadius': customTheme.custom.borderRadius,
+  'fontSize': theme.custom.setSpace(),
+  'padding': theme.custom.setSpace() / 3,
+  'margin': `0 ${theme.custom.setSpace() / 2}px 0 0`,
+  'borderRadius': theme.custom.borderRadius,
   'cursor': 'pointer',
   'display': 'flex',
   'justifyContent': 'center',
@@ -110,7 +110,7 @@ customTheme.custom.buttons.iconButton = {
   }
 }
 
-customTheme.overrides.MuiTableRow = {
+theme.overrides.MuiTableRow = {
   root: {
     'borderTop': `1px solid ${secondary[100]}`,
     'thead &': {
@@ -119,24 +119,22 @@ customTheme.overrides.MuiTableRow = {
   }
 }
 
-customTheme.overrides.MuiTableCell = {
+theme.overrides.MuiTableCell = {
   sizeSmall: {
     'textAlign': 'center',
-    'color': customTheme.palette.bodyColor,
+    'color': theme.palette.bodyColor,
     'border': 'none',
-    'padding': customTheme.typography.fontSize / 2,
+    'padding': theme.typography.fontSize / 2,
     '&:last-child': {
-      paddingRight: customTheme.typography.fontSize / 2
+      paddingRight: theme.typography.fontSize / 2
     }
   }
 }
 
-customTheme.overrides.MuiTypography = {
-  ...customTheme.overrides.MuiTypography,
+theme.overrides.MuiTypography = {
+  ...theme.overrides.MuiTypography,
   body1: {
-    ...customTheme.overrides.MuiTypography.body1,
+    ...theme.overrides.MuiTypography.body1,
     marginTop: 0
   }
 }
-
-export const theme = customTheme
