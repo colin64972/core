@@ -17,7 +17,7 @@ exports.js = {
 exports.preRenders = {
   // dryrun: true,
   srcPath: 'distPreRenders',
-  s3Path: `${process.env.PRERENDERS_BUCKET}`,
+  s3Path: `${process.env.PRERENDERS_BUCKET}/${process.env.CDN_APP_FOLDER}`,
   includes: ['*.js']
 }
 

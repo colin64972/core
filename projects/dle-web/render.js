@@ -23,13 +23,13 @@ const sheets = new ServerStyleSheets()
 try {
   const asdf = createElement(
     StaticRouter,
-    { location: '/apps/detection-limit-editor', context: {} },
+    { location: '/', context: {} },
     createElement(Provider, { store }, ThemedApp)
   )
 
   const render = renderToString(sheets.collect(asdf))
 
-  console.log('LOG XXX'.yellow, sheets.toString())
+  console.log('LOG XXX'.yellow, render)
 } catch (error) {
   console.error('ERROR XXX'.red, error)
 }

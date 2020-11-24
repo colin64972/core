@@ -1,8 +1,7 @@
-const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
 const { EnvironmentPlugin } = require('webpack')
 const { setPreRenderFilePublicPath } = require('@cjo3/shared/raw/general')
+const path = require('path')
 
 const localEnv = require('dotenv').config()
 const sharedEnv = require('dotenv').config({
@@ -14,8 +13,10 @@ const babelLoaderPlugins = []
 
 module.exports = {
   entry: {
-    [process.env.CDN_APP_FOLDER]: path.resolve('src', 'preRenders')
+    ThemedApp: path.resolve('src', 'ThemedApp.ts'),
+    store: path.resolve('src', 'store', 'index.ts')
   },
+  devtool: process.env.NODE_ENV === 'development' ? 'source-map' : null,
   mode: process.env.NODE_ENV,
   output: {
     path: path.resolve('distPreRenders'),
@@ -26,20 +27,26 @@ module.exports = {
   performance: { hints: 'warning' },
   resolve: {
     extensions: [
-      '.ts',
-      '.tsx',
-      '.js',
-      '.jsx',
-      '.json',
-      '.sass',
       '.css',
-      '.png',
+      '.gif',
       '.jpg',
+      '.js',
+      '.json',
+      '.jsx',
+      '.png',
+      '.sass',
       '.svg',
-      '.gif'
+      '.ts',
+      '.tsx'
     ]
   },
-  externals: ['canvas'],
+  externals: [
+    'canvas',
+    'react',
+    'react-redux',
+    'react-router',
+    /@material-ui\/.*/gi
+  ],
   module: {
     rules: [
       {
@@ -60,8 +67,7 @@ module.exports = {
                   modules: 'commonjs'
                 }
               ]
-            ],
-            plugins: babelLoaderPlugins
+            ]
           }
         }
       },
@@ -83,7 +89,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin({ verbose: true }),
     new EnvironmentPlugin({
-      IS_SERVER: true,
+      IS_NOT_SERVER: false,
       ACCEPTED_FILETYPES: localEnv.parsed.ACCEPTED_FILETYPES,
       API_URL: localEnv.parsed.API_URL,
       APP_NAME: localEnv.parsed.APP_NAME,
@@ -98,20 +104,6 @@ module.exports = {
       // STRIPE_PUBLIC_KEY: localEnv.parsed.STRIPE_PUBLIC_KEY_LIVE,
       STRIPE_PUBLIC_KEY: localEnv.parsed.STRIPE_PUBLIC_KEY_TEST,
       STRIPE_URL: localEnv.parsed.STRIPE_URL
-    }),
-    new ImageminWebpWebpackPlugin({
-      config: [
-        {
-          test: /\.(jpe?g|png)/,
-          options: {
-            quality: 75
-          }
-        }
-      ],
-      overrideExtension: true,
-      detailedLogs: false,
-      silent: false,
-      strict: true
     })
   ]
 }
