@@ -68,7 +68,7 @@ export const Guide: React.FC = (): JSX.Element => {
         bgColor="theme.palette.primary.main"
         bgUrls={GuideBg.paths}
         buttonHref="/converter"
-        buttonLabel="Start"
+        buttonLabel="Try It Out"
       />
       <Grid item xs={12} className={classes.Guide_contentSectionBg}>
         <Grid container className={classes.Guide_contentContainer}>

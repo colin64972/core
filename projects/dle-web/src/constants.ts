@@ -64,11 +64,6 @@ export const topNavItems = [
     key: 'karim',
     to: '/converter',
     label: 'Converter'
-  },
-  {
-    key: 'sigmu',
-    to: '/error',
-    label: 'Error'
   }
 ]
 

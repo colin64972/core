@@ -1,4 +1,5 @@
 import { writeWorkbook } from '@cjo3/shared/logic/dle'
+import { saveAs } from 'file-saver'
 import {
   currentSheetName as currentSheetNameMock,
   sheetData as sheetDataMock,
@@ -93,7 +94,11 @@ export const ExportPanel: React.FC = (): JSX.Element => {
         fileName,
         blob
       })
-      setPaymentOpen(true)
+      if (process.env.PAYMENT_DISABLED) {
+        saveAs(blob, fileName)
+      } else {
+        setPaymentOpen(true)
+      }
     } catch (error) {
       dispatch(
         openSnackbar(

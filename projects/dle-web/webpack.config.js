@@ -119,7 +119,8 @@ module.exports = {
       SITE_URL: localEnv.parsed.SITE_URL,
       // STRIPE_PUBLIC_KEY: localEnv.parsed.STRIPE_PUBLIC_KEY_LIVE,
       STRIPE_PUBLIC_KEY: localEnv.parsed.STRIPE_PUBLIC_KEY_TEST,
-      STRIPE_URL: localEnv.parsed.STRIPE_URL
+      STRIPE_URL: localEnv.parsed.STRIPE_URL,
+      PAYMENT_DISABLED: localEnv.parsed.PAYMENT_DISABLED
     })
   ]
 }
