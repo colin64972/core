@@ -14,11 +14,11 @@ exports.js = {
   excludes: ['*.html', '*jpg', '*.png', '*.webp', '*.svg', '*.gif']
 }
 
-exports.preRenders = {
+exports.renders = {
   // dryrun: true,
-  srcPath: 'distPreRenders',
-  s3Path: `${process.env.PRERENDERS_BUCKET}`,
-  includes: ['*.js']
+  srcPath: 'distRenders',
+  s3Path: `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/renders/`,
+  includes: ['*.html']
 }
 
 exports.invalidate = {

@@ -71,18 +71,20 @@ export const App: React.FC = (): JSX.Element => {
     }
   }
 
-  useLayoutEffect(() => {
-    const styleTags = document.getElementsByTagName('style')
-    const injectionPoint = document.getElementById('jssInjectionPoint')
+  if (process.env.IS_NOT_SERVER) {
+    useLayoutEffect(() => {
+      const styleTags = document.getElementsByTagName('style')
+      const injectionPoint = document.getElementById('jssInjectionPoint')
 
-    if (styleTags.length > 0) {
-      for (let tag of styleTags) {
-        if (tag.dataset?.meta && tag.dataset.meta === 'MuiSvgIcon') {
-          injectionPoint.insertAdjacentElement('beforebegin', tag)
+      if (styleTags.length > 0) {
+        for (let tag of styleTags) {
+          if (tag.dataset?.meta && tag.dataset.meta === 'MuiSvgIcon') {
+            injectionPoint.insertAdjacentElement('beforebegin', tag)
+          }
         }
       }
-    }
-  })
+    })
+  }
 
   let tracker = useSelector(trackerSelector)
 

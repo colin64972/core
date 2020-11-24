@@ -14,7 +14,7 @@ serverlessConfig.plugins = [
   new EnvironmentPlugin({
     NEW_HOST: localEnv.parsed.NEW_HOST,
     APPS_LIST: sharedEnv.parsed.APPS_LIST,
-    PRERENDERS_BUCKET: localEnv.parsed.PRERENDERS_BUCKET
+    CDN_BUCKET: localEnv.parsed.CDN_BUCKET
   })
 ]
 

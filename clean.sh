@@ -4,7 +4,7 @@
 
 printYellow Cleaning...
 
-deleteFolders node_modules dist distPreRenders .serverless
+deleteFolders node_modules dist distPreRenders distRenders .serverless
 
 deleteFiles *.lock *.log *.error
 

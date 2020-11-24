@@ -1,9 +1,9 @@
 import { createElement } from 'react'
 import { hydrate, render } from 'react-dom'
 import { Provider } from 'react-redux'
+import { setReduxStore } from './store'
 import { BrowserRouter } from 'react-router-dom'
 import 'regenerator-runtime/runtime'
-import { setReduxStore } from './store'
 import { State } from './store/'
 import { ThemedApp } from './ThemedApp'
 
