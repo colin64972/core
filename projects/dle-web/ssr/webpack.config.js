@@ -16,7 +16,7 @@ module.exports = {
     ThemedApp: path.resolve('src', 'ThemedApp.ts'),
     store: path.resolve('src', 'store', 'index.ts')
   },
-  devtool: process.env.NODE_ENV === 'development' ? 'source-map' : null,
+  devtool: process.env.NODE_ENV === 'development' ? 'source-map' : false,
   mode: process.env.NODE_ENV,
   output: {
     path: path.resolve('distPreRenders'),
@@ -67,7 +67,8 @@ module.exports = {
                   modules: 'commonjs'
                 }
               ]
-            ]
+            ],
+            plugins: babelLoaderPlugins
           }
         }
       },
