@@ -199,7 +199,6 @@ export const TransformSettings: React.FC = (): JSX.Element => {
                   name="ulTrigger"
                   label="Trigger Character"
                   id="ulTrigger-input"
-                  helperMessage="Case insensitive"
                   placeholder="<, -, or custom"
                   style={classes.TransformSettings_formFieldTopMargin}
                 />
@@ -217,8 +216,7 @@ export const TransformSettings: React.FC = (): JSX.Element => {
                   name="ulTriggerZero"
                   label="Zero Trigger"
                   id="ulTriggerZero-input"
-                  placeholder="null, void, under, etc."
-                  helperMessage="Case sensitive"
+                  placeholder="null, void, N/A, etc."
                   style={classes.TransformSettings_formFieldTopMargin}
                 />
               </Paper>
@@ -235,7 +233,6 @@ export const TransformSettings: React.FC = (): JSX.Element => {
                   required
                   name="olTrigger"
                   label="Trigger Character"
-                  helperMessage="Case insensitive"
                   id="olTrigger-input"
                   placeholder=">, +, or custom"
                   style={classes.TransformSettings_formFieldTopMargin}

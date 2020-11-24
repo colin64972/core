@@ -9,5 +9,5 @@ module.exports = {
   FILE_WITH_EXT: /\.[a-z]{3,}$/i,
   EXCEL_CELL_ADDRESS: /^(?<col>[a-z]+)(?<row>[1-9](\d+)?)$/i,
   DETICTION_LIMIT_TRIGGER: /^[^\s\d]+$/i,
-  ALPHA_ONLY_STRING: /^[a-z]+$/i
+  ANY_BUT_SPACES: /^[^\s\n\t]+$/gi
 }
