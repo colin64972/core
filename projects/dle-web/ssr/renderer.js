@@ -26,9 +26,14 @@ const renderPath = url => {
 
     const sheets = new ServerStyleSheets()
 
+    let location =
+      process.env.NODE_ENV === 'production'
+        ? `/apps/${process.env.CDN_APP_FOLDER}${url}`
+        : url
+
     const App = createElement(
       StaticRouter,
-      { location: url, context: {} },
+      { location, context: {} },
       createElement(Provider, { store }, ThemedApp)
     )
 

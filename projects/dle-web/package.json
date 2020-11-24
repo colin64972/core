@@ -11,7 +11,7 @@
     "build": "NODE_ENV=production webpack --config webpack.config.js --progress",
     "lite": "lite-server -c lite-server.js",
     "preRender": "NODE_ENV=production webpack --config ssr/webpack.config --progress",
-    "render": "node -e 'require(\"./ssr/renderer\").paths(require(\"./ssr/locals\").paths)'",
+    "render": "NODE_ENV=production node -e 'require(\"./ssr/renderer\").paths(require(\"./ssr/locals\").paths)'",
     "sync:web": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").web)'",
     "sync:js": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").js)'",
     "sync:renders": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").renders)'",

@@ -10,9 +10,6 @@
     "packages": [
       "configs",
       "projects/*"
-    ],
-    "nohoist": [
-      "**/html-minifier", "**/html-minifier/**"
     ]
   },
   "scripts": {
