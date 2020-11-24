@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import PropTypes from 'prop-types'
-import React, { useLayoutEffect, useState } from 'react'
+import React from 'react'
 import { useDispatch } from 'react-redux'
 
 import { prepSetValue } from '@cjo3/shared/logic/keyword-multiplier'
@@ -86,7 +86,7 @@ export const SetsTextAreaField = ({
   }
 
   const setFadeInDirection = () => {
-    if (!process.env.IS_SERVER) return window.innerWidth < 600 ? 'x' : 'y'
+    if (process.env.IS_NOT_SERVER) return window.innerWidth < 600 ? 'x' : 'y'
     return 'x'
   }
 

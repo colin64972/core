@@ -7,7 +7,7 @@ import createSagaMiddleware from 'redux-saga'
 import { reducers } from './reducers'
 import { sagas } from './sagas'
 
-export const setStore = preloadedState => {
+export const setReduxStore = preloadedState => {
   const combinedSagas = [sagas]
 
   const sagaMiddleware = createSagaMiddleware()

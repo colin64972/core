@@ -8,16 +8,17 @@
   "private": true,
   "prettier": "@cjo3/configs/prettier",
   "scripts": {
-    "start": "NODE_ENV=development CONFIG_VER=web webpack-dev-server --config config/webpack-dev.js",
-    "build": "NODE_ENV=production CONFIG_VER=web webpack --config config/webpack-pro.js --progress",
+    "start": "NODE_ENV=development webpack-dev-server --config config/webpack-dev.js",
+    "build": "NODE_ENV=production webpack --config config/webpack-pro.js --progress",
     "lite": "lite-server -c config/lite-server",
-    "preRender": "NODE_ENV=production CONFIG_VER=preRenders webpack --config config/webpack-pro.js --progress",
+    "preRender": "NODE_ENV=development webpack --config ssr/webpack.config --progress --watch",
+    "render": "NODE_ENV=development node -e 'require(\"./ssr/renderer\").paths(require(\"./ssr/locals\").paths)'",
     "sync:web": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").web)'",
     "sync:js": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").js)'",
-    "sync:preRenders": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").preRenders)'",
+    "sync:renders": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").renders)'",
     "invalidate": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").invalidate(require(\"./cliParams\").invalidate)'",
-    "deploy": "yarn invalidate && yarn build && yarn sync:web && yarn preRender && yarn sync:preRenders",
-    "update": "yarn invalidate && yarn build && yarn sync:js && yarn preRender && yarn sync:preRenders"
+    "deploy": "yarn invalidate && yarn build && yarn sync:web && yarn preRender && yarn render && yarn sync:renders",
+    "update": "yarn invalidate && yarn build && yarn sync:js && yarn preRender && yarn render && yarn sync:renders"
   },
   "importSort": {
     ".js, .jsx, .es6, .es": {
@@ -37,10 +38,12 @@
   "dependencies": {
     "@material-ui/core": "~4.11.0",
     "@material-ui/icons": "~4.9.1",
+    "@material-ui/styles": "~4.10.0",
+    "@material-ui/system": "~4.9.14",
     "@stripe/react-stripe-js": "~1.1.2",
     "@stripe/stripe-js": "~1.10.0",
     "clsx": "~1.1.1",
-    "formik": "~2.2.1",
+    "formik": "~2.2.3",
     "gsap": "~3.5.1",
     "react": "~17.0.1",
     "react-dom": "~17.0.1",

@@ -5,17 +5,17 @@ import { BrowserRouter } from 'react-router-dom'
 
 import { ThemedApp } from './ThemedApp'
 import __webpack_public_path__ from './publicPath'
-import { setStore } from './store'
+import { setReduxStore } from './store'
 
 const preloadedState = window?.__PRELOADED_STATE__
 
 let renderMethod = render
-let store = setStore()
+let store = setReduxStore()
 
 if (preloadedState) {
   delete window.__PRELOADED_STATE__
   renderMethod = hydrate
-  store = setStore(preloadedState)
+  store = setReduxStore(preloadedState)
   const stateElement = document.getElementById('preloaded-state')
   stateElement.remove()
 }

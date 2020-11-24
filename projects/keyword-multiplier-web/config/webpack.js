@@ -3,11 +3,10 @@ const localEnv = require('dotenv').config()
 const sharedEnv = require('dotenv').config({
   path: path.resolve('..', 'shared', '.env')
 })
-const { setWebConfig, setPreRenderConfig } = require('@cjo3/configs/react')
+const { setWebConfig } = require('@cjo3/configs/react')
 const {
   setFileOutputPath,
-  setFilePublicPath,
-  setPreRenderFilePublicPath
+  setFilePublicPath
 } = require('@cjo3/shared/raw/general')
 const { EnvironmentPlugin } = require('webpack')
 
@@ -22,15 +21,8 @@ const webConfig = setWebConfig(
   setFilePublicPath
 )
 
-const preRendersConfig = setPreRenderConfig(
-  {
-    [process.env.CDN_APP_FOLDER]: path.resolve('src', 'preRenders')
-  },
-  path.resolve('distPreRenders'),
-  setPreRenderFilePublicPath
-)
-
 const envVars = new EnvironmentPlugin({
+  IS_NOT_SERVER: true,
   SITE_NAME: localEnv.parsed.SITE_URL.replace(
     /^\w+:\/{2}(\w+.\w{2,3})(.*)$/i,
     '$1'
@@ -46,7 +38,5 @@ const envVars = new EnvironmentPlugin({
 })
 
 webConfig.plugins.push(envVars)
-preRendersConfig.plugins.push(envVars)
 
 exports.webConfig = webConfig
-exports.preRendersConfig = preRendersConfig

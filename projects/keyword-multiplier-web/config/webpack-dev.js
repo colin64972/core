@@ -1,7 +1,7 @@
 require('dotenv').config()
 const { EnvironmentPlugin } = require('webpack')
 const { merge } = require('webpack-merge')
-const { webConfig, preRendersConfig } = require('./webpack')
+const { webConfig } = require('./webpack')
 
 const devVars = new EnvironmentPlugin({
   STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY_TEST,
@@ -11,14 +11,8 @@ const devVars = new EnvironmentPlugin({
 })
 
 webConfig.plugins.push(devVars)
-preRendersConfig.plugins.push(devVars)
 
-const configs = {
-  webConfig,
-  preRendersConfig
-}
-
-module.exports = merge(configs[`${process.env.CONFIG_VER}Config`], {
+module.exports = merge(webConfig, {
   mode: 'development',
   devtool: 'source-map'
 })
