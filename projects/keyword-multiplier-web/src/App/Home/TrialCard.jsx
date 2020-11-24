@@ -49,7 +49,7 @@ export const TrialCard = ({ isShown, trial }) => {
   const tracker = useSelector(state => state.app?.tracker)
 
   useEffect(() => {
-    if (!process.env.IS_SERVER) {
+    if (process.env.IS_NOT_SERVER) {
       tracker.eventHit({
         category: 'trials',
         action: 'trial_created',
@@ -66,7 +66,7 @@ export const TrialCard = ({ isShown, trial }) => {
     tracker.eventHit({
       category: 'trials',
       action: 'trial_copied',
-      label: id,
+      label: id
     })
     return dispatch({
       type: types.COPY_TRIAL,
@@ -85,45 +85,46 @@ export const TrialCard = ({ isShown, trial }) => {
 
   let timeline = gsap.timeline({ paused: true })
 
-  useLayoutEffect(() => {
-    if (isShown) {
-      timeline
-        .fromTo(
-          card.current,
-          {
-            opacity: 0,
-            transform: 'scale(0)'
-          },
-          {
-            duration: 0.25,
-            opacity: 1,
-            transform: 'scale(1)',
-            ease: 'back.out(1.5)'
-          }
-        )
-        .play()
-    } else {
-      timeline
-        .fromTo(
-          card.current,
-          {
-            opacity: 1,
-            transform: 'scale(1)'
-          },
-          {
-            duration: 0.25,
-            ease: 'back.in(1.5)',
-            opacity: 0,
-            transform: 'scale(0)'
-          }
-        )
-        .play()
-    }
-    return () => {
-      timeline.kill()
-    }
-  }, [isShown])
-
+  if (process.env.IS_NOT_SERVER) {
+    useLayoutEffect(() => {
+      if (isShown) {
+        timeline
+          .fromTo(
+            card.current,
+            {
+              opacity: 0,
+              transform: 'scale(0)'
+            },
+            {
+              duration: 0.25,
+              opacity: 1,
+              transform: 'scale(1)',
+              ease: 'back.out(1.5)'
+            }
+          )
+          .play()
+      } else {
+        timeline
+          .fromTo(
+            card.current,
+            {
+              opacity: 1,
+              transform: 'scale(1)'
+            },
+            {
+              duration: 0.25,
+              ease: 'back.in(1.5)',
+              opacity: 0,
+              transform: 'scale(0)'
+            }
+          )
+          .play()
+      }
+      return () => {
+        timeline.kill()
+      }
+    }, [isShown])
+  }
   useEffect(() => {
     setVolumeUnobtainable(
       billableKeywords.length > 100 || KeCredits < billableKeywords.length
