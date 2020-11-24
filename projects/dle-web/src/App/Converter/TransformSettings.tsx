@@ -4,8 +4,9 @@ import { makeStyles } from '@material-ui/core/styles'
 import CachedIcon from '@material-ui/icons/Cached'
 import clsx from 'clsx'
 import { Form, Formik, FormikHelpers } from 'formik'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { scroller } from 'react-scroll'
 import { transformOptions } from '../../constants'
 import {
   discardTransformResult,
@@ -17,8 +18,7 @@ import { TransformSettings as ITransformSettings } from '../../store/converter/i
 import { initialState } from '../../store/converter/reducers'
 import {
   currentSheetNameSelector,
-  sheetDataSelector,
-  transformResultSelector
+  sheetDataSelector
 } from '../../store/selectors'
 import { FormikField } from './FormikField'
 import { TransformSettingsSchema } from './validationSchemas'
@@ -93,9 +93,16 @@ export const TransformSettings: React.FC = (): JSX.Element => {
 
   const dispatch = useDispatch()
 
+  useLayoutEffect(() => {
+    scroller.scrollTo('scroller-form', {
+      duration: 500,
+      delay: 0,
+      smooth: 'easeInOutQuart'
+    })
+  })
+
   const sheetData = useSelector(sheetDataSelector)
   const currentSheetName = useSelector(currentSheetNameSelector)
-  let transformResult = useSelector(transformResultSelector)
 
   const submitHandler = (
     values: ITransformSettings,
@@ -149,7 +156,9 @@ export const TransformSettings: React.FC = (): JSX.Element => {
         validationSchema={TransformSettingsSchema}>
         {({ dirty, isValid, isSubmitting }) => {
           return (
-            <Form className={classes.TransformSettings_formGrid}>
+            <Form
+              className={classes.TransformSettings_formGrid}
+              name="scroller-form">
               <Paper
                 className={clsx(
                   classes.TransformSettings_formGridPosition0,

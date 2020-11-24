@@ -1,14 +1,9 @@
-import {
-  Button,
-  Grid,
-  Hidden,
-  LinearProgress,
-  Typography
-} from '@material-ui/core'
-import { summaryPanels } from '../../constants'
+import { Button, Grid, LinearProgress, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import React, { useState } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { scroller } from 'react-scroll'
+import { summaryPanels } from '../../constants'
 import { openPreview } from '../../store/converter/actions'
 import {
   DataUrlCollection,
@@ -62,9 +57,13 @@ export const TransformResults: React.FC = (): JSX.Element => {
   const transformResult: ITransformResult = useSelector(transformResultSelector)
   const previewOpen: boolean = useSelector(previewOpenSelector)
 
-  // if (process.env.USE_MOCKS) {
-  //   transformResult = transformResultMock
-  // }
+  useLayoutEffect(() => {
+    scroller.scrollTo('scroller-results', {
+      duration: 500,
+      delay: 0,
+      smooth: 'easeInOutQuart'
+    })
+  })
 
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false)
   const [drawerDataName, setDrawerDataName] = useState<string | null>(null)
@@ -108,7 +107,8 @@ export const TransformResults: React.FC = (): JSX.Element => {
       component="section"
       justify="center"
       data-testid="TransformResults"
-      className={classes.TransformResults_containerBg}>
+      className={classes.TransformResults_containerBg}
+      name="scroller-results">
       <Grid
         container
         justify="center"
