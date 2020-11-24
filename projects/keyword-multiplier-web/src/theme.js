@@ -1,7 +1,7 @@
 import primary from '@material-ui/core/colors/cyan'
 import secondary from '@material-ui/core/colors/indigo'
 
-import { setCustomTheme } from './theming'
+import { setCustomTheme } from '@cjo3/shared/react/themes/theming'
 
 const customTheme = setCustomTheme(
   15,
@@ -56,7 +56,7 @@ customTheme.custom.unorderedList = {
 }
 customTheme.typography.mainHeading = {
   ...customTheme.typography.bold,
-  ...customTheme.overrides.MuiTypography.h3,
+  fontSize: customTheme.typography.fontSize * 1.5,
   width: '100%',
   textTransform: 'uppercase',
   lineHeight: 1.125,
@@ -65,7 +65,7 @@ customTheme.typography.mainHeading = {
 
 customTheme.typography.subHeading = {
   ...customTheme.typography.italic,
-  ...customTheme.overrides.MuiTypography.h4,
+  fontSize: customTheme.typography.fontSize * 1.25,
   fontWeight: 'normal',
   width: '100%',
   lineHeight: 1.125
@@ -128,6 +128,14 @@ customTheme.overrides.MuiTableCell = {
     '&:last-child': {
       paddingRight: customTheme.typography.fontSize / 2
     }
+  }
+}
+
+customTheme.overrides.MuiTypography = {
+  ...customTheme.overrides.MuiTypography,
+  body1: {
+    ...customTheme.overrides.MuiTypography.body1,
+    marginTop: 0
   }
 }
 

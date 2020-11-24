@@ -3,7 +3,7 @@ import { hydrate, render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 
-import { AppWithTheme } from './AppWithTheme'
+import { ThemedApp } from './ThemedApp'
 import __webpack_public_path__ from './publicPath'
 import { setStore } from './store'
 
@@ -24,7 +24,7 @@ renderMethod(
   createElement(
     Provider,
     { store },
-    createElement(BrowserRouter, {}, AppWithTheme)
+    createElement(BrowserRouter, {}, ThemedApp)
   ),
   document.getElementById('app')
 )

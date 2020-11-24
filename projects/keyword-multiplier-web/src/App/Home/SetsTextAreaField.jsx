@@ -21,7 +21,6 @@ const useStyles = makeStyles(theme => ({
     padding: theme.custom.setSpace(),
     textTransform: 'uppercase',
     fontWeight: 'bold',
-    fontSize: 14,
     borderRadius: `${theme.custom.borderRadius}px ${theme.custom.borderRadius}px 0 0`,
     backgroundColor: theme.palette.primary.main,
     transition: 'background-color 250ms ease-out',
@@ -43,8 +42,6 @@ const useStyles = makeStyles(theme => ({
   },
   labelIcon: {
     fontSize: theme.typography.fontSize * 1.25,
-    position: 'relative',
-    top: 1,
     marginRight: theme.custom.setSpace() / 2
   },
   textArea: {
@@ -53,6 +50,7 @@ const useStyles = makeStyles(theme => ({
     border: 'none',
     backgroundColor: 'white',
     ...theme.typography.body1,
+    fontSize: theme.typography.fontSize,
     padding: theme.custom.setSpace(),
     color: theme.palette.bodyColor,
     borderRadius: `0 0 ${theme.custom.borderRadius}px ${theme.custom.borderRadius}px`,

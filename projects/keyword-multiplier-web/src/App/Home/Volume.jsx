@@ -129,7 +129,7 @@ export const Volume = ({ closeDialogHandler, dialogStatus, trialId }) => {
           spinner
           className={classes.orderingBackdrop}
         />
-        <Grid container>
+        <Grid container className={classes.contentContainer}>
           <Grid item xs={12}>
             <Typography component="h4" className={classes.subHeading}>
               Keyword Metric Order Form
