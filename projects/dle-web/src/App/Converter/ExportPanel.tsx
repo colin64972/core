@@ -1,11 +1,5 @@
 import { writeWorkbook } from '@cjo3/shared/logic/dle'
 import { saveAs } from 'file-saver'
-import {
-  currentSheetName as currentSheetNameMock,
-  sheetData as sheetDataMock,
-  transformResult as transformResultMock,
-  workbookName as workbookNameMock
-} from '@cjo3/shared/react/mocks/dle'
 import { Button, ButtonGroup, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { Elements } from '@stripe/react-stripe-js'
@@ -56,17 +50,10 @@ const useStyles = makeStyles(
 export const ExportPanel: React.FC = (): JSX.Element => {
   const classes = useStyles()
 
-  let workbookName = useSelector(workbookNameSelector)
-  let currentSheetName = useSelector(currentSheetNameSelector)
-  let sheetData = useSelector(sheetDataSelector)
-  let transformResult = useSelector(transformResultSelector)
-
-  if (process.env.USE_MOCKS) {
-    workbookName = workbookNameMock
-    currentSheetName = currentSheetNameMock
-    sheetData = sheetDataMock
-    transformResult = transformResultMock
-  }
+  const workbookName = useSelector(workbookNameSelector)
+  const currentSheetName = useSelector(currentSheetNameSelector)
+  const sheetData = useSelector(sheetDataSelector)
+  const transformResult = useSelector(transformResultSelector)
 
   const dispatch = useDispatch()
 
