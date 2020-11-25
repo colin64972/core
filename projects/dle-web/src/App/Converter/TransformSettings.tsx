@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import CachedIcon from '@material-ui/icons/Cached'
 import clsx from 'clsx'
 import { Form, Formik, FormikHelpers } from 'formik'
-import React, { useEffect, useLayoutEffect, useState } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { scroller } from 'react-scroll'
 import { transformOptions } from '../../constants'
@@ -93,14 +93,6 @@ export const TransformSettings: React.FC = (): JSX.Element => {
 
   const dispatch = useDispatch()
 
-  useLayoutEffect(() => {
-    scroller.scrollTo('scroller-form', {
-      duration: 500,
-      delay: 0,
-      smooth: 'easeInOutQuart'
-    })
-  })
-
   const sheetData = useSelector(sheetDataSelector)
   const currentSheetName = useSelector(currentSheetNameSelector)
 
@@ -133,8 +125,15 @@ export const TransformSettings: React.FC = (): JSX.Element => {
 
   const [sheetKey, setSheetKey] = useState<string>('')
 
-  useEffect(() => {
-    if (sheetData) setSheetKey(currentSheetName)
+  useLayoutEffect(() => {
+    if (sheetData) {
+      setSheetKey(currentSheetName)
+      scroller.scrollTo('scroller-form', {
+        duration: 500,
+        delay: 0,
+        smooth: 'easeInOutQuart'
+      })
+    }
   }, [sheetData])
 
   const resetHandler = (values, actions): void => {

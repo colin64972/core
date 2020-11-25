@@ -53,17 +53,9 @@ export const TransformResults: React.FC = (): JSX.Element => {
 
   const dispatch = useDispatch()
 
-  const isProcessing: boolean = useSelector(isProcessingSelector)
   const transformResult: ITransformResult = useSelector(transformResultSelector)
+  const isProcessing: boolean = useSelector(isProcessingSelector)
   const previewOpen: boolean = useSelector(previewOpenSelector)
-
-  useLayoutEffect(() => {
-    scroller.scrollTo('scroller-results', {
-      duration: 500,
-      delay: 0,
-      smooth: 'easeInOutQuart'
-    })
-  })
 
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false)
   const [drawerDataName, setDrawerDataName] = useState<string | null>(null)
@@ -92,14 +84,15 @@ export const TransformResults: React.FC = (): JSX.Element => {
     ? transformResult[drawerDataName].dataUrls
     : {}
 
-  if (isProcessing)
-    return (
-      <Grid item xs={12}>
-        <LinearProgress color="primary" />
-      </Grid>
-    )
-
-  if (!transformResult) return null
+  useLayoutEffect(() => {
+    if (transformResult) {
+      scroller.scrollTo('scroller-results', {
+        duration: 500,
+        delay: 0,
+        smooth: 'easeInOutQuart'
+      })
+    }
+  }, [transformResult])
 
   return (
     <Grid
@@ -109,53 +102,63 @@ export const TransformResults: React.FC = (): JSX.Element => {
       data-testid="TransformResults"
       className={classes.TransformResults_containerBg}
       name="scroller-results">
-      <Grid
-        container
-        justify="center"
-        className={classes.TransformResults_contentContainer}>
-        <Grid item xs={12} sm={6} className={classes.TransformResults_intro}>
-          <Typography variant="h3">Transform Results</Typography>
-          <Typography variant="body1">
-            Here are your transform results! From here you can view stats of
-            your transformed sheet, view a preview, and export a file if you
-            wish. Based on the settings you selected, resulting transformations
-            are shown in the summary panels below; although if none were found,
-            such panel will not be shown. If your sheet is large, please be
-            patient for the preview to load.
-          </Typography>
-          <Button
-            type="button"
-            variant="contained"
-            color="primary"
-            onClick={openPreviewHandler}
-            className={classes.TransformResults_previewButton}>
-            Preview
-          </Button>
+      {isProcessing && (
+        <Grid item xs={12}>
+          <LinearProgress color="primary" />
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <ExportPanel />
-        </Grid>
-        <Grid item xs={12} className={classes.TransformResults_changeSummaries}>
-          {summaryPanels.map(summary => (
-            <TransformSummary
-              key={summary.key}
-              buttonName={summary.caseType}
-              title={summary.title}
-              caseData={transformResult[summary.caseType]}
-              openDrawerHandler={openDrawerHandler}
+      )}
+      {transformResult && (
+        <Grid
+          container
+          justify="center"
+          className={classes.TransformResults_contentContainer}>
+          <Grid item xs={12} sm={6} className={classes.TransformResults_intro}>
+            <Typography variant="h3">Transform Results</Typography>
+            <Typography variant="body1">
+              Here are your transform results! From here you can view stats of
+              your transformed sheet, view a preview, and export a file if you
+              wish. Based on the settings you selected, resulting
+              transformations are shown in the summary panels below; although if
+              none were found, such panel will not be shown. If your sheet is
+              large, please be patient for the preview to load.
+            </Typography>
+            <Button
+              type="button"
+              variant="contained"
+              color="primary"
+              onClick={openPreviewHandler}
+              className={classes.TransformResults_previewButton}>
+              Preview
+            </Button>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <ExportPanel />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            className={classes.TransformResults_changeSummaries}>
+            {summaryPanels.map(summary => (
+              <TransformSummary
+                key={summary.key}
+                buttonName={summary.caseType}
+                title={summary.title}
+                caseData={transformResult[summary.caseType]}
+                openDrawerHandler={openDrawerHandler}
+              />
+            ))}
+            <AddressInspector
+              drawerOpen={drawerOpen}
+              closeDrawerHandler={closeDrawerHandler}
+              drawerDataName={drawerDataName}
+              allTransforms={transformResult.all}
+              addresses={addressesByTransform}
+              dataUrls={dataUrlsByTransform}
             />
-          ))}
-          <AddressInspector
-            drawerOpen={drawerOpen}
-            closeDrawerHandler={closeDrawerHandler}
-            drawerDataName={drawerDataName}
-            allTransforms={transformResult.all}
-            addresses={addressesByTransform}
-            dataUrls={dataUrlsByTransform}
-          />
-          {previewOpen && <Preview />}
+            {previewOpen && <Preview />}
+          </Grid>
         </Grid>
-      </Grid>
+      )}
     </Grid>
   )
 }
