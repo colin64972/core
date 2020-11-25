@@ -19,6 +19,9 @@ const useStyles = makeStyles(
     Guide_sectionTitle: {
       marginBottom: theme.custom.setSpace()
     },
+    Guide_secondaryColor: {
+      color: theme.palette.secondary.main
+    },
     Guide_accordionDetails: {
       ...theme.custom.setFlex('column', 'flex-start', 'flex-start')
     },
@@ -106,7 +109,7 @@ export const Guide: React.FC = (): JSX.Element => {
               variant="body1"
               className={classes.Guide_accordionDetails_firstChild}>
               There are two methods for loading a file, selecting a file using
-              the browser dialog, or dragging &amp; dropping.
+              the browser dialog or dragging &amp; dropping.
             </Typography>
             <Typography variant="h6" className={classes.Guide_sectionSubTitle}>
               Selecting a File
@@ -115,7 +118,7 @@ export const Guide: React.FC = (): JSX.Element => {
               To select a file using your browser&apos;s dialog menu, click the
               outlined button that reads &quot;Select File&quot;. Accepted files
               will be shown in a browser dialog. Navigate to the file you wish
-              to use and click &quot;Open&quot; or similar.
+              to use and click &quot;Open&quot;.
             </Typography>
             <Typography variant="h6" className={classes.Guide_sectionSubTitle}>
               Drag and Drop
@@ -124,8 +127,8 @@ export const Guide: React.FC = (): JSX.Element => {
               To drag and drop a file, navigate to the file you wish to use from
               your file browser and then drag the selected file over to the
               large, blue drop zone. When a file is dragged over the drop zone,
-              it will darken in color and a light shadow will appear. Drop the
-              file by releasing the mouse drag.
+              a light shadow will appear. Drop the file by releasing the mouse
+              drag.
             </Typography>
             <Typography variant="h6" className={classes.Guide_sectionSubTitle}>
               Accepted Files
@@ -134,15 +137,21 @@ export const Guide: React.FC = (): JSX.Element => {
               Regardless of which method you choose to select a file, once a
               file is selected, its file name will appear next to the
               &quot;Select File&quot; button. If this label reads, &quot;No File
-              Selected&quot;, no file has been selected, or the file you chose
+              Selected&quot;, no file has been selected or the file you chose
               was of an unaccepted file type.
             </Typography>
             <Typography variant="body1">
-              Currently, only Microsoft Excel files are accepted. Specifically,
-              files of the <strong>Excel 2007&#43; XML Format .xlsx</strong> and
-              the older&nbsp;
-              <strong>Excel 97 &ndash; 2004 Workbook Format .xls</strong> file
-              types are supported.
+              Currently, only&nbsp;
+              <strong>
+                Excel 2007&#43; XML Format&nbsp;
+                <span className={classes.Guide_secondaryColor}>.xlsx</span>
+              </strong>
+              &nbsp;and&nbsp;
+              <strong>
+                Excel 97 &ndash; 2004 Workbook Format&nbsp;
+                <span className={classes.Guide_secondaryColor}>.xls</span>
+              </strong>
+              &nbsp;file types are supported.
             </Typography>
             <Typography variant="body1">
               When an accepted file has been selected, the &quot;Load&quot; and
@@ -152,8 +161,8 @@ export const Guide: React.FC = (): JSX.Element => {
               into the app.
             </Typography>
             <Typography variant="body1">
-              To change files once one is already selected, simply repeat file
-              selection process until your desired file&apos;s name is
+              To change files once one is already selected, simply repeat the
+              file selection process until your desired file&apos;s name is
               displayed.
             </Typography>
           </Paper>
@@ -171,25 +180,23 @@ export const Guide: React.FC = (): JSX.Element => {
               Once a file has been loaded into the app, it&apos;s time to select
               a worksheet. If your file has more than one sheet, these sheets
               will be listed in the dropdown labelled &quot;Sheet
-              Selection&quot;. Choose the sheet you wish to edit using this drop
-              down. If your file only has one sheet, you still need to select it
-              here before continuing.
+              Selection&quot;. Choose the sheet you wish to edit using this
+              dropdown. If your file only has one sheet, you still need to
+              select it before continuing.
             </Typography>
             <Typography variant="body1">
-              Also, when a file is loaded, the &quot;Unload File&quot; button
-              appears which allows you to unload the current file, all of its
-              sheets and any edits you have previously made. If you have not
+              When a file is loaded, the &quot;Unload File&quot; button appears
+              which allows you to unload the current file, all of its sheets and
+              any transformations you have previously made. If you have not
               exported your sheet and click this button, you will lose any
-              processed sheets you have made and have to start over. We do not
-              keep copies of processed sheets, or any client data.
+              processed sheets you have made and will have to start over. We do
+              not keep copies of processed sheets or any client data.
             </Typography>
             <Typography variant="body1">
-              Likewise, changing the sheet after any sheet processes have been
-              made will clear out any current settings and results. Since
-              changing sheets will clear any current settings and processed
-              sheets, make sure to export any processed sheets to save them.
-              Again, we do not keep copies of processed sheets, or any client
-              data at all.
+              Likewise, changing the sheet after any sheet transformations have
+              been made will clear out any current settings and results. Make
+              sure to export any processed sheets to save them. Again, we do not
+              keep copies of processed sheets, or any client data.
             </Typography>
           </Paper>
 
@@ -204,7 +211,7 @@ export const Guide: React.FC = (): JSX.Element => {
               variant="body1"
               className={classes.Guide_accordionDetails_firstChild}>
               When a sheet is selected from the &quot;Sheet Selection&quot;
-              dropdown, its data is read, and the converter settings panels will
+              dropdown, its data is read and the converter settings panels will
               be displayed. Here you can select how you wish to process and
               transform your sheet data. There are three categories of options
               to set parameters.
@@ -227,7 +234,7 @@ export const Guide: React.FC = (): JSX.Element => {
               addresses as standard cell addresses but in lowercase such as
               &quot;a3&quot; or &quot;d13&quot;. Note that column addresses are
               limited up to column &quot;zz&quot; while there is no limit for
-              row number. If you enter an invalid cell range, you can still
+              row numbers. If you enter an invalid cell range, you can still
               process the sheet, but no transformations will be found or made.
             </Typography>
             <Typography variant="body1" className={classes.Guide_italicText}>
@@ -246,7 +253,7 @@ export const Guide: React.FC = (): JSX.Element => {
             <Typography variant="body1">
               The &quot;Trigger Character&quot; setting allows you to input a
               character or line of text that matches the detection limit
-              notation in your data cells. Most labs will use a &quot;&lt;&quot;
+              notation in your data sheet. Most labs will use a &quot;&lt;&quot;
               character to denote that a value is less than a minimum detection
               limit, while others are known to use a &quot;&minus;&quot;
               character. In addition to these characters, this setting allows
@@ -254,9 +261,10 @@ export const Guide: React.FC = (): JSX.Element => {
               differing notation.
             </Typography>
             <Typography variant="body1">
-              To input your trigger character or text string, simply enter it
-              into the setting input. This setting allows all standard
-              punctuation and alpha characters without spaces.
+              To input your trigger character or text string, enter your
+              case&ndash;sensitive text into the setting input. To allow
+              flexibility, this setting accepts all standard punctuation and
+              letter characters without spaces.
             </Typography>
             <Typography variant="body1">
               The &quot;Transform Function&quot; setting is where you set how
@@ -269,7 +277,7 @@ export const Guide: React.FC = (): JSX.Element => {
                 </li>
                 <li className={classes.Guide_functionListItem}>
                   <strong>Halve&#58;</strong> divides the detection limit value
-                  by 2 and keeps significant figures intact.
+                  by 2 while keeping significant figures intact.
                 </li>
                 <li className={classes.Guide_functionListItem}>
                   <strong>Zero&#58;</strong> changes any detection limit value
@@ -285,20 +293,20 @@ export const Guide: React.FC = (): JSX.Element => {
               Lastly, in the special case where your lab has included entries
               like &quot;null&quot;, &quot;void&quot;, &quot;zero&quot;,
               &quot;N/A&quot;, or other text values to represent a zero value,
-              the &quot;Zero Trigger&quot; setting is included as an optional
-              method to set these values to a true 0 number value. This setting
-              will accept any alpha text value and is case&ndash;sensitive. Cell
-              values that equal this trigger value will be transformed to a 0
-              number value. This is an optional setting and will still respect
-              any specified Scope Range settings applied.
+              the &quot;Zero Trigger&quot; setting is included as a method to
+              convert these values. This setting will accept any alpha text
+              value and is case&ndash;sensitive. Cell values that match this
+              trigger will be transformed to a 0 number value. This is an
+              optional setting and will respect any specified Scope Range
+              settings applied.
             </Typography>
             <Typography variant="h6" className={classes.Guide_sectionSubTitle}>
               Over Limit Settings
             </Typography>
             <Typography variant="body1">
               Sometimes sample values will be over the maximum detection limit
-              of the instrumentation threshold, and results will be returned
-              with a text value signifying over limit.
+              of the instrumentation threshold and results will be returned with
+              a text value signifying over limit.
             </Typography>
             <Typography variant="body1">
               For the Over Limit settings, the &quot;Trigger Character&quot;
@@ -311,31 +319,35 @@ export const Guide: React.FC = (): JSX.Element => {
             <Typography variant="body1">
               Over Limit &quot;Tranform Function&quot; provides the same options
               as the Under Limit settings, so you can process over limits how
-              you like. This is a required setting.
+              ever you like; although the &quot;Leave&quot; function is probably
+              most appropriate. This is a required setting.
             </Typography>
             <Typography variant="h6" className={classes.Guide_sectionSubTitle}>
               Converter Settings Actions
             </Typography>
             <Typography variant="body1">
               Upon entering your desired settings, the panels will validate and
-              show any errors on your input settings. Once settings are valid,
-              the &quot;Process&quot; button will enable, and you can click it
-              to process your sheet!
+              show any errors in your input settings. Once settings are valid,
+              the &quot;Process&quot; button will enable and you can click it to
+              process your sheet!
             </Typography>
             <Typography variant="body1">
               On the other hand, the &quot;Reset&quot; button will enable after
-              you have started to input any settings at all. If you make too
-              many mistakes, you can click it to reset the form to its initial
-              settings. However, if you have transform results from a previous
-              process displayed below, hitting the reset button will also clear
-              out those previous results, as only one set of results per sheet
+              you have started to input&nbsp;
+              <span className={classes.Guide_italicText}>any</span> settings. If
+              you make a mistake, you can click it to reset the form to its
+              initial settings.&nbsp;
+              <span className={classes.Guide_italicText}>But be careful!</span>
+              &nbsp;If you have transform results from a previous process
+              displayed below, clicking the reset button will also clear out
+              those previous results, as only one set of results per sheet
               process can be displayed.
             </Typography>
             <Typography variant="body1">
-              If you have not exported your current result as a sheet, then you
-              will lose that result upon resetting the settings. Transformed
-              sheets will be lost unless you exported the sheet for download. As
-              we do not keep any client sheets or data, we cannot retrieve any
+              If you have not exported your current result as a sheet, you will
+              lose that result upon resetting the settings. Transformed sheets
+              will be lost unless you exported the sheet for download. As we do
+              not keep any client sheets or data, we cannot retrieve any
               previous processed sheets.
             </Typography>
           </Paper>
@@ -354,9 +366,9 @@ export const Guide: React.FC = (): JSX.Element => {
               section will open below the Converter Settings. In this section,
               any &quot;Under Limit&quot;, &quot;Over Limit&quot; or &quot;Zero
               Trigger&quot; case results that were found will be displayed. If
-              no instances of a particular case were found, then no
-              transformations were made, and the summary panel for that case
-              will not be included.
+              no instances of a particular case were found&mdash;which means no
+              transformations were made&mdash;a summary panel for that case will
+              not be included.
             </Typography>
             <Typography variant="h6" className={classes.Guide_sectionSubTitle}>
               Case Summaries
@@ -368,34 +380,40 @@ export const Guide: React.FC = (): JSX.Element => {
               were, the list of each unique transformation, and the original
               value that was transformed. To view each instance by cell address,
               you can click the &quot;Inspect&quot; button. This will open a
-              side bar list of each cell that was transformed, along with the
-              original and transformed values.
+              side bar containing a scrollable list of each cell that was
+              transformed, along with the original and transformed values.
             </Typography>
             <Typography variant="h6" className={classes.Guide_sectionSubTitle}>
               Viewing a Preview
             </Typography>
             <Typography variant="body1">
-              To preview of your transformed sheet, click the blue &quot;View
-              Preview&quot; button. A preview of your whole sheet will be
+              To preview of your transformed sheet, click the blue
+              &quot;Preview&quot; button. A preview of your whole sheet will be
               generated, and you can scroll around to view each transformation
               as part of the whole sheet. Note that if a Scope Range was set,
-              the preview does not reflect this Scope Range, and the entire
-              sheet is rendered.
+              the preview does not reflect this Scope Range and the entire sheet
+              is rendered.
+            </Typography>
+            <Typography variant="body1">
+              If your sheet was particularly large, please be patient while the
+              app renders your preview. Previews may contain 1000s of images
+              which take time to render!
             </Typography>
             <Typography variant="body1">
               Transformation cases are highlighted by different colors: blue for
-              Under Limit, pink for Over Limit, and grey for Zero Trigger cases.
-              Sheet previews can be used to inspect the transformed data before
-              purchasing an export for download. Sheet previews provide both the
-              transformed and original data of the sheet.
+              &quot;Under Limit&quot;, pink for &quot;Over Limit&quot;, and grey
+              for &quot;Zero Trigger&quot; cases. Sheet previews can be used to
+              inspect the transformed data before purchasing an export for
+              download. Sheet previews provide both the transformed and original
+              data of the sheet.
             </Typography>
             <Typography variant="body1">
-              By default, new, transformed values are displayed, however, you
-              can view the original values by hovering over a transformed cell.
-              Upon mouse hover, the original value will be shown with a green
+              By default, new transformed values are displayed, however, you can
+              view the original values by hovering over a transformed cell. Upon
+              mouse hover, the original value will be shown with a green
               background, and the cell address is called out in case the sheet
               header rows and columns are out of view. This way, you can easily
-              inspect if the sheet was processed correctly, and your data is
+              inspect if the sheet was processed correctly and your data is
               ready for export.
             </Typography>
           </Paper>
@@ -413,10 +431,13 @@ export const Guide: React.FC = (): JSX.Element => {
               Once your sheet has been transformed to your liking, and
               you&apos;d like to save a copy to work with, you can export the
               sheet. To start the export process, simply click on the file type
-              that you&apos;d like to receive. From here, the &quot;Secure
-              Payment&quot; form will open, and you can complete the purchase
-              process. If for some reason your file export cannot be generated,
-              you will be notified after clicking the export button, and the
+              that you&apos;d like to receive.{' '}
+              <span className={classes.Guide_lineThrough}>
+                From here, the &quot;Secure Payment&quot; form will open, and
+                you can complete the purchase process.
+              </span>
+              &nbsp; If for some reason your file export cannot be generated,
+              you will be notified after clicking the export button and the
               payment form will not open.
             </Typography>
             <Typography variant="h6" className={classes.Guide_sectionSubTitle}>
@@ -424,10 +445,25 @@ export const Guide: React.FC = (): JSX.Element => {
             </Typography>
             <Typography variant="body1">
               Currenly, you can export the sheet as a new Microsoft Excel
-              workbook file in either{' '}
-              <strong>Excel 2007&#43; XML Format .xlsx</strong> and &nbsp;
-              <strong>Excel 97 &ndash; 2004 Workbook Format .xls</strong>{' '}
-              formats.
+              workbook file in either&nbsp;
+              <strong>
+                Excel 2007&#43; XML Format&nbsp;
+                <span className={classes.Guide_secondaryColor}>.xlsx</span>
+              </strong>
+              &nbsp;and&nbsp;
+              <strong>
+                Excel 97 &ndash; 2004 Workbook Format&nbsp;
+                <span className={classes.Guide_secondaryColor}>.xls</span>
+              </strong>
+              &nbsp;format. Exported files of&nbsp;
+              <strong>
+                <span className={classes.Guide_secondaryColor}>.xlsx</span>
+              </strong>
+              &nbsp;type include comments containing the original cell data for
+              easy comparison. If you open up your sheet and see a swath of open
+              comments, you can quickly hide them by toggling the &quot;Show All
+              Comments&quot; button in the Excel &quot;Ribbon&quot; under the
+              &quot;Review&quot; tab.
             </Typography>
             <Typography
               variant="h2"
@@ -474,32 +510,26 @@ export const Guide: React.FC = (): JSX.Element => {
               File Downloads
             </Typography>
             <Typography variant="body1">
-              During the period where file exports are free of charge, you are
-              free to export as many files as you like! However, we cannot
-              retrieve or resend any lost files since we do not save any of our
+              During the test period where file exports are free of charge, you
+              can export as many files as you like! However, we cannot retrieve
+              or resend any lost files since we do not save any of our
               clients&apos; processed sheets or data. If you have downloaded a
               file export, please save it carefully, for if you need a new copy,
               we cannot provide a backup.
             </Typography>
             <Typography variant="body1">
-              After your payment has been confirmed, your file export will be
-              downloaded by your browser and probably saved in your
-              &quot;Downloads&quot; location. The file name for your file export
-              is the original file name, in addition to an
+              <span className={classes.Guide_lineThrough}>
+                After your payment has been confirmed,
+              </span>
+              &nbsp; your file export will be downloaded by your browser and
+              saved in your &quot;Downloads&quot; location. The file name for
+              your file export is the original file name in addition to an
               &quot;&ndash;edited&quot; suffix added by the app so you can keep
               your original and transformed files separate. Likewise, the file
               export will include a single sheet suffixed with the same
-              &quot;&ndash;edited&quot; tag to denote it has been edited by our
-              app.
-            </Typography>
-            <Typography variant="body1">
-              Exported files of&nbsp;
-              <strong>Excel 2007&#43; XML Format .xlsx</strong> type include
-              comments containing the original cell data for easy comparison. If
-              you open up your sheet and see a swath of open comments, you can
-              quickly hide them by toggling the &quot;Show All Comments&quot;
-              button in the Excel &quot;Ribbon&quot; under the
-              &quot;Review&quot; tab.
+              &quot;&ndash;edited&quot; tag to denote it has been edited by this
+              app. In a second sheet, you will find our support email address
+              where you can email any feedback or feature requests.
             </Typography>
           </Paper>
         </Grid>

@@ -142,7 +142,7 @@ export const processSheet = (
       }
     }
 
-    if (cellValue === ulTriggerZero) {
+    if (cellValue !== '' && cellValue === ulTriggerZero) {
       const transform: XLSX.CellObject = setTransformValue(
         transformFunctionValues.zero,
         cellValue
