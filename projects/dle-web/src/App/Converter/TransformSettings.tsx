@@ -199,6 +199,7 @@ export const TransformSettings: React.FC = (): JSX.Element => {
                   label="Trigger Character"
                   id="ulTrigger-input"
                   placeholder="<, -, or custom"
+                  helperMessage="Case Sensitive"
                   style={classes.TransformSettings_formFieldTopMargin}
                 />
                 <FormikField
@@ -216,6 +217,7 @@ export const TransformSettings: React.FC = (): JSX.Element => {
                   label="Zero Trigger"
                   id="ulTriggerZero-input"
                   placeholder="null, void, N/A, etc."
+                  helperMessage="Case Sensitive"
                   style={classes.TransformSettings_formFieldTopMargin}
                 />
               </Paper>
@@ -234,6 +236,7 @@ export const TransformSettings: React.FC = (): JSX.Element => {
                   label="Trigger Character"
                   id="olTrigger-input"
                   placeholder=">, +, or custom"
+                  helperMessage="Case Sensitive"
                   style={classes.TransformSettings_formFieldTopMargin}
                 />
                 <FormikField
