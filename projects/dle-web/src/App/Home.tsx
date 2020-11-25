@@ -23,9 +23,9 @@ const useStyles = makeStyles(
       ...theme.custom.contentContainer
     },
 
-    Home_body1Text: {
+    Home_widthLimit: {
       color: theme.palette.bodyColor,
-      maxWidth: '67%',
+      maxWidth: '62%',
       [theme.breakpoints.down('xs')]: {
         maxWidth: 'unset'
       }
@@ -42,6 +42,12 @@ const useStyles = makeStyles(
       padding: `${theme.custom.setSpace('md')}px ${theme.custom.setSpace(
         'sm'
       )}px`
+    },
+    Home_introHeading: {
+      maxWidth: '50%',
+      [theme.breakpoints.down('xs')]: {
+        maxWidth: 'unset'
+      }
     },
 
     Home_fbContainer: {
@@ -266,14 +272,20 @@ export const Home: React.FC = (): JSX.Element => {
             classes.Home_contentContainer,
             classes.Home_introContent
           )}>
-          <Typography variant="h3" align="center">
-            Easily Convert MDL Text to Actionable Number Values
+          <Typography
+            variant="h3"
+            align="center"
+            className={clsx(
+              classes.Home_introHeading,
+              classes.Home_widthLimit
+            )}>
+            Easily Convert Detection Limit Text to Actionable Number Values
           </Typography>
 
           <Typography
             variant="body1"
             align="center"
-            className={classes.Home_body1Text}>
+            className={classes.Home_widthLimit}>
             Depending on the lab you work with and their data output
             capabilities, importing results into your workflow can be error
             prone and time consuming. If you&apos;ve ever had to manually comb
@@ -285,27 +297,30 @@ export const Home: React.FC = (): JSX.Element => {
           <Typography
             variant="body1"
             align="center"
-            className={classes.Home_body1Text}>
+            className={classes.Home_widthLimit}>
             Specifically, {process.env.APP_NAME} allows you to bypass the
             tedious operation of &quot;Finding &amp; Replacing&quot; each cell
             of text data in a traditional spreadsheet program like Microsoft
             Excel. As a browser&ndash;based tool,&nbsp;
             {process.env.APP_NAME} is a suited for independent consultants or
             other users who need to prepare large amounts of raw, analytical
-            data, but do not have access to expensive, proprietary software that
+            data but do not have access to expensive, proprietary software that
             may have these features built-in.
           </Typography>
 
           <Typography
             variant="body1"
             align="center"
-            className={classes.Home_body1Text}>
+            className={classes.Home_widthLimit}>
             With {process.env.APP_NAME}, you can quickly replace limiting
             threshold characters in just a few clicks by selecting parameters
             and processing your sheet. After processing, the transformed sheet
             can be reviewed prior to downloading as a convenient Microsoft Excel
-            workbook, and is available for the low price of $
-            {process.env.EXPORT_PRICE}.
+            workbook
+            {process.env.PAYMENT_DISABLED
+              ? '.'
+              : ` and is available for the low price of $
+            ${process.env.EXPORT_PRICE}.`}
           </Typography>
         </Grid>
       </Grid>
@@ -340,9 +355,9 @@ export const Home: React.FC = (): JSX.Element => {
                   variant="body1"
                   align="center"
                   className={classes.Home_bodyColorText}>
-                  Save time and mental capacity by eliminating monotonous data
-                  preparation woes. You&apos;re time is better spent analysing
-                  executive results, not repetitive data&ndash;entry.
+                  Save time by eliminating monotonous data preparation woes.
+                  You&apos;re time is better spent analysing executive results,
+                  not repetitive data&ndash;entry.
                 </Typography>
               </Grid>
               <Grid
@@ -365,8 +380,7 @@ export const Home: React.FC = (): JSX.Element => {
                   className={classes.Home_bodyColorText}>
                   &quot;Find &amp; Replace&quot; is great, but when you have to
                   do it manually across multiple sheets and files, it can be
-                  easy to miss cases, or even introduce errors into your
-                  dataset!
+                  easy to miss cases or even introduce errors into your dataset!
                 </Typography>
               </Grid>
             </Grid>
@@ -418,7 +432,7 @@ export const Home: React.FC = (): JSX.Element => {
             className={classes.Home_midCta}
             onClick={midCtaClickHandler}>
             <Typography variant="h3" align="center">
-              Try It Out!
+              Try It Out {process.env.PAYMENT_DISABLED ? 'Free' : '!'}
             </Typography>
           </Grid>
         </Grid>
@@ -432,21 +446,21 @@ export const Home: React.FC = (): JSX.Element => {
             classes.Home_contentContainer,
             classes.Home_useCaseContent
           )}>
-          <Typography variant="h3" align="center">
-            Applied Science Applications
-          </Typography>
-
+          <Grid item xs={12}>
+            <Typography variant="h3" align="center">
+              Applied Science Applications
+            </Typography>
+          </Grid>
           <Typography
             variant="body1"
             align="center"
-            className={classes.Home_body1Text}>
+            className={classes.Home_widthLimit}>
             Whether your discipline is environmental testing, geochemistry, oil
             &amp; gas, pharmaceutical, pulp &amp; paper, or food safety&mdash;to
             list a few&mdash;{process.env.APP_NAME}&nbsp;is an easy way to
-            incorporate raw, analytical results from labs like ALS, SGS, and
-            Alex Stewart International into your workflow!
+            incorporate raw, analytical results from labs like ALS, SGS, Bureau
+            Veritas, and Alex Stewart International into your workflow!
           </Typography>
-
           <div className={classes.Home_useCaseContainer}>
             <div className={clsx(classes.Home_useCase0, classes.Home_useCase)}>
               <Typography variant="h5" align="center">

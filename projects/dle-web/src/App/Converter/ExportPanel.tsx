@@ -126,13 +126,14 @@ export const ExportPanel: React.FC = (): JSX.Element => {
         </Elements>
       )}
       <Typography variant="h5">
-        Export for only ${process.env.EXPORT_PRICE}
+        {process.env.PAYMENT_DISABLED
+          ? 'Export for Free until 2021'
+          : `Export for only ${process.env.EXPORT_PRICE}`}
       </Typography>
       <Typography variant="body1">
-        Download your transformed sheet after purchase by selecting a file type
-        below. If your sheet cannot be exported, we will let you know before
-        checkout. Also, we do not save copies of exported sheets so please be
-        careful with them after download!
+        {process.env.PAYMENT_DISABLED
+          ? 'In order to help us alpha test this app, we are inviting users to export sheets for free until the New Year. Download your sheet and feel free to send us your feedback or feature requests.'
+          : 'If you&apos;d like to save a copy of your transformed sheet, you can purchase a sheet export here. Simply click on the file type you would like to receive and enter your payment details. Your download will be sent immediately. Please be careful with your file exports after download as we do not save copies of client data.'}
       </Typography>
       <ButtonGroup className={classes.ExportPanel_topMargin}>
         {exportButtons.map(item => (

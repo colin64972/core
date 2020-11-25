@@ -1,5 +1,5 @@
 import {
-  ALPHA_ONLY_STRING,
+  ANY_BUT_SPACES,
   DETICTION_LIMIT_TRIGGER,
   EMAIL_ADDRESS,
   EXCEL_CELL_ADDRESS
@@ -25,8 +25,8 @@ export const TransformSettingsSchema: Yup.ObjectSchema<TransformSettings> = Yup.
       .oneOf(Object.values(transformFunctionValues))
       .required(schemaErrors.required),
     ulTriggerZero: Yup.string().matches(
-      ALPHA_ONLY_STRING,
-      schemaErrors.alphaOnlyString
+      ANY_BUT_SPACES,
+      schemaErrors.anyButSpaces
     ),
     olTrigger: Yup.string()
       .matches(DETICTION_LIMIT_TRIGGER, schemaErrors.detectionLimitTrigger)

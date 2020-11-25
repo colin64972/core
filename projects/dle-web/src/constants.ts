@@ -39,8 +39,8 @@ export const transformOptions: {
 export const schemaErrors = {
   required: 'Required',
   excelCellAddress: 'Invalid cell address',
-  detectionLimitTrigger: 'Cannot include spaces or digits',
-  alphaOnlyString: 'Must contain only letters',
+  detectionLimitTrigger: 'May not include spaces or digits',
+  anyButSpaces: 'May not include spaces',
   invalidEmailAddress: 'Invalid email address'
 }
 
