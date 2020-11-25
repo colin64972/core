@@ -4,7 +4,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
-const { EnvironmentPlugin } = require('webpack')
+const { EnvironmentPlugin, HashedModuleIdsPlugin } = require('webpack')
 const {
   setFileOutputPath,
   setFilePublicPath
@@ -20,6 +20,10 @@ module.exports = {
   entry: {
     src: path.resolve('src', 'index.ts')
   },
+  output: {
+    path: path.resolve('dist'),
+    filename: '[name]-[contenthash].js'
+  },
   devServer: {
     contentBase: path.resolve('dist'),
     publicPath: '/',
@@ -30,8 +34,26 @@ module.exports = {
     historyApiFallback: true
   },
   optimization: {
+    runtimeChunk: 'single',
     splitChunks: {
-      chunks: 'all'
+      chunks: 'all',
+      maxInitialRequests: Infinity,
+      minSize: 0,
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: module => {
+            // get the name. E.g. node_modules/packageName/not/this/part.js
+            // or node_modules/packageName
+            const packageName = module.context.match(
+              /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+            )[1]
+
+            // npm package names are URL-safe, but some servers don't like @ symbols
+            return `npm.${packageName.replace('@', '')}`
+          }
+        }
+      }
     }
   },
   target: 'web',
@@ -67,7 +89,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
               emitFile: true,
-              name: '[folder]/[name].[ext]',
+              name: '[folder]/[name]-[contentHash].[ext]',
               outputPath: setFileOutputPath,
               publicPath: setFilePublicPath
             }
@@ -76,12 +98,10 @@ module.exports = {
       }
     ]
   },
-  output: {
-    filename: '[name].js',
-    path: path.resolve('dist')
-  },
   plugins: [
     new CleanWebpackPlugin({ verbose: true }),
+    new HashedModuleIdsPlugin(),
+    new BundleAnalyzerPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve('..', 'shared', 'react', 'template.pug'),
       inject: true,
