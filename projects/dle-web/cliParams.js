@@ -1,13 +1,13 @@
 require('dotenv').config()
 
-exports.web = {
+exports.assets = {
   // dryrun: true,
   srcPath: 'dist',
   s3Path: `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}`,
-  excludes: ['*.html']
+  excludes: ['*.html', '*.js']
 }
 
-exports.js = {
+exports.bundles = {
   // dryrun: true,
   srcPath: 'dist',
   s3Path: `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}`,
@@ -24,4 +24,9 @@ exports.renders = {
 exports.invalidate = {
   id: process.env.CDN_ID,
   paths: '/*'
+}
+
+exports.clear = {
+  dryrun: false,
+  keyPath: `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}`
 }

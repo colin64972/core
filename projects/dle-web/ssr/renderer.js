@@ -1,4 +1,5 @@
 require('colors')
+require('dotenv').config()
 const fs = require('fs')
 const path = require('path')
 const { createElement } = require('react')
@@ -25,6 +26,19 @@ const renderPath = url => {
     const { setReduxStore } = evalled
     const store = setReduxStore()
 
+    file = fs.readFileSync(path.resolve('dist', 'index.html')).toString()
+    const prodIndexHtml = file
+
+    const scriptSrcs = prodIndexHtml.match(/src=\"\/([-._\w]+)\"\>/gi)
+
+    const bundleSrcs = scriptSrcs.map(src => {
+      const srcFile = src.replace('src="', '').replace('">', '')
+      if (process.env.NODE_ENV === 'production') {
+        return `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}${srcFile}`
+      }
+      return srcFile
+    })
+
     const sheets = new ServerStyleSheets()
 
     let location =
@@ -45,6 +59,7 @@ const renderPath = url => {
 
     const markup = pug.renderFile(path.resolve(__dirname, 'template.pug'), {
       ...locals[url],
+      bundles: bundleSrcs,
       html: render,
       css: sheets.toString(),
       state: store.getState()

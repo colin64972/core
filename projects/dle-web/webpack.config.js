@@ -16,7 +16,7 @@ const sharedEnv = require('dotenv').config({
   path: path.resolve('..', 'shared', '.env')
 })
 
-module.exports = {
+const config = {
   mode: process.env.NODE_ENV,
   entry: {
     src: path.resolve('src', 'index.ts')
@@ -105,7 +105,9 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin({ verbose: true }),
     new HashedModuleIdsPlugin(),
-    new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static'
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve('..', 'shared', 'react', 'template.pug'),
       inject: true,
@@ -137,6 +139,7 @@ module.exports = {
       APP_NAME: localEnv.parsed.APP_NAME,
       APP_ROOT_PATH: localEnv.parsed.APP_ROOT_PATH,
       AUTH_SECRET: sharedEnv.parsed.AUTH_SECRET,
+      CDN_URL: localEnv.parsed.CDN_URL,
       CDN_APP_FOLDER: localEnv.parsed.CDN_APP_FOLDER,
       EXPORT_PRICE: localEnv.parsed.EXPORT_PRICE,
       JWT_PRIVATE_KEY: sharedEnv.parsed.JWT_PRIVATE_KEY,
@@ -150,3 +153,6 @@ module.exports = {
     })
   ]
 }
+
+console.log('LOG config'.yellow, config.module.rules[2].use[0].options)
+module.exports = config

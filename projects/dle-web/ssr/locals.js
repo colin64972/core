@@ -15,10 +15,6 @@ const robotsDirectives = {
 }
 
 const faviconHref = `${process.env.CDN_URL}/favicon.ico`
-const bundles = [
-  `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/src.js`,
-  `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/vendors~src.js`
-]
 
 const locals = {
   '/': {
@@ -29,8 +25,7 @@ const locals = {
     robots: robotsDirectives.default,
     gsvCode: sharedEnv.parsed.GSV_TAG,
     gaTag: sharedEnv.parsed.GA_TAG,
-    faviconHref,
-    bundles
+    faviconHref
   },
   '/converter': {
     fileName: 'home-converter',
@@ -41,8 +36,7 @@ const locals = {
     robots: robotsDirectives.default,
     gsvCode: sharedEnv.parsed.GSV_TAG,
     gaTag: sharedEnv.parsed.GA_TAG,
-    faviconHref,
-    bundles
+    faviconHref
   },
   '/converter/guide': {
     fileName: 'home-converter-guide',
@@ -52,8 +46,7 @@ const locals = {
     robots: robotsDirectives.default,
     gsvCode: sharedEnv.parsed.GSV_TAG,
     gaTag: sharedEnv.parsed.GA_TAG,
-    faviconHref,
-    bundles
+    faviconHref
   },
   '/error': {
     fileName: 'error',
@@ -63,8 +56,7 @@ const locals = {
     robots: robotsDirectives.error,
     gsvCode: sharedEnv.parsed.GSV_TAG,
     gaTag: sharedEnv.parsed.GA_TAG,
-    faviconHref,
-    bundles
+    faviconHref
   }
 }
 

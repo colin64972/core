@@ -96,6 +96,7 @@ module.exports = {
       APP_NAME: localEnv.parsed.APP_NAME,
       APP_ROOT_PATH: localEnv.parsed.APP_ROOT_PATH,
       AUTH_SECRET: sharedEnv.parsed.AUTH_SECRET,
+      CDN_URL: localEnv.parsed.CDN_URL,
       CDN_APP_FOLDER: localEnv.parsed.CDN_APP_FOLDER,
       EXPORT_PRICE: localEnv.parsed.EXPORT_PRICE,
       JWT_PRIVATE_KEY: sharedEnv.parsed.JWT_PRIVATE_KEY,

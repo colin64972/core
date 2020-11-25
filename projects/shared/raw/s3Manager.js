@@ -15,7 +15,7 @@ const create = async ({ bucketName, region, acl }) => {
   }
 }
 
-const rm = async ({ keyPath, dryrun = true }) => {
+const rm = async ({ keyPath, dryrun = false }) => {
   try {
     let params = `s3 rm s3://${keyPath} --recursive`
     if (dryrun) {

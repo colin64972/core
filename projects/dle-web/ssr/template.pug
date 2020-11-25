@@ -19,5 +19,5 @@ html(lang="en")
   body
     #app !{html}
 each bundle in bundles
-  script(src=bundle defer)
+  script(src=bundle async)
 script#preloaded-state window.__PRELOADED_STATE__ = !{JSON.stringify(state)}
