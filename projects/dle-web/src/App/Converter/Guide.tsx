@@ -1,4 +1,5 @@
 import { Header } from '../Header'
+import clsx from 'clsx'
 import { Grid, Paper, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
@@ -54,6 +55,25 @@ const useStyles = makeStyles(
     Guide_contentContainer: {
       padding: theme.custom.setSpace('sm'),
       ...theme.custom.contentContainer
+    },
+    Guide_lineThrough: {
+      textDecoration: 'line-through'
+    },
+    Guide_freeUntil: {
+      ...theme.custom.setRotation(15),
+      float: 'right',
+      textTransform: 'uppercase',
+      position: 'relative',
+      top: 100,
+      right: 100,
+      padding: theme.custom.setSpace() / 2,
+      backgroundColor: theme.palette.secondary[50],
+      border: `2px solid ${theme.palette.secondary.main}`,
+      boxShadow: theme.custom.boxShadow,
+      [theme.breakpoints.down('xs')]: {
+        top: 150,
+        right: 25
+      }
     }
   }),
   {
@@ -409,10 +429,25 @@ export const Guide: React.FC = (): JSX.Element => {
               <strong>Excel 97 &ndash; 2004 Workbook Format .xls</strong>{' '}
               formats.
             </Typography>
-            <Typography variant="h6" className={classes.Guide_sectionSubTitle}>
+            <Typography
+              variant="h2"
+              color="secondary"
+              align="center"
+              className={classes.Guide_freeUntil}>
+              Free until 2021
+            </Typography>
+            <Typography
+              variant="h6"
+              className={clsx(classes.Guide_sectionSubTitle, {
+                [classes.Guide_lineThrough]: process.env.PAYMENT_DISABLED
+              })}>
               Payment
             </Typography>
-            <Typography variant="body1">
+            <Typography
+              variant="body1"
+              className={clsx({
+                [classes.Guide_lineThrough]: process.env.PAYMENT_DISABLED
+              })}>
               Payment for your sheet is secured and processed by Stripe. Stripe
               is an industry&ndash;leading payment processing platform who
               handles your credit card details and payment info on our behalf.
@@ -421,7 +456,11 @@ export const Guide: React.FC = (): JSX.Element => {
               email address if you&apos;d like to receive a receipt, accept our
               Terms &amp; Conditions, and you&apos;re good to go.
             </Typography>
-            <Typography variant="body1">
+            <Typography
+              variant="body1"
+              className={clsx({
+                [classes.Guide_lineThrough]: process.env.PAYMENT_DISABLED
+              })}>
               Please note that if you choose <strong>not</strong> to provide an
               email address, we cannot provide any after&ndash;sale customer
               support as we have no way of tracking down your order or purchase
@@ -433,6 +472,14 @@ export const Guide: React.FC = (): JSX.Element => {
             </Typography>
             <Typography variant="h6" className={classes.Guide_sectionSubTitle}>
               File Downloads
+            </Typography>
+            <Typography variant="body1">
+              During the period where file exports are free of charge, you are
+              free to export as many files as you like! However, we cannot
+              retrieve or resend any lost files since we do not save any of our
+              clients&apos; processed sheets or data. If you have downloaded a
+              file export, please save it carefully, for if you need a new copy,
+              we cannot provide a backup.
             </Typography>
             <Typography variant="body1">
               After your payment has been confirmed, your file export will be

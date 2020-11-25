@@ -81,3 +81,12 @@ theme.custom.valueImage = {
   backgroundSize: 'initial',
   backgroundRepeat: 'no-repeat'
 }
+
+theme.custom.setRotation = degrees => ({
+  'transform': `rotate(${degrees}deg)`,
+  '-webkit-transform': `rotate(${degrees}deg)`,
+  '-moz-transform': `rotate(${degrees}deg)`,
+  '-ms-transform': `rotate(${degrees}deg)`,
+  '-o-transform': `rotate(${degrees}deg)`,
+  'filter': `progid:DXImageTransform.Microsoft.BasicImage(rotation=${degrees})`
+})

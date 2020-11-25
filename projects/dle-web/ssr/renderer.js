@@ -10,6 +10,7 @@ const { minify } = require('html-minifier')
 const pug = require('pug')
 
 const renderPath = url => {
+  const outputFolder = path.resolve('distRenders')
   try {
     let file = fs
       .readFileSync(path.resolve('distPreRenders', 'ThemedApp.js'))
@@ -52,8 +53,6 @@ const renderPath = url => {
     const minifiedMarkup = minify(markup, {
       minifyCSS: true
     })
-
-    const outputFolder = path.resolve('distRenders')
 
     if (!fs.existsSync(outputFolder)) {
       console.log('creating folder...'.blue)
