@@ -132,7 +132,7 @@ export const ExportPanel: React.FC = (): JSX.Element => {
       </Typography>
       <Typography variant="body1">
         {process.env.PAYMENT_DISABLED
-          ? 'In order to help us alpha test this app, we are inviting users to export sheets with no charge until the New Year. Download your sheet and feel free to send us your feedback or feature requests.'
+          ? 'In order to help us alpha test this app, we are inviting users to export sheets at no charge until the New Year. Download your sheet and feel free to send us your feedback or feature requests.'
           : 'If you&apos;d like to save a copy of your transformed sheet, you can purchase a sheet export here. Simply click on the file type you would like to receive and enter your payment details. Your download will be sent immediately. Please be careful with your file exports after download as we do not save copies of client data.'}
       </Typography>
       <ButtonGroup className={classes.ExportPanel_topMargin}>
