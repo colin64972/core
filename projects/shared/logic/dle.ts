@@ -344,11 +344,16 @@ export const writeWorkbook = (
 ): void => {
   const output = mergeResults(sheetData, transformResults)
 
+  const contactSheetData = [['email', process.env.SUPPORT_EMAIL]]
+
   const outputSheetName: string = `${currentSheetName}-edited`.substring(0, 31)
 
   const wb: XLSX.WorkBook = {
-    Sheets: { [outputSheetName]: output },
-    SheetNames: [outputSheetName]
+    Sheets: {
+      [outputSheetName]: output,
+      contact: XLSX.utils.aoa_to_sheet(contactSheetData)
+    },
+    SheetNames: [outputSheetName, 'contact']
   }
 
   const opts = {
