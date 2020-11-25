@@ -89,7 +89,7 @@ export const NotFound = () => {
                 Back to the&nbsp;
                 <Link
                   className={classes.appLink}
-                  href={switchLinkRoutePath('/', process.env.APP_ROOT_PATH)}>
+                  href={switchLinkRoutePath('/')}>
                   app!
                 </Link>
               </Typography>

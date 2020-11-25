@@ -1,13 +1,9 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
-
-export const StripeBanner = ({ className, fillColor, iconClass }) => {
+export const StripeBanner = ({ className, fillColor, iconClass, url }) => {
   const clickHandler = () => {
-    event.preventDefault()
-    if (!window) return null
-    window.open(constants.URLS.STRIPE, '_blank')
+    if (window) window.open(url, '_blank') || window.location.replace(url)
   }
   return (
     <button className={className} onClick={clickHandler}>

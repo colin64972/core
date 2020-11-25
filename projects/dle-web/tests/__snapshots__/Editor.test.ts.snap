@@ -1,0 +1,308 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Editor render matches current snapshop 1`] = `
+<div
+  className="MuiGrid-root MuiGrid-container"
+>
+  <nav
+    className="makeStyles-nav-5"
+  >
+    <a
+      aria-disabled={false}
+      className="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-navItem-6"
+      href="/"
+      onBlur={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+    >
+      <span
+        className="MuiButton-label"
+      >
+        <span
+          className="MuiButton-startIcon MuiButton-iconSizeMedium"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root"
+            focusable="false"
+            size="small"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+            />
+          </svg>
+        </span>
+        Home
+      </span>
+      <span
+        className="MuiTouchRipple-root"
+      />
+    </a>
+    <a
+      aria-disabled={false}
+      className="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-navItem-6"
+      href="/editor"
+      onBlur={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+    >
+      <span
+        className="MuiButton-label"
+      >
+        <span
+          className="MuiButton-startIcon MuiButton-iconSizeMedium"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root"
+            focusable="false"
+            size="small"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.95 10.78c.03-.25.05-.51.05-.78s-.02-.53-.06-.78l1.69-1.32c.15-.12.19-.34.1-.51l-1.6-2.77c-.1-.18-.31-.24-.49-.18l-1.99.8c-.42-.32-.86-.58-1.35-.78L12 2.34c-.03-.2-.2-.34-.4-.34H8.4c-.2 0-.36.14-.39.34l-.3 2.12c-.49.2-.94.47-1.35.78l-1.99-.8c-.18-.07-.39 0-.49.18l-1.6 2.77c-.1.18-.06.39.1.51l1.69 1.32c-.04.25-.07.52-.07.78s.02.53.06.78L2.37 12.1c-.15.12-.19.34-.1.51l1.6 2.77c.1.18.31.24.49.18l1.99-.8c.42.32.86.58 1.35.78l.3 2.12c.04.2.2.34.4.34h3.2c.2 0 .37-.14.39-.34l.3-2.12c.49-.2.94-.47 1.35-.78l1.99.8c.18.07.39 0 .49-.18l1.6-2.77c.1-.18.06-.39-.1-.51l-1.67-1.32zM10 13c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3z"
+              transform="scale(1.2, 1.2)"
+            />
+          </svg>
+        </span>
+        Editor
+      </span>
+      <span
+        className="MuiTouchRipple-root"
+      />
+    </a>
+    <a
+      aria-disabled={false}
+      className="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-navItem-6"
+      href="/error"
+      onBlur={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+    >
+      <span
+        className="MuiButton-label"
+      >
+        <span
+          className="MuiButton-startIcon MuiButton-iconSizeMedium"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root"
+            focusable="false"
+            size="small"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+            />
+          </svg>
+        </span>
+        Error
+      </span>
+      <span
+        className="MuiTouchRipple-root"
+      />
+    </a>
+  </nav>
+  <header
+    className="MuiGrid-root makeStyles-Editor_header-2 MuiGrid-container MuiGrid-justify-xs-center"
+  >
+    <h1
+      className="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter"
+    >
+      Editor
+    </h1>
+    <p
+      className="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter"
+    >
+      Labore labore ut est sit sanctus stet et. Eos lorem ipsum consetetur magna est voluptua. Lorem justo dolor eirmod est est aliquyam. Dolor sit kasd nonumy lorem tempor dolor no duo et, invidunt gubergren rebum at rebum, et nonumy lorem lorem diam ipsum, sadipscing diam voluptua accusam sit sit, dolor.
+    </p>
+  </header>
+  <section
+    className="MuiGrid-root makeStyles-section-7 makeStyles-noWorkbookBg-9 MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
+    data-testid="FileLoader"
+  >
+    <div
+      className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-10 MuiGrid-grid-md-8 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4"
+    >
+      <form
+        className="makeStyles-form-10"
+        onReset={[Function]}
+        onSubmit={[Function]}
+      >
+        <div
+          className="makeStyles-title-11"
+        >
+          <h3
+            className="MuiTypography-root MuiTypography-h3"
+          >
+            File Loader
+          </h3>
+          <p
+            className="MuiTypography-root MuiTypography-body1"
+          >
+            Select a file using the button below
+            . The selected file name will be displayed once selected.
+          </p>
+        </div>
+        <div
+          className="makeStyles-fileSelect-12"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary"
+            disabled={false}
+            onBlur={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <span
+              className="MuiButton-label"
+            >
+              <label
+                htmlFor="file-upload-input"
+              >
+                Select File
+              </label>
+            </span>
+            <span
+              className="MuiTouchRipple-root"
+            />
+          </button>
+          <p
+            className="MuiTypography-root makeStyles-fileName-16 MuiTypography-body1"
+          >
+            No File Selected
+          </p>
+          <input
+            className="makeStyles-hiddenInput-15"
+            id="file-upload-input"
+            name="file-upload-input"
+            onChange={[Function]}
+            type="file"
+          />
+        </div>
+        <div
+          className="makeStyles-dropLoader-13"
+        >
+          <div
+            className="makeStyles-dropContainer-20"
+            data-testid="DropSelector"
+            onDragEnter={[Function]}
+            onDragLeave={[Function]}
+            onDragOver={[Function]}
+            onDrop={[Function]}
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root makeStyles-dropIcon-22"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          className="makeStyles-actionButtons-14"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-formButton-17 makeStyles-submitButton-18 MuiButton-containedPrimary Mui-disabled Mui-disabled"
+            disabled={true}
+            onBlur={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={-1}
+            type="submit"
+          >
+            <span
+              className="MuiButton-label"
+            >
+              Load
+            </span>
+          </button>
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-formButton-17 makeStyles-resetButton-19 Mui-disabled Mui-disabled"
+            disabled={true}
+            onBlur={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={-1}
+            type="reset"
+          >
+            <span
+              className="MuiButton-label"
+            >
+              Reset
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+  <section
+    className="MuiGrid-root makeStyles-section-23 MuiGrid-container MuiGrid-justify-xs-center"
+  >
+    <h3
+      className="MuiTypography-root MuiTypography-h3"
+    >
+      No file loaded
+    </h3>
+  </section>
+</div>
+`;

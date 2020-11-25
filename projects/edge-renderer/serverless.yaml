@@ -9,24 +9,24 @@ provider:
   stackName: ${env:SLS_SERVICE_NAME}
   role: ${env:ACCESS_ROLE}
   iamRoleStatements:
-  - Effect: Allow
-    Action:
-      - s3.ListObjects
-      - s3:GetObject
-      - s3:PutObject
-      - kms:Decrypt
-    Resource:
-      - arn:aws:s3:${env:PRERENDERS_BUCKET}
+    - Effect: Allow
+      Action:
+        - s3.ListObjects
+        - s3:GetObject
+        - s3:PutObject
+        - kms:Decrypt
+      Resource:
+        - arn:aws:s3:${env:CDN_BUCKET}
 
 functions:
   viewerRequest:
     name: ${env:SLS_SERVICE_NAME}-viewerRequest
-    handler: v1/handlers.viewerRequest
+    handler: v1/viewerRequest.handler
     memorySize: 128
     timeout: 5
   originRequest:
     name: ${env:SLS_SERVICE_NAME}-originRequest
-    handler: v1/handlers.originRequest
+    handler: v1/originRequest.handler
     memorySize: 3008
     timeout: 30
 

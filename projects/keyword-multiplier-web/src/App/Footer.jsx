@@ -54,13 +54,17 @@ const useStyles = makeStyles(theme => ({
   },
   navButton: {
     ...theme.custom.buttons.base,
+    ...theme.custom.setFlex(),
     'padding': theme.custom.setSpace() / 2,
     'paddingLeft': 0,
     'color': theme.palette.primary[800],
-    ...theme.custom.setFlex(),
+    'marginBottom': theme.custom.setSpace(),
     '&:hover': {
       textDecoration: 'none',
       color: theme.palette.primary[700]
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginBottom: theme.custom.setSpace() / 2
     }
   },
   menuItemIcon: {

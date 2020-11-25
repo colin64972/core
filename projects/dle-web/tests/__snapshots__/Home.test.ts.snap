@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home render matches current snapshop 1`] = `
+<section
+  className="MuiGrid-root makeStyles-section-1 MuiGrid-container MuiGrid-justify-xs-center"
+>
+  <div
+    className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+  >
+    <h1
+      className="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter"
+    />
+    <p
+      className="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter"
+    >
+      Nonumy magna lorem erat at eirmod et. Labore ut no diam accusam aliquyam amet sit, sanctus nonumy labore no sea aliquyam erat ea. Dolor sit diam accusam erat, kasd nonumy eos aliquyam invidunt. Vero tempor amet vero aliquyam invidunt consetetur est est sed. Invidunt diam sanctus sea amet invidunt.
+    </p>
+  </div>
+  <a
+    href="/editor"
+  >
+    Start
+  </a>
+</section>
+`;

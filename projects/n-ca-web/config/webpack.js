@@ -11,7 +11,7 @@ const { EnvironmentPlugin } = require('webpack')
 const webConfig = setWebConfig(
   { src: path.resolve('src', 'index') },
   path.resolve('dist'),
-  path.resolve('..', '..', 'shared', 'react', 'htmlPluginTemplate.pug'),
+  path.resolve('..', 'shared', 'react', 'template.pug'),
   {
     title: process.env.TEMPLATE_TITLE
   },

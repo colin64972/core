@@ -48,8 +48,10 @@ export const copyToClipboard = data => {
   }
 }
 
-export const switchLinkRoutePath = (devPath, prodPath) =>
-  process.env.NODE_ENV === 'production' ? prodPath : devPath
+export const switchLinkRoutePath = path =>
+  process.env.NODE_ENV === 'production'
+    ? `${process.env.APP_ROOT_PATH}${path}`
+    : path
 
 export const removeAppUrlPrefix = (prefix, path) => {
   let result = path.replace(prefix, '')
@@ -71,8 +73,9 @@ export const setTracker = gaTag => {
   }
 
   tracker.initialize = () => ReactGA.initialize(config.gaTag)
-  tracker.pageHit = (rootPath, pathname) =>
+  tracker.pageHit = (rootPath, pathname) => {
     ReactGA.pageview(removeAppUrlPrefix(rootPath, pathname))
+  }
   tracker.eventHit = event => {
     ReactGA.event(event)
   }
@@ -122,3 +125,16 @@ export const generatePreRenders = (pages, app, store) =>
     }
     return temp
   }, {})
+
+export const setSrcSet = (paths, format = null) =>
+  paths
+    .reduce((acc, cur, ind) => {
+      let result = acc
+      let filePath = cur
+      if (format === 'webp') {
+        filePath = cur.replace(/.\w+$/i, '.webp')
+      }
+      result += `${filePath} ${ind + 1}x, `
+      return result
+    }, '')
+    .replace(/,\s$/i, '')

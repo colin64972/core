@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound render matches current snapshop 1`] = `
+<section
+  className="MuiGrid-root makeStyles-section-1 MuiGrid-container MuiGrid-direction-xs-column"
+>
+  <h1
+    className="MuiTypography-root MuiTypography-h1"
+  >
+    Error
+  </h1>
+  <p
+    className="MuiTypography-root MuiTypography-body1"
+  >
+    Sorry, an error occurred. Please try again later!
+  </p>
+  <div
+    className="MuiGrid-root MuiGrid-item"
+  >
+    <a
+      aria-disabled={false}
+      className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-NotFound_homeButton-2 MuiButton-containedSecondary"
+      href="/"
+      onBlur={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+    >
+      <span
+        className="MuiButton-label"
+      >
+        Home
+      </span>
+    </a>
+  </div>
+</section>
+`;

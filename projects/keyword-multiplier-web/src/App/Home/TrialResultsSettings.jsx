@@ -38,15 +38,15 @@ const CustomSwitch = withStyles(theme => ({
 
 const useStyles = makeStyles(theme => {
   const button = {
+    ...theme.custom.setFlex(),
     'border': 'none',
     'margin': `${theme.custom.setSpace()}px ${theme.custom.setSpace()}px 0 0`,
     'padding': theme.custom.setSpace() / 2,
-    'fontSize': theme.custom.setSpace(),
+    'fontSize': 13,
     'borderRadius': theme.custom.borderRadius,
     'cursor': 'pointer',
     'color': theme.palette.bodyColor,
     'transition': 'all 250ms ease-out',
-    ...theme.custom.setFlex(),
     '&:focus': {
       outline: 'none'
     }
@@ -70,7 +70,8 @@ const useStyles = makeStyles(theme => {
     },
     toggleText: {
       fontSize: theme.typography.fontSize,
-      color: theme.palette.bodyColor
+      color: theme.palette.bodyColor,
+      margin: 0
     },
     copyAllButton: {
       ...button,

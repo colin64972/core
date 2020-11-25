@@ -2,16 +2,24 @@ import gsap from 'gsap'
 import PropTypes from 'prop-types'
 import React, { createRef, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
+import { createHashId } from '../helpers'
 
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles(theme => ({
-  innerClass: {
-    ...theme.custom.setFlex(),
-    width: '100%',
-    opacity: 0
+const useStyles = makeStyles(
+  () => ({
+    innerClass: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '100%',
+      opacity: 0
+    }
+  }),
+  {
+    name: `FadeIn-${createHashId()}`
   }
-}))
+)
 
 export const FadeIn = ({
   children,

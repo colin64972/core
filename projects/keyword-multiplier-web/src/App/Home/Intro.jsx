@@ -60,7 +60,7 @@ const useStyles = makeStyles(theme => ({
     ...theme.typography.bold,
     textAlign: 'center',
     lineHeight: 1.25,
-    fontSize: theme.typography.fontSize * 1.5,
+    fontSize: theme.typography.fontSize * 1.25,
     textTransform: 'uppercase'
   },
   itemFadeIn: {
@@ -72,6 +72,7 @@ const useStyles = makeStyles(theme => ({
   valuePropPoint: {
     ...theme.custom.setFlex('row', 'flex-start', 'flex-start'),
     ...theme.typography.body1,
+    fontSize: theme.typography.fontSize,
     width: '100%',
     borderRadius: theme.custom.setSpace() / 2
   },

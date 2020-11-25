@@ -3,15 +3,12 @@
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": false,
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
   "prettier.requireConfig": true,
-  "prettier.configPath": "./configs/prettier.js"
+  "prettier.configPath": "",
+  "sort-imports.on-save": false,
+  "sort-imports.ignore-type-defs": true,
+  "sort-imports.languages": ["javascript"],
+  "explorer.compactFolders": false
 }

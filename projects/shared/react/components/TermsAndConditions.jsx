@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-
+import { createHashId } from '../helpers'
 import {
   Button,
   Dialog,
@@ -11,64 +11,69 @@ import {
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles(theme => {
-  const baseFont = {
-    fontFamily: theme.typography.fontFamily,
-    fontSize: theme.typography.fontSize,
-    color: theme.palette.bodyColor,
-    margin: 0,
-    padding: 0
-  }
-  return {
-    mainHeading: {
-      ...baseFont,
-      ...theme.typography.bold,
-      fontSize: theme.typography.fontSize * 1.25,
-      color: theme.palette.primary.main,
-      textTransform: 'uppercase'
-    },
-    subHeading: {
-      ...baseFont
-    },
-    section: {
-      'marginTop': theme.custom.setSpace(),
-      '&:first-child': {
-        marginTop: 0
-      }
-    },
-    sectionHeading: {
-      ...baseFont,
-      ...theme.typography.bold,
-      textTransform: 'uppercase'
-    },
-    copy: {
-      ...baseFont,
-      'marginTop': theme.custom.setSpace(),
-      '&:first-child': {
-        marginTop: 0
-      }
-    },
-    unorderedList: {
-      ...theme.custom.unorderedList
-    },
-    listItem: {
-      ...baseFont,
-      '&:first-child': {
-        marginTop: theme.custom.setSpace() / 2
-      }
-    },
-    siteLink: {
-      ...baseFont,
-      'color': theme.palette.primary[600],
-      'textDecoration': 'none',
-      'transition': 'all 250ms ease-out',
-      '&:hover': {
-        color: theme.palette.primary[400],
-        cursor: 'pointer'
+const useStyles = makeStyles(
+  theme => {
+    const baseFont = {
+      fontFamily: theme.typography.fontFamily,
+      fontSize: theme.typography.fontSize,
+      color: theme.palette.bodyColor,
+      margin: 0,
+      padding: 0
+    }
+    return {
+      mainHeading: {
+        ...baseFont,
+        ...theme.typography.bold,
+        fontSize: theme.typography.fontSize * 1.25,
+        color: theme.palette.primary.main,
+        textTransform: 'uppercase'
+      },
+      subHeading: {
+        ...baseFont
+      },
+      section: {
+        'marginTop': theme.custom.setSpace(),
+        '&:first-child': {
+          marginTop: 0
+        }
+      },
+      sectionHeading: {
+        ...baseFont,
+        ...theme.typography.bold,
+        textTransform: 'uppercase'
+      },
+      copy: {
+        ...baseFont,
+        'marginTop': theme.custom.setSpace(),
+        '&:first-child': {
+          marginTop: 0
+        }
+      },
+      unorderedList: {
+        ...theme.custom.unorderedList
+      },
+      listItem: {
+        ...baseFont,
+        '&:first-child': {
+          marginTop: theme.custom.setSpace() / 2
+        }
+      },
+      siteLink: {
+        ...baseFont,
+        'color': theme.palette.primary[600],
+        'textDecoration': 'none',
+        'transition': 'all 250ms ease-out',
+        '&:hover': {
+          color: theme.palette.primary[400],
+          cursor: 'pointer'
+        }
       }
     }
+  },
+  {
+    name: `PrivacyPolicy-${createHashId()}`
   }
-})
+)
 
 export const TermsAndConditions = ({
   closeHandler,

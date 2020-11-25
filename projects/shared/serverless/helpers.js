@@ -6,8 +6,10 @@ export const switchPathPageName = appPath => {
     case '':
     case '/':
       return 'home'
-    case '/feedback':
-      return 'feedback'
+    case '/converter':
+      return 'home-converter'
+    case '/converter/guide':
+      return 'home-converter-guide'
     default:
       return 'error'
   }
@@ -35,11 +37,11 @@ export const parseAppPage = (uri, appsList) => {
   result.app = appsList[0]
 
   if (parsedUri.ext.length) {
-    result.file = parsedUri.base
+    result.fileName = parsedUri.base
 
-    result.path = `${parsedUri.dir}/`.replace(/\/*/i, '/')
+    result.filePath = `${parsedUri.dir}/`.replace(/\/*/i, '/')
   } else {
-    result.path = `${parsedUri.dir}/${parsedUri.base}/`.replace(/\/*/, '/')
+    result.filePath = `${parsedUri.dir}/${parsedUri.base}/`.replace(/\/*/, '/')
   }
 
   return result

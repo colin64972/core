@@ -195,67 +195,68 @@ export const Notice = () => {
     return responseHandler(null, choice)
   }
 
-  useLayoutEffect(() => {
-    if (show) {
-      timeline
-        .add(
-          gsap.to(screen.current, {
-            duration: 0.25,
-            opacity: 1
-          }),
-          0
-        )
-        .add(
-          gsap.from(timeoutBar.current, {
-            duration: constants.NOTICE.TIMEOUT_DELAY / 1000,
-            width: '100%',
-            ease: 'linear'
-          }),
-          0
-        )
-        .fromTo(
-          noticeBar.current,
-          {
-            opacity: 0,
-            y: noticeBar.current.offsetHeight * -1
-          },
-          {
-            duration: 0.25,
-            ease: 'back.out(1.5)',
-            opacity: 1,
-            y: 0
-          },
-          0.25
-        )
-        .play()
-    } else {
-      timeline
-        .fromTo(
-          noticeBar.current,
-          {
-            opacity: 1,
-            y: 0
-          },
-          {
-            ease: 'back.in(1.5)',
-            opacity: 0,
-            y: noticeBar.current.offsetHeight * -1
-          }
-        )
-        .add(
-          gsap.to(screen.current, {
-            opacity: 0
-          }),
-          0.25
-        )
-        .play()
-    }
-    return () => {
-      timeline.kill()
-      timeoutBar.current.setAttribute('style', 'width: 0;')
-    }
-  }, [show])
-
+  if (process.env.IS_NOT_SERVER) {
+    useLayoutEffect(() => {
+      if (show) {
+        timeline
+          .add(
+            gsap.to(screen.current, {
+              duration: 0.25,
+              opacity: 1
+            }),
+            0
+          )
+          .add(
+            gsap.from(timeoutBar.current, {
+              duration: constants.NOTICE.TIMEOUT_DELAY / 1000,
+              width: '100%',
+              ease: 'linear'
+            }),
+            0
+          )
+          .fromTo(
+            noticeBar.current,
+            {
+              opacity: 0,
+              y: noticeBar.current.offsetHeight * -1
+            },
+            {
+              duration: 0.25,
+              ease: 'back.out(1.5)',
+              opacity: 1,
+              y: 0
+            },
+            0.25
+          )
+          .play()
+      } else {
+        timeline
+          .fromTo(
+            noticeBar.current,
+            {
+              opacity: 1,
+              y: 0
+            },
+            {
+              ease: 'back.in(1.5)',
+              opacity: 0,
+              y: noticeBar.current.offsetHeight * -1
+            }
+          )
+          .add(
+            gsap.to(screen.current, {
+              opacity: 0
+            }),
+            0.25
+          )
+          .play()
+      }
+      return () => {
+        timeline.kill()
+        timeoutBar.current.setAttribute('style', 'width: 0;')
+      }
+    }, [show])
+  }
   useEffect(() => {
     if (item) {
       document.addEventListener('keyup', keyUpHandler)

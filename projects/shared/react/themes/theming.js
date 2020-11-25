@@ -1,7 +1,7 @@
-import warn from '@material-ui/core/colors/amber'
-import pass from '@material-ui/core/colors/lime'
-import fail from '@material-ui/core/colors/red'
 import { createMuiTheme } from '@material-ui/core/styles'
+import fail from '@material-ui/core/colors/red'
+import pass from '@material-ui/core/colors/lime'
+import warn from '@material-ui/core/colors/amber'
 
 export const defaultPadding = (breakpoints, setSpace, scale) => {
   if (scale)
@@ -55,7 +55,7 @@ export const setCustomTheme = (
 
   const headingStyle = {
     fontWeight: 'bold',
-    lineHeight: 1
+    lineHeight: 1.25
   }
 
   const muiTheme = createMuiTheme({
@@ -102,11 +102,15 @@ export const setCustomTheme = (
         padding: 0,
         margin: 0
       },
+      fullScreen: {
+        maxWidth: '100vw',
+        minHeight: '100vh'
+      },
       setGrid: (columnCount, rowCount, gapSpace = 0) => ({
         display: 'grid',
         gridTemplateColumns: `repeat(${columnCount}, 1fr)`,
         gridTemplateRows:
-          rowCount === 'auto' ? 'auto' : `repeat(${rowCount}, 1fr)`,
+          typeof rowCount === 'string' ? rowCount : `repeat(${rowCount}, 1fr)`,
         gridRowGap: gapSpace,
         gridColumnGap: gapSpace
       }),
@@ -116,7 +120,18 @@ export const setCustomTheme = (
         justifyContent: justify,
         alignItems: align
       }),
-      borderRadius
+      borderRadius,
+      setLinearGradient: (deg, color1, color2) =>
+        `linear-gradient(${deg}deg, ${color1}, ${color2})`,
+      noSelect: {
+        'userSelect': 'none',
+        '-ms-user-select': 'none',
+        '-o-user-select': 'none',
+        '-moz-user-select': 'none',
+        '-khtml-user-select': 'none',
+        '-webkit-user-select': 'none',
+        '-webkit-touch-callout': 'none'
+      }
     },
     debug: {
       border: {
@@ -157,6 +172,10 @@ export const setCustomTheme = (
           },
           '*:focus': {
             outline: 'none'
+          },
+          'a': {
+            textDecoration: 'none',
+            color: 'inherit'
           }
         }
       },
@@ -184,6 +203,10 @@ export const setCustomTheme = (
         h6: {
           fontSize,
           ...headingStyle
+        },
+        body1: {
+          marginTop: fontSize,
+          fontSize
         }
       }
     }

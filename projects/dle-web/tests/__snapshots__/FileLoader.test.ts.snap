@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FileLoader render matches current snapshop 1`] = `
+<section
+  className="MuiGrid-root makeStyles-section-1 makeStyles-noWorkbookBg-3 MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
+  data-testid="FileLoader"
+>
+  <div
+    className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-10 MuiGrid-grid-md-8 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4"
+  >
+    <form
+      className="makeStyles-form-4"
+      onReset={[Function]}
+      onSubmit={[Function]}
+    >
+      <div
+        className="makeStyles-title-5"
+      >
+        <h3
+          className="MuiTypography-root MuiTypography-h3"
+        >
+          File Loader
+        </h3>
+        <p
+          className="MuiTypography-root MuiTypography-body1"
+        >
+          Select a file using the button below
+          . The selected file name will be displayed once selected.
+        </p>
+      </div>
+      <div
+        className="makeStyles-fileSelect-6"
+      >
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary"
+          disabled={false}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiButton-label"
+          >
+            <label
+              htmlFor="file-upload-input"
+            >
+              Select File
+            </label>
+          </span>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </button>
+        <p
+          className="MuiTypography-root makeStyles-fileName-10 MuiTypography-body1"
+        >
+          No File Selected
+        </p>
+        <input
+          className="makeStyles-hiddenInput-9"
+          id="file-upload-input"
+          name="file-upload-input"
+          onChange={[Function]}
+          type="file"
+        />
+      </div>
+      <div
+        className="makeStyles-dropLoader-7"
+      >
+        <div
+          className="makeStyles-dropContainer-14"
+          data-testid="DropSelector"
+          onDragEnter={[Function]}
+          onDragLeave={[Function]}
+          onDragOver={[Function]}
+          onDrop={[Function]}
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root makeStyles-dropIcon-16"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        className="makeStyles-actionButtons-8"
+      >
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-formButton-11 makeStyles-submitButton-12 MuiButton-containedPrimary Mui-disabled Mui-disabled"
+          disabled={true}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={-1}
+          type="submit"
+        >
+          <span
+            className="MuiButton-label"
+          >
+            Load
+          </span>
+        </button>
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-formButton-11 makeStyles-resetButton-13 Mui-disabled Mui-disabled"
+          disabled={true}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={-1}
+          type="reset"
+        >
+          <span
+            className="MuiButton-label"
+          >
+            Reset
+          </span>
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+`;
