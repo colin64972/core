@@ -1,3 +1,4 @@
+require('colors')
 const path = require('path')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin
@@ -22,7 +23,10 @@ module.exports = {
   },
   output: {
     path: path.resolve('dist'),
-    filename: '[name]-[contenthash].js'
+    filename:
+      process.env.NODE_ENV === 'production'
+        ? '[name].[contenthash:8].js'
+        : '[name].[hash].js'
   },
   devServer: {
     contentBase: path.resolve('dist'),

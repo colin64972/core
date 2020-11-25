@@ -1,6 +1,5 @@
+import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
-import { PrivacyPolicy } from './PrivacyPolicy'
-import { TermsAndConditions } from './TermsAndConditions'
 import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 import { Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
@@ -9,10 +8,39 @@ import VpnLockIcon from '@material-ui/icons/VpnLock'
 import WebIcon from '@material-ui/icons/Web'
 import clsx from 'clsx'
 import React, { useState } from 'react'
-import { ProfilePic } from '../assets'
+import Loadable from 'react-loadable'
 import { useDispatch, useSelector } from 'react-redux'
-import { tcOpenSelector } from '../store/selectors'
+import { ProfilePic } from '../assets'
 import { toggleTc } from '../store/app/actions'
+import { tcOpenSelector } from '../store/selectors'
+
+const TCLoadable = Loadable({
+  loader: () =>
+    import(
+      /* webpackChunkName: "chunk-TermsAndConditions" */
+      /* webpackPrefetch: false */
+      '@cjo3/shared/react/components/TermsAndConditions'
+    ),
+  loading: () => <BackDropScreen isOpen spinner />,
+  render: (loaded, props) => {
+    const Component = loaded.TermsAndConditions
+    return <Component {...props} />
+  }
+})
+
+const PPLoadable = Loadable({
+  loader: () =>
+    import(
+      /* webpackChunkName: "chunk-PrivacyPolicy" */
+      /* webpackPrefetch: false */
+      '@cjo3/shared/react/components/PrivacyPolicy'
+    ),
+  loading: () => <BackDropScreen isOpen spinner />,
+  render: (loaded, props) => {
+    const Component = loaded.PrivacyPolicy
+    return <Component {...props} />
+  }
+})
 
 const useStyles = makeStyles(
   theme => ({
@@ -200,7 +228,7 @@ export const Footer: React.FC<Props> = ({ style }): JSX.Element => {
         </Grid>
       </Grid>
       {tcOpen && (
-        <TermsAndConditions
+        <TCLoadable
           open={tcOpen}
           closeHandler={closeTAndCHandler}
           siteName={process.env.SITE_NAME}
@@ -209,7 +237,7 @@ export const Footer: React.FC<Props> = ({ style }): JSX.Element => {
         />
       )}
       {PPOpen && (
-        <PrivacyPolicy
+        <PPLoadable
           open={PPOpen}
           closeHandler={closePPHandler}
           siteName={process.env.SITE_NAME}
