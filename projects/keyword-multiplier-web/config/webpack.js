@@ -28,13 +28,14 @@ const envVars = new EnvironmentPlugin({
     '$1'
   ),
   SITE_URL: localEnv.parsed.SITE_URL,
-  SITE_CONTACT_EMAIL: localEnv.parsed.SITE_CONTACT_EMAIL,
   COPYRIGHT_ENTITY: localEnv.parsed.COPYRIGHT_ENTITY,
   CDN_URL: localEnv.parsed.CDN_URL,
   CDN_APP_FOLDER: localEnv.parsed.CDN_APP_FOLDER,
   APP_ROOT_PATH: localEnv.parsed.APP_ROOT_PATH,
   AUTH_SECRET: sharedEnv.parsed.AUTH_SECRET,
-  JWT_PRIVATE_KEY: sharedEnv.parsed.JWT_PRIVATE_KEY
+  JWT_PRIVATE_KEY: sharedEnv.parsed.JWT_PRIVATE_KEY,
+  SITE_CONTACT_EMAIL: sharedEnv.parsed.SITE_CONTACT_EMAIL,
+  SUPPORT_EMAIL: sharedEnv.parsed.SUPPORT_EMAIL
 })
 
 webConfig.plugins.push(envVars)

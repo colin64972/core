@@ -90,13 +90,14 @@ module.exports = {
       COPYRIGHT_ENTITY: localEnv.parsed.COPYRIGHT_ENTITY,
       GA_TAG: process.env.GA_TAG,
       JWT_PRIVATE_KEY: sharedEnv.parsed.JWT_PRIVATE_KEY,
-      SITE_CONTACT_EMAIL: localEnv.parsed.SITE_CONTACT_EMAIL,
       SITE_NAME: localEnv.parsed.SITE_URL.replace(
         /^\w+:\/{2}(\w+.\w{2,3})(.*)$/i,
         '$1'
       ),
       SITE_URL: localEnv.parsed.SITE_URL,
-      STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY_LIVE
+      STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY_LIVE,
+      SITE_CONTACT_EMAIL: sharedEnv.parsed.SITE_CONTACT_EMAIL,
+      SUPPORT_EMAIL: sharedEnv.parsed.SUPPORT_EMAIL
     })
   ]
 }
