@@ -116,12 +116,12 @@ export const TransformResults: React.FC = (): JSX.Element => {
         <Grid item xs={12} sm={6} className={classes.TransformResults_intro}>
           <Typography variant="h3">Transform Results</Typography>
           <Typography variant="body1">
-            Here are your transform results! From here you can view stats on
+            Here are your transform results! From here you can view stats of
             your transformed sheet, view a preview, and export a file if you
-            wish. Based on the settings you selected, any applicable
-            transformations are shown in a summary panel below. If none were
-            found, such a summary panel will not be shown. If your sheet was
-            large, please be patient for the prevew to load.
+            wish. Based on the settings you selected, resulting transformations
+            are shown in the summary panels below; although if none were found,
+            such panel will not be shown. If your sheet is large, please be
+            patient for the preview to load.
           </Typography>
           <Button
             type="button"

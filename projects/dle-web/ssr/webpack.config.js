@@ -8,8 +8,8 @@ const sharedEnv = require('dotenv').config({
   path: path.resolve('..', 'shared', '.env')
 })
 
-const babelLoaderPlugins = []
-// process.env.NODE_ENV === 'production' ? ['transform-remove-console'] : []
+const babelLoaderPlugins =
+  process.env.NODE_ENV === 'production' ? ['transform-remove-console'] : []
 
 module.exports = {
   entry: {
@@ -101,7 +101,6 @@ module.exports = {
       JWT_PRIVATE_KEY: sharedEnv.parsed.JWT_PRIVATE_KEY,
       SITE_NAME: localEnv.parsed.SITE_NAME,
       SITE_URL: localEnv.parsed.SITE_URL,
-      // STRIPE_PUBLIC_KEY: localEnv.parsed.STRIPE_PUBLIC_KEY_LIVE,
       STRIPE_PUBLIC_KEY: localEnv.parsed.STRIPE_PUBLIC_KEY_TEST,
       STRIPE_URL: localEnv.parsed.STRIPE_URL,
       PAYMENT_DISABLED: localEnv.parsed.PAYMENT_DISABLED,

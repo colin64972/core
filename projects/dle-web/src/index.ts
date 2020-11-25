@@ -1,3 +1,4 @@
+import __webpack_public_path__ from './publicPath'
 import { createElement } from 'react'
 import { hydrate, render } from 'react-dom'
 import { Provider } from 'react-redux'
@@ -8,10 +9,6 @@ import { State } from './store/'
 import { ThemedApp } from './ThemedApp'
 
 const preloadedState: State = window?.__PRELOADED_STATE__
-
-const loader = document.getElementById('loader')
-
-if (loader) loader.remove()
 
 let renderMethod = render
 let store = setReduxStore()

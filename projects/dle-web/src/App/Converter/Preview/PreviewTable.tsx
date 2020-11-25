@@ -59,22 +59,11 @@ const useStyles = makeStyles(
 export const PreviewTable: React.FC = (): JSX.Element => {
   const classes = useStyles()
 
-  let transformResult = useSelector(transformResultSelector)
-  let sheetData = useSelector(sheetDataSelector)
-
-  // if (process.env.USE_MOCKS) {
-  //   sheetData = sheetDataMock
-  //   transformResult = transformResultMock
-  // }
-
-  // const { scope } = transformResult
+  const transformResult = useSelector(transformResultSelector)
+  const sheetData = useSelector(sheetDataSelector)
 
   const options = convertSheetOptions
   options.raw = false
-
-  // const previewData = {
-  //   ...sheetData
-  // }
 
   const tableRows = XLSX.utils.sheet_to_json(sheetData, options)
 
