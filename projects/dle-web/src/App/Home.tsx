@@ -287,8 +287,8 @@ export const Home: React.FC = (): JSX.Element => {
             align="center"
             className={classes.Home_widthLimit}>
             Depending on the lab you work with and their data output
-            capabilities, importing results into your workflow can be error
-            prone and time consuming. If you&apos;ve ever had to manually comb
+            capabilities, importing results into your workflow can be time
+            consuming and error prone. If you&apos;ve ever had to manually comb
             through sheets of data looking for and changing detection level text
             values to number values, you&apos;ve found yourself in the right
             place!
@@ -298,25 +298,24 @@ export const Home: React.FC = (): JSX.Element => {
             variant="body1"
             align="center"
             className={classes.Home_widthLimit}>
-            Specifically, {process.env.APP_NAME} allows you to bypass the
-            tedious operation of &quot;Finding &amp; Replacing&quot; each cell
-            of text data in a traditional spreadsheet program like Microsoft
-            Excel. As a browser&ndash;based tool,&nbsp;
-            {process.env.APP_NAME} is a suited for independent consultants or
-            other users who need to prepare large amounts of raw, analytical
-            data but do not have access to expensive, proprietary software that
-            may have these features built-in.
+            {process.env.APP_NAME} allows you to bypass the tedious operation of
+            &quot;Finding &amp; Replacing&quot; each cell of text data in a
+            traditional spreadsheet program like Microsoft Excel. As a
+            browser&ndash;based tool,&nbsp;
+            {process.env.APP_NAME} is suited for independent consultants or
+            other professionals who need to prepare large amounts of raw,
+            analytical data but do not have access to expensive, proprietary
+            software.
           </Typography>
 
           <Typography
             variant="body1"
             align="center"
             className={classes.Home_widthLimit}>
-            With {process.env.APP_NAME}, you can quickly replace limiting
-            threshold characters in just a few clicks by selecting parameters
-            and processing your sheet. After processing, the transformed sheet
-            can be reviewed prior to downloading as a convenient Microsoft Excel
-            workbook
+            With {process.env.APP_NAME}, you can replace limiting threshold
+            characters in just a few clicks by selecting your desired
+            parameters. After processing, your transformed sheet can be reviewed
+            and exported as a convenient Microsoft Excel workbook
             {process.env.PAYMENT_DISABLED
               ? '.'
               : ` and is available for the low price of $
@@ -397,7 +396,7 @@ export const Home: React.FC = (): JSX.Element => {
             </li>
             <li className={classes.Home_fbListItem}>
               <DoneIcon className={classes.Home_fbListItemIcon} />
-              Preset transform functions
+              Preset transformation functions
             </li>
             <li className={classes.Home_fbListItem}>
               <DoneIcon className={classes.Home_fbListItemIcon} />
