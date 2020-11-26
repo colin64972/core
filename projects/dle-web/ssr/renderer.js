@@ -33,18 +33,22 @@ const renderPath = url => {
 
     const bundleSrcs = scriptSrcs.map(src => {
       const srcFile = src.replace('src="', '').replace('">', '')
-      if (process.env.NODE_ENV === 'production') {
-        return `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}${srcFile}`
+      switch (process.env.NODE_ENV) {
+        case 'production':
+          return `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}${srcFile}`
+        case 'staging':
+          return `${process.env.TEST_CDN_URL}/${process.env.CDN_APP_FOLDER}${srcFile}`
+        default:
+          return srcFile
       }
-      return srcFile
     })
 
     const sheets = new ServerStyleSheets()
 
     let location =
-      process.env.NODE_ENV === 'production'
-        ? `/apps/${process.env.CDN_APP_FOLDER}${url}`
-        : url
+      process.env.NODE_ENV === 'development'
+        ? url
+        : `/apps/${process.env.CDN_APP_FOLDER}${url}`
 
     const App = createElement(
       StaticRouter,

@@ -71,7 +71,7 @@ export const App: React.FC = (): JSX.Element => {
     }
   }
 
-  if (process.env.IS_NOT_SERVER) {
+  if (!process.env.IS_SERVER) {
     useLayoutEffect(() => {
       const styleTags = document.getElementsByTagName('style')
       const injectionPoint = document.getElementById('jssInjectionPoint')

@@ -6,10 +6,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
 const { EnvironmentPlugin, HashedModuleIdsPlugin } = require('webpack')
-const {
-  setFileOutputPath,
-  setFilePublicPath
-} = require('@cjo3/shared/raw/general')
 
 const localEnv = require('dotenv').config()
 const sharedEnv = require('dotenv').config({
@@ -17,16 +13,16 @@ const sharedEnv = require('dotenv').config({
 })
 
 const config = {
-  mode: process.env.NODE_ENV,
+  mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
   entry: {
     src: path.resolve('src', 'index.ts')
   },
   output: {
     path: path.resolve('dist'),
     filename:
-      process.env.NODE_ENV === 'production'
-        ? '[name].[contenthash:8].js'
-        : '[name].[hash].js'
+      process.env.NODE_ENV === 'development'
+        ? '[name].[hash].js'
+        : '[name].[contenthash:8].js'
   },
   devServer: {
     contentBase: path.resolve('dist'),
@@ -94,8 +90,17 @@ const config = {
             options: {
               emitFile: true,
               name: '[folder]/[name]-[contentHash].[ext]',
-              outputPath: setFileOutputPath,
-              publicPath: setFilePublicPath
+              outputPath: url => url,
+              publicPath: url => {
+                switch (process.env.NODE_ENV) {
+                  case 'production':
+                    return `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/${url}`
+                  case 'staging':
+                    return `${process.env.TEST_CDN_URL}/${process.env.CDN_APP_FOLDER}/${url}`
+                  default:
+                    return `/${url}`
+                }
+              }
             }
           }
         ]
@@ -106,12 +111,13 @@ const config = {
     new CleanWebpackPlugin({ verbose: true }),
     new HashedModuleIdsPlugin(),
     new BundleAnalyzerPlugin({
-      analyzerMode: 'static'
+      analyzerMode: 'static',
+      openAnalyzer: false
     }),
     new HtmlWebpackPlugin({
       template: path.resolve('..', 'shared', 'react', 'template.pug'),
       inject: true,
-      publicPath: '/',
+      publicPath: 'https://cdn.nebocat.ca/detection-limit-editor/bundles/',
       scriptLoading: 'async',
       cache: false,
       templateLocals: {
@@ -149,10 +155,10 @@ const config = {
       STRIPE_URL: localEnv.parsed.STRIPE_URL,
       PAYMENT_DISABLED: localEnv.parsed.PAYMENT_DISABLED,
       SITE_CONTACT_EMAIL: sharedEnv.parsed.SITE_CONTACT_EMAIL,
-      SUPPORT_EMAIL: sharedEnv.parsed.SUPPORT_EMAIL
+      SUPPORT_EMAIL: sharedEnv.parsed.SUPPORT_EMAIL,
+      TEST_CDN_URL: localEnv.parsed.TEST_CDN_URL
     })
   ]
 }
 
-console.log('LOG config'.yellow, config.module.rules[2].use[0].options)
 module.exports = config

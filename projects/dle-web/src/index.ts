@@ -1,4 +1,3 @@
-import __webpack_public_path__ from './publicPath'
 import { createElement } from 'react'
 import { hydrate, render } from 'react-dom'
 import { Provider } from 'react-redux'

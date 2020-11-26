@@ -1,6 +1,5 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { EnvironmentPlugin } = require('webpack')
-const { setPreRenderFilePublicPath } = require('@cjo3/shared/raw/general')
 const path = require('path')
 
 const localEnv = require('dotenv').config()
@@ -9,7 +8,7 @@ const sharedEnv = require('dotenv').config({
 })
 
 const babelLoaderPlugins =
-  process.env.NODE_ENV === 'production' ? ['transform-remove-console'] : []
+  process.env.NODE_ENV === 'development' ? [] : ['transform-remove-console']
 
 module.exports = {
   entry: {
@@ -17,7 +16,7 @@ module.exports = {
     store: path.resolve('src', 'store', 'index.ts')
   },
   devtool: process.env.NODE_ENV === 'development' ? 'source-map' : false,
-  mode: process.env.NODE_ENV,
+  mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
   output: {
     path: path.resolve('distPreRenders'),
     filename: '[name].js',
@@ -80,7 +79,16 @@ module.exports = {
             options: {
               emitFile: false,
               name: '[folder]/[name].[ext]',
-              publicPath: setPreRenderFilePublicPath
+              publicPath: url => {
+                switch (process.env.NODE_ENV) {
+                  case 'production':
+                    return `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/${url}`
+                  case 'staging':
+                    return `${process.env.TEST_CDN_URL}/${process.env.CDN_APP_FOLDER}/${url}`
+                  default:
+                    return `/${url}`
+                }
+              }
             }
           }
         ]
@@ -90,7 +98,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin({ verbose: true }),
     new EnvironmentPlugin({
-      IS_NOT_SERVER: false,
+      IS_SERVER: true,
       ACCEPTED_FILETYPES: localEnv.parsed.ACCEPTED_FILETYPES,
       API_URL: localEnv.parsed.API_URL,
       APP_NAME: localEnv.parsed.APP_NAME,
@@ -106,7 +114,8 @@ module.exports = {
       STRIPE_URL: localEnv.parsed.STRIPE_URL,
       PAYMENT_DISABLED: localEnv.parsed.PAYMENT_DISABLED,
       SITE_CONTACT_EMAIL: sharedEnv.parsed.SITE_CONTACT_EMAIL,
-      SUPPORT_EMAIL: sharedEnv.parsed.SUPPORT_EMAIL
+      SUPPORT_EMAIL: sharedEnv.parsed.SUPPORT_EMAIL,
+      TEST_CDN_URL: localEnv.parsed.TEST_CDN_URL
     })
   ]
 }
