@@ -12,12 +12,24 @@ const sharedEnv = require('dotenv').config({
   path: path.resolve('..', 'shared', '.env')
 })
 
+const switchPublicPath = () => {
+  switch (process.env.NODE_ENV) {
+    case 'production':
+      return `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/`
+    case 'staging':
+      return `${process.env.TEST_CDN_URL}/${process.env.CDN_APP_FOLDER}/`
+    default:
+      return '/'
+  }
+}
+
 const config = {
   mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
   entry: {
     src: path.resolve('src', 'index.ts')
   },
   output: {
+    publicPath: switchPublicPath(),
     path: path.resolve('dist'),
     filename:
       process.env.NODE_ENV === 'development'

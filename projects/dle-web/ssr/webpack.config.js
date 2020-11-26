@@ -7,6 +7,17 @@ const sharedEnv = require('dotenv').config({
   path: path.resolve('..', 'shared', '.env')
 })
 
+const switchPublicPath = () => {
+  switch (process.env.NODE_ENV) {
+    case 'production':
+      return `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/`
+    case 'staging':
+      return `${process.env.TEST_CDN_URL}/${process.env.CDN_APP_FOLDER}/`
+    default:
+      return '/'
+  }
+}
+
 const babelLoaderPlugins =
   process.env.NODE_ENV === 'development' ? [] : ['transform-remove-console']
 
@@ -20,7 +31,8 @@ module.exports = {
   output: {
     path: path.resolve('distPreRenders'),
     filename: '[name].js',
-    libraryTarget: 'commonjs2'
+    libraryTarget: 'commonjs2',
+    publicPath: switchPublicPath()
   },
   target: 'node',
   performance: { hints: 'warning' },
