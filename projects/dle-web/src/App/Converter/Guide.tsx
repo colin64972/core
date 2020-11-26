@@ -245,8 +245,8 @@ export const Guide: React.FC = (): JSX.Element => {
               Under Limit Settings
             </Typography>
             <Typography variant="body1">
-              Under limit settings are used to define which cells will be
-              treated as an under limit case and how to transform such cells.
+              The Under Limit settings are used to define which cells will be
+              treated as an Under Limit case and how to transform such cells.
               Required settings are the &quot;Trigger Character&quot; and
               &quot;Transform Function&quot; settings.
             </Typography>
@@ -268,7 +268,7 @@ export const Guide: React.FC = (): JSX.Element => {
             </Typography>
             <Typography variant="body1">
               The &quot;Transform Function&quot; setting is where you set how
-              you want to transform any instances of under limit values that the
+              you want to transform any instances of Under Limit values that the
               app finds. There are four options to choose from&#58;
               <ol className={classes.Guide_functionList}>
                 <li className={classes.Guide_functionListItem}>
@@ -281,7 +281,7 @@ export const Guide: React.FC = (): JSX.Element => {
                 </li>
                 <li className={classes.Guide_functionListItem}>
                   <strong>Zero&#58;</strong> changes any detection limit value
-                  into a 0 number value.
+                  into a 0&ndash;number value.
                 </li>
                 <li className={classes.Guide_functionListItem}>
                   <strong>No transform&#58;</strong> does nothing to a detection
@@ -296,7 +296,7 @@ export const Guide: React.FC = (): JSX.Element => {
               the &quot;Zero Trigger&quot; setting is included as a method to
               convert these values. This setting will accept any alpha text
               value and is case&ndash;sensitive. Cell values that match this
-              trigger will be transformed to a 0 number value. This is an
+              trigger will be transformed to a 0&ndash;number value. This is an
               optional setting and will respect any specified Scope Range
               settings applied.
             </Typography>
@@ -306,21 +306,21 @@ export const Guide: React.FC = (): JSX.Element => {
             <Typography variant="body1">
               Sometimes sample values will be over the maximum detection limit
               of the instrumentation threshold and results will be returned with
-              a text value signifying over limit.
+              a text value signifying Over Limit.
             </Typography>
             <Typography variant="body1">
               For the Over Limit settings, the &quot;Trigger Character&quot;
               provides the same functionality as the Under Limit setting but
-              will be used to search out over limit values. Again, this setting
+              will be used to search out Over Limit values. Again, this setting
               accepts standard punctuation and letters in a case&ndash;sensitive
               fashion. Spaces and numbers are not allowed. This is a required
               setting.
             </Typography>
             <Typography variant="body1">
-              Over Limit &quot;Tranform Function&quot; provides the same options
-              as the Under Limit settings, so you can process over limits how
-              ever you like; although the &quot;Leave&quot; function is probably
-              most appropriate. This is a required setting.
+              The Over Limit &quot;Tranform Function&quot; provides the same
+              options as the Under Limit settings, so you can process Over
+              Limits however you like; although the &quot;Leave&quot; function
+              is probably most appropriate. This is a required setting.
             </Typography>
             <Typography variant="h6" className={classes.Guide_sectionSubTitle}>
               Converter Settings Actions
@@ -364,11 +364,11 @@ export const Guide: React.FC = (): JSX.Element => {
               className={classes.Guide_accordionDetails_firstChild}>
               After processing your sheet, the &quot;Transform Results&quot;
               section will open below the Converter Settings. In this section,
-              any &quot;Under Limit&quot;, &quot;Over Limit&quot; or &quot;Zero
-              Trigger&quot; case results that were found will be displayed. If
-              no instances of a particular case were found&mdash;which means no
-              transformations were made&mdash;a summary panel for that case will
-              not be included.
+              any Under Limit, Over Limit or &quot;Zero Trigger&quot; case
+              results that were found will be displayed. If no instances of a
+              particular case were found&mdash;which means no transformations
+              were made&mdash;a summary panel for that case will not be
+              included.
             </Typography>
             <Typography variant="h6" className={classes.Guide_sectionSubTitle}>
               Case Summaries
@@ -401,11 +401,11 @@ export const Guide: React.FC = (): JSX.Element => {
             </Typography>
             <Typography variant="body1">
               Transformation cases are highlighted by different colors: blue for
-              &quot;Under Limit&quot;, pink for &quot;Over Limit&quot;, and grey
-              for &quot;Zero Trigger&quot; cases. Sheet previews can be used to
-              inspect the transformed data before purchasing an export for
-              download. Sheet previews provide both the transformed and original
-              data of the sheet.
+              Under Limit, pink for Over Limit, and grey for &quot;Zero
+              Trigger&quot; cases. Sheet previews can be used to inspect the
+              transformed data before purchasing an export for download. Sheet
+              previews provide both the transformed and original data of the
+              sheet.
             </Typography>
             <Typography variant="body1">
               By default, new transformed values are displayed, however, you can
@@ -444,7 +444,7 @@ export const Guide: React.FC = (): JSX.Element => {
               Export Filetypes
             </Typography>
             <Typography variant="body1">
-              Currenly, you can export the sheet as a new Microsoft Excel
+              Currently, you can export the sheet as a new Microsoft Excel
               workbook file in either&nbsp;
               <strong>
                 Excel 2007&#43; XML Format&nbsp;

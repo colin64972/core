@@ -355,8 +355,8 @@ export const Home: React.FC = (): JSX.Element => {
                   align="center"
                   className={classes.Home_bodyColorText}>
                   Save time by eliminating monotonous data preparation woes.
-                  You&apos;re time is better spent analysing executive results,
-                  not repetitive data&ndash;entry.
+                  Your time is better spent analysing executive results, not
+                  repetitive data&ndash;entry.
                 </Typography>
               </Grid>
               <Grid
@@ -396,7 +396,7 @@ export const Home: React.FC = (): JSX.Element => {
             </li>
             <li className={classes.Home_fbListItem}>
               <DoneIcon className={classes.Home_fbListItemIcon} />
-              Preset transformation functions
+              Pre&ndash;set transformation functions
             </li>
             <li className={classes.Home_fbListItem}>
               <DoneIcon className={classes.Home_fbListItemIcon} />
