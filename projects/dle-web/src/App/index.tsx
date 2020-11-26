@@ -5,17 +5,39 @@ import MuiAlert from '@material-ui/lab/Alert'
 import React, { useEffect, useLayoutEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router'
+import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
+import Loadable from 'react-loadable'
 import { Route, Switch } from 'react-router-dom'
 import { SNACKBAR_TIMEOUT } from '../constants'
 import { addTracker, closeSnackbar } from '../store/app/actions'
 import { Snackbar as ISnackbar } from '../store/app/interfaces'
 import { snackbarSelector, trackerSelector } from '../store/selectors'
 import { Converter } from './Converter'
-import { Guide } from './Converter/Guide'
 import { Footer } from './Footer'
 import { Home } from './Home'
 import { NotFound } from './NotFound'
 import { TopNav } from './TopNav'
+
+const GuideLoadable = Loadable({
+  loader: () =>
+    import(
+      /* webpackChunkName: "chunk-Guide" */
+      /* webpackPrefetch: false */
+      './Converter/Guide'
+    ),
+  loading: ({ error, pastDelay, timedOut }) => {
+    if (timedOut) return <h1>Timed Out</h1>
+    if (error) return <h1>Failed to Load</h1>
+    if (pastDelay) return <BackDropScreen isOpen spinner />
+    return null
+  },
+  delay: 250,
+  timeout: 5000,
+  render: (loaded, props) => {
+    const Component = loaded.Guide
+    return <Component {...props} />
+  }
+})
 
 const useStyles = makeStyles(
   theme => ({
@@ -127,7 +149,7 @@ export const App: React.FC = (): JSX.Element => {
             <Route
               path={switchLinkRoutePath('/converter/guide')}
               exact
-              component={Guide}
+              component={GuideLoadable}
             />
             <Route path="/*" component={NotFound} />
           </Switch>
