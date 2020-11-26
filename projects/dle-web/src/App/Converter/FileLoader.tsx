@@ -166,10 +166,11 @@ export const FileLoader: React.FC = (): JSX.Element => {
               <Hidden xsDown>
                 &nbsp;
                 <span>
-                  or drag and drop a file on the attchment box to the right
+                  or drag &amp; drop a file onto the drop&ndash;zone to the
+                  right
                 </span>
               </Hidden>
-              . The selected file name will be displayed once selected.
+              . Once selected, the file name will be shown below.
             </Typography>
           </div>
           <div className={classes.FileLoader_FileLoader}>
