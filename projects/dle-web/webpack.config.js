@@ -117,7 +117,7 @@ const config = {
     new HtmlWebpackPlugin({
       template: path.resolve('..', 'shared', 'react', 'template.pug'),
       inject: true,
-      publicPath: 'https://cdn.nebocat.ca/detection-limit-editor/bundles/',
+      publicPath: '/',
       scriptLoading: 'async',
       cache: false,
       templateLocals: {

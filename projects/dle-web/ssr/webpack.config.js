@@ -1,5 +1,5 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const { EnvironmentPlugin } = require('webpack')
+const { EnvironmentPlugin, HashedModuleIdsPlugin } = require('webpack')
 const path = require('path')
 
 const localEnv = require('dotenv').config()
@@ -78,7 +78,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
               emitFile: false,
-              name: '[folder]/[name].[ext]',
+              name: '[folder]/[name]-[contentHash].[ext]',
               publicPath: url => {
                 switch (process.env.NODE_ENV) {
                   case 'production':
@@ -97,6 +97,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin({ verbose: true }),
+    new HashedModuleIdsPlugin(),
     new EnvironmentPlugin({
       IS_SERVER: true,
       ACCEPTED_FILETYPES: localEnv.parsed.ACCEPTED_FILETYPES,
