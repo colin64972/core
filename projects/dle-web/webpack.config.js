@@ -123,8 +123,7 @@ const config = {
     new CleanWebpackPlugin({ verbose: true }),
     new HashedModuleIdsPlugin(),
     new BundleAnalyzerPlugin({
-      analyzerMode: 'static',
-      openAnalyzer: false
+      analyzerMode: 'static'
     }),
     new HtmlWebpackPlugin({
       template: path.resolve('..', 'shared', 'react', 'template.pug'),

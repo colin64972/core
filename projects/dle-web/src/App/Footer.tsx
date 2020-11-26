@@ -21,7 +21,14 @@ const TCLoadable = Loadable({
       /* webpackPrefetch: false */
       '@cjo3/shared/react/components/TermsAndConditions'
     ),
-  loading: () => <BackDropScreen isOpen spinner />,
+  loading: ({ error, pastDelay, timedOut }) => {
+    if (timedOut) return <h1>Timed Out</h1>
+    if (error) return <h1>Faild to Load</h1>
+    if (pastDelay) return <BackDropScreen isOpen spinner />
+    return null
+  },
+  delay: 250,
+  timeout: 5000,
   render: (loaded, props) => {
     const Component = loaded.TermsAndConditions
     return <Component {...props} />
@@ -35,7 +42,14 @@ const PPLoadable = Loadable({
       /* webpackPrefetch: false */
       '@cjo3/shared/react/components/PrivacyPolicy'
     ),
-  loading: () => <BackDropScreen isOpen spinner />,
+  loading: ({ error, pastDelay, timedOut }) => {
+    if (timedOut) return <h1>Timed Out</h1>
+    if (error) return <h1>Faild to Load</h1>
+    if (pastDelay) return <BackDropScreen isOpen spinner />
+    return null
+  },
+  delay: 250,
+  timeout: 5000,
   render: (loaded, props) => {
     const Component = loaded.PrivacyPolicy
     return <Component {...props} />
