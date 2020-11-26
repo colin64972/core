@@ -88,6 +88,7 @@
     "regenerator-runtime": "~0.13.7",
     "typescript": "~4.0.5",
     "webpack": "~4.44.2",
+    "webpack-bundle-analyzer": "~4.1.0",
     "webpack-dev-server": "~3.11.0",
     "webpack-node-externals": "~2.5.2"
   }
