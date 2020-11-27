@@ -84,15 +84,17 @@ export const TransformResults: React.FC = (): JSX.Element => {
     ? transformResult[drawerDataName].dataUrls
     : {}
 
-  useLayoutEffect(() => {
-    if (transformResult) {
-      scroller.scrollTo('scroller-results', {
-        duration: 500,
-        delay: 0,
-        smooth: 'easeInOutQuart'
-      })
-    }
-  }, [transformResult])
+  if (!process.env.IS_SERVER) {
+    useLayoutEffect(() => {
+      if (transformResult) {
+        scroller.scrollTo('scroller-results', {
+          duration: 500,
+          delay: 0,
+          smooth: 'easeInOutQuart'
+        })
+      }
+    }, [transformResult])
+  }
 
   return (
     <Grid

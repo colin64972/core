@@ -1,6 +1,6 @@
 require('dotenv').config()
 
 exports.invalidate = {
-  id: process.env.CF_DIST_NM_ID,
+  id: process.env.CDN_ID,
   paths: '/*'
 }

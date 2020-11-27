@@ -125,16 +125,18 @@ export const TransformSettings: React.FC = (): JSX.Element => {
 
   const [sheetKey, setSheetKey] = useState<string>('')
 
-  useLayoutEffect(() => {
-    if (sheetData) {
-      setSheetKey(currentSheetName)
-      scroller.scrollTo('scroller-form', {
-        duration: 500,
-        delay: 0,
-        smooth: 'easeInOutQuart'
-      })
-    }
-  }, [sheetData])
+  if (!process.env.IS_SERVER) {
+    useLayoutEffect(() => {
+      if (sheetData) {
+        setSheetKey(currentSheetName)
+        scroller.scrollTo('scroller-form', {
+          duration: 500,
+          delay: 0,
+          smooth: 'easeInOutQuart'
+        })
+      }
+    }, [sheetData])
+  }
 
   const resetHandler = (values, actions): void => {
     dispatch(discardTransformResult())

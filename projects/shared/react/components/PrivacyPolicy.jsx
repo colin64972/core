@@ -109,7 +109,7 @@ export const PrivacyPolicy = ({
     </a>
   )
   return (
-    <Dialog open={open} onClose={closeHandler} maxWidth={false}>
+    <Dialog open={open} onClose={closeHandler} maxWidth="md">
       <DialogTitle>
         <Typography className={classes.mainHeading}>Privacy Policy</Typography>
         <Typography className={classes.subHeading}>

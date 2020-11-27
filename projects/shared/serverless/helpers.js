@@ -7,15 +7,17 @@ export const switchPathPageName = appPath => {
     case '/':
       return 'home'
     case '/converter':
+    case '/converter/':
       return 'home-converter'
     case '/converter/guide':
+    case '/converter/guide/':
       return 'home-converter-guide'
     default:
       return 'error'
   }
 }
 
-export const splitAppsList = envVar => envVar.split(',')
+export const splitEnvVarList = envVar => envVar.split(',')
 
 export const parseAppPage = (uri, appsList) => {
   let result = {}

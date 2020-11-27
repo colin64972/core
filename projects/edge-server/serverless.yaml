@@ -17,6 +17,7 @@ provider:
         - kms:Decrypt
       Resource:
         - arn:aws:s3:${env:CDN_BUCKET}
+        - arn:aws:s3:${env:STA_CDN_BUCKET}
 
 functions:
   viewerRequest:

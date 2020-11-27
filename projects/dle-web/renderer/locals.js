@@ -15,10 +15,6 @@ const robotsDirectives = {
 }
 
 const faviconHref = `${process.env.CDN_URL}/favicon.ico`
-const bundles = [
-  `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/src.js`,
-  `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/vendors~src.js`
-]
 
 const locals = {
   '/': {
@@ -29,8 +25,7 @@ const locals = {
     robots: robotsDirectives.default,
     gsvCode: sharedEnv.parsed.GSV_TAG,
     gaTag: sharedEnv.parsed.GA_TAG,
-    faviconHref,
-    bundles
+    faviconHref
   },
   '/converter': {
     fileName: 'home-converter',
@@ -42,7 +37,7 @@ const locals = {
     gsvCode: sharedEnv.parsed.GSV_TAG,
     gaTag: sharedEnv.parsed.GA_TAG,
     faviconHref,
-    bundles
+    chunkNames: ['chunk-ConverterApp']
   },
   '/converter/guide': {
     fileName: 'home-converter-guide',
@@ -53,7 +48,7 @@ const locals = {
     gsvCode: sharedEnv.parsed.GSV_TAG,
     gaTag: sharedEnv.parsed.GA_TAG,
     faviconHref,
-    bundles
+    chunkNames: ['chunk-GuideContent']
   },
   '/error': {
     fileName: 'error',
@@ -63,12 +58,10 @@ const locals = {
     robots: robotsDirectives.error,
     gsvCode: sharedEnv.parsed.GSV_TAG,
     gaTag: sharedEnv.parsed.GA_TAG,
-    faviconHref,
-    bundles
+    faviconHref
   }
 }
 
 module.exports = {
-  paths: ['/', '/converter', '/converter/guide', '/error'],
   locals
 }

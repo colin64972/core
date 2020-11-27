@@ -255,7 +255,7 @@ export const Home: React.FC = (): JSX.Element => {
         subTitle="Conversion tool for spreadsheet-based, raw analytical data"
         bgColor="theme.palette.primary.main"
         bgUrls={HomeBg.paths}
-        buttonHref="/converter"
+        buttonHref="/converter/"
         buttonLabel="Start"
       />
       <Grid
@@ -318,7 +318,7 @@ export const Home: React.FC = (): JSX.Element => {
             and exported as a convenient Microsoft Excel workbook
             {process.env.PAYMENT_DISABLED
               ? '.'
-              : ` and is available for the low price of $
+              : ` for the low price of $
             ${process.env.EXPORT_PRICE}.`}
           </Typography>
         </Grid>
@@ -431,7 +431,7 @@ export const Home: React.FC = (): JSX.Element => {
             className={classes.Home_midCta}
             onClick={midCtaClickHandler}>
             <Typography variant="h3" align="center">
-              Try It Out {process.env.PAYMENT_DISABLED ? 'Free' : '!'}
+              Try It Out{process.env.PAYMENT_DISABLED ? ' Free' : '!'}
             </Typography>
           </Grid>
         </Grid>

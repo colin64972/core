@@ -11,11 +11,11 @@ import { addTracker, closeSnackbar } from '../store/app/actions'
 import { Snackbar as ISnackbar } from '../store/app/interfaces'
 import { snackbarSelector, trackerSelector } from '../store/selectors'
 import { Converter } from './Converter'
-import { Guide } from './Converter/Guide'
 import { Footer } from './Footer'
 import { Home } from './Home'
 import { NotFound } from './NotFound'
 import { TopNav } from './TopNav'
+import { Guide } from './Converter/Guide/'
 
 const useStyles = makeStyles(
   theme => ({
@@ -51,7 +51,7 @@ export const App: React.FC = (): JSX.Element => {
 
   const location = useLocation()
 
-  withNav = location.pathname.includes('converter')
+  withNav = /\/converter\/?(guide\/?)?$/.test(location.pathname)
 
   const snackbar: ISnackbar = useSelector(snackbarSelector)
 
@@ -71,7 +71,7 @@ export const App: React.FC = (): JSX.Element => {
     }
   }
 
-  if (process.env.IS_NOT_SERVER) {
+  if (!process.env.IS_SERVER) {
     useLayoutEffect(() => {
       const styleTags = document.getElementsByTagName('style')
       const injectionPoint = document.getElementById('jssInjectionPoint')

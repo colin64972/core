@@ -3,15 +3,15 @@ import { LoadFail } from '@cjo3/shared/react/components/LoadFail'
 import { Grid } from '@material-ui/core'
 import React from 'react'
 import Loadable from 'react-loadable'
-import { ConverterBg } from '../../assets'
-import { Header } from '../Header'
+import { GuideBg } from '../../../assets'
+import { Header } from '../../Header'
 
-const ConverterAppLoadable = Loadable({
+const GuideContentLoadable = Loadable({
   loader: () =>
     import(
-      /* webpackChunkName: "chunk-ConverterApp" */
+      /* webpackChunkName: "chunk-GuideContent" */
       /* webpackPrefetch: false */
-      './ConverterApp'
+      './GuideContent'
     ),
   loading: ({ error, pastDelay, timedOut }) => {
     if (error) return <LoadFail message="Load Failed" />
@@ -22,23 +22,21 @@ const ConverterAppLoadable = Loadable({
   delay: 250,
   timeout: 5000,
   render: (loaded, props) => {
-    const Component = loaded.ConverterApp
+    const Component = loaded.GuideContent
     return <Component {...props} />
   }
 })
 
-export const Converter: React.FC = (): JSX.Element => {
-  return (
-    <Grid container justify="center">
-      <Header
-        title="Converter"
-        subTitle="Load a File and Process your Sheet"
-        bgColor="theme.palette.primary.main"
-        bgUrls={ConverterBg.paths}
-        buttonHref="/converter/guide/"
-        buttonLabel="Read the Guide"
-      />
-      <ConverterAppLoadable />
-    </Grid>
-  )
-}
+export const Guide: React.FC = (): JSX.Element => (
+  <Grid container justify="center">
+    <Header
+      title="Converter Guide"
+      subTitle="How to Use this App"
+      bgColor="theme.palette.primary.main"
+      bgUrls={GuideBg.paths}
+      buttonHref="/converter/"
+      buttonLabel="Try It Out"
+    />
+    <GuideContentLoadable />
+  </Grid>
+)

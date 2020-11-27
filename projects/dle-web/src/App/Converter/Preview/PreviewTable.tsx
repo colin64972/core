@@ -11,7 +11,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
 import React from 'react'
 import { useSelector } from 'react-redux'
-import * as XLSX from 'xlsx'
+import { utils } from 'xlsx'
 import {
   sheetDataSelector,
   transformResultSelector
@@ -65,7 +65,7 @@ export const PreviewTable: React.FC = (): JSX.Element => {
   const options = convertSheetOptions
   options.raw = false
 
-  const tableRows = XLSX.utils.sheet_to_json(sheetData, options)
+  const tableRows = utils.sheet_to_json(sheetData, options)
 
   const findDataUrls = (address: string): string[] | null => {
     if (!transformResult.all[address]) return null
@@ -95,7 +95,7 @@ export const PreviewTable: React.FC = (): JSX.Element => {
             />
             {tableRows[0].map(
               (col: any, colIndex: number): JSX.Element => {
-                const colId = XLSX.utils.encode_col(colIndex)
+                const colId = utils.encode_col(colIndex)
                 return (
                   <TableCell
                     key={`th-${colId}`}
@@ -112,7 +112,7 @@ export const PreviewTable: React.FC = (): JSX.Element => {
         <TableBody>
           {tableRows.map(
             (row: any[], rowIndex: number): JSX.Element => {
-              const rowId = XLSX.utils.encode_row(rowIndex)
+              const rowId = utils.encode_row(rowIndex)
               return (
                 <TableRow key={`tr-${rowId}`}>
                   <TableCell
@@ -124,7 +124,7 @@ export const PreviewTable: React.FC = (): JSX.Element => {
                   </TableCell>
                   {tableRows[rowIndex].map(
                     (cell: any, cellIndex: number): JSX.Element => {
-                      const cellAddress = XLSX.utils.encode_cell({
+                      const cellAddress = utils.encode_cell({
                         c: cellIndex,
                         r: rowIndex
                       })
