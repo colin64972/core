@@ -1,4 +1,5 @@
 import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
+import { LoadFail } from '@cjo3/shared/react/components/LoadFail'
 import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
 import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
 import { Button, Grid, Typography } from '@material-ui/core'
@@ -22,8 +23,8 @@ const TCLoadable = Loadable({
       '@cjo3/shared/react/components/TermsAndConditions'
     ),
   loading: ({ error, pastDelay, timedOut }) => {
-    if (timedOut) return <h1>Timed Out</h1>
-    if (error) return <h1>Failed to Load</h1>
+    if (error) return <LoadFail message="Load Failed" />
+    if (timedOut) return <LoadFail message="Timed Out" />
     if (pastDelay) return <BackDropScreen isOpen spinner />
     return null
   },
@@ -43,8 +44,8 @@ const PPLoadable = Loadable({
       '@cjo3/shared/react/components/PrivacyPolicy'
     ),
   loading: ({ error, pastDelay, timedOut }) => {
-    if (timedOut) return <h1>Timed Out</h1>
-    if (error) return <h1>Failed to Load</h1>
+    if (error) return <LoadFail message="Load Failed" />
+    if (timedOut) return <LoadFail message="Timed Out" />
     if (pastDelay) return <BackDropScreen isOpen spinner />
     return null
   },

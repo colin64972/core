@@ -267,25 +267,25 @@ export const GuideContent: React.FC = (): JSX.Element => {
             The &quot;Transform Function&quot; setting is where you set how you
             want to transform any instances of Under Limit values that the app
             finds. There are four options to choose from&#58;
-            <ol className={classes.GuideContent_functionList}>
-              <li className={classes.GuideContent_functionListItem}>
-                <strong>Leave&#58;</strong> leaves behind the detection limit
-                value by removing the trigger character&#40;s&#41;.
-              </li>
-              <li className={classes.GuideContent_functionListItem}>
-                <strong>Halve&#58;</strong> divides the detection limit value by
-                2 while keeping significant figures intact.
-              </li>
-              <li className={classes.GuideContent_functionListItem}>
-                <strong>Zero&#58;</strong> changes any detection limit value
-                into a 0&ndash;number value.
-              </li>
-              <li className={classes.GuideContent_functionListItem}>
-                <strong>No transform&#58;</strong> does nothing to a detection
-                limit value once found.
-              </li>
-            </ol>
           </Typography>
+          <ol className={classes.GuideContent_functionList}>
+            <li className={classes.GuideContent_functionListItem}>
+              <strong>Leave&#58;</strong> leaves behind the detection limit
+              value by removing the trigger character&#40;s&#41;.
+            </li>
+            <li className={classes.GuideContent_functionListItem}>
+              <strong>Halve&#58;</strong> divides the detection limit value by 2
+              while keeping significant figures intact.
+            </li>
+            <li className={classes.GuideContent_functionListItem}>
+              <strong>Zero&#58;</strong> changes any detection limit value into
+              a 0&ndash;number value.
+            </li>
+            <li className={classes.GuideContent_functionListItem}>
+              <strong>No transform&#58;</strong> does nothing to a detection
+              limit value once found.
+            </li>
+          </ol>
           <Typography variant="body1">
             Lastly, in the special case where your lab has included entries like
             &quot;null&quot;, &quot;void&quot;, &quot;zero&quot;,

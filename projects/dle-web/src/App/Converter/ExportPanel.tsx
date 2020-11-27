@@ -1,5 +1,6 @@
 import { writeWorkbook } from '@cjo3/shared/logic/dle'
 import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
+import { LoadFail } from '@cjo3/shared/react/components/LoadFail'
 import Loadable from 'react-loadable'
 import { saveAs } from 'file-saver'
 import { Button, ButtonGroup, Grid, Typography } from '@material-ui/core'
@@ -24,8 +25,8 @@ const PaymentAppLoadable = Loadable({
       './PaymentApp/'
     ),
   loading: ({ error, pastDelay, timedOut }) => {
-    if (timedOut) return <h1>Timed Out</h1>
-    if (error) return <h1>Failed to Load</h1>
+    if (error) return <LoadFail message="Load Failed" />
+    if (timedOut) return <LoadFail message="Timed Out" />
     if (pastDelay) return <BackDropScreen isOpen spinner />
     return null
   },
