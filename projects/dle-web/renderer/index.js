@@ -19,7 +19,7 @@ const server = express()
 const port = 3000
 
 server.get('/', (req, res) => {
-  const outputFolder = path.resolve('distRenders')
+  const outputFolder = path.resolve('distPreRenders')
 
   const { renderPath } = req.query
 
@@ -48,7 +48,7 @@ server.get('/', (req, res) => {
 
   const render = renderToString(sheets.collect(App))
 
-  const markup = pug.renderFile(path.resolve('ssr', 'template.pug'), {
+  const markup = pug.renderFile(path.resolve('renderer', 'template.pug'), {
     ...locals[renderPath],
     bundles: bundleSrcs,
     html: render,
@@ -75,6 +75,6 @@ server.get('/', (req, res) => {
 
 Loadable.preloadAll().then(() => {
   server.listen(port, () => {
-    console.log('LOG ssr server started'.yellow)
+    console.log('LOG renderer started'.yellow)
   })
 })

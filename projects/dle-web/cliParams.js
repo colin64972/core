@@ -20,13 +20,13 @@ exports.bundles = {
   excludes: ['*.html', '*jpg', '*.png', '*.webp', '*.svg', '*.gif']
 }
 
-exports.renders = {
+exports.preRenders = {
   // dryrun: true,
-  srcPath: 'distRenders',
+  srcPath: 'distPreRenders',
   s3Path:
     process.env.NODE_ENV === 'staging'
-      ? `${process.env.TEST_CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/renders/`
-      : `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/renders/`,
+      ? `${process.env.TEST_CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/pre-renders/`
+      : `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/pre-renders/`,
   includes: ['*.html']
 }
 

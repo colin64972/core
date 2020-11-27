@@ -8,10 +8,10 @@ module.exports = {
   mode: 'development',
   devtool: 'source-map',
   entry: {
-    server: path.resolve('ssr', 'index.js')
+    renderer: path.resolve('renderer', 'index.js')
   },
   output: {
-    path: path.resolve('distServer'),
+    path: path.resolve('distRenderer'),
     filename: '[name].js'
   },
   target: 'node',
