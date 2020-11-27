@@ -1,4 +1,5 @@
 import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
+import { LoadFail } from '@cjo3/shared/react/components/LoadFail'
 import { Grid } from '@material-ui/core'
 import React from 'react'
 import Loadable from 'react-loadable'
@@ -13,9 +14,9 @@ const GuideContentLoadable = Loadable({
       './GuideContent'
     ),
   loading: ({ error, pastDelay, timedOut }) => {
-    if (timedOut) return <h1>Timed Out</h1>
-    if (error) return <h1>Failed to Load</h1>
-    if (pastDelay) return <BackDropScreen isOpen spinner />
+    if (error) return <LoadFail message="Load Failed" />
+    if (timedOut) return <LoadFail message="Timed Out" />
+    if (pastDelay) return <BackDropScreen noBackDrop spinner />
     return null
   },
   delay: 250,
