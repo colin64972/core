@@ -2,9 +2,7 @@ import { createElement } from 'react'
 import { hydrate, render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
-
 import { ThemedApp } from './ThemedApp'
-import __webpack_public_path__ from './publicPath'
 import { setReduxStore } from './store'
 
 const preloadedState = window?.__PRELOADED_STATE__

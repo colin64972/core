@@ -49,7 +49,7 @@ export const TrialCard = ({ isShown, trial }) => {
   const tracker = useSelector(state => state.app?.tracker)
 
   useEffect(() => {
-    if (process.env.IS_NOT_SERVER) {
+    if (!process.env.IS_SERVER) {
       tracker.eventHit({
         category: 'trials',
         action: 'trial_created',
@@ -85,7 +85,7 @@ export const TrialCard = ({ isShown, trial }) => {
 
   let timeline = gsap.timeline({ paused: true })
 
-  if (process.env.IS_NOT_SERVER) {
+  if (!process.env.IS_SERVER) {
     useLayoutEffect(() => {
       if (isShown) {
         timeline

@@ -86,7 +86,7 @@ export const SetsTextAreaField = ({
   }
 
   const setFadeInDirection = () => {
-    if (process.env.IS_NOT_SERVER) return window.innerWidth < 600 ? 'x' : 'y'
+    if (!process.env.IS_SERVER) return window.innerWidth < 600 ? 'x' : 'y'
     return 'x'
   }
 
