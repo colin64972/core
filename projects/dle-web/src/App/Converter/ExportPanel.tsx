@@ -1,9 +1,9 @@
 import { writeWorkbook } from '@cjo3/shared/logic/dle'
+import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
+import Loadable from 'react-loadable'
 import { saveAs } from 'file-saver'
 import { Button, ButtonGroup, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import { Elements } from '@stripe/react-stripe-js'
-import { loadStripe } from '@stripe/stripe-js'
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { exportButtons } from '../../constants'
@@ -15,9 +15,27 @@ import {
   transformResultSelector,
   workbookNameSelector
 } from '../../store/selectors'
-import { PaymentDialog } from './PaymentDialog/'
 
-const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY)
+const PaymentAppLoadable = Loadable({
+  loader: () =>
+    import(
+      /* webpackChunkName: "chunk-PaymentApp" */
+      /* webpackPrefetch: false */
+      './PaymentApp/'
+    ),
+  loading: ({ error, pastDelay, timedOut }) => {
+    if (timedOut) return <h1>Timed Out</h1>
+    if (error) return <h1>Failed to Load</h1>
+    if (pastDelay) return <BackDropScreen isOpen spinner />
+    return null
+  },
+  delay: 250,
+  timeout: 5000,
+  render: (loaded, props) => {
+    const Component = loaded.PaymentApp
+    return <Component {...props} />
+  }
+})
 
 const useStyles = makeStyles(
   theme => ({
@@ -83,6 +101,9 @@ export const ExportPanel: React.FC = (): JSX.Element => {
       })
       if (process.env.PAYMENT_DISABLED) {
         saveAs(blob, fileName)
+        dispatch(
+          openSnackbar('File exported. Thank you for trying DLE!', 'success')
+        )
       } else {
         setPaymentOpen(true)
       }
@@ -104,23 +125,21 @@ export const ExportPanel: React.FC = (): JSX.Element => {
   return (
     <Grid className={classes.ExportPanel_container}>
       {paymentOpen && (
-        <Elements stripe={stripePromise}>
-          <PaymentDialog
-            open={paymentOpen}
-            closeHandler={closePaymentHandler}
-            exportData={exportData}
-          />
-        </Elements>
+        <PaymentAppLoadable
+          open={paymentOpen}
+          closeHandler={closePaymentHandler}
+          exportData={exportData}
+        />
       )}
       <Typography variant="h5">
         {process.env.PAYMENT_DISABLED
           ? 'Export for Free until 2021'
-          : `Export for only ${process.env.EXPORT_PRICE}`}
+          : `Export for Only ${process.env.EXPORT_PRICE}`}
       </Typography>
       <Typography variant="body1">
         {process.env.PAYMENT_DISABLED
           ? 'In order to help us alpha test this app, we are inviting users to export sheets at no charge until the New Year. Download your sheet and feel free to send us your feedback or feature requests.'
-          : 'If you&apos;d like to save a copy of your transformed sheet, you can purchase a sheet export here. Simply click on the file type you would like to receive and enter your payment details. Your download will be sent immediately. Please be careful with your file exports after download as we do not save copies of client data.'}
+          : "If you'd like to save a copy of your transformed sheet, you can purchase a sheet export here. Simply click on the file type you would like to receive and enter your payment details. Your download will be sent immediately. Please be careful with your file exports after download as we do not save copies of client data."}
       </Typography>
       <ButtonGroup className={classes.ExportPanel_topMargin}>
         {exportButtons.map(item => (

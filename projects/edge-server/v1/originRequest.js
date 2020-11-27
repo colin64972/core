@@ -2,7 +2,7 @@ import 'colors'
 import fs from 'fs'
 import path from 'path'
 import AWS from 'aws-sdk'
-import { parseAppPage, splitAppsList } from '@cjo3/shared/serverless/helpers'
+import { parseAppPage, splitEnvVarList } from '@cjo3/shared/serverless/helpers'
 import { buildHtmlRes } from './helpers'
 
 const s3 = new AWS.S3({
@@ -11,14 +11,22 @@ const s3 = new AWS.S3({
   sslEnabled: true
 })
 
-const appsList = splitAppsList(process.env.APPS_LIST)
+const hostsList = splitEnvVarList(process.env.CDN_HOSTS)
+const appsList = splitEnvVarList(process.env.APPS_LIST)
 
 export const handler = async (event, context, callback) => {
   try {
     context.callbackWaitsForEmptyEventLoop = true
 
-    const { request, response } = event.Records[0].cf
-    const { uri, querystring } = request
+    const { request } = event.Records[0].cf
+    const { uri, headers } = request
+    const host = headers.host[0].value
+
+    if (!hostsList.includes(host)) {
+      context.callbackWaitsForEmptyEventLoop = false
+      return callback(new Error('no such host'))
+    }
+
     const { app, page, filePath, fileName } = parseAppPage(uri, appsList)
 
     if (fileName) {
@@ -33,26 +41,25 @@ export const handler = async (event, context, callback) => {
     }
 
     let appFolder = ''
-
-    switch (app) {
-      case appsList[2]:
-        appFolder = 'dle-web'
-        break
-      case appsList[1]:
-        appFolder = `${appsList[1]}-web`
-        break
-    }
-
     let htmlFile = ''
     let markup = ''
 
     if (process.env.IS_LOCAL) {
+      switch (app) {
+        case appsList[2]:
+          appFolder = 'dle-web'
+          break
+        case appsList[1]:
+          appFolder = `${appsList[1]}-web`
+          break
+      }
+
       htmlFile = path.resolve(
         '..',
         '..',
         '..',
         appFolder,
-        'distRenders',
+        'distPreRenders',
         `${page}.html`
       )
 
@@ -60,11 +67,10 @@ export const handler = async (event, context, callback) => {
     } else {
       htmlFile = await s3
         .getObject({
-          Bucket: process.env.CDN_BUCKET,
-          Key: `${app}/renders/${page}.html`
+          Bucket: host.replace('.s3.amazonaws.com', ''),
+          Key: `${app}/pre-renders/${page}.html`
         })
         .promise()
-
       markup = htmlFile.Body.toString()
     }
 

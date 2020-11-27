@@ -2,7 +2,7 @@
 .serverless
 dist
 distPreRenders
-distRenders
+distRenderer
 node_modules
 events
 site-configs

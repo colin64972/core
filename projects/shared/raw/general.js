@@ -5,12 +5,11 @@ exports.setTemplateLocals = (args = {}) => ({
   noScript: 'Please enable JavaScript to view this webpage'
 })
 
-exports.setFileOutputPath = (url, resourcePath, context) => `assets/${url}`
+exports.setFileOutputPath = (url, resourcePath, context) => `/${url}`
 
-exports.setFilePublicPath = (url, resourcePath, context) =>
+exports.setFilePublicPath = (url, resourcePath, context) => {
+  console.log('LOG XXX'.yellow, process.env.NODE_ENV, url)
   process.env.NODE_ENV === 'production'
-    ? `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/assets/${url}`
-    : `/assets/${url}`
-
-exports.setPreRenderFilePublicPath = (url, resourcePath, context) =>
-  `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/assets/${url}`
+    ? `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/${url}`
+    : `/${url}`
+}

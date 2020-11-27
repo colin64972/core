@@ -25,14 +25,13 @@ const styles = {
 const styleSheet = sheetGenerator(styles)
 
 const cdnUrl = `https://${process.env.CDN_BUCKET}`
-const baseUrl = `https://${process.env.NM_BUCKET}`
 
 module.exports = {
   fileName: 'index.html',
   templatePath: path.resolve('src', 'templates', 'home.pug'),
   locals: {
     title: process.env.BRAND_NAME,
-    canonical: `${baseUrl}/`,
+    canonical: `${cdnUrl}/`,
     metaDescription:
       'Online marketing solutions including JavaScript web app design and development',
     robots: 'index,follow',
