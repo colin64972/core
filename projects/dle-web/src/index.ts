@@ -1,4 +1,5 @@
 import { createElement } from 'react'
+import Loadable from 'react-loadable'
 import { hydrate, render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { setReduxStore } from './store'
@@ -20,11 +21,13 @@ if (preloadedState) {
   stateElement.remove()
 }
 
-renderMethod(
-  createElement(
-    BrowserRouter,
-    {},
-    createElement(Provider, { store }, ThemedApp)
-  ),
-  document.getElementById('app')
-)
+Loadable.preloadReady().then(() => {
+  renderMethod(
+    createElement(
+      BrowserRouter,
+      {},
+      createElement(Provider, { store }, ThemedApp)
+    ),
+    document.getElementById('app')
+  )
+})

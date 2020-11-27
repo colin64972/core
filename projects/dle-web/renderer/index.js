@@ -9,6 +9,7 @@ import { renderToString } from 'react-dom/server'
 import { setReduxStore } from '../src/store/'
 import { locals } from './locals'
 import { minify } from 'html-minifier-terser'
+import stats from '../dist/react-loadable.json'
 import pug from 'pug'
 import fs from 'fs'
 import path from 'path'
@@ -22,6 +23,8 @@ server.get('/', (req, res) => {
   const outputFolder = path.resolve('distPreRenders')
 
   const { renderPath } = req.query
+
+  let location = renderPath
 
   let file = fs.readFileSync(path.resolve('dist', 'index.html')).toString()
 
@@ -38,8 +41,6 @@ server.get('/', (req, res) => {
 
   const store = setReduxStore()
 
-  let location = renderPath
-
   const App = createElement(
     StaticRouter,
     { location, context: {} },
@@ -48,9 +49,22 @@ server.get('/', (req, res) => {
 
   const render = renderToString(sheets.collect(App))
 
+  const preLoadedModules = Object.entries(stats).reduce((acc, cur) => {
+    let temp = acc
+    const items = cur[1].filter(module =>
+      module.file.includes(locals[location]?.chunkNames)
+    )
+    if (items.length > 0) {
+      items.forEach(item => temp.push(item.publicPath))
+    }
+    return temp
+  }, [])
+
+  const dedupedChunkPaths = [...new Set(preLoadedModules)]
+
   const markup = pug.renderFile(path.resolve('renderer', 'template.pug'), {
     ...locals[renderPath],
-    bundles: bundleSrcs,
+    bundles: [...dedupedChunkPaths, ...bundleSrcs],
     html: render,
     css: sheets.toString(),
     state: store.getState()

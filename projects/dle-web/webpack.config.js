@@ -6,6 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
 const { EnvironmentPlugin, HashedModuleIdsPlugin } = require('webpack')
+const { ReactLoadablePlugin } = require('react-loadable/webpack')
 
 const localEnv = require('dotenv').config()
 const sharedEnv = require('dotenv').config({
@@ -170,6 +171,9 @@ const config = {
       SITE_CONTACT_EMAIL: sharedEnv.parsed.SITE_CONTACT_EMAIL,
       SUPPORT_EMAIL: sharedEnv.parsed.SUPPORT_EMAIL,
       TEST_CDN_URL: localEnv.parsed.TEST_CDN_URL
+    }),
+    new ReactLoadablePlugin({
+      filename: path.resolve('dist', 'react-loadable.json')
     })
   ]
 }

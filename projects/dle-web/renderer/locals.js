@@ -36,7 +36,8 @@ const locals = {
     robots: robotsDirectives.default,
     gsvCode: sharedEnv.parsed.GSV_TAG,
     gaTag: sharedEnv.parsed.GA_TAG,
-    faviconHref
+    faviconHref,
+    chunkNames: ['chunk-ConverterApp']
   },
   '/converter/guide': {
     fileName: 'home-converter-guide',
@@ -46,7 +47,8 @@ const locals = {
     robots: robotsDirectives.default,
     gsvCode: sharedEnv.parsed.GSV_TAG,
     gaTag: sharedEnv.parsed.GA_TAG,
-    faviconHref
+    faviconHref,
+    chunkNames: ['chunk-GuideContent']
   },
   '/error': {
     fileName: 'error',
@@ -61,6 +63,5 @@ const locals = {
 }
 
 module.exports = {
-  paths: ['/', '/converter', '/converter/guide', '/error'],
   locals
 }
