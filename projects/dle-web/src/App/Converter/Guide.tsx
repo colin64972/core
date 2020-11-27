@@ -432,7 +432,10 @@ export const Guide: React.FC = (): JSX.Element => {
               you&apos;d like to save a copy to work with, you can export the
               sheet. To start the export process, simply click on the file type
               that you&apos;d like to receive.{' '}
-              <span className={classes.Guide_lineThrough}>
+              <span
+                className={clsx({
+                  [classes.Guide_lineThrough]: process.env.PAYMENT_DISABLED
+                })}>
                 From here, the &quot;Secure Payment&quot; form will open, and
                 you can complete the purchase process.
               </span>
@@ -465,13 +468,15 @@ export const Guide: React.FC = (): JSX.Element => {
               Comments&quot; button in the Excel &quot;Ribbon&quot; under the
               &quot;Review&quot; tab.
             </Typography>
-            <Typography
-              variant="h2"
-              color="secondary"
-              align="center"
-              className={classes.Guide_freeUntil}>
-              Free until 2021
-            </Typography>
+            {process.env.PAYMENT_DISABLED && (
+              <Typography
+                variant="h2"
+                color="secondary"
+                align="center"
+                className={classes.Guide_freeUntil}>
+                Free until 2021
+              </Typography>
+            )}
             <Typography
               variant="h6"
               className={clsx(classes.Guide_sectionSubTitle, {
@@ -518,7 +523,10 @@ export const Guide: React.FC = (): JSX.Element => {
               we cannot provide a backup.
             </Typography>
             <Typography variant="body1">
-              <span className={classes.Guide_lineThrough}>
+              <span
+                className={clsx({
+                  [classes.Guide_lineThrough]: process.env.PAYMENT_DISABLED
+                })}>
                 After your payment has been confirmed,
               </span>
               &nbsp; your file export will be downloaded by your browser and

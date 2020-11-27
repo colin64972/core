@@ -123,7 +123,8 @@ const config = {
     new CleanWebpackPlugin({ verbose: true }),
     new HashedModuleIdsPlugin(),
     new BundleAnalyzerPlugin({
-      analyzerMode: 'static'
+      analyzerMode: 'static',
+      openAnalyzer: false
     }),
     new HtmlWebpackPlugin({
       template: path.resolve('..', 'shared', 'react', 'template.pug'),
@@ -164,7 +165,8 @@ const config = {
       SITE_URL: localEnv.parsed.SITE_URL,
       STRIPE_PUBLIC_KEY: localEnv.parsed.STRIPE_PUBLIC_KEY_TEST,
       STRIPE_URL: localEnv.parsed.STRIPE_URL,
-      PAYMENT_DISABLED: localEnv.parsed.PAYMENT_DISABLED,
+      PAYMENT_DISABLED:
+        localEnv.parsed.PAYMENT_DISABLED === 'true' ? true : false,
       SITE_CONTACT_EMAIL: sharedEnv.parsed.SITE_CONTACT_EMAIL,
       SUPPORT_EMAIL: sharedEnv.parsed.SUPPORT_EMAIL,
       TEST_CDN_URL: localEnv.parsed.TEST_CDN_URL

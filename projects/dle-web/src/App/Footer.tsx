@@ -23,7 +23,7 @@ const TCLoadable = Loadable({
     ),
   loading: ({ error, pastDelay, timedOut }) => {
     if (timedOut) return <h1>Timed Out</h1>
-    if (error) return <h1>Faild to Load</h1>
+    if (error) return <h1>Failed to Load</h1>
     if (pastDelay) return <BackDropScreen isOpen spinner />
     return null
   },
@@ -44,7 +44,7 @@ const PPLoadable = Loadable({
     ),
   loading: ({ error, pastDelay, timedOut }) => {
     if (timedOut) return <h1>Timed Out</h1>
-    if (error) return <h1>Faild to Load</h1>
+    if (error) return <h1>Failed to Load</h1>
     if (pastDelay) return <BackDropScreen isOpen spinner />
     return null
   },

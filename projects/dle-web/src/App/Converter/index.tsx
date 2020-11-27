@@ -1,11 +1,30 @@
+import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
+import Loadable from 'react-loadable'
 import { Grid } from '@material-ui/core'
 import React from 'react'
 import { ConverterBg } from '../../assets'
 import { Header } from '../Header'
-import { FileLoader } from './FileLoader'
-import { SheetSelector } from './SheetSelector'
-import { TransformResults } from './TransformResults'
-import { TransformSettings } from './TransformSettings'
+
+const ConverterAppLoadable = Loadable({
+  loader: () =>
+    import(
+      /* webpackChunkName: "chunk-ConverterApp" */
+      /* webpackPrefetch: false */
+      './ConverterApp'
+    ),
+  loading: ({ error, pastDelay, timedOut }) => {
+    if (timedOut) return <h1>Timed Out</h1>
+    if (error) return <h1>Failed to Load</h1>
+    if (pastDelay) return <BackDropScreen isOpen spinner />
+    return null
+  },
+  delay: 250,
+  timeout: 5000,
+  render: (loaded, props) => {
+    const Component = loaded.ConverterApp
+    return <Component {...props} />
+  }
+})
 
 export const Converter: React.FC = (): JSX.Element => {
   return (
@@ -18,10 +37,7 @@ export const Converter: React.FC = (): JSX.Element => {
         buttonHref="/converter/guide"
         buttonLabel="Read the Guide"
       />
-      <FileLoader />
-      <SheetSelector />
-      <TransformSettings />
-      <TransformResults />
+      <ConverterAppLoadable />
     </Grid>
   )
 }

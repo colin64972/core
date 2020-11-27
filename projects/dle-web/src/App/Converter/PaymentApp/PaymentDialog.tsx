@@ -14,12 +14,12 @@ import { Form, Formik, FormikValues } from 'formik'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { openSnackbar } from '../../../store/app/actions'
-import { ExportData } from '../../../store/converter/interfaces'
 import { makePreOrder } from '../../fetchers'
 import { FormikField } from '../FormikField'
 import { PaymentFormSchema } from '../validationSchemas'
 import { FormikAcceptTerms } from './FormikAcceptTerms'
 import { FormikCardElement } from './FormikCardElement'
+import { ExportData } from '../../../store/converter/interfaces'
 
 const useStyles = makeStyles(
   theme => ({
@@ -163,11 +163,10 @@ export const PaymentDialog: React.FC<Props> = ({
 
       await stripe.confirmCardPayment(clientSecret, options)
 
+      saveAs(exportData.blob, exportData.fileName)
       dispatch(
         openSnackbar('File exported. Thank you for your purchase!', 'success')
       )
-
-      saveAs(exportData.blob, exportData.fileName)
     } catch (error) {
       dispatch(
         openSnackbar('Something went wrong. Please try again later.', 'error')
@@ -186,7 +185,6 @@ export const PaymentDialog: React.FC<Props> = ({
     elements?._elements.forEach((element: StripeElement) => element.clear())
     resetForm(initialValues)
   }
-
   return (
     <Dialog open={open}>
       <Grid container className={classes.PaymentDialog_container}>
@@ -206,7 +204,7 @@ export const PaymentDialog: React.FC<Props> = ({
           <Typography variant="body1" className={classes.PaymentDialog_intro}>
             Complete the payment form and your download will be initiated.
             Please note that since we value your privacy, no contact info is
-            required for purchase; however, no customer service can be provided
+            required for purchase; however, no customer support can be provided
             for such orders.
           </Typography>
         </Grid>
