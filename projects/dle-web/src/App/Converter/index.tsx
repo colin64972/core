@@ -1,7 +1,7 @@
 import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
-import Loadable from 'react-loadable'
 import { Grid } from '@material-ui/core'
 import React from 'react'
+import Loadable from 'react-loadable'
 import { ConverterBg } from '../../assets'
 import { Header } from '../Header'
 
@@ -34,7 +34,7 @@ export const Converter: React.FC = (): JSX.Element => {
         subTitle="Load a File and Process your Sheet"
         bgColor="theme.palette.primary.main"
         bgUrls={ConverterBg.paths}
-        buttonHref="/converter/guide"
+        buttonHref="/converter/guide/"
         buttonLabel="Read the Guide"
       />
       <ConverterAppLoadable />

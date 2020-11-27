@@ -51,7 +51,7 @@ export const App: React.FC = (): JSX.Element => {
 
   const location = useLocation()
 
-  withNav = location.pathname.includes('converter')
+  withNav = /\/converter\/?(guide\/?)?$/.test(location.pathname)
 
   const snackbar: ISnackbar = useSelector(snackbarSelector)
 

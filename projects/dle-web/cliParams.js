@@ -3,30 +3,21 @@ require('dotenv').config()
 exports.assets = {
   // dryrun: true,
   srcPath: 'dist',
-  s3Path:
-    process.env.NODE_ENV === 'staging'
-      ? `${process.env.TEST_CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/`
-      : `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}`,
-  excludes: ['*.html', '*.js']
+  s3Path: `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}`,
+  excludes: ['*.html', '*.js', '*.json']
 }
 
 exports.bundles = {
   // dryrun: true,
   srcPath: 'dist',
-  s3Path:
-    process.env.NODE_ENV === 'staging'
-      ? `${process.env.TEST_CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/`
-      : `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}`,
-  excludes: ['*.html', '*jpg', '*.png', '*.webp', '*.svg', '*.gif']
+  s3Path: `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/bundles/`,
+  excludes: ['*.html', '*jpg', '*.png', '*.webp', '*.svg', '*.gif', '*.json']
 }
 
 exports.preRenders = {
   // dryrun: true,
   srcPath: 'distPreRenders',
-  s3Path:
-    process.env.NODE_ENV === 'staging'
-      ? `${process.env.TEST_CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/pre-renders/`
-      : `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/pre-renders/`,
+  s3Path: `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/pre-renders/`,
   includes: ['*.html']
 }
 
@@ -37,8 +28,5 @@ exports.invalidate = {
 
 exports.clear = {
   dryrun: false,
-  keyPath:
-    process.env.NODE_ENV === 'staging'
-      ? `${process.env.TEST_CDN_BUCKET}/${process.env.CDN_APP_FOLDER}`
-      : `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}`
+  keyPath: `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}`
 }

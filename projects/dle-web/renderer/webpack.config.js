@@ -5,7 +5,7 @@ const { EnvironmentPlugin, HashedModuleIdsPlugin } = require('webpack')
 const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
-  mode: 'development',
+  mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
   devtool: 'source-map',
   entry: {
     renderer: path.resolve('renderer', 'index.js')
@@ -64,7 +64,9 @@ module.exports = {
               emitFile: false,
               name: '[folder]/[name]-[contentHash].[ext]',
               publicPath: url =>
-                `${process.env.TEST_CDN_URL}/${process.env.CDN_APP_FOLDER}/${url}`
+                process.env.NODE_ENV === 'production'
+                  ? `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/${url}`
+                  : `${process.env.STA_CDN_URL}/${process.env.CDN_APP_FOLDER}/${url}`
             }
           }
         ]

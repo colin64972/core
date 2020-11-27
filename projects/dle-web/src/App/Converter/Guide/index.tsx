@@ -33,7 +33,7 @@ export const Guide: React.FC = (): JSX.Element => (
       subTitle="How to Use this App"
       bgColor="theme.palette.primary.main"
       bgUrls={GuideBg.paths}
-      buttonHref="/converter"
+      buttonHref="/converter/"
       buttonLabel="Try It Out"
     />
     <GuideContentLoadable />

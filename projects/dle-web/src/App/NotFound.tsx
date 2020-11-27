@@ -1,11 +1,11 @@
-import { Header } from './Header'
 import { Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 import { NotFoundBg } from '../assets'
+import { Header } from './Header'
 
 const useStyles = makeStyles(
-  theme => ({
+  () => ({
     NotFound_container: {
       height: '100%'
     }

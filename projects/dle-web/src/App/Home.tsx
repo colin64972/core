@@ -255,7 +255,7 @@ export const Home: React.FC = (): JSX.Element => {
         subTitle="Conversion tool for spreadsheet-based, raw analytical data"
         bgColor="theme.palette.primary.main"
         bgUrls={HomeBg.paths}
-        buttonHref="/converter"
+        buttonHref="/converter/"
         buttonLabel="Start"
       />
       <Grid

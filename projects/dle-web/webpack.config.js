@@ -16,9 +16,9 @@ const sharedEnv = require('dotenv').config({
 const switchPublicPath = () => {
   switch (process.env.NODE_ENV) {
     case 'production':
-      return `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/`
+      return `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/bundles/`
     case 'staging':
-      return `${process.env.TEST_CDN_URL}/${process.env.CDN_APP_FOLDER}/`
+      return `${process.env.TEST_CDN_URL}/${process.env.CDN_APP_FOLDER}/bundles/`
     default:
       return '/'
   }
@@ -35,7 +35,7 @@ const config = {
     filename:
       process.env.NODE_ENV === 'development'
         ? '[name].[hash].js'
-        : '[name].[contenthash:8].js'
+        : '[name].[contenthash].js'
   },
   devServer: {
     contentBase: path.resolve('dist'),
@@ -169,8 +169,7 @@ const config = {
       PAYMENT_DISABLED:
         localEnv.parsed.PAYMENT_DISABLED === 'true' ? true : false,
       SITE_CONTACT_EMAIL: sharedEnv.parsed.SITE_CONTACT_EMAIL,
-      SUPPORT_EMAIL: sharedEnv.parsed.SUPPORT_EMAIL,
-      TEST_CDN_URL: localEnv.parsed.TEST_CDN_URL
+      SUPPORT_EMAIL: sharedEnv.parsed.SUPPORT_EMAIL
     }),
     new ReactLoadablePlugin({
       filename: path.resolve('dist', 'react-loadable.json')

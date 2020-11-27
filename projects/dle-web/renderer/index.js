@@ -26,6 +26,9 @@ server.get('/', (req, res) => {
 
   let location = renderPath
 
+  if (process.env.NODE_ENV !== 'development')
+    location = `${process.env.APP_ROOT_PATH}${renderPath}`
+
   let file = fs.readFileSync(path.resolve('dist', 'index.html')).toString()
 
   const prodIndexHtml = file
@@ -34,7 +37,19 @@ server.get('/', (req, res) => {
 
   const bundleSrcs = scriptSrcs.map(src => {
     const srcFile = src.replace('src="', '').replace('">', '')
-    return `${process.env.TEST_CDN_URL}/${process.env.CDN_APP_FOLDER}${srcFile}`
+    let hostUrl = ''
+    switch (process.env.NODE_ENV) {
+      case 'production':
+        hostUrl = process.env.CDN_URL
+        break
+      case 'staging':
+        hostUrl = process.env.STA_CDN_URL
+        break
+      default:
+        hostUrl = '/'
+        break
+    }
+    return `${hostUrl}/${process.env.CDN_APP_FOLDER}/bundles${srcFile}`
   })
 
   const sheets = new ServerStyleSheets()
@@ -52,7 +67,7 @@ server.get('/', (req, res) => {
   const preLoadedModules = Object.entries(stats).reduce((acc, cur) => {
     let temp = acc
     const items = cur[1].filter(module =>
-      module.file.includes(locals[location]?.chunkNames)
+      module.file.includes(locals[renderPath]?.chunkNames)
     )
     if (items.length > 0) {
       items.forEach(item => temp.push(item.publicPath))
