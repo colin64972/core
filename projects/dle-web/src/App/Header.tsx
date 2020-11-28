@@ -2,10 +2,11 @@ import { switchLinkRoutePath, createHashId } from '@cjo3/shared/react/helpers'
 import { Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React, { useState } from 'react'
-import modernizr from 'modernizr'
 import { JPG_FILE_EXT } from '@cjo3/shared/raw/constants/regex'
 import { useLayoutEffect } from 'react'
 import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { webpOkSelector, viewWidthSelector } from '../store/selectors'
 
 const useStyles = makeStyles(
   theme => ({
@@ -16,6 +17,8 @@ const useStyles = makeStyles(
       overflow: 'hidden'
     },
     Header_bgImage: {
+      width: '100%',
+      height: '100%',
       position: 'absolute',
       left: 0,
       top: 0,
@@ -77,20 +80,14 @@ export const Header: React.FC<Props> = ({
   })
 
   const [sizeIndex, setSizeIndex] = useState<number>(0)
-  const [webpOk, setWebpOk] = useState<boolean>(false)
-  const [bgUrl, setBgUrl] = useState<string>('')
+  const [bgUrl, setBgUrl] = useState<string>(bgUrls[0])
 
-  if (!process.env.IS_SEVER) {
+  const webpOk = useSelector(webpOkSelector)
+
+  if (!process.env.IS_SERVER) {
     useLayoutEffect(() => {
       chooseBgSize(window.innerWidth)
-      checkWebpOk()
     })
-  }
-
-  const checkWebpOk = async () => {
-    let result = false
-    if (modernizr.webp) result = true
-    return setWebpOk(result)
   }
 
   const chooseBgSize = width => {
@@ -101,12 +98,12 @@ export const Header: React.FC<Props> = ({
     return setSizeIndex(0)
   }
 
-  const resizeHandler = event => {
+  const resizeHandler = () => {
     const { innerWidth } = window
     chooseBgSize(innerWidth)
   }
 
-  if (!process.env.IS_SEVER) {
+  if (!process.env.IS_SERVER) {
     useLayoutEffect(() => {
       window.addEventListener('resize', resizeHandler)
       return () => window.removeEventListener('resize', resizeHandler)

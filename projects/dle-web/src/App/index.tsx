@@ -7,9 +7,17 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router'
 import { Route, Switch } from 'react-router-dom'
 import { SNACKBAR_TIMEOUT } from '../constants'
-import { addTracker, closeSnackbar } from '../store/app/actions'
+import {
+  addTracker,
+  closeSnackbar,
+  addModernizrFeature
+} from '../store/app/actions'
 import { Snackbar as ISnackbar } from '../store/app/interfaces'
-import { snackbarSelector, trackerSelector } from '../store/selectors'
+import {
+  snackbarSelector,
+  trackerSelector,
+  webpOkSelector
+} from '../store/selectors'
 import { Converter } from './Converter'
 import { Footer } from './Footer'
 import { Home } from './Home'
@@ -42,6 +50,19 @@ const useStyles = makeStyles(
   }
 )
 
+const checkWebpOk = async dispatchHandler => {
+  import(
+    /* webpackChunkName: "chunk-modernizr" */
+    'modernizr'
+  ).then(({ default: mod }) => {
+    mod.on('webp', status => {
+      if (status.lossless && status.alpha) {
+        dispatchHandler(addModernizrFeature('webp'))
+      }
+    })
+  })
+}
+
 export const App: React.FC = (): JSX.Element => {
   const classes = useStyles()
 
@@ -52,6 +73,14 @@ export const App: React.FC = (): JSX.Element => {
   const location = useLocation()
 
   withNav = /\/converter\/?(guide\/?)?$/.test(location.pathname)
+
+  const webpOk = useSelector(webpOkSelector)
+
+  if (!process.env.IS_SERVER) {
+    useLayoutEffect(() => {
+      if (!webpOk) checkWebpOk(dispatch)
+    }, [])
+  }
 
   const snackbar: ISnackbar = useSelector(snackbarSelector)
 

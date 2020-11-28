@@ -18,7 +18,7 @@ const switchPublicPath = () => {
     case 'production':
       return `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/bundles/`
     case 'staging':
-      return `${process.env.TEST_CDN_URL}/${process.env.CDN_APP_FOLDER}/bundles/`
+      return `${process.env.STA_CDN_URL}/${process.env.CDN_APP_FOLDER}/bundles/`
     default:
       return '/'
   }
@@ -101,8 +101,6 @@ const config = {
       {
         loader: 'webpack-modernizr-loader',
         test: /\.modernizrrc\.js$/
-        // Uncomment this when you use `JSON` format for configuration
-        // type: 'javascript/auto'
       },
       {
         test: /\.(woff(2)?|jpg|gif|png|svg|ico)$/,
@@ -118,7 +116,7 @@ const config = {
                   case 'production':
                     return `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/${url}`
                   case 'staging':
-                    return `${process.env.TEST_CDN_URL}/${process.env.CDN_APP_FOLDER}/${url}`
+                    return `${process.env.STA_CDN_URL}/${process.env.CDN_APP_FOLDER}/${url}`
                   default:
                     return `/${url}`
                 }

@@ -28,3 +28,6 @@ export const snackbarSelector = (state: State): Snackbar => state.app.snackbar
 export const tcOpenSelector = (state: State): boolean => state.app.tcOpen
 
 export const trackerSelector = (state: State): Tracker => state.app.tracker
+
+export const webpOkSelector = (state: State): boolean =>
+  state.app.features.includes('webp')
