@@ -71,6 +71,9 @@ const config = {
   },
   target: 'web',
   resolve: {
+    alias: {
+      modernizr$: path.resolve('.modernizrrc.js')
+    },
     extensions: [
       '.ts',
       '.tsx',
@@ -94,6 +97,12 @@ const config = {
         test: /\.pug$/,
         exclude: /(node_modules)/,
         loader: 'pug-loader'
+      },
+      {
+        loader: 'webpack-modernizr-loader',
+        test: /\.modernizrrc\.js$/
+        // Uncomment this when you use `JSON` format for configuration
+        // type: 'javascript/auto'
       },
       {
         test: /\.(woff(2)?|jpg|gif|png|svg|ico)$/,

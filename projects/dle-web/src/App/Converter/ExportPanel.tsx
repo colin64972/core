@@ -21,7 +21,6 @@ const PaymentAppLoadable = Loadable({
   loader: () =>
     import(
       /* webpackChunkName: "chunk-PaymentApp" */
-      /* webpackPrefetch: false */
       './PaymentApp/'
     ),
   loading: ({ error, pastDelay, timedOut }) => {
