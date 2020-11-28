@@ -1,10 +1,17 @@
-import { ADD_TRACKER, CLOSE_SNACKBAR, OPEN_SNACKBAR, TOGGLE_TC } from './types'
+import {
+  ADD_TRACKER,
+  CLOSE_SNACKBAR,
+  OPEN_SNACKBAR,
+  TOGGLE_TC,
+  ADD_MODERNIZR_FEATURE
+} from './types'
 import * as ReactGA from 'react-ga'
 
 export interface AppState {
   snackbar: Snackbar
   tcOpen: boolean
   tracker: Tracker
+  features: string[]
 }
 
 export interface Snackbar {
@@ -42,9 +49,14 @@ export interface AddTrackerAction {
   type: typeof ADD_TRACKER
   tracker: Tracker
 }
+export interface AddModernizrFeatureAction {
+  type: typeof ADD_MODERNIZR_FEATURE
+  feature: string
+}
 
 export type AppActionTypes =
   | OpenSnackbarAction
   | CloseSnackbarAction
   | ToggleTcAction
   | AddTrackerAction
+  | AddModernizrFeatureAction

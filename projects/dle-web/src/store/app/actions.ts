@@ -1,5 +1,11 @@
 import { AppActionTypes, Tracker } from './interfaces'
-import { CLOSE_SNACKBAR, OPEN_SNACKBAR, TOGGLE_TC, ADD_TRACKER } from './types'
+import {
+  CLOSE_SNACKBAR,
+  OPEN_SNACKBAR,
+  TOGGLE_TC,
+  ADD_TRACKER,
+  ADD_MODERNIZR_FEATURE
+} from './types'
 
 export const openSnackbar = (
   message: string,
@@ -22,4 +28,9 @@ export const toggleTc = (status: boolean): AppActionTypes => ({
 export const addTracker = (tracker: Tracker): AppActionTypes => ({
   type: ADD_TRACKER,
   tracker
+})
+
+export const addModernizrFeature = (feature: string): AppActionTypes => ({
+  type: ADD_MODERNIZR_FEATURE,
+  feature
 })
