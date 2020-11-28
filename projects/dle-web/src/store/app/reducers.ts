@@ -1,6 +1,12 @@
 import { AppActionTypes, AppState } from './interfaces'
 import { createHashId } from '@cjo3/shared/react/helpers'
-import { CLOSE_SNACKBAR, OPEN_SNACKBAR, TOGGLE_TC, ADD_TRACKER } from './types'
+import {
+  CLOSE_SNACKBAR,
+  OPEN_SNACKBAR,
+  TOGGLE_TC,
+  ADD_TRACKER,
+  ADD_MODERNIZR_FEATURE
+} from './types'
 
 export const initialState: AppState = {
   snackbar: {
@@ -10,7 +16,8 @@ export const initialState: AppState = {
     severity: ''
   },
   tcOpen: false,
-  tracker: null
+  tracker: null,
+  features: []
 }
 
 export const appReducer = (
@@ -47,6 +54,12 @@ export const appReducer = (
         tracker: action.tracker
       }
 
+    case ADD_MODERNIZR_FEATURE:
+      if (state.features.includes(action.feature)) return state
+      return {
+        ...state,
+        features: [...state.features, action.feature]
+      }
     default:
       return state
   }

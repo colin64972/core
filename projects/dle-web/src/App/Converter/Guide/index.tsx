@@ -10,7 +10,6 @@ const GuideContentLoadable = Loadable({
   loader: () =>
     import(
       /* webpackChunkName: "chunk-GuideContent" */
-      /* webpackPrefetch: false */
       './GuideContent'
     ),
   loading: ({ error, pastDelay, timedOut }) => {

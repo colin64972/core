@@ -9,5 +9,6 @@ module.exports = {
   FILE_WITH_EXT: /\.[a-z]{3,}$/i,
   EXCEL_CELL_ADDRESS: /^(?<col>[a-z]+)(?<row>[1-9](\d+)?)$/i,
   DETICTION_LIMIT_TRIGGER: /^[^\s\d]+$/,
-  ANY_BUT_SPACES: /^[^\s\n\t]+$/
+  ANY_BUT_SPACES: /^[^\s\n\t]+$/,
+  JPG_FILE_EXT: /\.jpe?g$/i
 }

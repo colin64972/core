@@ -10,7 +10,6 @@ const ConverterAppLoadable = Loadable({
   loader: () =>
     import(
       /* webpackChunkName: "chunk-ConverterApp" */
-      /* webpackPrefetch: false */
       './ConverterApp'
     ),
   loading: ({ error, pastDelay, timedOut }) => {

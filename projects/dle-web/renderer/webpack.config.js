@@ -5,8 +5,7 @@ const { EnvironmentPlugin, HashedModuleIdsPlugin } = require('webpack')
 const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
-  mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
-  devtool: 'source-map',
+  mode: 'production',
   entry: {
     renderer: path.resolve('renderer', 'index.js')
   },
@@ -16,6 +15,9 @@ module.exports = {
   },
   target: 'node',
   resolve: {
+    alias: {
+      modernizr$: path.resolve('.modernizrrc.js')
+    },
     extensions: [
       '.css',
       '.gif',
@@ -56,6 +58,10 @@ module.exports = {
         }
       },
       {
+        loader: 'webpack-modernizr-loader',
+        test: /\.modernizrrc\.js$/
+      },
+      {
         test: /\.(woff(2)?|jpg|gif|png|svg|ico)$/,
         use: [
           {
@@ -63,10 +69,16 @@ module.exports = {
             options: {
               emitFile: false,
               name: '[folder]/[name]-[contentHash].[ext]',
-              publicPath: url =>
-                process.env.NODE_ENV === 'production'
-                  ? `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/${url}`
-                  : `${process.env.STA_CDN_URL}/${process.env.CDN_APP_FOLDER}/${url}`
+              publicPath: url => {
+                switch (process.env.SRC_ENV) {
+                  case 'production':
+                    return `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/${url}`
+                  case 'staging':
+                    return `${process.env.STA_CDN_URL}/${process.env.CDN_APP_FOLDER}/${url}`
+                  default:
+                    return `/${url}`
+                }
+              }
             }
           }
         ]
@@ -76,7 +88,8 @@ module.exports = {
   plugins: [
     new HashedModuleIdsPlugin(),
     new EnvironmentPlugin({
-      IS_SERVER: true
+      IS_SERVER: true,
+      SRC_ENV: process.env.SRC_ENV
     })
   ]
 }

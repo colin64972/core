@@ -38,7 +38,7 @@ server.get('/', (req, res) => {
   const bundleSrcs = scriptSrcs.map(src => {
     const srcFile = src.replace('src="', '').replace('">', '')
     let hostUrl = ''
-    switch (process.env.NODE_ENV) {
+    switch (process.env.SRC_ENV) {
       case 'production':
         hostUrl = process.env.CDN_URL
         break

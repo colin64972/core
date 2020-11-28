@@ -18,7 +18,7 @@ const switchPublicPath = () => {
     case 'production':
       return `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/bundles/`
     case 'staging':
-      return `${process.env.TEST_CDN_URL}/${process.env.CDN_APP_FOLDER}/bundles/`
+      return `${process.env.STA_CDN_URL}/${process.env.CDN_APP_FOLDER}/bundles/`
     default:
       return '/'
   }
@@ -71,6 +71,9 @@ const config = {
   },
   target: 'web',
   resolve: {
+    alias: {
+      modernizr$: path.resolve('.modernizrrc.js')
+    },
     extensions: [
       '.ts',
       '.tsx',
@@ -96,6 +99,10 @@ const config = {
         loader: 'pug-loader'
       },
       {
+        loader: 'webpack-modernizr-loader',
+        test: /\.modernizrrc\.js$/
+      },
+      {
         test: /\.(woff(2)?|jpg|gif|png|svg|ico)$/,
         use: [
           {
@@ -109,7 +116,7 @@ const config = {
                   case 'production':
                     return `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/${url}`
                   case 'staging':
-                    return `${process.env.TEST_CDN_URL}/${process.env.CDN_APP_FOLDER}/${url}`
+                    return `${process.env.STA_CDN_URL}/${process.env.CDN_APP_FOLDER}/${url}`
                   default:
                     return `/${url}`
                 }

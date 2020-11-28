@@ -10,8 +10,7 @@
     "start": "NODE_ENV=development webpack-dev-server --config webpack.config.js",
     "build:staging": "NODE_ENV=staging webpack --config webpack.config.js --progress",
     "build": "NODE_ENV=production webpack --config webpack.config.js --progress",
-    "build:renderer": "NODE_ENV=production webpack --config renderer/webpack.config.js --progress",
-    "watch:renderer": "webpack --config renderer/webpack.config.js --progress --watch",
+    "build:renderer": "SRC_ENV=production webpack --config renderer/webpack.config.js --progress",
     "start:renderer": "nodemon distRenderer/renderer.js",
     "lite": "lite-server -c lite-server.js",
     "sync:assets": "NODE_ENV=production node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").assets)'",
@@ -33,6 +32,7 @@
     "file-saver": "~2.0.2",
     "formik": "~2.2.3",
     "html-minifier-terser": "~5.1.1",
+    "modernizr": "~3.11.4",
     "react": "~17.0.1",
     "react-dom": "~17.0.1",
     "react-ga": "~3.3.0",
@@ -48,8 +48,9 @@
   },
   "devDependencies": {
     "@babel/core": "~7.12.3",
+    "@babel/plugin-syntax-dynamic-import": "~7.8.3",
     "@babel/plugin-transform-runtime": "~7.12.1",
-    "@babel/preset-typescript": "~7.12.1",
+    "@babel/preset-typescript": "~7.12.7",
     "@testing-library/dom": "~7.26.5",
     "@testing-library/jest-dom": "~5.11.5",
     "@testing-library/react": "~11.1.1",
@@ -97,6 +98,7 @@
     "webpack": "~4.44.2",
     "webpack-bundle-analyzer": "~4.1.0",
     "webpack-dev-server": "~3.11.0",
+    "webpack-modernizr-loader": "~5.0.0",
     "webpack-node-externals": "~2.5.2"
   }
 }
