@@ -33,6 +33,7 @@
     "file-saver": "~2.0.2",
     "formik": "~2.2.3",
     "html-minifier-terser": "~5.1.1",
+    "modernizr": "~3.11.4",
     "react": "~17.0.1",
     "react-dom": "~17.0.1",
     "react-ga": "~3.3.0",
@@ -97,6 +98,7 @@
     "webpack": "~4.44.2",
     "webpack-bundle-analyzer": "~4.1.0",
     "webpack-dev-server": "~3.11.0",
+    "webpack-modernizr-loader": "~5.0.0",
     "webpack-node-externals": "~2.5.2"
   }
 }

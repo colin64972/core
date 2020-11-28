@@ -19,7 +19,6 @@ const TCLoadable = Loadable({
   loader: () =>
     import(
       /* webpackChunkName: "chunk-TermsAndConditions" */
-      /* webpackPrefetch: false */
       '@cjo3/shared/react/components/TermsAndConditions'
     ),
   loading: ({ error, pastDelay, timedOut }) => {
@@ -40,7 +39,6 @@ const PPLoadable = Loadable({
   loader: () =>
     import(
       /* webpackChunkName: "chunk-PrivacyPolicy" */
-      /* webpackPrefetch: false */
       '@cjo3/shared/react/components/PrivacyPolicy'
     ),
   loading: ({ error, pastDelay, timedOut }) => {
