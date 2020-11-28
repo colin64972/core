@@ -13,7 +13,6 @@ import {
 
 import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
 import { getLabelFromValue } from '@cjo3/shared/react/helpers'
-import { payloadMock } from '@cjo3/shared/react/mocks/keyword-multiplier'
 import { types } from '../types'
 
 export function* getKeOptions() {
@@ -93,26 +92,22 @@ export function* orderMetrics(action) {
 
     let payload
 
-    if (process.env.USE_MOCKS) {
-      payload = payloadMock
-    } else {
-      payload = yield call(action.confirmCardPaymentHandler, client_secret, {
-        receipt_email: action.values.billingEmail || null,
-        payment_method: {
-          card: action.cardNumberElement,
-          billing_details: {
-            email: action.values.billingEmail || null
-          }
+    payload = yield call(action.confirmCardPaymentHandler, client_secret, {
+      receipt_email: action.values.billingEmail || null,
+      payment_method: {
+        card: action.cardNumberElement,
+        billing_details: {
+          email: action.values.billingEmail || null
         }
-      })
-      
-      yield call(tracker.eventHit, {
-        category: 'trials',
-        action: 'metrics_purchase',
-        label: orderRequest.trialId,
-        value: parseFloat(orderRequest.price.total) * 100
-      })
-    }
+      }
+    })
+
+    yield call(tracker.eventHit, {
+      category: 'trials',
+      action: 'metrics_purchase',
+      label: orderRequest.trialId,
+      value: parseFloat(orderRequest.price.total) * 100
+    })
 
     if (payload.error) {
       stripeError = payload.error

@@ -115,7 +115,7 @@ const config = {
     new HashedModuleIdsPlugin(),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
-      openAnalyzer: false
+      openAnalyzer: true
     }),
     new HtmlWebpackPlugin({
       template: path.resolve('..', 'shared', 'react', 'template.pug'),

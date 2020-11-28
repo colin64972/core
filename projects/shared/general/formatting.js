@@ -6,3 +6,16 @@ export const formatCentsToDollars = input => {
   if (stringVal.length > 3) return stringVal
   if (stringVal.length > 2) return `${stringVal}0`
 }
+
+const addLeadingZero = input => (input < 10 ? `0${input}` : input.toString())
+
+export const formatTime = input => {
+  const date = new Date(input)
+  const hours = date.getHours()
+  const minutes = date.getMinutes()
+  const seconds = date.getSeconds()
+  const time = `${addLeadingZero(hours)}:${addLeadingZero(
+    minutes
+  )}:${addLeadingZero(seconds)}`
+  return time
+}
