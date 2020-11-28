@@ -21,9 +21,9 @@ export const createTrial = async eventBody => {
   try {
     let { ipAddress, country, sets } = eventBody
 
-    let geoIp = ipAddress
+    let geoIp
 
-    if (IP_ADDRESS.test(ipAddress) && !country) {
+    if (IP_ADDRESS.test(ipAddress)) {
       geoIp = await fetchGeoIp(ipAddress)
     }
 
