@@ -46,6 +46,11 @@ export const kE = (state = defaultState, action) => {
           dataSource
         }
       }
+    case types.CLEAR_ORDER_REQUEST:
+      return {
+        ...state,
+        orderRequest: defaultState.orderRequest
+      }
     default:
       return state
   }

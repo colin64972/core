@@ -134,11 +134,6 @@ export function* orderMetrics(action) {
       type: types.UPDATE_TRIAL,
       updatedTrial
     })
-    yield put({
-      type: types.SET_SPINNER_STATUS,
-      spinnerName: constants.VOLUME_SPINNER,
-      status: false
-    })
     return action.closeDialogHandler()
   } catch (error) {
     console.error('%c FAIL', 'color: red; font-size: large', error, stripeError)
@@ -154,9 +149,12 @@ export function* orderMetrics(action) {
       dataSource: action.values.dataSource
     })
     yield put({
+      type: types.CLEAR_ORDER_REQUEST
+    })
+    yield put({
       type: types.SET_SPINNER_STATUS,
-      spinnerName: constants.ORDER_SPINNER,
-      status: true
+      spinnerName: constants.VOLUME_SPINNER,
+      status: false
     })
     yield put({
       type: types.ADD_NOTICE,
