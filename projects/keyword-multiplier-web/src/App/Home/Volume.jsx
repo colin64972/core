@@ -57,6 +57,7 @@ export const Volume = ({ closeDialogHandler, dialogStatus, trialId }) => {
   const countryDetails = countryCodesList.find(
     country => country.alpha2Code === ipCountryCode
   )
+
   const firstCurrency = countryDetails?.currencies[0]
   const curCode = firstCurrency?.code.toLowerCase()
 
@@ -72,19 +73,6 @@ export const Volume = ({ closeDialogHandler, dialogStatus, trialId }) => {
     cardCvc: false,
     billingEmail: '',
     acceptTerms: false
-  }
-
-  if (process.env.USE_MOCKS) {
-    initalValues = {
-      country: keOptions.userSelections.country || 'ca',
-      currency: keOptions.userSelections.currency || 'cad',
-      dataSource: keOptions.userSelections.dataSource || 'gkp',
-      cardNumber: true,
-      cardExpiry: true,
-      cardCvc: true,
-      billingEmail: '',
-      acceptTerms: true
-    }
   }
 
   const customSubmitHandler = values => {

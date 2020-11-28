@@ -13,7 +13,7 @@ export const App = () => {
   let dispatch = useDispatch()
   let tracker = useSelector(state => state.app.tracker)
 
-  if (process.env.IS_NOT_SERVER) {
+  if (!process.env.IS_SERVER) {
     useLayoutEffect(() => {
       const styleTags = document.getElementsByTagName('style')
       const injectionPoint = document.getElementById('jssInjectionPoint')

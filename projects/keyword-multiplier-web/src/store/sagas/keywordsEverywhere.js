@@ -13,7 +13,6 @@ import {
 
 import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
 import { getLabelFromValue } from '@cjo3/shared/react/helpers'
-import { payloadMock } from '@cjo3/shared/react/mocks/keyword-multiplier'
 import { types } from '../types'
 
 export function* getKeOptions() {
@@ -93,26 +92,22 @@ export function* orderMetrics(action) {
 
     let payload
 
-    if (process.env.USE_MOCKS) {
-      payload = payloadMock
-    } else {
-      payload = yield call(action.confirmCardPaymentHandler, client_secret, {
-        receipt_email: action.values.billingEmail || null,
-        payment_method: {
-          card: action.cardNumberElement,
-          billing_details: {
-            email: action.values.billingEmail || null
-          }
+    payload = yield call(action.confirmCardPaymentHandler, client_secret, {
+      receipt_email: action.values.billingEmail || null,
+      payment_method: {
+        card: action.cardNumberElement,
+        billing_details: {
+          email: action.values.billingEmail || null
         }
-      })
-      
-      yield call(tracker.eventHit, {
-        category: 'trials',
-        action: 'metrics_purchase',
-        label: orderRequest.trialId,
-        value: parseFloat(orderRequest.price.total) * 100
-      })
-    }
+      }
+    })
+
+    yield call(tracker.eventHit, {
+      category: 'trials',
+      action: 'metrics_purchase',
+      label: orderRequest.trialId,
+      value: parseFloat(orderRequest.price.total) * 100
+    })
 
     if (payload.error) {
       stripeError = payload.error
@@ -139,11 +134,6 @@ export function* orderMetrics(action) {
       type: types.UPDATE_TRIAL,
       updatedTrial
     })
-    yield put({
-      type: types.SET_SPINNER_STATUS,
-      spinnerName: constants.VOLUME_SPINNER,
-      status: false
-    })
     return action.closeDialogHandler()
   } catch (error) {
     console.error('%c FAIL', 'color: red; font-size: large', error, stripeError)
@@ -159,9 +149,12 @@ export function* orderMetrics(action) {
       dataSource: action.values.dataSource
     })
     yield put({
+      type: types.CLEAR_ORDER_REQUEST
+    })
+    yield put({
       type: types.SET_SPINNER_STATUS,
-      spinnerName: constants.ORDER_SPINNER,
-      status: true
+      spinnerName: constants.VOLUME_SPINNER,
+      status: false
     })
     yield put({
       type: types.ADD_NOTICE,

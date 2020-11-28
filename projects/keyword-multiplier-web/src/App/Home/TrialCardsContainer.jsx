@@ -32,7 +32,7 @@ export const TrialCardsContainer = ({ trials }) => {
 
   const { items, shown } = trials
 
-  const sortedItems = mergeSort(items, 'updatedAt', 'down')
+  const sortedItems = mergeSort(items, 'timestampUpdated', 'down')
   return (
     <Grid container component="section" className={classes.trialsSection}>
       <Grid item xs={12}>

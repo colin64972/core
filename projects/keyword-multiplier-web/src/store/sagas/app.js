@@ -30,7 +30,7 @@ export function* multiplySets(action) {
     )
     const geoIp = yield select(state => state.app.geoIp)
     let ipAddress = geoIp?.ip
-    if (!ipAddress) {
+    if (!geoIp) {
       ipAddress = yield call(fetchIpAddress)
     }
     const posted = yield call(createTrial, {
@@ -39,12 +39,10 @@ export function* multiplySets(action) {
       country: geoIp?.country_name
     })
     const trial = yield call(decorateTrial, posted.data)
-    if (!geoIp) {
-      yield put({
-        type: types.ADD_GEO_IP,
-        geoIp: trial.geoIp
-      })
-    }
+    yield put({
+      type: types.ADD_GEO_IP,
+      geoIp: trial.geoIp
+    })
     yield put({
       type: types.ADD_TRIAL,
       trial

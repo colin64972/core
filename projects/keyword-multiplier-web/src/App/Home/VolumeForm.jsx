@@ -185,7 +185,7 @@ export const VolumeForm = ({
           <Typography
             component="h5"
             className={clsx(classes.formSectionTitle, classes.noBottomMargin)}>
-            Payment Info <HttpsIcon className={classes.lockIcon} />
+            Secure Payment <HttpsIcon className={classes.lockIcon} />
           </Typography>
           <StripeBanner
             fillColor="#00bcd4"
