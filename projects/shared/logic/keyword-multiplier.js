@@ -1,6 +1,4 @@
-import moment from 'moment'
-
-import { formatCentsToDollars } from '../general/formatting'
+import { formatCentsToDollars, formatTime } from '../general/formatting'
 import { constants } from '../raw/constants/keyword-multiplier'
 import { LINE_INCLUDES_TLD } from '../raw/constants/regex'
 import { stripe } from '../raw/constants/stripe'
@@ -322,7 +320,7 @@ export const generateNotice = (
     heading: 'Success',
     message,
     choice: null,
-    moment: moment()
+    moment: Date.now()
   }
   if (kind !== constants.NOTICE.KINDS.SIMPLE) {
     result.bg = constants.NOTICE.BGS.WARN
@@ -354,7 +352,7 @@ export const decorateTrial = data => ({
   billableKeywords: data.trialProduct.billableKeywords,
   geoIp: data?.geoIp,
   updatedAt: data.updatedAt,
-  timestampUpdated: moment(data.updatedAt).format('HH:mm:ss'),
+  timestampUpdated: formatTime(data.updatedAt),
   metrics: data?.metrics,
   paymentId: data?.paymentId
 })

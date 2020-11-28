@@ -1,18 +1,7 @@
 import { get, post } from 'axios'
-
-import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
-import {
-  createTrialMock,
-  creditsMock,
-  ipMock,
-  optionsMock,
-  preOrderMock,
-  volumeMock
-} from '@cjo3/shared/react/mocks/keyword-multiplier'
 import { createAuthToken } from '@cjo3/shared/security/authToken'
 
 export const fetchIpAddress = async () => {
-  if (process.env.USE_MOCKS) return ipMock.data.ip
   const res = await get('https://api.ipify.org?format=json')
   return res.data.ip
 }
@@ -34,7 +23,6 @@ const addAuthHeaderToOptions = options => ({
 })
 
 export const createTrial = async payload => {
-  if (process.env.USE_MOCKS) return createTrialMock
   const res = await post(
     `${process.env.API_URL}/trials`,
     payload,
@@ -44,14 +32,6 @@ export const createTrial = async payload => {
 }
 
 export const fetchKeData = async resource => {
-  if (process.env.USE_MOCKS) {
-    switch (resource) {
-      case Object.keys(constants.ENDPOINTS)[1]:
-        return creditsMock
-      default:
-        return optionsMock
-    }
-  }
   const res = await get(
     `${process.env.API_URL}/ke?resource=${resource}`,
     addAuthHeaderToOptions(otherHeaders)
@@ -66,7 +46,6 @@ export const makePreOrder = async (
   dataSource,
   readableKeOptions
 ) => {
-  if (process.env.USE_MOCKS) return preOrderMock
   const res = await post(
     `${process.env.API_URL}/ke/pre-order`,
     {
@@ -88,7 +67,6 @@ export const fetchKeVolumes = async (
   currency,
   dataSource
 ) => {
-  if (process.env.USE_MOCKS) return volumeMock
   const res = await post(
     `${process.env.API_URL}/ke`,
     {

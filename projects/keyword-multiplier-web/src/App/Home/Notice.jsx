@@ -195,7 +195,7 @@ export const Notice = () => {
     return responseHandler(null, choice)
   }
 
-  if (process.env.IS_NOT_SERVER) {
+  if (!process.env.IS_SERVER) {
     useLayoutEffect(() => {
       if (show) {
         timeline

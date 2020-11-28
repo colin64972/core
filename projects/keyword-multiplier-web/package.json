@@ -8,17 +8,18 @@
   "private": true,
   "prettier": "@cjo3/configs/prettier",
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --config config/webpack-dev.js",
-    "build": "NODE_ENV=production webpack --config config/webpack-pro.js --progress",
-    "lite": "lite-server -c config/lite-server",
-    "preRender": "NODE_ENV=production webpack --config ssr/webpack.config --progress",
-    "render": "NODE_ENV=production node -e 'require(\"./ssr/renderer\").paths(require(\"./ssr/locals\").paths)'",
-    "sync:web": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").web)'",
-    "sync:js": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").js)'",
-    "sync:renders": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").renders)'",
-    "invalidate": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").invalidate(require(\"./cliParams\").invalidate)'",
-    "deploy": "yarn invalidate && yarn build && yarn sync:web && yarn preRender && yarn render && yarn sync:renders",
-    "update": "yarn invalidate && yarn build && yarn sync:js && yarn preRender && yarn render && yarn sync:renders"
+    "start": "NODE_ENV=development webpack-dev-server --config webpack.config.js",
+    "build:staging": "NODE_ENV=staging webpack --config webpack.config.js --progress",
+    "build": "NODE_ENV=production webpack --config webpack.config.js --progress",
+    "build:renderer": "SRC_ENV=production webpack --config renderer/webpack.config.js --progress",
+    "watch:renderer": "webpack --config renderer/webpack.config.js --progress --watch",
+    "start:renderer": "nodemon distRenderer/renderer.js",
+    "lite": "lite-server -c lite-server.js",
+    "sync:assets": "NODE_ENV=production node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").assets)'",
+    "sync:bundles": "NODE_ENV=production node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").bundles)'",
+    "sync:preRenders": "NODE_ENV=production node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").preRenders)'",
+    "invalidate": "NODE_ENV=production node -e 'require(\"@cjo3/shared/raw/s3Manager\").invalidate(require(\"./cliParams\").invalidate)'",
+    "clear": "NODE_ENV=production node -e 'require(\"@cjo3/shared/raw/s3Manager\").rm(require(\"./cliParams\").clear)'"
   },
   "importSort": {
     ".js, .jsx, .es6, .es": {
