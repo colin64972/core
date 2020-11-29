@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "main": "src/index.js",
   "license": "MIT",
-  "repository": "git@github.com:cjo3/primary.git",
   "author": "cjo3",
   "private": true,
   "prettier": "@cjo3/configs/prettier",
