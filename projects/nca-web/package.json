@@ -1,0 +1,8 @@
+{
+  "name": "@cjo3/nca-web",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "license": "MIT",
+  "author": "cjo3",
+  "private": true
+}
