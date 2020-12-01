@@ -1,16 +1,14 @@
+import { CssBaseline } from '@material-ui/core'
 import React from 'react'
-import ScheduleIcon from '@material-ui/icons/Schedule'
-import { Grid, Typography } from '@material-ui/core'
+import { Route, Switch } from 'react-router-dom'
+import { Home } from './Home/'
+import { NotFound } from './NotFound'
 
 export const App: React.FC = (): JSX.Element => (
-  <Grid>
-    <Typography variant="h1">{process.env.APP_NAME}</Typography>
-    <ScheduleIcon />
-    <Typography variant="body1">
-      Ipsum justo nonumy vero kasd magna nonumy et. Gubergren sit diam elitr no
-      nonumy takimata est, stet lorem sadipscing et amet nonumy duo. Accusam
-      vero takimata ut lorem diam, et dolores dolor kasd dolor dolore. Vero est
-      et et vero justo eos stet aliquyam dolores. Elitr elitr erat et sea.
-    </Typography>
-  </Grid>
+  <CssBaseline>
+    <Switch>
+      <Route path="/" exact component={Home} />
+      <Route path="/*" component={NotFound} />
+    </Switch>
+  </CssBaseline>
 )
