@@ -1,9 +1,9 @@
 import { createElement } from 'react'
-import { BrowserRouter } from 'react-router-dom'
 import { render } from 'react-dom'
-import { App } from './App'
+import { BrowserRouter } from 'react-router-dom'
+import { ThemedApp } from './ThemedApp'
 
 render(
-  createElement(BrowserRouter, {}, createElement(App)),
+  createElement(BrowserRouter, {}, ThemedApp),
   document.getElementById('app')
 )
