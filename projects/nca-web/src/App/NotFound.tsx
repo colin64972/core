@@ -4,7 +4,7 @@ import React from 'react'
 
 export const NotFound: React.FC = (): JSX.Element => (
   <Grid>
-    <Typography variant="h1">Not Found</Typography>
+    <Typography variant="h1">{process.env.APP_NAME} Error</Typography>
     <ScheduleIcon />
     <Typography variant="body1">
       Ipsum justo nonumy vero kasd magna nonumy et. Gubergren sit diam elitr no
