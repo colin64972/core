@@ -1,4 +1,5 @@
 import { setCustomTheme } from '@cjo3/shared/react/themes/theming'
+import primary from '@material-ui/core/colors/red'
 import secondary from '@material-ui/core/colors/blue'
 import {
   createGenerateClassName,
@@ -43,7 +44,7 @@ const theme = setCustomTheme(
         'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD'
     }
   ],
-  { main: '#eb3f34' },
+  primary,
   secondary,
   '#333333',
   5
@@ -59,8 +60,8 @@ theme.custom.contentContainer = {
 }
 
 const generateClassName = createGenerateClassName({
-  productionPrefix: 'nca-style-',
-  seed: 'nca-'
+  productionPrefix: 'prod-style-',
+  seed: 'nca'
 })
 
 console.log('%c theme', 'color: yellow; font-size: large', theme)

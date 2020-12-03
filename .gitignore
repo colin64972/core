@@ -6,7 +6,7 @@ distRenderer
 node_modules
 events
 site-configs
-images
+**/assets
 
 # files
 .env
