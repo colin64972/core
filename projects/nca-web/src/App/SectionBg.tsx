@@ -41,23 +41,23 @@ const useStyles = makeStyles(
     grid4: {
       gridColumn: '1 / 2 ',
       gridRow: 2,
-      backgroundColor: theme.palette.primary.main
+      backgroundColor: ({ bgColor }) => eval(bgColor)
     },
     grid5: {
       gridColumn: '2 / 3 ',
       gridRow: 2,
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: ({ bgColor }) => eval(bgColor),
       padding: theme.custom.setSpace('sm')
     },
     grid6: {
       gridColumn: '3 / 4 ',
       gridRow: 2,
-      backgroundColor: theme.palette.primary.main
+      backgroundColor: ({ bgColor }) => eval(bgColor)
     },
     grid7: {
       gridColumn: '1 / 2 ',
       gridRow: 3,
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: ({ bgColor }) => eval(bgColor),
       visibility: ({ left }) => (left ? 'visible' : 'hidden')
     },
     grid8: {

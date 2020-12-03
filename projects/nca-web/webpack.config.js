@@ -126,7 +126,9 @@ const config = {
     }),
     new EnvironmentPlugin({
       IS_SERVER: false,
-      APP_NAME: localEnv.parsed.APP_NAME
+      APP_NAME: localEnv.parsed.APP_NAME,
+      SITE_NAME: localEnv.parsed.SITE_NAME,
+      SITE_URL: localEnv.parsed.SITE_URL
     })
   ]
 }

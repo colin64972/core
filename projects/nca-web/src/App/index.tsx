@@ -6,6 +6,7 @@ import { Resume } from './Resume/'
 import { Apps } from './Apps/'
 import { Contact } from './Contact/'
 import { NotFound } from './NotFound'
+import { Footer } from './Footer'
 
 export const App: React.FC = (): JSX.Element => (
   <CssBaseline>
@@ -16,5 +17,6 @@ export const App: React.FC = (): JSX.Element => (
       <Route path="/contact" exact component={Contact} />
       <Route path="/*" component={NotFound} />
     </Switch>
+    <Footer />
   </CssBaseline>
 )
