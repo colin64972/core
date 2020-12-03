@@ -48,9 +48,9 @@ export const setCustomTheme = (
 ) => {
   const fontFamily = [
     fontFamilyName,
-    '"Helvetica Neue"',
+    'Helvetica Neue',
     'Arial',
-    'serif'
+    'sans-serif'
   ].join(',')
 
   const headingStyle = {

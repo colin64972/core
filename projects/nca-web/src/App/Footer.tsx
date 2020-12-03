@@ -70,9 +70,10 @@ const useStyles = makeStyles(
       ...theme.custom.setFlex('column', 'flex-start', 'flex-start')
     },
     menuItem: {
+      'fontFamily': 'Share Tech Mono,' + theme.typography.fontFamily,
       'color': theme.palette.grey[500],
       'textAlign': 'left',
-      'marginBottom': theme.custom.setSpace(),
+      'marginBottom': theme.custom.setSpace() / 2,
       'transition': 'color 250ms ease-out',
       '&:hover': {
         color: 'white'
@@ -116,6 +117,7 @@ const useStyles = makeStyles(
     badgeTitle: {
       'order': 2,
       'color': theme.palette.primary[600],
+      'fontSize': theme.typography.fontSize,
       'textAlign': 'left',
       'transition': 'color 250ms ease-out',
       '&:hover': {
@@ -129,6 +131,7 @@ const useStyles = makeStyles(
     badgeSubtitle: {
       textAlign: 'left',
       color: theme.palette.grey[500],
+      fontSize: theme.typography.fontSize,
       [theme.breakpoints.up('sm')]: {
         textAlign: 'right'
       }
@@ -136,6 +139,7 @@ const useStyles = makeStyles(
     legalText: {
       color: theme.palette.grey[500],
       textAlign: 'left',
+      fontSize: theme.typography.fontSize,
       margin: 0,
       [theme.breakpoints.up('sm')]: {
         textAlign: 'right'
@@ -197,14 +201,14 @@ export const Footer: React.FC = (): JSX.Element => {
             className={classes.menuItem}
             onClick={tcOpenHandler}>
             <GavelIcon />
-            &emsp; Terms &amp; Conditions
+            &emsp;Terms &amp; Conditions
           </Button>
           <Button
             type="button"
             className={classes.menuItem}
             onClick={ppOpenHandler}>
             <VpnLockIcon />
-            &emsp; Privacy Policy
+            &emsp;Privacy Policy
           </Button>
         </Grid>
         <Grid item xs={12} sm={6} className={classes.footerRight}>
@@ -216,7 +220,9 @@ export const Footer: React.FC = (): JSX.Element => {
                 height={48}
               />
               <Typography variant="h5" className={classes.badgeTitle}>
-                Need Help with JavaScript App Development?
+                Need Help with JavaScript
+                <br />
+                App Development?
               </Typography>
             </Grid>
             <Typography variant="body1" className={classes.badgeSubtitle}>
