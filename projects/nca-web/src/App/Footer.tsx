@@ -13,7 +13,7 @@ import VpnLockIcon from '@material-ui/icons/VpnLock'
 import React, { useState } from 'react'
 import Loadable from 'react-loadable'
 import { ProfilePic } from './assets'
-import { menuItems } from './constants'
+import { NavButtonSet } from './NavButtonSet'
 import { SectionBg } from './SectionBg'
 
 const iconMap: { [key: string]: JSX.Element } = {
@@ -65,7 +65,6 @@ const PpLoadable = Loadable({
 
 const useStyles = makeStyles(
   theme => ({
-    footer: {},
     footerLeft: {
       ...theme.custom.setFlex('column', 'flex-start', 'flex-start')
     },
@@ -81,9 +80,6 @@ const useStyles = makeStyles(
       '&:last-child': {
         marginBottom: 0
       }
-    },
-    menuItemIcon: {
-      marginRight: theme.custom.setSpace()
     },
     footerRight: {
       ...theme.custom.setFlex('column', 'space-between', 'flex-end')
@@ -176,26 +172,16 @@ export const Footer: React.FC = (): JSX.Element => {
     clickWindowLink(process.env.SITE_URL, true)
   }
 
-  const menuItemClickHandler = (linkTo: string) => (
-    event: React.MouseEvent
-  ): void => {
-    clickWindowLink(linkTo)
-  }
   return (
     <SectionBg top left bgColor="theme.palette.grey[900]">
       <Grid component="footer" container className={classes.footer}>
         <Grid item xs={12} sm={6} className={classes.footerLeft}>
-          {menuItems.map(item => (
-            <Button
-              key={item.key}
-              type="button"
-              className={classes.menuItem}
-              onClick={menuItemClickHandler(item.to)}>
-              {iconMap[item.icon]}
-              &emsp;
-              {item.label}
-            </Button>
-          ))}
+          <NavButtonSet
+            color="theme.palette.grey[500]"
+            direction="column"
+            justification="flex-start"
+            alignment="flex-start"
+          />
           <Button
             type="button"
             className={classes.menuItem}

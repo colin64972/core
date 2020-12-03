@@ -47,7 +47,8 @@ const useStyles = makeStyles(
       gridColumn: '2 / 3 ',
       gridRow: 2,
       backgroundColor: ({ bgColor }) => eval(bgColor),
-      padding: theme.custom.setSpace('sm')
+      padding: theme.custom.setSpace('sm'),
+      ...theme.custom.setFlex('column', 'center', 'flex-start')
     },
     grid6: {
       gridColumn: '3 / 4 ',
