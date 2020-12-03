@@ -69,7 +69,7 @@ export const Home: React.FC = (): JSX.Element => {
         <Typography variant="h1" className={classes.headerTitle}>
           Colin
           <br />
-          Nebocat
+          {process.env.APP_NAME}
         </Typography>
         <Grid className={classes.headerStroke} />
         <Grid className={classes.subtitleContainer}>
