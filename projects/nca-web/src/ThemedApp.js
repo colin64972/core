@@ -59,6 +59,10 @@ theme.custom.contentContainer = {
   maxWidth: 1024
 }
 
+theme.custom.unorderedList = {
+  paddingLeft: theme.custom.setSpace('sm')
+}
+
 const generateClassName = createGenerateClassName({
   productionPrefix: 'prod-style-',
   seed: 'nca'

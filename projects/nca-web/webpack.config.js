@@ -128,7 +128,8 @@ const config = {
       IS_SERVER: false,
       APP_NAME: localEnv.parsed.APP_NAME,
       SITE_NAME: localEnv.parsed.SITE_NAME,
-      SITE_URL: localEnv.parsed.SITE_URL
+      SITE_URL: localEnv.parsed.SITE_URL,
+      SITE_CONTACT_EMAIL: localEnv.parsed.SITE_CONTACT_EMAIL
     })
   ]
 }

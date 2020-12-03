@@ -1,17 +1,20 @@
-import { Grid, Button, Typography } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
-import React from 'react'
-import { SectionBg } from './SectionBg'
-import { menuItems } from './constants'
-import GavelIcon from '@material-ui/icons/Gavel'
-import VpnLockIcon from '@material-ui/icons/VpnLock'
-import HomeIcon from '@material-ui/icons/Home'
-import MailOutlineIcon from '@material-ui/icons/MailOutline'
-import BusinessCenterIcon from '@material-ui/icons/BusinessCenter'
-import ImportantDevicesIcon from '@material-ui/icons/ImportantDevices'
+import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
+import { LoadFail } from '@cjo3/shared/react/components/LoadFail'
 import { clickWindowLink } from '@cjo3/shared/react/helpers'
+import { Button, Grid, Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+import BusinessCenterIcon from '@material-ui/icons/BusinessCenter'
+import GavelIcon from '@material-ui/icons/Gavel'
+import HomeIcon from '@material-ui/icons/Home'
+import ImportantDevicesIcon from '@material-ui/icons/ImportantDevices'
+import MailOutlineIcon from '@material-ui/icons/MailOutline'
+import VpnLockIcon from '@material-ui/icons/VpnLock'
+import React, { useState } from 'react'
+import Loadable from 'react-loadable'
 import { ProfilePic } from './assets'
+import { menuItems } from './constants'
+import { SectionBg } from './SectionBg'
 
 const iconMap: { [key: string]: JSX.Element } = {
   home: <HomeIcon />,
@@ -19,6 +22,46 @@ const iconMap: { [key: string]: JSX.Element } = {
   apps: <ImportantDevicesIcon />,
   contact: <MailOutlineIcon />
 }
+
+const TcLoadable = Loadable({
+  loader: () =>
+    import(
+      /* webpackChunkName: "chunk-TermsAndConditions" */
+      '@cjo3/shared/react/components/TermsAndConditions'
+    ),
+  loading: ({ error, pastDelay, timedOut }) => {
+    if (error) return <LoadFail message="Load Failed" />
+    if (timedOut) return <LoadFail message="Timed Out" />
+    if (pastDelay) return <BackDropScreen isOpen spinner />
+    return null
+  },
+  delay: 250,
+  timeout: 5000,
+  render: (loaded, props) => {
+    const Component = loaded.TermsAndConditions
+    return <Component {...props} />
+  }
+})
+
+const PpLoadable = Loadable({
+  loader: () =>
+    import(
+      /* webpackChunkName: "chunk-PrivacyPolicy" */
+      '@cjo3/shared/react/components/PrivacyPolicy'
+    ),
+  loading: ({ error, pastDelay, timedOut }) => {
+    if (error) return <LoadFail message="Load Failed" />
+    if (timedOut) return <LoadFail message="Timed Out" />
+    if (pastDelay) return <BackDropScreen isOpen spinner />
+    return null
+  },
+  delay: 250,
+  timeout: 5000,
+  render: (loaded, props) => {
+    const Component = loaded.PrivacyPolicy
+    return <Component {...props} />
+  }
+})
 
 const useStyles = makeStyles(
   theme => ({
@@ -106,9 +149,29 @@ const useStyles = makeStyles(
 
 export const Footer: React.FC = (): JSX.Element => {
   const classes = useStyles()
+
+  const [tcOpen, setTcOpen] = useState<boolean>(false)
+  const [ppOpen, setPpOpen] = useState<boolean>(false)
+
+  const tcOpenHandler = (event: React.MouseEvent): void => {
+    setTcOpen(true)
+  }
+
+  const tcCloseHandler = (event: React.MouseEvent): void => {
+    setTcOpen(false)
+  }
+  const ppOpenHandler = (event: React.MouseEvent): void => {
+    setPpOpen(true)
+  }
+
+  const ppCloseHandler = (event: React.MouseEvent): void => {
+    setPpOpen(false)
+  }
+
   const badgeClickHandler = (event: React.MouseEvent): void => {
     clickWindowLink(process.env.SITE_URL, true)
   }
+
   const menuItemClickHandler = (linkTo: string) => (
     event: React.MouseEvent
   ): void => {
@@ -129,11 +192,17 @@ export const Footer: React.FC = (): JSX.Element => {
               {item.label}
             </Button>
           ))}
-          <Button type="button" className={classes.menuItem}>
+          <Button
+            type="button"
+            className={classes.menuItem}
+            onClick={tcOpenHandler}>
             <GavelIcon />
             &emsp; Terms &amp; Conditions
           </Button>
-          <Button type="button" className={classes.menuItem}>
+          <Button
+            type="button"
+            className={classes.menuItem}
+            onClick={ppOpenHandler}>
             <VpnLockIcon />
             &emsp; Privacy Policy
           </Button>
@@ -160,6 +229,24 @@ export const Footer: React.FC = (): JSX.Element => {
           </Typography>
         </Grid>
       </Grid>
+      {tcOpen && (
+        <TcLoadable
+          open={tcOpen}
+          closeHandler={tcCloseHandler}
+          siteName={process.env.SITE_NAME}
+          siteUrl={process.env.SITE_URL}
+          siteContactEmail={process.env.SITE_CONTACT_EMAIL}
+        />
+      )}
+      {ppOpen && (
+        <PpLoadable
+          open={ppOpen}
+          closeHandler={ppCloseHandler}
+          siteName={process.env.SITE_NAME}
+          siteUrl={process.env.SITE_URL}
+          siteContactEmail={process.env.SITE_CONTACT_EMAIL}
+        />
+      )}
     </SectionBg>
   )
 }
