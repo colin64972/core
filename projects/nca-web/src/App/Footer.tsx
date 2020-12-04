@@ -12,9 +12,10 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline'
 import VpnLockIcon from '@material-ui/icons/VpnLock'
 import React, { useState } from 'react'
 import Loadable from 'react-loadable'
+import { AngleBand } from './AngleBand'
 import { ProfilePic } from './assets'
+import { ContentContainer } from './ContentContainer'
 import { NavButtonSet } from './NavButtonSet'
-import { BgContainer } from './BgContainer'
 
 const iconMap: { [key: string]: JSX.Element } = {
   home: <HomeIcon />,
@@ -173,54 +174,57 @@ export const Footer: React.FC = (): JSX.Element => {
   }
 
   return (
-    <BgContainer top left bgColor="theme.palette.grey[900]">
-      <Grid component="footer" container className={classes.footer}>
-        <Grid item xs={12} sm={6} className={classes.footerLeft}>
-          <NavButtonSet
-            color="theme.palette.grey[500]"
-            direction="column"
-            justification="flex-start"
-            alignment="flex-start"
-          />
-          <Button
-            type="button"
-            className={classes.menuItem}
-            onClick={tcOpenHandler}>
-            <GavelIcon />
-            &emsp;Terms &amp; Conditions
-          </Button>
-          <Button
-            type="button"
-            className={classes.menuItem}
-            onClick={ppOpenHandler}>
-            <VpnLockIcon />
-            &emsp;Privacy Policy
-          </Button>
-        </Grid>
-        <Grid item xs={12} sm={6} className={classes.footerRight}>
-          <Grid className={classes.badge}>
-            <Grid className={classes.badgeTopRow} onClick={badgeClickHandler}>
-              <ImageHandler
-                asset={ProfilePic}
-                outerClass={classes.badgePic}
-                height={48}
-              />
-              <Typography variant="h5" className={classes.badgeTitle}>
-                Need Help with JavaScript
-                <br />
-                App Development?
+    <Grid component="footer" container>
+      <AngleBand top left bgColor="theme.palette.grey[900]" />
+      <ContentContainer gradient="theme.custom.setLinearGradient(180, theme.palette.grey[900], theme.palette.grey[800])">
+        <Grid container>
+          <Grid item xs={12} sm={6} className={classes.footerLeft}>
+            <NavButtonSet
+              color="theme.palette.grey[500]"
+              direction="column"
+              justification="flex-start"
+              alignment="flex-start"
+            />
+            <Button
+              type="button"
+              className={classes.menuItem}
+              onClick={tcOpenHandler}>
+              <GavelIcon />
+              &emsp;Terms &amp; Conditions
+            </Button>
+            <Button
+              type="button"
+              className={classes.menuItem}
+              onClick={ppOpenHandler}>
+              <VpnLockIcon />
+              &emsp;Privacy Policy
+            </Button>
+          </Grid>
+          <Grid item xs={12} sm={6} className={classes.footerRight}>
+            <Grid className={classes.badge}>
+              <Grid className={classes.badgeTopRow} onClick={badgeClickHandler}>
+                <ImageHandler
+                  asset={ProfilePic}
+                  outerClass={classes.badgePic}
+                  height={48}
+                />
+                <Typography variant="h5" className={classes.badgeTitle}>
+                  Need Help with JavaScript
+                  <br />
+                  App Development?
+                </Typography>
+              </Grid>
+              <Typography variant="body1" className={classes.badgeSubtitle}>
+                Available for Hire!
               </Typography>
             </Grid>
-            <Typography variant="body1" className={classes.badgeSubtitle}>
-              Available for Hire!
+            <Typography variant="body1" className={classes.legalText}>
+              &copy; {new Date().getFullYear()} {process.env.SITE_NAME}. All
+              rights reserved.
             </Typography>
           </Grid>
-          <Typography variant="body1" className={classes.legalText}>
-            &copy; {new Date().getFullYear()} {process.env.SITE_NAME}. All
-            rights reserved.
-          </Typography>
         </Grid>
-      </Grid>
+      </ContentContainer>
       {tcOpen && (
         <TcLoadable
           open={tcOpen}
@@ -239,6 +243,6 @@ export const Footer: React.FC = (): JSX.Element => {
           siteContactEmail={process.env.SITE_CONTACT_EMAIL}
         />
       )}
-    </BgContainer>
+    </Grid>
   )
 }

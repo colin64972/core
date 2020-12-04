@@ -2,9 +2,10 @@ import NcaLogoWhite from '@cjo3/shared/assets/svgs/nca-logo-white'
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
-import { BgContainer } from '../BgContainer'
+import { ContentContainer } from '../ContentContainer'
 import NcaHome from '@cjo3/shared/assets/svgs/nca-home'
 import { Hero } from '../Hero'
+import { AngleBand } from '../AngleBand'
 
 const useStyles = makeStyles(
   theme => ({
@@ -67,7 +68,7 @@ export const Home: React.FC = (): JSX.Element => {
   const classes = useStyles()
   return (
     <Grid container justify="center">
-      <BgContainer bottom right bgColor="theme.palette.primary.main">
+      <ContentContainer bgColor="theme.palette.primary.main">
         <Typography variant="h2" className={classes.headerTitle}>
           Colin
           <br />
@@ -90,23 +91,23 @@ export const Home: React.FC = (): JSX.Element => {
             className={classes.subtitleLogo}
           />
         </Grid>
-      </BgContainer>
+      </ContentContainer>
+      <AngleBand bottom right bgColor="theme.palette.primary.main" />
       <Hero
         src={NcaHome}
         tagline="Let's build an online experience together"
         alt="home-image"
       />
-      <Grid container>
-        <BgContainer top right bgColor="theme.palette.grey[300]">
-          <Typography variant="h4">Marketing</Typography>
-          <Typography variant="body1">
-            Marketing strategy should be the core of your online presence and
-            baked into each page of your website. From content planning to
-            technical SEO, social media and PPC, I can help put your best foot
-            forward.
-          </Typography>
-        </BgContainer>
-      </Grid>
+      <AngleBand top left bgColor="theme.palette.grey[200]" />
+      <ContentContainer gradient="theme.custom.setLinearGradient(180, theme.palette.grey[200], 'white')">
+        <Typography variant="h4">Marketing</Typography>
+        <Typography variant="body1">
+          Marketing strategy should be the core of your online presence and
+          baked into each page of your website. From content planning to
+          technical SEO, social media and PPC, I can help put your best foot
+          forward.
+        </Typography>
+      </ContentContainer>
     </Grid>
   )
 }

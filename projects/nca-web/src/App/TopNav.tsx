@@ -4,8 +4,9 @@ import { makeStyles } from '@material-ui/core/styles'
 import MenuIcon from '@material-ui/icons/Menu'
 import React, { useState } from 'react'
 import { NavButtonSet } from './NavButtonSet'
-import { BgContainer } from './BgContainer'
 import { SideMenu } from './SideMenu'
+import { ContentContainer } from './ContentContainer'
+import { AngleBand } from './AngleBand'
 
 const useStyles = makeStyles(
   theme => ({
@@ -43,28 +44,31 @@ export const TopNav: React.FC<Props> = ({ viewWidth }): JSX.Element => {
     setSideMenuOpen(false)
   }
   return (
-    <BgContainer bottom right bgColor="theme.palette.primary.main">
-      <Grid container justify="space-between" alignItems="center">
-        <img src={NcaLogoWhite} className={classes.logo} />
-        {showSideMenuIcon ? (
-          <MenuIcon
-            className={classes.sideMenuIcon}
-            onClick={openSideMenuHandler}
-          />
-        ) : (
-          <NavButtonSet
-            slice={1}
-            color="theme.palette.primary[100]"
-            direction="row"
-            justification="flex-end"
-            alignment="center"
-            noLastChildMargin
-          />
+    <Grid container>
+      <ContentContainer bgColor="theme.palette.primary.main">
+        <Grid container justify="space-between" alignItems="center">
+          <img src={NcaLogoWhite} className={classes.logo} />
+          {showSideMenuIcon ? (
+            <MenuIcon
+              className={classes.sideMenuIcon}
+              onClick={openSideMenuHandler}
+            />
+          ) : (
+            <NavButtonSet
+              slice={1}
+              color="theme.palette.primary[100]"
+              direction="row"
+              justification="flex-end"
+              alignment="center"
+              noLastChildMargin
+            />
+          )}
+        </Grid>
+        {showSideMenuIcon && sideMenuOpen && (
+          <SideMenu open={sideMenuOpen} closeHandler={closeSideMenuHandler} />
         )}
-      </Grid>
-      {showSideMenuIcon && sideMenuOpen && (
-        <SideMenu open={sideMenuOpen} closeHandler={closeSideMenuHandler} />
-      )}
-    </BgContainer>
+      </ContentContainer>
+      <AngleBand bottom right bgColor="theme.palette.primary.main" />
+    </Grid>
   )
 }
