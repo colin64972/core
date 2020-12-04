@@ -39,7 +39,7 @@ const useStyles = makeStyles(
       float: ({ float }) => float,
       backgroundColor: ({ bgColor }) => eval(bgColor),
       clipPath: ({ polygon }) => polygon,
-      width: 300,
+      width: theme.custom.setSpace('sm') * 10 + 1,
       height: theme.custom.setSpace('sm'),
       margin: '0 -1px'
     }
