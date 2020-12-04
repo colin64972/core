@@ -1,11 +1,15 @@
 import { Grid, Typography } from '@material-ui/core'
-import ScheduleIcon from '@material-ui/icons/Schedule'
+import { Hero } from '../Hero'
 import React from 'react'
+import NcaContact from '@cjo3/shared/assets/svgs/nca-contact'
 
 export const Contact: React.FC = (): JSX.Element => (
-  <Grid>
-    <Typography variant="h1">{process.env.APP_NAME} Contact</Typography>
-    <ScheduleIcon />
+  <Grid container justify="center">
+    <Hero
+      src={NcaContact}
+      tagline="Want to work together? Contact me anytime!"
+      alt="contact-image"
+    />
     <Typography variant="body1">
       Ipsum justo nonumy vero kasd magna nonumy et. Gubergren sit diam elitr no
       nonumy takimata est, stet lorem sadipscing et amet nonumy duo. Accusam

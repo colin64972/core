@@ -1,4 +1,4 @@
-import LogoWhite from '@cjo3/shared/assets/svgs/logo-white'
+import NcaLogoGrey from '@cjo3/shared/assets/svgs/nca-logo-grey'
 import { Drawer } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
@@ -48,7 +48,7 @@ export const SideMenu: React.FC<Props> = ({
         alignment="flex-start"
         noLastChildMargin
       />
-      <img src={LogoWhite} className={classes.logo} />
+      <img src={NcaLogoGrey} className={classes.logo} />
     </Drawer>
   )
 }

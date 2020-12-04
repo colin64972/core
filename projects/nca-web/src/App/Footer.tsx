@@ -14,7 +14,7 @@ import React, { useState } from 'react'
 import Loadable from 'react-loadable'
 import { ProfilePic } from './assets'
 import { NavButtonSet } from './NavButtonSet'
-import { SectionBg } from './SectionBg'
+import { BgContainer } from './BgContainer'
 
 const iconMap: { [key: string]: JSX.Element } = {
   home: <HomeIcon />,
@@ -173,7 +173,7 @@ export const Footer: React.FC = (): JSX.Element => {
   }
 
   return (
-    <SectionBg top left bgColor="theme.palette.grey[900]">
+    <BgContainer top left bgColor="theme.palette.grey[900]">
       <Grid component="footer" container className={classes.footer}>
         <Grid item xs={12} sm={6} className={classes.footerLeft}>
           <NavButtonSet
@@ -239,6 +239,6 @@ export const Footer: React.FC = (): JSX.Element => {
           siteContactEmail={process.env.SITE_CONTACT_EMAIL}
         />
       )}
-    </SectionBg>
+    </BgContainer>
   )
 }

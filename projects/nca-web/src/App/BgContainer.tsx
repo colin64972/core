@@ -17,9 +17,6 @@ const useStyles = makeStyles(
       },
       [theme.breakpoints.up('lg')]: {
         gridTemplateColumns: 'auto 1024px auto'
-      },
-      [theme.breakpoints.up('xl')]: {
-        gridTemplateColumns: 'auto 1280px auto'
       }
     },
     grid1: {
@@ -87,7 +84,7 @@ const useStyles = makeStyles(
     }
   }),
   {
-    name: 'SectionBg'
+    name: 'BgContainer'
   }
 )
 
@@ -101,7 +98,7 @@ interface Props {
   width?: number
 }
 
-export const SectionBg: React.FC<Props> = ({
+export const BgContainer: React.FC<Props> = ({
   bgColor,
   bottom,
   children,

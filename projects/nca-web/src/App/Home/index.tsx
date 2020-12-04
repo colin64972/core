@@ -1,8 +1,10 @@
-import LogoWhite from '@cjo3/shared/assets/svgs/logo-white'
+import NcaLogoWhite from '@cjo3/shared/assets/svgs/nca-logo-white'
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
-import { SectionBg } from '../SectionBg'
+import { BgContainer } from '../BgContainer'
+import NcaHome from '@cjo3/shared/assets/svgs/nca-home'
+import { Hero } from '../Hero'
 
 const useStyles = makeStyles(
   theme => ({
@@ -65,15 +67,15 @@ export const Home: React.FC = (): JSX.Element => {
   const classes = useStyles()
   return (
     <Grid container justify="center">
-      <SectionBg bottom right bgColor="theme.palette.primary.main">
-        <Typography variant="h1" className={classes.headerTitle}>
+      <BgContainer bottom right bgColor="theme.palette.primary.main">
+        <Typography variant="h2" className={classes.headerTitle}>
           Colin
           <br />
           {process.env.APP_NAME}
         </Typography>
         <Grid className={classes.headerStroke} />
         <Grid className={classes.subtitleContainer}>
-          <Typography variant="h2" className={classes.subtitleHeading}>
+          <Typography variant="h3" className={classes.subtitleHeading}>
             full stack
             <br />
             javascript
@@ -83,12 +85,28 @@ export const Home: React.FC = (): JSX.Element => {
             development
           </Typography>
           <img
-            src={LogoWhite}
+            src={NcaLogoWhite}
             alt="logo-white"
             className={classes.subtitleLogo}
           />
         </Grid>
-      </SectionBg>
+      </BgContainer>
+      <Hero
+        src={NcaHome}
+        tagline="Let's build an online experience together"
+        alt="home-image"
+      />
+      <Grid container>
+        <BgContainer top right bgColor="theme.palette.grey[300]">
+          <Typography variant="h4">Marketing</Typography>
+          <Typography variant="body1">
+            Marketing strategy should be the core of your online presence and
+            baked into each page of your website. From content planning to
+            technical SEO, social media and PPC, I can help put your best foot
+            forward.
+          </Typography>
+        </BgContainer>
+      </Grid>
     </Grid>
   )
 }
