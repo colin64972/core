@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 import { ContentContainer } from '../ContentContainer'
 import NcaHome from '@cjo3/shared/assets/svgs/nca-home'
-import { Hero } from '../Hero'
+import { HeroBar } from '../HeroBar'
 import { AngleBand } from '../AngleBand'
 
 const useStyles = makeStyles(
@@ -93,7 +93,7 @@ export const Home: React.FC = (): JSX.Element => {
         </Grid>
       </ContentContainer>
       <AngleBand bottom right bgColor="theme.palette.primary.main" />
-      <Hero
+      <HeroBar
         src={NcaHome}
         tagline="Let's build an online experience together"
         alt="home-image"

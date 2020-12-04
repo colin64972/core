@@ -1,11 +1,11 @@
 import NcaResume from '@cjo3/shared/assets/svgs/nca-resume'
 import { Grid, Typography } from '@material-ui/core'
 import React from 'react'
-import { Hero } from '../Hero'
+import { HeroBar } from '../HeroBar'
 
 export const Resume: React.FC = (): JSX.Element => (
   <Grid container justify="center">
-    <Hero
+    <HeroBar
       src={NcaResume}
       tagline="The 411 Lowdown of my Resume"
       alt="resume-image"

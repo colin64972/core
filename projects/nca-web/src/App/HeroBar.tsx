@@ -39,7 +39,7 @@ const useStyles = makeStyles(
     }
   }),
   {
-    name: 'Hero'
+    name: 'HeroBar'
   }
 )
 
@@ -49,7 +49,11 @@ interface Props {
   alt: string
 }
 
-export const Hero: React.FC<Props> = ({ src, tagline, alt }): JSX.Element => {
+export const HeroBar: React.FC<Props> = ({
+  src,
+  tagline,
+  alt
+}): JSX.Element => {
   const classes = useStyles()
   return (
     <Grid className={classes.container}>

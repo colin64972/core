@@ -1,11 +1,11 @@
 import { Grid, Typography } from '@material-ui/core'
-import { Hero } from '../Hero'
+import { HeroBar } from '../HeroBar'
 import React from 'react'
 import NcaContact from '@cjo3/shared/assets/svgs/nca-contact'
 
 export const Contact: React.FC = (): JSX.Element => (
   <Grid container justify="center">
-    <Hero
+    <HeroBar
       src={NcaContact}
       tagline="Want to work together? Contact me anytime!"
       alt="contact-image"

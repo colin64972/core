@@ -1,11 +1,11 @@
 import NcaApps from '@cjo3/shared/assets/svgs/nca-apps'
 import { Grid, Typography } from '@material-ui/core'
 import React from 'react'
-import { Hero } from '../Hero'
+import { HeroBar } from '../HeroBar'
 
 export const Apps: React.FC = (): JSX.Element => (
   <Grid container justify="center">
-    <Hero
+    <HeroBar
       src={NcaApps}
       tagline="App Portfolio with Code Samples"
       alt="apps-image"
