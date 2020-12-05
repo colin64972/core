@@ -12,7 +12,12 @@ import {
   LogoBir,
   LogoEuroptimum,
   LogoHaru,
-  LogoJumpfactor
+  LogoJumpfactor,
+  LogoAi,
+  LogoCodecore,
+  LogoDappu,
+  LogoJuno,
+  LogoSauder
 } from '../assets'
 import { personalDetails, schoolEntries, workEntries } from '../content'
 import { HeroBar } from '../HeroBar'
@@ -112,7 +117,12 @@ const logoMap = {
   bir: LogoBir,
   apollo: LogoApollo,
   jumpfactor: LogoJumpfactor,
-  europtimum: LogoEuroptimum
+  europtimum: LogoEuroptimum,
+  juno: LogoJuno,
+  codecore: LogoCodecore,
+  dappu: LogoDappu,
+  sauder: LogoSauder,
+  ai: LogoAi
 }
 
 export const Resume: React.FC = (): JSX.Element => {

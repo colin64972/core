@@ -12,7 +12,9 @@ const useStyles = makeStyles(theme => ({
     }
   },
   image: {
-    margin: `0 ${theme.custom.setSpace()}px 0 0`
+    margin: `0 ${theme.custom.setSpace()}px 0 0`,
+    backgroundColor: ({ work }) => !work && 'white',
+    borderRadius: ({ work }) => !work && 7
   },
   text: {
     maxWidth: 500
