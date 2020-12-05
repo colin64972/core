@@ -12,18 +12,21 @@ export const menuItems: MenuItem[] = [
     key: createHashId(),
     label: 'Resume',
     icon: 'resume',
-    to: '/resume/'
+    to: '/resume/',
+    midNavDir: 'midNavLeft'
   },
   {
     key: createHashId(),
     label: 'Apps',
     icon: 'apps',
-    to: '/apps/'
+    to: '/apps/',
+    midNavDir: 'midNavRight'
   },
   {
     key: createHashId(),
     label: 'Contact',
     icon: 'contact',
-    to: '/contact/'
+    to: '/contact/',
+    midNavDir: 'midNavLeft'
   }
 ]

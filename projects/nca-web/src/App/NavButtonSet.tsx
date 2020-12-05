@@ -6,15 +6,17 @@ import HomeIcon from '@material-ui/icons/Home'
 import ImportantDevicesIcon from '@material-ui/icons/ImportantDevices'
 import MailOutlineIcon from '@material-ui/icons/MailOutline'
 import React from 'react'
+import clsx from 'clsx'
 import { menuItems } from './constants'
 
 interface Props {
   slice?: number
   color: string
-  direction: string
-  justification: string
-  alignment: string
-  noLastChildMargin: boolean
+  direction?: string
+  justification?: string
+  alignment?: string
+  noLastChildMargin?: boolean
+  midNav?: boolean
 }
 
 const useStyles = makeStyles(
@@ -26,8 +28,7 @@ const useStyles = makeStyles(
       padding: theme.custom.setSpace() / 2
     },
     menuItem: ({ direction, color }) => ({
-      'fontFamily': 'Share Tech Mono, ' + theme.typography.fontFamily,
-      'fontSize': theme.typography.fontSize,
+      ...theme.typography.shareTechMono,
       'color': eval(color),
       'transition': 'color 250ms ease-out',
       'margin':
@@ -40,7 +41,42 @@ const useStyles = makeStyles(
       '&:last-child': ({ noLastChildMargin }) => ({
         margin: noLastChildMargin ? 0 : ''
       })
-    })
+    }),
+    midNavContainer: {
+      marginTop: theme.custom.setSpace('md'),
+      ...theme.custom.setGrid(1, 3),
+      [theme.breakpoints.only('sm')]: {
+        ...theme.custom.setGrid(3, 1, theme.custom.setSpace('sm'))
+      },
+      [theme.breakpoints.up('md')]: {
+        paddingLeft: theme.custom.setSpace()
+      }
+    },
+    midNavLink: {
+      filter: 'drop-shadow(0.5rem 0.5rem  0.5rem rgba(0, 0, 0, 0.33))'
+    },
+    midNavSpan: {
+      ...theme.custom.setFlex(),
+      ...theme.typography.shareTechMono,
+      'textTransform': 'uppercase',
+      'height': theme.custom.setSpace('lg'),
+      'color': theme.palette.grey[400],
+      'textAlign': 'center',
+      'fontSize': theme.typography.fontSize * 1.5,
+      'backgroundColor': theme.palette.grey[800],
+      'transition': 'all 250ms ease-out',
+      '&:hover': {
+        color: 'white',
+        cursor: 'pointer',
+        backgroundColor: theme.palette.primary.main
+      }
+    },
+    midNavLeft: {
+      clipPath: 'polygon(0 0, 100% 20%, 100% 80%, 0 100%)'
+    },
+    midNavRight: {
+      clipPath: 'polygon(0 20%, 100% 0%, 100% 100%, 0 80%)'
+    }
   }),
   {
     name: 'NavButtonSet'
@@ -60,7 +96,8 @@ export const NavButtonSet: React.FC<Props> = ({
   direction,
   justification,
   alignment,
-  noLastChildMargin
+  noLastChildMargin,
+  midNav
 }): JSX.Element => {
   const classes = useStyles({
     color,
@@ -73,6 +110,23 @@ export const NavButtonSet: React.FC<Props> = ({
     event: React.MouseEvent
   ): void => {
     clickWindowLink(linkTo)
+  }
+  if (midNav) {
+    return (
+      <Grid className={classes.midNavContainer}>
+        {menuItems.slice(slice).map(item => (
+          <a
+            href={item.to}
+            className={classes.midNavLink}
+            key={`mid-nav-${item.key}`}>
+            <span className={clsx(classes.midNavSpan, classes[item.midNavDir])}>
+              {iconMap[item.icon]}
+              &ensp;{item.label}
+            </span>
+          </a>
+        ))}
+      </Grid>
+    )
   }
   return (
     <Grid className={classes.container}>

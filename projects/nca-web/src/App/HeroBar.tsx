@@ -7,7 +7,9 @@ const useStyles = makeStyles(
     container: {
       ...theme.custom.contentContainer,
       ...theme.custom.setFlex('column'),
-      padding: theme.custom.setSpace('sm'),
+      padding: `${theme.custom.setSpace('md')}px ${theme.custom.setSpace(
+        'sm'
+      )}px`,
       [theme.breakpoints.up('sm')]: {
         ...theme.custom.setFlex('row')
       }
@@ -20,14 +22,12 @@ const useStyles = makeStyles(
     },
     tagline: {
       display: 'inline-block',
-      fontFamily: 'Share Tech Mono, ' + theme.typography.fontFamily,
+      ...theme.typography.shareTechMono,
       textTransform: 'uppercase',
       fontSize: theme.typography.fontSize * 3,
       textAlign: 'center',
       letterSpacing: -2,
-      lineHeight: 1,
       color: 'white',
-      fontWeight: 'normal',
       textShadow: `0 0 3px ${theme.palette.primary.main}`,
       margin: `${theme.custom.setSpace('sm')}px 0 0 0`,
       [theme.breakpoints.up('sm')]: {

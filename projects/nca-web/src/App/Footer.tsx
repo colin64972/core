@@ -67,7 +67,12 @@ const PpLoadable = Loadable({
 const useStyles = makeStyles(
   theme => ({
     footerLeft: {
-      ...theme.custom.setFlex('column', 'flex-start', 'flex-start')
+      ...theme.custom.setFlex('column', 'center', 'flex-start')
+    },
+    footerRight: {
+      [theme.breakpoints.up('sm')]: {
+        ...theme.custom.setFlex('column', 'space-between', 'flex-end')
+      }
     },
     menuItem: {
       'fontFamily': 'Share Tech Mono,' + theme.typography.fontFamily,
@@ -82,9 +87,6 @@ const useStyles = makeStyles(
         marginBottom: 0
       }
     },
-    footerRight: {
-      ...theme.custom.setFlex('column', 'space-between', 'flex-end')
-    },
     badge: {
       margin: `${theme.custom.setSpace('md')}px 0`,
       [theme.breakpoints.up('sm')]: {
@@ -92,7 +94,7 @@ const useStyles = makeStyles(
       }
     },
     badgeTopRow: {
-      ...theme.custom.setFlex('row', 'flex-end', 'center'),
+      ...theme.custom.setFlex('row', 'flex-start', 'center'),
       '&:hover': {
         cursor: 'pointer'
       }
@@ -114,7 +116,8 @@ const useStyles = makeStyles(
     badgeTitle: {
       'order': 2,
       'color': theme.palette.primary[600],
-      'fontSize': theme.typography.fontSize,
+      'fontSize': theme.typography.fontSize * 1.5,
+      ...theme.typography.shareTechMono,
       'textAlign': 'left',
       'transition': 'color 250ms ease-out',
       '&:hover': {

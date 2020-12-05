@@ -59,6 +59,12 @@ theme.custom.contentContainer = {
   maxWidth: 1024
 }
 
+theme.typography.shareTechMono = {
+  fontFamily: `Share Tech Mono, ${theme.typography.fontFamily}`,
+  fontWeight: 'normal',
+  lineHeight: 1
+}
+
 theme.custom.unorderedList = {
   paddingLeft: theme.custom.setSpace('sm')
 }
