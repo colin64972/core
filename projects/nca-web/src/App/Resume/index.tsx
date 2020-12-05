@@ -8,14 +8,14 @@ import clsx from 'clsx'
 import React from 'react'
 import { AngleBand } from '../AngleBand'
 import {
+  LogoAi,
   LogoApollo,
   LogoBir,
+  LogoCodecore,
+  LogoDappu,
   LogoEuroptimum,
   LogoHaru,
   LogoJumpfactor,
-  LogoAi,
-  LogoCodecore,
-  LogoDappu,
   LogoJuno,
   LogoSauder
 } from '../assets'
@@ -74,30 +74,15 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     [theme.breakpoints.up('sm')]: {
       width: '50%',
-      ...theme.custom.setFlex('column', 'flex-start', 'flex-start')
+      marginTop: theme.custom.setSpace('md')
     }
   },
-  splitTop: {
-    width: '100%',
+  redBg: {
     backgroundColor: theme.palette.primary.main
   },
-  educationTopAngle: {
-    height: theme.custom.setSpace('sm'),
-    border: '1px solid blue',
-    [theme.breakpoints.up('sm')]: {
-      display: 'none',
-      maxWidth: 512
-    }
-  },
   education: {
-    border: '1px solid blue',
     padding: theme.custom.setSpace('sm'),
-    [theme.breakpoints.up('sm')]: {
-      maxWidth: 512
-    }
-  },
-  splitBottom: {
-    width: '100%'
+    margin: '-1px 0'
   },
   personalDetails: {
     maxWidth: 512,
@@ -106,9 +91,26 @@ const useStyles = makeStyles(theme => ({
   personalDetailsList: {
     padding: theme.custom.setSpace()
   },
-  angleRight: {
+  angle: {
+    width: theme.custom.setSpace('sm') * 10,
     height: theme.custom.setSpace('sm'),
-    border: '1px solid green'
+    backgroundColor: theme.palette.primary.main
+  },
+  angleFill: {
+    flexGrow: 1,
+    height: theme.custom.setSpace('sm'),
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: -1
+    },
+    [theme.breakpoints.down(300)]: {
+      display: 'none'
+    }
+  },
+  topAngle: {
+    clipPath: 'polygon(0 100%, 100% 0, 100% 100%)'
+  },
+  bottomAngle: {
+    clipPath: 'polygon(0 0, 100% 0, 100% 100%)'
   }
 }))
 
@@ -162,56 +164,58 @@ export const Resume: React.FC = (): JSX.Element => {
           </Grid>
         </Grid>
         <Grid className={classes.splitSide}>
-          <Grid className={classes.splitTop}>
-            <Grid className={classes.education}>
-              <Grid container justify="flex-start" alignItems="center">
-                <SchoolIcon
-                  className={clsx(classes.resumeIcon, classes.white)}
-                />
-                <Typography
-                  component="h2"
-                  className={clsx(classes.resumeTitle, classes.white)}>
-                  completed
-                  <br />
-                  education
-                </Typography>
-              </Grid>
-              <Grid className={classes.schoolEntries}>
-                {schoolEntries.map(entry => (
-                  <ResumeEntry
-                    key={entry.key}
-                    logo={logoMap[entry.logo]}
-                    title={entry.title}
-                    subtitle={entry.subtitle}
-                    period={entry.period}
-                    bullets={entry.bullets}
-                  />
-                ))}
-              </Grid>
-            </Grid>
-            <Grid className={classes.angleRight} />
+          <Grid container justify="flex-start" alignItems="flex-end">
+            <Grid item className={clsx(classes.angle, classes.topAngle)} />
+            <Grid item className={clsx(classes.angleFill, classes.redBg)} />
           </Grid>
-          <Grid className={classes.splitBottom}>
-            <Grid className={classes.personalDetails}>
-              <Grid container justify="flex-start" alignItems="center">
-                <AssignmentIndIcon
-                  className={clsx(classes.resumeIcon, classes.red)}
+          <Grid className={clsx(classes.education, classes.redBg)}>
+            <Grid container justify="flex-start" alignItems="center">
+              <SchoolIcon className={clsx(classes.resumeIcon, classes.white)} />
+              <Typography
+                component="h2"
+                className={clsx(classes.resumeTitle, classes.white)}>
+                completed
+                <br />
+                education
+              </Typography>
+            </Grid>
+            <Grid className={classes.schoolEntries}>
+              {schoolEntries.map(entry => (
+                <ResumeEntry
+                  key={entry.key}
+                  logo={logoMap[entry.logo]}
+                  title={entry.title}
+                  subtitle={entry.subtitle}
+                  period={entry.period}
+                  bullets={entry.bullets}
                 />
-                <Typography
-                  component="h2"
-                  className={clsx(classes.resumeTitle, classes.red)}>
-                  other
-                  <br />
-                  details
-                </Typography>
-              </Grid>
-              <Grid>
-                <ul className={classes.personalDetailsList}>
-                  {personalDetails.map(item => (
-                    <li key={item.key}>{item.label}</li>
-                  ))}
-                </ul>
-              </Grid>
+              ))}
+            </Grid>
+          </Grid>
+          <Grid container justify="flex-start" alignItems="flex-start">
+            <Grid item className={clsx(classes.angle, classes.bottomAngle)} />
+            <Grid item className={clsx(classes.angleFill, classes.redBg)} />
+          </Grid>
+
+          <Grid className={classes.personalDetails}>
+            <Grid container justify="flex-start" alignItems="center">
+              <AssignmentIndIcon
+                className={clsx(classes.resumeIcon, classes.red)}
+              />
+              <Typography
+                component="h2"
+                className={clsx(classes.resumeTitle, classes.red)}>
+                other
+                <br />
+                details
+              </Typography>
+            </Grid>
+            <Grid>
+              <ul className={classes.personalDetailsList}>
+                {personalDetails.map(item => (
+                  <li key={item.key}>{item.label}</li>
+                ))}
+              </ul>
             </Grid>
           </Grid>
         </Grid>
