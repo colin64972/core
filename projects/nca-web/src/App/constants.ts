@@ -1,5 +1,5 @@
 import { createHashId } from '@cjo3/shared/react/helpers'
-import { MenuItem } from '../../d.ts'
+import { MenuItem } from '../../d'
 
 export const menuItems: MenuItem[] = [
   {
