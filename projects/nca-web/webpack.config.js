@@ -129,7 +129,8 @@ const config = {
       APP_NAME: localEnv.parsed.APP_NAME,
       SITE_NAME: localEnv.parsed.SITE_NAME,
       SITE_URL: localEnv.parsed.SITE_URL,
-      SITE_CONTACT_EMAIL: localEnv.parsed.SITE_CONTACT_EMAIL
+      SITE_CONTACT_EMAIL: localEnv.parsed.SITE_CONTACT_EMAIL,
+      RESUME_FILENAME: localEnv.parsed.RESUME_FILENAME
     })
   ]
 }

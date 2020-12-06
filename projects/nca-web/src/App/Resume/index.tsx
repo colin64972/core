@@ -1,5 +1,6 @@
 import NcaResume from '@cjo3/shared/assets/svgs/nca-resume'
-import { Grid, Typography } from '@material-ui/core'
+import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf'
+import { Grid, Typography, Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd'
 import BusinessCenterIcon from '@material-ui/icons/BusinessCenter'
@@ -31,8 +32,27 @@ import { ContentContainer } from '../ContentContainer'
 import { HeroBar } from '../HeroBar'
 import { ResumeEntry } from './ResumeEntry'
 import { SkillGraph } from './SkillGraph'
+import { saveAs } from 'file-saver'
 
 const useStyles = makeStyles(theme => ({
+  downloadSection: {
+    marginBottom: theme.custom.setSpace('md')
+  },
+  downloadTitle: {
+    ...theme.typography.shareTechMono,
+    textAlign: 'center',
+    textTransform: 'uppercase',
+    marginBottom: theme.custom.setSpace()
+  },
+  downloadButton: {
+    ...theme.typography.shareTechMono
+  },
+  downloadButtonColor: {
+    marginRight: theme.custom.setSpace()
+  },
+  downloadButtonIcon: {
+    marginRight: theme.custom.setSpace()
+  },
   sectionTitleIcon: {
     fontSize: theme.typography.fontSize * 4
   },
@@ -196,13 +216,44 @@ const logoMap = {
 
 export const Resume: React.FC = (): JSX.Element => {
   const classes = useStyles()
+  function downloadHandler(event: MouseEvent): void {
+    const fileVariant = event.currentTarget.name
+    saveAs(
+      `${process.env.SITE_URL}assets/pdfs/resume-${fileVariant}.pdf`,
+      process.env.RESUME_FILENAME
+    )
+  }
   return (
     <Grid container justify="center">
       <HeroBar
         src={NcaResume}
-        tagline="The 411 Lowdown of my Resume"
+        tagline="Deep Dive into my Credentials"
         alt="resume-image"
       />
+      <Grid className={classes.downloadSection}>
+        <Typography variant="h5" className={classes.downloadTitle}>
+          Download Resume
+        </Typography>
+        <Button
+          type="button"
+          className={clsx(classes.downloadButton, classes.downloadButtonColor)}
+          variant="outlined"
+          color="primary"
+          onClick={downloadHandler}
+          name="color">
+          <PictureAsPdfIcon className={classes.downloadButtonIcon} />
+          Color
+        </Button>
+        <Button
+          type="button"
+          className={classes.downloadButton}
+          variant="outlined"
+          name="grey"
+          onClick={downloadHandler}>
+          <PictureAsPdfIcon className={classes.downloadButtonIcon} />
+          Grey
+        </Button>
+      </Grid>
       <AngleBand top left bgColor="theme.palette.grey[200]" />
       <Grid className={classes.resumeMain}>
         <Grid className={classes.workSide}>
@@ -300,7 +351,9 @@ export const Resume: React.FC = (): JSX.Element => {
             'marketing',
             'design'
           ].map((item, index) => (
-            <Grid className={classes[`skills${index}`]}>
+            <Grid
+              key={`skill-section-${item}`}
+              className={classes[`skills${index}`]}>
               {softwareSkills
                 .filter(skill => skill.category === skillCategory[item])
                 .map(skill => (
