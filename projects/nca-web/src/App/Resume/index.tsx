@@ -3,6 +3,7 @@ import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd'
 import BusinessCenterIcon from '@material-ui/icons/BusinessCenter'
+import CodeIcon from '@material-ui/icons/Code'
 import SchoolIcon from '@material-ui/icons/School'
 import clsx from 'clsx'
 import React from 'react'
@@ -19,31 +20,32 @@ import {
   LogoJuno,
   LogoSauder
 } from '../assets'
-import { personalDetails, schoolEntries, workEntries } from '../content'
+import { skillCategory } from '../constants'
+import {
+  personalDetails,
+  schoolEntries,
+  softwareSkills,
+  workEntries
+} from '../content'
+import { ContentContainer } from '../ContentContainer'
 import { HeroBar } from '../HeroBar'
 import { ResumeEntry } from './ResumeEntry'
+import { SkillGraph } from './SkillGraph'
 
 const useStyles = makeStyles(theme => ({
-  resumeIcon: {
+  sectionTitleIcon: {
     fontSize: theme.typography.fontSize * 4
   },
-  resumeTitle: {
+  seciontTitle: {
     ...theme.typography.shareTechMono,
-    margin: `0 0 0 ${theme.custom.setSpace()}px`,
-    fontSize: theme.typography.fontSize * 2
+    fontSize: theme.typography.fontSize * 2,
+    margin: 0
   },
   white: {
     color: 'white'
   },
   red: {
     color: theme.palette.primary.main
-  },
-  workEntries: {
-    maxWidth: 500,
-    marginTop: theme.custom.setSpace('sm')
-  },
-  schoolEntries: {
-    marginTop: theme.custom.setSpace('sm')
   },
   resumeMain: {
     width: '100%',
@@ -70,26 +72,16 @@ const useStyles = makeStyles(theme => ({
       maxWidth: 512
     }
   },
+  workEntries: {
+    maxWidth: 500,
+    marginTop: theme.custom.setSpace('sm')
+  },
   splitSide: {
     width: '100%',
     [theme.breakpoints.up('sm')]: {
       width: '50%',
       marginTop: theme.custom.setSpace('md')
     }
-  },
-  redBg: {
-    backgroundColor: theme.palette.primary.main
-  },
-  education: {
-    padding: theme.custom.setSpace('sm'),
-    margin: '-1px 0'
-  },
-  personalDetails: {
-    maxWidth: 512,
-    padding: theme.custom.setSpace('sm')
-  },
-  personalDetailsList: {
-    padding: theme.custom.setSpace()
   },
   angle: {
     width: theme.custom.setSpace('sm') * 10,
@@ -111,6 +103,81 @@ const useStyles = makeStyles(theme => ({
   },
   bottomAngle: {
     clipPath: 'polygon(0 0, 100% 0, 100% 100%)'
+  },
+  redBg: {
+    backgroundColor: theme.palette.primary.main
+  },
+  education: {
+    padding: theme.custom.setSpace('sm'),
+    margin: '-1px 0'
+  },
+  schoolEntries: {
+    marginTop: theme.custom.setSpace('sm')
+  },
+  personalDetails: {
+    maxWidth: 512,
+    padding: theme.custom.setSpace('sm')
+  },
+  personalDetailsList: {
+    padding: theme.custom.setSpace()
+  },
+  skillsContainer: {
+    marginTop: theme.custom.setSpace('sm'),
+    ...theme.custom.setGrid(1, 'auto', theme.custom.setSpace('md')),
+    [theme.breakpoints.up('sm')]: {
+      ...theme.custom.setGrid(3, 'auto', theme.custom.setSpace('md'))
+    }
+  },
+  skills0: {
+    gridColumn: '1 / 2',
+    gridRow: 1
+  },
+  skills1: {
+    gridColumn: '1 / 2',
+    gridRow: 2,
+    [theme.breakpoints.up('sm')]: {
+      gridColumn: '2 / 3',
+      gridRow: 1
+    }
+  },
+  skills2: {
+    gridColumn: '1 / 2',
+    gridRow: 3,
+    [theme.breakpoints.up('sm')]: {
+      gridColumn: '3 / 4',
+      gridRow: 1
+    }
+  },
+  skills3: {
+    gridColumn: '1 / 2',
+    gridRow: 4,
+    [theme.breakpoints.up('sm')]: {
+      gridRow: 2
+    }
+  },
+  skills4: {
+    gridColumn: '1 / 2',
+    gridRow: 5,
+    [theme.breakpoints.up('sm')]: {
+      gridColumn: '2 / 3',
+      gridRow: 2
+    }
+  },
+  skills5: {
+    gridColumn: '1 / 2',
+    gridRow: 6,
+    [theme.breakpoints.up('sm')]: {
+      gridColumn: '3 / 4',
+      gridRow: 2
+    }
+  },
+  skills6: {
+    gridColumn: '1 / 2',
+    gridRow: 7,
+    paddingBottom: theme.custom.setSpace('sm'),
+    [theme.breakpoints.up('sm')]: {
+      gridRow: 3
+    }
   }
 }))
 
@@ -140,14 +207,12 @@ export const Resume: React.FC = (): JSX.Element => {
       <Grid className={classes.resumeMain}>
         <Grid className={classes.workSide}>
           <Grid className={classes.workInner}>
-            <Grid container justify="flex-start" alignItems="center">
-              <BusinessCenterIcon className={classes.resumeIcon} />
-              <Typography component="h2" className={classes.resumeTitle}>
-                work
-                <br />
-                history
-              </Typography>
-            </Grid>
+            <BusinessCenterIcon className={classes.sectionTitleIcon} />
+            <Typography component="h2" className={classes.seciontTitle}>
+              work
+              <br />
+              history
+            </Typography>
             <Grid className={classes.workEntries}>
               {workEntries.map(entry => (
                 <ResumeEntry
@@ -169,16 +234,16 @@ export const Resume: React.FC = (): JSX.Element => {
             <Grid item className={clsx(classes.angleFill, classes.redBg)} />
           </Grid>
           <Grid className={clsx(classes.education, classes.redBg)}>
-            <Grid container justify="flex-start" alignItems="center">
-              <SchoolIcon className={clsx(classes.resumeIcon, classes.white)} />
-              <Typography
-                component="h2"
-                className={clsx(classes.resumeTitle, classes.white)}>
-                completed
-                <br />
-                education
-              </Typography>
-            </Grid>
+            <SchoolIcon
+              className={clsx(classes.sectionTitleIcon, classes.white)}
+            />
+            <Typography
+              component="h2"
+              className={clsx(classes.seciontTitle, classes.white)}>
+              completed
+              <br />
+              education
+            </Typography>
             <Grid className={classes.schoolEntries}>
               {schoolEntries.map(entry => (
                 <ResumeEntry
@@ -196,30 +261,60 @@ export const Resume: React.FC = (): JSX.Element => {
             <Grid item className={clsx(classes.angle, classes.bottomAngle)} />
             <Grid item className={clsx(classes.angleFill, classes.redBg)} />
           </Grid>
-
           <Grid className={classes.personalDetails}>
-            <Grid container justify="flex-start" alignItems="center">
-              <AssignmentIndIcon
-                className={clsx(classes.resumeIcon, classes.red)}
-              />
-              <Typography
-                component="h2"
-                className={clsx(classes.resumeTitle, classes.red)}>
-                other
-                <br />
-                details
-              </Typography>
-            </Grid>
-            <Grid>
-              <ul className={classes.personalDetailsList}>
-                {personalDetails.map(item => (
-                  <li key={item.key}>{item.label}</li>
-                ))}
-              </ul>
-            </Grid>
+            <AssignmentIndIcon
+              className={clsx(classes.sectionTitleIcon, classes.red)}
+            />
+            <Typography
+              component="h2"
+              className={clsx(classes.seciontTitle, classes.red)}>
+              other
+              <br />
+              details
+            </Typography>
+            <ul className={classes.personalDetailsList}>
+              {personalDetails.map(item => (
+                <li key={item.key}>{item.label}</li>
+              ))}
+            </ul>
           </Grid>
         </Grid>
       </Grid>
+      <AngleBand top right bgColor="theme.palette.grey[200]" />
+      <ContentContainer gradient="theme.custom.setLinearGradient(180, theme.palette.grey[200], 'white')">
+        <CodeIcon className={classes.sectionTitleIcon} />
+        <Typography
+          component="h2"
+          className={clsx(classes.seciontTitle, classes.red)}>
+          software stack
+          <br />
+          proficiency
+        </Typography>
+        <Grid className={classes.skillsContainer}>
+          {[
+            'language',
+            'front',
+            'back',
+            'tool',
+            'aws',
+            'marketing',
+            'design'
+          ].map((item, index) => (
+            <Grid className={classes[`skills${index}`]}>
+              {softwareSkills
+                .filter(skill => skill.category === skillCategory[item])
+                .map(skill => (
+                  <SkillGraph
+                    label={skill.label}
+                    key={skill.key}
+                    level={skill.level}
+                    category={skillCategory[item]}
+                  />
+                ))}
+            </Grid>
+          ))}
+        </Grid>
+      </ContentContainer>
     </Grid>
   )
 }

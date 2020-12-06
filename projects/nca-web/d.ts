@@ -17,3 +17,12 @@ export interface ResumeEntry {
   bullets?: ListItem[]
   logo: string
 }
+
+export interface SoftwareStackItem extends ListItem {
+  level: number
+  category: number
+}
+
+export interface OptionMap {
+  [key: string]: number
+}

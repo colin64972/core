@@ -1,5 +1,5 @@
 import { createHashId } from '@cjo3/shared/react/helpers'
-import { MenuItem } from '../../d'
+import { MenuItem, OptionMap } from '../../d'
 
 export const menuItems: MenuItem[] = [
   {
@@ -30,3 +30,13 @@ export const menuItems: MenuItem[] = [
     midNavDir: 'midNavLeft'
   }
 ]
+
+export const skillCategory: OptionMap = {
+  language: 0,
+  front: 1,
+  back: 2,
+  tools: 3,
+  aws: 4,
+  design: 5,
+  marketing: 6
+}
