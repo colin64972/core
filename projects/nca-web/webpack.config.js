@@ -130,7 +130,14 @@ const config = {
       SITE_NAME: localEnv.parsed.SITE_NAME,
       SITE_URL: localEnv.parsed.SITE_URL,
       SITE_CONTACT_EMAIL: localEnv.parsed.SITE_CONTACT_EMAIL,
-      RESUME_FILENAME: localEnv.parsed.RESUME_FILENAME
+      RESUME_FILENAME: localEnv.parsed.RESUME_FILENAME,
+      NCA_GITHUB_URL: localEnv.parsed.NCA_GITHUB_URL,
+      DLE_GITHUB_URL: localEnv.parsed.DLE_GITHUB_URL,
+      KM_GITHUB_URL: localEnv.parsed.KM_GITHUB_URL,
+      NT_GITHUB_URL: localEnv.parsed.NT_GITHUB_URL,
+      DLE_URL: localEnv.parsed.DLE_URL,
+      KM_URL: localEnv.parsed.KM_URL,
+      NT_URL: localEnv.parsed.NT_URL
     })
   ]
 }

@@ -1,3 +1,5 @@
+import { ImageAsset } from '../../d'
+
 import ProfilePic3x from '@cjo3/shared/assets/images/profile-pic-144w.jpg'
 import ProfilePic1x from '@cjo3/shared/assets/images/profile-pic-48w.jpg'
 import ProfilePic2x from '@cjo3/shared/assets/images/profile-pic-96w.jpg'
@@ -42,11 +44,9 @@ import LogoAi60 from '@cjo3/shared/assets/images/logo-ai-60w.png'
 import LogoAi120 from '@cjo3/shared/assets/images/logo-ai-120w.png'
 import LogoAi180 from '@cjo3/shared/assets/images/logo-ai-180w.png'
 
-interface ImageAsset {
-  alt: string
-  mimeType: string
-  paths: string[]
-}
+import MockupNca528 from '@cjo3/shared/assets/images/nca-mockup-resume-528w.png'
+import MockupNca1057 from '@cjo3/shared/assets/images/nca-mockup-resume-1057w.png'
+import MockupNca1585 from '@cjo3/shared/assets/images/nca-mockup-resume-1585w.png'
 
 export const ProfilePic: ImageAsset = {
   alt: 'profile-photo',
@@ -111,4 +111,28 @@ export const LogoAi: ImageAsset = {
   alt: 'logo-art-institute',
   mimeType: 'image/png',
   paths: [LogoAi60, LogoAi120, LogoAi180]
+}
+
+export const MockupNca: ImageAsset = {
+  alt: 'mockup-nca',
+  mimeType: 'image/png',
+  paths: [MockupNca528, MockupNca1057, MockupNca1585]
+}
+
+export const MockupDle: ImageAsset = {
+  alt: 'mockup-detection-limit-editor',
+  mimeType: 'image/png',
+  paths: [MockupNca528, MockupNca1057, MockupNca1585]
+}
+
+export const MockupKm: ImageAsset = {
+  alt: 'mockup-keyword-multiplier',
+  mimeType: 'image/png',
+  paths: [MockupNca528, MockupNca1057, MockupNca1585]
+}
+
+export const MockupNt: ImageAsset = {
+  alt: 'mockup-neb-token',
+  mimeType: 'image/png',
+  paths: [MockupNca528, MockupNca1057, MockupNca1585]
 }

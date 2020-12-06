@@ -100,10 +100,9 @@ const useStyles = makeStyles(
       }
     },
     badgePic: {
+      'borderRadius': 5,
       'order': 1,
       'margin': `0 ${theme.custom.setSpace()}px 0 0`,
-      'borderRadius': theme.custom.setSpace(),
-      'height': 48,
       'transition': 'box-shadow 250ms ease-out',
       '&:hover': {
         boxShadow: theme.custom.boxShadow
@@ -208,8 +207,8 @@ export const Footer: React.FC = (): JSX.Element => {
               <Grid className={classes.badgeTopRow} onClick={badgeClickHandler}>
                 <ImageHandler
                   asset={ProfilePic}
-                  outerClass={classes.badgePic}
-                  height={48}
+                  pictureClass={classes.badgePic}
+                  width={60}
                 />
                 <Typography variant="h5" className={classes.badgeTitle}>
                   Need Help with JavaScript
