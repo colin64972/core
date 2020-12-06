@@ -36,7 +36,8 @@ import { saveAs } from 'file-saver'
 
 const useStyles = makeStyles(theme => ({
   downloadSection: {
-    marginBottom: theme.custom.setSpace('md')
+    marginBottom: theme.custom.setSpace('md'),
+    width: '100%'
   },
   downloadTitle: {
     ...theme.typography.shareTechMono,
@@ -227,32 +228,37 @@ export const Resume: React.FC = (): JSX.Element => {
     <Grid container justify="center">
       <HeroBar
         src={NcaResume}
-        tagline="Deep Dive into my Credentials"
+        tagline="Deep Dive into my Resume Credentials"
         alt="resume-image"
       />
       <Grid className={classes.downloadSection}>
         <Typography variant="h5" className={classes.downloadTitle}>
           Download Resume
         </Typography>
-        <Button
-          type="button"
-          className={clsx(classes.downloadButton, classes.downloadButtonColor)}
-          variant="outlined"
-          color="primary"
-          onClick={downloadHandler}
-          name="color">
-          <PictureAsPdfIcon className={classes.downloadButtonIcon} />
-          Color
-        </Button>
-        <Button
-          type="button"
-          className={classes.downloadButton}
-          variant="outlined"
-          name="grey"
-          onClick={downloadHandler}>
-          <PictureAsPdfIcon className={classes.downloadButtonIcon} />
-          Grey
-        </Button>
+        <Grid container justify="center" alignItems="center">
+          <Button
+            type="button"
+            className={clsx(
+              classes.downloadButton,
+              classes.downloadButtonColor
+            )}
+            variant="outlined"
+            color="primary"
+            onClick={downloadHandler}
+            name="color">
+            <PictureAsPdfIcon className={classes.downloadButtonIcon} />
+            Color
+          </Button>
+          <Button
+            type="button"
+            className={classes.downloadButton}
+            variant="outlined"
+            name="grey"
+            onClick={downloadHandler}>
+            <PictureAsPdfIcon className={classes.downloadButtonIcon} />
+            Grey
+          </Button>
+        </Grid>
       </Grid>
       <AngleBand top left bgColor="theme.palette.grey[200]" />
       <Grid className={classes.resumeMain}>

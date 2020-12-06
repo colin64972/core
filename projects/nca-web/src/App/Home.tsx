@@ -236,7 +236,7 @@ export const Home: React.FC = (): JSX.Element => {
         tagline="Let's build an online experience together"
         alt="home-image"
       />
-      <AngleBand top left bgColor="theme.palette.grey[200]" />
+      <AngleBand top right bgColor="theme.palette.grey[200]" />
       <ContentContainer gradient="theme.custom.setLinearGradient(180, theme.palette.grey[200], 'white')">
         <Grid container>
           <Grid item xs={12} md={8} className={classes.intro}>

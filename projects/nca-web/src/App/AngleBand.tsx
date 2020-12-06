@@ -20,28 +20,31 @@ const useStyles = makeStyles(
       }
     },
     left: {
+      width: 'calc(100% + 1px)',
       gridColumn: '1 / 2 ',
       gridRow: 1,
       backgroundColor: ({ bgColor }) => eval(bgColor),
-      visibility: ({ leftVisible }) => (leftVisible ? 'visible' : 'hidden')
+      visibility: ({ leftVisible }) => (leftVisible ? 'visible' : 'hidden'),
+      marginRight: -1
     },
     center: {
       gridColumn: '2 / 3 ',
       gridRow: 1
     },
     right: {
+      width: 'calc(100% + 1px)',
       gridColumn: '3 / 4 ',
       gridRow: 1,
       backgroundColor: ({ bgColor }) => eval(bgColor),
-      visibility: ({ rightVisible }) => (rightVisible ? 'visible' : 'hidden')
+      visibility: ({ rightVisible }) => (rightVisible ? 'visible' : 'hidden'),
+      marginLeft: -1
     },
     angleBlock: {
-      float: ({ float }) => float,
       backgroundColor: ({ bgColor }) => eval(bgColor),
       clipPath: ({ polygon }) => polygon,
-      width: theme.custom.setSpace('sm') * 10 + 1,
+      width: theme.custom.setSpace('sm') * 10,
       height: theme.custom.setSpace('sm'),
-      margin: '0 -1px'
+      float: ({ float }) => float
     }
   }),
   {
@@ -73,10 +76,10 @@ export const AngleBand: React.FC<Props> = ({
   })
 
   function setPolygon() {
-    if (top && left) return 'polygon(0 0, 0 100%, 100% 100%)'
-    if (top && right) return 'polygon(100% 0, 100% 100%, 0 100%)'
-    if (bottom && left) return 'polygon(0 0, 100% 0, 0 100%)'
-    if (bottom && right) return 'polygon(0 0, 100% 0, 100% 100%)'
+    if (top && left) return 'polygon(0 0, 100% 100%, 100% 102%, 0% 102%)'
+    if (top && right) return 'polygon(0 100%, 100% 0, 100% 102%, 0 102%)'
+    if (left) return 'polygon(0 0, 100% 0, 0 100%)'
+    if (right) return 'polygon(0 0, 100% 0, 100% 100%)'
   }
 
   return (

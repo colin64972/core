@@ -5,7 +5,8 @@ import React from 'react'
 const useStyles = makeStyles(
   theme => ({
     outer: {
-      background: ({ background }) => eval(background)
+      background: ({ background }) => eval(background),
+      margin: '-1px 0'
     },
     inner: {
       ...theme.custom.contentContainer,
