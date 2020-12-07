@@ -1,12 +1,12 @@
 import { CssBaseline } from '@material-ui/core'
 import React, { useLayoutEffect, useState } from 'react'
 import { Route, Switch, useLocation } from 'react-router-dom'
-import { Home } from './Home'
-import { Resume } from './Resume/'
 import { Apps } from './Apps/'
 import { Contact } from './Contact/'
-import { NotFound } from './NotFound'
 import { Footer } from './Footer'
+import { Home } from './Home'
+import { NotFound } from './NotFound'
+import { Resume } from './Resume/'
 import { TopNav } from './TopNav'
 
 export const App: React.FC = (): JSX.Element => {

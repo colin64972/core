@@ -1,4 +1,5 @@
 import NcaContact from '@cjo3/shared/assets/svgs/nca-contact'
+import { LoadFail } from '@cjo3/shared/react/components/LoadFail'
 import { CircularProgress, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import MailOutlineIcon from '@material-ui/icons/MailOutline'
@@ -6,7 +7,6 @@ import clsx from 'clsx'
 import React from 'react'
 import Loadable from 'react-loadable'
 import { HeroBar } from '../HeroBar'
-import { LoadFail } from '@cjo3/shared/react/components/LoadFail'
 
 const FormLoadable = Loadable({
   loader: () =>

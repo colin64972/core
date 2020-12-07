@@ -3,10 +3,10 @@ import { Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import MenuIcon from '@material-ui/icons/Menu'
 import React, { useState } from 'react'
+import { AngleBand } from './AngleBand'
+import { ContentContainer } from './ContentContainer'
 import { NavButtonSet } from './NavButtonSet'
 import { SideMenu } from './SideMenu'
-import { ContentContainer } from './ContentContainer'
-import { AngleBand } from './AngleBand'
 
 const useStyles = makeStyles(
   theme => ({

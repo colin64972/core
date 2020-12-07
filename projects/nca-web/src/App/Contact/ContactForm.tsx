@@ -1,15 +1,15 @@
-import { Grid, Typography } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import { Formik, Form, Field } from 'formik'
-import {
-  inputTypes,
-  messageTypes,
-  contactFormMessageTypeOptions
-} from '../constants'
 import clsx from 'clsx'
+import { Form, Formik } from 'formik'
 import React from 'react'
 import type { TypeOf } from 'yup'
-import { object, string, number } from 'yup'
+import { number, object, string } from 'yup'
+import {
+  contactFormMessageTypeOptions,
+  inputTypes,
+  messageTypes
+} from '../constants'
 import { FormikField } from './FormikField'
 
 const useStyles = makeStyles(

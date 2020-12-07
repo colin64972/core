@@ -1,6 +1,5 @@
 import { Grid, Typography } from '@material-ui/core'
-import { easing, makeStyles } from '@material-ui/core/styles'
-import { EventAvailable } from '@material-ui/icons'
+import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 import { skillCategory } from '../constants'
 
@@ -19,7 +18,7 @@ const useStyles = makeStyles(
       width: '100%',
       height: 5,
       position: 'relative',
-      backgroundColor: theme.palette.grey[400]
+      backgroundColor: theme.palette.grey[300]
     },
     levelBar: {
       width: ({ levelWidth }) => `${levelWidth}%`,

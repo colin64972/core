@@ -5,8 +5,8 @@ import BusinessCenterIcon from '@material-ui/icons/BusinessCenter'
 import HomeIcon from '@material-ui/icons/Home'
 import ImportantDevicesIcon from '@material-ui/icons/ImportantDevices'
 import MailOutlineIcon from '@material-ui/icons/MailOutline'
-import React from 'react'
 import clsx from 'clsx'
+import React from 'react'
 import { menuItems } from './constants'
 
 interface Props {
