@@ -16,7 +16,8 @@ const useStyles = makeStyles(
   theme => ({
     container: {
       width: '100%',
-      padding: theme.custom.setSpace('sm')
+      padding: theme.custom.setSpace('sm'),
+      paddingBottom: theme.custom.setSpace('md')
     },
     buttons: {
       ...theme.custom.setFlex()
