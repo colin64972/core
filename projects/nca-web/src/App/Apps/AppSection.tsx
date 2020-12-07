@@ -10,7 +10,7 @@ import MoneyOffIcon from '@material-ui/icons/MoneyOff'
 import clsx from 'clsx'
 import React from 'react'
 import { ContentContainer } from '../ContentContainer'
-import { AppItem, ImageAsset } from '../../../d'
+import { AppItem, ImageAsset } from '../../../index'
 import { MockupNca, MockupDle, MockupKm, MockupNt } from '../assets'
 
 const useStyles = makeStyles(

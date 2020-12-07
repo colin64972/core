@@ -1,6 +1,6 @@
 import { setCustomTheme } from '@cjo3/shared/react/themes/theming'
 import primary from '@material-ui/core/colors/red'
-import secondary from '@material-ui/core/colors/blue'
+import secondary from '@material-ui/core/colors/lightblue'
 import {
   createGenerateClassName,
   StylesProvider,

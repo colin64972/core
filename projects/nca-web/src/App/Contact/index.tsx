@@ -1,12 +1,32 @@
-import { Grid, Typography } from '@material-ui/core'
-import { HeroBar } from '../HeroBar'
-import React from 'react'
 import NcaContact from '@cjo3/shared/assets/svgs/nca-contact'
-import { AngleBand } from '../AngleBand'
-import clsx from 'clsx'
-import { ContentContainer } from '../ContentContainer'
+import { CircularProgress, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import MailOutlineIcon from '@material-ui/icons/MailOutline'
+import clsx from 'clsx'
+import React from 'react'
+import Loadable from 'react-loadable'
+import { HeroBar } from '../HeroBar'
+import { LoadFail } from '@cjo3/shared/react/components/LoadFail'
+
+const FormLoadable = Loadable({
+  loader: () =>
+    import(
+      /* webpackChunkName: "chunk-ContactForm" */
+      './ContactForm'
+    ),
+  loading: ({ error, pastDelay, timedOut }) => {
+    if (error) return <LoadFail message="Load Failed" />
+    if (timedOut) return <LoadFail message="Timed Out" />
+    if (pastDelay) return <CircularProgress color="primary" size={30} />
+    return null
+  },
+  delay: 250,
+  timeout: 5000,
+  render: (loaded, props) => {
+    const Component = loaded.ContactForm
+    return <Component {...props} />
+  }
+})
 
 const useStyles = makeStyles(
   theme => ({
@@ -74,9 +94,10 @@ const useStyles = makeStyles(
     },
     formBlock: {
       width: '100%',
-      height: 500,
-      border: '1px solid green',
+      minHeight: 250,
+      ...theme.custom.setFlex(),
       [theme.breakpoints.up('sm')]: {
+        minHeight: 500,
         width: '66.6666%'
       }
     }
@@ -94,7 +115,7 @@ export const Contact: React.FC = (): JSX.Element => {
         alt="contact-image"
       />
       <Grid className={classes.container}>
-        <Grid className={clsx(classes.left, classes.bgRed)}></Grid>
+        <Grid className={clsx(classes.left, classes.bgRed)} />
         <Grid className={classes.center}>
           <Grid className={classes.titleBlock}>
             <Grid className={clsx(classes.titleTop, classes.bgRed)} />
@@ -114,9 +135,11 @@ export const Contact: React.FC = (): JSX.Element => {
             </Grid>
             <Grid className={clsx(classes.titleBottom, classes.bgRed)} />
           </Grid>
-          <Grid className={classes.formBlock}></Grid>
+          <Grid className={classes.formBlock}>
+            <FormLoadable />
+          </Grid>
         </Grid>
-        <Grid className={classes.right}></Grid>
+        <Grid className={classes.right} />
       </Grid>
     </Grid>
   )

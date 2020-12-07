@@ -43,3 +43,15 @@ export interface ImageAsset {
   mimeType: string
   paths: string[]
 }
+
+export interface ContactFormValues {
+  firstName: string
+  lastName: string
+  email: string
+  messageType: number
+  message: string
+}
+
+export interface SelectOption extends ListItem {
+  value: string | number
+}

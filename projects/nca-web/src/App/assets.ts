@@ -1,4 +1,4 @@
-import { ImageAsset } from '../../d'
+import { ImageAsset } from '../../index'
 
 import ProfilePic3x from '@cjo3/shared/assets/images/profile-pic-144w.jpg'
 import ProfilePic1x from '@cjo3/shared/assets/images/profile-pic-48w.jpg'
