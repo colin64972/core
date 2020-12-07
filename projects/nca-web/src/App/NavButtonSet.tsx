@@ -106,15 +106,19 @@ export const NavButtonSet: React.FC<Props> = ({
     alignment,
     noLastChildMargin
   })
+
   const menuItemClickHandler = (linkTo: string) => (
     event: React.MouseEvent
   ): void => {
     clickWindowLink(linkTo)
   }
-  if (midNav) {
+
+  const items = menuItems.slice(slice)
+
+  if (midNav)
     return (
       <Grid className={classes.midNavContainer}>
-        {menuItems.slice(slice).map(item => (
+        {items.map(item => (
           <a
             href={item.to}
             className={classes.midNavLink}
@@ -127,10 +131,9 @@ export const NavButtonSet: React.FC<Props> = ({
         ))}
       </Grid>
     )
-  }
   return (
     <Grid className={classes.container}>
-      {menuItems.slice(slice).map(item => (
+      {items.map(item => (
         <Button
           key={item.key}
           type="button"
