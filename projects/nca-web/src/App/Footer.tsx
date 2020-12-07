@@ -12,9 +12,10 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline'
 import VpnLockIcon from '@material-ui/icons/VpnLock'
 import React, { useState } from 'react'
 import Loadable from 'react-loadable'
+import { AngleBand } from './AngleBand'
 import { ProfilePic } from './assets'
-import { menuItems } from './constants'
-import { SectionBg } from './SectionBg'
+import { ContentContainer } from './ContentContainer'
+import { NavButtonSet } from './NavButtonSet'
 
 const iconMap: { [key: string]: JSX.Element } = {
   home: <HomeIcon />,
@@ -65,9 +66,13 @@ const PpLoadable = Loadable({
 
 const useStyles = makeStyles(
   theme => ({
-    footer: {},
     footerLeft: {
-      ...theme.custom.setFlex('column', 'flex-start', 'flex-start')
+      ...theme.custom.setFlex('column', 'center', 'flex-start')
+    },
+    footerRight: {
+      [theme.breakpoints.up('sm')]: {
+        ...theme.custom.setFlex('column', 'space-between', 'flex-end')
+      }
     },
     menuItem: {
       'fontFamily': 'Share Tech Mono,' + theme.typography.fontFamily,
@@ -82,12 +87,6 @@ const useStyles = makeStyles(
         marginBottom: 0
       }
     },
-    menuItemIcon: {
-      marginRight: theme.custom.setSpace()
-    },
-    footerRight: {
-      ...theme.custom.setFlex('column', 'space-between', 'flex-end')
-    },
     badge: {
       margin: `${theme.custom.setSpace('md')}px 0`,
       [theme.breakpoints.up('sm')]: {
@@ -95,16 +94,15 @@ const useStyles = makeStyles(
       }
     },
     badgeTopRow: {
-      ...theme.custom.setFlex('row', 'flex-end', 'center'),
+      ...theme.custom.setFlex('row', 'flex-start', 'center'),
       '&:hover': {
         cursor: 'pointer'
       }
     },
     badgePic: {
+      'borderRadius': 5,
       'order': 1,
       'margin': `0 ${theme.custom.setSpace()}px 0 0`,
-      'borderRadius': theme.custom.setSpace(),
-      'height': 48,
       'transition': 'box-shadow 250ms ease-out',
       '&:hover': {
         boxShadow: theme.custom.boxShadow
@@ -117,7 +115,8 @@ const useStyles = makeStyles(
     badgeTitle: {
       'order': 2,
       'color': theme.palette.primary[600],
-      'fontSize': theme.typography.fontSize,
+      'fontSize': theme.typography.fontSize * 1.5,
+      ...theme.typography.shareTechMono,
       'textAlign': 'left',
       'transition': 'color 250ms ease-out',
       '&:hover': {
@@ -176,65 +175,58 @@ export const Footer: React.FC = (): JSX.Element => {
     clickWindowLink(process.env.SITE_URL, true)
   }
 
-  const menuItemClickHandler = (linkTo: string) => (
-    event: React.MouseEvent
-  ): void => {
-    clickWindowLink(linkTo)
-  }
   return (
-    <SectionBg top left bgColor="theme.palette.grey[900]">
-      <Grid component="footer" container className={classes.footer}>
-        <Grid item xs={12} sm={6} className={classes.footerLeft}>
-          {menuItems.map(item => (
+    <Grid component="footer" container>
+      <AngleBand top left bgColor="theme.palette.grey[900]" />
+      <ContentContainer gradient="theme.custom.setLinearGradient(180, theme.palette.grey[900], theme.palette.grey[800])">
+        <Grid container>
+          <Grid item xs={12} sm={6} className={classes.footerLeft}>
+            <NavButtonSet
+              color="theme.palette.grey[500]"
+              direction="column"
+              justification="flex-start"
+              alignment="flex-start"
+            />
             <Button
-              key={item.key}
               type="button"
               className={classes.menuItem}
-              onClick={menuItemClickHandler(item.to)}>
-              {iconMap[item.icon]}
-              &emsp;
-              {item.label}
+              onClick={tcOpenHandler}>
+              <GavelIcon />
+              &emsp;Terms &amp; Conditions
             </Button>
-          ))}
-          <Button
-            type="button"
-            className={classes.menuItem}
-            onClick={tcOpenHandler}>
-            <GavelIcon />
-            &emsp;Terms &amp; Conditions
-          </Button>
-          <Button
-            type="button"
-            className={classes.menuItem}
-            onClick={ppOpenHandler}>
-            <VpnLockIcon />
-            &emsp;Privacy Policy
-          </Button>
-        </Grid>
-        <Grid item xs={12} sm={6} className={classes.footerRight}>
-          <Grid className={classes.badge}>
-            <Grid className={classes.badgeTopRow} onClick={badgeClickHandler}>
-              <ImageHandler
-                asset={ProfilePic}
-                outerClass={classes.badgePic}
-                height={48}
-              />
-              <Typography variant="h5" className={classes.badgeTitle}>
-                Need Help with JavaScript
-                <br />
-                App Development?
+            <Button
+              type="button"
+              className={classes.menuItem}
+              onClick={ppOpenHandler}>
+              <VpnLockIcon />
+              &emsp;Privacy Policy
+            </Button>
+          </Grid>
+          <Grid item xs={12} sm={6} className={classes.footerRight}>
+            <Grid className={classes.badge}>
+              <Grid className={classes.badgeTopRow} onClick={badgeClickHandler}>
+                <ImageHandler
+                  asset={ProfilePic}
+                  pictureClass={classes.badgePic}
+                  width={60}
+                />
+                <Typography variant="h5" className={classes.badgeTitle}>
+                  Need Help with JavaScript
+                  <br />
+                  App Development?
+                </Typography>
+              </Grid>
+              <Typography variant="body1" className={classes.badgeSubtitle}>
+                Available for Hire!
               </Typography>
             </Grid>
-            <Typography variant="body1" className={classes.badgeSubtitle}>
-              Available for Hire!
+            <Typography variant="body1" className={classes.legalText}>
+              &copy; {new Date().getFullYear()} {process.env.SITE_NAME}. All
+              rights reserved.
             </Typography>
           </Grid>
-          <Typography variant="body1" className={classes.legalText}>
-            &copy; {new Date().getFullYear()} {process.env.SITE_NAME}. All
-            rights reserved.
-          </Typography>
         </Grid>
-      </Grid>
+      </ContentContainer>
       {tcOpen && (
         <TcLoadable
           open={tcOpen}
@@ -253,6 +245,6 @@ export const Footer: React.FC = (): JSX.Element => {
           siteContactEmail={process.env.SITE_CONTACT_EMAIL}
         />
       )}
-    </SectionBg>
+    </Grid>
   )
 }

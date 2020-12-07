@@ -1,6 +1,6 @@
 import { setCustomTheme } from '@cjo3/shared/react/themes/theming'
 import primary from '@material-ui/core/colors/red'
-import secondary from '@material-ui/core/colors/blue'
+import secondary from '@material-ui/core/colors/lightblue'
 import {
   createGenerateClassName,
   StylesProvider,
@@ -57,6 +57,12 @@ theme.custom.textShadow = '0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.5)'
 theme.custom.contentContainer = {
   width: '100%',
   maxWidth: 1024
+}
+
+theme.typography.shareTechMono = {
+  fontFamily: `Share Tech Mono, ${theme.typography.fontFamily}`,
+  fontWeight: 'normal',
+  lineHeight: 1
 }
 
 theme.custom.unorderedList = {

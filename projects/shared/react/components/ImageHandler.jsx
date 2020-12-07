@@ -4,13 +4,16 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { setSrcSet, createHashId } from '../helpers'
 
-const classes = makeStyles(
+const useStyles = makeStyles(
   () => ({
     picture: {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       overflow: 'hidden'
+    },
+    image: {
+      width: ({ width }) => (width ? width : '100%')
     }
   }),
   {
@@ -18,19 +21,20 @@ const classes = makeStyles(
   }
 )
 
-export const ImageHandler = ({ asset, outerClass, height }) => {
+export const ImageHandler = ({ asset, pictureClass, imageClass, width }) => {
   if (!asset) return null
   const { alt, mimeType, paths } = asset
+  const classes = useStyles({ width })
 
   return (
-    <picture className={clsx(classes.picture, outerClass)}>
+    <picture className={clsx(classes.picture, pictureClass)}>
       <source srcSet={setSrcSet(paths, 'webp')} type="image/webp" />
       <img
         srcSet={setSrcSet(paths)}
         src={paths[0]}
         alt={alt}
         type={mimeType}
-        height={height}
+        className={clsx(classes.image, imageClass)}
       />
     </picture>
   )
