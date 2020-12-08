@@ -14,7 +14,6 @@ provider:
     payload: '2.0'
     cors:
       allowedOrigins:
-        - ${env:CORS_LOCAL_ORIGIN}
         - ${env:CORS_LIVE_ORIGIN}
       allowedHeaders:
         - Content-Type
@@ -35,7 +34,7 @@ provider:
         - dynamodb:Scan
         - dynamodb:UpdateItem
       Resource:
-        - arn:aws:dynamodb:${env:REGION}:*:table/${env:CONTENT_TABLE_NAME}
+        - arn:aws:dynamodb:${env:REGION}:*:table/${env:TABLE_NAME}
 
 functions:
   contactHandler:
@@ -85,7 +84,7 @@ resources:
     NcaContent:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: ${env:CONTENT_TABLE_NAME}
+        TableName: ${env:TABLE_NAME}
         AttributeDefinitions:
           - AttributeName: app
             AttributeType: S

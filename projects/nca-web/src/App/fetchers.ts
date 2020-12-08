@@ -1,6 +1,5 @@
-import 'regenerator-runtime/runtime'
-import { get, post } from 'axios'
-import { createAuthToken } from '@cjo3/shared/security/authToken'
+import axios from 'axios'
+import { addAuthHeaderToOptions } from '@cjo3/shared/security/authToken'
 
 const otherHeaders = {
   headers: {
@@ -9,10 +8,21 @@ const otherHeaders = {
 }
 
 export async function postMessage(values, host, pathname) {
-  const res = await post(
+  const payload = {
+    name: values.name,
+    sender: values.email,
+    typeIndex: values.messageType,
+    message: values.message
+  }
+
+  const res = await axios.post(
     'http://localhost:2000/contact',
-    { ...values, host, pathname },
-    otherHeaders
+    {
+      ...payload,
+      host,
+      pathname
+    },
+    addAuthHeaderToOptions(otherHeaders)
   )
-  return res
+  return res.status === 204
 }

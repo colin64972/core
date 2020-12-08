@@ -8,7 +8,7 @@ const {
 const parsedTable = JSON.parse(
   JSON.stringify(
     readYaml(path.resolve(__dirname, 'serverless.yaml'))[0].resources.Resources[
-      process.env.CONTENT_TABLE_NAME
+      process.env.TABLE_NAME
     ].Properties
   ).replace(/\$\{env\:(\w+)\}/gi, '$1')
 )

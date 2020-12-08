@@ -1,3 +1,4 @@
+import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline'
 import MarkunreadMailboxIcon from '@material-ui/icons/MarkunreadMailbox'
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
@@ -83,42 +84,45 @@ export const ContactForm: React.FC = (): JSX.Element => {
     message: ''
   }
 
-  const [mailSent, setMailSent] = useState<boolean>(false)
+  const [mailRequest, setMailRequest] = useState<boolean>(false)
+  const [mailFail, setMailFail] = useState<boolean>(false)
 
   function submitHandler(values, actions): void {
-    console.log(
-      '%c submitHandler',
-      'color: yellow; font-size: large',
-      values,
-      actions
-    )
     actions.setSubmitting(true)
     postMessage(values, window.location.hostname, window.location.pathname)
-      .then(res => {
-        console.log('%c postMessage', 'color: yellow; font-size: large', res)
-        setMailSent(true)
+      .then(() => {
+        setMailRequest(true)
         actions.setSubmitting(false)
+        actions.resetForm()
       })
       .catch(error => {
-        console.error(
-          '%c postMessage',
-          'color: orange; font-size: large',
-          error
-        )
+        setMailRequest(true)
+        setMailFail(true)
         actions.setSubmitting(false)
+        actions.resetForm()
       })
   }
 
   return (
     <Grid className={classes.container}>
-      {mailSent ? (
+      {mailRequest ? (
         <Grid className={classes.mailSentContainer}>
-          <MarkunreadMailboxIcon
-            color="primary"
-            className={classes.mailSentIcon}
-          />
+          {mailFail ? (
+            <ErrorOutlineIcon
+              color="primary"
+              className={classes.mailSentIcon}
+            />
+          ) : (
+            <MarkunreadMailboxIcon
+              color="primary"
+              className={classes.mailSentIcon}
+            />
+          )}
+
           <Typography variant="h4" className={classes.mailSentText}>
-            Thanks for your message!
+            {mailFail
+              ? 'Message could not be sent. Please try again later'
+              : 'Thanks for your message!'}
           </Typography>
         </Grid>
       ) : (

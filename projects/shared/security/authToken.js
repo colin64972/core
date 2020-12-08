@@ -15,6 +15,13 @@ export const createAuthToken = (payloadSecret, jwtSecret) => {
   return `Bearer ${token}`
 }
 
+export function isAuthorized(token, jwtKey, authSecret) {
+  if (!token) return false
+  const decoded = jwt.verify(token.substring(7), jwtKey)
+  const envSecret = createAuthHash(authSecret)
+  return decoded.secret === envSecret
+}
+
 export const checkAuthorization = (jwtToken, jwtKey, authSecret, callback) => {
   let res = {
     statusCode: 401
