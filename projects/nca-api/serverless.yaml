@@ -14,15 +14,14 @@ provider:
     payload: '2.0'
     cors:
       allowedOrigins:
-        - ${env:CORS_STA_ORIGIN}
-        - ${env:CORS_PRO_ORIGIN}
+        - ${env:CORS_LIVE_ORIGIN}
       allowedHeaders:
         - Content-Type
         - Authorization
       allowedMethods:
         - GET
-        - OPTIONS
         - POST
+        - OPTIONS
       allowCredentials: true
       maxAge: 6000
   iamRoleStatements:
@@ -38,43 +37,13 @@ provider:
         - arn:aws:dynamodb:${env:REGION}:*:table/${env:TABLE_NAME}
 
 functions:
-  createTrialHandler:
-    name: ${env:SLS_SERVICE_NAME}-createTrialHandler
-    handler: v1/index.createTrialHandler
+  contactHandler:
+    name: ${env:SLS_SERVICE_NAME}-contactHandler
+    handler: v1/index.contactHandler
     events:
       - httpApi:
-          path: /trials
+          path: /contact
           method: POST
-  getMetaHandler:
-    name: ${env:SLS_SERVICE_NAME}-getMetaHandler
-    handler: v1/index.getMetaHandler
-    events:
-      - httpApi:
-          path: /ke
-          method: GET
-  getVolumesHandler:
-    name: ${env:SLS_SERVICE_NAME}-getVolumesHandler
-    handler: v1/index.getVolumesHandler
-    events:
-      - httpApi:
-          path: /ke
-          method: POST
-  preOrderHandler:
-    name: ${env:SLS_SERVICE_NAME}-preOrderHandler
-    handler: v1/index.preOrderHandler
-    events:
-      - httpApi:
-          path: /ke/pre-order
-          method: POST
-  lowCreditsAlertHandler:
-    name: ${env:SLS_SERVICE_NAME}-lowCreditsAlertHandler
-    handler: v1/index.lowCreditsAlertHandler
-    events:
-      - httpApi:
-          path: /ke/low-credits
-          method: POST
-      - sns:
-          arn: ${env:SNS_ARN}
 
 configValidationMode: warn
 
@@ -95,7 +64,7 @@ custom:
   serverless-offline:
     httpPort: ${env:SLS_OFFLINE_PORT}
     noPrependStageInUrl: true
-    resourceRoutes: true
+    resourceRoutes: false
   webpack:
     webpackConfig: webpackConfig.js
     packager: yarn
@@ -106,22 +75,21 @@ custom:
   customDomain:
     stage: ${self:custom.stage}
     domainName: ${self:custom.domains.${self:custom.stage}}
-    basePath: ${env:BASE_API_URL}
     endpointType: regional
     apiType: http
     autoDomain: true
 
 resources:
   Resources:
-    kmTrials:
+    NcaContent:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: ${env:TABLE_NAME}
         AttributeDefinitions:
-          - AttributeName: id
+          - AttributeName: app
             AttributeType: S
         KeySchema:
-          - AttributeName: id
+          - AttributeName: app
             KeyType: HASH
         ProvisionedThroughput:
           ReadCapacityUnits: 5

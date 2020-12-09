@@ -8,6 +8,9 @@ const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
 const { EnvironmentPlugin, HashedModuleIdsPlugin } = require('webpack')
 
 const localEnv = require('dotenv').config()
+const sharedEnv = require('dotenv').config({
+  path: path.resolve('..', 'shared', '.env')
+})
 
 const config = {
   mode: 'development',
@@ -137,7 +140,9 @@ const config = {
       NT_GITHUB_URL: localEnv.parsed.NT_GITHUB_URL,
       DLE_URL: localEnv.parsed.DLE_URL,
       KM_URL: localEnv.parsed.KM_URL,
-      NT_URL: localEnv.parsed.NT_URL
+      NT_URL: localEnv.parsed.NT_URL,
+      JWT_PRIVATE_KEY: sharedEnv.parsed.JWT_PRIVATE_KEY,
+      AUTH_SECRET: sharedEnv.parsed.AUTH_SECRET
     })
   ]
 }

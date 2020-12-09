@@ -1,9 +1,12 @@
-import { Grid } from '@material-ui/core'
+import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline'
+import MarkunreadMailboxIcon from '@material-ui/icons/MarkunreadMailbox'
+import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
 import { Form, Formik } from 'formik'
-import React from 'react'
-import type { TypeOf } from 'yup'
+import React, { useState } from 'react'
+import { TypeOf } from 'yup'
+import { postMessage } from '../fetchers'
 import { number, object, string } from 'yup'
 import {
   contactFormMessageTypeOptions,
@@ -43,6 +46,22 @@ const useStyles = makeStyles(
     bgValid: {
       backgroundColor: theme.palette.secondary.main,
       cursor: 'pointer'
+    },
+    mailSentContainer: {
+      ...theme.custom.setFlex('column'),
+      height: 300,
+      [theme.breakpoints.up('sm')]: {
+        position: 'relative',
+        top: theme.custom.setSpace('md') * -1
+      }
+    },
+    mailSentIcon: {
+      fontSize: theme.typography.fontSize * 5
+    },
+    mailSentText: {
+      ...theme.typography.shareTechMono,
+      marginTop: theme.custom.setSpace('sm'),
+      textAlign: 'center'
     }
   }),
   { name: 'ContactForm' }
@@ -65,76 +84,108 @@ export const ContactForm: React.FC = (): JSX.Element => {
     message: ''
   }
 
+  const [mailRequest, setMailRequest] = useState<boolean>(false)
+  const [mailFail, setMailFail] = useState<boolean>(false)
+
   function submitHandler(values, actions): void {
-    console.log(
-      '%c submitHandler',
-      'color: yellow; font-size: large',
-      values,
-      actions
-    )
+    actions.setSubmitting(true)
+    postMessage(values, window.location.hostname, window.location.pathname)
+      .then(() => {
+        setMailRequest(true)
+        actions.setSubmitting(false)
+        actions.resetForm()
+      })
+      .catch(error => {
+        setMailRequest(true)
+        setMailFail(true)
+        actions.setSubmitting(false)
+        actions.resetForm()
+      })
   }
 
   return (
     <Grid className={classes.container}>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={submitHandler}
-        validationSchema={contactFormSchema}>
-        {formik => (
-          <Form>
-            <FormikField
-              name="name"
-              label="Name"
-              inputType={inputTypes.text}
-              placeholder="John"
-              required
+      {mailRequest ? (
+        <Grid className={classes.mailSentContainer}>
+          {mailFail ? (
+            <ErrorOutlineIcon
+              color="primary"
+              className={classes.mailSentIcon}
             />
-            <FormikField
-              name="email"
-              label="Email Address"
-              inputType={inputTypes.text}
-              placeholder="johnsmith@gmail.com"
-              required
+          ) : (
+            <MarkunreadMailboxIcon
+              color="primary"
+              className={classes.mailSentIcon}
             />
-            <FormikField
-              name="messageType"
-              label="Message Type"
-              inputType={inputTypes.select}
-              required
-              selectOptions={contactFormMessageTypeOptions}
-            />
-            <FormikField
-              name="message"
-              label="Message Body"
-              inputType={inputTypes.text}
-              placeholder="Enter message here"
-              required
-              rows={5}
-            />
+          )}
 
-            <Grid className={classes.buttons}>
-              <button
-                type="submit"
-                disabled={
-                  formik.isSubmitting || !formik.dirty || !formik.isValid
-                }
-                className={clsx(classes.button, classes.submit, {
-                  [classes.bgValid]: formik.dirty && formik.isValid
-                })}>
-                Submit
-              </button>
-              <button
-                type="reset"
-                disabled={!formik.dirty}
-                className={clsx(classes.button, classes.reset, {
-                  [classes.bgDirty]: formik.dirty
-                })}>
-                Reset
-              </button>
-            </Grid>
-          </Form>
-        )}
-      </Formik>
+          <Typography variant="h4" className={classes.mailSentText}>
+            {mailFail
+              ? 'Message could not be sent. Please try again later'
+              : 'Thanks for your message!'}
+          </Typography>
+        </Grid>
+      ) : (
+        <Formik
+          initialValues={initialValues}
+          onSubmit={submitHandler}
+          validationSchema={contactFormSchema}>
+          {formik => (
+            <Form>
+              <FormikField
+                name="name"
+                label="Name"
+                inputType={inputTypes.text}
+                placeholder="John"
+                required
+              />
+              <FormikField
+                name="email"
+                label="Email Address"
+                inputType={inputTypes.text}
+                placeholder="johnsmith@gmail.com"
+                required
+              />
+              <FormikField
+                name="messageType"
+                label="Message Type"
+                inputType={inputTypes.select}
+                required
+                selectOptions={contactFormMessageTypeOptions}
+              />
+              <FormikField
+                name="message"
+                label="Message Body"
+                inputType={inputTypes.text}
+                placeholder="Enter message here"
+                required
+                rows={5}
+              />
+
+              <Grid className={classes.buttons}>
+                <button
+                  type="submit"
+                  disabled={
+                    formik.isSubmitting || !formik.dirty || !formik.isValid
+                  }
+                  className={clsx(classes.button, classes.submit, {
+                    [classes.bgValid]: formik.dirty && formik.isValid
+                  })}>
+                  {formik.isSubmitting ? 'Sending' : 'Submit'}
+                </button>
+                <button
+                  type="reset"
+                  disabled={!formik.dirty}
+                  className={clsx(classes.button, classes.reset, {
+                    [classes.bgDirty]: formik.dirty
+                  })}>
+                  Reset
+                </button>
+              </Grid>
+            </Form>
+          )}
+        </Formik>
+      )}
     </Grid>
   )
 }

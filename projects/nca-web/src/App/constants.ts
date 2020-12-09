@@ -1,4 +1,5 @@
 import { createHashId } from '@cjo3/shared/react/helpers'
+import { messageTypeLabels } from '@cjo3/shared/raw/constants/nca'
 import { MenuItem, OptionMap, SelectOption } from '../../index'
 
 export const menuItems: MenuItem[] = [
@@ -41,31 +42,31 @@ export const skillCategory: OptionMap = {
   marketing: 6
 }
 
-export const messageTypes: OptionMap = {
-  inquiry: 0,
-  feedback: 1,
-  support: 2
-}
-
 export const inputTypes: OptionMap = {
   text: 0,
   select: 1
 }
 
+export const messageTypes: OptionMap = {
+  [messageTypeLabels[0]]: messageTypeLabels.indexOf(messageTypeLabels[0]),
+  [messageTypeLabels[1]]: messageTypeLabels.indexOf(messageTypeLabels[1]),
+  [messageTypeLabels[2]]: messageTypeLabels.indexOf(messageTypeLabels[2])
+}
+
 export const contactFormMessageTypeOptions: SelectOption[] = [
   {
     key: createHashId(),
-    label: 'Inquiry',
-    value: messageTypes.inquiry
+    label: messageTypeLabels[0],
+    value: messageTypes[messageTypeLabels[0]]
   },
   {
     key: createHashId(),
-    label: 'Feedback',
-    value: messageTypes.feedback
+    label: messageTypeLabels[1],
+    value: messageTypes[messageTypeLabels[1]]
   },
   {
     key: createHashId(),
-    label: 'Support',
-    value: messageTypes.support
+    label: messageTypeLabels[2],
+    value: messageTypes[messageTypeLabels[2]]
   }
 ]

@@ -1,10 +1,5 @@
-import { Provider } from 'react-redux'
 import ReactGA from 'react-ga'
-import { ServerStyleSheets } from '@material-ui/core/styles'
-import { StaticRouter } from 'react-router-dom'
-import { createElement } from 'react'
 import crypto from 'crypto'
-import { renderToString } from 'react-dom/server'
 import { v4 as uuidv4 } from 'uuid'
 
 export const createHashId = () => {
@@ -82,49 +77,6 @@ export const setTracker = gaTag => {
 
   return tracker
 }
-
-const renderPage = (path, app, store) => {
-  const sheets = new ServerStyleSheets()
-
-  const render = renderToString(
-    sheets.collect(
-      createElement(
-        Provider,
-        {
-          store
-        },
-        createElement(
-          StaticRouter,
-          {
-            location: path,
-            context: {}
-          },
-          app
-        )
-      )
-    )
-  )
-
-  const html = render
-  const css = sheets.toString()
-  const state = store.getState()
-
-  return { html, css, state }
-}
-
-export const generatePreRenders = (pages, app, store) =>
-  pages.reduce((acc, cur) => {
-    let temp = acc
-
-    const renderedPage = renderPage(cur.path, app, store)
-
-    temp[cur.name] = {
-      html: renderedPage.html,
-      css: renderedPage.css,
-      state: renderedPage.state
-    }
-    return temp
-  }, {})
 
 export const setSrcSet = (paths, format = null) =>
   paths
