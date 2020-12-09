@@ -14,7 +14,8 @@ provider:
     payload: '2.0'
     cors:
       allowedOrigins:
-        - ${env:CORS_LIVE_ORIGIN}
+        - ${env:CORS_STA_ORIGIN}
+        - ${env:CORS_PRO_ORIGIN}
       allowedHeaders:
         - Content-Type
         - Authorization
@@ -37,6 +38,16 @@ provider:
         - arn:aws:dynamodb:${env:REGION}:*:table/${env:TABLE_NAME}
 
 functions:
+  contentHandler:
+    name: ${env:SLS_SERVICE_NAME}-contentHandler
+    handler: v1/index.contentHandler
+    events:
+      - httpApi:
+          path: /content
+          method: POST
+      - httpApi:
+          path: /content
+          method: GET
   contactHandler:
     name: ${env:SLS_SERVICE_NAME}-contactHandler
     handler: v1/index.contactHandler
@@ -81,16 +92,20 @@ custom:
 
 resources:
   Resources:
-    NcaContent:
+    ncaContent:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: ${env:TABLE_NAME}
         AttributeDefinitions:
           - AttributeName: app
             AttributeType: S
+          - AttributeName: path
+            AttributeType: S
         KeySchema:
           - AttributeName: app
             KeyType: HASH
+          - AttributeName: path
+            KeyType: RANGE
         ProvisionedThroughput:
           ReadCapacityUnits: 5
           WriteCapacityUnits: 1

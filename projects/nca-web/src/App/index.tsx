@@ -1,5 +1,6 @@
 import { CssBaseline } from '@material-ui/core'
 import React, { useLayoutEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Route, Switch, useLocation } from 'react-router-dom'
 import { Apps } from './Apps/'
 import { Contact } from './Contact/'
@@ -8,6 +9,7 @@ import { Home } from './Home'
 import { NotFound } from './NotFound'
 import { Resume } from './Resume/'
 import { TopNav } from './TopNav'
+import { getContent } from './fetchers'
 
 export const App: React.FC = (): JSX.Element => {
   const location = useLocation()
@@ -24,6 +26,16 @@ export const App: React.FC = (): JSX.Element => {
       return () => window.removeEventListener('resize', resizeHandler)
     })
   }
+
+  useEffect(() => {
+    getContent(window.location.pathname)
+      .then(content => {
+        console.log('%c getContent', 'color: yellow; font-size: large', content)
+      })
+      .catch(error =>
+        console.error('%c getContent', 'color: red; font-size: large', error)
+      )
+  })
   return (
     <CssBaseline>
       {showNav && <TopNav viewWidth={viewWidth} />}

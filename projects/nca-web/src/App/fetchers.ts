@@ -26,3 +26,14 @@ export async function postMessage(values, host, pathname) {
   )
   return res.status === 204
 }
+
+export async function getContent(path) {
+  const res = await axios.get(
+    `${process.env.API_URL}?path=${path}`,
+    addAuthHeaderToOptions(otherHeaders)
+  )
+
+  if (res.status === 200) return res.data
+
+  throw new Error('no content')
+}
