@@ -15,6 +15,7 @@ export const App: React.FC = (): JSX.Element => {
   const location = useLocation()
   const showNav = /(resume|apps|contact)\/?$/i.test(location.pathname)
   const [viewWidth, udpateViewWidth] = useState<number>(window.innerWidth)
+  const [siteContent, updateSiteContent] = useState({})
 
   const resizeHandler = () => {
     udpateViewWidth(window.innerWidth)
@@ -29,18 +30,27 @@ export const App: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     getContent(window.location.pathname)
-      .then(content => {
-        console.log('%c getContent', 'color: yellow; font-size: large', content)
+      .then(pageContent => {
+        updateSiteContent({
+          ...siteContent,
+          [pageContent.path]: pageContent.content
+        })
       })
       .catch(error =>
         console.error('%c getContent', 'color: red; font-size: large', error)
       )
-  })
+  }, [location])
+
+  console.log('%c XXX', 'color: yellow; font-size: large', siteContent)
   return (
     <CssBaseline>
       {showNav && <TopNav viewWidth={viewWidth} />}
       <Switch>
-        <Route path="/" exact component={Home} />
+        <Route
+          path="/"
+          exact
+          render={() => <Home content={siteContent['/']} />}
+        />
         <Route path="/resume" exact component={Resume} />
         <Route path="/apps" exact component={Apps} />
         <Route path="/contact" exact component={Contact} />

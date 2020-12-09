@@ -24,6 +24,7 @@ const useStyles = makeStyles(
       fontSize: theme.typography.fontSize * 4,
       textAlign: 'center',
       [theme.breakpoints.up('sm')]: {
+        width: '10%',
         textAlign: 'left'
       }
     },
@@ -52,7 +53,8 @@ const useStyles = makeStyles(
       textTransform: 'unset',
       textAlign: 'center',
       [theme.breakpoints.up('sm')]: {
-        textAlign: 'left'
+        textAlign: 'left',
+        width: '30%'
       }
     },
     subtitleLogo: {
@@ -156,6 +158,7 @@ const useStyles = makeStyles(
       ...theme.custom.setFlex('column', 'flex-start'),
       background: `linear-gradient(180deg, white 30px, ${theme.palette.grey[200]} 30px, white)`,
       position: 'relative',
+      top: -1,
       [theme.breakpoints.only('sm')]: {
         background: 'unset'
       }
@@ -200,26 +203,20 @@ const useStyles = makeStyles(
   }
 )
 
-export const Home: React.FC = (): JSX.Element => {
+export const Home: React.FC = ({ content }): JSX.Element => {
   const classes = useStyles()
+  console.log('%c content', 'color: yellow; font-size: large', content)
+  if (!content) return null
   return (
     <Grid container justify="center">
       <ContentContainer bgColor="theme.palette.primary.main">
         <Typography variant="h2" className={classes.headerTitle}>
-          Colin
-          <br />
-          {process.env.APP_NAME}
+          {content.title}
         </Typography>
         <Grid className={classes.headerStroke} />
         <Grid className={classes.subtitleContainer}>
           <Typography variant="h3" className={classes.subtitleHeading}>
-            full stack
-            <br />
-            JavaScript
-            <br />
-            design &amp;
-            <br />
-            development
+            {content.subtitle}
           </Typography>
           <img
             src={NcaLogoWhite}
@@ -229,11 +226,7 @@ export const Home: React.FC = (): JSX.Element => {
         </Grid>
       </ContentContainer>
       <AngleBand bottom right bgColor="theme.palette.primary.main" />
-      <HeroBar
-        src={NcaHome}
-        tagline="Let's build an online experience together"
-        alt="home-image"
-      />
+      <HeroBar src={NcaHome} tagline={content.hero} alt="home-image" />
       <AngleBand top right bgColor="theme.palette.grey[200]" />
       <ContentContainer gradient="theme.custom.setLinearGradient(180, theme.palette.grey[200], 'white')">
         <Grid container>
@@ -241,17 +234,10 @@ export const Home: React.FC = (): JSX.Element => {
             <OpenInBrowserIcon color="primary" className={classes.introIcon} />
             <Grid className={classes.introInner}>
               <Typography variant="h4" className={classes.introTitle}>
-                it&apos;s not the idea, it&apos;s the commitment and execution
+                {content.section1.title}
               </Typography>
               <Typography variant="body1" className={classes.introText}>
-                In today’s inter&ndash;connected world, your business needs to
-                be online with more than a basic webpage. However, building a
-                performant, search&ndash;visible and lead&ndash;generating
-                online experience is a complex process for even the largest of
-                companies. With a background in graphic design, education in
-                marketing and modern programming skills, I can help bring your
-                brand&apos;s web presence to life with a focus on conversions
-                and revenue generation.
+                {content.section1.copy}
               </Typography>
             </Grid>
           </Grid>
@@ -264,7 +250,7 @@ export const Home: React.FC = (): JSX.Element => {
         <Grid className={classes.helpCases}>
           <TrackChangesIcon color="primary" className={classes.helpCasesIcon} />
           <Typography variant="h4" className={classes.helpCasesTitle}>
-            how i can help you achieve your online goals
+            {content.section2.title}
           </Typography>
         </Grid>
         <Grid className={classes.helpCasesGrid}>
@@ -272,26 +258,20 @@ export const Home: React.FC = (): JSX.Element => {
             <Grid className={clsx(classes.helpCaseAngle, classes.angleRight)} />
             <InsertChartIcon className={classes.helpCaseIcon} />
             <Typography variant="h4" className={classes.helpCaseTitle}>
-              marketing
+              {content.section2.heading1}
             </Typography>
             <Typography variant="body1" className={classes.helpCaseText}>
-              Marketing strategy should be the core of your online presence and
-              baked into each page of your website. From content planning to
-              technical SEO, social media and PPC, let me help you earn
-              visibility and gain users.
+              {content.section2.copy1}
             </Typography>
           </Grid>
           <Grid className={clsx(classes.helpCaseBg, classes.helpCaseDesign)}>
             <Grid className={clsx(classes.helpCaseAngle, classes.angleRight)} />
             <OpacityIcon className={classes.helpCaseIcon} />
             <Typography variant="h4" className={classes.helpCaseTitle}>
-              design
+              {content.section2.heading2}
             </Typography>
             <Typography variant="body1" className={classes.helpCaseText}>
-              The design and UI of your webpage is not superficial. Numerous
-              studies have proven that users give more trust and credibility to
-              well-designed, aesthetically pleasing websites. Allow me to you
-              craft a beautiful digital experience.
+              {content.section2.copy2}
             </Typography>
           </Grid>
           <Grid
@@ -299,13 +279,10 @@ export const Home: React.FC = (): JSX.Element => {
             <Grid className={clsx(classes.helpCaseAngle, classes.angleRight)} />
             <MemoryIcon className={classes.helpCaseIcon} />
             <Typography variant="h4" className={classes.helpCaseTitle}>
-              development
+              {content.section2.heading3}
             </Typography>
             <Typography variant="body1" className={classes.helpCaseText}>
-              Gone are the days of static websites, you need a dynamic web
-              application that provides rich data to users. I use modern
-              JavaScript and NodeJs to build interactive front-end clients and
-              data-providing back-end services.
+              {content.section2.copy3}
             </Typography>
           </Grid>
         </Grid>
