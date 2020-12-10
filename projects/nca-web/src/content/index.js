@@ -31,7 +31,7 @@ function pageToJson(app, page) {
   }
 
   fs.writeFileSync(
-    `${outputLocation}/nca-${page.filename}.json`,
+    `${outputLocation}/${page.filename}.json`,
     JSON.stringify(data, null, 2)
   )
 }

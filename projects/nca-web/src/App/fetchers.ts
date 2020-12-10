@@ -28,29 +28,18 @@ export async function postMessage(values, host, pathname) {
 }
 
 export async function getContent(path) {
-  let pathQuery = '/error'
-  console.log('%c XXX', 'color: yellow; font-size: large', path)
-  switch (path) {
-    case '/':
-      pathQuery = path
-      break
-    case /\/resume\/?$/.test(path):
-      pathQuery = '/resume'
-      break
-    case /\/apps\/?$/.test(path):
-      pathQuery = '/apps'
-      break
-    case /\/contact\/?$/.test(path):
-      pathQuery = '/contact'
-      break
-  }
-  console.log('%c XXX', 'color: yellow; font-size: large', pathQuery)
-  const res = await axios.get(
-    `${process.env.API_URL}?path=${pathQuery}`,
-    addAuthHeaderToOptions(otherHeaders)
-  )
+  let contentFile = 'error'
 
-  console.log('%c XXX', 'color: yellow; font-size: large', res)
+  if (path === '/') contentFile = 'home'
+  if (/resume\/?$/.test(path)) contentFile = 'resume'
+  if (/apps\/?$/.test(path)) contentFile = 'apps'
+  if (/contact\/?$/.test(path)) contentFile = 'contact'
+
+  const res = await axios.get(
+    process.env.NODE_ENV === 'production'
+      ? `https://${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/content/${contentFile}.json`
+      : `https://${process.env.STA_CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/content/${contentFile}.json`
+  )
 
   if (res.status === 200) return res.data
 

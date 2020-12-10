@@ -1,3 +1,5 @@
+const { createHashId } = require('@cjo3/shared/raw/general')
+
 const skillCategory = {
   language: 0,
   front: 1,
@@ -19,93 +21,93 @@ exports.resume = {
     'work<br/>history',
     [
       {
-        key: 'iJEzwzYLgw',
+        key: createHashId(),
         title: 'Software Engineer',
         subtitle: 'HaruInvest',
         period: 'October 2019 to March 2020',
         logo: 'haru',
         bullets: [
           {
-            key: 'hTWxprXCHx',
+            key: createHashId(),
             label: 'Built React UI components using context and hooks'
           },
           {
-            key: 'PluhYYWxgh',
+            key: createHashId(),
             label: 'Implemented CDN static files'
           }
         ]
       },
       {
-        key: 'KeeNQDBntV',
+        key: createHashId(),
         title: 'Chief Technology Officer',
         subtitle: 'Blockchain Infrastructure Research',
         period: 'October 2018 to September 2019',
         logo: 'bir',
         bullets: [
           {
-            key: 'XqOkqSlGMi',
+            key: createHashId(),
             label: 'Blockchain app research'
           },
           {
-            key: 'SkHvMgeqOr',
+            key: createHashId(),
             label: '600+ GPU crypto mine manager'
           },
           {
-            key: 'HGBGUNEnke',
+            key: createHashId(),
             label: 'Speaker at 2019 MPWR Crypto Mining Summit'
           }
         ]
       },
       {
-        key: 'SnEpuVdWea',
+        key: createHashId(),
         title: 'Junior Full Stack Developer',
         subtitle: 'Apollo Insurance',
         period: 'July 2018 to September 2018',
         logo: 'apollo',
         bullets: [
           {
-            key: 'SzhJrvWFwk',
+            key: createHashId(),
             label:
               'Built white-label React app using Material-UI and Redux Saga'
           },
           {
-            key: 'kMnMxbNITu',
+            key: createHashId(),
             label:
               'Wrote pricing algorithm and integrated Stripe payment system'
           }
         ]
       },
       {
-        key: 'PxrBBvQalC',
+        key: createHashId(),
         title: 'SEO Analyst',
         subtitle: 'Jumpfactor Marketing',
         period: 'October 2016 to December 2016',
         logo: 'jumpfactor',
         bullets: [
           {
-            key: 'yuXdtNVpLF',
+            key: createHashId(),
             label: 'Content marketing strategy'
           },
           {
-            key: 'kELhqPIBeq',
+            key: createHashId(),
             label: 'Technical on-page SEO analysis'
           }
         ]
       },
       {
-        key: 'BmzdBxvXhX',
+        key: createHashId(),
         title: 'Production Graphic Designer',
         subtitle: 'Europtimum',
         period: 'February 2015 to July 2016',
         logo: 'europtimum',
         bullets: [
           {
-            key: 'OaMGkFYvpg',
+            key: createHashId(),
             label:
               'Produced technical drawings for corporate way-finding, signage and merchandise projects'
           },
           {
-            key: 'VqJUdDYePD',
+            key: createHashId(),
             label: 'Prepared large-scale artwork for production'
           }
         ]
@@ -114,35 +116,35 @@ exports.resume = {
     'completed<br/>eduction',
     [
       {
-        key: 'UtOlMUeAJG',
+        key: createHashId(),
         title: 'Blockchain Developer Bootcamp',
         subtitle: 'Dapp University',
         period: '2018',
         logo: 'dappu'
       },
       {
-        key: 'pwofdLfWpb',
+        key: createHashId(),
         title: 'Developer Bootcamp',
         subtitle: 'CodeCore College',
         period: '2017',
         logo: 'codecore'
       },
       {
-        key: 'xLZKZchHrk',
+        key: createHashId(),
         title: 'Advanced SEO',
         subtitle: 'Juno College',
         period: '2016',
         logo: 'juno'
       },
       {
-        key: 'qhkFqpFCQY',
+        key: createHashId(),
         title: 'Bachelor of Commerce Marketing',
         subtitle: 'UBC Sauder School of Business',
         period: '2014',
         logo: 'sauder'
       },
       {
-        key: 'WtvAtJAEAE',
+        key: createHashId(),
         title: 'Advanced Diploma Graphic Design',
         subtitle: 'The Art Institute of Vancouver',
         period: '2007',
@@ -152,276 +154,276 @@ exports.resume = {
     'personal<br/>details',
     [
       {
-        key: 'tAwgqOtaRy',
+        key: createHashId(),
         label: 'Native-English speaker'
       },
       {
-        key: 'rxvdQnaDMr',
+        key: createHashId(),
         label: 'Canadian citizen'
       },
       {
-        key: 'TpmitihOBH',
+        key: createHashId(),
         label: 'Full work status in Canada and Korea'
       },
       {
-        key: 'IbmELsFccz',
+        key: createHashId(),
         label: 'Intermediate Korean language skills'
       },
       {
-        key: 'SWEJwTGDqg',
+        key: createHashId(),
         label: 'Remote work OK'
       },
       {
-        key: 'ZlAzswIHeX',
+        key: createHashId(),
         label: 'Willing to relocate'
       },
       {
-        key: 'TCdCHszwEM',
+        key: createHashId(),
         label: 'Open to travel'
       },
       {
-        key: 'NwFYqHpaAA',
+        key: createHashId(),
         label: 'Reliable vehicle'
       }
     ],
     'software stack<br/>proficiency',
     [
       {
-        key: 'NvvBoPximk',
+        key: createHashId(),
         label: 'JavaScript',
         category: skillCategory.language,
         level: 7
       },
       {
-        key: 'VUvCTsWYir',
+        key: createHashId(),
         label: 'TypeScript',
         category: skillCategory.language,
         level: 3
       },
       {
-        key: 'aNWptVMWia',
+        key: createHashId(),
         label: 'NodeJs',
         category: skillCategory.language,
         level: 6
       },
       {
-        key: 'mklXCPkOiN',
+        key: createHashId(),
         label: 'Solidity',
         category: skillCategory.language,
         level: 3
       },
       {
-        key: 'pwauBZwRKM',
+        key: createHashId(),
         label: 'Bash',
         category: skillCategory.language,
         level: 5
       },
       {
-        key: 'luTMiJmDNZ',
+        key: createHashId(),
         label: 'React',
         category: skillCategory.front,
         level: 7
       },
       {
-        key: 'JQLHmBrlNk',
+        key: createHashId(),
         label: 'Redux',
         category: skillCategory.front,
         level: 6
       },
       {
-        key: 'OOSpSyHUqF',
+        key: createHashId(),
         label: 'Web3',
         category: skillCategory.front,
         level: 4
       },
       {
-        key: 'MSfnbVasIA',
+        key: createHashId(),
         label: 'HTML 5',
         category: skillCategory.front,
         level: 8
       },
       {
-        key: 'qeyiyRZLcj',
+        key: createHashId(),
         label: 'CSS 3',
         category: skillCategory.front,
         level: 9
       },
       {
-        key: 'nAqazBiFUl',
+        key: createHashId(),
         label: 'JSS',
         category: skillCategory.front,
         level: 8
       },
       {
-        key: 'NJUZciAyCe',
+        key: createHashId(),
         label: 'Sass',
         category: skillCategory.front,
         level: 7
       },
       {
-        key: 'QhcxaDUwfC',
+        key: createHashId(),
         label: 'Pug',
         category: skillCategory.front,
         level: 8
       },
       {
-        key: 'hYiyEGYpck',
+        key: createHashId(),
         label: 'Serverless',
         category: skillCategory.back,
         level: 6
       },
       {
-        key: 'eVhnWcOVmO',
+        key: createHashId(),
         label: 'ExpressJs',
         category: skillCategory.back,
         level: 7
       },
       {
-        key: 'YyzPdImJXz',
+        key: createHashId(),
         label: 'DynamoDB',
         category: skillCategory.back,
         level: 5
       },
       {
-        key: 'oUuKEpDhiP',
+        key: createHashId(),
         label: 'MongoDB',
         category: skillCategory.back,
         level: 6
       },
       {
-        key: 'fzwDWBRTDq',
+        key: createHashId(),
         label: 'Postgres',
         category: skillCategory.back,
         level: 5
       },
       {
-        key: 'IXsqVYrtrT',
+        key: createHashId(),
         label: 'IPFS',
         category: skillCategory.back,
         level: 3
       },
       {
-        key: 'uSNXZYjYAQ',
+        key: createHashId(),
         label: 'Webpack',
         category: skillCategory.tool,
         level: 7
       },
       {
-        key: 'KcpszNDDhm',
+        key: createHashId(),
         label: 'Babel',
         category: skillCategory.tool,
         level: 8
       },
       {
-        key: 'UcTGrlQkxR',
+        key: createHashId(),
         label: 'Git',
         category: skillCategory.tool,
         level: 7
       },
       {
-        key: 'nSFabbXvoV',
+        key: createHashId(),
         label: 'GitHub',
         category: skillCategory.tool,
         level: 8
       },
       {
-        key: 'CVTjUdkhsI',
+        key: createHashId(),
         label: 'Yarn',
         category: skillCategory.tool,
         level: 8
       },
       {
-        key: 'agFIPUwjFt',
+        key: createHashId(),
         label: 'NPM',
         category: skillCategory.tool,
         level: 6
       },
       {
-        key: 'IMPaSrNBFT',
+        key: createHashId(),
         label: 'VS Code',
         category: skillCategory.tool,
         level: 8
       },
       {
-        key: 'nthdtPQyRP',
+        key: createHashId(),
         label: 'Jira',
         category: skillCategory.tool,
         level: 6
       },
       {
-        key: 'sOWzUgrDzQ',
+        key: createHashId(),
         label: 'AWS JavaScript SDK',
         category: skillCategory.aws,
         level: 8
       },
       {
-        key: 'dWSmHMNUtl',
+        key: createHashId(),
         label: 'AWS Lambda',
         category: skillCategory.aws,
         level: 7
       },
       {
-        key: 'uUcGTJcYDt',
+        key: createHashId(),
         label: 'AWS CloudFront',
         category: skillCategory.aws,
         level: 6
       },
       {
-        key: 'mUGTwHIGou',
+        key: createHashId(),
         label: 'AWS S3',
         category: skillCategory.aws,
         level: 8
       },
       {
-        key: 'KptTnEeCis',
+        key: createHashId(),
         label: 'AWS API Gateway',
         category: skillCategory.aws,
         level: 6
       },
       {
-        key: 'nRZdaHGSvA',
+        key: createHashId(),
         label: 'AWS Route 53',
         category: skillCategory.aws,
         level: 8
       },
       {
-        key: 'qKgpXjUuFL',
+        key: createHashId(),
         label: 'Adobe Photoshop',
         category: skillCategory.design,
         level: 8
       },
       {
-        key: 'MMpZCLFwrN',
+        key: createHashId(),
         label: 'Adobe Illustrator',
         category: skillCategory.design,
         level: 9
       },
       {
-        key: 'OcrIGmjrMx',
+        key: createHashId(),
         label: 'Adobe Indesign',
         category: skillCategory.design,
         level: 8
       },
       {
-        key: 'UACApRanPq',
+        key: createHashId(),
         label: 'SEO',
         category: skillCategory.marketing,
         level: 7
       },
       {
-        key: 'lffaPXzVyC',
+        key: createHashId(),
         label: 'PPC',
         category: skillCategory.marketing,
         level: 4
       },
       {
-        key: 'tmUlZHdzBm',
+        key: createHashId(),
         label: 'Google Analytics',
         category: skillCategory.marketing,
         level: 6
       },
       {
-        key: 'rkPNLRUxKD',
+        key: createHashId(),
         label: 'Google Search Console',
         category: skillCategory.marketing,
         level: 7

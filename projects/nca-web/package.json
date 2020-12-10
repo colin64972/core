@@ -7,7 +7,10 @@
   "private": true,
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --config webpack.config.js",
-    "build:content": "node src/content/index.js"
+    "build:content": "node src/content/index.js",
+    "sync:content": "NODE_ENV=staging node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").content)'",
+    "invalidate": "NODE_ENV=staging node -e 'require(\"@cjo3/shared/raw/s3Manager\").invalidate(require(\"./cliParams\").invalidate)'",
+    "clear": "NODE_ENV=staging node -e 'require(\"@cjo3/shared/raw/s3Manager\").rm(require(\"./cliParams\").clear)'"
   },
   "dependencies": {
     "@cjo3/shared": "~0.0.1",

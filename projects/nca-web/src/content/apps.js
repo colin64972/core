@@ -1,3 +1,4 @@
+const { createHashId } = require('@cjo3/shared/raw/general')
 const localEnv = require('dotenv').config()
 
 exports.apps = {
@@ -7,7 +8,7 @@ exports.apps = {
     'LIVE APP PORTFOLIO AND CODE SAMPLES',
     [
       {
-        key: 'IxgmLIyekH',
+        key: createHashId(),
         angleDir: 'left',
         title: 'Resume<br/>Website',
         description:
@@ -29,7 +30,7 @@ exports.apps = {
         ]
       },
       {
-        key: 'uhlCqpxRwz',
+        key: createHashId(),
         angleDir: 'right',
         title: 'Detection<br/>Limit<br/>Editor',
         description:
@@ -51,7 +52,7 @@ exports.apps = {
         ]
       },
       {
-        key: 'zmhLBEKirA',
+        key: createHashId(),
         angleDir: 'left',
         title: 'Keyword<br/>Multiplier',
         description:
@@ -72,7 +73,7 @@ exports.apps = {
         ]
       },
       {
-        key: 'LUBPfqHTQr',
+        key: createHashId(),
         angleDir: 'right',
         title: 'NEB<br/>Token',
         description:
