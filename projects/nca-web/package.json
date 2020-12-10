@@ -6,7 +6,8 @@
   "author": "cjo3",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --config webpack.config.js"
+    "start": "NODE_ENV=development webpack-dev-server --config webpack.config.js",
+    "build:content": "node src/content/index.js"
   },
   "dependencies": {
     "@cjo3/shared": "~0.0.1",

@@ -12,6 +12,7 @@ import React from 'react'
 import { AppItem, ImageAsset } from '../../../index'
 import { MockupDle, MockupKm, MockupNca, MockupNt } from '../assets'
 import { ContentContainer } from '../ContentContainer'
+import { setHtml } from '@cjo3/shared/react/helpers'
 
 const useStyles = makeStyles(
   theme => ({
@@ -136,10 +137,6 @@ export const AppSection: React.FC<AppItem> = ({
     nt: MockupNt
   }
 
-  function addMarkup(text: string): { __html: string } {
-    return { __html: text }
-  }
-
   return (
     <ContentContainer gradient="theme.custom.setLinearGradient(180, theme.palette.grey[200], 'white')">
       <Grid container>
@@ -149,7 +146,7 @@ export const AppSection: React.FC<AppItem> = ({
             <Typography
               component="h2"
               className={classes.seciontTitleText}
-              dangerouslySetInnerHTML={addMarkup(title)}
+              dangerouslySetInnerHTML={setHtml(title)}
             />
           </Grid>
           <Typography variant="body1" className={classes.appDescription}>

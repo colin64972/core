@@ -96,3 +96,7 @@ export const clickWindowLink = (location, newTab = false) => {
   if (window) window.location.replace(location)
   return null
 }
+
+export function setHtml(text) {
+  return { __html: text }
+}

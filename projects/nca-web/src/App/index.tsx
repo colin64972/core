@@ -41,7 +41,6 @@ export const App: React.FC = (): JSX.Element => {
       )
   }, [location])
 
-  console.log('%c XXX', 'color: yellow; font-size: large', siteContent)
   return (
     <CssBaseline>
       {showNav && <TopNav viewWidth={viewWidth} />}
@@ -53,8 +52,15 @@ export const App: React.FC = (): JSX.Element => {
         />
         <Route path="/resume" exact component={Resume} />
         <Route path="/apps" exact component={Apps} />
-        <Route path="/contact" exact component={Contact} />
-        <Route path="/*" component={NotFound} />
+        <Route
+          path="/contact"
+          exact
+          render={() => <Contact content={siteContent['/contact']} />}
+        />
+        <Route
+          path="/*"
+          render={() => <NotFound content={siteContent['/error']} />}
+        />
       </Switch>
       <Footer />
     </CssBaseline>

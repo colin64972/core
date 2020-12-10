@@ -28,10 +28,29 @@ export async function postMessage(values, host, pathname) {
 }
 
 export async function getContent(path) {
+  let pathQuery = '/error'
+  console.log('%c XXX', 'color: yellow; font-size: large', path)
+  switch (path) {
+    case '/':
+      pathQuery = path
+      break
+    case /\/resume\/?$/.test(path):
+      pathQuery = '/resume'
+      break
+    case /\/apps\/?$/.test(path):
+      pathQuery = '/apps'
+      break
+    case /\/contact\/?$/.test(path):
+      pathQuery = '/contact'
+      break
+  }
+  console.log('%c XXX', 'color: yellow; font-size: large', pathQuery)
   const res = await axios.get(
-    `${process.env.API_URL}?path=${path}`,
+    `${process.env.API_URL}?path=${pathQuery}`,
     addAuthHeaderToOptions(otherHeaders)
   )
+
+  console.log('%c XXX', 'color: yellow; font-size: large', res)
 
   if (res.status === 200) return res.data
 

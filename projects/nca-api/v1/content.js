@@ -60,7 +60,7 @@ export async function getContent(path) {
     }
 
     const result = await docClient.get(options).promise()
-
+    console.log('LOG XXX'.yellow, result)
     if (result.Item)
       return {
         statusCode: 200,

@@ -13,6 +13,7 @@ import { AngleBand } from './AngleBand'
 import { ContentContainer } from './ContentContainer'
 import { HeroBar } from './HeroBar'
 import { NavButtonSet } from './NavButtonSet'
+import { setHtml } from '@cjo3/shared/react/helpers'
 
 const useStyles = makeStyles(
   theme => ({
@@ -24,7 +25,6 @@ const useStyles = makeStyles(
       fontSize: theme.typography.fontSize * 4,
       textAlign: 'center',
       [theme.breakpoints.up('sm')]: {
-        width: '10%',
         textAlign: 'left'
       }
     },
@@ -53,8 +53,7 @@ const useStyles = makeStyles(
       textTransform: 'unset',
       textAlign: 'center',
       [theme.breakpoints.up('sm')]: {
-        textAlign: 'left',
-        width: '30%'
+        textAlign: 'left'
       }
     },
     subtitleLogo: {
@@ -203,30 +202,39 @@ const useStyles = makeStyles(
   }
 )
 
-export const Home: React.FC = ({ content }): JSX.Element => {
+interface Props {
+  content: string[]
+}
+
+export const Home: React.FC<Props> = ({ content }): JSX.Element | null => {
   const classes = useStyles()
-  console.log('%c content', 'color: yellow; font-size: large', content)
+
   if (!content) return null
+
   return (
     <Grid container justify="center">
       <ContentContainer bgColor="theme.palette.primary.main">
-        <Typography variant="h2" className={classes.headerTitle}>
-          {content.title}
-        </Typography>
+        <Typography
+          variant="h2"
+          className={classes.headerTitle}
+          dangerouslySetInnerHTML={setHtml(content[0])}
+        />
         <Grid className={classes.headerStroke} />
         <Grid className={classes.subtitleContainer}>
-          <Typography variant="h3" className={classes.subtitleHeading}>
-            {content.subtitle}
-          </Typography>
+          <Typography
+            variant="h3"
+            className={classes.subtitleHeading}
+            dangerouslySetInnerHTML={setHtml(content[1])}
+          />
           <img
             src={NcaLogoWhite}
-            alt="logo-white"
+            alt={content[2]}
             className={classes.subtitleLogo}
           />
         </Grid>
       </ContentContainer>
       <AngleBand bottom right bgColor="theme.palette.primary.main" />
-      <HeroBar src={NcaHome} tagline={content.hero} alt="home-image" />
+      <HeroBar src={NcaHome} tagline={content[3]} alt={content[4]} />
       <AngleBand top right bgColor="theme.palette.grey[200]" />
       <ContentContainer gradient="theme.custom.setLinearGradient(180, theme.palette.grey[200], 'white')">
         <Grid container>
@@ -234,10 +242,10 @@ export const Home: React.FC = ({ content }): JSX.Element => {
             <OpenInBrowserIcon color="primary" className={classes.introIcon} />
             <Grid className={classes.introInner}>
               <Typography variant="h4" className={classes.introTitle}>
-                {content.section1.title}
+                {content[5]}
               </Typography>
               <Typography variant="body1" className={classes.introText}>
-                {content.section1.copy}
+                {content[6]}
               </Typography>
             </Grid>
           </Grid>
@@ -250,7 +258,7 @@ export const Home: React.FC = ({ content }): JSX.Element => {
         <Grid className={classes.helpCases}>
           <TrackChangesIcon color="primary" className={classes.helpCasesIcon} />
           <Typography variant="h4" className={classes.helpCasesTitle}>
-            {content.section2.title}
+            {content[7]}
           </Typography>
         </Grid>
         <Grid className={classes.helpCasesGrid}>
@@ -258,20 +266,20 @@ export const Home: React.FC = ({ content }): JSX.Element => {
             <Grid className={clsx(classes.helpCaseAngle, classes.angleRight)} />
             <InsertChartIcon className={classes.helpCaseIcon} />
             <Typography variant="h4" className={classes.helpCaseTitle}>
-              {content.section2.heading1}
+              {content[8]}
             </Typography>
             <Typography variant="body1" className={classes.helpCaseText}>
-              {content.section2.copy1}
+              {content[9]}
             </Typography>
           </Grid>
           <Grid className={clsx(classes.helpCaseBg, classes.helpCaseDesign)}>
             <Grid className={clsx(classes.helpCaseAngle, classes.angleRight)} />
             <OpacityIcon className={classes.helpCaseIcon} />
             <Typography variant="h4" className={classes.helpCaseTitle}>
-              {content.section2.heading2}
+              {content[10]}
             </Typography>
             <Typography variant="body1" className={classes.helpCaseText}>
-              {content.section2.copy2}
+              {content[11]}
             </Typography>
           </Grid>
           <Grid
@@ -279,10 +287,10 @@ export const Home: React.FC = ({ content }): JSX.Element => {
             <Grid className={clsx(classes.helpCaseAngle, classes.angleRight)} />
             <MemoryIcon className={classes.helpCaseIcon} />
             <Typography variant="h4" className={classes.helpCaseTitle}>
-              {content.section2.heading3}
+              {content[12]}
             </Typography>
             <Typography variant="body1" className={classes.helpCaseText}>
-              {content.section2.copy3}
+              {content[13]}
             </Typography>
           </Grid>
         </Grid>

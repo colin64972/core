@@ -53,24 +53,30 @@ const useStyles = makeStyles(
   { name: 'NotFound' }
 )
 
-export const NotFound: React.FC = (): JSX.Element => {
+interface Props {
+  content: string[]
+}
+
+export const NotFound: React.FC<Props> = ({ content }): JSX.Element | null => {
   const classes = useStyles()
+
+  if (!content) return null
+
+  console.log('%c XXX', 'color: yellow; font-size: large', content)
+
   const clickHandler = (): void => {
     clickWindowLink('/')
   }
+
   return (
     <Grid className={classes.container}>
       <Grid className={classes.contentContainer}>
         <Grid className={classes.innerContainer}>
-          <img
-            src={NcaNotFound}
-            alt="not-found-image"
-            className={classes.image}
-          />
+          <img src={NcaNotFound} alt={content[0]} className={classes.image} />
           <Grid className={classes.text}>
-            <Typography variant="h1">Not Found</Typography>
+            <Typography variant="h1">{content[1]}</Typography>
             <Typography variant="body1" className={classes.message}>
-              Sorry, the requested page could not be found
+              {content[2]}
             </Typography>
             <Button
               type="button"
@@ -79,7 +85,7 @@ export const NotFound: React.FC = (): JSX.Element => {
               onClick={clickHandler}
               className={classes.button}>
               <HomeIcon className={classes.homeIcon} />
-              &ensp;Home
+              &ensp;{content[3]}
             </Button>
           </Grid>
         </Grid>

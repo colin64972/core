@@ -7,6 +7,7 @@ import clsx from 'clsx'
 import React from 'react'
 import Loadable from 'react-loadable'
 import { HeroBar } from '../HeroBar'
+import { setHtml } from '@cjo3/shared/react/helpers'
 
 const FormLoadable = Loadable({
   loader: () =>
@@ -105,15 +106,18 @@ const useStyles = makeStyles(
   { name: 'Contact' }
 )
 
-export const Contact: React.FC = (): JSX.Element => {
+interface Props {
+  content: string[]
+}
+
+export const Contact: React.FC<Props> = ({ content }): JSX.Element | null => {
   const classes = useStyles()
+
+  if (!content) return null
+
   return (
     <Grid container justify="center">
-      <HeroBar
-        src={NcaContact}
-        tagline="Want to work together?"
-        alt="contact-image"
-      />
+      <HeroBar src={NcaContact} tagline={content[0]} alt="contact-image" />
       <Grid className={classes.container}>
         <Grid className={clsx(classes.left, classes.bgRed)} />
         <Grid className={classes.center}>
@@ -121,16 +125,13 @@ export const Contact: React.FC = (): JSX.Element => {
             <Grid className={clsx(classes.titleTop, classes.bgRed)} />
             <Grid className={clsx(classes.titleInner, classes.bgRed)}>
               <MailOutlineIcon className={classes.titleIcon} />
-              <Typography variant="h2" className={classes.title}>
-                Inquiries,
-                <br />
-                Feedback,
-                <br />
-                Support
-              </Typography>
+              <Typography
+                variant="h2"
+                className={classes.title}
+                dangerouslySetInnerHTML={setHtml(content[1])}
+              />
               <Typography variant="body1" className={classes.titleText}>
-                Send me a message to get in touch. Always happy to receive info
-                requests, hear customer feedback or provide app support!
+                {content[2]}
               </Typography>
             </Grid>
             <Grid className={clsx(classes.titleBottom, classes.bgRed)} />
