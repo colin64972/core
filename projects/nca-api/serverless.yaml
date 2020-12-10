@@ -25,29 +25,8 @@ provider:
         - OPTIONS
       allowCredentials: true
       maxAge: 6000
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - dynamodb:DeleteItem
-        - dynamodb:GetItem
-        - dynamodb:PutItem
-        - dynamodb:Query
-        - dynamodb:Scan
-        - dynamodb:UpdateItem
-      Resource:
-        - arn:aws:dynamodb:${env:REGION}:*:table/${env:TABLE_NAME}
 
 functions:
-  contentHandler:
-    name: ${env:SLS_SERVICE_NAME}-contentHandler
-    handler: v1/index.contentHandler
-    events:
-      - httpApi:
-          path: /content
-          method: POST
-      - httpApi:
-          path: /content
-          method: GET
   contactHandler:
     name: ${env:SLS_SERVICE_NAME}-contactHandler
     handler: v1/index.contactHandler
@@ -89,23 +68,3 @@ custom:
     endpointType: regional
     apiType: http
     autoDomain: true
-
-resources:
-  Resources:
-    ncaContent:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: ${env:TABLE_NAME}
-        AttributeDefinitions:
-          - AttributeName: app
-            AttributeType: S
-          - AttributeName: path
-            AttributeType: S
-        KeySchema:
-          - AttributeName: app
-            KeyType: HASH
-          - AttributeName: path
-            KeyType: RANGE
-        ProvisionedThroughput:
-          ReadCapacityUnits: 5
-          WriteCapacityUnits: 1
