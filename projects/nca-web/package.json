@@ -6,7 +6,10 @@
   "author": "cjo3",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --config webpack.config.js",
+    "start": "BUILD_ENV=development webpack-dev-server --config webpack.config.js",
+    "build:staging": "BUILD_ENV=staging webpack --config webpack.config.js --progress",
+    "build": "BUILD_ENV=production webpack --config webpack.config.js --progress",
+    "lite": "lite-server -c lite-server.js",
     "build:content": "node src/content/index.js",
     "sync:content": "NODE_ENV=staging node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").content)'",
     "invalidate": "NODE_ENV=staging node -e 'require(\"@cjo3/shared/raw/s3Manager\").invalidate(require(\"./cliParams\").invalidate)'",

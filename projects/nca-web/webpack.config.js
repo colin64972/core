@@ -14,24 +14,38 @@ const sharedEnv = require('dotenv').config({
 
 function setApiUrl() {
   let url = localEnv.parsed.API_URL_PRO
-  if (process.env.NODE_ENV === 'staging') {
+  if (process.env.BUILD_ENV === 'staging') {
     url = localEnv.parsed.API_URL_STA
   }
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.BUILD_ENV === 'development') {
     url = localEnv.parsed.API_URL_DEV
   }
   return url
 }
 
+const switchPublicPath = () => {
+  switch (process.env.BUILD_ENV) {
+    case 'production':
+      return `${process.env.CDN_URL_PRO}/${process.env.CDN_APP_FOLDER}/bundles/`
+    case 'staging':
+      return `${process.env.CDN_URL_STA}/${process.env.CDN_APP_FOLDER}/bundles/`
+    default:
+      return '/'
+  }
+}
+
 const config = {
-  mode: 'development',
+  mode: process.env.BUILD_ENV === 'development' ? 'development' : 'production',
   entry: {
     src: path.resolve('src', 'index.ts')
   },
   output: {
-    publicPath: '/',
+    publicPath: switchPublicPath(),
     path: path.resolve('dist'),
-    filename: '[name].[hash].js'
+    filename:
+      process.env.BUILD_ENV === 'development'
+        ? '[name].[hash].js'
+        : '[name].[contenthash].js'
   },
   devServer: {
     contentBase: path.resolve('dist'),
@@ -100,7 +114,16 @@ const config = {
               emitFile: true,
               name: '[folder]/[name]-[contentHash].[ext]',
               outputPath: url => url,
-              publicPath: url => `/${url}`
+              publicPath: url => {
+                switch (process.env.BUILD_ENV) {
+                  case 'production':
+                    return `${process.env.CDN_URL_PRO}/${process.env.CDN_APP_FOLDER}/${url}`
+                  case 'staging':
+                    return `${process.env.CDN_URL_STA}/${process.env.CDN_APP_FOLDER}/${url}`
+                  default:
+                    return `/${url}`
+                }
+              }
             }
           }
         ]
@@ -117,7 +140,7 @@ const config = {
     new HtmlWebpackPlugin({
       template: path.resolve('..', 'shared', 'react', 'template.pug'),
       inject: true,
-      publicPath: '/',
+      publicPath: switchPublicPath(),
       scriptLoading: 'async',
       cache: false,
       templateLocals: {
@@ -140,13 +163,15 @@ const config = {
     }),
     new EnvironmentPlugin({
       IS_SERVER: false,
+      BUILD_ENV: localEnv.parsed.BUILD_ENV,
       APP_NAME: localEnv.parsed.APP_NAME,
       SITE_NAME: localEnv.parsed.SITE_NAME,
       SITE_URL: localEnv.parsed.SITE_URL,
       SITE_CONTACT_EMAIL: localEnv.parsed.SITE_CONTACT_EMAIL,
       RESUME_FILENAME: localEnv.parsed.RESUME_FILENAME,
-      CDN_BUCKET_STA: localEnv.parsed.CDN_BUCKET_STA,
       CDN_APP_FOLDER: localEnv.parsed.CDN_APP_FOLDER,
+      CDN_URL_STA: localEnv.parsed.CDN_URL_STA,
+      CDN_URL_PRO: localEnv.parsed.CDN_URL_PRO,
       GITHUB_URL_NCA: localEnv.parsed.GITHUB_URL_NCA,
       GITHUB_URL_DLE: localEnv.parsed.GITHUB_URL_DLE,
       GITHUB_URL_KM: localEnv.parsed.GITHUB_URL_KM,
