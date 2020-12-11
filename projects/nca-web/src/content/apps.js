@@ -2,7 +2,6 @@ const { createHashId } = require('@cjo3/shared/raw/general')
 const localEnv = require('dotenv').config()
 
 exports.apps = {
-  path: '/apps',
   filename: 'apps',
   content: [
     'LIVE APP PORTFOLIO AND CODE SAMPLES',

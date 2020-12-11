@@ -32,16 +32,6 @@ export const menuItems: MenuItem[] = [
   }
 ]
 
-export const skillCategory: OptionMap = {
-  language: 0,
-  front: 1,
-  back: 2,
-  tool: 3,
-  aws: 4,
-  design: 5,
-  marketing: 6
-}
-
 export const inputTypes: OptionMap = {
   text: 0,
   select: 1

@@ -11,17 +11,16 @@ const sharedEnv = require('dotenv').config({
   path: path.resolve('..', 'shared', '.env')
 })
 
-const pages = [home, resume, apps, contact, error]
+const component = [home, resume, apps, contact, error]
 
 const app = sharedEnv.parsed.APPS_LIST.split(',')[0]
 
-pages.forEach(page => pageToJson(app, page))
+component.forEach(component => componentToJson(app, component))
 
-function pageToJson(app, page) {
+function componentToJson(app, component) {
   const data = {
     app,
-    path: page.path,
-    content: page.content
+    content: component.content
   }
 
   const outputLocation = path.resolve('distContent')
@@ -31,7 +30,7 @@ function pageToJson(app, page) {
   }
 
   fs.writeFileSync(
-    `${outputLocation}/${page.filename}.json`,
+    `${outputLocation}/${component.filename}.json`,
     JSON.stringify(data, null, 2)
   )
 }

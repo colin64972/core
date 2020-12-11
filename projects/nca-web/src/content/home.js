@@ -1,7 +1,6 @@
 const localEnv = require('dotenv').config()
 
 exports.home = {
-  path: '/',
   filename: 'home',
   content: [
     `COLIN<br/>${localEnv.parsed.APP_NAME}`,

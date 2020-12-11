@@ -1,5 +1,4 @@
 exports.error = {
-  path: '/error',
   filename: 'error',
   content: [
     'image-not-found',

@@ -1,17 +1,7 @@
 const { createHashId } = require('@cjo3/shared/raw/general')
-
-const skillCategory = {
-  language: 0,
-  front: 1,
-  back: 2,
-  tool: 3,
-  aws: 4,
-  design: 5,
-  marketing: 6
-}
+const { skillCategories } = require('@cjo3/shared/raw/constants/nca')
 
 exports.resume = {
-  path: '/resume',
   filename: 'resume',
   content: [
     'DEEP DIVE INTO MY RESUME CREDENTIALS',
@@ -191,241 +181,241 @@ exports.resume = {
       {
         key: createHashId(),
         label: 'JavaScript',
-        category: skillCategory.language,
+        category: skillCategories.indexOf('language'),
         level: 7
       },
       {
         key: createHashId(),
         label: 'TypeScript',
-        category: skillCategory.language,
+        category: skillCategories.indexOf('language'),
         level: 3
       },
       {
         key: createHashId(),
         label: 'NodeJs',
-        category: skillCategory.language,
+        category: skillCategories.indexOf('language'),
         level: 6
       },
       {
         key: createHashId(),
         label: 'Solidity',
-        category: skillCategory.language,
+        category: skillCategories.indexOf('language'),
         level: 3
       },
       {
         key: createHashId(),
         label: 'Bash',
-        category: skillCategory.language,
+        category: skillCategories.indexOf('language'),
         level: 5
       },
       {
         key: createHashId(),
         label: 'React',
-        category: skillCategory.front,
+        category: skillCategories.indexOf('front'),
         level: 7
       },
       {
         key: createHashId(),
         label: 'Redux',
-        category: skillCategory.front,
+        category: skillCategories.indexOf('front'),
         level: 6
       },
       {
         key: createHashId(),
         label: 'Web3',
-        category: skillCategory.front,
+        category: skillCategories.indexOf('front'),
         level: 4
       },
       {
         key: createHashId(),
         label: 'HTML 5',
-        category: skillCategory.front,
+        category: skillCategories.indexOf('front'),
         level: 8
       },
       {
         key: createHashId(),
         label: 'CSS 3',
-        category: skillCategory.front,
+        category: skillCategories.indexOf('front'),
         level: 9
       },
       {
         key: createHashId(),
         label: 'JSS',
-        category: skillCategory.front,
+        category: skillCategories.indexOf('front'),
         level: 8
       },
       {
         key: createHashId(),
         label: 'Sass',
-        category: skillCategory.front,
+        category: skillCategories.indexOf('front'),
         level: 7
       },
       {
         key: createHashId(),
         label: 'Pug',
-        category: skillCategory.front,
+        category: skillCategories.indexOf('front'),
         level: 8
       },
       {
         key: createHashId(),
         label: 'Serverless',
-        category: skillCategory.back,
+        category: skillCategories.indexOf('back'),
         level: 6
       },
       {
         key: createHashId(),
         label: 'ExpressJs',
-        category: skillCategory.back,
+        category: skillCategories.indexOf('back'),
         level: 7
       },
       {
         key: createHashId(),
         label: 'DynamoDB',
-        category: skillCategory.back,
+        category: skillCategories.indexOf('back'),
         level: 5
       },
       {
         key: createHashId(),
         label: 'MongoDB',
-        category: skillCategory.back,
+        category: skillCategories.indexOf('back'),
         level: 6
       },
       {
         key: createHashId(),
         label: 'Postgres',
-        category: skillCategory.back,
+        category: skillCategories.indexOf('back'),
         level: 5
       },
       {
         key: createHashId(),
         label: 'IPFS',
-        category: skillCategory.back,
+        category: skillCategories.indexOf('back'),
         level: 3
       },
       {
         key: createHashId(),
         label: 'Webpack',
-        category: skillCategory.tool,
+        category: skillCategories.indexOf('tool'),
         level: 7
       },
       {
         key: createHashId(),
         label: 'Babel',
-        category: skillCategory.tool,
+        category: skillCategories.indexOf('tool'),
         level: 8
       },
       {
         key: createHashId(),
         label: 'Git',
-        category: skillCategory.tool,
+        category: skillCategories.indexOf('tool'),
         level: 7
       },
       {
         key: createHashId(),
         label: 'GitHub',
-        category: skillCategory.tool,
+        category: skillCategories.indexOf('tool'),
         level: 8
       },
       {
         key: createHashId(),
         label: 'Yarn',
-        category: skillCategory.tool,
+        category: skillCategories.indexOf('tool'),
         level: 8
       },
       {
         key: createHashId(),
         label: 'NPM',
-        category: skillCategory.tool,
+        category: skillCategories.indexOf('tool'),
         level: 6
       },
       {
         key: createHashId(),
         label: 'VS Code',
-        category: skillCategory.tool,
+        category: skillCategories.indexOf('tool'),
         level: 8
       },
       {
         key: createHashId(),
         label: 'Jira',
-        category: skillCategory.tool,
+        category: skillCategories.indexOf('tool'),
         level: 6
       },
       {
         key: createHashId(),
         label: 'AWS JavaScript SDK',
-        category: skillCategory.aws,
+        category: skillCategories.indexOf('aws'),
         level: 8
       },
       {
         key: createHashId(),
         label: 'AWS Lambda',
-        category: skillCategory.aws,
+        category: skillCategories.indexOf('aws'),
         level: 7
       },
       {
         key: createHashId(),
         label: 'AWS CloudFront',
-        category: skillCategory.aws,
+        category: skillCategories.indexOf('aws'),
         level: 6
       },
       {
         key: createHashId(),
         label: 'AWS S3',
-        category: skillCategory.aws,
+        category: skillCategories.indexOf('aws'),
         level: 8
       },
       {
         key: createHashId(),
         label: 'AWS API Gateway',
-        category: skillCategory.aws,
+        category: skillCategories.indexOf('aws'),
         level: 6
       },
       {
         key: createHashId(),
         label: 'AWS Route 53',
-        category: skillCategory.aws,
+        category: skillCategories.indexOf('aws'),
         level: 8
       },
       {
         key: createHashId(),
         label: 'Adobe Photoshop',
-        category: skillCategory.design,
+        category: skillCategories.indexOf('design'),
         level: 8
       },
       {
         key: createHashId(),
         label: 'Adobe Illustrator',
-        category: skillCategory.design,
+        category: skillCategories.indexOf('design'),
         level: 9
       },
       {
         key: createHashId(),
         label: 'Adobe Indesign',
-        category: skillCategory.design,
+        category: skillCategories.indexOf('design'),
         level: 8
       },
       {
         key: createHashId(),
         label: 'SEO',
-        category: skillCategory.marketing,
+        category: skillCategories.indexOf('marketing'),
         level: 7
       },
       {
         key: createHashId(),
         label: 'PPC',
-        category: skillCategory.marketing,
+        category: skillCategories.indexOf('marketing'),
         level: 4
       },
       {
         key: createHashId(),
         label: 'Google Analytics',
-        category: skillCategory.marketing,
+        category: skillCategories.indexOf('marketing'),
         level: 6
       },
       {
         key: createHashId(),
         label: 'Google Search Console',
-        category: skillCategory.marketing,
+        category: skillCategories.indexOf('marketing'),
         level: 7
       }
     ]

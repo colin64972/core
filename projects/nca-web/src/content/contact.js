@@ -1,5 +1,4 @@
 exports.contact = {
-  path: '/contact',
   filename: 'contact',
   content: [
     'WANT TO WORK TOGETHER?',
