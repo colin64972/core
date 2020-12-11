@@ -69,28 +69,28 @@ exports.apps = [
         'Serverless',
         'AWS'
       ]
-    },
-    {
-      key: createHashId(),
-      angleDir: 'right',
-      title: 'NEB<br/>Token',
-      description:
-        'NEB Token is a standard ERC-20 token implementation deployed on the Rinkeby Ethereum test network. The app is a full featured Ethereum token exchange where users can post buy or sell orders for NEB Tokens. Trades are filled manually and all interactions are preformed by the Ethereum Smart Contracts. Users must be signed in to MetaMask in order to view the app.',
-      liveUrl: localEnv.parsed.NT_URL,
-      githubUrl: localEnv.parsed.NT_GITHUB_URL,
-      assetIconCode: 'nt',
-      stackList: [
-        'JavaScript',
-        'Solidity',
-        'Web3',
-        'Truffle',
-        'React',
-        'Redux',
-        'Material-UI',
-        'MetaMask',
-        'Webpack',
-        'Babel'
-      ]
     }
+    // {
+    //   key: createHashId(),
+    //   angleDir: 'right',
+    //   title: 'NEB<br/>Token',
+    //   description:
+    //     'NEB Token is a standard ERC-20 token implementation deployed on the Rinkeby Ethereum test network. The app is a full featured Ethereum token exchange where users can post buy or sell orders for NEB Tokens. Trades are filled manually and all interactions are preformed by the Ethereum Smart Contracts. Users must be signed in to MetaMask in order to view the app.',
+    //   liveUrl: localEnv.parsed.NT_URL,
+    //   githubUrl: localEnv.parsed.NT_GITHUB_URL,
+    //   assetIconCode: 'nt',
+    //   stackList: [
+    //     'JavaScript',
+    //     'Solidity',
+    //     'Web3',
+    //     'Truffle',
+    //     'React',
+    //     'Redux',
+    //     'Material-UI',
+    //     'MetaMask',
+    //     'Webpack',
+    //     'Babel'
+    //   ]
+    // }
   ]
 ]
