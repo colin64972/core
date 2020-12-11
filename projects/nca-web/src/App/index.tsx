@@ -7,8 +7,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { TopNav } from './TopNav'
 import { getContent } from './fetchers'
 import { addContent } from '../store/actions'
+import { NotFound } from './NotFound'
+import { Contact } from './Contact/'
 
-export const App: React.FC = (): JSX.Element => {
+export const App: React.FC = (): JSX.Element | null => {
   const location = useLocation()
 
   const showNav = /(resume|apps|contact)\/?$/i.test(location.pathname)
@@ -33,6 +35,8 @@ export const App: React.FC = (): JSX.Element => {
       {showNav && <TopNav />}
       <Switch>
         <Route path="/" exact component={Home} />
+        <Route path="/contact" exact component={Contact} />
+        <Route path="/*" component={NotFound} />
       </Switch>
       <Footer />
     </CssBaseline>

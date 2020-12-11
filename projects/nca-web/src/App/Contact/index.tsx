@@ -8,6 +8,7 @@ import React from 'react'
 import Loadable from 'react-loadable'
 import { HeroBar } from '../HeroBar'
 import { setHtml } from '@cjo3/shared/react/helpers'
+import { useSelector } from 'react-redux'
 
 const FormLoadable = Loadable({
   loader: () =>
@@ -106,12 +107,10 @@ const useStyles = makeStyles(
   { name: 'Contact' }
 )
 
-interface Props {
-  content: string[]
-}
-
-export const Contact: React.FC<Props> = ({ content }): JSX.Element | null => {
+export const Contact: React.FC = (): JSX.Element | null => {
   const classes = useStyles()
+
+  const content = useSelector(state => state.content.contact)
 
   if (!content) return null
 
@@ -137,7 +136,7 @@ export const Contact: React.FC<Props> = ({ content }): JSX.Element | null => {
             <Grid className={clsx(classes.titleBottom, classes.bgRed)} />
           </Grid>
           <Grid className={classes.formBlock}>
-            <FormLoadable />
+            <FormLoadable content={content} />
           </Grid>
         </Grid>
         <Grid className={classes.right} />

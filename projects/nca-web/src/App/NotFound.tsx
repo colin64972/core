@@ -4,6 +4,7 @@ import { Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import HomeIcon from '@material-ui/icons/Home'
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 const useStyles = makeStyles(
   theme => ({
@@ -53,16 +54,12 @@ const useStyles = makeStyles(
   { name: 'NotFound' }
 )
 
-interface Props {
-  content: string[]
-}
-
-export const NotFound: React.FC<Props> = ({ content }): JSX.Element | null => {
+export const NotFound: React.FC = (): JSX.Element | null => {
   const classes = useStyles()
 
-  if (!content) return null
+  const content = useSelector(state => state.content.error)
 
-  console.log('%c XXX', 'color: yellow; font-size: large', content)
+  if (!content) return null
 
   const clickHandler = (): void => {
     clickWindowLink('/')

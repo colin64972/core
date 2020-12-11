@@ -61,20 +61,31 @@ const useStyles = makeStyles(
     mailSentText: {
       ...theme.typography.shareTechMono,
       marginTop: theme.custom.setSpace('sm'),
+      maxWidth: 400,
       textAlign: 'center'
     }
   }),
   { name: 'ContactForm' }
 )
 
-const contactFormSchema = object({
-  name: string().min(2, 'Too short').required('Required'),
-  email: string().email().required('Required'),
-  messageType: number().oneOf(Object.values(messageTypes)).required('Required'),
-  message: string().min(25, 'Too short').required('Required')
-})
+interface Props {
+  content: string[] | null
+}
 
-export const ContactForm: React.FC = (): JSX.Element => {
+export const ContactForm: React.FC<Props> = ({
+  content
+}): JSX.Element | null => {
+  if (!content) return null
+
+  const contactFormSchema = object({
+    name: string().min(2, content[3]).required(content[4]),
+    email: string().email().required(content[4]),
+    messageType: number()
+      .oneOf(Object.values(messageTypes))
+      .required(content[4]),
+    message: string().min(25, content[3]).required(content[4])
+  })
+
   const classes = useStyles()
 
   const initialValues: TypeOf<typeof contactFormSchema> = {
@@ -120,9 +131,7 @@ export const ContactForm: React.FC = (): JSX.Element => {
           )}
 
           <Typography variant="h4" className={classes.mailSentText}>
-            {mailFail
-              ? 'Message could not be sent. Please try again later'
-              : 'Thanks for your message!'}
+            {mailFail ? content[5] : content[6]}
           </Typography>
         </Grid>
       ) : (
@@ -134,30 +143,30 @@ export const ContactForm: React.FC = (): JSX.Element => {
             <Form>
               <FormikField
                 name="name"
-                label="Name"
+                label={content[7]}
                 inputType={inputTypes.text}
-                placeholder="John"
+                placeholder={content[8]}
                 required
               />
               <FormikField
                 name="email"
-                label="Email Address"
+                label={content[9]}
                 inputType={inputTypes.text}
-                placeholder="johnsmith@gmail.com"
+                placeholder={content[10]}
                 required
               />
               <FormikField
                 name="messageType"
-                label="Message Type"
+                label={content[11]}
                 inputType={inputTypes.select}
                 required
                 selectOptions={contactFormMessageTypeOptions}
               />
               <FormikField
                 name="message"
-                label="Message Body"
+                label={content[12]}
                 inputType={inputTypes.text}
-                placeholder="Enter message here"
+                placeholder={content[13]}
                 required
                 rows={5}
               />
@@ -171,7 +180,7 @@ export const ContactForm: React.FC = (): JSX.Element => {
                   className={clsx(classes.button, classes.submit, {
                     [classes.bgValid]: formik.dirty && formik.isValid
                   })}>
-                  {formik.isSubmitting ? 'Sending' : 'Submit'}
+                  {formik.isSubmitting ? content[14] : content[15]}
                 </button>
                 <button
                   type="reset"
@@ -179,7 +188,7 @@ export const ContactForm: React.FC = (): JSX.Element => {
                   className={clsx(classes.button, classes.reset, {
                     [classes.bgDirty]: formik.dirty
                   })}>
-                  Reset
+                  {content[16]}
                 </button>
               </Grid>
             </Form>
