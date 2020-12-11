@@ -78,12 +78,12 @@ export const ContactForm: React.FC<Props> = ({
   if (!content) return null
 
   const contactFormSchema = object({
-    name: string().min(2, content[3]).required(content[4]),
-    email: string().email().required(content[4]),
+    name: string().min(2, content[4]).required(content[5]),
+    email: string().email().required(content[5]),
     messageType: number()
       .oneOf(Object.values(messageTypes))
-      .required(content[4]),
-    message: string().min(25, content[3]).required(content[4])
+      .required(content[5]),
+    message: string().min(25, content[4]).required(content[5])
   })
 
   const classes = useStyles()
@@ -131,7 +131,7 @@ export const ContactForm: React.FC<Props> = ({
           )}
 
           <Typography variant="h4" className={classes.mailSentText}>
-            {mailFail ? content[5] : content[6]}
+            {mailFail ? content[6] : content[7]}
           </Typography>
         </Grid>
       ) : (
@@ -143,30 +143,30 @@ export const ContactForm: React.FC<Props> = ({
             <Form>
               <FormikField
                 name="name"
-                label={content[7]}
+                label={content[8]}
                 inputType={inputTypes.text}
-                placeholder={content[8]}
+                placeholder={content[9]}
                 required
               />
               <FormikField
                 name="email"
-                label={content[9]}
+                label={content[10]}
                 inputType={inputTypes.text}
-                placeholder={content[10]}
+                placeholder={content[11]}
                 required
               />
               <FormikField
                 name="messageType"
-                label={content[11]}
+                label={content[12]}
                 inputType={inputTypes.select}
                 required
                 selectOptions={contactFormMessageTypeOptions}
               />
               <FormikField
                 name="message"
-                label={content[12]}
+                label={content[13]}
                 inputType={inputTypes.text}
-                placeholder={content[13]}
+                placeholder={content[14]}
                 required
                 rows={5}
               />
@@ -180,7 +180,7 @@ export const ContactForm: React.FC<Props> = ({
                   className={clsx(classes.button, classes.submit, {
                     [classes.bgValid]: formik.dirty && formik.isValid
                   })}>
-                  {formik.isSubmitting ? content[14] : content[15]}
+                  {formik.isSubmitting ? content[15] : content[16]}
                 </button>
                 <button
                   type="reset"
@@ -188,7 +188,7 @@ export const ContactForm: React.FC<Props> = ({
                   className={clsx(classes.button, classes.reset, {
                     [classes.bgDirty]: formik.dirty
                   })}>
-                  {content[16]}
+                  {content[17]}
                 </button>
               </Grid>
             </Form>

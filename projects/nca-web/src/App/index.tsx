@@ -9,6 +9,8 @@ import { getContent } from './fetchers'
 import { addContent } from '../store/actions'
 import { NotFound } from './NotFound'
 import { Contact } from './Contact/'
+import { Apps } from './Apps/'
+import { Resume } from './Resume/'
 
 export const App: React.FC = (): JSX.Element | null => {
   const location = useLocation()
@@ -35,6 +37,8 @@ export const App: React.FC = (): JSX.Element | null => {
       {showNav && <TopNav />}
       <Switch>
         <Route path="/" exact component={Home} />
+        <Route path="/resume" exact component={Resume} />
+        <Route path="/apps" exact component={Apps} />
         <Route path="/contact" exact component={Contact} />
         <Route path="/*" component={NotFound} />
       </Switch>

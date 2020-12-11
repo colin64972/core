@@ -116,7 +116,7 @@ export const Contact: React.FC = (): JSX.Element | null => {
 
   return (
     <Grid container justify="center">
-      <HeroBar src={NcaContact} tagline={content[0]} alt="contact-image" />
+      <HeroBar src={NcaContact} tagline={content[0]} alt={content[1]} />
       <Grid className={classes.container}>
         <Grid className={clsx(classes.left, classes.bgRed)} />
         <Grid className={classes.center}>
@@ -127,10 +127,10 @@ export const Contact: React.FC = (): JSX.Element | null => {
               <Typography
                 variant="h2"
                 className={classes.title}
-                dangerouslySetInnerHTML={setHtml(content[1])}
+                dangerouslySetInnerHTML={setHtml(content[2])}
               />
               <Typography variant="body1" className={classes.titleText}>
-                {content[2]}
+                {content[3]}
               </Typography>
             </Grid>
             <Grid className={clsx(classes.titleBottom, classes.bgRed)} />

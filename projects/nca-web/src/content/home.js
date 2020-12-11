@@ -5,7 +5,7 @@ exports.home = [
   'full stack<br/>JavaScript<br/>design &<br/>development',
   `logo-${localEnv.parsed.APP_NAME}-white`,
   "LET'S BUILD AN ONLINE EXPERIENCE TOGETHER",
-  'image-home-hero',
+  'image-home',
   "it's not the idea, it's the commitment and execution",
   "In today’s inter–connected world, your business needs to be online with more than a basic webpage. However, building a performant, search–visible and lead–generating online experience is a complex process for even the largest of companies. With a background in graphic design, education in marketing and modern programming skills, I can help bring your brand's web presence to life with a focus on conversions and revenue generation.",
   'how i can help you achieve your online goals',

@@ -3,6 +3,7 @@ import { Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd'
 import BusinessCenterIcon from '@material-ui/icons/BusinessCenter'
+import { useSelector } from 'react-redux'
 import CodeIcon from '@material-ui/icons/Code'
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf'
 import SchoolIcon from '@material-ui/icons/School'
@@ -26,6 +27,8 @@ import { ContentContainer } from '../ContentContainer'
 import { HeroBar } from '../HeroBar'
 import { ResumeEntry } from './ResumeEntry'
 import { SkillGraph } from './SkillGraph'
+import { setHtml } from '@cjo3/shared/react/helpers'
+import { skillCategories } from '@cjo3/shared/raw/constants/nca'
 
 const useStyles = makeStyles(
   theme => ({
@@ -143,11 +146,11 @@ const useStyles = makeStyles(
         ...theme.custom.setGrid(3, 'auto', theme.custom.setSpace('md'))
       }
     },
-    skills0: {
+    skillsSection0: {
       gridColumn: '1 / 2',
       gridRow: 1
     },
-    skills1: {
+    skillsSection1: {
       gridColumn: '1 / 2',
       gridRow: 2,
       [theme.breakpoints.up('sm')]: {
@@ -155,7 +158,7 @@ const useStyles = makeStyles(
         gridRow: 1
       }
     },
-    skills2: {
+    skillsSection2: {
       gridColumn: '1 / 2',
       gridRow: 3,
       [theme.breakpoints.up('sm')]: {
@@ -163,14 +166,14 @@ const useStyles = makeStyles(
         gridRow: 1
       }
     },
-    skills3: {
+    skillsSection3: {
       gridColumn: '1 / 2',
       gridRow: 4,
       [theme.breakpoints.up('sm')]: {
         gridRow: 2
       }
     },
-    skills4: {
+    skillsSection4: {
       gridColumn: '1 / 2',
       gridRow: 5,
       [theme.breakpoints.up('sm')]: {
@@ -178,7 +181,7 @@ const useStyles = makeStyles(
         gridRow: 2
       }
     },
-    skills5: {
+    skillsSection5: {
       gridColumn: '1 / 2',
       gridRow: 6,
       [theme.breakpoints.up('sm')]: {
@@ -186,7 +189,7 @@ const useStyles = makeStyles(
         gridRow: 2
       }
     },
-    skills6: {
+    skillsSection6: {
       gridColumn: '1 / 2',
       gridRow: 7,
       paddingBottom: theme.custom.setSpace('sm'),
@@ -213,8 +216,14 @@ const logoMap = {
   ai: LogoAi
 }
 
-export const Resume: React.FC = (): JSX.Element => {
+export const Resume: React.FC = (): JSX.Element | null => {
   const classes = useStyles()
+
+  const content = useSelector(state => state.content.resume)
+  console.log('%c content', 'color: yellow; font-size: large', content)
+
+  if (!content) return null
+
   function downloadHandler(event: MouseEvent): void {
     const fileVariant = event.currentTarget.name
     saveAs(
@@ -224,14 +233,10 @@ export const Resume: React.FC = (): JSX.Element => {
   }
   return (
     <Grid container justify="center">
-      <HeroBar
-        src={NcaResume}
-        tagline="Deep Dive into my Resume Credentials"
-        alt="resume-image"
-      />
+      <HeroBar src={NcaResume} tagline={content[0]} alt={content[1]} />
       <Grid className={classes.downloadSection}>
         <Typography variant="h5" className={classes.downloadTitle}>
-          Download Resume
+          {content[2]}
         </Typography>
         <Grid container justify="center" alignItems="center">
           <Button
@@ -245,7 +250,7 @@ export const Resume: React.FC = (): JSX.Element => {
             onClick={downloadHandler}
             name="color">
             <PictureAsPdfIcon className={classes.downloadButtonIcon} />
-            Color
+            {content[3]}
           </Button>
           <Button
             type="button"
@@ -254,7 +259,7 @@ export const Resume: React.FC = (): JSX.Element => {
             name="grey"
             onClick={downloadHandler}>
             <PictureAsPdfIcon className={classes.downloadButtonIcon} />
-            Grey
+            {content[4]}
           </Button>
         </Grid>
       </Grid>
@@ -263,13 +268,13 @@ export const Resume: React.FC = (): JSX.Element => {
         <Grid className={classes.workSide}>
           <Grid className={classes.workInner}>
             <BusinessCenterIcon className={classes.sectionTitleIcon} />
-            <Typography component="h2" className={classes.seciontTitle}>
-              work
-              <br />
-              history
-            </Typography>
+            <Typography
+              component="h2"
+              className={classes.seciontTitle}
+              dangerouslySetInnerHTML={setHtml(content[5])}
+            />
             <Grid className={classes.workEntries}>
-              {workEntries.map(entry => (
+              {content[6].map(entry => (
                 <ResumeEntry
                   key={entry.key}
                   work
@@ -294,13 +299,11 @@ export const Resume: React.FC = (): JSX.Element => {
             />
             <Typography
               component="h2"
-              className={clsx(classes.seciontTitle, classes.white)}>
-              completed
-              <br />
-              education
-            </Typography>
+              className={clsx(classes.seciontTitle, classes.white)}
+              dangerouslySetInnerHTML={setHtml(content[7])}
+            />
             <Grid className={classes.schoolEntries}>
-              {schoolEntries.map(entry => (
+              {content[8].map(entry => (
                 <ResumeEntry
                   key={entry.key}
                   logo={logoMap[entry.logo]}
@@ -322,13 +325,11 @@ export const Resume: React.FC = (): JSX.Element => {
             />
             <Typography
               component="h2"
-              className={clsx(classes.seciontTitle, classes.red)}>
-              other
-              <br />
-              details
-            </Typography>
+              className={clsx(classes.seciontTitle, classes.red)}
+              dangerouslySetInnerHTML={setHtml(content[9])}
+            />
             <ul className={classes.personalDetailsList}>
-              {personalDetails.map(item => (
+              {content[10].map(item => (
                 <li key={item.key}>{item.label}</li>
               ))}
             </ul>
@@ -340,33 +341,18 @@ export const Resume: React.FC = (): JSX.Element => {
         <CodeIcon className={classes.sectionTitleIcon} />
         <Typography
           component="h2"
-          className={clsx(classes.seciontTitle, classes.red)}>
-          software stack
-          <br />
-          proficiency
-        </Typography>
+          className={clsx(classes.seciontTitle, classes.red)}
+          dangerouslySetInnerHTML={setHtml(content[11])}
+        />
         <Grid className={classes.skillsContainer}>
-          {[
-            'language',
-            'front',
-            'back',
-            'tool',
-            'aws',
-            'marketing',
-            'design'
-          ].map((item, index) => (
+          {skillCategories.map((category, index) => (
             <Grid
-              key={`skill-section-${item}`}
-              className={classes[`skills${index}`]}>
-              {softwareSkills
-                .filter(skill => skill.category === skillCategory[item])
+              key={`skill-section-${category}`}
+              className={classes[`skillsSection${index}`]}>
+              {content[12]
+                .filter(skill => skill.category === index)
                 .map(skill => (
-                  <SkillGraph
-                    label={skill.label}
-                    key={skill.key}
-                    level={skill.level}
-                    category={skillCategory[item]}
-                  />
+                  <SkillGraph {...skill} />
                 ))}
             </Grid>
           ))}

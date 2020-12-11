@@ -3,6 +3,7 @@ const { skillCategories } = require('@cjo3/shared/raw/constants/nca')
 
 exports.resume = [
   'DEEP DIVE INTO MY RESUME CREDENTIALS',
+  'image-resume',
   'DOWNLOAD RESUME',
   'COLOR',
   'GREY',

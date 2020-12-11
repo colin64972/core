@@ -3,6 +3,7 @@ const localEnv = require('dotenv').config()
 
 exports.apps = [
   'LIVE APP PORTFOLIO AND CODE SAMPLES',
+  'image-apps',
   [
     {
       key: createHashId(),

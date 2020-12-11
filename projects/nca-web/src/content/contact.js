@@ -1,5 +1,6 @@
 exports.contact = [
   'WANT TO WORK TOGETHER?',
+  'image-contact',
   'Inquiries,<br/>Feedback,<br/>Support',
   'Send me a message to get in touch. Always happy to receive info requests, hear customer feedback or provide app support!',
   'Too short',
