@@ -1,6 +1,7 @@
 require('colors')
 const fs = require('fs')
 const path = require('path')
+const { common } = require('./common')
 const { home } = require('./home')
 const { contact } = require('./contact')
 const { resume } = require('./resume')
@@ -11,7 +12,7 @@ const sharedEnv = require('dotenv').config({
   path: path.resolve('..', 'shared', '.env')
 })
 
-const component = [home, resume, apps, contact, error]
+const component = [common, home, resume, apps, contact, error]
 
 const app = sharedEnv.parsed.APPS_LIST.split(',')[0]
 

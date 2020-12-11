@@ -192,14 +192,14 @@ export const Footer: React.FC = (): JSX.Element => {
               className={classes.menuItem}
               onClick={tcOpenHandler}>
               <GavelIcon />
-              &emsp;Terms &amp; Conditions
+              &emsp;{content[0]}
             </Button>
             <Button
               type="button"
               className={classes.menuItem}
               onClick={ppOpenHandler}>
               <VpnLockIcon />
-              &emsp;Privacy Policy
+              &emsp;{content[1]}
             </Button>
           </Grid>
           <Grid item xs={12} sm={6} className={classes.footerRight}>
@@ -211,18 +211,16 @@ export const Footer: React.FC = (): JSX.Element => {
                   width={60}
                 />
                 <Typography variant="h5" className={classes.badgeTitle}>
-                  Need Help with JavaScript
-                  <br />
-                  App Development?
+                  {content[2]}
                 </Typography>
               </Grid>
               <Typography variant="body1" className={classes.badgeSubtitle}>
-                Available for Hire!
+                {content[3]}
               </Typography>
             </Grid>
             <Typography variant="body1" className={classes.legalText}>
-              &copy; {new Date().getFullYear()} {process.env.SITE_NAME}. All
-              rights reserved.
+              &copy; {new Date().getFullYear()} {process.env.SITE_NAME}.{' '}
+              {content[4]}
             </Typography>
           </Grid>
         </Grid>
