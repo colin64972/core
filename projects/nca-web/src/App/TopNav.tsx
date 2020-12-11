@@ -7,6 +7,7 @@ import { AngleBand } from './AngleBand'
 import { ContentContainer } from './ContentContainer'
 import { NavButtonSet } from './NavButtonSet'
 import { SideMenu } from './SideMenu'
+import { clickWindowLink } from '@cjo3/shared/react/helpers'
 
 const useStyles = makeStyles(
   theme => ({
@@ -39,11 +40,20 @@ export const TopNav: React.FC = (): JSX.Element => {
   const closeSideMenuHandler = (): void => {
     setSideMenuOpen(false)
   }
+
+  const logoClickHandler = (): void => {
+    clickWindowLink('/')
+  }
+
   return (
     <Grid container>
       <ContentContainer bgColor="theme.palette.primary.main">
         <Grid container justify="space-between" alignItems="center">
-          <img src={NcaLogoWhite} className={classes.logo} />
+          <img
+            src={NcaLogoWhite}
+            className={classes.logo}
+            onClick={logoClickHandler}
+          />
           {matches ? (
             <MenuIcon
               className={classes.sideMenuIcon}

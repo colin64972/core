@@ -22,7 +22,7 @@ export const App: React.FC = (): JSX.Element | null => {
   const content = useSelector(state => state.content)
 
   useEffect(() => {
-    if (!content)
+    if (!process.env.IS_SERVER && !content)
       getContent()
         .then(data => {
           dispatch(addContent(data))

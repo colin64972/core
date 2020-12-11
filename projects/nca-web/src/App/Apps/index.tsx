@@ -10,7 +10,6 @@ import { useSelector } from 'react-redux'
 const useStyles = makeStyles(
   theme => ({
     extraPadding: {
-      ...theme.debug.border,
       paddingBottom: theme.custom.setSpace('sm')
     }
   }),
