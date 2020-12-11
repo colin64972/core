@@ -1,28 +1,38 @@
 import { CssBaseline } from '@material-ui/core'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Route, Switch, useLocation } from 'react-router-dom'
-import { Apps } from './Apps/'
-import { Contact } from './Contact/'
 import { Footer } from './Footer'
 import { Home } from './Home'
-import { NotFound } from './NotFound'
-import { Resume } from './Resume/'
+import { useDispatch, useSelector } from 'react-redux'
 import { TopNav } from './TopNav'
+import { getContent } from './fetchers'
+import { addContent } from '../store/actions'
 
 export const App: React.FC = (): JSX.Element => {
   const location = useLocation()
 
   const showNav = /(resume|apps|contact)\/?$/i.test(location.pathname)
 
+  const dispatch = useDispatch()
+
+  const content = useSelector(state => state.content)
+
+  useEffect(() => {
+    if (!content)
+      getContent()
+        .then(data => {
+          dispatch(addContent(data))
+        })
+        .catch(error => console.error(error))
+  })
+
+  if (!content) return null
+
   return (
     <CssBaseline>
       {showNav && <TopNav />}
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/resume" exact component={Resume} />
-        <Route path="/apps" exact component={Apps} />
-        <Route path="/contact" exact component={Contact} />
-        <Route path="/*" component={NotFound} />
       </Switch>
       <Footer />
     </CssBaseline>

@@ -210,15 +210,6 @@ export const Home: React.FC = (): JSX.Element | null => {
 
   const content = useSelector(state => state.content.home)
 
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    if (!content)
-      getContent('home')
-        .then(data => dispatch(addContent('home', data)))
-        .catch(error => console.error(error))
-  }, [content])
-
   if (!content) return null
 
   return (

@@ -1,27 +1,25 @@
 require('colors')
 const fs = require('fs')
 const path = require('path')
-const { common } = require('./common')
+const { navItems } = require('./navItems')
+const { footer } = require('./footer')
 const { home } = require('./home')
 const { contact } = require('./contact')
 const { resume } = require('./resume')
 const { apps } = require('./apps')
 const { error } = require('./error')
 
-const sharedEnv = require('dotenv').config({
-  path: path.resolve('..', 'shared', '.env')
-})
+contentToJson('content')
 
-const component = [common, home, resume, apps, contact, error]
-
-const app = sharedEnv.parsed.APPS_LIST.split(',')[0]
-
-component.forEach(component => componentToJson(app, component))
-
-function componentToJson(app, component) {
+function contentToJson(filename) {
   const data = {
-    app,
-    content: component.content
+    navItems,
+    footer,
+    home,
+    resume,
+    apps,
+    contact,
+    error
   }
 
   const outputLocation = path.resolve('distContent')
@@ -31,7 +29,7 @@ function componentToJson(app, component) {
   }
 
   fs.writeFileSync(
-    `${outputLocation}/${component.filename}.json`,
+    `${outputLocation}/${filename}.json`,
     JSON.stringify(data, null, 2)
   )
 }

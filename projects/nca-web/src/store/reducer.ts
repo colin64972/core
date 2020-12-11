@@ -2,7 +2,7 @@ import { AppActionTypes, AppState } from './interfaces'
 import { ADD_CONTENT } from './types'
 
 export const initialState: AppState = {
-  content: {}
+  content: null
 }
 
 export const appReducer = (
@@ -14,7 +14,7 @@ export const appReducer = (
       return {
         ...state,
         content: {
-          [action.component]: action.content
+          ...action.content
         }
       }
     default:

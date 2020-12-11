@@ -5,8 +5,8 @@ exports.content = {
   srcPath: 'distContent',
   s3Path:
     process.env.NODE_ENV === 'staging'
-      ? `${process.env.STA_CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/content/`
-      : `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/content/`,
+      ? `${process.env.STA_CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/`
+      : `${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/`,
   excludes: []
 }
 

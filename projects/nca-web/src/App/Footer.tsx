@@ -1,28 +1,18 @@
 import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
 import { LoadFail } from '@cjo3/shared/react/components/LoadFail'
-import { clickWindowLink } from '@cjo3/shared/react/helpers'
+import { clickWindowLink, setHtml } from '@cjo3/shared/react/helpers'
 import { Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import BusinessCenterIcon from '@material-ui/icons/BusinessCenter'
 import GavelIcon from '@material-ui/icons/Gavel'
-import HomeIcon from '@material-ui/icons/Home'
-import ImportantDevicesIcon from '@material-ui/icons/ImportantDevices'
-import MailOutlineIcon from '@material-ui/icons/MailOutline'
 import VpnLockIcon from '@material-ui/icons/VpnLock'
 import React, { useState } from 'react'
 import Loadable from 'react-loadable'
+import { useSelector } from 'react-redux'
 import { AngleBand } from './AngleBand'
 import { ProfilePic } from './assets'
 import { ContentContainer } from './ContentContainer'
 import { NavButtonSet } from './NavButtonSet'
-
-const iconMap: { [key: string]: JSX.Element } = {
-  home: <HomeIcon />,
-  resume: <BusinessCenterIcon />,
-  apps: <ImportantDevicesIcon />,
-  contact: <MailOutlineIcon />
-}
 
 const TcLoadable = Loadable({
   loader: () =>
@@ -114,6 +104,7 @@ const useStyles = makeStyles(
     },
     badgeTitle: {
       'order': 2,
+      'width': 200,
       'color': theme.palette.primary[600],
       'fontSize': theme.typography.fontSize * 1.5,
       ...theme.typography.shareTechMono,
@@ -124,7 +115,8 @@ const useStyles = makeStyles(
       },
       [theme.breakpoints.up('sm')]: {
         order: 1,
-        textAlign: 'right'
+        textAlign: 'right',
+        width: 310
       }
     },
     badgeSubtitle: {
@@ -153,6 +145,8 @@ const useStyles = makeStyles(
 export const Footer: React.FC = (): JSX.Element => {
   const classes = useStyles()
 
+  const content = useSelector(state => state.content.footer)
+
   const [tcOpen, setTcOpen] = useState<boolean>(false)
   const [ppOpen, setPpOpen] = useState<boolean>(false)
 
@@ -174,6 +168,8 @@ export const Footer: React.FC = (): JSX.Element => {
   const badgeClickHandler = (event: React.MouseEvent): void => {
     clickWindowLink(process.env.SITE_URL, true)
   }
+
+  if (!content) return null
 
   return (
     <Grid component="footer" container>
@@ -210,9 +206,11 @@ export const Footer: React.FC = (): JSX.Element => {
                   pictureClass={classes.badgePic}
                   width={60}
                 />
-                <Typography variant="h5" className={classes.badgeTitle}>
-                  {content[2]}
-                </Typography>
+                <Typography
+                  variant="h5"
+                  className={classes.badgeTitle}
+                  dangerouslySetInnerHTML={setHtml(content[2])}
+                />
               </Grid>
               <Typography variant="body1" className={classes.badgeSubtitle}>
                 {content[3]}

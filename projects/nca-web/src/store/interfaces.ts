@@ -1,12 +1,15 @@
 import { ADD_CONTENT } from './types'
 
+interface Content {
+  [key: string]: string[]
+}
+
 export interface AppState {
-  content: {}
+  content: Content | null
 }
 
 export interface AddContentAction {
   type: typeof ADD_CONTENT
-  component: string
   content: string
 }
 
