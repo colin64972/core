@@ -12,6 +12,17 @@ const sharedEnv = require('dotenv').config({
   path: path.resolve('..', 'shared', '.env')
 })
 
+function setApiUrl() {
+  let url = localEnv.parsed.API_URL_PRO
+  if (process.env.NODE_ENV === 'staging') {
+    url = localEnv.parsed.API_URL_STA
+  }
+  if (process.env.NODE_ENV === 'development') {
+    url = localEnv.parsed.API_URL_DEV
+  }
+  return url
+}
+
 const config = {
   mode: 'development',
   entry: {
@@ -134,6 +145,8 @@ const config = {
       SITE_URL: localEnv.parsed.SITE_URL,
       SITE_CONTACT_EMAIL: localEnv.parsed.SITE_CONTACT_EMAIL,
       RESUME_FILENAME: localEnv.parsed.RESUME_FILENAME,
+      STA_CDN_BUCKET: localEnv.parsed.STA_CDN_BUCKET,
+      CDN_APP_FOLDER: localEnv.parsed.CDN_APP_FOLDER,
       NCA_GITHUB_URL: localEnv.parsed.NCA_GITHUB_URL,
       DLE_GITHUB_URL: localEnv.parsed.DLE_GITHUB_URL,
       KM_GITHUB_URL: localEnv.parsed.KM_GITHUB_URL,
@@ -142,7 +155,8 @@ const config = {
       KM_URL: localEnv.parsed.KM_URL,
       NT_URL: localEnv.parsed.NT_URL,
       JWT_PRIVATE_KEY: sharedEnv.parsed.JWT_PRIVATE_KEY,
-      AUTH_SECRET: sharedEnv.parsed.AUTH_SECRET
+      AUTH_SECRET: sharedEnv.parsed.AUTH_SECRET,
+      API_URL: setApiUrl()
     })
   ]
 }

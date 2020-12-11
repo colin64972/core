@@ -36,11 +36,13 @@ const serverlessConfig = {
 
 serverlessConfig.plugins = [
   new EnvironmentPlugin({
+    APPS_LIST: sharedEnv.parsed.APPS_LIST,
     AUTH_SECRET: sharedEnv.parsed.AUTH_SECRET,
     JWT_PRIVATE_KEY: sharedEnv.parsed.JWT_PRIVATE_KEY,
     SES_REGION: localEnv.parsed.SES_REGION,
     DEST_EMAIL: localEnv.parsed.DEST_EMAIL,
-    SOURCE_EMAIL: localEnv.parsed.SOURCE_EMAIL
+    SOURCE_EMAIL: localEnv.parsed.SOURCE_EMAIL,
+    NCA_URL: localEnv.parsed.NCA_URL
   })
 ]
 

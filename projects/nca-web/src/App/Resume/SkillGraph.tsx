@@ -1,7 +1,7 @@
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
-import { skillCategory } from '../constants'
+import { skillCategories, barColors } from '@cjo3/shared/raw/constants/nca'
 
 const useStyles = makeStyles(
   theme => ({
@@ -52,18 +52,18 @@ export const SkillGraph: React.FC<Props> = ({
 
   function setLevelBarColor() {
     switch (category) {
-      case skillCategory.front:
-        return 'rgb(140, 237, 28)'
-      case skillCategory.back:
-        return 'rgb(28, 237, 230)'
-      case skillCategory.tool:
-        return 'rgb(126, 28, 237)'
-      case skillCategory.aws:
-        return 'rgb(255, 194, 0)'
-      case skillCategory.design:
+      case skillCategories.indexOf('front'):
+        return barColors.green
+      case skillCategories.indexOf('back'):
+        return barColors.cyan
+      case skillCategories.indexOf('tool'):
+        return barColors.purple
+      case skillCategories.indexOf('aws'):
+        return barColors.yellow
+      case skillCategories.indexOf('design'):
         return 'theme.palette.grey[900]'
-      case skillCategory.marketing:
-        return 'rgb(243, 17, 247)'
+      case skillCategories.indexOf('marketing'):
+        return barColors.pink
       default:
         return 'theme.palette.primary.main'
     }

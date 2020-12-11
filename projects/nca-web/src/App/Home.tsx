@@ -1,5 +1,6 @@
 import NcaHome from '@cjo3/shared/assets/svgs/nca-home'
 import NcaLogoWhite from '@cjo3/shared/assets/svgs/nca-logo-white'
+import { setHtml } from '@cjo3/shared/react/helpers'
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import InsertChartIcon from '@material-ui/icons/InsertChart'
@@ -9,6 +10,7 @@ import OpenInBrowserIcon from '@material-ui/icons/OpenInBrowser'
 import TrackChangesIcon from '@material-ui/icons/TrackChanges'
 import clsx from 'clsx'
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { AngleBand } from './AngleBand'
 import { ContentContainer } from './ContentContainer'
 import { HeroBar } from './HeroBar'
@@ -156,6 +158,7 @@ const useStyles = makeStyles(
       ...theme.custom.setFlex('column', 'flex-start'),
       background: `linear-gradient(180deg, white 30px, ${theme.palette.grey[200]} 30px, white)`,
       position: 'relative',
+      top: -1,
       [theme.breakpoints.only('sm')]: {
         background: 'unset'
       }
@@ -200,40 +203,37 @@ const useStyles = makeStyles(
   }
 )
 
-export const Home: React.FC = (): JSX.Element => {
+export const Home: React.FC = (): JSX.Element | null => {
   const classes = useStyles()
+
+  const content = useSelector(state => state.content.home)
+
+  if (!content) return null
+
   return (
     <Grid container justify="center">
       <ContentContainer bgColor="theme.palette.primary.main">
-        <Typography variant="h2" className={classes.headerTitle}>
-          Colin
-          <br />
-          {process.env.APP_NAME}
-        </Typography>
+        <Typography
+          variant="h2"
+          className={classes.headerTitle}
+          dangerouslySetInnerHTML={setHtml(content[0])}
+        />
         <Grid className={classes.headerStroke} />
         <Grid className={classes.subtitleContainer}>
-          <Typography variant="h3" className={classes.subtitleHeading}>
-            full stack
-            <br />
-            JavaScript
-            <br />
-            design &amp;
-            <br />
-            development
-          </Typography>
+          <Typography
+            variant="h3"
+            className={classes.subtitleHeading}
+            dangerouslySetInnerHTML={setHtml(content[1])}
+          />
           <img
             src={NcaLogoWhite}
-            alt="logo-white"
+            alt={content[2]}
             className={classes.subtitleLogo}
           />
         </Grid>
       </ContentContainer>
       <AngleBand bottom right bgColor="theme.palette.primary.main" />
-      <HeroBar
-        src={NcaHome}
-        tagline="Let's build an online experience together"
-        alt="home-image"
-      />
+      <HeroBar src={NcaHome} tagline={content[3]} alt={content[4]} />
       <AngleBand top right bgColor="theme.palette.grey[200]" />
       <ContentContainer gradient="theme.custom.setLinearGradient(180, theme.palette.grey[200], 'white')">
         <Grid container>
@@ -241,17 +241,10 @@ export const Home: React.FC = (): JSX.Element => {
             <OpenInBrowserIcon color="primary" className={classes.introIcon} />
             <Grid className={classes.introInner}>
               <Typography variant="h4" className={classes.introTitle}>
-                it&apos;s not the idea, it&apos;s the commitment and execution
+                {content[5]}
               </Typography>
               <Typography variant="body1" className={classes.introText}>
-                In today’s inter&ndash;connected world, your business needs to
-                be online with more than a basic webpage. However, building a
-                performant, search&ndash;visible and lead&ndash;generating
-                online experience is a complex process for even the largest of
-                companies. With a background in graphic design, education in
-                marketing and modern programming skills, I can help bring your
-                brand&apos;s web presence to life with a focus on conversions
-                and revenue generation.
+                {content[6]}
               </Typography>
             </Grid>
           </Grid>
@@ -264,7 +257,7 @@ export const Home: React.FC = (): JSX.Element => {
         <Grid className={classes.helpCases}>
           <TrackChangesIcon color="primary" className={classes.helpCasesIcon} />
           <Typography variant="h4" className={classes.helpCasesTitle}>
-            how i can help you achieve your online goals
+            {content[7]}
           </Typography>
         </Grid>
         <Grid className={classes.helpCasesGrid}>
@@ -272,26 +265,20 @@ export const Home: React.FC = (): JSX.Element => {
             <Grid className={clsx(classes.helpCaseAngle, classes.angleRight)} />
             <InsertChartIcon className={classes.helpCaseIcon} />
             <Typography variant="h4" className={classes.helpCaseTitle}>
-              marketing
+              {content[8]}
             </Typography>
             <Typography variant="body1" className={classes.helpCaseText}>
-              Marketing strategy should be the core of your online presence and
-              baked into each page of your website. From content planning to
-              technical SEO, social media and PPC, let me help you earn
-              visibility and gain users.
+              {content[9]}
             </Typography>
           </Grid>
           <Grid className={clsx(classes.helpCaseBg, classes.helpCaseDesign)}>
             <Grid className={clsx(classes.helpCaseAngle, classes.angleRight)} />
             <OpacityIcon className={classes.helpCaseIcon} />
             <Typography variant="h4" className={classes.helpCaseTitle}>
-              design
+              {content[10]}
             </Typography>
             <Typography variant="body1" className={classes.helpCaseText}>
-              The design and UI of your webpage is not superficial. Numerous
-              studies have proven that users give more trust and credibility to
-              well-designed, aesthetically pleasing websites. Allow me to you
-              craft a beautiful digital experience.
+              {content[11]}
             </Typography>
           </Grid>
           <Grid
@@ -299,13 +286,10 @@ export const Home: React.FC = (): JSX.Element => {
             <Grid className={clsx(classes.helpCaseAngle, classes.angleRight)} />
             <MemoryIcon className={classes.helpCaseIcon} />
             <Typography variant="h4" className={classes.helpCaseTitle}>
-              development
+              {content[12]}
             </Typography>
             <Typography variant="body1" className={classes.helpCaseText}>
-              Gone are the days of static websites, you need a dynamic web
-              application that provides rich data to users. I use modern
-              JavaScript and NodeJs to build interactive front-end clients and
-              data-providing back-end services.
+              {content[13]}
             </Typography>
           </Grid>
         </Grid>

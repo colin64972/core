@@ -5,9 +5,9 @@ import BusinessCenterIcon from '@material-ui/icons/BusinessCenter'
 import HomeIcon from '@material-ui/icons/Home'
 import ImportantDevicesIcon from '@material-ui/icons/ImportantDevices'
 import MailOutlineIcon from '@material-ui/icons/MailOutline'
+import { useSelector } from 'react-redux'
 import clsx from 'clsx'
 import React from 'react'
-import { menuItems } from './constants'
 
 interface Props {
   slice?: number
@@ -98,7 +98,7 @@ export const NavButtonSet: React.FC<Props> = ({
   alignment,
   noLastChildMargin,
   midNav
-}): JSX.Element => {
+}): JSX.Element | null => {
   const classes = useStyles({
     color,
     direction,
@@ -107,13 +107,17 @@ export const NavButtonSet: React.FC<Props> = ({
     noLastChildMargin
   })
 
+  const navItems = useSelector(state => state.content.navItems)
+
   const menuItemClickHandler = (linkTo: string) => (
     event: React.MouseEvent
   ): void => {
     clickWindowLink(linkTo)
   }
 
-  const items = menuItems.slice(slice)
+  if (!navItems) return null
+
+  const items = navItems.slice(slice)
 
   if (midNav)
     return (

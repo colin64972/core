@@ -14,7 +14,8 @@ provider:
     payload: '2.0'
     cors:
       allowedOrigins:
-        - ${env:CORS_LIVE_ORIGIN}
+        - ${env:CORS_STA_ORIGIN}
+        - ${env:CORS_PRO_ORIGIN}
       allowedHeaders:
         - Content-Type
         - Authorization
@@ -24,17 +25,6 @@ provider:
         - OPTIONS
       allowCredentials: true
       maxAge: 6000
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - dynamodb:DeleteItem
-        - dynamodb:GetItem
-        - dynamodb:PutItem
-        - dynamodb:Query
-        - dynamodb:Scan
-        - dynamodb:UpdateItem
-      Resource:
-        - arn:aws:dynamodb:${env:REGION}:*:table/${env:TABLE_NAME}
 
 functions:
   contactHandler:
@@ -78,19 +68,3 @@ custom:
     endpointType: regional
     apiType: http
     autoDomain: true
-
-resources:
-  Resources:
-    NcaContent:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: ${env:TABLE_NAME}
-        AttributeDefinitions:
-          - AttributeName: app
-            AttributeType: S
-        KeySchema:
-          - AttributeName: app
-            KeyType: HASH
-        ProvisionedThroughput:
-          ReadCapacityUnits: 5
-          WriteCapacityUnits: 1

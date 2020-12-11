@@ -3,6 +3,7 @@ import { isAuthorized } from '@cjo3/shared/security/authToken'
 export function authMiddlware() {
   return {
     before: (handler, next) => {
+      if (process.env.NODE_ENV && process.env.IS_OFFLINE) return next()
       const {
         event: { headers }
       } = handler

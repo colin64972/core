@@ -4,6 +4,7 @@ import { Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import HomeIcon from '@material-ui/icons/Home'
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 const useStyles = makeStyles(
   theme => ({
@@ -53,24 +54,26 @@ const useStyles = makeStyles(
   { name: 'NotFound' }
 )
 
-export const NotFound: React.FC = (): JSX.Element => {
+export const NotFound: React.FC = (): JSX.Element | null => {
   const classes = useStyles()
+
+  const content = useSelector(state => state.content.error)
+
+  if (!content) return null
+
   const clickHandler = (): void => {
     clickWindowLink('/')
   }
+
   return (
     <Grid className={classes.container}>
       <Grid className={classes.contentContainer}>
         <Grid className={classes.innerContainer}>
-          <img
-            src={NcaNotFound}
-            alt="not-found-image"
-            className={classes.image}
-          />
+          <img src={NcaNotFound} alt={content[0]} className={classes.image} />
           <Grid className={classes.text}>
-            <Typography variant="h1">Not Found</Typography>
+            <Typography variant="h1">{content[1]}</Typography>
             <Typography variant="body1" className={classes.message}>
-              Sorry, the requested page could not be found
+              {content[2]}
             </Typography>
             <Button
               type="button"
@@ -79,7 +82,7 @@ export const NotFound: React.FC = (): JSX.Element => {
               onClick={clickHandler}
               className={classes.button}>
               <HomeIcon className={classes.homeIcon} />
-              &ensp;Home
+              &ensp;{content[3]}
             </Button>
           </Grid>
         </Grid>

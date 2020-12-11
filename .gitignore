@@ -3,6 +3,7 @@
 dist
 distPreRenders
 distRenderer
+distContent
 node_modules
 events
 site-configs
