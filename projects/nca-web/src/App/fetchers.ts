@@ -27,21 +27,14 @@ export async function postMessage(values, host, pathname) {
   return res.status === 204
 }
 
-export async function getContent(path) {
-  let contentFile = 'error'
-
-  if (path === '/') contentFile = 'home'
-  if (/resume\/?$/.test(path)) contentFile = 'resume'
-  if (/apps\/?$/.test(path)) contentFile = 'apps'
-  if (/contact\/?$/.test(path)) contentFile = 'contact'
-
+export async function getContent(component) {
   const res = await axios.get(
     process.env.NODE_ENV === 'production'
-      ? `https://${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/content/${contentFile}.json`
-      : `https://${process.env.STA_CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/content/${contentFile}.json`
+      ? `https://${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/content/${component}.json`
+      : `https://${process.env.STA_CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/content/${component}.json`
   )
 
-  if (res.status === 200) return res.data
+  if (res.status === 200) return res.data.content
 
   throw new Error('no content')
 }

@@ -23,12 +23,6 @@ import {
   LogoSauder
 } from '../assets'
 import { skillCategory } from '../constants'
-import {
-  personalDetails,
-  schoolEntries,
-  softwareSkills,
-  workEntries
-} from '../content'
 import { ContentContainer } from '../ContentContainer'
 import { HeroBar } from '../HeroBar'
 import { ResumeEntry } from './ResumeEntry'

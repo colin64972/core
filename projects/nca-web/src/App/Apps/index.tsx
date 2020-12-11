@@ -2,7 +2,6 @@ import NcaApps from '@cjo3/shared/assets/svgs/nca-apps'
 import { Grid } from '@material-ui/core'
 import React, { Fragment } from 'react'
 import { AngleBand } from '../AngleBand'
-import { appContent } from '../content'
 import { HeroBar } from '../HeroBar'
 import { AppSection } from './AppSection'
 

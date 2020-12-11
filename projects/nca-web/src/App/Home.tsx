@@ -1,5 +1,6 @@
 import NcaHome from '@cjo3/shared/assets/svgs/nca-home'
 import NcaLogoWhite from '@cjo3/shared/assets/svgs/nca-logo-white'
+import { setHtml } from '@cjo3/shared/react/helpers'
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import InsertChartIcon from '@material-ui/icons/InsertChart'
@@ -8,12 +9,14 @@ import OpacityIcon from '@material-ui/icons/Opacity'
 import OpenInBrowserIcon from '@material-ui/icons/OpenInBrowser'
 import TrackChangesIcon from '@material-ui/icons/TrackChanges'
 import clsx from 'clsx'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { addContent } from '../store/actions'
 import { AngleBand } from './AngleBand'
 import { ContentContainer } from './ContentContainer'
+import { getContent } from './fetchers'
 import { HeroBar } from './HeroBar'
 import { NavButtonSet } from './NavButtonSet'
-import { setHtml } from '@cjo3/shared/react/helpers'
 
 const useStyles = makeStyles(
   theme => ({
@@ -202,12 +205,19 @@ const useStyles = makeStyles(
   }
 )
 
-interface Props {
-  content: string[]
-}
-
-export const Home: React.FC<Props> = ({ content }): JSX.Element | null => {
+export const Home: React.FC = (): JSX.Element | null => {
   const classes = useStyles()
+
+  const content = useSelector(state => state.content.home)
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (!content)
+      getContent('home')
+        .then(data => dispatch(addContent('home', data)))
+        .catch(error => console.error(error))
+  }, [content])
 
   if (!content) return null
 
