@@ -12,6 +12,8 @@
     "lite": "lite-server -c lite-server.js",
     "build:content": "node src/content/index.js",
     "sync:content": "NODE_ENV=staging node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").content)'",
+    "sync:assets": "NODE_ENV=staging node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").assets)'",
+    "sync:bundles": "NODE_ENV=staging node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").bundles)'",
     "invalidate": "NODE_ENV=staging node -e 'require(\"@cjo3/shared/raw/s3Manager\").invalidate(require(\"./cliParams\").invalidate)'",
     "clear": "NODE_ENV=staging node -e 'require(\"@cjo3/shared/raw/s3Manager\").rm(require(\"./cliParams\").clear)'"
   },

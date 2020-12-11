@@ -16,7 +16,7 @@ export async function postMessage(values, host, pathname) {
   }
 
   const res = await axios.post(
-    'http://localhost:2000/contact',
+    process.env.API_URL,
     {
       ...payload,
       host,
