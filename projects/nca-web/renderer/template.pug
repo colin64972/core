@@ -1,0 +1,23 @@
+- const gaUrl = `https://www.googletagmanager.com/gtag/js?id=${gaTag}`
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    title=title
+    meta(name="description" content=metaDescription)
+    meta(name="robots" content=robots)
+    meta(name="google-site-verification" content=gsvCode)
+    link(rel="canonical" href=canonical)
+    meta(name="viewport", content="minimum-scale=1, initial-scale=1, width=device-width")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    link(rel="icon" type="image/x-icon" href=faviconHref)
+    style#jssInjectionPoint
+    style !{css}
+    script(src=gaUrl defer)
+    script window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '#{gaTag}');
+  body
+    #app !{html}
+each bundle in bundles
+  script(src=bundle async)
+script#preloaded-state window.__PRELOADED_STATE__ = !{JSON.stringify(state)}
