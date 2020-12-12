@@ -54,7 +54,8 @@ exports.locals = {
     robots: robotsDirectives.default,
     gsvCode: sharedEnv.parsed.GSV_TAG,
     gaTag: sharedEnv.parsed.GA_TAG,
-    faviconHref
+    faviconHref,
+    chunkNames: ['chunk-ContactForm']
   },
   '/error': {
     fileName: 'error',
