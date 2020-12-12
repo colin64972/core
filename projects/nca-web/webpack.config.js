@@ -14,24 +14,17 @@ const sharedEnv = require('dotenv').config({
 
 function setApiUrl() {
   let url = localEnv.parsed.API_URL_PRO
-  if (process.env.BUILD_ENV === 'staging') {
-    url = localEnv.parsed.API_URL_STA
-  }
-  if (process.env.BUILD_ENV === 'development') {
-    url = localEnv.parsed.API_URL_DEV
-  }
+  if (process.env.BUILD_ENV === 'staging') url = localEnv.parsed.API_URL_STA
+  if (process.env.BUILD_ENV === 'development') url = localEnv.parsed.API_URL_DEV
   return url
 }
 
 const switchPublicPath = () => {
-  switch (process.env.BUILD_ENV) {
-    case 'production':
-      return `${process.env.CDN_URL_PRO}/${process.env.CDN_APP_FOLDER}/bundles/`
-    case 'staging':
-      return `${process.env.CDN_URL_STA}/${process.env.CDN_APP_FOLDER}/bundles/`
-    default:
-      return '/'
-  }
+  if (process.env.BUILD_ENV === 'production')
+    return `${localEnv.parsed.CDN_URL_PRO}/${localEnv.parsed.CDN_APP_FOLDER}/bundles/`
+  if (process.env.BUILD_ENV === 'staging')
+    return `${localEnv.parsed.CDN_URL_STA}/${localEnv.parsed.CDN_APP_FOLDER}/bundles/`
+  return '/'
 }
 
 const config = {
@@ -115,14 +108,11 @@ const config = {
               name: '[folder]/[name]-[contentHash].[ext]',
               outputPath: url => url,
               publicPath: url => {
-                switch (process.env.BUILD_ENV) {
-                  case 'production':
-                    return `${process.env.CDN_URL_PRO}/${process.env.CDN_APP_FOLDER}/${url}`
-                  case 'staging':
-                    return `${process.env.CDN_URL_STA}/${process.env.CDN_APP_FOLDER}/${url}`
-                  default:
-                    return `/${url}`
-                }
+                if (process.env.BUILD_ENV === 'production')
+                  return `${localEnv.parsed.CDN_URL_PRO}/${localEnv.parsed.CDN_APP_FOLDER}/${url}`
+                if (process.env.BUILD_ENV === 'staging')
+                  return `${localEnv.parsed.CDN_URL_STA}/${localEnv.parsed.CDN_APP_FOLDER}/${url}`
+                return `/${url}`
               }
             }
           }
@@ -140,7 +130,7 @@ const config = {
     new HtmlWebpackPlugin({
       template: path.resolve('..', 'shared', 'react', 'template.pug'),
       inject: true,
-      publicPath: switchPublicPath(),
+      publicPath: '/',
       scriptLoading: 'async',
       cache: false,
       templateLocals: {

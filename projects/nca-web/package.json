@@ -11,7 +11,7 @@
     "build": "BUILD_ENV=production webpack --config webpack.config.js --progress",
     "lite": "lite-server -c lite-server.js",
     "build:content": "node src/content/index.js",
-    "renderer": "BUILD_ENV=development webpack --config renderer/webpack.config.js --progress --watch",
+    "renderer": "BUILD_ENV=staging webpack --config renderer/webpack.config.js --progress --watch",
     "nodemon": "nodemon distRenderer/renderer.js",
     "sync:content": "NODE_ENV=staging node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").content)'",
     "sync:assets": "NODE_ENV=staging node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").assets)'",

@@ -8,13 +8,22 @@ const sharedEnv = require('dotenv').config({
   path: path.resolve('..', 'shared', '.env')
 })
 
+const switchPublicPath = () => {
+  if (process.env.BUILD_ENV === 'production')
+    return `${localEnv.parsed.CDN_URL_PRO}/${localEnv.parsed.CDN_APP_FOLDER}/bundles/`
+  if (process.env.BUILD_ENV === 'staging')
+    return `${localEnv.parsed.CDN_URL_STA}/${localEnv.parsed.CDN_APP_FOLDER}/bundles/`
+  return '/'
+}
+
 module.exports = {
-  mode: 'development',
-  devtool: 'eval-source-map',
+  mode: process.env.BUILD_ENV === 'development' ? 'development' : 'production',
+  devtool: process.env.BUILD_ENV === 'production' ? '' : 'eval-source-map',
   entry: {
     renderer: path.resolve('renderer', 'index.js')
   },
   output: {
+    publicPath: switchPublicPath(),
     path: path.resolve('distRenderer'),
     filename: '[name].js'
   },
@@ -74,7 +83,13 @@ module.exports = {
             options: {
               emitFile: false,
               name: '[folder]/[name]-[contentHash].[ext]',
-              publicPath: url => url
+              publicPath: url => {
+                if (process.env.BUILD_ENV === 'production')
+                  return `${localEnv.parsed.CDN_URL_PRO}/${localEnv.parsed.CDN_APP_FOLDER}/${url}`
+                if (process.env.BUILD_ENV === 'staging')
+                  return `${localEnv.parsed.CDN_URL_STA}/${localEnv.parsed.CDN_APP_FOLDER}/${url}`
+                return `/${url}`
+              }
             }
           }
         ]
