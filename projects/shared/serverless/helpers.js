@@ -20,6 +20,7 @@ export const switchPathPageName = appPath => {
 export const splitEnvVarList = envVar => envVar.split(',')
 
 export const parseAppPage = (uri, appsList) => {
+  console.log('LOG XXX'.yellow, uri, appsList)
   let result = {}
 
   const parsedUri = path.parse(uri)
@@ -42,8 +43,10 @@ export const parseAppPage = (uri, appsList) => {
     result.fileName = parsedUri.base
 
     result.filePath = `${parsedUri.dir}/`.replace(/\/*/i, '/')
+    console.log('LOG XXX'.green, result)
   } else {
     result.filePath = `${parsedUri.dir}/${parsedUri.base}/`.replace(/\/*/, '/')
+    console.log('LOG XXX'.blue, parsedUri, result)
   }
 
   return result
