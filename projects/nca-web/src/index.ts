@@ -6,14 +6,9 @@ import 'regenerator-runtime/runtime'
 import { configureStore } from './store'
 import { ThemedApp } from './ThemedApp'
 import { State } from './store/'
+import Loadable from 'react-loadable'
 
 const preloadedState: State = window?.__PRELOADED_STATE__
-
-console.log(
-  '%c preloadedState',
-  'color: yellow; font-size: large',
-  window?.__PRELOADED_STATE__
-)
 
 let renderMethod = render
 let store = configureStore()
@@ -24,18 +19,17 @@ if (preloadedState) {
   store = configureStore(preloadedState)
   document.getElementById('preloaded-state').remove()
 }
-
-renderMethod(
-  createElement(
-    BrowserRouter,
-    {},
-    createElement(Provider, { store }, ThemedApp)
-  ),
-  document.getElementById('app')
-)
-
-console.log(
-  '%c preloadedState',
-  'color: yellow; font-size: large',
-  window?.__PRELOADED_STATE__
-)
+Loadable.preloadReady()
+  .then(() => {
+    renderMethod(
+      createElement(
+        BrowserRouter,
+        {},
+        createElement(Provider, { store }, ThemedApp)
+      ),
+      document.getElementById('app')
+    )
+  })
+  .catch(error =>
+    console.error('%c preloadReady', 'color: red; font-size: large', error)
+  )
