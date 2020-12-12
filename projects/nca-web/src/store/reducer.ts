@@ -1,8 +1,9 @@
 import { AppActionTypes, AppState } from './interfaces'
-import { ADD_CONTENT } from './types'
+import { ADD_CONTENT, ADD_TRACKER } from './types'
 
 export const initialState: AppState = {
-  content: null
+  content: null,
+  tracker: null
 }
 
 export const appReducer = (
@@ -16,6 +17,11 @@ export const appReducer = (
         content: {
           ...action.content
         }
+      }
+    case ADD_TRACKER:
+      return {
+        ...state,
+        tracker: action.tracker
       }
     default:
       return state

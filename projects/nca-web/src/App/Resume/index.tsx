@@ -220,7 +220,6 @@ export const Resume: React.FC = (): JSX.Element | null => {
   const classes = useStyles()
 
   const content = useSelector(state => state.content.resume)
-  console.log('%c content', 'color: yellow; font-size: large', content)
 
   if (!content) return null
 

@@ -13,6 +13,7 @@ import { AngleBand } from './AngleBand'
 import { ProfilePic } from './assets'
 import { ContentContainer } from './ContentContainer'
 import { NavButtonSet } from './NavButtonSet'
+import clsx from 'clsx'
 
 const TcLoadable = Loadable({
   loader: () =>
@@ -135,6 +136,9 @@ const useStyles = makeStyles(
       [theme.breakpoints.up('sm')]: {
         textAlign: 'right'
       }
+    },
+    tcButton: {
+      marginTop: theme.custom.setSpace() / 2
     }
   }),
   {
@@ -185,7 +189,7 @@ export const Footer: React.FC = (): JSX.Element => {
             />
             <Button
               type="button"
-              className={classes.menuItem}
+              className={clsx(classes.menuItem, classes.tcButton)}
               onClick={tcOpenHandler}>
               <GavelIcon />
               &emsp;{content[0]}

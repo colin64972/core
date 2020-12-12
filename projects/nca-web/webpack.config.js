@@ -172,7 +172,8 @@ const config = {
       APP_URL_NT: localEnv.parsed.APP_URL_NT,
       JWT_PRIVATE_KEY: sharedEnv.parsed.JWT_PRIVATE_KEY,
       AUTH_SECRET: sharedEnv.parsed.AUTH_SECRET,
-      API_URL: setApiUrl()
+      API_URL: setApiUrl(),
+      GA_TAG: sharedEnv.parsed.GA_TAG
     }),
     new ReactLoadablePlugin({
       filename: path.resolve('dist', 'react-loadable.json')

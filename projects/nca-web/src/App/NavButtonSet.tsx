@@ -38,9 +38,9 @@ const useStyles = makeStyles(
       '&:hover': {
         color: 'white'
       },
-      '&:last-child': ({ noLastChildMargin }) => ({
-        margin: noLastChildMargin ? 0 : ''
-      })
+      '&:last-child': {
+        margin: 0
+      }
     }),
     midNavContainer: {
       marginTop: theme.custom.setSpace('md'),

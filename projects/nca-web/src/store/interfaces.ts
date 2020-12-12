@@ -1,4 +1,5 @@
-import { ADD_CONTENT } from './types'
+import { ADD_CONTENT, ADD_TRACKER } from './types'
+import * as ReactGA from 'react-ga'
 
 interface Content {
   [key: string]: string[]
@@ -6,6 +7,7 @@ interface Content {
 
 export interface AppState {
   content: Content | null
+  tracker: Tracker | null
 }
 
 export interface AddContentAction {
@@ -13,4 +15,18 @@ export interface AddContentAction {
   content: string
 }
 
-export type AppActionTypes = AddContentAction
+export interface Tracker {
+  config: {
+    gaTag: string
+  }
+  initialize: () => ReactGA.InitializeOptions
+  pageHit: (rootPath: string, pathname: string) => void
+  eventHit: (event: ReactGA.EventArgs) => void
+}
+
+export interface AddTrackerAction {
+  type: typeof ADD_TRACKER
+  tracker: Tracker
+}
+
+export type AppActionTypes = AddContentAction | AddTrackerAction
