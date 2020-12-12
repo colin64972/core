@@ -92,7 +92,7 @@ export const setSrcSet = (paths, format = null) =>
     .replace(/,\s$/i, '')
 
 export const clickWindowLink = (location, newTab = false) => {
-  if (window && newTab) window.open(location, '_blank')
+  if (window && newTab) return window.open(location, '_blank')
   if (window) window.location.replace(location)
   return null
 }
