@@ -30,6 +30,16 @@ exports.content = {
   excludes: []
 }
 
+exports.preRenders = {
+  // dryrun: true,
+  srcPath: 'distPreRenders',
+  s3Path:
+    process.env.NODE_ENV === 'staging'
+      ? `${process.env.CDN_BUCKET_STA}/${process.env.CDN_APP_FOLDER}/pre-renders/`
+      : `${process.env.CDN_BUCKET_PRO}/${process.env.CDN_APP_FOLDER}/pre-renders/`,
+  includes: ['*.html']
+}
+
 exports.invalidate = {
   id:
     process.env.NODE_ENV === 'staging'
