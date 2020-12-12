@@ -74,7 +74,8 @@ const generateClassName = createGenerateClassName({
   seed: 'nca'
 })
 
-console.log('%c theme', 'color: yellow; font-size: large', theme)
+if (process.env.BUILD_ENV === 'development')
+  console.log('%c theme', 'color: yellow; font-size: large', theme)
 
 export const ThemedApp = createElement(
   StylesProvider,

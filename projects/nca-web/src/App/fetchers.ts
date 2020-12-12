@@ -16,7 +16,7 @@ export async function postMessage(values, host, pathname) {
   }
 
   const res = await axios.post(
-    'http://localhost:2000/contact',
+    process.env.API_URL,
     {
       ...payload,
       host,
@@ -29,9 +29,9 @@ export async function postMessage(values, host, pathname) {
 
 export async function getContent() {
   const res = await axios.get(
-    process.env.NODE_ENV === 'production'
-      ? `https://${process.env.CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/content.json`
-      : `https://${process.env.STA_CDN_BUCKET}/${process.env.CDN_APP_FOLDER}/content.json`
+    process.env.BUILD_ENV === 'production'
+      ? `${process.env.CDN_URL_PRO}/${process.env.CDN_APP_FOLDER}/content.json`
+      : `${process.env.CDN_URL_STA}/${process.env.CDN_APP_FOLDER}/content.json`
   )
 
   if (res.status === 200) return res.data

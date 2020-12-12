@@ -6,6 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
 const { EnvironmentPlugin, HashedModuleIdsPlugin } = require('webpack')
+const { ReactLoadablePlugin } = require('react-loadable/webpack')
 
 const localEnv = require('dotenv').config()
 const sharedEnv = require('dotenv').config({
@@ -14,24 +15,31 @@ const sharedEnv = require('dotenv').config({
 
 function setApiUrl() {
   let url = localEnv.parsed.API_URL_PRO
-  if (process.env.NODE_ENV === 'staging') {
-    url = localEnv.parsed.API_URL_STA
-  }
-  if (process.env.NODE_ENV === 'development') {
-    url = localEnv.parsed.API_URL_DEV
-  }
+  if (process.env.BUILD_ENV === 'staging') url = localEnv.parsed.API_URL_STA
+  if (process.env.BUILD_ENV === 'development') url = localEnv.parsed.API_URL_DEV
   return url
 }
 
+const switchPublicPath = () => {
+  if (process.env.BUILD_ENV === 'production')
+    return `${localEnv.parsed.CDN_URL_PRO}/${localEnv.parsed.CDN_APP_FOLDER}/bundles/`
+  if (process.env.BUILD_ENV === 'staging')
+    return `${localEnv.parsed.CDN_URL_STA}/${localEnv.parsed.CDN_APP_FOLDER}/bundles/`
+  return '/'
+}
+
 const config = {
-  mode: 'development',
+  mode: process.env.BUILD_ENV === 'development' ? 'development' : 'production',
   entry: {
     src: path.resolve('src', 'index.ts')
   },
   output: {
-    publicPath: '/',
+    publicPath: switchPublicPath(),
     path: path.resolve('dist'),
-    filename: '[name].[hash].js'
+    filename:
+      process.env.BUILD_ENV === 'development'
+        ? '[name].[hash].js'
+        : '[name].[contenthash].js'
   },
   devServer: {
     contentBase: path.resolve('dist'),
@@ -100,7 +108,13 @@ const config = {
               emitFile: true,
               name: '[folder]/[name]-[contentHash].[ext]',
               outputPath: url => url,
-              publicPath: url => `/${url}`
+              publicPath: url => {
+                if (process.env.BUILD_ENV === 'production')
+                  return `${localEnv.parsed.CDN_URL_PRO}/${localEnv.parsed.CDN_APP_FOLDER}/${url}`
+                if (process.env.BUILD_ENV === 'staging')
+                  return `${localEnv.parsed.CDN_URL_STA}/${localEnv.parsed.CDN_APP_FOLDER}/${url}`
+                return `/${url}`
+              }
             }
           }
         ]
@@ -140,23 +154,28 @@ const config = {
     }),
     new EnvironmentPlugin({
       IS_SERVER: false,
+      BUILD_ENV: localEnv.parsed.BUILD_ENV,
       APP_NAME: localEnv.parsed.APP_NAME,
       SITE_NAME: localEnv.parsed.SITE_NAME,
       SITE_URL: localEnv.parsed.SITE_URL,
       SITE_CONTACT_EMAIL: localEnv.parsed.SITE_CONTACT_EMAIL,
       RESUME_FILENAME: localEnv.parsed.RESUME_FILENAME,
-      STA_CDN_BUCKET: localEnv.parsed.STA_CDN_BUCKET,
       CDN_APP_FOLDER: localEnv.parsed.CDN_APP_FOLDER,
-      NCA_GITHUB_URL: localEnv.parsed.NCA_GITHUB_URL,
-      DLE_GITHUB_URL: localEnv.parsed.DLE_GITHUB_URL,
-      KM_GITHUB_URL: localEnv.parsed.KM_GITHUB_URL,
-      NT_GITHUB_URL: localEnv.parsed.NT_GITHUB_URL,
-      DLE_URL: localEnv.parsed.DLE_URL,
-      KM_URL: localEnv.parsed.KM_URL,
-      NT_URL: localEnv.parsed.NT_URL,
+      CDN_URL_STA: localEnv.parsed.CDN_URL_STA,
+      CDN_URL_PRO: localEnv.parsed.CDN_URL_PRO,
+      GITHUB_URL_NCA: localEnv.parsed.GITHUB_URL_NCA,
+      GITHUB_URL_DLE: localEnv.parsed.GITHUB_URL_DLE,
+      GITHUB_URL_KM: localEnv.parsed.GITHUB_URL_KM,
+      GITHUB_URL_NT: localEnv.parsed.GITHUB_URL_NT,
+      APP_URL_DLE: localEnv.parsed.APP_URL_DLE,
+      APP_URL_KM: localEnv.parsed.APP_URL_KM,
+      APP_URL_NT: localEnv.parsed.APP_URL_NT,
       JWT_PRIVATE_KEY: sharedEnv.parsed.JWT_PRIVATE_KEY,
       AUTH_SECRET: sharedEnv.parsed.AUTH_SECRET,
       API_URL: setApiUrl()
+    }),
+    new ReactLoadablePlugin({
+      filename: path.resolve('dist', 'react-loadable.json')
     })
   ]
 }

@@ -36,6 +36,12 @@ const useStyles = makeStyles(
         width: 250
       }
     },
+    title: {
+      ...theme.typography.shareTechMono,
+      letterSpacing: -1,
+      color: theme.palette.primary.main,
+      textTransform: 'uppercase'
+    },
     text: {
       margin: `${theme.custom.setSpace('sm')}px 0 0 0`,
       textAlign: 'center',
@@ -71,7 +77,9 @@ export const NotFound: React.FC = (): JSX.Element | null => {
         <Grid className={classes.innerContainer}>
           <img src={NcaNotFound} alt={content[0]} className={classes.image} />
           <Grid className={classes.text}>
-            <Typography variant="h1">{content[1]}</Typography>
+            <Typography variant="h1" className={classes.title}>
+              {content[1]}
+            </Typography>
             <Typography variant="body1" className={classes.message}>
               {content[2]}
             </Typography>
