@@ -1,5 +1,6 @@
 import NcaLogoWhite from '@cjo3/shared/assets/svgs/nca-logo-white'
-import { Grid, useMediaQuery } from '@material-ui/core'
+import { clickWindowLink } from '@cjo3/shared/react/helpers'
+import { Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import MenuIcon from '@material-ui/icons/Menu'
 import React, { useState } from 'react'
@@ -7,7 +8,6 @@ import { AngleBand } from './AngleBand'
 import { ContentContainer } from './ContentContainer'
 import { NavButtonSet } from './NavButtonSet'
 import { SideMenu } from './SideMenu'
-import { clickWindowLink } from '@cjo3/shared/react/helpers'
 
 const useStyles = makeStyles(
   theme => ({
@@ -18,7 +18,17 @@ const useStyles = makeStyles(
     sideMenuIcon: {
       color: 'white',
       width: theme.custom.setSpace('sm'),
-      cursor: 'pointer'
+      cursor: 'pointer',
+      display: 'inline-block',
+      [theme.breakpoints.up('sm')]: {
+        display: 'none'
+      }
+    },
+    navButtonSet: {
+      display: 'none',
+      [theme.breakpoints.up('sm')]: {
+        display: 'inline-block'
+      }
     }
   }),
   {
@@ -30,8 +40,6 @@ export const TopNav: React.FC = (): JSX.Element => {
   const classes = useStyles()
 
   const [sideMenuOpen, setSideMenuOpen] = useState<boolean>(false)
-
-  const matches = useMediaQuery('(max-width: 599px)')
 
   const openSideMenuHandler = (): void => {
     setSideMenuOpen(true)
@@ -54,12 +62,11 @@ export const TopNav: React.FC = (): JSX.Element => {
             className={classes.logo}
             onClick={logoClickHandler}
           />
-          {matches ? (
-            <MenuIcon
-              className={classes.sideMenuIcon}
-              onClick={openSideMenuHandler}
-            />
-          ) : (
+          <MenuIcon
+            className={classes.sideMenuIcon}
+            onClick={openSideMenuHandler}
+          />
+          <div className={classes.navButtonSet}>
             <NavButtonSet
               slice={1}
               color="theme.palette.primary[100]"
@@ -68,9 +75,9 @@ export const TopNav: React.FC = (): JSX.Element => {
               alignment="center"
               noLastChildMargin
             />
-          )}
+          </div>
         </Grid>
-        {matches && sideMenuOpen && (
+        {sideMenuOpen && (
           <SideMenu open={sideMenuOpen} closeHandler={closeSideMenuHandler} />
         )}
       </ContentContainer>
