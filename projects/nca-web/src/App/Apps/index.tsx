@@ -28,9 +28,9 @@ export const Apps: React.FC = (): JSX.Element | null => {
   return (
     <Grid container justify="center" className={classes.extraPadding}>
       <HeroBar src={NcaApps} tagline={content[0]} alt={content[1]} />
-      {content[2].map(app => (
+      {content[2].map((app, appIndex) => (
         <Fragment key={app.key}>
-          <AngleBand right color="theme.palette.primary.main" />
+          <AngleBand right={appIndex % 2 !== 0} />
           <AppSection {...app} />
         </Fragment>
       ))}

@@ -80,7 +80,7 @@ export const TopNav: React.FC = (): JSX.Element => {
           <SideMenu open={sideMenuOpen} closeHandler={closeSideMenuHandler} />
         )}
       </ContentContainer>
-      <AngleBand right color="theme.palette.primary.main" />
+      <AngleBand right down fill="theme.palette.primary.main" />
     </Grid>
   )
 }

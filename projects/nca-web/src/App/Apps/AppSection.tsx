@@ -1,4 +1,5 @@
 import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
+import { setHtml } from '@cjo3/shared/react/helpers'
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import BorderColorIcon from '@material-ui/icons/BorderColor'
@@ -7,12 +8,11 @@ import GitHubIcon from '@material-ui/icons/GitHub'
 import MoneyOffIcon from '@material-ui/icons/MoneyOff'
 import MultilineChartIcon from '@material-ui/icons/MultilineChart'
 import TouchAppIcon from '@material-ui/icons/TouchApp'
-import clsx from 'clsx'
 import React from 'react'
 import { AppItem, ImageAsset } from '../../../index'
 import { MockupDle, MockupKm, MockupNca, MockupNt } from '../assets'
 import { ContentContainer } from '../ContentContainer'
-import { setHtml } from '@cjo3/shared/react/helpers'
+import { ResponsiveAngle } from '../ResponsiveAngle'
 
 const useStyles = makeStyles(
   theme => ({
@@ -73,20 +73,23 @@ const useStyles = makeStyles(
       fontSize: theme.typography.fontSize * 2
     },
     techStackContainer: {
-      ...theme.custom.setFlex('column'),
       marginTop: theme.custom.setSpace('sm'),
+      ...theme.custom.setFlex('column'),
       [theme.breakpoints.up('sm')]: {
+        marginTop: 0,
         ...theme.custom.setFlex('column', 'flex-start', 'flex-end')
       }
     },
     techStack: {
-      width: 200,
+      width: '100%',
+      maxWidth: 300,
       backgroundColor: theme.palette.primary.main,
       color: 'white',
       textAlign: 'center',
-      padding: theme.custom.setSpace('sm'),
-      paddingBottom: theme.custom.setSpace('sm') + 10,
-      clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 18px))'
+      padding: theme.custom.setSpace('sm')
+    },
+    angle: {
+      maxWidth: 300
     },
     techStackTitle: {
       ...theme.typography.shareTechMono,
@@ -167,7 +170,7 @@ export const AppSection: React.FC<AppItem> = ({
           </Grid>
         </Grid>
         <Grid item xs={12} sm={4} md={3} className={classes.techStackContainer}>
-          <Grid className={clsx(classes.techStack)}>
+          <Grid className={classes.techStack}>
             <Typography variant="h6" className={classes.techStackTitle}>
               Tech Stack
             </Typography>
@@ -177,6 +180,12 @@ export const AppSection: React.FC<AppItem> = ({
               ))}
             </ul>
           </Grid>
+          <ResponsiveAngle
+            right
+            down
+            fill="theme.palette.primary.main"
+            customClass={classes.angle}
+          />
         </Grid>
       </Grid>
     </ContentContainer>
