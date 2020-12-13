@@ -8,6 +8,7 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline'
 import { useSelector } from 'react-redux'
 import clsx from 'clsx'
 import React from 'react'
+import { ResponsiveAngle } from './ResponsiveAngle'
 
 interface Props {
   slice?: number
@@ -15,7 +16,6 @@ interface Props {
   direction?: string
   justification?: string
   alignment?: string
-  noLastChildMargin?: boolean
   midNav?: boolean
 }
 
@@ -38,44 +38,52 @@ const useStyles = makeStyles(
       '&:hover': {
         color: 'white'
       },
-      '&:last-child': ({ noLastChildMargin }) => ({
-        margin: noLastChildMargin ? 0 : ''
-      })
+      '&:last-child': {
+        margin: 0
+      }
     }),
     midNavContainer: {
+      ...theme.custom.setFlex('column'),
       marginTop: theme.custom.setSpace('md'),
-      ...theme.custom.setGrid(1, 3),
       [theme.breakpoints.only('sm')]: {
-        ...theme.custom.setGrid(3, 1, theme.custom.setSpace('sm'))
+        ...theme.custom.setFlex()
       },
       [theme.breakpoints.up('md')]: {
-        paddingLeft: theme.custom.setSpace()
+        marginTop: 0,
+        paddingLeft: 20
       }
     },
     midNavLink: {
-      filter: 'drop-shadow(0.5rem 0.5rem  0.5rem rgba(0, 0, 0, 0.33))'
+      'width': '100%',
+      'margin': `0`,
+      'filter': 'drop-shadow(0.25rem 0.5rem  0.5rem rgba(0, 0, 0, 0.5))',
+      'transition': 'all 250ms ease-out',
+      '&:hover': {
+        filter: 'drop-shadow(0.25rem 0.5rem  0.5rem rgba(0, 0, 0, 0.25))'
+      },
+      [theme.breakpoints.only('sm')]: {
+        margin: `0 ${theme.custom.setSpace('sm')}px 0 0`
+      },
+      '&:last-child': {
+        margin: 0
+      }
     },
     midNavSpan: {
       ...theme.custom.setFlex(),
       ...theme.typography.shareTechMono,
-      'textTransform': 'uppercase',
-      'height': theme.custom.setSpace('lg'),
       'color': theme.palette.grey[400],
+      'textTransform': 'uppercase',
       'textAlign': 'center',
-      'fontSize': theme.typography.fontSize * 1.5,
+      'fontSize': theme.typography.fontSize * 1.25,
       'backgroundColor': theme.palette.grey[800],
+      'padding': theme.custom.setSpace(),
       'transition': 'all 250ms ease-out',
       '&:hover': {
-        color: 'white',
-        cursor: 'pointer',
-        backgroundColor: theme.palette.primary.main
+        color: 'white'
+      },
+      [theme.breakpoints.only('sm')]: {
+        margin: '-2px 0'
       }
-    },
-    midNavLeft: {
-      clipPath: 'polygon(0 0, 100% 20%, 100% 80%, 0 100%)'
-    },
-    midNavRight: {
-      clipPath: 'polygon(0 20%, 100% 0%, 100% 100%, 0 80%)'
     }
   }),
   {
@@ -96,15 +104,13 @@ export const NavButtonSet: React.FC<Props> = ({
   direction,
   justification,
   alignment,
-  noLastChildMargin,
   midNav
 }): JSX.Element | null => {
   const classes = useStyles({
     color,
     direction,
     justification,
-    alignment,
-    noLastChildMargin
+    alignment
   })
 
   const navItems = useSelector(state => state.content.navItems)
@@ -122,15 +128,24 @@ export const NavButtonSet: React.FC<Props> = ({
   if (midNav)
     return (
       <Grid className={classes.midNavContainer}>
-        {items.map(item => (
+        {items.map((item, index) => (
           <a
-            href={item.to}
+            key={`mid-nav-${item.key}`}
             className={classes.midNavLink}
-            key={`mid-nav-${item.key}`}>
-            <span className={clsx(classes.midNavSpan, classes[item.midNavDir])}>
+            href={item.to}>
+            <ResponsiveAngle
+              fill="theme.palette.grey[800]"
+              right={index % 2 === 0}
+            />
+            <span className={classes.midNavSpan}>
               {iconMap[item.icon]}
               &ensp;{item.label}
             </span>
+            <ResponsiveAngle
+              fill="theme.palette.grey[800]"
+              down
+              right={index % 2 === 0}
+            />
           </a>
         ))}
       </Grid>

@@ -13,6 +13,7 @@ import { AngleBand } from './AngleBand'
 import { ProfilePic } from './assets'
 import { ContentContainer } from './ContentContainer'
 import { NavButtonSet } from './NavButtonSet'
+import clsx from 'clsx'
 
 const TcLoadable = Loadable({
   loader: () =>
@@ -135,6 +136,9 @@ const useStyles = makeStyles(
       [theme.breakpoints.up('sm')]: {
         textAlign: 'right'
       }
+    },
+    tcButton: {
+      marginTop: theme.custom.setSpace() / 2
     }
   }),
   {
@@ -173,7 +177,7 @@ export const Footer: React.FC = (): JSX.Element => {
 
   return (
     <Grid component="footer" container>
-      <AngleBand top left bgColor="theme.palette.grey[900]" />
+      <AngleBand fill="theme.palette.grey[900]" />
       <ContentContainer gradient="theme.custom.setLinearGradient(180, theme.palette.grey[900], theme.palette.grey[800])">
         <Grid container>
           <Grid item xs={12} sm={6} className={classes.footerLeft}>
@@ -185,7 +189,7 @@ export const Footer: React.FC = (): JSX.Element => {
             />
             <Button
               type="button"
-              className={classes.menuItem}
+              className={clsx(classes.menuItem, classes.tcButton)}
               onClick={tcOpenHandler}>
               <GavelIcon />
               &emsp;{content[0]}

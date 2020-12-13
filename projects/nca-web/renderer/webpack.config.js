@@ -29,9 +29,6 @@ module.exports = {
   },
   target: 'node',
   resolve: {
-    // alias: {
-    //   modernizr$: path.resolve('.modernizrrc.js')
-    // },
     extensions: [
       '.css',
       '.gif',
@@ -67,14 +64,14 @@ module.exports = {
                   modules: 'commonjs'
                 }
               ]
-            ]
+            ],
+            plugins:
+              process.env.BUILD_ENV === 'development'
+                ? []
+                : ['transform-remove-console']
           }
         }
       },
-      // {
-      //   loader: 'webpack-modernizr-loader',
-      //   test: /\.modernizrrc\.js$/
-      // },
       {
         test: /\.(woff(2)?|jpg|gif|png|svg|ico)$/,
         use: [

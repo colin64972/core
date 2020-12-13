@@ -1,13 +1,14 @@
 import { Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
+import { ResponsiveAngle } from './ResponsiveAngle'
 
 const useStyles = makeStyles(
   theme => ({
     container: {
       width: '100%',
       display: 'grid',
-      gridTemplateColumns: 'auto 300px auto',
+      gridTemplateColumns: 'auto 320px auto',
       gridTemplateRows: 'auto',
       [theme.breakpoints.up('sm')]: {
         gridTemplateColumns: 'auto 600px auto'
@@ -23,28 +24,27 @@ const useStyles = makeStyles(
       width: 'calc(100% + 1px)',
       gridColumn: '1 / 2 ',
       gridRow: 1,
-      backgroundColor: ({ bgColor }) => eval(bgColor),
-      visibility: ({ leftVisible }) => (leftVisible ? 'visible' : 'hidden'),
+      backgroundColor: ({ fill }) => eval(fill),
+      visibility: ({ fillLeft }) => (fillLeft ? 'visible' : 'hidden'),
       marginRight: -1
     },
     center: {
       gridColumn: '2 / 3 ',
-      gridRow: 1
+      gridRow: 1,
+      display: 'flex',
+      justifyContent: ({ justify }) => justify,
+      alignItems: 'center'
     },
     right: {
       width: 'calc(100% + 1px)',
       gridColumn: '3 / 4 ',
       gridRow: 1,
-      backgroundColor: ({ bgColor }) => eval(bgColor),
-      visibility: ({ rightVisible }) => (rightVisible ? 'visible' : 'hidden'),
+      backgroundColor: ({ fill }) => eval(fill),
+      visibility: ({ fillRight }) => (fillRight ? 'visible' : 'hidden'),
       marginLeft: -1
     },
-    angleBlock: {
-      backgroundColor: ({ bgColor }) => eval(bgColor),
-      clipPath: ({ polygon }) => polygon,
-      width: theme.custom.setSpace('sm') * 10,
-      height: theme.custom.setSpace('sm'),
-      float: ({ float }) => float
+    div: {
+      width: ({ width }) => width
     }
   }),
   {
@@ -53,40 +53,33 @@ const useStyles = makeStyles(
 )
 
 interface Props {
-  bgColor: string
-  bottom?: boolean
-  left?: boolean
+  fill?: string
   right?: boolean
-  top?: boolean
+  down?: boolean
+  width?: number
 }
 
 export const AngleBand: React.FC<Props> = ({
-  bgColor,
-  bottom,
-  left,
-  right,
-  top
+  fill = 'theme.palette.grey[200]',
+  right = false,
+  down = false,
+  width = 300
 }): JSX.Element => {
   const classes = useStyles({
-    leftVisible: left,
-    rightVisible: right,
-    bgColor,
-    float: left ? 'left' : right ? 'right' : '',
-    polygon: setPolygon()
+    fill,
+    fillRight: right,
+    fillLeft: !right,
+    justify: right ? 'flex-end' : 'flex-start',
+    width
   })
-
-  function setPolygon() {
-    if (top && left) return 'polygon(0 0, 100% 100%, 100% 102%, 0% 102%)'
-    if (top && right) return 'polygon(0 100%, 100% 0, 100% 102%, 0 102%)'
-    if (left) return 'polygon(0 0, 100% 0, 0 100%)'
-    if (right) return 'polygon(0 0, 100% 0, 100% 100%)'
-  }
 
   return (
     <Grid className={classes.container}>
       <Grid className={classes.left} />
       <Grid className={classes.center}>
-        <Grid className={classes.angleBlock} />
+        <div className={classes.div}>
+          <ResponsiveAngle fill={fill} right={right} down={down} />
+        </div>
       </Grid>
       <Grid className={classes.right} />
     </Grid>

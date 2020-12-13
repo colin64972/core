@@ -11,21 +11,18 @@ exports.navItems = [
     key: createHashId(),
     label: 'Resume',
     icon: 'resume',
-    to: '/resume/',
-    midNavDir: 'midNavLeft'
+    to: '/resume/'
   },
   {
     key: createHashId(),
     label: 'Apps',
     icon: 'apps',
-    to: '/apps/',
-    midNavDir: 'midNavRight'
+    to: '/apps/'
   },
   {
     key: createHashId(),
     label: 'Contact',
     icon: 'contact',
-    to: '/contact/',
-    midNavDir: 'midNavLeft'
+    to: '/contact/'
   }
 ]

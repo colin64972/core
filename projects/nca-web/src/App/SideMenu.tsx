@@ -46,7 +46,6 @@ export const SideMenu: React.FC<Props> = ({
         direction="column"
         justification="flex-start"
         alignment="flex-start"
-        noLastChildMargin
       />
       <img src={NcaLogoGrey} className={classes.logo} />
     </Drawer>

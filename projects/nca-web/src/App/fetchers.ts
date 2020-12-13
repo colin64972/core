@@ -1,4 +1,6 @@
 import axios from 'axios'
+import path from 'path'
+import fs from 'fs'
 import { addAuthHeaderToOptions } from '@cjo3/shared/security/authToken'
 
 const otherHeaders = {

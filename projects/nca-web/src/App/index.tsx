@@ -6,11 +6,12 @@ import { Home } from './Home'
 import { useDispatch, useSelector } from 'react-redux'
 import { TopNav } from './TopNav'
 import { getContent } from './fetchers'
-import { addContent } from '../store/actions'
+import { addContent, addTracker } from '../store/actions'
 import { NotFound } from './NotFound'
 import { Contact } from './Contact/'
 import { Apps } from './Apps/'
 import { Resume } from './Resume/'
+import { setTracker } from '@cjo3/shared/react/helpers'
 
 export const App: React.FC = (): JSX.Element | null => {
   const location = useLocation()
@@ -28,7 +29,21 @@ export const App: React.FC = (): JSX.Element | null => {
           dispatch(addContent(data))
         })
         .catch(error => console.error(error))
-  })
+  }, [content])
+
+  let tracker = useSelector(state => state.tracker)
+
+  useEffect(() => {
+    if (!process.env.IS_SERVER && !tracker) {
+      tracker = setTracker(process.env.GA_TAG)
+      tracker.initialize()
+      dispatch(addTracker(tracker))
+    }
+  }, [tracker])
+
+  useEffect(() => {
+    if (!process.env.IS_SERVER) tracker.pageHit('/', location.pathname)
+  }, [location])
 
   if (!content) return null
 
