@@ -8,7 +8,7 @@ import React from 'react'
 import Loadable from 'react-loadable'
 import { HeroBar } from '../HeroBar'
 import { setHtml } from '@cjo3/shared/react/helpers'
-import { Angle } from '../Angle'
+import { ResponsiveAngle } from '../ResponsiveAngle'
 import { useSelector } from 'react-redux'
 
 const FormLoadable = Loadable({
@@ -44,9 +44,11 @@ const useStyles = makeStyles(
       display: 'none',
       [theme.breakpoints.up('sm')]: {
         display: 'block',
-        height: 377.73,
         flexGrow: 1,
         marginRight: -1
+      },
+      [theme.breakpoints.up('md')]: {
+        height: 379
       }
     },
     center: {
@@ -72,18 +74,9 @@ const useStyles = makeStyles(
         width: '33.3333%'
       }
     },
-    angleTop: {
-      ...theme.custom.setFlex()
-    },
-    angleFiller: {
-      backgroundColor: theme.palette.primary.main,
-      flexGrow: 1,
-      height: theme.custom.setSpace('sm')
-    },
     titleInner: {
       padding: theme.custom.setSpace('sm'),
-      color: 'white',
-      marginTop: -1
+      color: 'white'
     },
     titleIcon: {
       fontSize: theme.typography.fontSize * 4
@@ -122,10 +115,7 @@ export const Contact: React.FC = (): JSX.Element | null => {
         <Grid className={clsx(classes.left, classes.bgRed)} />
         <Grid className={classes.center}>
           <Grid className={classes.titleBlock}>
-            <Grid className={classes.angleTop}>
-              <Grid className={classes.angleFiller} />
-              <Angle color="red" x="1" y="1" float="right" />
-            </Grid>
+            <ResponsiveAngle fill="theme.palette.primary.main" />
             <Grid className={clsx(classes.titleInner, classes.bgRed)}>
               <MailOutlineIcon className={classes.titleIcon} />
               <Typography
@@ -137,7 +127,7 @@ export const Contact: React.FC = (): JSX.Element | null => {
                 {content[3]}
               </Typography>
             </Grid>
-            <Grid className={clsx(classes.titleBottom, classes.bgRed)} />
+            <ResponsiveAngle down fill="theme.palette.primary.main" />
           </Grid>
           <Grid className={classes.formBlock}>
             <FormLoadable content={content} />
