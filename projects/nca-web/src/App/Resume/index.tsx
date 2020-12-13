@@ -262,7 +262,7 @@ export const Resume: React.FC = (): JSX.Element | null => {
           </Button>
         </Grid>
       </Grid>
-      <AngleBand top left bgColor="theme.palette.grey[200]" />
+      <AngleBand up color="grey200" />
       <Grid className={classes.resumeMain}>
         <Grid className={classes.workSide}>
           <Grid className={classes.workInner}>
@@ -335,7 +335,7 @@ export const Resume: React.FC = (): JSX.Element | null => {
           </Grid>
         </Grid>
       </Grid>
-      <AngleBand top right bgColor="theme.palette.grey[200]" />
+      <AngleBand up right color="grey200" />
       <ContentContainer gradient="theme.custom.setLinearGradient(180, theme.palette.grey[200], 'white')">
         <CodeIcon className={classes.sectionTitleIcon} />
         <Typography

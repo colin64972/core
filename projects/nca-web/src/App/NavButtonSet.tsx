@@ -7,6 +7,7 @@ import ImportantDevicesIcon from '@material-ui/icons/ImportantDevices'
 import MailOutlineIcon from '@material-ui/icons/MailOutline'
 import { useSelector } from 'react-redux'
 import clsx from 'clsx'
+import { Angle } from './Angle'
 import React from 'react'
 
 interface Props {
@@ -15,7 +16,6 @@ interface Props {
   direction?: string
   justification?: string
   alignment?: string
-  noLastChildMargin?: boolean
   midNav?: boolean
 }
 
@@ -43,23 +43,39 @@ const useStyles = makeStyles(
       }
     }),
     midNavContainer: {
-      marginTop: theme.custom.setSpace('md'),
-      ...theme.custom.setGrid(1, 3),
+      ...theme.custom.setFlex('column'),
+      margin: `${theme.custom.setSpace(
+        'md'
+      )}px 0 ${theme.custom.setSpace()}px 0`,
       [theme.breakpoints.only('sm')]: {
-        ...theme.custom.setGrid(3, 1, theme.custom.setSpace('sm'))
-      },
-      [theme.breakpoints.up('md')]: {
-        paddingLeft: theme.custom.setSpace()
+        ...theme.custom.setFlex('row')
       }
     },
     midNavLink: {
-      filter: 'drop-shadow(0.5rem 0.5rem  0.5rem rgba(0, 0, 0, 0.33))'
+      'maxWidth': 260,
+      'filter': 'drop-shadow(0.5rem 0.5rem  0.5rem rgba(0, 0, 0, 0.33))',
+      'transition': 'all 250ms ease-out',
+      '&:hover': {
+        filter: 'unset'
+      },
+      [theme.breakpoints.only('sm')]: {
+        'maxWidth': 160,
+        'margin': `0 ${theme.custom.setSpace('sm')}px 0 0`,
+        '&:last-child': {
+          margin: 0
+        }
+      },
+      [theme.breakpoints.up('md')]: {
+        maxWidth: 300
+      }
     },
     midNavSpan: {
       ...theme.custom.setFlex(),
       ...theme.typography.shareTechMono,
+      'maxWidth': 260,
+      'margin': '-1px 0',
       'textTransform': 'uppercase',
-      'height': theme.custom.setSpace('lg'),
+      'height': theme.custom.setSpace('md'),
       'color': theme.palette.grey[400],
       'textAlign': 'center',
       'fontSize': theme.typography.fontSize * 1.5,
@@ -67,15 +83,15 @@ const useStyles = makeStyles(
       'transition': 'all 250ms ease-out',
       '&:hover': {
         color: 'white',
-        cursor: 'pointer',
-        backgroundColor: theme.palette.primary.main
+        cursor: 'pointer'
+      },
+      [theme.breakpoints.up('sm')]: {
+        maxWidth: 160
+      },
+      [theme.breakpoints.up('md')]: {
+        maxWidth: 300,
+        margin: 0
       }
-    },
-    midNavLeft: {
-      clipPath: 'polygon(0 0, 100% 20%, 100% 80%, 0 100%)'
-    },
-    midNavRight: {
-      clipPath: 'polygon(0 20%, 100% 0%, 100% 100%, 0 80%)'
     }
   }),
   {
@@ -96,15 +112,13 @@ export const NavButtonSet: React.FC<Props> = ({
   direction,
   justification,
   alignment,
-  noLastChildMargin,
   midNav
 }): JSX.Element | null => {
   const classes = useStyles({
     color,
     direction,
     justification,
-    alignment,
-    noLastChildMargin
+    alignment
   })
 
   const navItems = useSelector(state => state.content.navItems)
@@ -122,17 +136,23 @@ export const NavButtonSet: React.FC<Props> = ({
   if (midNav)
     return (
       <Grid className={classes.midNavContainer}>
-        {items.map(item => (
-          <a
-            href={item.to}
-            className={classes.midNavLink}
-            key={`mid-nav-${item.key}`}>
-            <span className={clsx(classes.midNavSpan, classes[item.midNavDir])}>
-              {iconMap[item.icon]}
-              &ensp;{item.label}
-            </span>
-          </a>
-        ))}
+        {items.map((item, index) => {
+          const x = index % 2 === 0 ? '-1' : '1'
+          const float = index % 2 === 0 ? 'right' : 'left'
+          return (
+            <a
+              href={item.to}
+              className={classes.midNavLink}
+              key={`mid-nav-${item.key}`}>
+              <Angle color="grey800" x={x} y="1" float={float} />
+              <span className={clsx(classes.midNavSpan)}>
+                {iconMap[item.icon]}
+                &ensp;{item.label}
+              </span>
+              <Angle color="grey800" x={x} y="-1" float={float} />
+            </a>
+          )
+        })}
       </Grid>
     )
   return (

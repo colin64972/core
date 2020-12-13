@@ -73,7 +73,6 @@ export const TopNav: React.FC = (): JSX.Element => {
               direction="row"
               justification="flex-end"
               alignment="center"
-              noLastChildMargin
             />
           </div>
         </Grid>
@@ -81,7 +80,7 @@ export const TopNav: React.FC = (): JSX.Element => {
           <SideMenu open={sideMenuOpen} closeHandler={closeSideMenuHandler} />
         )}
       </ContentContainer>
-      <AngleBand bottom right bgColor="theme.palette.primary.main" />
+      <AngleBand right color="red" />
     </Grid>
   )
 }

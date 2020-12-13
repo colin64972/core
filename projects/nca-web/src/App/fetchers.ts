@@ -28,11 +28,12 @@ export async function postMessage(values, host, pathname) {
 }
 
 export async function getContent() {
-  const res = await axios.get(
+  let url =
     process.env.BUILD_ENV === 'production'
       ? `${process.env.CDN_URL_PRO}/${process.env.CDN_APP_FOLDER}/content.json`
       : `${process.env.CDN_URL_STA}/${process.env.CDN_APP_FOLDER}/content.json`
-  )
+
+  const res = await axios.get(url)
 
   if (res.status === 200) return res.data
 

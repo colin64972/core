@@ -15,6 +15,7 @@ import { AngleBand } from './AngleBand'
 import { ContentContainer } from './ContentContainer'
 import { HeroBar } from './HeroBar'
 import { NavButtonSet } from './NavButtonSet'
+import { Angle } from './Angle'
 
 const useStyles = makeStyles(
   theme => ({
@@ -161,11 +162,14 @@ const useStyles = makeStyles(
       top: -1,
       [theme.breakpoints.only('sm')]: {
         background: 'unset'
+      },
+      [theme.breakpoints.only('xs')]: {
+        width: 'calc(100vw - 60px)'
       }
     },
     helpCaseIcon: {
       fontSize: theme.typography.fontSize * 3,
-      marginBottom: theme.custom.setSpace(),
+      margin: `${theme.custom.setSpace()}px 0`,
       position: 'relative'
     },
     helpCaseTitle: {
@@ -181,21 +185,6 @@ const useStyles = makeStyles(
       [theme.breakpoints.only('sm')]: {
         padding: `0 0 ${theme.custom.setSpace('sm')}px 0`
       }
-    },
-    helpCaseAngle: {
-      width: '100%',
-      backgroundColor: theme.palette.grey[200],
-      height: theme.custom.setSpace('sm'),
-      position: 'absolute',
-      [theme.breakpoints.only('sm')]: {
-        backgroundColor: 'unset'
-      }
-    },
-    angleLeft: {
-      clipPath: 'polygon(0 100%, 100% 100%, 0 0)'
-    },
-    angleRight: {
-      clipPath: 'polygon(0 100%, 100% 0%, 100% 100%)'
     }
   }),
   {
@@ -232,9 +221,9 @@ export const Home: React.FC = (): JSX.Element | null => {
           />
         </Grid>
       </ContentContainer>
-      <AngleBand bottom right bgColor="theme.palette.primary.main" />
+      <AngleBand right color="red" />
       <HeroBar src={NcaHome} tagline={content[3]} alt={content[4]} />
-      <AngleBand top right bgColor="theme.palette.grey[200]" />
+      <AngleBand up right color="grey200" />
       <ContentContainer gradient="theme.custom.setLinearGradient(180, theme.palette.grey[200], 'white')">
         <Grid container>
           <Grid item xs={12} md={8} className={classes.intro}>
@@ -262,7 +251,7 @@ export const Home: React.FC = (): JSX.Element | null => {
         </Grid>
         <Grid className={classes.helpCasesGrid}>
           <Grid className={clsx(classes.helpCaseBg, classes.helpCaseMarketing)}>
-            <Grid className={clsx(classes.helpCaseAngle, classes.angleRight)} />
+            <Angle color="grey200" x="-1" y="1" float="right" hide="sm" />
             <InsertChartIcon className={classes.helpCaseIcon} />
             <Typography variant="h4" className={classes.helpCaseTitle}>
               {content[8]}
@@ -272,7 +261,7 @@ export const Home: React.FC = (): JSX.Element | null => {
             </Typography>
           </Grid>
           <Grid className={clsx(classes.helpCaseBg, classes.helpCaseDesign)}>
-            <Grid className={clsx(classes.helpCaseAngle, classes.angleRight)} />
+            <Angle color="grey200" x="-1" y="1" float="right" hide="sm" flex />
             <OpacityIcon className={classes.helpCaseIcon} />
             <Typography variant="h4" className={classes.helpCaseTitle}>
               {content[10]}
@@ -283,7 +272,7 @@ export const Home: React.FC = (): JSX.Element | null => {
           </Grid>
           <Grid
             className={clsx(classes.helpCaseBg, classes.helpCaseDevelopment)}>
-            <Grid className={clsx(classes.helpCaseAngle, classes.angleRight)} />
+            <Angle color="grey200" x="-1" y="1" float="right" hide="sm" />
             <MemoryIcon className={classes.helpCaseIcon} />
             <Typography variant="h4" className={classes.helpCaseTitle}>
               {content[12]}
