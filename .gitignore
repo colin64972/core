@@ -9,6 +9,7 @@ events
 site-configs
 **/assets
 content
+.vscode
 
 # files
 .env
