@@ -30,7 +30,7 @@ export const Apps: React.FC = (): JSX.Element | null => {
       <HeroBar src={NcaApps} tagline={content[0]} alt={content[1]} />
       {content[2].map(app => (
         <Fragment key={app.key}>
-          <AngleBand up color="grey200" right={app.angleDir === 'right'} />
+          <AngleBand right color="theme.palette.primary.main" />
           <AppSection {...app} />
         </Fragment>
       ))}

@@ -7,8 +7,8 @@ import ImportantDevicesIcon from '@material-ui/icons/ImportantDevices'
 import MailOutlineIcon from '@material-ui/icons/MailOutline'
 import { useSelector } from 'react-redux'
 import clsx from 'clsx'
-import { Angle } from './Angle'
 import React from 'react'
+import { ResponsiveAngle } from './ResponsiveAngle'
 
 interface Props {
   slice?: number
@@ -44,53 +44,45 @@ const useStyles = makeStyles(
     }),
     midNavContainer: {
       ...theme.custom.setFlex('column'),
-      margin: `${theme.custom.setSpace(
-        'md'
-      )}px 0 ${theme.custom.setSpace()}px 0`,
+      marginTop: theme.custom.setSpace('md'),
       [theme.breakpoints.only('sm')]: {
-        ...theme.custom.setFlex('row')
+        ...theme.custom.setFlex()
+      },
+      [theme.breakpoints.up('md')]: {
+        marginTop: 0,
+        paddingLeft: 20
       }
     },
     midNavLink: {
-      maxWidth: 260,
-      transition: 'all 250ms ease-out',
-      [theme.breakpoints.only('sm')]: {
-        'maxWidth': 160,
-        'margin': `0 ${theme.custom.setSpace('sm')}px 0 0`,
-        '&:last-child': {
-          margin: 0
-        }
+      'width': '100%',
+      'margin': `0`,
+      'filter': 'drop-shadow(0.25rem 0.5rem  0.5rem rgba(0, 0, 0, 0.5))',
+      'transition': 'all 250ms ease-out',
+      '&:hover': {
+        filter: 'drop-shadow(0.25rem 0.5rem  0.5rem rgba(0, 0, 0, 0.25))'
       },
-      [theme.breakpoints.up('md')]: {
-        'filter': 'drop-shadow(0.5rem 0.5rem  0.5rem rgba(0, 0, 0, 0.33))',
-        'maxWidth': 300,
-        '&:hover': {
-          filter: 'unset'
-        }
+      [theme.breakpoints.only('sm')]: {
+        margin: `0 ${theme.custom.setSpace('sm')}px 0 0`
+      },
+      '&:last-child': {
+        margin: 0
       }
     },
     midNavSpan: {
       ...theme.custom.setFlex(),
       ...theme.typography.shareTechMono,
-      'maxWidth': 260,
-      'margin': '-1px 0',
-      'textTransform': 'uppercase',
-      'height': theme.custom.setSpace('md'),
       'color': theme.palette.grey[400],
+      'textTransform': 'uppercase',
       'textAlign': 'center',
-      'fontSize': theme.typography.fontSize * 1.5,
+      'fontSize': theme.typography.fontSize * 1.25,
       'backgroundColor': theme.palette.grey[800],
+      'padding': theme.custom.setSpace(),
       'transition': 'all 250ms ease-out',
       '&:hover': {
-        color: 'white',
-        cursor: 'pointer'
+        color: 'white'
       },
-      [theme.breakpoints.up('sm')]: {
-        maxWidth: 160
-      },
-      [theme.breakpoints.up('md')]: {
-        maxWidth: 300,
-        margin: 0
+      [theme.breakpoints.only('sm')]: {
+        margin: '-2px 0'
       }
     }
   }),
@@ -136,23 +128,26 @@ export const NavButtonSet: React.FC<Props> = ({
   if (midNav)
     return (
       <Grid className={classes.midNavContainer}>
-        {items.map((item, index) => {
-          const x = index % 2 === 0 ? '-1' : '1'
-          const float = index % 2 === 0 ? 'right' : 'left'
-          return (
-            <a
-              href={item.to}
-              className={classes.midNavLink}
-              key={`mid-nav-${item.key}`}>
-              <Angle color="grey800" x={x} y="1" float={float} />
-              <span className={clsx(classes.midNavSpan)}>
-                {iconMap[item.icon]}
-                &ensp;{item.label}
-              </span>
-              <Angle color="grey800" x={x} y="-1" float={float} />
-            </a>
-          )
-        })}
+        {items.map((item, index) => (
+          <a
+            key={`mid-nav-${item.key}`}
+            className={classes.midNavLink}
+            href={item.to}>
+            <ResponsiveAngle
+              fill="theme.palette.grey[800]"
+              right={index % 2 === 0}
+            />
+            <span className={classes.midNavSpan}>
+              {iconMap[item.icon]}
+              &ensp;{item.label}
+            </span>
+            <ResponsiveAngle
+              fill="theme.palette.grey[800]"
+              down
+              right={index % 2 === 0}
+            />
+          </a>
+        ))}
       </Grid>
     )
   return (

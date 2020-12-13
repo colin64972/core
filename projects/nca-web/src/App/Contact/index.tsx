@@ -8,6 +8,7 @@ import React from 'react'
 import Loadable from 'react-loadable'
 import { HeroBar } from '../HeroBar'
 import { setHtml } from '@cjo3/shared/react/helpers'
+import { Angle } from '../Angle'
 import { useSelector } from 'react-redux'
 
 const FormLoadable = Loadable({
@@ -71,9 +72,13 @@ const useStyles = makeStyles(
         width: '33.3333%'
       }
     },
-    titleTop: {
-      height: theme.custom.setSpace('sm'),
-      clipPath: 'polygon(0 0, 100% 100%, 0 100%)'
+    angleTop: {
+      ...theme.custom.setFlex()
+    },
+    angleFiller: {
+      backgroundColor: theme.palette.primary.main,
+      flexGrow: 1,
+      height: theme.custom.setSpace('sm')
     },
     titleInner: {
       padding: theme.custom.setSpace('sm'),
@@ -89,10 +94,6 @@ const useStyles = makeStyles(
     },
     titleText: {
       maxWidth: 500
-    },
-    titleBottom: {
-      height: theme.custom.setSpace('sm'),
-      clipPath: 'polygon(0 -1px, 100% -1px, 100% 0%, 0 100%)'
     },
     formBlock: {
       width: '100%',
@@ -121,7 +122,10 @@ export const Contact: React.FC = (): JSX.Element | null => {
         <Grid className={clsx(classes.left, classes.bgRed)} />
         <Grid className={classes.center}>
           <Grid className={classes.titleBlock}>
-            <Grid className={clsx(classes.titleTop, classes.bgRed)} />
+            <Grid className={classes.angleTop}>
+              <Grid className={classes.angleFiller} />
+              <Angle color="red" x="1" y="1" float="right" />
+            </Grid>
             <Grid className={clsx(classes.titleInner, classes.bgRed)}>
               <MailOutlineIcon className={classes.titleIcon} />
               <Typography

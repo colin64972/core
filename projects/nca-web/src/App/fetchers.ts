@@ -1,4 +1,6 @@
 import axios from 'axios'
+import path from 'path'
+import fs from 'fs'
 import { addAuthHeaderToOptions } from '@cjo3/shared/security/authToken'
 
 const otherHeaders = {
@@ -28,12 +30,11 @@ export async function postMessage(values, host, pathname) {
 }
 
 export async function getContent() {
-  let url =
+  const res = await axios.get(
     process.env.BUILD_ENV === 'production'
       ? `${process.env.CDN_URL_PRO}/${process.env.CDN_APP_FOLDER}/content.json`
       : `${process.env.CDN_URL_STA}/${process.env.CDN_APP_FOLDER}/content.json`
-
-  const res = await axios.get(url)
+  )
 
   if (res.status === 200) return res.data
 

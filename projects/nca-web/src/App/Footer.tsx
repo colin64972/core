@@ -177,7 +177,7 @@ export const Footer: React.FC = (): JSX.Element => {
 
   return (
     <Grid component="footer" container>
-      <AngleBand up left color="grey900" />
+      <AngleBand fill="theme.palette.grey[900]" />
       <ContentContainer gradient="theme.custom.setLinearGradient(180, theme.palette.grey[900], theme.palette.grey[800])">
         <Grid container>
           <Grid item xs={12} sm={6} className={classes.footerLeft}>

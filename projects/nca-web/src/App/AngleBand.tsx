@@ -1,15 +1,14 @@
 import { Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import { AirlineSeatReclineNormalRounded } from '@material-ui/icons'
 import React from 'react'
-import { Angle } from './Angle'
+import { ResponsiveAngle } from './ResponsiveAngle'
 
 const useStyles = makeStyles(
   theme => ({
     container: {
       width: '100%',
       display: 'grid',
-      gridTemplateColumns: 'auto 300px auto',
+      gridTemplateColumns: 'auto 320px auto',
       gridTemplateRows: 'auto',
       [theme.breakpoints.up('sm')]: {
         gridTemplateColumns: 'auto 600px auto'
@@ -25,21 +24,27 @@ const useStyles = makeStyles(
       width: 'calc(100% + 1px)',
       gridColumn: '1 / 2 ',
       gridRow: 1,
-      backgroundColor: ({ color }) => eval(color),
-      visibility: ({ leftVisible }) => (leftVisible ? 'visible' : 'hidden'),
+      backgroundColor: ({ fill }) => eval(fill),
+      visibility: ({ fillLeft }) => (fillLeft ? 'visible' : 'hidden'),
       marginRight: -1
     },
     center: {
       gridColumn: '2 / 3 ',
-      gridRow: 1
+      gridRow: 1,
+      display: 'flex',
+      justifyContent: ({ justify }) => justify,
+      alignItems: 'center'
     },
     right: {
       width: 'calc(100% + 1px)',
       gridColumn: '3 / 4 ',
       gridRow: 1,
-      backgroundColor: ({ color }) => eval(color),
-      visibility: ({ rightVisible }) => (rightVisible ? 'visible' : 'hidden'),
+      backgroundColor: ({ fill }) => eval(fill),
+      visibility: ({ fillRight }) => (fillRight ? 'visible' : 'hidden'),
       marginLeft: -1
+    },
+    div: {
+      width: ({ width }) => width
     }
   }),
   {
@@ -48,44 +53,33 @@ const useStyles = makeStyles(
 )
 
 interface Props {
-  color: string
+  fill?: string
   right?: boolean
-  up?: boolean
-}
-
-function switchColor(color) {
-  switch (color) {
-    case 'red':
-      return 'theme.palette.primary.main'
-    case 'grey900':
-      return 'theme.palette.grey[900]'
-    case 'grey800':
-      return 'theme.palette.grey[800]'
-    default:
-      return 'theme.palette.grey[200]'
-  }
+  down?: boolean
+  width?: number
 }
 
 export const AngleBand: React.FC<Props> = ({
-  color,
-  right,
-  up
+  fill = 'theme.palette.grey[200]',
+  right = false,
+  down = false,
+  width = 300
 }): JSX.Element => {
   const classes = useStyles({
-    leftVisible: !right,
-    rightVisible: right,
-    color: switchColor(color)
+    fill,
+    fillRight: right,
+    fillLeft: !right,
+    justify: right ? 'flex-end' : 'flex-start',
+    width
   })
-
-  const float = right ? 'right' : 'left'
-  const x = right ? '-1' : '1'
-  const y = up ? '1' : '-1'
 
   return (
     <Grid className={classes.container}>
       <Grid className={classes.left} />
       <Grid className={classes.center}>
-        <Angle color={color} x={x} y={y} float={float} />
+        <div className={classes.div}>
+          <ResponsiveAngle fill={fill} right={right} down={down} />
+        </div>
       </Grid>
       <Grid className={classes.right} />
     </Grid>

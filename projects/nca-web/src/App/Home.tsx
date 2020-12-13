@@ -15,7 +15,7 @@ import { AngleBand } from './AngleBand'
 import { ContentContainer } from './ContentContainer'
 import { HeroBar } from './HeroBar'
 import { NavButtonSet } from './NavButtonSet'
-import { Angle } from './Angle'
+import { ResponsiveAngle } from './ResponsiveAngle'
 
 const useStyles = makeStyles(
   theme => ({
@@ -131,14 +131,14 @@ const useStyles = makeStyles(
         ...theme.custom.setGrid(3, 1, theme.custom.setSpace('sm'))
       }
     },
-    helpCaseMarketing: {
+    helpCase0: {
       gridColumn: '1 / 2',
       gridRow: 1,
       [theme.breakpoints.up('sm')]: {
         gridColumn: '1 / 2'
       }
     },
-    helpCaseDesign: {
+    helpCase1: {
       gridColumn: '1 / 2',
       gridRow: 2,
       [theme.breakpoints.up('sm')]: {
@@ -146,7 +146,7 @@ const useStyles = makeStyles(
         gridRow: 1
       }
     },
-    helpCaseDevelopment: {
+    helpCase2: {
       gridColumn: '1 / 2',
       gridRow: 3,
       [theme.breakpoints.up('sm')]: {
@@ -168,7 +168,7 @@ const useStyles = makeStyles(
     },
     helpCaseIcon: {
       fontSize: theme.typography.fontSize * 3,
-      margin: `${theme.custom.setSpace()}px 0`,
+      marginBottom: theme.custom.setSpace(),
       position: 'relative'
     },
     helpCaseTitle: {
@@ -176,13 +176,18 @@ const useStyles = makeStyles(
       color: theme.palette.primary.main,
       fontSize: theme.typography.fontSize * 1.5
     },
-    helpCaseText: {
+    helpCaseCopy: {
       textAlign: 'center',
       padding: `0 ${theme.custom.setSpace('sm')}px ${theme.custom.setSpace(
         'sm'
       )}px ${theme.custom.setSpace('sm')}px`,
       [theme.breakpoints.only('sm')]: {
         padding: `0 0 ${theme.custom.setSpace('sm')}px 0`
+      }
+    },
+    hideOnSm: {
+      [theme.breakpoints.only('sm')]: {
+        display: 'none'
       }
     }
   }),
@@ -195,6 +200,12 @@ export const Home: React.FC = (): JSX.Element | null => {
   const classes = useStyles()
 
   const content = useSelector(state => state.content.home)
+
+  const iconMap = {
+    marketing: <InsertChartIcon className={classes.helpCaseIcon} />,
+    development: <MemoryIcon className={classes.helpCaseIcon} />,
+    design: <OpacityIcon className={classes.helpCaseIcon} />
+  }
 
   if (!content) return null
 
@@ -220,9 +231,9 @@ export const Home: React.FC = (): JSX.Element | null => {
           />
         </Grid>
       </ContentContainer>
-      <AngleBand right color="red" />
+      <AngleBand fill="theme.palette.primary.main" right down />
       <HeroBar src={NcaHome} tagline={content[3]} alt={content[4]} />
-      <AngleBand up right color="grey200" />
+      <AngleBand />
       <ContentContainer gradient="theme.custom.setLinearGradient(180, theme.palette.grey[200], 'white')">
         <Grid container>
           <Grid item xs={12} md={8} className={classes.intro}>
@@ -249,37 +260,26 @@ export const Home: React.FC = (): JSX.Element | null => {
           </Typography>
         </Grid>
         <Grid className={classes.helpCasesGrid}>
-          <Grid className={clsx(classes.helpCaseBg, classes.helpCaseMarketing)}>
-            <Angle color="grey200" x="-1" y="1" float="right" hide="sm" />
-            <InsertChartIcon className={classes.helpCaseIcon} />
-            <Typography variant="h4" className={classes.helpCaseTitle}>
-              {content[8]}
-            </Typography>
-            <Typography variant="body1" className={classes.helpCaseText}>
-              {content[9]}
-            </Typography>
-          </Grid>
-          <Grid className={clsx(classes.helpCaseBg, classes.helpCaseDesign)}>
-            <Angle color="grey200" x="-1" y="1" float="right" hide="sm" flex />
-            <OpacityIcon className={classes.helpCaseIcon} />
-            <Typography variant="h4" className={classes.helpCaseTitle}>
-              {content[10]}
-            </Typography>
-            <Typography variant="body1" className={classes.helpCaseText}>
-              {content[11]}
-            </Typography>
-          </Grid>
-          <Grid
-            className={clsx(classes.helpCaseBg, classes.helpCaseDevelopment)}>
-            <Angle color="grey200" x="-1" y="1" float="right" hide="sm" />
-            <MemoryIcon className={classes.helpCaseIcon} />
-            <Typography variant="h4" className={classes.helpCaseTitle}>
-              {content[12]}
-            </Typography>
-            <Typography variant="body1" className={classes.helpCaseText}>
-              {content[13]}
-            </Typography>
-          </Grid>
+          {content[8].map((item, itemIndex) => {
+            const Icon: JSX.Element = iconMap[item.heading]
+            return (
+              <Grid
+                key={item.key}
+                className={clsx(
+                  classes.helpCaseBg,
+                  `classes.helpCase${itemIndex}`
+                )}>
+                <ResponsiveAngle right customClass={classes.hideOnSm} />
+                {Icon}
+                <Typography variant="h4" className={classes.helpCaseTitle}>
+                  {item.heading}
+                </Typography>
+                <Typography variant="body1" className={classes.helpCaseCopy}>
+                  {item.copy}
+                </Typography>
+              </Grid>
+            )
+          })}
         </Grid>
       </ContentContainer>
     </Grid>
