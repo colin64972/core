@@ -52,12 +52,8 @@ const useStyles = makeStyles(
       }
     },
     midNavLink: {
-      'maxWidth': 260,
-      'filter': 'drop-shadow(0.5rem 0.5rem  0.5rem rgba(0, 0, 0, 0.33))',
-      'transition': 'all 250ms ease-out',
-      '&:hover': {
-        filter: 'unset'
-      },
+      maxWidth: 260,
+      transition: 'all 250ms ease-out',
       [theme.breakpoints.only('sm')]: {
         'maxWidth': 160,
         'margin': `0 ${theme.custom.setSpace('sm')}px 0 0`,
@@ -66,7 +62,11 @@ const useStyles = makeStyles(
         }
       },
       [theme.breakpoints.up('md')]: {
-        maxWidth: 300
+        'filter': 'drop-shadow(0.5rem 0.5rem  0.5rem rgba(0, 0, 0, 0.33))',
+        'maxWidth': 300,
+        '&:hover': {
+          filter: 'unset'
+        }
       }
     },
     midNavSpan: {
