@@ -29,6 +29,7 @@ import { ResumeEntry } from './ResumeEntry'
 import { SkillGraph } from './SkillGraph'
 import { setHtml } from '@cjo3/shared/react/helpers'
 import { skillCategories } from '@cjo3/shared/raw/constants/nca'
+import { ResponsiveAngle } from '../ResponsiveAngle'
 
 const useStyles = makeStyles(
   theme => ({
@@ -102,32 +103,18 @@ const useStyles = makeStyles(
       }
     },
     angle: {
-      width: theme.custom.setSpace('sm') * 10,
-      height: theme.custom.setSpace('sm'),
-      backgroundColor: theme.palette.primary.main
+      marginRight: -1,
+      maxWidth: 300
     },
-    angleFill: {
+    filler: {
       flexGrow: 1,
-      height: theme.custom.setSpace('sm'),
-      [theme.breakpoints.up('sm')]: {
-        marginLeft: -1
-      },
-      [theme.breakpoints.down(300)]: {
-        display: 'none'
-      }
-    },
-    topAngle: {
-      clipPath: 'polygon(0 100%, 100% 0, 100% 100%)'
-    },
-    bottomAngle: {
-      clipPath: 'polygon(0 0, 100% 0, 100% 100%)'
+      height: theme.custom.setSpace('sm')
     },
     redBg: {
       backgroundColor: theme.palette.primary.main
     },
     education: {
-      padding: theme.custom.setSpace('sm'),
-      margin: '-1px 0'
+      padding: theme.custom.setSpace('sm')
     },
     schoolEntries: {
       marginTop: theme.custom.setSpace('sm')
@@ -262,7 +249,7 @@ export const Resume: React.FC = (): JSX.Element | null => {
           </Button>
         </Grid>
       </Grid>
-      <AngleBand right color="theme.palette.primary.main" />
+      <AngleBand />
       <Grid className={classes.resumeMain}>
         <Grid className={classes.workSide}>
           <Grid className={classes.workInner}>
@@ -288,9 +275,13 @@ export const Resume: React.FC = (): JSX.Element | null => {
           </Grid>
         </Grid>
         <Grid className={classes.splitSide}>
-          <Grid container justify="flex-start" alignItems="flex-end">
-            <Grid item className={clsx(classes.angle, classes.topAngle)} />
-            <Grid item className={clsx(classes.angleFill, classes.redBg)} />
+          <Grid container>
+            <ResponsiveAngle
+              fill="theme.palette.primary.main"
+              right
+              customClass={classes.angle}
+            />
+            <Grid className={clsx(classes.filler, classes.redBg)} />
           </Grid>
           <Grid className={clsx(classes.education, classes.redBg)}>
             <SchoolIcon
@@ -314,9 +305,14 @@ export const Resume: React.FC = (): JSX.Element | null => {
               ))}
             </Grid>
           </Grid>
-          <Grid container justify="flex-start" alignItems="flex-start">
-            <Grid item className={clsx(classes.angle, classes.bottomAngle)} />
-            <Grid item className={clsx(classes.angleFill, classes.redBg)} />
+          <Grid container>
+            <ResponsiveAngle
+              fill="theme.palette.primary.main"
+              right
+              down
+              customClass={classes.angle}
+            />
+            <Grid className={clsx(classes.filler, classes.redBg)} />
           </Grid>
           <Grid className={classes.personalDetails}>
             <AssignmentIndIcon
@@ -335,7 +331,7 @@ export const Resume: React.FC = (): JSX.Element | null => {
           </Grid>
         </Grid>
       </Grid>
-      <AngleBand right color="theme.palette.primary.main" />
+      <AngleBand right />
       <ContentContainer gradient="theme.custom.setLinearGradient(180, theme.palette.grey[200], 'white')">
         <CodeIcon className={classes.sectionTitleIcon} />
         <Typography
