@@ -2,6 +2,7 @@ import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 import { skillCategories, barColors } from '@cjo3/shared/raw/constants/nca'
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 
 const useStyles = makeStyles(
   theme => ({
@@ -12,6 +13,7 @@ const useStyles = makeStyles(
       }
     },
     label: {
+      width: '100%',
       marginBottom: theme.custom.setSpace() / 2
     },
     baseBar: {
@@ -71,12 +73,16 @@ export const SkillGraph: React.FC<Props> = ({
 
   return (
     <Grid className={classes.container}>
-      <Typography variant="h6" className={classes.label}>
-        {label}
-      </Typography>
-      <Grid className={classes.baseBar}>
-        <Grid className={classes.levelBar} />
-      </Grid>
+      <FadeIn direction="x" position={-100}>
+        <Typography variant="h6" className={classes.label}>
+          {label}
+        </Typography>
+      </FadeIn>
+      <FadeIn direction="x" position={-100}>
+        <Grid className={classes.baseBar}>
+          <Grid className={classes.levelBar} />
+        </Grid>
+      </FadeIn>
     </Grid>
   )
 }

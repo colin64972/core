@@ -2,6 +2,7 @@ import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { setHtml } from '@cjo3/shared/react/helpers'
 import React from 'react'
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 
 const useStyles = makeStyles(
   theme => ({
@@ -34,7 +35,6 @@ const useStyles = makeStyles(
       [theme.breakpoints.up('sm')]: {
         textAlign: 'left',
         margin: `0 0 0 ${theme.custom.setSpace('sm')}px`,
-        // maxWidth: '40%',
         fontSize: theme.typography.fontSize * 4
       }
     }
@@ -58,12 +58,16 @@ export const HeroBar: React.FC<Props> = ({
   const classes = useStyles()
   return (
     <Grid className={classes.container}>
-      <img src={src} className={classes.image} alt={alt} />
-      <Typography
-        variant="h1"
-        className={classes.tagline}
-        dangerouslySetInnerHTML={setHtml(tagline)}
-      />
+      <FadeIn direction="x" position={-100}>
+        <img src={src} className={classes.image} alt={alt} />
+      </FadeIn>
+      <FadeIn direction="x" position={100}>
+        <Typography
+          variant="h1"
+          className={classes.tagline}
+          dangerouslySetInnerHTML={setHtml(tagline)}
+        />
+      </FadeIn>
     </Grid>
   )
 }

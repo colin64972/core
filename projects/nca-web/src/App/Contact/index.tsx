@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux'
 import { HeroBar } from '../HeroBar'
 import { ResponsiveAngle } from '../ResponsiveAngle'
 import { ContactForm } from './ContactForm'
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 
 const useStyles = makeStyles(
   theme => ({
@@ -94,19 +95,25 @@ export const Contact: React.FC = (): JSX.Element | null => {
         <Grid className={clsx(classes.left, classes.bgRed)} />
         <Grid className={classes.center}>
           <Grid className={classes.titleBlock}>
-            <ResponsiveAngle fill="theme.palette.primary.main" />
-            <Grid className={clsx(classes.titleInner, classes.bgRed)}>
-              <MailOutlineIcon className={classes.titleIcon} />
-              <Typography
-                variant="h2"
-                className={classes.title}
-                dangerouslySetInnerHTML={setHtml(content[2])}
-              />
-              <Typography variant="body1" className={classes.titleText}>
-                {content[3]}
-              </Typography>
-            </Grid>
-            <ResponsiveAngle down fill="theme.palette.primary.main" />
+            <FadeIn direction="x" position={100}>
+              <Grid>
+                <ResponsiveAngle fill="theme.palette.primary.main" />
+                <Grid className={clsx(classes.titleInner, classes.bgRed)}>
+                  <MailOutlineIcon className={classes.titleIcon} />
+                  <Typography
+                    variant="h2"
+                    className={classes.title}
+                    dangerouslySetInnerHTML={setHtml(content[2])}
+                  />
+                  <FadeIn direction="x" position={100}>
+                    <Typography variant="body1" className={classes.titleText}>
+                      {content[3]}
+                    </Typography>
+                  </FadeIn>
+                </Grid>
+                <ResponsiveAngle down fill="theme.palette.primary.main" />
+              </Grid>
+            </FadeIn>
           </Grid>
           <Grid className={classes.formBlock}>
             <ContactForm content={content} />

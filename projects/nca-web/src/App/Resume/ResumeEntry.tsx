@@ -3,6 +3,7 @@ import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 import { ResumeEntry as IResumeEntry } from '../../../index'
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 
 const useStyles = makeStyles(
   theme => ({
@@ -42,6 +43,9 @@ const useStyles = makeStyles(
     bulletList: {
       marginTop: theme.custom.setSpace(),
       paddingLeft: theme.custom.setSpace()
+    },
+    bulletItem: {
+      width: '100%'
     }
   }),
   {
@@ -67,23 +71,29 @@ export const ResumeEntry: React.FC<Props> = ({
   return (
     <Grid className={classes.entry}>
       <Grid container justify="flex-start" alignItems="center">
-        <ImageHandler asset={logo} pictureClass={classes.image} />
-        <Grid>
-          <Typography variant="h6" className={classes.title}>
-            {title}
-          </Typography>
-          <Typography variant="body1" className={classes.subtitle}>
-            {subtitle}
-          </Typography>
-          <Typography variant="body1" className={classes.period}>
-            {period}
-          </Typography>
-        </Grid>
+        <FadeIn direction="x" position={Math.random() > 0.5 ? -100 : 100}>
+          <ImageHandler asset={logo} pictureClass={classes.image} />
+          <Grid>
+            <Typography variant="h6" className={classes.title}>
+              {title}
+            </Typography>
+            <Typography variant="body1" className={classes.subtitle}>
+              {subtitle}
+            </Typography>
+            <Typography variant="body1" className={classes.period}>
+              {period}
+            </Typography>
+          </Grid>
+        </FadeIn>
       </Grid>
       {bullets && (
         <ul className={classes.bulletList}>
           {bullets.map(item => (
-            <li key={item.key}>{item.label}</li>
+            <FadeIn direction="x" position={Math.random() > 0.5 ? -100 : 100}>
+              <li key={item.key} className={classes.bulletItem}>
+                {item.label}
+              </li>
+            </FadeIn>
           ))}
         </ul>
       )}

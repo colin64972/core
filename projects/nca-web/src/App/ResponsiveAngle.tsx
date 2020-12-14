@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
 import React, { useState, useLayoutEffect, useRef } from 'react'
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 
 const useStyles = makeStyles(
   theme => ({
@@ -20,6 +21,10 @@ const useStyles = makeStyles(
       width: '100%',
       height: ({ height }) => height,
       fill: ({ fill }) => (fill.includes('theme') ? eval(fill) : fill)
+    },
+    fadeIn: {
+      width: '100%',
+      height: ({ height }) => height
     }
   }),
   { name: 'ResponsiveAngle' }
@@ -72,15 +77,21 @@ export const ResponsiveAngle: React.FC<Props> = ({
 
   return (
     <div ref={container} className={clsx(classes.container, customClass)}>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox={`0 0 ${containerWidth} ${height}`}
-        className={classes.svg}>
-        <polygon
-          points={`0 0 0 ${height} ${containerWidth} ${height}`}
-          className={classes.polygon}
-        />
-      </svg>
+      <FadeIn
+        outerClass={classes.fadeIn}
+        direction="y"
+        position={down ? -100 : 100}
+        threshold={1}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox={`0 0 ${containerWidth} ${height}`}
+          className={classes.svg}>
+          <polygon
+            points={`0 0 0 ${height} ${containerWidth} ${height}`}
+            className={classes.polygon}
+          />
+        </svg>
+      </FadeIn>
     </div>
   )
 }

@@ -30,6 +30,7 @@ import { SkillGraph } from './SkillGraph'
 import { setHtml } from '@cjo3/shared/react/helpers'
 import { skillCategories } from '@cjo3/shared/raw/constants/nca'
 import { ResponsiveAngle } from '../ResponsiveAngle'
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 
 const useStyles = makeStyles(
   theme => ({
@@ -237,32 +238,38 @@ export const Resume: React.FC = (): JSX.Element | null => {
     <Grid container justify="center">
       <HeroBar src={NcaResume} tagline={content[0]} alt={content[1]} />
       <Grid className={classes.downloadSection}>
-        <Typography variant="h5" className={classes.downloadTitle}>
-          {content[2]}
-        </Typography>
+        <FadeIn direction="x" position={-100}>
+          <Typography variant="h5" className={classes.downloadTitle}>
+            {content[2]}
+          </Typography>
+        </FadeIn>
         <Grid container justify="center" alignItems="center">
-          <Button
-            type="button"
-            className={clsx(
-              classes.downloadButton,
-              classes.downloadButtonColor
-            )}
-            variant="outlined"
-            color="primary"
-            onClick={downloadHandler}
-            name="color">
-            <PictureAsPdfIcon className={classes.downloadButtonIcon} />
-            {content[3]}
-          </Button>
-          <Button
-            type="button"
-            className={classes.downloadButton}
-            variant="outlined"
-            name="grey"
-            onClick={downloadHandler}>
-            <PictureAsPdfIcon className={classes.downloadButtonIcon} />
-            {content[4]}
-          </Button>
+          <FadeIn direction="x" position={-100}>
+            <Button
+              type="button"
+              className={clsx(
+                classes.downloadButton,
+                classes.downloadButtonColor
+              )}
+              variant="outlined"
+              color="primary"
+              onClick={downloadHandler}
+              name="color">
+              <PictureAsPdfIcon className={classes.downloadButtonIcon} />
+              {content[3]}
+            </Button>
+          </FadeIn>
+          <FadeIn direction="x" position={100}>
+            <Button
+              type="button"
+              className={classes.downloadButton}
+              variant="outlined"
+              name="grey"
+              onClick={downloadHandler}>
+              <PictureAsPdfIcon className={classes.downloadButtonIcon} />
+              {content[4]}
+            </Button>
+          </FadeIn>
         </Grid>
       </Grid>
       <AngleBand />
@@ -275,6 +282,7 @@ export const Resume: React.FC = (): JSX.Element | null => {
               className={classes.seciontTitle}
               dangerouslySetInnerHTML={setHtml(content[5])}
             />
+
             <Grid className={classes.workEntries}>
               {content[6].map(entry => (
                 <ResumeEntry

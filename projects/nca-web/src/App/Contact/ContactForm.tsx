@@ -14,6 +14,7 @@ import {
   messageTypes
 } from '../constants'
 import { FormikField } from './FormikField'
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 
 const useStyles = makeStyles(
   theme => ({
@@ -25,16 +26,19 @@ const useStyles = makeStyles(
     buttons: {
       ...theme.custom.setFlex()
     },
-    button: {
-      'border': 'none',
-      'padding': theme.custom.setSpace(),
-      ...theme.typography.shareTechMono,
-      'textTransform': 'uppercase',
+    buttonFadeIn: {
       'width': '100%',
       'marginRight': theme.custom.setSpace(),
       '&:last-child': {
         margin: 0
       }
+    },
+    button: {
+      ...theme.typography.shareTechMono,
+      border: 'none',
+      padding: theme.custom.setSpace(),
+      textTransform: 'uppercase',
+      width: '100%'
     },
     bgBlue: {
       backgroundColor: 'blue'
@@ -148,6 +152,7 @@ export const ContactForm: React.FC<Props> = ({
                 placeholder={content[9]}
                 required
               />
+
               <FormikField
                 name="email"
                 label={content[10]}
@@ -170,26 +175,35 @@ export const ContactForm: React.FC<Props> = ({
                 required
                 rows={5}
               />
-
               <Grid className={classes.buttons}>
-                <button
-                  type="submit"
-                  disabled={
-                    formik.isSubmitting || !formik.dirty || !formik.isValid
-                  }
-                  className={clsx(classes.button, classes.submit, {
-                    [classes.bgValid]: formik.dirty && formik.isValid
-                  })}>
-                  {formik.isSubmitting ? content[15] : content[16]}
-                </button>
-                <button
-                  type="reset"
-                  disabled={!formik.dirty}
-                  className={clsx(classes.button, classes.reset, {
-                    [classes.bgDirty]: formik.dirty
-                  })}>
-                  {content[17]}
-                </button>
+                <FadeIn
+                  direction="x"
+                  position={100}
+                  outerClass={classes.buttonFadeIn}>
+                  <button
+                    type="submit"
+                    disabled={
+                      formik.isSubmitting || !formik.dirty || !formik.isValid
+                    }
+                    className={clsx(classes.button, classes.submit, {
+                      [classes.bgValid]: formik.dirty && formik.isValid
+                    })}>
+                    {formik.isSubmitting ? content[15] : content[16]}
+                  </button>
+                </FadeIn>
+                <FadeIn
+                  direction="x"
+                  position={100}
+                  outerClass={classes.buttonFadeIn}>
+                  <button
+                    type="reset"
+                    disabled={!formik.dirty}
+                    className={clsx(classes.button, classes.reset, {
+                      [classes.bgDirty]: formik.dirty
+                    })}>
+                    {content[17]}
+                  </button>
+                </FadeIn>
               </Grid>
             </Form>
           )}

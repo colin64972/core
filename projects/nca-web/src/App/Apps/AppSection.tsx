@@ -13,6 +13,7 @@ import { AppItem, ImageAsset } from '../../../index'
 import { MockupDle, MockupKm, MockupNca, MockupNt } from '../assets'
 import { ContentContainer } from '../ContentContainer'
 import { ResponsiveAngle } from '../ResponsiveAngle'
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 
 const useStyles = makeStyles(
   theme => ({
@@ -144,48 +145,64 @@ export const AppSection: React.FC<AppItem> = ({
     <ContentContainer gradient="theme.custom.setLinearGradient(180, theme.palette.grey[200], 'white')">
       <Grid container>
         <Grid item xs={12} sm={8} md={9}>
-          <Grid className={classes.sectionTitle}>
-            {Icon}
-            <Typography
-              component="h2"
-              className={classes.seciontTitleText}
-              dangerouslySetInnerHTML={setHtml(title)}
-            />
-          </Grid>
-          <Typography variant="body1" className={classes.appDescription}>
-            {description}
-          </Typography>
-          <Grid className={classes.actionButtonContainer}>
-            <a href={liveUrl} target="blank" className={classes.actionButton}>
-              <TouchAppIcon className={classes.actionButtonIcon} />
-              &ensp;Try
-            </a>
-            <a href={githubUrl} target="blank" className={classes.actionButton}>
-              <GitHubIcon className={classes.actionButtonIcon} />
-              &ensp;View Repo
-            </a>
-          </Grid>
-          <Grid className={classes.imageContainer}>
-            <ImageHandler asset={images[assetIconCode]} />
-          </Grid>
+          <FadeIn direction="x" position={-100}>
+            <Grid>
+              <Grid className={classes.sectionTitle}>
+                {Icon}
+                <Typography
+                  component="h2"
+                  className={classes.seciontTitleText}
+                  dangerouslySetInnerHTML={setHtml(title)}
+                />
+              </Grid>
+              <Typography variant="body1" className={classes.appDescription}>
+                {description}
+              </Typography>
+              <Grid className={classes.actionButtonContainer}>
+                <a
+                  href={liveUrl}
+                  target="blank"
+                  className={classes.actionButton}>
+                  <TouchAppIcon className={classes.actionButtonIcon} />
+                  &ensp;Try
+                </a>
+                <a
+                  href={githubUrl}
+                  target="blank"
+                  className={classes.actionButton}>
+                  <GitHubIcon className={classes.actionButtonIcon} />
+                  &ensp;View Repo
+                </a>
+              </Grid>
+            </Grid>
+          </FadeIn>
+          <FadeIn direction="y" position={100}>
+            <Grid className={classes.imageContainer}>
+              <ImageHandler asset={images[assetIconCode]} />
+            </Grid>
+          </FadeIn>
         </Grid>
         <Grid item xs={12} sm={4} md={3} className={classes.techStackContainer}>
-          <Grid className={classes.techStack}>
-            <Typography variant="h6" className={classes.techStackTitle}>
-              Tech Stack
-            </Typography>
-            <ul className={classes.techStackList}>
-              {stackList.map(item => (
-                <li key={item.replace(/\s+/gi, '')}>{item}</li>
-              ))}
-            </ul>
-          </Grid>
-          <ResponsiveAngle
-            right
-            down
-            fill="theme.palette.primary.main"
-            customClass={classes.angle}
-          />
+          <FadeIn direction="x" position={100}>
+            <Grid>
+              <Grid className={classes.techStack}>
+                <Typography variant="h6" className={classes.techStackTitle}>
+                  Tech Stack
+                </Typography>
+                <ul className={classes.techStackList}>
+                  {stackList.map(item => (
+                    <li key={item.replace(/\s+/gi, '')}>{item}</li>
+                  ))}
+                </ul>
+              </Grid>
+              <ResponsiveAngle
+                right
+                down
+                fill="theme.palette.primary.main"
+                customClass={classes.angle}
+              />
+            </Grid>
+          </FadeIn>
         </Grid>
       </Grid>
     </ContentContainer>

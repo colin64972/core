@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import HomeIcon from '@material-ui/icons/Home'
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 
 const useStyles = makeStyles(
   theme => ({
@@ -38,6 +39,7 @@ const useStyles = makeStyles(
     },
     title: {
       ...theme.typography.shareTechMono,
+      width: '100%',
       letterSpacing: -1,
       color: theme.palette.primary.main,
       textTransform: 'uppercase'
@@ -51,6 +53,7 @@ const useStyles = makeStyles(
       }
     },
     message: {
+      width: '100%',
       margin: `${theme.custom.setSpace()}px 0 0 0`
     },
     button: {
@@ -75,14 +78,20 @@ export const NotFound: React.FC = (): JSX.Element | null => {
     <Grid className={classes.container}>
       <Grid className={classes.contentContainer}>
         <Grid className={classes.innerContainer}>
-          <img src={NcaNotFound} alt={content[0]} className={classes.image} />
+          <FadeIn direction="x" position={-100}>
+            <img src={NcaNotFound} alt={content[0]} className={classes.image} />
+          </FadeIn>
           <Grid className={classes.text}>
-            <Typography variant="h1" className={classes.title}>
-              {content[1]}
-            </Typography>
-            <Typography variant="body1" className={classes.message}>
-              {content[2]}
-            </Typography>
+            <FadeIn direction="x" position={100}>
+              <Typography variant="h1" className={classes.title}>
+                {content[1]}
+              </Typography>
+            </FadeIn>
+            <FadeIn direction="x" position={100}>
+              <Typography variant="body1" className={classes.message}>
+                {content[2]}
+              </Typography>
+            </FadeIn>
             <Button
               type="button"
               variant="contained"

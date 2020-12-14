@@ -14,6 +14,7 @@ import { ProfilePic } from './assets'
 import { ContentContainer } from './ContentContainer'
 import { NavButtonSet } from './NavButtonSet'
 import clsx from 'clsx'
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 
 const TcLoadable = Loadable({
   loader: () =>
@@ -191,15 +192,19 @@ export const Footer: React.FC = (): JSX.Element => {
               type="button"
               className={clsx(classes.menuItem, classes.tcButton)}
               onClick={tcOpenHandler}>
-              <GavelIcon />
-              &emsp;{content[0]}
+              <FadeIn direction="x" position={-100}>
+                <GavelIcon />
+                &emsp;{content[0]}
+              </FadeIn>
             </Button>
             <Button
               type="button"
               className={classes.menuItem}
               onClick={ppOpenHandler}>
-              <VpnLockIcon />
-              &emsp;{content[1]}
+              <FadeIn direction="x" position={-100}>
+                <VpnLockIcon />
+                &emsp;{content[1]}
+              </FadeIn>
             </Button>
           </Grid>
           <Grid item xs={12} sm={6} className={classes.footerRight}>
