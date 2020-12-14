@@ -228,9 +228,7 @@ export const Resume: React.FC = (): JSX.Element | null => {
   function downloadHandler(event: MouseEvent): void {
     const fileVariant = event.currentTarget.name
     saveAs(
-      process.env.BUILD_ENV === 'production'
-        ? `${process.env.CDN_URL_PRO}/${process.env.CDN_APP_FOLDER}/${process.env.RESUME_FILENAME}-${fileVariant}.pdf`
-        : `${process.env.CDN_URL_STA}/${process.env.CDN_APP_FOLDER}/${process.env.RESUME_FILENAME}-${fileVariant}.pdf`,
+      `${process.env.CDN_URL_PRO}/${process.env.CDN_APP_FOLDER}/${process.env.RESUME_FILENAME}-${fileVariant}.pdf`,
       `${process.env.RESUME_FILENAME}-${fileVariant}.pdf`
     )
   }
