@@ -126,7 +126,7 @@ const useStyles = makeStyles(
     },
     helpCasesGrid: {
       ...theme.custom.setGrid(1, 3, theme.custom.setSpace('sm')),
-      margin: `${theme.custom.setSpace('sm')}px 0 0 0`,
+      margin: `${theme.custom.setSpace('md')}px 0`,
       [theme.breakpoints.up('sm')]: {
         ...theme.custom.setGrid(3, 1, theme.custom.setSpace('sm'))
       }
