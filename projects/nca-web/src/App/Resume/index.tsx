@@ -233,7 +233,7 @@ export const Resume: React.FC = (): JSX.Element | null => {
   async function downloadHandler(event: MouseEvent): void {
     const fileVariant = event.currentTarget.name
     try {
-      const action = 'resume_download'
+      const action = 'nca_resume_download'
       const recaptcha = await load(process.env.RECAPTCHA_SITE_KEY)
       const token = await recaptcha.execute(action)
       const isVerified = await testRecaptchaToken(token, action)

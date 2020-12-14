@@ -2,7 +2,9 @@ import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline'
 import MarkunreadMailboxIcon from '@material-ui/icons/MarkunreadMailbox'
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import { load } from 'recaptcha-v3'
 import clsx from 'clsx'
+import { testRecaptchaToken } from '../fetchers'
 import { Form, Formik } from 'formik'
 import React, { useState } from 'react'
 import { TypeOf } from 'yup'
@@ -105,28 +107,33 @@ export const ContactForm: React.FC<Props> = ({
   const [mailRequest, setMailRequest] = useState<boolean>(false)
   const [mailFail, setMailFail] = useState<boolean>(false)
 
-  function submitHandler(values, actions): void {
+  async function submitHandler(values, actions): void {
     actions.setSubmitting(true)
-    postMessage(values, window.location.hostname, window.location.pathname)
-      .then(() => {
-        setMailRequest(true)
-        actions.setSubmitting(false)
-        actions.resetForm()
-        tracker.eventHit({
-          category: 'Form',
-          action: 'Form Submit',
-          label: 'NCA Contact Form',
-          value: parseInt(values.messageType),
-          nonInteraction: false,
-          transport: 'xhr'
+    const action = 'nca_contact_form_submit'
+    const recaptcha = await load(process.env.RECAPTCHA_SITE_KEY)
+    const token = await recaptcha.execute(action)
+    const isVerified = await testRecaptchaToken(token, action)
+    if (isVerified) {
+      postMessage(values, window.location.hostname, window.location.pathname)
+        .then(() => {
+          setMailRequest(true)
+          tracker.eventHit({
+            category: 'Form',
+            action: 'Form Submit',
+            label: 'NCA Contact Form',
+            value: parseInt(values.messageType),
+            nonInteraction: false,
+            transport: 'xhr'
+          })
         })
-      })
-      .catch(error => {
-        setMailRequest(true)
-        setMailFail(true)
-        actions.setSubmitting(false)
-        actions.resetForm()
-      })
+        .catch(error => {
+          setMailRequest(true)
+          setMailFail(true)
+        })
+    } else {
+      setMailRequest(true)
+      setMailFail(true)
+    }
   }
 
   return (
