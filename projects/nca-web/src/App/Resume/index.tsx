@@ -230,7 +230,7 @@ export const Resume: React.FC = (): JSX.Element | null => {
       process.env.BUILD_ENV === 'production'
         ? `${process.env.CDN_URL_PRO}/${process.env.CDN_APP_FOLDER}/${process.env.RESUME_FILENAME}-${fileVariant}.pdf`
         : `${process.env.CDN_URL_STA}/${process.env.CDN_APP_FOLDER}/${process.env.RESUME_FILENAME}-${fileVariant}.pdf`,
-      `${process.env.RESUME_FILENAME}.pdf`
+      `${process.env.RESUME_FILENAME}-${fileVariant}.pdf`
     )
   }
   return (
