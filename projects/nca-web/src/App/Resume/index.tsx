@@ -87,8 +87,10 @@ const useStyles = makeStyles(
     workInner: {
       width: '100%',
       padding: theme.custom.setSpace('sm'),
+      margin: `0 0 ${theme.custom.setSpace('sm')}px 0`,
       [theme.breakpoints.up('sm')]: {
-        maxWidth: 512
+        maxWidth: 512,
+        margin: 0
       }
     },
     workEntries: {
@@ -114,7 +116,8 @@ const useStyles = makeStyles(
       backgroundColor: theme.palette.primary.main
     },
     education: {
-      padding: theme.custom.setSpace('sm')
+      padding: theme.custom.setSpace('sm'),
+      paddingBottom: theme.custom.setSpace('sm') * 1.5
     },
     schoolEntries: {
       marginTop: theme.custom.setSpace('sm')
