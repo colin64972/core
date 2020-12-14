@@ -1,5 +1,6 @@
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import { setHtml } from '@cjo3/shared/react/helpers'
 import React from 'react'
 
 const useStyles = makeStyles(
@@ -33,7 +34,7 @@ const useStyles = makeStyles(
       [theme.breakpoints.up('sm')]: {
         textAlign: 'left',
         margin: `0 0 0 ${theme.custom.setSpace('sm')}px`,
-        maxWidth: '40%',
+        // maxWidth: '40%',
         fontSize: theme.typography.fontSize * 4
       }
     }
@@ -58,9 +59,11 @@ export const HeroBar: React.FC<Props> = ({
   return (
     <Grid className={classes.container}>
       <img src={src} className={classes.image} alt={alt} />
-      <Typography variant="h1" className={classes.tagline}>
-        {tagline}
-      </Typography>
+      <Typography
+        variant="h1"
+        className={classes.tagline}
+        dangerouslySetInnerHTML={setHtml(tagline)}
+      />
     </Grid>
   )
 }

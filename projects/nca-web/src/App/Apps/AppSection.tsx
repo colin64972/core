@@ -76,7 +76,6 @@ const useStyles = makeStyles(
       margin: `${theme.custom.setSpace('sm')}px 0`,
       ...theme.custom.setFlex('column'),
       [theme.breakpoints.up('sm')]: {
-        margin: 0,
         ...theme.custom.setFlex('column', 'flex-start', 'flex-end')
       }
     },
@@ -105,7 +104,8 @@ const useStyles = makeStyles(
       marginTop: theme.custom.setSpace('sm'),
       overflow: 'hidden',
       [theme.breakpoints.up('sm')]: {
-        ...theme.custom.setFlex()
+        ...theme.custom.setFlex(),
+        marginBottom: theme.custom.setSpace('sm')
       }
     }
   }),

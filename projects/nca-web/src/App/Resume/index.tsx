@@ -131,58 +131,69 @@ const useStyles = makeStyles(
     },
     skillsContainer: {
       marginTop: theme.custom.setSpace('sm'),
-      ...theme.custom.setGrid(1, 'auto', theme.custom.setSpace('md')),
+      ...theme.custom.setGrid(1, 'auto'),
       [theme.breakpoints.up('sm')]: {
         ...theme.custom.setGrid(3, 'auto', theme.custom.setSpace('md'))
       }
     },
     skillsSection0: {
       gridColumn: '1 / 2',
-      gridRow: 1
+      gridRow: 1,
+      margin: `0 0 ${theme.custom.setSpace('sm')}px 0`
     },
     skillsSection1: {
       gridColumn: '1 / 2',
       gridRow: 2,
+      margin: `0 0 ${theme.custom.setSpace('sm')}px 0`,
       [theme.breakpoints.up('sm')]: {
         gridColumn: '2 / 3',
-        gridRow: 1
+        gridRow: 1,
+        margin: 0
       }
     },
     skillsSection2: {
       gridColumn: '1 / 2',
       gridRow: 3,
+      margin: `0 0 ${theme.custom.setSpace('sm')}px 0`,
       [theme.breakpoints.up('sm')]: {
         gridColumn: '3 / 4',
-        gridRow: 1
+        gridRow: 1,
+        margin: 0
       }
     },
     skillsSection3: {
       gridColumn: '1 / 2',
       gridRow: 4,
+      margin: `0 0 ${theme.custom.setSpace('sm')}px 0`,
       [theme.breakpoints.up('sm')]: {
-        gridRow: 2
+        gridRow: 2,
+        margin: 0
       }
     },
     skillsSection4: {
       gridColumn: '1 / 2',
       gridRow: 5,
+      margin: `0 0 ${theme.custom.setSpace('sm')}px 0`,
       [theme.breakpoints.up('sm')]: {
         gridColumn: '2 / 3',
-        gridRow: 2
+        gridRow: 2,
+        margin: 0
       }
     },
     skillsSection5: {
       gridColumn: '1 / 2',
       gridRow: 6,
+      margin: `0 0 ${theme.custom.setSpace('sm')}px 0`,
       [theme.breakpoints.up('sm')]: {
         gridColumn: '3 / 4',
-        gridRow: 2
+        gridRow: 2,
+        margin: 0
       }
     },
     skillsSection6: {
       gridColumn: '1 / 2',
       gridRow: 7,
-      paddingBottom: theme.custom.setSpace('sm'),
+      margin: `0 0 ${theme.custom.setSpace('sm')}px 0`,
       [theme.breakpoints.up('sm')]: {
         gridRow: 3
       }

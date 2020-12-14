@@ -8,6 +8,7 @@ node_modules
 events
 site-configs
 **/assets
+content
 
 # files
 .env
