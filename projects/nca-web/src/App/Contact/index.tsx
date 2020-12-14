@@ -1,35 +1,14 @@
 import NcaContact from '@cjo3/shared/assets/svgs/nca-contact'
-import { LoadFail } from '@cjo3/shared/react/components/LoadFail'
-import { CircularProgress, Grid, Typography } from '@material-ui/core'
+import { setHtml } from '@cjo3/shared/react/helpers'
+import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import MailOutlineIcon from '@material-ui/icons/MailOutline'
 import clsx from 'clsx'
 import React from 'react'
-import Loadable from 'react-loadable'
-import { HeroBar } from '../HeroBar'
-import { setHtml } from '@cjo3/shared/react/helpers'
-import { ResponsiveAngle } from '../ResponsiveAngle'
 import { useSelector } from 'react-redux'
-
-const FormLoadable = Loadable({
-  loader: () =>
-    import(
-      /* webpackChunkName: "chunk-ContactForm" */
-      './ContactForm'
-    ),
-  loading: ({ error, pastDelay, timedOut }) => {
-    if (error) return <LoadFail message="Load Failed" />
-    if (timedOut) return <LoadFail message="Timed Out" />
-    if (pastDelay) return <CircularProgress color="primary" size={30} />
-    return null
-  },
-  delay: 250,
-  timeout: 5000,
-  render: (loaded, props) => {
-    const Component = loaded.ContactForm
-    return <Component {...props} />
-  }
-})
+import { HeroBar } from '../HeroBar'
+import { ResponsiveAngle } from '../ResponsiveAngle'
+import { ContactForm } from './ContactForm'
 
 const useStyles = makeStyles(
   theme => ({
@@ -130,7 +109,7 @@ export const Contact: React.FC = (): JSX.Element | null => {
             <ResponsiveAngle down fill="theme.palette.primary.main" />
           </Grid>
           <Grid className={classes.formBlock}>
-            <FormLoadable content={content} />
+            <ContactForm content={content} />
           </Grid>
         </Grid>
         <Grid className={classes.right} />

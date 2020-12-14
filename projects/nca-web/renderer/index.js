@@ -1,5 +1,4 @@
 import 'colors'
-import Loadable from 'react-loadable'
 import express from 'express'
 import { createElement } from 'react'
 import { StaticRouter } from 'react-router-dom'
@@ -8,7 +7,6 @@ import { renderToString } from 'react-dom/server'
 import { ThemedApp } from '../src/ThemedApp'
 import { configureStore } from '../src/store/'
 import { ServerStyleSheets } from '@material-ui/core/styles'
-import stats from '../dist/react-loadable.json'
 import pug from 'pug'
 import { locals } from './locals'
 import { minify } from 'html-minifier-terser'
@@ -49,22 +47,9 @@ server.get('/', async (req, res) => {
     const sheets = new ServerStyleSheets()
     const render = renderToString(sheets.collect(App))
 
-    const preLoadedModules = Object.entries(stats).reduce((acc, cur) => {
-      let temp = acc
-      const items = cur[1].filter(module =>
-        module.file.includes(locals[pagePath]?.chunkNames)
-      )
-      if (items.length > 0) {
-        items.forEach(item => temp.push(item.publicPath))
-      }
-      return temp
-    }, [])
-
-    const dedupedChunkPaths = [...new Set(preLoadedModules)]
-
     const markup = pug.renderFile(path.resolve('renderer', 'template.pug'), {
       ...locals[pagePath],
-      bundles: [...dedupedChunkPaths, ...bundleSrcs],
+      bundles: [...bundleSrcs],
       html: render,
       css: sheets.toString(),
       state: store.getState()
@@ -89,8 +74,6 @@ server.get('/', async (req, res) => {
   }
 })
 
-Loadable.preloadAll().then(() => {
-  server.listen(port, () => {
-    console.log('LOG renderer started'.yellow)
-  })
+server.listen(port, () => {
+  console.log('LOG renderer started'.yellow)
 })
