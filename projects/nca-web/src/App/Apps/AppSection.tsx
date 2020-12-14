@@ -73,10 +73,10 @@ const useStyles = makeStyles(
       fontSize: theme.typography.fontSize * 2
     },
     techStackContainer: {
-      marginTop: theme.custom.setSpace('sm'),
+      margin: `${theme.custom.setSpace('sm')}px 0`,
       ...theme.custom.setFlex('column'),
       [theme.breakpoints.up('sm')]: {
-        marginTop: 0,
+        margin: 0,
         ...theme.custom.setFlex('column', 'flex-start', 'flex-end')
       }
     },
