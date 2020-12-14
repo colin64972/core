@@ -172,7 +172,9 @@ const config = {
       JWT_PRIVATE_KEY: sharedEnv.parsed.JWT_PRIVATE_KEY,
       AUTH_SECRET: sharedEnv.parsed.AUTH_SECRET,
       API_URL: setApiUrl(),
-      GA_TAG: sharedEnv.parsed.GA_TAG
+      GA_TAG: sharedEnv.parsed.GA_TAG,
+      RECAPTCHA_SITE_KEY: sharedEnv.parsed.RECAPTCHA_SITE_KEY,
+      RECAPTCHA_VALID_SCORE: localEnv.parsed.RECAPTCHA_VALID_SCORE
     })
   ]
 }

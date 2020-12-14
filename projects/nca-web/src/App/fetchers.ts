@@ -1,6 +1,4 @@
 import axios from 'axios'
-import path from 'path'
-import fs from 'fs'
 import { addAuthHeaderToOptions } from '@cjo3/shared/security/authToken'
 
 const otherHeaders = {
@@ -18,7 +16,7 @@ export async function postMessage(values, host, pathname) {
   }
 
   const res = await axios.post(
-    process.env.API_URL,
+    `${process.env.API_URL}/nca/contact`,
     {
       ...payload,
       host,
@@ -39,4 +37,22 @@ export async function getContent() {
   if (res.status === 200) return res.data
 
   throw new Error('no content')
+}
+
+export async function testRecaptchaToken(token, action) {
+  const ipRes = await axios.get('https://api.ipify.org?format=json')
+
+  const res = await axios.post(
+    `${process.env.API_URL}/nca/recaptcha`,
+    {
+      token,
+      ip: ipRes?.data.ip
+    },
+    addAuthHeaderToOptions(otherHeaders)
+  )
+
+  return (
+    res.data.action === action &&
+    res.data.score > parseFloat(process.env.RECAPTCHA_VALID_SCORE)
+  )
 }

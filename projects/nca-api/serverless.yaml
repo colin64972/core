@@ -34,6 +34,13 @@ functions:
       - httpApi:
           path: /contact
           method: POST
+  recaptchaHandler:
+    name: ${env:SLS_SERVICE_NAME}-recaptchaHandler
+    handler: v1/index.recaptchaHandler
+    events:
+      - httpApi:
+          path: /recaptcha
+          method: POST
 
 configValidationMode: warn
 

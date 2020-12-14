@@ -12,7 +12,7 @@
     "deploy:dev": "NODE_ENV=development sls deploy",
     "deploy:sta": "NODE_ENV=staging sls deploy",
     "deploy:pro": "NODE_ENV=production sls deploy",
-    "update": "NODE_ENV=staging sls deploy --update-config"
+    "update": "NODE_ENV=production sls deploy --update-config"
   },
   "devDependencies": {
     "@babel/core": "~7.11.5",

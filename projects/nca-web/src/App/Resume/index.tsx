@@ -1,4 +1,5 @@
 import NcaResume from '@cjo3/shared/assets/svgs/nca-resume'
+import { load } from 'recaptcha-v3'
 import { Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd'
@@ -9,7 +10,7 @@ import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf'
 import SchoolIcon from '@material-ui/icons/School'
 import clsx from 'clsx'
 import { saveAs } from 'file-saver'
-import React from 'react'
+import { testRecaptchaToken } from '../fetchers'
 import { AngleBand } from '../AngleBand'
 import {
   LogoAi,
@@ -31,6 +32,7 @@ import { setHtml } from '@cjo3/shared/react/helpers'
 import { skillCategories } from '@cjo3/shared/raw/constants/nca'
 import { ResponsiveAngle } from '../ResponsiveAngle'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
+import React, { useEffect, useState } from 'react'
 
 const useStyles = makeStyles(
   theme => ({
@@ -228,12 +230,22 @@ export const Resume: React.FC = (): JSX.Element | null => {
 
   if (!content) return null
 
-  function downloadHandler(event: MouseEvent): void {
+  async function downloadHandler(event: MouseEvent): void {
     const fileVariant = event.currentTarget.name
-    saveAs(
-      `${process.env.CDN_URL_PRO}/${process.env.CDN_APP_FOLDER}/${process.env.RESUME_FILENAME}-${fileVariant}.pdf`,
-      `${process.env.RESUME_FILENAME}-${fileVariant}.pdf`
-    )
+    try {
+      const action = 'resume_download'
+      const recaptcha = await load(process.env.RECAPTCHA_SITE_KEY)
+      const token = await recaptcha.execute(action)
+      const isVerified = await testRecaptchaToken(token, action)
+      if (isVerified) {
+        saveAs(
+          `${process.env.CDN_URL_PRO}/${process.env.CDN_APP_FOLDER}/${process.env.RESUME_FILENAME}-${fileVariant}.pdf`,
+          `${process.env.RESUME_FILENAME}-${fileVariant}.pdf`
+        )
+      }
+    } catch (error) {
+      console.error('%c downloadHandler', 'color: red; font-size: large', error)
+    }
   }
   return (
     <Grid container justify="center">
