@@ -95,7 +95,7 @@ export const Contact: React.FC = (): JSX.Element | null => {
         <Grid className={clsx(classes.left, classes.bgRed)} />
         <Grid className={classes.center}>
           <Grid className={classes.titleBlock}>
-            <FadeIn direction="x" position={100}>
+            <FadeIn direction="x" position={-100}>
               <Grid>
                 <ResponsiveAngle fill="theme.palette.primary.main" />
                 <Grid className={clsx(classes.titleInner, classes.bgRed)}>
@@ -105,11 +105,9 @@ export const Contact: React.FC = (): JSX.Element | null => {
                     className={classes.title}
                     dangerouslySetInnerHTML={setHtml(content[2])}
                   />
-                  <FadeIn direction="x" position={100}>
-                    <Typography variant="body1" className={classes.titleText}>
-                      {content[3]}
-                    </Typography>
-                  </FadeIn>
+                  <Typography variant="body1" className={classes.titleText}>
+                    {content[3]}
+                  </Typography>
                 </Grid>
                 <ResponsiveAngle down fill="theme.palette.primary.main" />
               </Grid>

@@ -7,6 +7,7 @@ import { Form, Formik } from 'formik'
 import React, { useState } from 'react'
 import { TypeOf } from 'yup'
 import { postMessage } from '../fetchers'
+import { useSelector } from 'react-redux'
 import { number, object, string } from 'yup'
 import {
   contactFormMessageTypeOptions,
@@ -92,6 +93,8 @@ export const ContactForm: React.FC<Props> = ({
 
   const classes = useStyles()
 
+  const tracker = useSelector(state => state.tracker)
+
   const initialValues: TypeOf<typeof contactFormSchema> = {
     name: '',
     email: '',
@@ -109,6 +112,14 @@ export const ContactForm: React.FC<Props> = ({
         setMailRequest(true)
         actions.setSubmitting(false)
         actions.resetForm()
+        tracker.eventHit({
+          category: 'Form',
+          action: 'Form Submit',
+          label: 'NCA Contact Form',
+          value: parseInt(values.messageType),
+          nonInteraction: false,
+          transport: 'xhr'
+        })
       })
       .catch(error => {
         setMailRequest(true)

@@ -167,11 +167,11 @@ export const NavButtonSet: React.FC<Props> = ({
           className={classes.menuItem}
           classes={{ root: classes.buttonRoot }}>
           <FadeIn direction="x" position={mobileSize ? 100 : -100}>
-            <span>
+            <Grid container justify="center" alignItems="center">
               {iconMap[item.icon]}
               &emsp;
               {item.label}
-            </span>
+            </Grid>
           </FadeIn>
         </Button>
       ))}
