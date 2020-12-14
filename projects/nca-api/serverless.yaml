@@ -65,6 +65,7 @@ custom:
   customDomain:
     stage: ${self:custom.stage}
     domainName: ${self:custom.domains.${self:custom.stage}}
+    basePath: ${env:BASE_API_URL}
     endpointType: regional
     apiType: http
     autoDomain: true
