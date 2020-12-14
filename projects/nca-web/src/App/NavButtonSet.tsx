@@ -56,16 +56,18 @@ const useStyles = makeStyles(
     midNavLink: {
       'width': '100%',
       'margin': `0`,
-      'filter': 'drop-shadow(0.25rem 0.5rem  0.5rem rgba(0, 0, 0, 0.5))',
       'transition': 'all 250ms ease-out',
-      '&:hover': {
-        filter: 'drop-shadow(0.25rem 0.5rem  0.5rem rgba(0, 0, 0, 0.25))'
+      '&:last-child': {
+        margin: 0
       },
       [theme.breakpoints.only('sm')]: {
         margin: `0 ${theme.custom.setSpace('sm')}px 0 0`
       },
-      '&:last-child': {
-        margin: 0
+      [theme.breakpoints.up('lg')]: {
+        'filter': 'drop-shadow(0.25rem 0.5rem  0.5rem rgba(0, 0, 0, 0.5))',
+        '&:hover': {
+          filter: 'unset'
+        }
       }
     },
     midNavSpan: {
