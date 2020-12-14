@@ -130,6 +130,9 @@ const useStyles = makeStyles(
     personalDetailsList: {
       padding: theme.custom.setSpace()
     },
+    personalDetailItem: {
+      width: '100%'
+    },
     skillsContainer: {
       marginTop: theme.custom.setSpace('sm'),
       ...theme.custom.setGrid(1, 'auto'),
@@ -347,7 +350,12 @@ export const Resume: React.FC = (): JSX.Element | null => {
             />
             <ul className={classes.personalDetailsList}>
               {content[10].map(item => (
-                <li key={item.key}>{item.label}</li>
+                <FadeIn
+                  key={item.key}
+                  direction="x"
+                  position={Math.random() > 0.5 ? -100 : 100}>
+                  <li className={classes.personalDetailItem}>{item.label}</li>
+                </FadeIn>
               ))}
             </ul>
           </Grid>
@@ -369,7 +377,7 @@ export const Resume: React.FC = (): JSX.Element | null => {
               {content[12]
                 .filter(skill => skill.category === index)
                 .map(skill => (
-                  <SkillGraph {...skill} />
+                  <SkillGraph {...skill} key={skill.key} />
                 ))}
             </Grid>
           ))}

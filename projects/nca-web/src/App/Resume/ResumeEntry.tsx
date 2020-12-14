@@ -71,8 +71,10 @@ export const ResumeEntry: React.FC<Props> = ({
   return (
     <Grid className={classes.entry}>
       <Grid container justify="flex-start" alignItems="center">
-        <FadeIn direction="x" position={Math.random() > 0.5 ? -100 : 100}>
+        <FadeIn direction="y" position={-100}>
           <ImageHandler asset={logo} pictureClass={classes.image} />
+        </FadeIn>
+        <FadeIn direction="x" position={100}>
           <Grid>
             <Typography variant="h6" className={classes.title}>
               {title}
@@ -89,10 +91,11 @@ export const ResumeEntry: React.FC<Props> = ({
       {bullets && (
         <ul className={classes.bulletList}>
           {bullets.map(item => (
-            <FadeIn direction="x" position={Math.random() > 0.5 ? -100 : 100}>
-              <li key={item.key} className={classes.bulletItem}>
-                {item.label}
-              </li>
+            <FadeIn
+              key={item.key}
+              direction="x"
+              position={Math.random() > 0.5 ? -100 : 100}>
+              <li className={classes.bulletItem}>{item.label}</li>
             </FadeIn>
           ))}
         </ul>

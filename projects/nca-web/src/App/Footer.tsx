@@ -193,8 +193,10 @@ export const Footer: React.FC = (): JSX.Element => {
               className={clsx(classes.menuItem, classes.tcButton)}
               onClick={tcOpenHandler}>
               <FadeIn direction="x" position={-100}>
-                <GavelIcon />
-                &emsp;{content[0]}
+                <span>
+                  <GavelIcon />
+                  &emsp;{content[0]}
+                </span>
               </FadeIn>
             </Button>
             <Button
@@ -202,8 +204,10 @@ export const Footer: React.FC = (): JSX.Element => {
               className={classes.menuItem}
               onClick={ppOpenHandler}>
               <FadeIn direction="x" position={-100}>
-                <VpnLockIcon />
-                &emsp;{content[1]}
+                <span>
+                  <VpnLockIcon />
+                  &emsp;{content[1]}
+                </span>
               </FadeIn>
             </Button>
           </Grid>
