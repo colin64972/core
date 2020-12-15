@@ -30,7 +30,7 @@ import { ResumeEntry } from './ResumeEntry'
 import { SkillGraph } from './SkillGraph'
 import { setHtml } from '@cjo3/shared/react/helpers'
 import { skillCategories } from '@cjo3/shared/raw/constants/nca'
-import { ResponsiveAngle } from '../ResponsiveAngle'
+import { CssAngle } from '../CssAngle'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 import React, { useEffect, useState } from 'react'
 
@@ -106,10 +106,6 @@ const useStyles = makeStyles(
         width: '50%',
         marginTop: theme.custom.setSpace('md')
       }
-    },
-    angle: {
-      marginRight: -1,
-      maxWidth: 300
     },
     filler: {
       flexGrow: 1,
@@ -313,11 +309,7 @@ export const Resume: React.FC = (): JSX.Element | null => {
         </Grid>
         <Grid className={classes.splitSide}>
           <Grid container>
-            <ResponsiveAngle
-              fill="theme.palette.primary.main"
-              right
-              customClass={classes.angle}
-            />
+            <CssAngle fill="theme.palette.primary.main" right />
             <Grid className={clsx(classes.filler, classes.redBg)} />
           </Grid>
           <Grid className={clsx(classes.education, classes.redBg)}>
@@ -343,12 +335,7 @@ export const Resume: React.FC = (): JSX.Element | null => {
             </Grid>
           </Grid>
           <Grid container>
-            <ResponsiveAngle
-              fill="theme.palette.primary.main"
-              right
-              down
-              customClass={classes.angle}
-            />
+            <CssAngle fill="theme.palette.primary.main" right down />
             <Grid className={clsx(classes.filler, classes.redBg)} />
           </Grid>
           <Grid className={classes.personalDetails}>

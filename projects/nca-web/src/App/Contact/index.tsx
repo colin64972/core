@@ -7,7 +7,7 @@ import clsx from 'clsx'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { HeroBar } from '../HeroBar'
-import { ResponsiveAngle } from '../ResponsiveAngle'
+import { CssAngle } from '../CssAngle'
 import { ContactForm } from './ContactForm'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 
@@ -21,14 +21,11 @@ const useStyles = makeStyles(
       }
     },
     left: {
-      display: 'none',
+      display: 'block',
+      flexGrow: 1,
+      marginRight: -1,
       [theme.breakpoints.up('sm')]: {
-        display: 'block',
-        flexGrow: 1,
-        marginRight: -1
-      },
-      [theme.breakpoints.up('md')]: {
-        height: 379
+        height: 422
       }
     },
     center: {
@@ -56,7 +53,11 @@ const useStyles = makeStyles(
     },
     titleInner: {
       padding: theme.custom.setSpace('sm'),
-      color: 'white'
+      color: 'white',
+      [theme.breakpoints.up('sm')]: {
+        marginTop: -1,
+        height: 363
+      }
     },
     titleIcon: {
       fontSize: theme.typography.fontSize * 4
@@ -95,23 +96,21 @@ export const Contact: React.FC = (): JSX.Element | null => {
         <Grid className={clsx(classes.left, classes.bgRed)} />
         <Grid className={classes.center}>
           <Grid className={classes.titleBlock}>
-            <FadeIn direction="x" position={-100}>
-              <Grid>
-                <ResponsiveAngle fill="theme.palette.primary.main" />
-                <Grid className={clsx(classes.titleInner, classes.bgRed)}>
-                  <MailOutlineIcon className={classes.titleIcon} />
-                  <Typography
-                    variant="h2"
-                    className={classes.title}
-                    dangerouslySetInnerHTML={setHtml(content[2])}
-                  />
-                  <Typography variant="body1" className={classes.titleText}>
-                    {content[3]}
-                  </Typography>
-                </Grid>
-                <ResponsiveAngle down fill="theme.palette.primary.main" />
+            <Grid>
+              <CssAngle fill="theme.palette.primary.main" />
+              <Grid className={clsx(classes.titleInner, classes.bgRed)}>
+                <MailOutlineIcon className={classes.titleIcon} />
+                <Typography
+                  variant="h2"
+                  className={classes.title}
+                  dangerouslySetInnerHTML={setHtml(content[2])}
+                />
+                <Typography variant="body1" className={classes.titleText}>
+                  {content[3]}
+                </Typography>
               </Grid>
-            </FadeIn>
+              <CssAngle down fill="theme.palette.primary.main" />
+            </Grid>
           </Grid>
           <Grid className={classes.formBlock}>
             <ContactForm content={content} />

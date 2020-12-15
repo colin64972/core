@@ -15,7 +15,7 @@ import { AngleBand } from './AngleBand'
 import { ContentContainer } from './ContentContainer'
 import { HeroBar } from './HeroBar'
 import { NavButtonSet } from './NavButtonSet'
-import { ResponsiveAngle } from './ResponsiveAngle'
+import { CssAngle } from './CssAngle'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 
 const useStyles = makeStyles(
@@ -292,7 +292,7 @@ export const Home: React.FC = (): JSX.Element | null => {
                     classes.helpCaseBg,
                     `classes.helpCase${itemIndex}`
                   )}>
-                  <ResponsiveAngle right customClass={classes.hideOnSm} />
+                  <CssAngle right customClass={classes.hideOnSm} />
                   {Icon}
                   <Typography variant="h4" className={classes.helpCaseTitle}>
                     {item.heading}

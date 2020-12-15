@@ -1,6 +1,6 @@
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 import { clickWindowLink } from '@cjo3/shared/react/helpers'
-import { Button, Grid, useMediaQuery } from '@material-ui/core'
+import { Button, Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import BusinessCenterIcon from '@material-ui/icons/BusinessCenter'
 import HomeIcon from '@material-ui/icons/Home'
@@ -8,7 +8,7 @@ import ImportantDevicesIcon from '@material-ui/icons/ImportantDevices'
 import MailOutlineIcon from '@material-ui/icons/MailOutline'
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { ResponsiveAngle } from './ResponsiveAngle'
+import { CssAngle } from './CssAngle'
 
 interface Props {
   slice?: number
@@ -76,6 +76,7 @@ const useStyles = makeStyles(
       'color': theme.palette.grey[400],
       'textTransform': 'uppercase',
       'textAlign': 'center',
+      'marginTop': -1,
       'fontSize': theme.typography.fontSize * 1.25,
       'backgroundColor': theme.palette.grey[800],
       'height': theme.custom.setSpace('md'),
@@ -120,10 +121,6 @@ export const NavButtonSet: React.FC<Props> = ({
     clickWindowLink(linkTo)
   }
 
-  const mobileSize = useMediaQuery('(max-width: 768px)')
-
-  const smSize = useMediaQuery('(min-width: 600px) and (max-width: 959px)')
-
   if (!navItems) return null
 
   const items = navItems.slice(slice)
@@ -136,23 +133,16 @@ export const NavButtonSet: React.FC<Props> = ({
             key={`mid-nav-${item.key}`}
             className={classes.midNavLink}
             href={item.to}>
-            {!smSize && (
-              <ResponsiveAngle
-                fill="theme.palette.grey[800]"
-                right={index % 2 === 0}
-              />
-            )}
+            <CssAngle fill="theme.palette.grey[800]" right={index % 2 === 0} />
             <span className={classes.midNavSpan}>
               {iconMap[item.icon]}
               &ensp;{item.label}
             </span>
-            {!smSize && (
-              <ResponsiveAngle
-                fill="theme.palette.grey[800]"
-                down
-                right={index % 2 === 0}
-              />
-            )}
+            <CssAngle
+              fill="theme.palette.grey[800]"
+              down
+              right={index % 2 === 0}
+            />
           </a>
         ))}
       </Grid>
@@ -166,7 +156,7 @@ export const NavButtonSet: React.FC<Props> = ({
           onClick={menuItemClickHandler(item.to)}
           className={classes.menuItem}
           classes={{ root: classes.buttonRoot }}>
-          <FadeIn direction="x" position={mobileSize ? 100 : -100}>
+          <FadeIn direction="x" position={Math.random() ? 100 : -100}>
             <Grid container justify="center" alignItems="center">
               {iconMap[item.icon]}
               &emsp;

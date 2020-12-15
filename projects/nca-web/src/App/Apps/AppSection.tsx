@@ -12,7 +12,7 @@ import React from 'react'
 import { AppItem, ImageAsset } from '../../../index'
 import { MockupDle, MockupKm, MockupNca, MockupNt } from '../assets'
 import { ContentContainer } from '../ContentContainer'
-import { ResponsiveAngle } from '../ResponsiveAngle'
+import { CssAngle } from '../CssAngle'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 
 const useStyles = makeStyles(
@@ -87,9 +87,6 @@ const useStyles = makeStyles(
       color: 'white',
       textAlign: 'center',
       padding: theme.custom.setSpace('sm')
-    },
-    angle: {
-      maxWidth: 300
     },
     techStackTitle: {
       ...theme.typography.shareTechMono,
@@ -195,12 +192,7 @@ export const AppSection: React.FC<AppItem> = ({
                   ))}
                 </ul>
               </Grid>
-              <ResponsiveAngle
-                right
-                down
-                fill="theme.palette.primary.main"
-                customClass={classes.angle}
-              />
+              <CssAngle right down fill="theme.palette.primary.main" />
             </Grid>
           </FadeIn>
         </Grid>
