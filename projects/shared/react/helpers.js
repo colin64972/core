@@ -1,10 +1,5 @@
-import { Provider } from 'react-redux'
 import ReactGA from 'react-ga'
-import { ServerStyleSheets } from '@material-ui/core/styles'
-import { StaticRouter } from 'react-router-dom'
-import { createElement } from 'react'
 import crypto from 'crypto'
-import { renderToString } from 'react-dom/server'
 import { v4 as uuidv4 } from 'uuid'
 
 export const createHashId = () => {
@@ -55,6 +50,7 @@ export const switchLinkRoutePath = path =>
 
 export const removeAppUrlPrefix = (prefix, path) => {
   let result = path.replace(prefix, '')
+  if (process.env.CDN_APP_FOLDER === 'nca') return path
   if (result === '') return '/'
   return result.replace(/\/{2,}/g, '/')
 }
@@ -74,7 +70,8 @@ export const setTracker = gaTag => {
 
   tracker.initialize = () => ReactGA.initialize(config.gaTag)
   tracker.pageHit = (rootPath, pathname) => {
-    ReactGA.pageview(removeAppUrlPrefix(rootPath, pathname))
+    const loc = removeAppUrlPrefix(rootPath, pathname)
+    ReactGA.pageview(loc)
   }
   tracker.eventHit = event => {
     ReactGA.event(event)
@@ -82,49 +79,6 @@ export const setTracker = gaTag => {
 
   return tracker
 }
-
-const renderPage = (path, app, store) => {
-  const sheets = new ServerStyleSheets()
-
-  const render = renderToString(
-    sheets.collect(
-      createElement(
-        Provider,
-        {
-          store
-        },
-        createElement(
-          StaticRouter,
-          {
-            location: path,
-            context: {}
-          },
-          app
-        )
-      )
-    )
-  )
-
-  const html = render
-  const css = sheets.toString()
-  const state = store.getState()
-
-  return { html, css, state }
-}
-
-export const generatePreRenders = (pages, app, store) =>
-  pages.reduce((acc, cur) => {
-    let temp = acc
-
-    const renderedPage = renderPage(cur.path, app, store)
-
-    temp[cur.name] = {
-      html: renderedPage.html,
-      css: renderedPage.css,
-      state: renderedPage.state
-    }
-    return temp
-  }, {})
 
 export const setSrcSet = (paths, format = null) =>
   paths
@@ -138,3 +92,13 @@ export const setSrcSet = (paths, format = null) =>
       return result
     }, '')
     .replace(/,\s$/i, '')
+
+export const clickWindowLink = (location, newTab = false) => {
+  if (window && newTab) return window.open(location, '_blank')
+  if (window) window.location.replace(location)
+  return null
+}
+
+export function setHtml(text) {
+  return { __html: text }
+}

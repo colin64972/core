@@ -22,57 +22,38 @@ export const handler = async (event, context, callback) => {
     const { uri, headers } = request
     const host = headers.host[0].value
 
+    // throw error for invalid hosts
     if (!hostsList.includes(host)) {
       context.callbackWaitsForEmptyEventLoop = false
       return callback(new Error('no such host'))
     }
 
-    const { app, page, filePath, fileName } = parseAppPage(uri, appsList)
+    const parsedUri = path.parse(uri)
 
-    if (fileName) {
+    // pass on requests for files to origin
+    if (parsedUri.ext !== '') {
       context.callbackWaitsForEmptyEventLoop = false
-      request.uri = `${filePath}${fileName}`
       return callback(null, request)
     }
 
-    if (!appsList.includes(app)) {
-      context.callbackWaitsForEmptyEventLoop = false
-      return callback(new Error('no such app'))
-    }
+    let appFolder = 'nca'
 
-    let appFolder = ''
-    let htmlFile = ''
-    let markup = ''
-
-    if (process.env.IS_LOCAL) {
-      switch (app) {
-        case appsList[2]:
-          appFolder = 'dle-web'
-          break
-        case appsList[1]:
-          appFolder = `${appsList[1]}-web`
-          break
+    appsList.forEach(app => {
+      if (uri.includes(app)) {
+        appFolder = app
       }
+    })
 
-      htmlFile = path.resolve(
-        '..',
-        '..',
-        '..',
-        appFolder,
-        'distPreRenders',
-        `${page}.html`
-      )
+    const preRenderFile = getAppPage(appFolder, uri)
 
-      markup = fs.readFileSync(htmlFile).toString()
-    } else {
-      htmlFile = await s3
-        .getObject({
-          Bucket: host.replace('.s3.amazonaws.com', ''),
-          Key: `${app}/pre-renders/${page}.html`
-        })
-        .promise()
-      markup = htmlFile.Body.toString()
-    }
+    const htmlFile = await s3
+      .getObject({
+        Bucket: host.replace('.s3.amazonaws.com', ''),
+        Key: `${appFolder}/pre-renders/${preRenderFile}`
+      })
+      .promise()
+
+    const markup = htmlFile.Body.toString()
 
     const res = buildHtmlRes(markup)
 
@@ -80,5 +61,35 @@ export const handler = async (event, context, callback) => {
   } catch (error) {
     console.error('ERROR originRequest'.yellow, error)
     return callback(error)
+  }
+}
+
+function getAppPage(app, uri) {
+  const errorPage = 'error.html'
+  let prefix
+  let suffix
+
+  if (app === 'nca') {
+    if (uri === '/') return 'home.html'
+    if (/\/resume\/?$/.test(uri)) return 'resume.html'
+    if (/\/apps\/?$/.test(uri)) return 'apps.html'
+    if (/\/contact\/?$/.test(uri)) return 'contact.html'
+    return errorPage
+  }
+
+  if (app === appsList[1]) {
+    prefix = `/apps/${appsList[1]}`
+    if (uri === prefix || uri === `${prefix}/`) return 'home.html'
+    return errorPage
+  }
+
+  if (app === appsList[2]) {
+    prefix = `/apps/${appsList[2]}`
+    suffix = uri.replace(prefix, '')
+    if (uri === prefix || uri === `${prefix}/`) return 'home.html'
+    if (/\/converter\/?$/.test(suffix)) return 'home-converter.html'
+    if (/\/converter\/guide\/?$/.test(suffix))
+      return 'home-converter-guide.html'
+    return errorPage
   }
 }

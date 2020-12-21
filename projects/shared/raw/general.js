@@ -1,4 +1,6 @@
 const path = require('path')
+const crypto = require('crypto')
+const { v4 } = require('uuid')
 
 exports.setTemplateLocals = (args = {}) => ({
   ...args,
@@ -12,4 +14,10 @@ exports.setFilePublicPath = (url, resourcePath, context) => {
   process.env.NODE_ENV === 'production'
     ? `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/${url}`
     : `/${url}`
+}
+
+exports.createHashId = () => {
+  const hash = crypto.createHash('sha256')
+  hash.update(v4())
+  return hash.digest('hex').substr(0, 10)
 }

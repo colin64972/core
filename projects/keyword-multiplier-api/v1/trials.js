@@ -40,7 +40,7 @@ export const createTrial = async eventBody => {
     const trialProduct = processTrial(trialData.sets)
 
     const options = {
-      TableName: process.env.TRIALS_TABLE_NAME,
+      TableName: process.env.TABLE_NAME,
       Item: {
         ...trialData,
         trialProduct
@@ -61,7 +61,7 @@ export const createTrial = async eventBody => {
 export const getTrialById = async id => {
   try {
     const options = {
-      TableName: process.env.TRIALS_TABLE_NAME,
+      TableName: process.env.TABLE_NAME,
       Key: { id }
     }
 
@@ -88,7 +88,7 @@ export const updateTrialWithPaymentAndVolumes = async (
     const timestamp = new Date().getTime()
 
     const options = {
-      TableName: process.env.TRIALS_TABLE_NAME,
+      TableName: process.env.TABLE_NAME,
       Key: {
         id: trialId
       },

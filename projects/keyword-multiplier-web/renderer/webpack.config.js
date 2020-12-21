@@ -60,7 +60,7 @@ module.exports = {
               emitFile: false,
               name: '[folder]/[name]-[contentHash].[ext]',
               publicPath: url =>
-                process.env.NODE_ENV === 'production'
+                process.env.SRC_ENV === 'production'
                   ? `${process.env.CDN_URL}/${process.env.CDN_APP_FOLDER}/${url}`
                   : `${process.env.STA_CDN_URL}/${process.env.CDN_APP_FOLDER}/${url}`
             }

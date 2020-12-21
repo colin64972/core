@@ -14,15 +14,15 @@ provider:
     payload: '2.0'
     cors:
       allowedOrigins:
-        - ${env:CORS_LOCAL_ORIGIN}
-        - ${env:CORS_LIVE_ORIGIN}
+        - ${env:CORS_STA_ORIGIN}
+        - ${env:CORS_PRO_ORIGIN}
       allowedHeaders:
         - Content-Type
         - Authorization
       allowedMethods:
         - GET
-        - POST
         - OPTIONS
+        - POST
       allowCredentials: true
       maxAge: 6000
   iamRoleStatements:
@@ -35,7 +35,7 @@ provider:
         - dynamodb:Scan
         - dynamodb:UpdateItem
       Resource:
-        - arn:aws:dynamodb:${env:REGION}:*:table/${env:TRIALS_TABLE_NAME}
+        - arn:aws:dynamodb:${env:REGION}:*:table/${env:TABLE_NAME}
 
 functions:
   createTrialHandler:
@@ -113,10 +113,10 @@ custom:
 
 resources:
   Resources:
-    keywordMultiplierTrials:
+    kmTrials:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: ${env:TRIALS_TABLE_NAME}
+        TableName: ${env:TABLE_NAME}
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: S

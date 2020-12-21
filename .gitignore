@@ -3,10 +3,13 @@
 dist
 distPreRenders
 distRenderer
+distContent
 node_modules
 events
 site-configs
-images
+**/assets
+content
+.vscode
 
 # files
 .env
@@ -14,3 +17,4 @@ images
 *.lock
 *.log
 templateLocals.js
+content.ts
