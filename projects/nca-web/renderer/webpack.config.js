@@ -66,9 +66,9 @@ module.exports = {
               ]
             ],
             plugins:
-              process.env.BUILD_ENV === 'development'
-                ? []
-                : ['transform-remove-console']
+              process.env.BUILD_ENV === 'production'
+                ? ['transform-remove-console']
+                : []
           }
         }
       },

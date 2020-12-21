@@ -1,5 +1,5 @@
 const babelLoaderPlugins =
-  process.env.BUILD_ENV === 'development' ? [] : ['transform-remove-console']
+  process.env.BUILD_ENV === 'production' ? ['transform-remove-console'] : []
 
 module.exports = babel => {
   const isTest = babel.env('test')

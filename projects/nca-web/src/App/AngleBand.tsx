@@ -1,7 +1,7 @@
 import { Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
-import { ResponsiveAngle } from './ResponsiveAngle'
+import { CssAngle } from './CssAngle'
 
 const useStyles = makeStyles(
   theme => ({
@@ -78,7 +78,7 @@ export const AngleBand: React.FC<Props> = ({
       <Grid className={classes.left} />
       <Grid className={classes.center}>
         <div className={classes.div}>
-          <ResponsiveAngle fill={fill} right={right} down={down} />
+          <CssAngle fill={fill} right={right} down={down} />
         </div>
       </Grid>
       <Grid className={classes.right} />

@@ -34,6 +34,13 @@ functions:
       - httpApi:
           path: /contact
           method: POST
+  recaptchaHandler:
+    name: ${env:SLS_SERVICE_NAME}-recaptchaHandler
+    handler: v1/index.recaptchaHandler
+    events:
+      - httpApi:
+          path: /recaptcha
+          method: POST
 
 configValidationMode: warn
 
@@ -65,6 +72,7 @@ custom:
   customDomain:
     stage: ${self:custom.stage}
     domainName: ${self:custom.domains.${self:custom.stage}}
+    basePath: ${env:BASE_API_URL}
     endpointType: regional
     apiType: http
     autoDomain: true

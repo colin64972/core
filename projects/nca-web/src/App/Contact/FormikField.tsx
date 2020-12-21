@@ -5,6 +5,7 @@ import { Field } from 'formik'
 import React from 'react'
 import { SelectOption } from '../../../index'
 import { inputTypes } from '../constants'
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 
 const useStyles = makeStyles(
   theme => {
@@ -92,50 +93,58 @@ export const FormikField: React.FC<Props> = ({
     <Field name={name}>
       {({ field, form, meta }) => (
         <Grid className={classes.formGroup}>
-          <label
-            htmlFor={id}
-            className={clsx(classes.formLabel, {
-              [classes.errorText]: meta.touched && meta.error
-            })}>
-            {label}
-            {required && '*'}
-          </label>
+          <FadeIn direction="x" position={-100}>
+            <label
+              htmlFor={id}
+              className={clsx(classes.formLabel, {
+                [classes.errorText]: meta.touched && meta.error
+              })}>
+              {label}
+              {required && '*'}
+            </label>
+          </FadeIn>
 
           {inputType === inputTypes.select && (
-            <select {...field} id={id} className={clsx(classes.select)}>
-              {selectOptions &&
-                selectOptions.map(item => (
-                  <option key={item.key} value={item.value}>
-                    {item.label}
-                  </option>
-                ))}
-            </select>
+            <FadeIn direction="x" position={Math.random() > 0.5 ? -100 : 100}>
+              <select {...field} id={id} className={clsx(classes.select)}>
+                {selectOptions &&
+                  selectOptions.map(item => (
+                    <option key={item.key} value={item.value}>
+                      {item.label}
+                    </option>
+                  ))}
+              </select>
+            </FadeIn>
           )}
 
           {inputType === inputTypes.text && rows && (
-            <textarea
-              {...field}
-              rows={rows}
-              placeholder={placeholder}
-              id={id}
-              className={clsx(classes.textArea, {
-                [classes.errorText]: meta.touched && meta.error,
-                [classes.errorBorder]: meta.touched && meta.error
-              })}
-            />
+            <FadeIn direction="x" position={Math.random() > 0.5 ? -100 : 100}>
+              <textarea
+                {...field}
+                rows={rows}
+                placeholder={placeholder}
+                id={id}
+                className={clsx(classes.textArea, {
+                  [classes.errorText]: meta.touched && meta.error,
+                  [classes.errorBorder]: meta.touched && meta.error
+                })}
+              />
+            </FadeIn>
           )}
 
           {inputType === inputTypes.text && !rows && (
-            <input
-              {...field}
-              type={inputType}
-              className={clsx(classes.textInput, {
-                [classes.errorBorder]: meta.touched && meta.error,
-                [classes.errorText]: meta.touched && meta.error
-              })}
-              placeholder={placeholder}
-              id={`${field.name}-input`}
-            />
+            <FadeIn direction="x" position={Math.random() > 0.5 ? -100 : 100}>
+              <input
+                {...field}
+                type={inputType}
+                className={clsx(classes.textInput, {
+                  [classes.errorBorder]: meta.touched && meta.error,
+                  [classes.errorText]: meta.touched && meta.error
+                })}
+                placeholder={placeholder}
+                id={`${field.name}-input`}
+              />
+            </FadeIn>
           )}
 
           <Typography

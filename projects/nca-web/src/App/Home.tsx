@@ -15,7 +15,8 @@ import { AngleBand } from './AngleBand'
 import { ContentContainer } from './ContentContainer'
 import { HeroBar } from './HeroBar'
 import { NavButtonSet } from './NavButtonSet'
-import { ResponsiveAngle } from './ResponsiveAngle'
+import { CssAngle } from './CssAngle'
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 
 const useStyles = makeStyles(
   theme => ({
@@ -126,7 +127,7 @@ const useStyles = makeStyles(
     },
     helpCasesGrid: {
       ...theme.custom.setGrid(1, 3, theme.custom.setSpace('sm')),
-      margin: `${theme.custom.setSpace('sm')}px 0 0 0`,
+      margin: `${theme.custom.setSpace('md')}px 0`,
       [theme.breakpoints.up('sm')]: {
         ...theme.custom.setGrid(3, 1, theme.custom.setSpace('sm'))
       }
@@ -212,23 +213,29 @@ export const Home: React.FC = (): JSX.Element | null => {
   return (
     <Grid container justify="center">
       <ContentContainer bgColor="theme.palette.primary.main">
-        <Typography
-          variant="h2"
-          className={classes.headerTitle}
-          dangerouslySetInnerHTML={setHtml(content[0])}
-        />
+        <FadeIn direction="x" position={-100}>
+          <Typography
+            variant="h2"
+            className={classes.headerTitle}
+            dangerouslySetInnerHTML={setHtml(content[0])}
+          />
+        </FadeIn>
         <Grid className={classes.headerStroke} />
         <Grid className={classes.subtitleContainer}>
-          <Typography
-            variant="h3"
-            className={classes.subtitleHeading}
-            dangerouslySetInnerHTML={setHtml(content[1])}
-          />
-          <img
-            src={NcaLogoWhite}
-            alt={content[2]}
-            className={classes.subtitleLogo}
-          />
+          <FadeIn direction="x" position={-100}>
+            <Typography
+              variant="h3"
+              className={classes.subtitleHeading}
+              dangerouslySetInnerHTML={setHtml(content[1])}
+            />
+          </FadeIn>
+          <FadeIn direction="x" position={100}>
+            <img
+              src={NcaLogoWhite}
+              alt={content[2]}
+              className={classes.subtitleLogo}
+            />
+          </FadeIn>
         </Grid>
       </ContentContainer>
       <AngleBand fill="theme.palette.primary.main" right down />
@@ -237,14 +244,23 @@ export const Home: React.FC = (): JSX.Element | null => {
       <ContentContainer gradient="theme.custom.setLinearGradient(180, theme.palette.grey[200], 'white')">
         <Grid container>
           <Grid item xs={12} md={8} className={classes.intro}>
-            <OpenInBrowserIcon color="primary" className={classes.introIcon} />
+            <FadeIn direction="x" position={-100}>
+              <OpenInBrowserIcon
+                color="primary"
+                className={classes.introIcon}
+              />
+            </FadeIn>
             <Grid className={classes.introInner}>
-              <Typography variant="h4" className={classes.introTitle}>
-                {content[5]}
-              </Typography>
-              <Typography variant="body1" className={classes.introText}>
-                {content[6]}
-              </Typography>
+              <FadeIn direction="x" position={100}>
+                <Typography variant="h4" className={classes.introTitle}>
+                  {content[5]}
+                </Typography>
+              </FadeIn>
+              <FadeIn direction="x" position={100}>
+                <Typography variant="body1" className={classes.introText}>
+                  {content[6]}
+                </Typography>
+              </FadeIn>
             </Grid>
           </Grid>
           <Grid item xs={12} md={4}>
@@ -254,30 +270,38 @@ export const Home: React.FC = (): JSX.Element | null => {
       </ContentContainer>
       <ContentContainer>
         <Grid className={classes.helpCases}>
-          <TrackChangesIcon color="primary" className={classes.helpCasesIcon} />
-          <Typography variant="h4" className={classes.helpCasesTitle}>
-            {content[7]}
-          </Typography>
+          <FadeIn direction="x" position={-100}>
+            <TrackChangesIcon
+              color="primary"
+              className={classes.helpCasesIcon}
+            />
+          </FadeIn>
+          <FadeIn direction="x" position={100}>
+            <Typography variant="h4" className={classes.helpCasesTitle}>
+              {content[7]}
+            </Typography>
+          </FadeIn>
         </Grid>
         <Grid className={classes.helpCasesGrid}>
           {content[8].map((item, itemIndex) => {
             const Icon: JSX.Element = iconMap[item.heading]
             return (
-              <Grid
-                key={item.key}
-                className={clsx(
-                  classes.helpCaseBg,
-                  `classes.helpCase${itemIndex}`
-                )}>
-                <ResponsiveAngle right customClass={classes.hideOnSm} />
-                {Icon}
-                <Typography variant="h4" className={classes.helpCaseTitle}>
-                  {item.heading}
-                </Typography>
-                <Typography variant="body1" className={classes.helpCaseCopy}>
-                  {item.copy}
-                </Typography>
-              </Grid>
+              <FadeIn direction="y" position={100} key={item.key}>
+                <Grid
+                  className={clsx(
+                    classes.helpCaseBg,
+                    `classes.helpCase${itemIndex}`
+                  )}>
+                  <CssAngle right customClass={classes.hideOnSm} />
+                  {Icon}
+                  <Typography variant="h4" className={classes.helpCaseTitle}>
+                    {item.heading}
+                  </Typography>
+                  <Typography variant="body1" className={classes.helpCaseCopy}>
+                    {item.copy}
+                  </Typography>
+                </Grid>
+              </FadeIn>
             )
           })}
         </Grid>

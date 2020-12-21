@@ -6,7 +6,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
 const { EnvironmentPlugin, HashedModuleIdsPlugin } = require('webpack')
-const { ReactLoadablePlugin } = require('react-loadable/webpack')
 
 const localEnv = require('dotenv').config()
 const sharedEnv = require('dotenv').config({
@@ -173,10 +172,9 @@ const config = {
       JWT_PRIVATE_KEY: sharedEnv.parsed.JWT_PRIVATE_KEY,
       AUTH_SECRET: sharedEnv.parsed.AUTH_SECRET,
       API_URL: setApiUrl(),
-      GA_TAG: sharedEnv.parsed.GA_TAG
-    }),
-    new ReactLoadablePlugin({
-      filename: path.resolve('dist', 'react-loadable.json')
+      GA_TAG: sharedEnv.parsed.GA_TAG,
+      RECAPTCHA_SITE_KEY: sharedEnv.parsed.RECAPTCHA_SITE_KEY,
+      RECAPTCHA_VALID_SCORE: localEnv.parsed.RECAPTCHA_VALID_SCORE
     })
   ]
 }

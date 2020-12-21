@@ -8,6 +8,8 @@ node_modules
 events
 site-configs
 **/assets
+content
+.vscode
 
 # files
 .env

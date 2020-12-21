@@ -42,7 +42,10 @@ serverlessConfig.plugins = [
     SES_REGION: localEnv.parsed.SES_REGION,
     DEST_EMAIL: localEnv.parsed.DEST_EMAIL,
     SOURCE_EMAIL: localEnv.parsed.SOURCE_EMAIL,
-    NCA_URL: localEnv.parsed.NCA_URL
+    NCA_URL: localEnv.parsed.NCA_URL,
+    RECAPTCHA_SITE_KEY: sharedEnv.parsed.RECAPTCHA_SITE_KEY,
+    RECAPTCHA_SECRET_KEY: sharedEnv.parsed.RECAPTCHA_SECRET_KEY,
+    RECAPTCHA_API_URL: localEnv.parsed.RECAPTCHA_API_URL
   })
 ]
 

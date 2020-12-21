@@ -2,11 +2,14 @@ import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline'
 import MarkunreadMailboxIcon from '@material-ui/icons/MarkunreadMailbox'
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import { load } from 'recaptcha-v3'
 import clsx from 'clsx'
+import { testRecaptchaToken } from '../fetchers'
 import { Form, Formik } from 'formik'
 import React, { useState } from 'react'
 import { TypeOf } from 'yup'
 import { postMessage } from '../fetchers'
+import { useSelector } from 'react-redux'
 import { number, object, string } from 'yup'
 import {
   contactFormMessageTypeOptions,
@@ -14,6 +17,7 @@ import {
   messageTypes
 } from '../constants'
 import { FormikField } from './FormikField'
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 
 const useStyles = makeStyles(
   theme => ({
@@ -25,16 +29,19 @@ const useStyles = makeStyles(
     buttons: {
       ...theme.custom.setFlex()
     },
-    button: {
-      'border': 'none',
-      'padding': theme.custom.setSpace(),
-      ...theme.typography.shareTechMono,
-      'textTransform': 'uppercase',
+    buttonFadeIn: {
       'width': '100%',
       'marginRight': theme.custom.setSpace(),
       '&:last-child': {
         margin: 0
       }
+    },
+    button: {
+      ...theme.typography.shareTechMono,
+      border: 'none',
+      padding: theme.custom.setSpace(),
+      textTransform: 'uppercase',
+      width: '100%'
     },
     bgBlue: {
       backgroundColor: 'blue'
@@ -88,6 +95,8 @@ export const ContactForm: React.FC<Props> = ({
 
   const classes = useStyles()
 
+  const tracker = useSelector(state => state.tracker)
+
   const initialValues: TypeOf<typeof contactFormSchema> = {
     name: '',
     email: '',
@@ -98,20 +107,33 @@ export const ContactForm: React.FC<Props> = ({
   const [mailRequest, setMailRequest] = useState<boolean>(false)
   const [mailFail, setMailFail] = useState<boolean>(false)
 
-  function submitHandler(values, actions): void {
+  async function submitHandler(values, actions): void {
     actions.setSubmitting(true)
-    postMessage(values, window.location.hostname, window.location.pathname)
-      .then(() => {
-        setMailRequest(true)
-        actions.setSubmitting(false)
-        actions.resetForm()
-      })
-      .catch(error => {
-        setMailRequest(true)
-        setMailFail(true)
-        actions.setSubmitting(false)
-        actions.resetForm()
-      })
+    const action = 'nca_contact_form_submit'
+    const recaptcha = await load(process.env.RECAPTCHA_SITE_KEY)
+    const token = await recaptcha.execute(action)
+    const isVerified = await testRecaptchaToken(token, action)
+    if (isVerified) {
+      postMessage(values, window.location.hostname, window.location.pathname)
+        .then(() => {
+          setMailRequest(true)
+          tracker.eventHit({
+            category: 'Form',
+            action: 'Form Submit',
+            label: 'NCA Contact Form',
+            value: parseInt(values.messageType),
+            nonInteraction: false,
+            transport: 'xhr'
+          })
+        })
+        .catch(error => {
+          setMailRequest(true)
+          setMailFail(true)
+        })
+    } else {
+      setMailRequest(true)
+      setMailFail(true)
+    }
   }
 
   return (
@@ -148,6 +170,7 @@ export const ContactForm: React.FC<Props> = ({
                 placeholder={content[9]}
                 required
               />
+
               <FormikField
                 name="email"
                 label={content[10]}
@@ -170,26 +193,35 @@ export const ContactForm: React.FC<Props> = ({
                 required
                 rows={5}
               />
-
               <Grid className={classes.buttons}>
-                <button
-                  type="submit"
-                  disabled={
-                    formik.isSubmitting || !formik.dirty || !formik.isValid
-                  }
-                  className={clsx(classes.button, classes.submit, {
-                    [classes.bgValid]: formik.dirty && formik.isValid
-                  })}>
-                  {formik.isSubmitting ? content[15] : content[16]}
-                </button>
-                <button
-                  type="reset"
-                  disabled={!formik.dirty}
-                  className={clsx(classes.button, classes.reset, {
-                    [classes.bgDirty]: formik.dirty
-                  })}>
-                  {content[17]}
-                </button>
+                <FadeIn
+                  direction="x"
+                  position={100}
+                  outerClass={classes.buttonFadeIn}>
+                  <button
+                    type="submit"
+                    disabled={
+                      formik.isSubmitting || !formik.dirty || !formik.isValid
+                    }
+                    className={clsx(classes.button, classes.submit, {
+                      [classes.bgValid]: formik.dirty && formik.isValid
+                    })}>
+                    {formik.isSubmitting ? content[15] : content[16]}
+                  </button>
+                </FadeIn>
+                <FadeIn
+                  direction="x"
+                  position={100}
+                  outerClass={classes.buttonFadeIn}>
+                  <button
+                    type="reset"
+                    disabled={!formik.dirty}
+                    className={clsx(classes.button, classes.reset, {
+                      [classes.bgDirty]: formik.dirty
+                    })}>
+                    {content[17]}
+                  </button>
+                </FadeIn>
               </Grid>
             </Form>
           )}

@@ -1,3 +1,4 @@
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 import { clickWindowLink } from '@cjo3/shared/react/helpers'
 import { Button, Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
@@ -5,10 +6,9 @@ import BusinessCenterIcon from '@material-ui/icons/BusinessCenter'
 import HomeIcon from '@material-ui/icons/Home'
 import ImportantDevicesIcon from '@material-ui/icons/ImportantDevices'
 import MailOutlineIcon from '@material-ui/icons/MailOutline'
-import { useSelector } from 'react-redux'
-import clsx from 'clsx'
 import React from 'react'
-import { ResponsiveAngle } from './ResponsiveAngle'
+import { useSelector } from 'react-redux'
+import { CssAngle } from './CssAngle'
 
 interface Props {
   slice?: number
@@ -56,16 +56,18 @@ const useStyles = makeStyles(
     midNavLink: {
       'width': '100%',
       'margin': `0`,
-      'filter': 'drop-shadow(0.25rem 0.5rem  0.5rem rgba(0, 0, 0, 0.5))',
       'transition': 'all 250ms ease-out',
-      '&:hover': {
-        filter: 'drop-shadow(0.25rem 0.5rem  0.5rem rgba(0, 0, 0, 0.25))'
+      '&:last-child': {
+        margin: 0
       },
       [theme.breakpoints.only('sm')]: {
         margin: `0 ${theme.custom.setSpace('sm')}px 0 0`
       },
-      '&:last-child': {
-        margin: 0
+      [theme.breakpoints.up('lg')]: {
+        'filter': 'drop-shadow(0.25rem 0.5rem  0.5rem rgba(0, 0, 0, 0.5))',
+        '&:hover': {
+          filter: 'unset'
+        }
       }
     },
     midNavSpan: {
@@ -74,15 +76,13 @@ const useStyles = makeStyles(
       'color': theme.palette.grey[400],
       'textTransform': 'uppercase',
       'textAlign': 'center',
+      'marginTop': -1,
       'fontSize': theme.typography.fontSize * 1.25,
       'backgroundColor': theme.palette.grey[800],
-      'padding': theme.custom.setSpace(),
+      'height': theme.custom.setSpace('md'),
       'transition': 'all 250ms ease-out',
       '&:hover': {
         color: 'white'
-      },
-      [theme.breakpoints.only('sm')]: {
-        margin: '-2px 0'
       }
     }
   }),
@@ -133,15 +133,12 @@ export const NavButtonSet: React.FC<Props> = ({
             key={`mid-nav-${item.key}`}
             className={classes.midNavLink}
             href={item.to}>
-            <ResponsiveAngle
-              fill="theme.palette.grey[800]"
-              right={index % 2 === 0}
-            />
+            <CssAngle fill="theme.palette.grey[800]" right={index % 2 === 0} />
             <span className={classes.midNavSpan}>
               {iconMap[item.icon]}
               &ensp;{item.label}
             </span>
-            <ResponsiveAngle
+            <CssAngle
               fill="theme.palette.grey[800]"
               down
               right={index % 2 === 0}
@@ -159,9 +156,13 @@ export const NavButtonSet: React.FC<Props> = ({
           onClick={menuItemClickHandler(item.to)}
           className={classes.menuItem}
           classes={{ root: classes.buttonRoot }}>
-          {iconMap[item.icon]}
-          &emsp;
-          {item.label}
+          <FadeIn direction="x" position={Math.random() ? 100 : -100}>
+            <Grid container justify="center" alignItems="center">
+              {iconMap[item.icon]}
+              &emsp;
+              {item.label}
+            </Grid>
+          </FadeIn>
         </Button>
       ))}
     </Grid>

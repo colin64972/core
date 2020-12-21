@@ -1,35 +1,15 @@
 import NcaContact from '@cjo3/shared/assets/svgs/nca-contact'
-import { LoadFail } from '@cjo3/shared/react/components/LoadFail'
-import { CircularProgress, Grid, Typography } from '@material-ui/core'
+import { setHtml } from '@cjo3/shared/react/helpers'
+import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import MailOutlineIcon from '@material-ui/icons/MailOutline'
 import clsx from 'clsx'
 import React from 'react'
-import Loadable from 'react-loadable'
-import { HeroBar } from '../HeroBar'
-import { setHtml } from '@cjo3/shared/react/helpers'
-import { ResponsiveAngle } from '../ResponsiveAngle'
 import { useSelector } from 'react-redux'
-
-const FormLoadable = Loadable({
-  loader: () =>
-    import(
-      /* webpackChunkName: "chunk-ContactForm" */
-      './ContactForm'
-    ),
-  loading: ({ error, pastDelay, timedOut }) => {
-    if (error) return <LoadFail message="Load Failed" />
-    if (timedOut) return <LoadFail message="Timed Out" />
-    if (pastDelay) return <CircularProgress color="primary" size={30} />
-    return null
-  },
-  delay: 250,
-  timeout: 5000,
-  render: (loaded, props) => {
-    const Component = loaded.ContactForm
-    return <Component {...props} />
-  }
-})
+import { HeroBar } from '../HeroBar'
+import { CssAngle } from '../CssAngle'
+import { ContactForm } from './ContactForm'
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 
 const useStyles = makeStyles(
   theme => ({
@@ -41,14 +21,11 @@ const useStyles = makeStyles(
       }
     },
     left: {
-      display: 'none',
+      display: 'block',
+      flexGrow: 1,
+      marginRight: -1,
       [theme.breakpoints.up('sm')]: {
-        display: 'block',
-        flexGrow: 1,
-        marginRight: -1
-      },
-      [theme.breakpoints.up('md')]: {
-        height: 379
+        height: 422
       }
     },
     center: {
@@ -76,7 +53,11 @@ const useStyles = makeStyles(
     },
     titleInner: {
       padding: theme.custom.setSpace('sm'),
-      color: 'white'
+      color: 'white',
+      [theme.breakpoints.up('sm')]: {
+        marginTop: -1,
+        height: 363
+      }
     },
     titleIcon: {
       fontSize: theme.typography.fontSize * 4
@@ -115,22 +96,24 @@ export const Contact: React.FC = (): JSX.Element | null => {
         <Grid className={clsx(classes.left, classes.bgRed)} />
         <Grid className={classes.center}>
           <Grid className={classes.titleBlock}>
-            <ResponsiveAngle fill="theme.palette.primary.main" />
-            <Grid className={clsx(classes.titleInner, classes.bgRed)}>
-              <MailOutlineIcon className={classes.titleIcon} />
-              <Typography
-                variant="h2"
-                className={classes.title}
-                dangerouslySetInnerHTML={setHtml(content[2])}
-              />
-              <Typography variant="body1" className={classes.titleText}>
-                {content[3]}
-              </Typography>
+            <Grid>
+              <CssAngle fill="theme.palette.primary.main" />
+              <Grid className={clsx(classes.titleInner, classes.bgRed)}>
+                <MailOutlineIcon className={classes.titleIcon} />
+                <Typography
+                  variant="h2"
+                  className={classes.title}
+                  dangerouslySetInnerHTML={setHtml(content[2])}
+                />
+                <Typography variant="body1" className={classes.titleText}>
+                  {content[3]}
+                </Typography>
+              </Grid>
+              <CssAngle down fill="theme.palette.primary.main" />
             </Grid>
-            <ResponsiveAngle down fill="theme.palette.primary.main" />
           </Grid>
           <Grid className={classes.formBlock}>
-            <FormLoadable content={content} />
+            <ContactForm content={content} />
           </Grid>
         </Grid>
         <Grid className={classes.right} />

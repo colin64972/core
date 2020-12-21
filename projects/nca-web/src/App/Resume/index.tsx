@@ -1,4 +1,5 @@
 import NcaResume from '@cjo3/shared/assets/svgs/nca-resume'
+import { load } from 'recaptcha-v3'
 import { Button, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd'
@@ -9,7 +10,7 @@ import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf'
 import SchoolIcon from '@material-ui/icons/School'
 import clsx from 'clsx'
 import { saveAs } from 'file-saver'
-import React from 'react'
+import { testRecaptchaToken } from '../fetchers'
 import { AngleBand } from '../AngleBand'
 import {
   LogoAi,
@@ -29,7 +30,9 @@ import { ResumeEntry } from './ResumeEntry'
 import { SkillGraph } from './SkillGraph'
 import { setHtml } from '@cjo3/shared/react/helpers'
 import { skillCategories } from '@cjo3/shared/raw/constants/nca'
-import { ResponsiveAngle } from '../ResponsiveAngle'
+import { CssAngle } from '../CssAngle'
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
+import React, { useEffect, useState } from 'react'
 
 const useStyles = makeStyles(
   theme => ({
@@ -87,8 +90,10 @@ const useStyles = makeStyles(
     workInner: {
       width: '100%',
       padding: theme.custom.setSpace('sm'),
+      margin: `0 0 ${theme.custom.setSpace('sm')}px 0`,
       [theme.breakpoints.up('sm')]: {
-        maxWidth: 512
+        maxWidth: 512,
+        margin: 0
       }
     },
     workEntries: {
@@ -102,10 +107,6 @@ const useStyles = makeStyles(
         marginTop: theme.custom.setSpace('md')
       }
     },
-    angle: {
-      marginRight: -1,
-      maxWidth: 300
-    },
     filler: {
       flexGrow: 1,
       height: theme.custom.setSpace('sm')
@@ -114,7 +115,8 @@ const useStyles = makeStyles(
       backgroundColor: theme.palette.primary.main
     },
     education: {
-      padding: theme.custom.setSpace('sm')
+      padding: theme.custom.setSpace('sm'),
+      paddingBottom: theme.custom.setSpace('sm') * 1.5
     },
     schoolEntries: {
       marginTop: theme.custom.setSpace('sm')
@@ -126,60 +128,74 @@ const useStyles = makeStyles(
     personalDetailsList: {
       padding: theme.custom.setSpace()
     },
+    personalDetailItem: {
+      width: '100%'
+    },
     skillsContainer: {
       marginTop: theme.custom.setSpace('sm'),
-      ...theme.custom.setGrid(1, 'auto', theme.custom.setSpace('md')),
+      ...theme.custom.setGrid(1, 'auto'),
       [theme.breakpoints.up('sm')]: {
         ...theme.custom.setGrid(3, 'auto', theme.custom.setSpace('md'))
       }
     },
     skillsSection0: {
       gridColumn: '1 / 2',
-      gridRow: 1
+      gridRow: 1,
+      margin: `0 0 ${theme.custom.setSpace('sm')}px 0`
     },
     skillsSection1: {
       gridColumn: '1 / 2',
       gridRow: 2,
+      margin: `0 0 ${theme.custom.setSpace('sm')}px 0`,
       [theme.breakpoints.up('sm')]: {
         gridColumn: '2 / 3',
-        gridRow: 1
+        gridRow: 1,
+        margin: 0
       }
     },
     skillsSection2: {
       gridColumn: '1 / 2',
       gridRow: 3,
+      margin: `0 0 ${theme.custom.setSpace('sm')}px 0`,
       [theme.breakpoints.up('sm')]: {
         gridColumn: '3 / 4',
-        gridRow: 1
+        gridRow: 1,
+        margin: 0
       }
     },
     skillsSection3: {
       gridColumn: '1 / 2',
       gridRow: 4,
+      margin: `0 0 ${theme.custom.setSpace('sm')}px 0`,
       [theme.breakpoints.up('sm')]: {
-        gridRow: 2
+        gridRow: 2,
+        margin: 0
       }
     },
     skillsSection4: {
       gridColumn: '1 / 2',
       gridRow: 5,
+      margin: `0 0 ${theme.custom.setSpace('sm')}px 0`,
       [theme.breakpoints.up('sm')]: {
         gridColumn: '2 / 3',
-        gridRow: 2
+        gridRow: 2,
+        margin: 0
       }
     },
     skillsSection5: {
       gridColumn: '1 / 2',
       gridRow: 6,
+      margin: `0 0 ${theme.custom.setSpace('sm')}px 0`,
       [theme.breakpoints.up('sm')]: {
         gridColumn: '3 / 4',
-        gridRow: 2
+        gridRow: 2,
+        margin: 0
       }
     },
     skillsSection6: {
       gridColumn: '1 / 2',
       gridRow: 7,
-      paddingBottom: theme.custom.setSpace('sm'),
+      margin: `0 0 ${theme.custom.setSpace('sm')}px 0`,
       [theme.breakpoints.up('sm')]: {
         gridRow: 3
       }
@@ -210,43 +226,59 @@ export const Resume: React.FC = (): JSX.Element | null => {
 
   if (!content) return null
 
-  function downloadHandler(event: MouseEvent): void {
+  async function downloadHandler(event: MouseEvent): void {
     const fileVariant = event.currentTarget.name
-    saveAs(
-      `${process.env.SITE_URL}assets/pdfs/resume-${fileVariant}.pdf`,
-      process.env.RESUME_FILENAME
-    )
+    try {
+      const action = 'nca_resume_download'
+      const recaptcha = await load(process.env.RECAPTCHA_SITE_KEY)
+      const token = await recaptcha.execute(action)
+      const isVerified = await testRecaptchaToken(token, action)
+      if (isVerified) {
+        saveAs(
+          `${process.env.CDN_URL_PRO}/${process.env.CDN_APP_FOLDER}/${process.env.RESUME_FILENAME}-${fileVariant}.pdf`,
+          `${process.env.RESUME_FILENAME}-${fileVariant}.pdf`
+        )
+      }
+    } catch (error) {
+      console.error('%c downloadHandler', 'color: red; font-size: large', error)
+    }
   }
   return (
     <Grid container justify="center">
       <HeroBar src={NcaResume} tagline={content[0]} alt={content[1]} />
       <Grid className={classes.downloadSection}>
-        <Typography variant="h5" className={classes.downloadTitle}>
-          {content[2]}
-        </Typography>
+        <FadeIn direction="x" position={-100}>
+          <Typography variant="h5" className={classes.downloadTitle}>
+            {content[2]}
+          </Typography>
+        </FadeIn>
         <Grid container justify="center" alignItems="center">
-          <Button
-            type="button"
-            className={clsx(
-              classes.downloadButton,
-              classes.downloadButtonColor
-            )}
-            variant="outlined"
-            color="primary"
-            onClick={downloadHandler}
-            name="color">
-            <PictureAsPdfIcon className={classes.downloadButtonIcon} />
-            {content[3]}
-          </Button>
-          <Button
-            type="button"
-            className={classes.downloadButton}
-            variant="outlined"
-            name="grey"
-            onClick={downloadHandler}>
-            <PictureAsPdfIcon className={classes.downloadButtonIcon} />
-            {content[4]}
-          </Button>
+          <FadeIn direction="x" position={-100}>
+            <Button
+              type="button"
+              className={clsx(
+                classes.downloadButton,
+                classes.downloadButtonColor
+              )}
+              variant="outlined"
+              color="primary"
+              onClick={downloadHandler}
+              name="color">
+              <PictureAsPdfIcon className={classes.downloadButtonIcon} />
+              {content[3]}
+            </Button>
+          </FadeIn>
+          <FadeIn direction="x" position={100}>
+            <Button
+              type="button"
+              className={classes.downloadButton}
+              variant="outlined"
+              name="grey"
+              onClick={downloadHandler}>
+              <PictureAsPdfIcon className={classes.downloadButtonIcon} />
+              {content[4]}
+            </Button>
+          </FadeIn>
         </Grid>
       </Grid>
       <AngleBand />
@@ -259,6 +291,7 @@ export const Resume: React.FC = (): JSX.Element | null => {
               className={classes.seciontTitle}
               dangerouslySetInnerHTML={setHtml(content[5])}
             />
+
             <Grid className={classes.workEntries}>
               {content[6].map(entry => (
                 <ResumeEntry
@@ -276,11 +309,7 @@ export const Resume: React.FC = (): JSX.Element | null => {
         </Grid>
         <Grid className={classes.splitSide}>
           <Grid container>
-            <ResponsiveAngle
-              fill="theme.palette.primary.main"
-              right
-              customClass={classes.angle}
-            />
+            <CssAngle fill="theme.palette.primary.main" right />
             <Grid className={clsx(classes.filler, classes.redBg)} />
           </Grid>
           <Grid className={clsx(classes.education, classes.redBg)}>
@@ -306,12 +335,7 @@ export const Resume: React.FC = (): JSX.Element | null => {
             </Grid>
           </Grid>
           <Grid container>
-            <ResponsiveAngle
-              fill="theme.palette.primary.main"
-              right
-              down
-              customClass={classes.angle}
-            />
+            <CssAngle fill="theme.palette.primary.main" right down />
             <Grid className={clsx(classes.filler, classes.redBg)} />
           </Grid>
           <Grid className={classes.personalDetails}>
@@ -325,7 +349,12 @@ export const Resume: React.FC = (): JSX.Element | null => {
             />
             <ul className={classes.personalDetailsList}>
               {content[10].map(item => (
-                <li key={item.key}>{item.label}</li>
+                <FadeIn
+                  key={item.key}
+                  direction="x"
+                  position={Math.random() > 0.5 ? -100 : 100}>
+                  <li className={classes.personalDetailItem}>{item.label}</li>
+                </FadeIn>
               ))}
             </ul>
           </Grid>
@@ -347,7 +376,7 @@ export const Resume: React.FC = (): JSX.Element | null => {
               {content[12]
                 .filter(skill => skill.category === index)
                 .map(skill => (
-                  <SkillGraph {...skill} />
+                  <SkillGraph {...skill} key={skill.key} />
                 ))}
             </Grid>
           ))}
