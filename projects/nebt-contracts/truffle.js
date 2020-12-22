@@ -8,9 +8,9 @@ module.exports = {
     development: {
       host: process.env.LOCAL_HOST,
       port: process.env.LOCAL_PORT,
-      network_id: '5777',
+      network_id: process.env.LOCAL_NETWORK_ID,
     },
-    rinkeby: {
+    [process.env.TESTNET_NAME]: {
       provider: () =>
         new HDWalletProvider(
           process.env.PRIVATE_KEYS.split(','),
@@ -18,7 +18,7 @@ module.exports = {
           0,
           3
         ),
-      network_id: 4,
+      network_id: process.env.TESTNET_ID,
       gas: 6500000,
       gasPrice: 100000000000,
     },
