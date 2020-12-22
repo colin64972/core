@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
     display: 'none',
     [theme.breakpoints.up('sm')]: {
       position: 'relative',
-      top: 6,
+      top: 4,
       display: 'unset',
       margin: 0,
       color: theme.palette.common.black,
@@ -36,6 +36,8 @@ const useStyles = makeStyles(theme => ({
     'fontSize': theme.custom.setSpace(),
     'color': theme.palette.common.black,
     'transition': theme.custom.transitions.color,
+    'position': 'relative',
+    'top': 2,
     '&:hover': {
       color: theme.palette.grey[700]
     }

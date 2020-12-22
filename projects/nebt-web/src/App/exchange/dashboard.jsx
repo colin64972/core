@@ -12,64 +12,39 @@ import PriceChart from './priceChart'
 import Transactions from './transactions'
 import RecentTrades from './recentTrades'
 import types from '../../store/types'
+import { Typography } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
-  layout: {
+  dashboard: {
+    display: 'flex',
+    flexFlow: 'row wrap',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    maxWidth: 1600,
     padding: theme.custom.setSpace(),
-    display: 'grid',
-    gridTemplateColumns: 'repeat(5, 1fr)',
-    gridTemplateRows: 'repeat(2, 1fr)',
-    gridColumnGap: theme.custom.setSpace(),
-    gridRowGap: theme.custom.setSpace(),
     [theme.breakpoints.down('md')]: {
       marginBottom: theme.custom.setSpace()
+    },
+    [theme.breakpoints.down('xs')]: {
+      display: 'none'
     }
   },
-  balancesSheet: {
-    gridColumn: '1 / 2',
-    gridRow: '1',
-    [theme.breakpoints.down('md')]: {
-      gridColumn: '1 / 6'
+  smallScreenNotice: {
+    display: 'none',
+    [theme.breakpoints.down('xs')]: {
+      display: 'block',
+      padding: theme.custom.setSpace('md'),
+      background: theme.palette.gradients.error,
+      boxShadow: theme.custom.shadows.inset,
+      minHeight: 200
     }
   },
-  newOrdersSheet: {
-    gridColumn: '1 / 2',
-    gridRow: '2',
-    [theme.breakpoints.down('md')]: {
-      gridColumn: '1 / 6'
-    }
+
+  white: {
+    color: 'white'
   },
-  orderBookSheet: {
-    gridColumn: '2 / 3',
-    gridRow: '1 / 3',
-    [theme.breakpoints.down('md')]: {
-      gridColumn: '1 / 6',
-      gridRow: '3'
-    }
-  },
-  priceChartSheet: {
-    gridColumn: '3 / 5',
-    gridRow: '1 / 2',
-    [theme.breakpoints.down('md')]: {
-      gridColumn: '1 / 6',
-      gridRow: '4'
-    }
-  },
-  transactionsSheet: {
-    gridColumn: '3 / 5',
-    gridRow: '2 / 3',
-    [theme.breakpoints.down('md')]: {
-      gridColumn: '1 / 6',
-      gridRow: '5'
-    }
-  },
-  tradesSheet: {
-    gridColumn: '5 / 6',
-    gridRow: '1 / 3',
-    [theme.breakpoints.down('md')]: {
-      gridColumn: '1 / 6',
-      gridRow: '6'
-    }
+  sheetContainer: {
+    flexBasis: 450
   }
 }))
 
@@ -80,44 +55,48 @@ export default () => {
   useEffect(() => {
     dispatch({ type: types.TRY_LOADING_WEB3_DATA })
   }, [])
+
+  if (!userAccount) return <NoUserBlock />
+
   return (
-    <Grid container>
-      {userAccount ? (
-        <Grid item xs={12} className={classes.layout}>
-          <Sheet
-            title="Balances"
-            style={classes.balancesSheet}
-            child={Balances}
-          />
-          <Sheet
-            title="New Orders"
-            style={classes.newOrdersSheet}
-            child={NewOrders}
-          />
-          <Sheet
-            title="Order Book"
-            style={classes.orderBookSheet}
-            child={OrderBook}
-          />
-          <Sheet
-            title="Price Chart"
-            style={classes.priceChartSheet}
-            child={PriceChart}
-          />
-          <Sheet
-            title="Transactions"
-            style={classes.transactionsSheet}
-            child={Transactions}
-          />
-          <Sheet
-            title="Recent Trades"
-            style={classes.tradesSheet}
-            child={RecentTrades}
-          />
-        </Grid>
-      ) : (
-        <NoUserBlock />
-      )}
+    <Grid container justify="center">
+      <Grid
+        container
+        justify="center"
+        alignItems="flex-start"
+        className={classes.smallScreenNotice}>
+        <Typography variant="h4" align="center">
+          Screen Too Small
+        </Typography>
+        <Typography variant="body1" align="center" className={classes.white}>
+          Not enough room for exchange panels to display. Please visit on a
+          larger device.
+        </Typography>
+      </Grid>
+      <Grid container spacing={3} className={classes.dashboard}>
+        {[
+          { component: Balances, title: 'Balances', key: 'LJacUaSkDx' },
+          { component: NewOrders, title: 'New Orders', key: 'epBpPJCEQz' },
+          { component: OrderBook, title: 'Order Book', key: 'NJfsdTymea' },
+          { component: PriceChart, title: 'Price Chart', key: 'qJpMomCMPA' },
+          {
+            component: Transactions,
+            title: 'Transactions',
+            key: 'wDsMYhwDpK'
+          },
+          {
+            component: RecentTrades,
+            title: 'Recent Trades',
+            key: 'NCxkpIPJHl'
+          }
+        ].map(item => (
+          <Grid item key={item.key} className={classes.sheetContainer}>
+            <Sheet title={item.title}>
+              <item.component />
+            </Sheet>
+          </Grid>
+        ))}
+      </Grid>
     </Grid>
   )
 }

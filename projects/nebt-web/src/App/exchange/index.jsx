@@ -9,9 +9,15 @@ import Viewable from '../components/viewable'
 import Dashboard from './dashboard'
 
 const useStyles = makeStyles(theme => ({
-  item: {
-    ...theme.custom.flexColumnCentered,
-    ...responsivePadding(theme)(true)
+  header: {
+    maxWidth: 1024,
+    padding: theme.custom.setSpace('md'),
+    [theme.breakpoints.down('sm')]: {
+      padding: theme.custom.setSpace('sm')
+    },
+    [theme.breakpoints.down('xs')]: {
+      padding: theme.custom.setSpace()
+    }
   },
   heading: {
     color: theme.palette.primary.A400,
@@ -30,11 +36,8 @@ const useStyles = makeStyles(theme => ({
 export default () => {
   const classes = useStyles()
   return (
-    <Grid container>
-      <Hidden mdDown>
-        <Grid item lg={1} xl={2} />
-      </Hidden>
-      <Grid item xs={12} lg={10} xl={8} className={classes.item}>
+    <Grid container direction="column" alignItems="center">
+      <Grid component="header" className={classes.header}>
         <Viewable
           animation={setAnimation('y', -100)}
           component={
@@ -70,9 +73,6 @@ export default () => {
         />
       </Grid>
       <Dashboard />
-      <Hidden mdDown>
-        <Grid item lg={1} xl={2} />
-      </Hidden>
     </Grid>
   )
 }
