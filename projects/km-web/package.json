@@ -1,5 +1,5 @@
 {
-  "name": "@cjo3/keyword-multiplier-web",
+  "name": "@cjo3/km-web",
   "version": "0.0.1",
   "main": "src/index.js",
   "license": "MIT",
@@ -10,15 +10,15 @@
     "start": "NODE_ENV=development webpack-dev-server --config webpack.config.js",
     "build:staging": "NODE_ENV=staging webpack --config webpack.config.js --progress",
     "build": "NODE_ENV=production webpack --config webpack.config.js --progress",
-    "build:renderer": "SRC_ENV=production webpack --config renderer/webpack.config.js --progress",
+    "build:renderer": "SRC_ENV=staging webpack --config renderer/webpack.config.js --progress",
     "watch:renderer": "webpack --config renderer/webpack.config.js --progress --watch",
     "start:renderer": "nodemon distRenderer/renderer.js",
     "lite": "lite-server -c lite-server.js",
-    "sync:assets": "NODE_ENV=production node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").assets)'",
-    "sync:bundles": "NODE_ENV=production node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").bundles)'",
-    "sync:preRenders": "NODE_ENV=production node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").preRenders)'",
-    "invalidate": "NODE_ENV=production node -e 'require(\"@cjo3/shared/raw/s3Manager\").invalidate(require(\"./cliParams\").invalidate)'",
-    "clear": "NODE_ENV=production node -e 'require(\"@cjo3/shared/raw/s3Manager\").rm(require(\"./cliParams\").clear)'"
+    "sync:assets": "NODE_ENV=staging node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").assets)'",
+    "sync:bundles": "NODE_ENV=staging node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").bundles)'",
+    "sync:preRenders": "NODE_ENV=staging node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").preRenders)'",
+    "invalidate": "NODE_ENV=staging node -e 'require(\"@cjo3/shared/raw/s3Manager\").invalidate(require(\"./cliParams\").invalidate)'",
+    "clear": "NODE_ENV=staging node -e 'require(\"@cjo3/shared/raw/s3Manager\").rm(require(\"./cliParams\").clear)'"
   },
   "importSort": {
     ".js, .jsx, .es6, .es": {

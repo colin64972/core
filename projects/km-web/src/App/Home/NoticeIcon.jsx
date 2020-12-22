@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+import { constants } from '@cjo3/shared/raw/constants/km'
 import { makeStyles } from '@material-ui/core/styles'
 import CheckCircleIcon from '@material-ui/icons/CheckCircle'
 import ErrorIcon from '@material-ui/icons/Error'

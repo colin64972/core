@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 
-import { prepSetValue } from '@cjo3/shared/logic/keyword-multiplier'
+import { prepSetValue } from '@cjo3/shared/logic/km'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 import { Grid, Tooltip } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'

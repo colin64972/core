@@ -6,8 +6,8 @@ import {
   findEnabledSets,
   generateNotice,
   getSetsWithValues
-} from '@cjo3/shared/logic/keyword-multiplier'
-import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+} from '@cjo3/shared/logic/km'
+import { constants } from '@cjo3/shared/raw/constants/km'
 import { copyToClipboard } from '@cjo3/shared/react/helpers'
 
 import { createTrial, fetchIpAddress } from '../fetchers'

@@ -3,7 +3,7 @@ import {
   decorateKeOptions,
   decorateTrial,
   generateNotice
-} from '@cjo3/shared/logic/keyword-multiplier'
+} from '@cjo3/shared/logic/km'
 import {
   fetchKeData,
   fetchKeVolumes,
@@ -11,7 +11,7 @@ import {
   postLowCreditAlert
 } from '../fetchers'
 
-import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+import { constants } from '@cjo3/shared/raw/constants/km'
 import { getLabelFromValue } from '@cjo3/shared/react/helpers'
 import { types } from '../types'
 

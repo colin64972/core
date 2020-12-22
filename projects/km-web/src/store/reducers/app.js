@@ -1,4 +1,4 @@
-import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+import { constants } from '@cjo3/shared/raw/constants/km'
 
 import { types } from '../types'
 

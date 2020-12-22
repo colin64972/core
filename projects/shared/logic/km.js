@@ -1,5 +1,5 @@
 import { formatCentsToDollars, formatTime } from '../general/formatting'
-import { constants } from '../raw/constants/keyword-multiplier'
+import { constants } from '../raw/constants/km'
 import { LINE_INCLUDES_TLD } from '../raw/constants/regex'
 import { stripe } from '../raw/constants/stripe'
 import { createHashId, optionizeObject } from '../react/helpers'

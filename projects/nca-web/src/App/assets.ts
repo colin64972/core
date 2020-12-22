@@ -114,19 +114,19 @@ export const MockupNca: ImageAsset = {
 }
 
 export const MockupDle: ImageAsset = {
-  alt: 'mockup-detection-limit-editor',
+  alt: 'mockup-dle',
   mimeType: 'image/png',
   paths: [MockupDle463, MockupDle925, MockupDle1388]
 }
 
 export const MockupKm: ImageAsset = {
-  alt: 'mockup-keyword-multiplier',
+  alt: 'mockup-km',
   mimeType: 'image/png',
   paths: [MockupKm392, MockupKm785, MockupKm1177]
 }
 
 export const MockupNt: ImageAsset = {
-  alt: 'mockup-neb-token',
+  alt: 'mockup-nebt',
   mimeType: 'image/png',
   paths: [MockupNca528, MockupNca1057, MockupNca1585]
 }

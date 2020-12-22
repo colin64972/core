@@ -3,7 +3,7 @@ import gsap from 'gsap'
 import React, { useEffect, useLayoutEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+import { constants } from '@cjo3/shared/raw/constants/km'
 import { makeStyles } from '@material-ui/core/styles'
 import CloseIcon from '@material-ui/icons/Close'
 import DoneIcon from '@material-ui/icons/Done'
