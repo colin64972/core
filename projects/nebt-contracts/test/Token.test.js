@@ -2,8 +2,7 @@ const Token = artifacts.require('Token')
 const chai = require('chai')
 const asPromised = require('chai-as-promised')
 const { setTokens } = require('../helpers')
-const { EVM_REVERT, EVM_INVALID_ADDRESS } = require('../helpers/constants')
-
+const { EVM_REVERT, EVM_INVALID_ADDRESS } = require('@cjo3/shared/raw/constants/web3')
 chai.use(asPromised).should()
 
 contract('Token', ([deployer, receiver, exchange]) => {

@@ -1,10 +1,9 @@
 require('dotenv').config()
 const Token = artifacts.require('Token')
 const Exchange = artifacts.require('Exchange')
-// const Web3 = require('web3')
 const faker = require('faker')
 const { setEther, setTokens, wait } = require('./')
-const { ETHER_ADDRESS } = require('./constants')
+const { ETHER_ADDRESS } = require('@cjo3/shared/raw/constants/web3')
 
 const setRandomNebAmount = () => faker.finance.amount(0.00001, 10, 5)
 const setRandomEthAmount = () => faker.finance.amount(0.00001, 10, 5)

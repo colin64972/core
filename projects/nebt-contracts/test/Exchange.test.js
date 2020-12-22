@@ -3,7 +3,7 @@ const chai = require('chai')
 const asPromised = require('chai-as-promised')
 const Token = artifacts.require('Token')
 const { setTokens, setEther } = require('../helpers')
-const { EVM_REVERT, ETHER_ADDRESS } = require('../helpers/constants')
+const { EVM_REVERT, ETHER_ADDRESS } = require('@cjo3/shared/raw/constants/web3')
 
 chai.use(asPromised).should()
 
