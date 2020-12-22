@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { calculateTrialPrice } from '@cjo3/shared/logic/keyword-multiplier'
-import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+import { calculateTrialPrice } from '@cjo3/shared/logic/km'
+import { constants } from '@cjo3/shared/raw/constants/km'
 import { Table, TableBody, TableCell, TableRow } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 

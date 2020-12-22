@@ -1,5 +1,5 @@
 {
-  "name": "@cjo3/keyword-multiplier-web",
+  "name": "@cjo3/km-web",
   "version": "0.0.1",
   "main": "src/index.js",
   "license": "MIT",
@@ -8,10 +8,8 @@
   "prettier": "@cjo3/configs/prettier",
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --config webpack.config.js",
-    "build:staging": "NODE_ENV=staging webpack --config webpack.config.js --progress",
     "build": "NODE_ENV=production webpack --config webpack.config.js --progress",
     "build:renderer": "SRC_ENV=production webpack --config renderer/webpack.config.js --progress",
-    "watch:renderer": "webpack --config renderer/webpack.config.js --progress --watch",
     "start:renderer": "nodemon distRenderer/renderer.js",
     "lite": "lite-server -c lite-server.js",
     "sync:assets": "NODE_ENV=production node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").assets)'",

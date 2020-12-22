@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { createHashId } from '../helpers'
 
-import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+import { constants } from '@cjo3/shared/raw/constants/km'
 import {
   Button,
   Dialog,

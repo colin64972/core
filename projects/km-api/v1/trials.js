@@ -1,6 +1,6 @@
 import AWS from 'aws-sdk'
 
-import { processTrial } from '@cjo3/shared/logic/keyword-multiplier'
+import { processTrial } from '@cjo3/shared/logic/km'
 import { dynamoDbConstants } from '@cjo3/shared/raw/constants/dynamoDb'
 import { IP_ADDRESS } from '@cjo3/shared/raw/constants/regex'
 import { createHashId } from '@cjo3/shared/react/helpers'

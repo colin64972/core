@@ -7,10 +7,10 @@ import { Formik } from 'formik'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { VolumeForm } from './VolumeForm'
-import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+import { constants } from '@cjo3/shared/raw/constants/km'
 import { countryCodesList } from '@cjo3/shared/raw/constants/countryCodes'
 import { makeStyles } from '@material-ui/core/styles'
-import { setInitialCountry } from '@cjo3/shared/logic/keyword-multiplier'
+import { setInitialCountry } from '@cjo3/shared/logic/km'
 import { types } from '../../store/types'
 
 const useStyles = makeStyles(theme => ({

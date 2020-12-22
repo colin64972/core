@@ -28,7 +28,7 @@ const locals = {
     faviconHref
   },
   '/converter': {
-    fileName: 'home-converter',
+    fileName: 'converter',
     title: `Converter | ${process.env.APP_NAME}`,
     canonical: `${process.env.SITE_URL}${process.env.APP_ROOT_PATH}/converter/`,
     metaDescription:
@@ -40,7 +40,7 @@ const locals = {
     chunkNames: ['chunk-ConverterApp']
   },
   '/converter/guide': {
-    fileName: 'home-converter-guide',
+    fileName: 'converter-guide',
     title: `Converter Guide | ${process.env.APP_NAME}`,
     canonical: `${process.env.SITE_URL}${process.env.APP_ROOT_PATH}/converter/guide/`,
     metaDescription: `A practical guide to using the ${process.env.APP_NAME} convert for speedy preparation of raw, analytical spreadsheet data.`,

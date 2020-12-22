@@ -3,11 +3,8 @@ import React, { useState } from 'react'
 import Loadable from 'react-loadable'
 import { useSelector } from 'react-redux'
 
-import {
-  findMetricFromEntry,
-  formatProductLine
-} from '@cjo3/shared/logic/keyword-multiplier'
-import { constants } from '@cjo3/shared/raw/constants/keyword-multiplier'
+import { findMetricFromEntry, formatProductLine } from '@cjo3/shared/logic/km'
+import { constants } from '@cjo3/shared/raw/constants/km'
 import { getLabelFromValue } from '@cjo3/shared/react/helpers'
 import {
   Grid,
