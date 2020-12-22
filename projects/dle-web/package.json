@@ -7,7 +7,6 @@
   "private": true,
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --config webpack.config.js",
-    "build:staging": "NODE_ENV=staging webpack --config webpack.config.js --progress",
     "build": "NODE_ENV=production webpack --config webpack.config.js --progress",
     "build:renderer": "SRC_ENV=production webpack --config renderer/webpack.config.js --progress",
     "start:renderer": "nodemon distRenderer/renderer.js",

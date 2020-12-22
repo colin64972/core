@@ -20,7 +20,7 @@ const port = 3000
 
 server.get('/', async (req, res) => {
   try {
-    const { pagePath } = req.query
+    const { renderPath } = req.query
     let file = fs.readFileSync(path.resolve('dist', 'index.html')).toString()
     const prodIndexHtml = file
     const scriptSrcs = prodIndexHtml.match(/src="\/([-._\w]+)">/gi)
@@ -39,7 +39,7 @@ server.get('/', async (req, res) => {
     const App = createElement(
       StaticRouter,
       {
-        location: pagePath,
+        location: renderPath,
         context: {}
       },
       createElement(Provider, { store }, ThemedApp)
@@ -48,7 +48,7 @@ server.get('/', async (req, res) => {
     const render = renderToString(sheets.collect(App))
 
     const markup = pug.renderFile(path.resolve('renderer', 'template.pug'), {
-      ...locals[pagePath],
+      ...locals[renderPath],
       bundles: [...bundleSrcs],
       html: render,
       css: sheets.toString(),
@@ -64,7 +64,7 @@ server.get('/', async (req, res) => {
     }
 
     fs.writeFileSync(
-      `${outputFolder}/${locals[pagePath].fileName}.html`,
+      `${outputFolder}/${locals[renderPath].fileName}.html`,
       minifiedMarkup
     )
     return res.json('pass')

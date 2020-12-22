@@ -92,29 +92,27 @@ const useStyles = makeStyles(
       }
     },
     Footer_badgeProfilePic: {
-      'order': 2,
       'borderRadius': theme.custom.setSpace() / 4,
-      [theme.breakpoints.down('xs')]: {
-        order: 1
-      },
       'transition': 'all 250ms ease-out',
       '&:hover': {
         boxShadow: theme.custom.boxShadow
+      },
+      [theme.breakpoints.down('xs')]: {
+        order: 1
       }
     },
     Footer_badgeTitle: {
       'textAlign': 'right',
-      'order': 1,
       'marginRight': theme.custom.setSpace(),
+      'transition': 'all 250ms ease-out',
+      '&:hover': {
+        color: theme.palette.primary[400]
+      },
       [theme.breakpoints.down('xs')]: {
         order: 2,
         textAlign: 'left',
         marginLeft: theme.custom.setSpace(),
         marginRight: 0
-      },
-      'transition': 'all 250ms ease-out',
-      '&:hover': {
-        color: theme.palette.primary[400]
       }
     },
     Footer_badgeSubtitle: {

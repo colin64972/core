@@ -1,5 +1,5 @@
 import { addAuthHeaderToOptions } from '@cjo3/shared/security/authToken'
-import { post } from 'axios'
+import post from 'axios'
 
 const otherHeaders = {
   headers: {
@@ -8,10 +8,10 @@ const otherHeaders = {
 }
 
 export const makePreOrder = async (email: string) => {
-  let apiUrl = 'http://localhost:2000'
-
-  if (process.env.NODE_ENV === 'production')
-    apiUrl = `${process.env.API_URL}/${process.env.CDN_APP_FOLDER}`
+  const apiUrl =
+    process.env.NODE_ENV === 'production'
+      ? `${process.env.API_URL}/${process.env.CDN_APP_FOLDER}`
+      : 'http://localhost:2000'
 
   const res = await post(
     `${apiUrl}/payment`,
