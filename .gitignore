@@ -1,6 +1,7 @@
 # folders
 .serverless
 .vscode
+**/nebt-contracts/build
 assets
 content
 dist
@@ -17,3 +18,4 @@ site-configs
 *.DS_Store
 *.lock
 *.log
+*.error
