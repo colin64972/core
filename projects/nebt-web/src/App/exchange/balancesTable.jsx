@@ -67,7 +67,7 @@ export default ({ ...props }) => {
   if (!values) return <NoData />
   if (isLoadingBalances) return <WorkingSpinner />
   return (
-    <Grid item xs={12} className={classes.item}>
+    <Grid className={classes.item}>
       <Table>
         <TableHead>
           <TableRow>

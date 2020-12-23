@@ -11,7 +11,7 @@ export default ({ ...props }) => {
   const { isDepositing } = useSelector(state => selectSpinnerStatus(state))
   if (isDepositing) return <WorkingSpinner />
   return (
-    <Grid container>
+    <Grid>
       {[depositNeb, depositEth].map(form =>
         createElement(formMap[form.name], {
           key: form.key,

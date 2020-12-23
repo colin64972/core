@@ -42,9 +42,6 @@ const useStyles = makeStyles(theme => ({
 
   white: {
     color: 'white'
-  },
-  sheetContainer: {
-    flexBasis: 450
   }
 }))
 
@@ -90,7 +87,7 @@ export default () => {
             key: 'NCxkpIPJHl'
           }
         ].map(item => (
-          <Grid item key={item.key} className={classes.sheetContainer}>
+          <Grid item key={item.key}>
             <Sheet title={item.title}>
               <item.component />
             </Sheet>

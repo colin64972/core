@@ -18,32 +18,30 @@ export default ({ ...props }) => {
   const [tab, setTab] = useState(0)
   const changeHandler = (event, newTab) => setTab(newTab)
   return (
-    <Grid container>
+    <Grid>
       <BalancesTable />
-      <Grid item xs={12}>
-        <AppBar position="static" color="default">
-          <Tabs
-            value={tab}
-            onChange={changeHandler}
-            indicatorColor="primary"
-            textColor="inherit">
-            <Tab label="Deposit" />
-            <Tab label="Withdraw" />
-          </Tabs>
-        </AppBar>
-        <TabPanel
-          tab={tab}
-          index={0}
-          style={classes.fullWidth}
-          child={<Deposit />}
-        />
-        <TabPanel
-          tab={tab}
-          index={1}
-          style={classes.fullWidth}
-          child={<Withdraw />}
-        />
-      </Grid>
+      <AppBar position="static" color="default">
+        <Tabs
+          value={tab}
+          onChange={changeHandler}
+          indicatorColor="primary"
+          textColor="inherit">
+          <Tab label="Deposit" />
+          <Tab label="Withdraw" />
+        </Tabs>
+      </AppBar>
+      <TabPanel
+        tab={tab}
+        index={0}
+        style={classes.fullWidth}
+        child={<Deposit />}
+      />
+      <TabPanel
+        tab={tab}
+        index={1}
+        style={classes.fullWidth}
+        child={<Withdraw />}
+      />
     </Grid>
   )
 }

@@ -15,16 +15,16 @@ export const depositEth = {
       validation: [
         {
           message: 'Required',
-          required: false,
+          required: false
         },
         {
           message: 'Must be greater than 0',
-          greaterThan: 0,
-        },
+          greaterThan: 0
+        }
       ],
-      key: 'cxl3200',
-    },
-  ],
+      key: 'cxl3200'
+    }
+  ]
 }
 
 export const depositNeb = {
@@ -44,16 +44,16 @@ export const depositNeb = {
       validation: [
         {
           message: 'Required',
-          required: false,
+          required: false
         },
         {
           message: 'Must be greater than 0',
-          greaterThan: 0,
-        },
+          greaterThan: 0
+        }
       ],
-      key: 'iie2802',
-    },
-  ],
+      key: 'iie2802'
+    }
+  ]
 }
 
 export const withdrawEth = {
@@ -73,16 +73,16 @@ export const withdrawEth = {
       validation: [
         {
           message: 'Required',
-          required: false,
+          required: false
         },
         {
           message: 'Must be greater than 0',
-          greaterThan: 0,
-        },
+          greaterThan: 0
+        }
       ],
-      key: 'dew9320',
-    },
-  ],
+      key: 'dew9320'
+    }
+  ]
 }
 
 export const withdrawNeb = {
@@ -102,16 +102,16 @@ export const withdrawNeb = {
       validation: [
         {
           message: 'Required',
-          required: false,
+          required: false
         },
         {
           message: 'Must be greater than 0',
-          greaterThan: 0,
-        },
+          greaterThan: 0
+        }
       ],
-      key: 'fgo4821',
-    },
-  ],
+      key: 'fgo4821'
+    }
+  ]
 }
 
 export const buyOrder = {
@@ -130,18 +130,18 @@ export const buyOrder = {
       validation: [
         {
           message: 'Required',
-          required: true,
+          required: true
         },
         {
           message: 'Must be greater than 0',
-          greaterThan: 0,
+          greaterThan: 0
         },
         {
           message: 'Purchase Quantity and Bid Price must be valid',
-          dependentField: 'bidPrice',
-        },
+          dependentField: 'bidPrice'
+        }
       ],
-      key: 'cnn3020',
+      key: 'cnn3020'
     },
     {
       componentType: 'NumberInput',
@@ -154,20 +154,20 @@ export const buyOrder = {
       validation: [
         {
           message: 'Required',
-          required: true,
+          required: true
         },
         {
           message: 'Must be greater than 0',
-          greaterThan: 0,
+          greaterThan: 0
         },
         {
           message: 'Purchase Quantity and Bid Price must be valid',
-          dependentField: 'nebQuantity',
-        },
+          dependentField: 'nebQuantity'
+        }
       ],
-      key: 'ewo5802',
-    },
-  ],
+      key: 'ewo5802'
+    }
+  ]
 }
 
 export const sellOrder = {
@@ -186,18 +186,18 @@ export const sellOrder = {
       validation: [
         {
           message: 'Required',
-          required: true,
+          required: true
         },
         {
           message: 'Must be greater than 0',
-          greaterThan: 0,
+          greaterThan: 0
         },
         {
           message: 'Sale Quantity and Ask Price must be valid',
-          dependentField: 'askPrice',
-        },
+          dependentField: 'askPrice'
+        }
       ],
-      key: 'lls3883',
+      key: 'lls3883'
     },
     {
       componentType: 'NumberInput',
@@ -210,18 +210,18 @@ export const sellOrder = {
       validation: [
         {
           message: 'Required',
-          required: true,
+          required: true
         },
         {
           message: 'Must be greater than 0',
-          greaterThan: 0,
+          greaterThan: 0
         },
         {
           message: 'Sale Quantity and Ask Price must be valid',
-          dependentField: 'nebQuantity',
-        },
+          dependentField: 'nebQuantity'
+        }
       ],
-      key: 'dei3997',
-    },
-  ],
+      key: 'dei3997'
+    }
+  ]
 }

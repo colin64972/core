@@ -6,14 +6,15 @@ import ReduxFormField from '../components/reduxFormField'
 
 const useStyles = makeStyles(theme => ({
   formGroup: {
-    'marginBottom': theme.custom.setSpace(),
-    '&:last-of-type': {
-      marginBottom: 0
-    }
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginTop: theme.custom.setSpace('sm')
   },
-  item: {
-    ...theme.custom.flexRowCentered,
-    padding: theme.custom.setSpace()
+  input: {
+    flexGrow: 1,
+    paddingRight: theme.custom.setSpace()
   }
 }))
 
@@ -21,34 +22,24 @@ export default ({ ...props }) => {
   const classes = useStyles()
   const { name, fields, submitHandler, valid, dirty } = props
   return (
-    <Grid item xs={12}>
-      <form onSubmit={submitHandler} id={name} name={name}>
-        {fields.map(field => {
-          const { key, buttonLabel, ...rest } = field
-          return (
-            <Grid
-              container
-              justify="space-between"
-              align="center"
-              key={key}
-              className={classes.formGroup}>
-              <Grid item xs={8} className={classes.item}>
-                <ReduxFormField {...rest} />
-              </Grid>
-              <Grid item xs={4} className={classes.item}>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  fullWidth
-                  disabled={!dirty || !valid}
-                  type="submit">
-                  {buttonLabel}
-                </Button>
-              </Grid>
+    <form onSubmit={submitHandler} id={name} name={name}>
+      {fields.map(field => {
+        const { key, buttonLabel, ...rest } = field
+        return (
+          <Grid key={key} className={classes.formGroup}>
+            <Grid item className={classes.input}>
+              <ReduxFormField {...rest} />
             </Grid>
-          )
-        })}
-      </form>
-    </Grid>
+            <Button
+              variant="contained"
+              color="primary"
+              disabled={!dirty || !valid}
+              type="submit">
+              {buttonLabel}
+            </Button>
+          </Grid>
+        )
+      })}
+    </form>
   )
 }

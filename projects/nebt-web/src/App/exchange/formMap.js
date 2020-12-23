@@ -11,5 +11,5 @@ export default {
   depositEth: DepositEthForm,
   depositNeb: DepositNebForm,
   buyOrder: BuyOrderForm,
-  sellOrder: SellOrderForm,
+  sellOrder: SellOrderForm
 }

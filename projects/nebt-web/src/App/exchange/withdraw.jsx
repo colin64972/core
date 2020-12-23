@@ -11,7 +11,7 @@ export default ({ ...props }) => {
   const { isWithdrawing } = useSelector(state => selectSpinnerStatus(state))
   if (isWithdrawing) return <WorkingSpinner />
   return (
-    <Grid container>
+    <Grid>
       {[withdrawNeb, withdrawEth].map(form =>
         createElement(formMap[form.name], {
           key: form.key,
