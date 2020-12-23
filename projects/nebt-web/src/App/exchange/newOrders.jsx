@@ -32,7 +32,6 @@ export default ({ ...props }) => {
         <TabPanel
           tab={tab}
           index={0}
-          style={classes.fullWidth}
           child={createElement(formMap[buyOrder.name], {
             key: buyOrder.key,
             name: buyOrder.name,
@@ -44,7 +43,6 @@ export default ({ ...props }) => {
         <TabPanel
           tab={tab}
           index={1}
-          style={classes.fullWidth}
           child={createElement(formMap[sellOrder.name], {
             key: sellOrder.key,
             name: sellOrder.name,

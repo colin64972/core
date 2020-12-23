@@ -16,11 +16,6 @@ const useStyles = makeStyles(theme => ({
     '&:last-of-type': {
       marginBottom: 0
     }
-  },
-  item: {
-    ...theme.custom.flexRowCentered,
-    padding: theme.custom.setSpace(),
-    paddingBottom: 0
   }
 }))
 
@@ -44,9 +39,7 @@ export default ({ ...props }) => {
             align="center"
             key={key}
             className={classes.formGroup}>
-            <Grid item xs={12} className={classes.item}>
-              <ReduxFormField {...rest} />
-            </Grid>
+            <ReduxFormField {...rest} />
           </Grid>
         )
       })}
@@ -55,16 +48,14 @@ export default ({ ...props }) => {
         justify="space-between"
         align="center"
         className={classes.formGroup}>
-        <Grid item xs={12} className={classes.item}>
-          <Button
-            variant="contained"
-            color="primary"
-            fullWidth
-            disabled={!dirty || !valid}
-            type="submit">
-            {setOrderButtonLabel(name, dirty, valid, orderValue)}
-          </Button>
-        </Grid>
+        <Button
+          variant="contained"
+          color="primary"
+          fullWidth
+          disabled={!dirty || !valid}
+          type="submit">
+          {setOrderButtonLabel(name, dirty, valid, orderValue)}
+        </Button>
       </Grid>
     </form>
   )
