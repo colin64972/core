@@ -107,7 +107,17 @@ module.exports = {
     }),
     new EnvironmentPlugin({
       IS_SERVER: false,
-      APP_NAME: localEnv.parsed.APP_NAME
+      APP_NAME: localEnv.parsed.APP_NAME,
+      PROFILE_IMG_SRC: localEnv.parsed.PROFILE_IMG_SRC,
+      COPYRIGHT_ENTITY: localEnv.parsed.COPYRIGHT_ENTITY,
+      SITE_CONTACT_EMAIL: localEnv.parsed.SITE_CONTACT_EMAIL,
+
+      APP_ROOT_PATH:
+        process.env.NODE_ENV === 'development'
+          ? '/'
+          : `https://${
+              process.env.COPYRIGHT_ENTITY
+            }/apps/${process.env.APP_NAME.toLowerCase().replace(/\s+/gi, '')}/`
     })
   ]
 }
