@@ -20,11 +20,9 @@ const useStyles = makeStyles(theme => ({
     flexFlow: 'row wrap',
     justifyContent: 'center',
     alignItems: 'flex-start',
-    maxWidth: 1600,
+    maxWidth: 1500,
     padding: theme.custom.setSpace(),
-    [theme.breakpoints.down('md')]: {
-      marginBottom: theme.custom.setSpace()
-    },
+    marginBottom: theme.custom.setSpace('sm'),
     [theme.breakpoints.down('xs')]: {
       display: 'none'
     }
@@ -72,20 +70,20 @@ export default () => {
       </Grid>
       <Grid container spacing={3} className={classes.dashboard}>
         {[
-          { component: Balances, title: 'Balances', key: 'LJacUaSkDx' },
-          { component: NewOrders, title: 'New Orders', key: 'epBpPJCEQz' },
-          { component: OrderBook, title: 'Order Book', key: 'NJfsdTymea' },
           { component: PriceChart, title: 'Price Chart', key: 'qJpMomCMPA' },
+          {
+            component: RecentTrades,
+            title: 'Recent Trades',
+            key: 'NCxkpIPJHl'
+          },
           {
             component: Transactions,
             title: 'Transactions',
             key: 'wDsMYhwDpK'
           },
-          {
-            component: RecentTrades,
-            title: 'Recent Trades',
-            key: 'NCxkpIPJHl'
-          }
+          { component: Balances, title: 'Balances', key: 'LJacUaSkDx' },
+          { component: OrderBook, title: 'Order Book', key: 'NJfsdTymea' },
+          { component: NewOrders, title: 'New Orders', key: 'epBpPJCEQz' }
         ].map(item => (
           <Grid item key={item.key}>
             <Sheet title={item.title}>

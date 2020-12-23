@@ -49,52 +49,48 @@ export default ({ ...props }) => {
   }, [contractLoaded])
   if (recentTrades.length < 1) return null
   return (
-    <Grid container>
-      <Grid item xs={12}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell size="small" align="center">
-                Time
-                <br />
-                <span className={classes.subtitle}>PST</span>
-              </TableCell>
-              <TableCell size="small" align="center">
-                Quantity
-                <br />
-                <span className={classes.subtitle}>NEB</span>
-              </TableCell>
-              <TableCell size="small" align="center">
-                Price
-                <br />
-                <span className={classes.subtitle}>ETH / NEB</span>
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {recentTrades.map(trade => (
-              <TableRow hover key={`${trade.timestamp}-${trade.id}`}>
-                <TableCell
-                  size="small"
-                  className={classes.lightGrey}
-                  align="center">
-                  {trade.time}
-                </TableCell>
-                <TableCell size="small" align="center" className={classes.bold}>
-                  {trade.nebValue}
-                </TableCell>
-                <TableCell
-                  size="small"
-                  align="center"
-                  className={classes[trade.direction]}>
-                  <ArrowIcon recentStyle direction={trade.direction} />
-                  {trade.price}
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </Grid>
-    </Grid>
+    <Table>
+      <TableHead>
+        <TableRow>
+          <TableCell size="small" align="center">
+            Time
+            <br />
+            <span className={classes.subtitle}>PST</span>
+          </TableCell>
+          <TableCell size="small" align="center">
+            Quantity
+            <br />
+            <span className={classes.subtitle}>NEB</span>
+          </TableCell>
+          <TableCell size="small" align="center">
+            Price
+            <br />
+            <span className={classes.subtitle}>ETH / NEB</span>
+          </TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {recentTrades.slice(0, 5).map(trade => (
+          <TableRow hover key={`${trade.timestamp}-${trade.id}`}>
+            <TableCell
+              size="small"
+              className={classes.lightGrey}
+              align="center">
+              {trade.time}
+            </TableCell>
+            <TableCell size="small" align="center" className={classes.bold}>
+              {trade.nebValue}
+            </TableCell>
+            <TableCell
+              size="small"
+              align="center"
+              className={classes[trade.direction]}>
+              <ArrowIcon recentStyle direction={trade.direction} />
+              {trade.price}
+            </TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
   )
 }
