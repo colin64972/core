@@ -1,20 +1,21 @@
 # folders
 .serverless
+.vscode
+**/nebt-contracts/build
+assets
+content
 dist
+distContent
 distPreRenders
 distRenderer
-distContent
-node_modules
 events
+fonts
+node_modules
 site-configs
-**/assets
-content
-.vscode
 
 # files
 .env
 *.DS_Store
 *.lock
 *.log
-templateLocals.js
-content.ts
+*.error

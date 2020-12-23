@@ -5,7 +5,7 @@
   "license": "MIT",
   "author": "cjo3",
   "private": true,
-  "prettier": "@cjo3/configs/prettier",
+  
   "scripts": {
     "cp:locals": "node -e 'require(\"./raw/s3Manager\").copy(require(\"./site-configs/cliParams\").copy)'"
   },

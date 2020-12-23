@@ -1,0 +1,31 @@
+{
+  "name": "@cjo3/nebt-contracts",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "truffle build",
+    "seed": "truffle exec helpers/seed.js",
+    "reset": "truffle migrate --reset && yarn seed",
+    "rinkeby": "truffle migrate --network rinkeby",
+    "seed:rinkeby": "truffle exec helpers/seed.js --network rinkeby",
+    "test": "truffle test"
+  },
+  "devDependencies": {
+    "@cjo3/shared": "0.0.1",
+    "@babel/core": "~7.12.3",
+    "@babel/preset-env": "~7.11.5",
+    "@babel/register": "~7.5.5",
+    "chai": "~4.2.0",
+    "chai-as-promised": "~7.1.1",
+    "faker": "~4.1.0"
+  },
+  "dependencies": {
+    "@truffle/hdwallet-provider": "~1.0.23",
+    "core-js": "~3.1.4",
+    "dotenv": "~8.2.0",
+    "openzeppelin-solidity": "~2.3.0",
+    "truffle": "5.1.39",
+    "web3": "~1.2.0"
+  }
+}
