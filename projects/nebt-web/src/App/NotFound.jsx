@@ -1,12 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { useInView } from 'react-intersection-observer'
-import { TweenMax } from 'gsap'
+import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
-import { responsivePadding } from '../../theme'
-import { setAnimation } from '../helpers'
-import Viewable from '../components/viewable'
+import { responsivePadding } from '../theme'
+import { setAnimation } from './helpers'
+import Viewable from './components/viewable'
 
 const useStyles = makeStyles(theme => ({
   item: {

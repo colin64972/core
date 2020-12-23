@@ -86,13 +86,15 @@ export default ({ ...props }) => {
               )
           )}
         </List>
-        <Typography variant="body1" className={classes.copy}>
-          &copy; 2019
-          <br />
-          <span className={classes.bold}>NEB Token</span>
-          <br />
-          All Rights Reserved
-        </Typography>
+        <Grid>
+          <Typography variant="body1" className={classes.copy}>
+            &copy; {new Date().getFullYear()}
+            <br />
+            <span className={classes.bold}>NEB Token</span>
+            <br />
+            All Rights Reserved
+          </Typography>
+        </Grid>
       </Grid>
     </Grid>
   )

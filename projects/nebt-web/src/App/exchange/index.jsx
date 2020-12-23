@@ -10,26 +10,18 @@ import Dashboard from './dashboard'
 
 const useStyles = makeStyles(theme => ({
   header: {
-    maxWidth: 1024,
-    padding: theme.custom.setSpace('md'),
-    [theme.breakpoints.down('sm')]: {
-      padding: theme.custom.setSpace('sm')
-    },
-    [theme.breakpoints.down('xs')]: {
-      padding: theme.custom.setSpace()
-    }
-  },
-  heading: {
-    color: theme.palette.primary.A400,
+    maxWidth: 750,
+    padding: `${theme.custom.setSpace('md')}px ${theme.custom.setSpace()}px`,
     textAlign: 'center'
   },
+  heading: {
+    color: theme.palette.primary.A400
+  },
   subtitle: {
-    textAlign: 'center',
     color: theme.palette.grey[700]
   },
   body: {
-    color: theme.palette.common.white,
-    textAlign: 'center'
+    color: theme.palette.common.white
   }
 }))
 

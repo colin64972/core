@@ -3,41 +3,38 @@ import { makeStyles } from '@material-ui/styles'
 import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
 import Typography from '@material-ui/core/Typography'
-import { responsivePadding } from '../../theme'
-import { setAnimation } from '../helpers'
-import Viewable from '../components/viewable'
+import { responsivePadding } from '../theme'
+import { setAnimation } from './helpers'
+import Viewable from './components/viewable'
 
 const useStyles = makeStyles(theme => ({
-  item: {
-    ...theme.custom.flexColumnCentered,
-    ...responsivePadding(theme)(true)
-  },
-  heading: {
-    color: theme.palette.primary.A400,
+  container: {
+    maxWidth: 750,
     textAlign: 'center'
   },
+  heading: {
+    color: theme.palette.primary.A400
+  },
   subtitle: {
-    textAlign: 'center',
     color: theme.palette.grey[700]
   },
   body: {
-    color: theme.palette.common.white,
-    textAlign: 'center'
+    color: theme.palette.common.white
   }
 }))
 
 export default () => {
   const classes = useStyles()
   return (
-    <Grid container>
-      <Hidden mdDown>
-        <Grid item lg={1} xl={2} />
-      </Hidden>
-      <Grid item xs={12} lg={10} xl={8} className={classes.item}>
+    <Grid container justify="center" alignItems="center">
+      <Grid className={classes.container}>
         <Viewable
           animation={setAnimation('y', -100)}
           component={
-            <Typography variant="h4" className={classes.subtitle}>
+            <Typography
+              variant="h4"
+              align="center"
+              className={classes.subtitle}>
               NEB Token
             </Typography>
           }
@@ -68,9 +65,6 @@ export default () => {
           }
         />
       </Grid>
-      <Hidden mdDown>
-        <Grid item lg={1} xl={2} />
-      </Hidden>
     </Grid>
   )
 }

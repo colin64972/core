@@ -16,22 +16,6 @@ module.exports = [
     key: 'funs3481'
   },
   {
-    showInMenus: ['footer'],
-    exact: true,
-    path: '/privacy-policy',
-    label: 'Privacy Policy',
-    component: 'NotFound',
-    key: 'geei3988'
-  },
-  {
-    showInMenus: ['footer'],
-    exact: true,
-    path: '/terms-conditions',
-    label: 'Terms & Conditions',
-    component: 'NotFound',
-    key: 'eifj3391'
-  },
-  {
     showInMenus: [],
     exact: false,
     path: '/*',

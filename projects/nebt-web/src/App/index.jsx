@@ -5,9 +5,9 @@ import { makeStyles } from '@material-ui/styles'
 import Nav from './components/nav'
 import Footer from './components/footer'
 import routes from './routes'
-import Home from './home'
-import Exchange from './exchange'
-import NotFound from './notFound'
+import Home from './Home'
+import Exchange from './Exchange'
+import NotFound from './NotFound'
 
 const componentMap = {
   Home,
