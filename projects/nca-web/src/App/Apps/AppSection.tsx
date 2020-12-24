@@ -1,19 +1,20 @@
-import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
-import { setHtml } from '@cjo3/shared/react/helpers'
+import { AppItem, ImageAsset } from '../../../index'
 import { Grid, Typography } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
+import { MockupDle, MockupKm, MockupNca, MockupNebt } from '../assets'
+
 import BorderColorIcon from '@material-ui/icons/BorderColor'
 import ChromeReaderModeIcon from '@material-ui/icons/ChromeReaderMode'
-import GitHubIcon from '@material-ui/icons/GitHub'
-import MoneyOffIcon from '@material-ui/icons/MoneyOff'
-import MultilineChartIcon from '@material-ui/icons/MultilineChart'
-import TouchAppIcon from '@material-ui/icons/TouchApp'
-import React from 'react'
-import { AppItem, ImageAsset } from '../../../index'
-import { MockupDle, MockupKm, MockupNca, MockupNt } from '../assets'
 import { ContentContainer } from '../ContentContainer'
 import { CssAngle } from '../CssAngle'
 import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
+import GitHubIcon from '@material-ui/icons/GitHub'
+import { ImageHandler } from '@cjo3/shared/react/components/ImageHandler'
+import MoneyOffIcon from '@material-ui/icons/MoneyOff'
+import MultilineChartIcon from '@material-ui/icons/MultilineChart'
+import React from 'react'
+import TouchAppIcon from '@material-ui/icons/TouchApp'
+import { makeStyles } from '@material-ui/core/styles'
+import { setHtml } from '@cjo3/shared/react/helpers'
 
 const useStyles = makeStyles(
   theme => ({
@@ -126,7 +127,7 @@ export const AppSection: React.FC<AppItem> = ({
     nca: <ChromeReaderModeIcon className={classes.sectionTitleIcon} />,
     dle: <BorderColorIcon className={classes.sectionTitleIcon} />,
     km: <MultilineChartIcon className={classes.sectionTitleIcon} />,
-    nt: <MoneyOffIcon className={classes.sectionTitleIcon} />
+    nebt: <MoneyOffIcon className={classes.sectionTitleIcon} />
   }
 
   const Icon: JSX.Element = icons[assetIconCode]
@@ -135,7 +136,7 @@ export const AppSection: React.FC<AppItem> = ({
     nca: MockupNca,
     dle: MockupDle,
     km: MockupKm,
-    nt: MockupNt
+    nebt: MockupNebt
   }
 
   return (

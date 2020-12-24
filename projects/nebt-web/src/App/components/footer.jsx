@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
-import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 import { Grid, Link, Typography } from '@material-ui/core'
-import Loadable from 'react-loadable'
-import { makeStyles } from '@material-ui/core/styles'
+import React, { useState } from 'react'
+
+import AccountBalanceIcon from '@material-ui/icons/AccountBalance'
+import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
 import GavelIcon from '@material-ui/icons/Gavel'
+import Loadable from 'react-loadable'
 import VpnLockIcon from '@material-ui/icons/VpnLock'
 import WebIcon from '@material-ui/icons/Web'
-import AccountBalanceIcon from '@material-ui/icons/AccountBalance'
+import { makeStyles } from '@material-ui/core/styles'
 
 const TermsAndConditionsLoadable = Loadable({
   loader: () =>
@@ -40,8 +41,10 @@ const useStyles = makeStyles(theme => ({
   footerSection: {
     backgroundColor: theme.palette.grey[900],
     padding: theme.custom.setSpace(),
+    maxHeight: 527,
     [theme.breakpoints.up('sm')]: {
-      padding: theme.custom.setSpace('sm')
+      padding: theme.custom.setSpace('sm'),
+      maxHeight: 335
     }
   },
   footerNav: {
@@ -63,6 +66,8 @@ const useStyles = makeStyles(theme => ({
     }
   },
   menuItemIcon: {
+    position: 'relative',
+    top: -2,
     fontSize: theme.typography.fontSize * 1.5,
     marginRight: theme.custom.setSpace() / 2
   },
@@ -142,10 +147,9 @@ export default ({ routes }) => {
 
   const closePPHandler = () => setPPOpen(false)
   return (
-    <Grid item xs={12} component="section" className={classes.footerSection}>
+    <Grid item xs={12} component="footer" className={classes.footerSection}>
       <Grid
         container
-        component="footer"
         justify="space-between"
         alignItems="flex-start">
         <Grid item xs={12} sm={6}>

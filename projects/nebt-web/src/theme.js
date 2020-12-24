@@ -1,39 +1,31 @@
 import { createMuiTheme } from '@material-ui/core/styles'
-import primary from '@material-ui/core/colors/lime'
-import pass from '@material-ui/core/colors/green'
 import fail from '@material-ui/core/colors/red'
-import './fonts/regular.woff2'
-import './fonts/bold.woff2'
+import pass from '@material-ui/core/colors/green'
+import primary from '@material-ui/core/colors/lime'
 
-const fontSize = 16
+const fontSize = 15
 
-const fontFamily = setFontFamily('"Eurostile LT Std"')
+const fontFamily = setFontFamily('Rubik')
 
 export const fontFaces = [
   {
-    fontFamily: 'Eurostile LT Std',
+    fontFamily: 'Rubik',
     fontStyle: 'normal',
-    fontWeight: 'normal',
+    fontWeight: 400,
     fontDisplay: 'swap',
     src: [
-      "local('Eurostile LT Std Medium')",
-      "local('EurostileLTStd')",
-      "url('http://localhost:2000/fonts/regular.woff2') format('woff2')",
-      "url('https://s3.ca-central-1.amazonaws.com/static.token.nebocat.ca/fonts/regular.woff2') format('woff2')"
+      "url('https://fonts.gstatic.com/s/rubik/v11/iJWKBXyIfDnIV7nBrXyw023e.woff2') format('woff2')"
     ].join(', '),
     unicodeRange:
-      'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD'
+      ' U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD'
   },
   {
-    fontFamily: 'Eurostile LT Std',
+    fontFamily: 'Rubik',
     fontStyle: 'normal',
-    fontWeight: 'bold',
+    fontWeight: 700,
     fontDisplay: 'swap',
     src: [
-      "local('Eurostile LT Std Bold')",
-      "local('EurostileLTStd-Bold')",
-      "url('http://localhost:2000/fonts/bold.woff2') format('woff2')",
-      "url('https://s3.ca-central-1.amazonaws.com/static.token.nebocat.ca/fonts/bold.woff2') format('woff2')"
+      "url('https://fonts.gstatic.com/s/rubik/v11/iJWKBXyIfDnIV7nBrXyw023e.woff2') format('woff2')"
     ].join(', '),
     unicodeRange:
       'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD'
@@ -58,7 +50,7 @@ export const setSpace = fontSize => breakpoint => {
 export function setFontFamily(font, serif = false) {
   return serif
     ? [font, 'Georgia', '"Times New Roman"', 'serif'].join(',')
-    : [font, '"Helvetica Neue"', 'Arial', 'sans-serif'].join(',')
+    : [font, 'Helvetica Neue', 'helvetica', 'sans-serif'].join(',')
 }
 
 export const setTypography = (fontSize, fontFamily) => ({
@@ -97,8 +89,8 @@ export const setBaseTypes = (fontSize, fontFamily) => (variant = null) => {
   if (variant === 'headings') {
     return {
       fontFamily,
-      'fontWeight': 'bold',
-      'letterSpacing': -1,
+      'fontWeight': 700,
+      'letterSpacing': 0,
       'textTransform': 'uppercase',
       '&:last-of-type': {
         marginBottom: fontSize
@@ -107,7 +99,8 @@ export const setBaseTypes = (fontSize, fontFamily) => (variant = null) => {
   }
   return {
     fontFamily,
-    'fontWeight': 'normal',
+    'letterSpacing': 1,
+    'fontWeight': 400,
     'marginBottom': fontSize,
     '&:last-of-type': {
       marginBottom: 0
@@ -155,41 +148,6 @@ export const custom = {
     display: 'block'
   }),
   setFlex
-}
-
-export const responsivePadding = theme => even => {
-  if (even) {
-    return {
-      padding: theme.custom.setSpace(),
-      [theme.breakpoints.up('sm')]: {
-        padding: theme.custom.setSpace('sm')
-      },
-      [theme.breakpoints.up('md')]: {
-        padding: theme.custom.setSpace('md')
-      },
-      [theme.breakpoints.up('lg')]: {
-        padding: theme.custom.setSpace('lg')
-      },
-      [theme.breakpoints.up('xl')]: {
-        padding: theme.custom.setSpace('xl')
-      }
-    }
-  }
-  return {
-    padding: theme.custom.setSpace(),
-    [theme.breakpoints.up('sm')]: {
-      padding: `${theme.custom.setSpace('sm')}px ${theme.custom.setSpace()}px`
-    },
-    [theme.breakpoints.up('md')]: {
-      padding: `${theme.custom.setSpace('md')}px ${theme.custom.setSpace()}px`
-    },
-    [theme.breakpoints.up('lg')]: {
-      padding: `${theme.custom.setSpace('lg')}px ${theme.custom.setSpace()}px`
-    },
-    [theme.breakpoints.up('xl')]: {
-      padding: `${theme.custom.setSpace('xl')}px ${theme.custom.setSpace()}px`
-    }
-  }
 }
 
 const theme = createMuiTheme({
