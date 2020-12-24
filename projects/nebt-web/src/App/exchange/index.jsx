@@ -1,7 +1,7 @@
 import Dashboard from './dashboard'
 import Grid from '@material-ui/core/Grid'
 import NoUserBlock from './noUserBlock'
-import React, { useEffect } from 'react'
+import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import Viewable from '../components/viewable'
 import { makeStyles } from '@material-ui/styles'
@@ -29,9 +29,6 @@ const useStyles = makeStyles(theme => ({
 export default () => {
   const classes = useStyles()
   const account = useSelector(state => selectUserAccount(state))
-  useEffect(() => {
-    console.log('%c exchange index', 'color: yellow; font-size: large', account)
-  })
   return (
     <Grid container direction="column" alignItems="center">
       <Grid component="header" className={classes.header}>
