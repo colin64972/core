@@ -1,9 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import Grid from '@material-ui/core/Grid'
-import Hidden from '@material-ui/core/Hidden'
 import Typography from '@material-ui/core/Typography'
-import { responsivePadding } from '../theme'
 import { setAnimation } from './helpers'
 import Viewable from './components/viewable'
 
@@ -43,7 +41,7 @@ export default () => {
           animation={setAnimation('x', -100)}
           component={
             <Typography variant="h1" className={classes.heading}>
-              The premier source for everything neb token
+              Ea sit sanctus sadipscing sanctus tempor vero duo
             </Typography>
           }
         />
@@ -51,16 +49,11 @@ export default () => {
           animation={setAnimation('x', 100)}
           component={
             <Typography variant="body1" className={classes.body}>
-              Takimata gubergren voluptua elitr ipsum clita dolor ipsum diam sea
-              sadipscing, lorem sit dolore sea ipsum sea vero sadipscing ipsum
-              sed, no ipsum amet ipsum est voluptua ipsum. Amet dolor gubergren
-              sit at duo magna et diam, sadipscing takimata magna justo takimata
-              elitr. Ipsum sadipscing aliquyam voluptua stet. Invidunt sanctus
-              sea no clita, sadipscing dolores ut vero lorem amet eos sit, sed
-              rebum stet at gubergren. Dolore eos duo sit magna lorem magna diam
-              sanctus diam, elitr amet takimata lorem ut, erat diam eos nonumy
-              erat justo sit gubergren duo, magna sadipscing nonumy sea lorem
-              et. Takimata est et lorem.
+              Ipsum amet sit stet invidunt eirmod elitr at, et gubergren ea sit
+              gubergren amet. Takimata gubergren at kasd no consetetur, stet
+              aliquyam accusam et lorem et diam amet eos et. Elitr ut et lorem
+              sanctus clita clita gubergren, invidunt aliquyam tempor ipsum
+              ipsum ipsum est. Dolores no lorem gubergren elitr.
             </Typography>
           }
         />

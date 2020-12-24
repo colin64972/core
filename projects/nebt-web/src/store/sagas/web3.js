@@ -1,5 +1,5 @@
 import { call, put, select } from 'redux-saga/effects'
-import { connectWeb3, runContractMethod, fetchEventStream } from './helpers'
+import { runContractMethod, fetchEventStream, setupAbis } from './helpers'
 import TokenAbi from '@cjo3/nebt-contracts/build/contracts/Token'
 import ExchangeAbi from '@cjo3/nebt-contracts/build/contracts/Exchange'
 import {
@@ -17,54 +17,77 @@ import {
 import types from '../types'
 import { ETHER_ADDRESS } from '@cjo3/shared/raw/constants/web3'
 import { formatBalance, checkIsDuplicateOrder } from '../helpers'
+import Web3 from 'web3'
 
-export function* tryLoadingWeb3Data(action) {
+export function* connectToDapp(action) {
   try {
-    let fallbackUrl = process.env.LOCAL_ENDPOINT
-    if (process.env.NODE_ENV === 'production') {
-      fallbackUrl = process.env.INFURA_ENDPOINT
-    }
-    const result = yield call(connectWeb3, fallbackUrl, [TokenAbi, ExchangeAbi])
-    const { abis, accounts, connection, contracts, network } = result
-    if (!abis.Token && !abis.Exchange) throw new Error('Abis not found')
-    if (accounts.length < 1) throw new Error('Account not found')
-    if (!connection) throw new Error('Connection not found')
-    if (!contracts.Token) throw new Error('Token contract not found')
-    if (!contracts.Exchange) throw new Error('Exchange contract not found')
-    if (!network.id) throw new Error('Network ID not found')
-    yield put({
-      type: types.SET_ABIS,
-      abis: result.abis
-    })
+    const { windowEthereum } = action
+
+    let connection
+
+    if (!windowEthereum) throw new Error('no ethereum provider')
+
+    window.web3 = new Web3(windowEthereum)
+
+    window.ethereum.enable()
+
+    connection = window.web3
+
+    const accounts = yield call(connection.eth.getAccounts)
+
+    const networkType = yield call(connection.eth.net.getNetworkType)
+
+    const networkId = yield call(connection.eth.net.getId)
+
+    const [abis, contracts] = yield call(
+      setupAbis,
+      [TokenAbi, ExchangeAbi],
+      networkId,
+      connection.eth.Contract
+    )
+
     yield put({
       type: types.SET_ACCOUNTS,
-      accounts: result.accounts
+      accounts
     })
+
     yield put({
       type: types.SET_CONNECTION,
-      connection: result.connection
+      connection
     })
+
+    yield put({
+      type: types.SET_ABIS,
+      abis
+    })
+
     yield put({
       type: types.SET_CONTRACTS,
       contracts: {
-        loadedCount: Object.keys(result.contracts).length,
-        ...result.contracts
+        loadedCount: Object.keys(contracts).length,
+        ...contracts
       }
     })
+
     yield put({
       type: types.SET_NETWORK,
-      network: result.network
+      network: {
+        type: networkType,
+        id: networkId
+      }
     })
+
     yield put({
-      type: types.TRY_LOADING_WEB3_DATA_PASS,
+      type: types.CONNECT_DAPP_PASS,
       status: 'pass',
-      message: 'Web3 Data Loaded Successfully'
+      message: 'Connected to dapp ok'
     })
   } catch (error) {
-    return yield put({
-      type: types.TRY_LOADING_WEB3_DATA_FAIL,
+    console.error('%c connectWallet', 'color: red; font-size: large', error)
+    yield put({
+      type: types.CONNECT_DAPP_FAIL,
       status: 'fail',
-      message: error.message
+      message: 'Failed to connect to dapp'
     })
   }
 }

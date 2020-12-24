@@ -4,9 +4,9 @@ import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import Viewable from '../components/viewable'
 import { makeStyles } from '@material-ui/styles'
-import { useSelector, useDispatch } from 'react-redux'
-import { selectUserAccount } from '../../store/selectors'
+import { useDispatch } from 'react-redux'
 import { setAnimation } from '../helpers'
+import types from '../../store/types'
 
 const useStyles = makeStyles(theme => ({
   item: {
@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.custom.setSpace('sm'),
     background: theme.palette.gradients.error,
     boxShadow: theme.custom.shadows.inset,
-    minHeight: 200
+    minHeight: 300
   },
   body1: {
     color: theme.palette.common.white,
@@ -27,17 +27,16 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default ({ ...props }) => {
+export default () => {
   const classes = useStyles()
 
   const dispatch = useDispatch()
 
-  const account = useSelector(state => selectUserAccount(state))
-
-  console.log('%c account', 'color: yellow; font-size: large', account)
-
   function connectHandler(event) {
-    console.log('%c connectHandler', 'color: yellow; font-size: large', event)
+    dispatch({
+      type: types.CONNECT_DAPP,
+      windowEthereum: window?.ethereum
+    })
   }
 
   return (
@@ -47,20 +46,20 @@ export default ({ ...props }) => {
         <Grid container>
           <Grid item xs={12} className={classes.item}>
             <Typography variant="h4" align="center">
-              No Wallet Connection
+              No Connection
             </Typography>
             <Typography
               variant="body1"
               align="center"
               className={classes.body1}>
-              Click here to allow the exchange to access your wallet accounts
+              Click the button below to connect with your current wallet account
             </Typography>
             <Button
               type="button"
               variant="outlined"
               onClick={connectHandler}
               className={classes.connectButton}>
-              Connect asdf asdf asdf asdf
+              Connect
             </Button>
           </Grid>
         </Grid>

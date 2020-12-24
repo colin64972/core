@@ -1,12 +1,10 @@
-import Web3 from 'web3'
-
-const setAbisConnection = (abis, networkId, connection) =>
+export const setupAbis = (abis, networkId, contract) =>
   abis.reduce(
     (acc, cur) => {
       let result = acc
       result[0][cur.contractName] = cur
       try {
-        result[1][cur.contractName] = new connection.eth.Contract(
+        result[1][cur.contractName] = new contract(
           cur.abi,
           cur.networks[networkId].address
         )
@@ -17,31 +15,6 @@ const setAbisConnection = (abis, networkId, connection) =>
     },
     [{}, {}]
   )
-
-export const connectWeb3 = async (fallbackUrl, contractAbis) => {
-  // use the Web3.givenProvider by the browser via the selected network and account from MetaMask
-  // uses the supplied fallback url only if the default Web3.givenProvider is not found by the browser
-  const connection = new Web3(Web3.givenProvider || fallbackUrl)
-  const network = {
-    providerUrl: connection.givenProvider,
-    fallbackUrl,
-    type: await connection.eth.net.getNetworkType(),
-    id: await connection.eth.net.getId()
-  }
-  const accounts = await connection.eth.getAccounts()
-  const [abis, contracts] = setAbisConnection(
-    contractAbis,
-    network.id,
-    connection
-  )
-  return {
-    connection,
-    network,
-    accounts,
-    abis,
-    contracts
-  }
-}
 
 export const runContractMethod = async (
   kind,
