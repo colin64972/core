@@ -1,7 +1,7 @@
 import { call, put, select } from 'redux-saga/effects'
 import { runContractMethod, fetchEventStream, setupAbis } from './helpers'
-import TokenAbi from '@cjo3/nebt-contracts/build/contracts/Token'
-import ExchangeAbi from '@cjo3/nebt-contracts/build/contracts/Exchange'
+import TokenAbi from './compressedContracts/Token'
+import ExchangeAbi from './compressedContracts/Exchange'
 import {
   selectContract,
   selectUserAccount,

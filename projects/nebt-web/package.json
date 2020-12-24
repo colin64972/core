@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --config webpack.config.js --progress --watch",
-    "build": "NODE_ENV=production webpack  --config webpack.config.js --progress",
+    "build": "NODE_ENV=staging webpack  --config webpack.config.js --progress",
     "sync:bundles": "NODE_ENV=staging node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").bundles)'",
     "sync:template": "NODE_ENV=staging node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").template)'",
     "invalidate": "NODE_ENV=staging node -e 'require(\"@cjo3/shared/raw/s3Manager\").invalidate(require(\"./cliParams\").invalidate)'",
@@ -55,9 +55,9 @@
     "pug": "~3.0.0",
     "pug-loader": "~2.4.0",
     "redux-devtools-extension": "~2.13.8",
-    "webpack-bundle-analyzer": "~4.1.0",
     "redux-logger": "~3.0.6",
     "webpack": "~4.44.2",
+    "webpack-bundle-analyzer": "~4.1.0",
     "webpack-dev-server": "~3.11.0"
   }
 }
