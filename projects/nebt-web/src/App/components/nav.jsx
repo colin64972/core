@@ -1,13 +1,13 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { makeStyles } from '@material-ui/styles'
 import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import Link from '@material-ui/core/Link'
-import Typography from '@material-ui/core/Typography'
 import DropDownMenu from './dropDownMenu'
+import Link from '@material-ui/core/Link'
+import React from 'react'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
+import { makeStyles } from '@material-ui/styles'
 import routes from '../routes'
 import { selectUserAccount } from '../../store/selectors'
+import { useSelector } from 'react-redux'
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     display: 'none',
     [theme.breakpoints.up('sm')]: {
       position: 'relative',
-      top: 4,
+      top: 2,
       display: 'unset',
       margin: 0,
       color: theme.palette.common.black,
@@ -65,7 +65,7 @@ export default ({ ...props }) => {
               target="_blank"
               rel="noopener noreferrer">
               <Typography variant="body1" className={classes.userAccount}>
-                {userAccount.substr(0, 6)}&hellip;{userAccount.substr(-4)}
+              {userAccount}
               </Typography>
             </Link>
           </div>

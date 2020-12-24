@@ -5,27 +5,27 @@ import primary from '@material-ui/core/colors/lime'
 
 const fontSize = 15
 
-const fontFamily = setFontFamily('Teko')
+const fontFamily = setFontFamily('Rubik')
 
 export const fontFaces = [
   {
-    fontFamily: 'Teko',
+    fontFamily: 'Rubik',
     fontStyle: 'normal',
     fontWeight: 400,
     fontDisplay: 'swap',
     src: [
-      "url('https://fonts.gstatic.com/s/teko/v10/LYjNdG7kmE0gfaN9pQlCpVo.woff2') format('woff2')"
+      "url('https://fonts.gstatic.com/s/rubik/v11/iJWKBXyIfDnIV7nBrXyw023e.woff2') format('woff2')"
     ].join(', '),
     unicodeRange:
-      'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD'
+      ' U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD'
   },
   {
-    fontFamily: 'Teko',
+    fontFamily: 'Rubik',
     fontStyle: 'normal',
     fontWeight: 700,
     fontDisplay: 'swap',
     src: [
-      "url('https://fonts.gstatic.com/s/teko/v10/LYjCdG7kmE0gdRhYsCRgqHAtXN8.woff2') format('woff2')"
+      "url('https://fonts.gstatic.com/s/rubik/v11/iJWKBXyIfDnIV7nBrXyw023e.woff2') format('woff2')"
     ].join(', '),
     unicodeRange:
       'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD'
@@ -50,7 +50,7 @@ export const setSpace = fontSize => breakpoint => {
 export function setFontFamily(font, serif = false) {
   return serif
     ? [font, 'Georgia', '"Times New Roman"', 'serif'].join(',')
-    : [font, 'courier'].join(',')
+    : [font, 'Helvetica Neue', 'helvetica', 'sans-serif'].join(',')
 }
 
 export const setTypography = (fontSize, fontFamily) => ({
@@ -99,7 +99,6 @@ export const setBaseTypes = (fontSize, fontFamily) => (variant = null) => {
   }
   return {
     fontFamily,
-    fontSize: fontSize * 1.5,
     'letterSpacing': 1,
     'fontWeight': 400,
     'marginBottom': fontSize,
@@ -149,41 +148,6 @@ export const custom = {
     display: 'block'
   }),
   setFlex
-}
-
-export const responsivePadding = theme => even => {
-  if (even) {
-    return {
-      padding: theme.custom.setSpace(),
-      [theme.breakpoints.up('sm')]: {
-        padding: theme.custom.setSpace('sm')
-      },
-      [theme.breakpoints.up('md')]: {
-        padding: theme.custom.setSpace('md')
-      },
-      [theme.breakpoints.up('lg')]: {
-        padding: theme.custom.setSpace('lg')
-      },
-      [theme.breakpoints.up('xl')]: {
-        padding: theme.custom.setSpace('xl')
-      }
-    }
-  }
-  return {
-    padding: theme.custom.setSpace(),
-    [theme.breakpoints.up('sm')]: {
-      padding: `${theme.custom.setSpace('sm')}px ${theme.custom.setSpace()}px`
-    },
-    [theme.breakpoints.up('md')]: {
-      padding: `${theme.custom.setSpace('md')}px ${theme.custom.setSpace()}px`
-    },
-    [theme.breakpoints.up('lg')]: {
-      padding: `${theme.custom.setSpace('lg')}px ${theme.custom.setSpace()}px`
-    },
-    [theme.breakpoints.up('xl')]: {
-      padding: `${theme.custom.setSpace('xl')}px ${theme.custom.setSpace()}px`
-    }
-  }
 }
 
 const theme = createMuiTheme({

@@ -1,10 +1,10 @@
-import React from 'react'
-import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
+import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/styles'
-import { useDispatch } from 'react-redux'
 import types from '../../store/types'
+import { useDispatch } from 'react-redux'
 
 const useStyles = makeStyles(theme => ({
   item: {
@@ -12,11 +12,10 @@ const useStyles = makeStyles(theme => ({
     padding: theme.custom.setSpace('sm'),
     background: theme.palette.gradients.error,
     boxShadow: theme.custom.shadows.inset,
-    minHeight: 300
   },
   body1: {
     color: theme.palette.common.white,
-    maxWidth: 350
+    maxWidth: 750/2
   },
   connectButton: {
     marginTop: theme.custom.setSpace('sm'),
@@ -41,7 +40,7 @@ export default () => {
     <Grid container>
       <Grid item xs={12} className={classes.item}>
         <Typography variant="h4" align="center">
-          No Connection
+          No Wallet Account
         </Typography>
         <Typography variant="body1" align="center" className={classes.body1}>
           Click the button below to connect with your current wallet account

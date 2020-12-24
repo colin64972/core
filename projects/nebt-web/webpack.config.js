@@ -124,7 +124,7 @@ module.exports = {
     }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
-      openAnalyzer: true
+      openAnalyzer: process.env.NODE_ENV === 'production'
     }),
     new HashedModuleIdsPlugin(),
     new HtmlWebpackPlugin({

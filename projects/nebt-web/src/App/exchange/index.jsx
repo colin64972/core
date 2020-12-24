@@ -8,13 +8,17 @@ import { selectUserAccount } from '../../store/selectors'
 import { useSelector } from 'react-redux'
 
 const useStyles = makeStyles(theme => ({
-  header: {
-    maxWidth: 750,
+  container: {
+    ...theme.custom.setFlex('column nowrap', 'space-between'),
+  },
+  content: {
+    flexGrow: 1,
     textAlign: 'center',
-    padding: theme.custom.setSpace(),
+    maxWidth: 750,
+    ...theme.custom.setFlex('column nowrap'),
+    padding: `${theme.custom.setSpace('sm')}px ${theme.custom.setSpace()}px`,
     [theme.breakpoints.up('sm')]: {
-      margin: `${theme.custom.setSpace('md')}px 0`,
-      padding: theme.custom.setSpace('sm')
+      padding: `${theme.custom.setSpace('md')}px ${theme.custom.setSpace('sm')}px`
     }
   },
   heading: {
@@ -32,8 +36,8 @@ export default () => {
   const classes = useStyles()
   const account = useSelector(state => selectUserAccount(state))
   return (
-    <Grid container direction="column" alignItems="center">
-      <Grid component="header" className={classes.header}>
+    <Grid component="header" className={classes.container}>
+      <Grid className={classes.content}>
         <Typography variant="h4" className={classes.subtitle}>
           {process.env.APP_NAME} Exchange
         </Typography>

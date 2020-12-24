@@ -17,8 +17,8 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     alignItems: 'flex-start',
     maxWidth: 1500,
-    padding: theme.custom.setSpace(),
-    marginBottom: theme.custom.setSpace('sm'),
+    padding: theme.custom.setSpace('sm'),
+    marginBottom: theme.custom.setSpace(),
     [theme.breakpoints.down('xs')]: {
       display: 'none'
     }

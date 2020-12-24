@@ -1,16 +1,18 @@
-import React from 'react'
-import { makeStyles } from '@material-ui/styles'
 import Grid from '@material-ui/core/Grid'
+import React from 'react'
 import Typography from '@material-ui/core/Typography'
+import { makeStyles } from '@material-ui/styles'
 
 const useStyles = makeStyles(theme => ({
   container: {
-    maxWidth: 750,
+    ...theme.custom.setFlex('column nowrap'),
+  },
+  content: {
     textAlign: 'center',
-    padding: theme.custom.setSpace(),
+    maxWidth: 750,
+    padding: `${theme.custom.setSpace('sm')}px ${theme.custom.setSpace()}px`,
     [theme.breakpoints.up('sm')]: {
-      margin: `${theme.custom.setSpace('md')}px 0`,
-      padding: theme.custom.setSpace('sm')
+      padding: `${theme.custom.setSpace('md')}px ${theme.custom.setSpace('sm')}px`
     }
   },
   heading: {
@@ -27,8 +29,8 @@ const useStyles = makeStyles(theme => ({
 export default () => {
   const classes = useStyles()
   return (
-    <Grid container justify="center" alignItems="center">
-      <Grid className={classes.container}>
+    <Grid component="header" className={classes.container}>
+      <Grid className={classes.content}>
         <Typography variant="h4" align="center" className={classes.subtitle}>
           {process.env.APP_NAME}
         </Typography>
@@ -43,6 +45,6 @@ export default () => {
           ipsum est. Dolores no lorem gubergren elitr.
         </Typography>
       </Grid>
-    </Grid>
+      </Grid>
   )
 }
