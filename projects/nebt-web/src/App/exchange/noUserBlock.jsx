@@ -1,50 +1,59 @@
-import { Elastic, TweenMax } from 'gsap'
-import React, { useEffect, useRef, useState } from 'react'
-
+import React from 'react'
 import Grid from '@material-ui/core/Grid'
-import Paper from '@material-ui/core/Paper'
+import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
-import Viewable from '../components/viewable'
 import { makeStyles } from '@material-ui/styles'
-import { responsivePadding } from '../../theme'
-import { setAnimation } from '../helpers'
-import { useInView } from 'react-intersection-observer'
+import { useDispatch } from 'react-redux'
+import types from '../../store/types'
 
 const useStyles = makeStyles(theme => ({
   item: {
     ...theme.custom.flexColumnCentered,
-    ...responsivePadding(theme)(true),
+    padding: theme.custom.setSpace('sm'),
     background: theme.palette.gradients.error,
     boxShadow: theme.custom.shadows.inset,
-    minHeight: 200
+    minHeight: 300
   },
   body1: {
     color: theme.palette.common.white,
     maxWidth: 350
+  },
+  connectButton: {
+    marginTop: theme.custom.setSpace('sm'),
+    color: 'white',
+    borderColor: 'white'
   }
 }))
 
-export default ({ ...props }) => {
+export default () => {
   const classes = useStyles()
+
+  const dispatch = useDispatch()
+
+  function connectHandler(event) {
+    dispatch({
+      type: types.CONNECT_DAPP,
+      windowEthereum: window?.ethereum
+    })
+  }
+
   return (
-    <Viewable
-      animation={setAnimation('x', -100)}
-      component={
-        <Grid container>
-          <Grid item xs={12} className={classes.item}>
-            <Typography variant="h4" align="center">
-              No Wallet Connection
-            </Typography>
-            <Typography
-              variant="body1"
-              align="center"
-              className={classes.body1}>
-              Please configure your choosen wallet to allow connections to this
-              site
-            </Typography>
-          </Grid>
-        </Grid>
-      }
-    />
+    <Grid container>
+      <Grid item xs={12} className={classes.item}>
+        <Typography variant="h4" align="center">
+          No Connection
+        </Typography>
+        <Typography variant="body1" align="center" className={classes.body1}>
+          Click the button below to connect with your current wallet account
+        </Typography>
+        <Button
+          type="button"
+          variant="outlined"
+          onClick={connectHandler}
+          className={classes.connectButton}>
+          Connect
+        </Button>
+      </Grid>
+    </Grid>
   )
 }

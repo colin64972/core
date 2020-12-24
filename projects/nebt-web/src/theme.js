@@ -115,6 +115,17 @@ export const setBaseTypes = (fontSize, fontFamily) => (variant = null) => {
   }
 }
 
+export const setFlex = (
+  flow = 'row nowrap',
+  justify = 'center',
+  align = 'center'
+) => ({
+  display: 'flex',
+  flexFlow: flow,
+  justifyContent: justify,
+  alignItems: align
+})
+
 export const custom = {
   shadows: {
     inset: 'inset 0.125rem 0.125rem 0.5rem rgba(0,0,0,0.15)'
@@ -142,7 +153,8 @@ export const custom = {
     background: gradient,
     minHeight: '100vh',
     display: 'block'
-  })
+  }),
+  setFlex
 }
 
 export const responsivePadding = theme => even => {
@@ -334,6 +346,21 @@ theme.overrides.MuiTab = {
   },
   selected: {
     color: theme.palette.grey[500]
+  }
+}
+
+theme.custom.buttonBase = {
+  'border': 'none',
+  'backgroundColor': 'transparent',
+  'color': theme.palette.bodyColor,
+  'padding': 0,
+  'margin': 0,
+  'cursor': 'pointer',
+  'fontFamily': theme.typography.fontFamily,
+  'fontSize': theme.typography.fontSize,
+  'transition': 'all 250ms ease-out',
+  '&:focus': {
+    outline: 'none'
   }
 }
 

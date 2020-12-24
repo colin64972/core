@@ -1,18 +1,14 @@
-import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { makeStyles } from '@material-ui/styles'
-import Grid from '@material-ui/core/Grid'
-import { selectUserAccount } from '../../store/selectors'
-import Sheet from './sheet'
-import NoUserBlock from './noUserBlock'
 import Balances from './balances'
+import Grid from '@material-ui/core/Grid'
 import NewOrders from './newOrders'
 import OrderBook from './orderBook'
 import PriceChart from './priceChart'
-import Transactions from './transactions'
+import React from 'react'
 import RecentTrades from './recentTrades'
-import types from '../../store/types'
+import Sheet from './sheet'
+import Transactions from './transactions'
 import { Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/styles'
 
 const useStyles = makeStyles(theme => ({
   dashboard: {
@@ -45,13 +41,6 @@ const useStyles = makeStyles(theme => ({
 
 export default () => {
   const classes = useStyles()
-  const dispatch = useDispatch()
-  const userAccount = useSelector(state => selectUserAccount(state))
-  useEffect(() => {
-    dispatch({ type: types.TRY_LOADING_WEB3_DATA })
-  }, [])
-
-  if (!userAccount) return <NoUserBlock />
 
   return (
     <Grid container justify="center">

@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
-import { makeStyles } from '@material-ui/styles'
-import Grid from '@material-ui/core/Grid'
-import AppBar from '@material-ui/core/AppBar'
-import Tabs from '@material-ui/core/Tabs'
-import Tab from '@material-ui/core/Tab'
-import TabPanel from '../components/tabPanel'
 import { selectMyHistory, selectMyOpenOrders } from '../../store/selectors'
+import AppBar from '@material-ui/core/AppBar'
 import BalancesTable from './balancesTable'
 import Deposit from './deposit'
+import Grid from '@material-ui/core/Grid'
+import Tab from '@material-ui/core/Tab'
+import TabPanel from '../components/tabPanel'
+import Tabs from '@material-ui/core/Tabs'
 import Withdraw from './withdraw'
+import { makeStyles } from '@material-ui/styles'
+import { useSelector } from 'react-redux'
 
 const useStyles = makeStyles(theme => ({}))
 

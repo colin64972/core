@@ -9,14 +9,14 @@ export default (
       isLoadingBalances: false,
       isWithdrawing: false,
       isDepositing: false,
-      isMakingOrder: false,
-    },
+      isMakingOrder: false
+    }
   },
   action
 ) => {
   switch (action.type) {
-    case types.TRY_LOADING_WEB3_DATA_PASS:
-    case types.TRY_LOADING_WEB3_DATA_FAIL:
+    case types.CONNECT_DAPP_PASS:
+    case types.CONNECT_DAPP_FAIL:
     case types.TRY_FETCHING_ORDERS_PASS:
     case types.TRY_FETCHING_ORDERS_FAIL:
     case types.TRY_CANCELLING_ORDER_PASS:
@@ -37,17 +37,17 @@ export default (
           ...state.notifications,
           {
             status: action.status,
-            message: action.message,
-          },
-        ],
+            message: action.message
+          }
+        ]
       }
     case types.SET_WORKING_SPINNER:
       return {
         ...state,
         spinners: {
           ...state.spinners,
-          [action.kind]: action.status,
-        },
+          [action.kind]: action.status
+        }
       }
     default:
       return state

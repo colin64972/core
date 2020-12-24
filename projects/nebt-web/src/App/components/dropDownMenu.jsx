@@ -8,8 +8,8 @@ import MenuIcon from '@material-ui/icons/Menu'
 
 const useStyles = makeStyles(theme => ({
   link: {
-    color: theme.palette.common.black,
-  },
+    color: theme.palette.common.black
+  }
 }))
 
 export default ({ ...props }) => {

@@ -3,8 +3,6 @@ import { makeStyles } from '@material-ui/styles'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import CircularProgress from '@material-ui/core/CircularProgress'
-import { setAnimation } from '../helpers'
-import Viewable from './viewable'
 
 const useStyles = makeStyles(theme => ({
   item: {
@@ -23,23 +21,15 @@ const useStyles = makeStyles(theme => ({
 export default ({ ...props }) => {
   const classes = useStyles()
   return (
-    <Viewable
-      animation={setAnimation('x', 0, 0)}
-      component={
-        <Grid item xs={12} className={classes.item}>
-          <CircularProgress
-            color="primary"
-            className={classes.spinner}
-            size="2rem"
-          />
-          <Typography
-            variant="body1"
-            className={classes.subtitle}
-            align="center">
-            Transaction in Progress
-          </Typography>
-        </Grid>
-      }
-    />
+    <Grid item xs={12} className={classes.item}>
+      <CircularProgress
+        color="primary"
+        className={classes.spinner}
+        size="2rem"
+      />
+      <Typography variant="body1" className={classes.subtitle} align="center">
+        Transaction in Progress
+      </Typography>
+    </Grid>
   )
 }

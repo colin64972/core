@@ -1,9 +1,11 @@
 # folders
 .serverless
-.vscode
+**/.vscode
 **/nebt-contracts/build
 assets
+compressedContracts
 content
+deploy-stats
 dist
 distContent
 distPreRenders

@@ -29,20 +29,12 @@ const useStyles = makeStyles(theme => ({
   subtitle: {
     fontWeight: 'normal',
     color: theme.palette.grey[600]
-  },
-  chart: {
-    width: 520,
-    [theme.breakpoints.up('md')]: {
-      width: 880
-    },
-    [theme.breakpoints.up('lg')]: {
-      width: 950
-    }
   }
 }))
 
 const chartOptions = {
   chart: {
+    width: '100%',
     animations: { enabled: false },
     toolbar: { show: false }
   },
@@ -122,7 +114,6 @@ export default ({ ...props }) => {
         options={chartOptions}
         series={trades}
         type="candlestick"
-        className={classes.chart}
         height="277px"
       />
     </Grid>

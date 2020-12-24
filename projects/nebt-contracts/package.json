@@ -12,10 +12,10 @@
     "test": "truffle test"
   },
   "devDependencies": {
-    "@cjo3/shared": "0.0.1",
     "@babel/core": "~7.12.3",
     "@babel/preset-env": "~7.11.5",
     "@babel/register": "~7.5.5",
+    "@cjo3/shared": "0.0.1",
     "chai": "~4.2.0",
     "chai-as-promised": "~7.1.1",
     "faker": "~4.1.0"
