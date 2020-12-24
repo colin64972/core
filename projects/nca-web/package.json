@@ -18,7 +18,7 @@
     "sync:preRenders": "NODE_ENV=production node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").preRenders)'",
     "invalidate": "NODE_ENV=production node -e 'require(\"@cjo3/shared/raw/s3Manager\").invalidate(require(\"./cliParams\").invalidate)'",
     "clear": "NODE_ENV=production node -e 'require(\"@cjo3/shared/raw/s3Manager\").rm(require(\"./cliParams\").clear)'",
-    "rebuild": "yarn build && yarn content && yarn renderer && yarn nodemon",
+    "rebuild": "yarn build && yarn content && yarn build:renderer && yarn start:renderer",
     "deploy": "yarn invalidate && yarn sync:assets && yarn sync:bundles && yarn sync:content && yarn sync:preRenders"
   },
   "dependencies": {
