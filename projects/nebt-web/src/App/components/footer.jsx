@@ -39,10 +39,9 @@ const PPLoadable = Loadable({
 const useStyles = makeStyles(theme => ({
   footerSection: {
     backgroundColor: theme.palette.grey[900],
-    ...defaultPadding(theme.breakpoints, theme.custom.setSpace, 0.5),
-    [theme.breakpoints.down('lg')]: {
-      ...defaultPadding(theme.breakpoints, theme.custom.setSpace),
-      paddingTop: theme.custom.setSpace('sm')
+    padding: theme.custom.setSpace(),
+    [theme.breakpoints.up('sm')]: {
+      padding: theme.custom.setSpace('sm')
     }
   },
   footerNav: {
@@ -108,9 +107,8 @@ const useStyles = makeStyles(theme => ({
     }
   },
   profilePic: {
-    width: '100%',
-    maxWidth: 48,
-    borderRadius: theme.custom.borderRadius
+    width: 64,
+    borderRadius: 3
   },
   badgeSubheading: {
     textAlign: 'right',

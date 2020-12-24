@@ -16,7 +16,6 @@ module.exports = {
     contentBase: path.resolve('dist'),
     compress: true,
     port: 8001,
-    hot: true,
     writeToDisk: true,
     historyApiFallback: true
   },
@@ -30,8 +29,22 @@ module.exports = {
     filename: '[name].js'
   },
   optimization: {
+    runtimeChunk: 'single',
     splitChunks: {
-      chunks: 'all'
+      chunks: 'all',
+      maxInitialRequests: Infinity,
+      minSize: 0,
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: module => {
+            const packageName = module.context.match(
+              /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+            )[1]
+            return `npm.${packageName.replace('@', '')}`
+          }
+        }
+      }
     }
   },
   module: {
@@ -75,16 +88,13 @@ module.exports = {
         loader: 'pug-loader'
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      },
-      {
         test: /\.(woff(2)?|jpe?g|gif|png|svg|ico)$/,
         use: [
           {
             loader: 'file-loader',
             options: {
-              emitFile: true
+              emitFile: true,
+              name: '[folder]/[name]-[contentHash].[ext]'
             }
           }
         ]
@@ -98,7 +108,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve('..', 'shared', 'react', 'template.pug'),
       inject: true,
-      publicPath: '/',
       scriptLoading: 'async',
       cache: false,
       templateLocals: {
@@ -111,13 +120,10 @@ module.exports = {
       PROFILE_IMG_SRC: localEnv.parsed.PROFILE_IMG_SRC,
       COPYRIGHT_ENTITY: localEnv.parsed.COPYRIGHT_ENTITY,
       SITE_CONTACT_EMAIL: localEnv.parsed.SITE_CONTACT_EMAIL,
-
       APP_ROOT_PATH:
         process.env.NODE_ENV === 'development'
           ? '/'
-          : `https://${
-              process.env.COPYRIGHT_ENTITY
-            }/apps/${process.env.APP_NAME.toLowerCase().replace(/\s+/gi, '')}/`
+          : `https://${process.env.COPYRIGHT_ENTITY}/apps/${process.env.APP_URL_PATH}/`
     })
   ]
 }

@@ -1,19 +1,17 @@
-import { Elastic, TweenMax } from 'gsap'
-import React, { useEffect, useRef, useState } from 'react'
-
+import React from 'react'
 import Grid from '@material-ui/core/Grid'
-import Paper from '@material-ui/core/Paper'
+import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import Viewable from '../components/viewable'
 import { makeStyles } from '@material-ui/styles'
-import { responsivePadding } from '../../theme'
+import { useSelector, useDispatch } from 'react-redux'
+import { selectUserAccount } from '../../store/selectors'
 import { setAnimation } from '../helpers'
-import { useInView } from 'react-intersection-observer'
 
 const useStyles = makeStyles(theme => ({
   item: {
     ...theme.custom.flexColumnCentered,
-    ...responsivePadding(theme)(true),
+    padding: theme.custom.setSpace('sm'),
     background: theme.palette.gradients.error,
     boxShadow: theme.custom.shadows.inset,
     minHeight: 200
@@ -21,11 +19,27 @@ const useStyles = makeStyles(theme => ({
   body1: {
     color: theme.palette.common.white,
     maxWidth: 350
+  },
+  connectButton: {
+    marginTop: theme.custom.setSpace('sm'),
+    color: 'white',
+    borderColor: 'white'
   }
 }))
 
 export default ({ ...props }) => {
   const classes = useStyles()
+
+  const dispatch = useDispatch()
+
+  const account = useSelector(state => selectUserAccount(state))
+
+  console.log('%c account', 'color: yellow; font-size: large', account)
+
+  function connectHandler(event) {
+    console.log('%c connectHandler', 'color: yellow; font-size: large', event)
+  }
+
   return (
     <Viewable
       animation={setAnimation('x', -100)}
@@ -39,9 +53,15 @@ export default ({ ...props }) => {
               variant="body1"
               align="center"
               className={classes.body1}>
-              Please configure your choosen wallet to allow connections to this
-              site
+              Click here to allow the exchange to access your wallet accounts
             </Typography>
+            <Button
+              type="button"
+              variant="outlined"
+              onClick={connectHandler}
+              className={classes.connectButton}>
+              Connect asdf asdf asdf asdf
+            </Button>
           </Grid>
         </Grid>
       }

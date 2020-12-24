@@ -47,9 +47,6 @@ export default () => {
   const classes = useStyles()
   const dispatch = useDispatch()
   const userAccount = useSelector(state => selectUserAccount(state))
-  useEffect(() => {
-    dispatch({ type: types.TRY_LOADING_WEB3_DATA })
-  }, [])
 
   if (!userAccount) return <NoUserBlock />
 
