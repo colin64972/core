@@ -36,10 +36,12 @@ export const handler = async (event, context, callback) => {
       return callback(null, request)
     }
 
+    const Key = buildBucketKey(uri, appsList, appNames)
+
     const htmlFile = await s3
       .getObject({
         Bucket: host.replace('.s3.amazonaws.com', ''),
-        Key: buildBucketKey(uri, appsList, appNames)
+        Key
       })
       .promise()
 

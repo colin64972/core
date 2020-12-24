@@ -1,11 +1,10 @@
-module.exports = [
+import { switchLinkRoutePath } from '@cjo3/shared/react/helpers'
+
+export default [
   {
     showInMenus: [],
     exact: true,
-    path:
-      process.env.NODE_ENV === 'development'
-        ? '/'
-        : `${process.env.APP_ROOT_PATH}`,
+    path: switchLinkRoutePath('/'),
     label: 'Home',
     component: 'Home',
     key: 'eiwg3129'
@@ -13,10 +12,7 @@ module.exports = [
   {
     showInMenus: ['nav', 'footer'],
     exact: true,
-    path:
-      process.env.NODE_ENV === 'development'
-        ? '/exchange'
-        : `${process.env.APP_ROOT_PATH}exchange/`,
+    path: switchLinkRoutePath('/exchange/'),
     label: 'Exchange',
     component: 'Exchange',
     key: 'funs3481'

@@ -1,29 +1,3 @@
-import { Bounce } from 'gsap'
-
-export function setAnimation(
-  direction = 'x',
-  position = 0,
-  delay = Math.random(),
-  duration = 1,
-  threshold = 0.5,
-  paused = true
-) {
-  return {
-    duration,
-    delay,
-    threshold,
-    paused,
-    to: {
-      opacity: 1,
-      ease: Bounce.easeOut
-    },
-    from: {
-      [direction]: position,
-      ease: Bounce.easeOut
-    }
-  }
-}
-
 export function parseValidationRules(fields) {
   return fields.reduce((acc, cur) => {
     acc[cur.name] = cur.validation

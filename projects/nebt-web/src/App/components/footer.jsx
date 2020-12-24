@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
-import { defaultPadding } from '@cjo3/shared/react/themes/theming'
 import { Grid, Link, Typography } from '@material-ui/core'
 import Loadable from 'react-loadable'
 import { makeStyles } from '@material-ui/core/styles'
 import GavelIcon from '@material-ui/icons/Gavel'
 import VpnLockIcon from '@material-ui/icons/VpnLock'
 import WebIcon from '@material-ui/icons/Web'
+import AccountBalanceIcon from '@material-ui/icons/AccountBalance'
 
 const TermsAndConditionsLoadable = Loadable({
   loader: () =>
@@ -52,11 +52,11 @@ const useStyles = makeStyles(theme => ({
     ...theme.custom.setFlex(),
     'padding': theme.custom.setSpace() / 2,
     'paddingLeft': 0,
-    'color': theme.palette.primary[800],
+    'color': theme.palette.primary.main,
     'marginBottom': theme.custom.setSpace(),
     '&:hover': {
       textDecoration: 'none',
-      color: theme.palette.primary[700]
+      color: theme.palette.primary[300]
     },
     [theme.breakpoints.down('xs')]: {
       marginBottom: theme.custom.setSpace() / 2
@@ -100,6 +100,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'right',
     fontSize: theme.typography.fontSize * 1.33,
     lineHeight: 1.25,
+    color: theme.palette.primary.main,
     margin: `0 ${theme.custom.setSpace()}px 0 0`,
     [theme.breakpoints.down('xs')]: {
       textAlign: 'left',
@@ -127,7 +128,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default ({ ...props }) => {
+export default ({ routes }) => {
   const classes = useStyles()
   const [TAndCOpen, setTAndCOpen] = useState(false)
 
@@ -149,11 +150,13 @@ export default ({ ...props }) => {
         alignItems="flex-start">
         <Grid item xs={12} sm={6}>
           <nav className={classes.footerNav}>
-            <Link
-              href={process.env.APP_ROOT_PATH}
-              className={classes.navButton}>
+            <Link href={routes[0].path} className={classes.navButton}>
               <WebIcon className={classes.menuItemIcon} />
               Home
+            </Link>
+            <Link href={routes[1].path} className={classes.navButton}>
+              <AccountBalanceIcon className={classes.menuItemIcon} />
+              Exchange
             </Link>
             <button className={classes.navButton} onClick={openTAndCHandler}>
               <GavelIcon className={classes.menuItemIcon} />

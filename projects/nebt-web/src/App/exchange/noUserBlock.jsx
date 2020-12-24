@@ -2,10 +2,8 @@ import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
-import Viewable from '../components/viewable'
 import { makeStyles } from '@material-ui/styles'
 import { useDispatch } from 'react-redux'
-import { setAnimation } from '../helpers'
 import types from '../../store/types'
 
 const useStyles = makeStyles(theme => ({
@@ -40,30 +38,22 @@ export default () => {
   }
 
   return (
-    <Viewable
-      animation={setAnimation('x', -100)}
-      component={
-        <Grid container>
-          <Grid item xs={12} className={classes.item}>
-            <Typography variant="h4" align="center">
-              No Connection
-            </Typography>
-            <Typography
-              variant="body1"
-              align="center"
-              className={classes.body1}>
-              Click the button below to connect with your current wallet account
-            </Typography>
-            <Button
-              type="button"
-              variant="outlined"
-              onClick={connectHandler}
-              className={classes.connectButton}>
-              Connect
-            </Button>
-          </Grid>
-        </Grid>
-      }
-    />
+    <Grid container>
+      <Grid item xs={12} className={classes.item}>
+        <Typography variant="h4" align="center">
+          No Connection
+        </Typography>
+        <Typography variant="body1" align="center" className={classes.body1}>
+          Click the button below to connect with your current wallet account
+        </Typography>
+        <Button
+          type="button"
+          variant="outlined"
+          onClick={connectHandler}
+          className={classes.connectButton}>
+          Connect
+        </Button>
+      </Grid>
+    </Grid>
   )
 }

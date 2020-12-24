@@ -16,7 +16,7 @@ export const setStore = preloadedState => {
   if (process.env.NODE_ENV !== 'production') {
     middlewares.push(
       createLogger({
-        collapsed: true,
+        collapsed: true
       })
     )
   }

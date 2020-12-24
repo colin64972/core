@@ -53,7 +53,7 @@ export default () => {
             />
           ))}
         </Switch>
-        <Footer classes={classes.footer} menuItems={routes} />
+        <Footer classes={classes.footer} routes={routes} />
       </div>
     </CssBaseline>
   )

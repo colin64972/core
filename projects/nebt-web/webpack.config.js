@@ -2,9 +2,17 @@ require('colors')
 const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { EnvironmentPlugin } = require('webpack')
+const { EnvironmentPlugin, HashedModuleIdsPlugin } = require('webpack')
 
 const localEnv = require('dotenv').config()
+
+const switchPublicPath = () => {
+  if (process.env.NODE_ENV === 'production')
+    return `${localEnv.parsed.CDN_URL_PRO}/${localEnv.parsed.CDN_APP_FOLDER}/bundles/`
+  if (process.env.NODE_ENV === 'staging')
+    return `${localEnv.parsed.CDN_URL_STA}/${localEnv.parsed.CDN_APP_FOLDER}/bundles/`
+  return '/'
+}
 
 module.exports = {
   mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
@@ -25,8 +33,35 @@ module.exports = {
     extensions: ['.js', '.jsx', '.json', '.css', '.jpg', '.svg', '.gif']
   },
   output: {
+    publicPath: switchPublicPath(),
     path: path.resolve('dist'),
-    filename: '[name].js'
+    filename:
+      process.env.NODE_ENV === 'development'
+        ? '[name].[hash].js'
+        : '[name].[contenthash].js'
+  },
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      chunks: 'all',
+      maxInitialRequests: Infinity,
+      minSize: 0,
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: module => {
+            // get the name. E.g. node_modules/packageName/not/this/part.js
+            // or node_modules/packageName
+            const packageName = module.context.match(
+              /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+            )[1]
+
+            // npm package names are URL-safe, but some servers don't like @ symbols
+            return `npm.${packageName.replace('@', '')}`
+          }
+        }
+      }
+    }
   },
   module: {
     rules: [
@@ -86,6 +121,7 @@ module.exports = {
     new CleanWebpackPlugin({
       verbose: true
     }),
+    new HashedModuleIdsPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve('..', 'shared', 'react', 'template.pug'),
       inject: true,
@@ -96,15 +132,11 @@ module.exports = {
       }
     }),
     new EnvironmentPlugin({
-      IS_SERVER: false,
+      APP_ROOT_PATH: localEnv.parsed.APP_ROOT_PATH,
       APP_NAME: localEnv.parsed.APP_NAME,
       PROFILE_IMG_SRC: localEnv.parsed.PROFILE_IMG_SRC,
       COPYRIGHT_ENTITY: localEnv.parsed.COPYRIGHT_ENTITY,
-      SITE_CONTACT_EMAIL: localEnv.parsed.SITE_CONTACT_EMAIL,
-      APP_ROOT_PATH:
-        process.env.NODE_ENV === 'development'
-          ? '/'
-          : `https://${process.env.COPYRIGHT_ENTITY}/apps/${process.env.APP_URL_PATH}/`
+      SITE_CONTACT_EMAIL: localEnv.parsed.SITE_CONTACT_EMAIL
     })
   ]
 }

@@ -117,7 +117,9 @@ export function buildBucketKey(uri, list, names) {
   }
 
   // nebt
-  if (name === names[3]) `${folder}/index.html`
+  if (name === names[3]) {
+    file = 'index.html'
+  }
 
   return `${folder}/pre-renders/${file}`
 }

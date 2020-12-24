@@ -4,6 +4,7 @@
 **/nebt-contracts/build
 assets
 content
+deploy-stats
 dist
 distContent
 distPreRenders
