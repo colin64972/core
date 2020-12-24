@@ -1,3 +1,4 @@
+import { ImageAsset } from '../../index'
 import LogoAi120 from '@cjo3/shared/assets/images/logo-ai-120w.png'
 import LogoAi180 from '@cjo3/shared/assets/images/logo-ai-180w.png'
 import LogoAi60 from '@cjo3/shared/assets/images/logo-ai-60w.png'
@@ -37,10 +38,12 @@ import MockupKm785 from '@cjo3/shared/assets/images/nca-mockup-km-785w.png'
 import MockupNca1057 from '@cjo3/shared/assets/images/nca-mockup-nca-1057w.png'
 import MockupNca1585 from '@cjo3/shared/assets/images/nca-mockup-nca-1585w.png'
 import MockupNca528 from '@cjo3/shared/assets/images/nca-mockup-nca-528w.png'
-import ProfilePic3x from '@cjo3/shared/assets/images/profile-pic-144w.jpg'
+import MockupNebt1160 from '@cjo3/shared/assets/images/nca-mockup-nebt-1160w.png'
+import MockupNebt386 from '@cjo3/shared/assets/images/nca-mockup-nebt-386w.png'
+import MockupNebt773 from '@cjo3/shared/assets/images/nca-mockup-nebt-773w.png'
 import ProfilePic1x from '@cjo3/shared/assets/images/profile-pic-48w.jpg'
 import ProfilePic2x from '@cjo3/shared/assets/images/profile-pic-96w.jpg'
-import { ImageAsset } from '../../index'
+import ProfilePic3x from '@cjo3/shared/assets/images/profile-pic-144w.jpg'
 
 export const ProfilePic: ImageAsset = {
   alt: 'profile-photo',
@@ -114,19 +117,19 @@ export const MockupNca: ImageAsset = {
 }
 
 export const MockupDle: ImageAsset = {
-  alt: 'mockup-detection-limit-editor',
+  alt: 'mockup-dle',
   mimeType: 'image/png',
   paths: [MockupDle463, MockupDle925, MockupDle1388]
 }
 
 export const MockupKm: ImageAsset = {
-  alt: 'mockup-keyword-multiplier',
+  alt: 'mockup-km',
   mimeType: 'image/png',
   paths: [MockupKm392, MockupKm785, MockupKm1177]
 }
 
-export const MockupNt: ImageAsset = {
-  alt: 'mockup-neb-token',
+export const MockupNebt: ImageAsset = {
+  alt: 'mockup-nebt',
   mimeType: 'image/png',
-  paths: [MockupNca528, MockupNca1057, MockupNca1585]
+  paths: [MockupNebt386, MockupNebt773, MockupNebt1160]
 }

@@ -1,11 +1,12 @@
 import { Grid, Typography } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
-import clsx from 'clsx'
+
+import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
 import { Field } from 'formik'
 import React from 'react'
 import { SelectOption } from '../../../index'
+import clsx from 'clsx'
 import { inputTypes } from '../constants'
-import { FadeIn } from '@cjo3/shared/react/components/FadeIn'
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(
   theme => {
@@ -93,7 +94,7 @@ export const FormikField: React.FC<Props> = ({
     <Field name={name}>
       {({ field, form, meta }) => (
         <Grid className={classes.formGroup}>
-          <FadeIn direction="x" position={-100}>
+          <FadeIn direction="x" position={100}>
             <label
               htmlFor={id}
               className={clsx(classes.formLabel, {
@@ -105,7 +106,7 @@ export const FormikField: React.FC<Props> = ({
           </FadeIn>
 
           {inputType === inputTypes.select && (
-            <FadeIn direction="x" position={Math.random() > 0.5 ? -100 : 100}>
+            <FadeIn direction="x" position={100}>
               <select {...field} id={id} className={clsx(classes.select)}>
                 {selectOptions &&
                   selectOptions.map(item => (
@@ -118,7 +119,7 @@ export const FormikField: React.FC<Props> = ({
           )}
 
           {inputType === inputTypes.text && rows && (
-            <FadeIn direction="x" position={Math.random() > 0.5 ? -100 : 100}>
+            <FadeIn direction="x" position={100}>
               <textarea
                 {...field}
                 rows={rows}
@@ -133,7 +134,7 @@ export const FormikField: React.FC<Props> = ({
           )}
 
           {inputType === inputTypes.text && !rows && (
-            <FadeIn direction="x" position={Math.random() > 0.5 ? -100 : 100}>
+            <FadeIn direction="x" position={100}>
               <input
                 {...field}
                 type={inputType}

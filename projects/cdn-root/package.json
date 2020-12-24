@@ -5,7 +5,6 @@
   "license": "MIT",
   "author": "cjo3",
   "private": true,
-  "prettier": "@cjo3/configs/prettier",
   "scripts": {
     "render": "node src/renderSite.js",
     "sync:web": "node -e 'require(\"@cjo3/shared/raw/s3Manager\").sync(require(\"./cliParams\").web)'"
