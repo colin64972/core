@@ -2,6 +2,7 @@ require('colors')
 const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const { EnvironmentPlugin, HashedModuleIdsPlugin } = require('webpack')
 
 const localEnv = require('dotenv').config()
@@ -120,6 +121,10 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin({
       verbose: true
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: true
     }),
     new HashedModuleIdsPlugin(),
     new HtmlWebpackPlugin({
