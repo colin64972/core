@@ -6,6 +6,9 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const { EnvironmentPlugin, HashedModuleIdsPlugin } = require('webpack')
 
 const localEnv = require('dotenv').config()
+const sharedEnv = require('dotenv').config({
+  path: path.resolve('..', 'shared', '.env')
+})
 
 const switchPublicPath = () => {
   if (process.env.NODE_ENV === 'production')
@@ -141,7 +144,8 @@ module.exports = {
       APP_NAME: localEnv.parsed.APP_NAME,
       PROFILE_IMG_SRC: localEnv.parsed.PROFILE_IMG_SRC,
       COPYRIGHT_ENTITY: localEnv.parsed.COPYRIGHT_ENTITY,
-      SITE_CONTACT_EMAIL: localEnv.parsed.SITE_CONTACT_EMAIL
+      SITE_CONTACT_EMAIL: localEnv.parsed.SITE_CONTACT_EMAIL,
+      GA_TAG: sharedEnv.parsed.GA_TAG
     })
   ]
 }

@@ -1,13 +1,15 @@
-import { Route, Switch } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Route, Switch, useLocation } from 'react-router-dom'
+
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Exchange from './Exchange'
 import Footer from './components/footer'
 import Home from './Home'
 import Nav from './components/nav'
 import NotFound from './NotFound'
-import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import routes from './routes'
+import { setTracker } from '@cjo3/shared/react/helpers'
 
 const componentMap = {
   Home,
@@ -37,8 +39,17 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
+const tracker = setTracker(process.env.GA_TAG)
+
 export default () => {
   const classes = useStyles()
+
+  const location = useLocation()
+
+  useEffect(() => {
+    tracker.pageHit(process.env.APP_ROOT_PATH, location.pathname)
+  }, [location])
+  
   return (
     <CssBaseline>
       <div className={classes.appContainer}>
