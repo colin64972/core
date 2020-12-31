@@ -89,7 +89,8 @@ module.exports = {
     new HashedModuleIdsPlugin(),
     new EnvironmentPlugin({
       IS_SERVER: true,
-      SRC_ENV: process.env.SRC_ENV
+      SRC_ENV: process.env.SRC_ENV,
+      FREE_UNTIL: process.env.FREE_UNTIL
     })
   ]
 }

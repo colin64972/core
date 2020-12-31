@@ -176,7 +176,9 @@ const config = {
       PAYMENT_DISABLED:
         localEnv.parsed.PAYMENT_DISABLED === 'true' ? true : false,
       SITE_CONTACT_EMAIL: sharedEnv.parsed.SITE_CONTACT_EMAIL,
-      SUPPORT_EMAIL: sharedEnv.parsed.SUPPORT_EMAIL
+      SUPPORT_EMAIL: sharedEnv.parsed.SUPPORT_EMAIL,
+      FREE_UNTIL: localEnv.parsed.FREE_UNTIL
+      
     }),
     new ReactLoadablePlugin({
       filename: path.resolve('dist', 'react-loadable.json')
