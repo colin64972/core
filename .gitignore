@@ -17,6 +17,5 @@ site-configs
 # files
 .env
 *.DS_Store
-*.lock
 *.log
 *.error
