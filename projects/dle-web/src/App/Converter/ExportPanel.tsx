@@ -1,21 +1,22 @@
-import { writeWorkbook } from '@cjo3/shared/logic/dle'
-import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
-import { LoadFail } from '@cjo3/shared/react/components/LoadFail'
-import Loadable from 'react-loadable'
-import { saveAs } from 'file-saver'
 import { Button, ButtonGroup, Grid, Typography } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
 import React, { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { exportButtons } from '../../constants'
-import { openSnackbar } from '../../store/app/actions'
-import { ExportData } from '../../store/converter/interfaces'
 import {
   currentSheetNameSelector,
   sheetDataSelector,
   transformResultSelector,
   workbookNameSelector
 } from '../../store/selectors'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { BackDropScreen } from '@cjo3/shared/react/components/BackDropScreen'
+import { ExportData } from '../../store/converter/interfaces'
+import { LoadFail } from '@cjo3/shared/react/components/LoadFail'
+import Loadable from 'react-loadable'
+import { exportButtons } from '../../constants'
+import { makeStyles } from '@material-ui/core/styles'
+import { openSnackbar } from '../../store/app/actions'
+import { saveAs } from 'file-saver'
+import { writeWorkbook } from '@cjo3/shared/logic/dle'
 
 const PaymentAppLoadable = Loadable({
   loader: () =>
@@ -133,7 +134,7 @@ export const ExportPanel: React.FC = (): JSX.Element => {
       )}
       <Typography variant="h5">
         {process.env.PAYMENT_DISABLED
-          ? 'Export for Free until 2021'
+          ? `Export for ${process.env.FREE_UNTIL}`
           : `Export for Only ${process.env.EXPORT_PRICE}`}
       </Typography>
       <Typography variant="body1">

@@ -1,7 +1,8 @@
-import clsx from 'clsx'
 import { Grid, Paper, Typography } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
+
 import React from 'react'
+import clsx from 'clsx'
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(
   theme => ({
@@ -480,7 +481,7 @@ export const GuideContent: React.FC = (): JSX.Element => {
               color="secondary"
               align="center"
               className={classes.GuideContent_freeUntil}>
-              Free until 2021
+              {process.env.FREE_UNTIL}
             </Typography>
           )}
           <Typography

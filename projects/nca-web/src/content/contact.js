@@ -1,0 +1,20 @@
+exports.contact = [
+  'LIKE TO<br/>GET IN TOUCH?<br/>CONTACT ME!',
+  'image-contact',
+  'Inquiries,<br/>Feedback,<br/>Support',
+  'Send me a message to get in touch. Always happy to receive info requests, hear user feedback or provide app support!',
+  'Too short',
+  'Required',
+  'Message could not be sent. Please try again later',
+  'Thanks for your message!',
+  'Name',
+  'John',
+  'Email Address',
+  'johnsmith@gmail.com',
+  'Message Type',
+  'Message',
+  'Enter message here',
+  'Sending',
+  'Submit',
+  'Reset'
+]

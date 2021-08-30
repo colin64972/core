@@ -1,4 +1,10 @@
 import { ImageAsset } from '../../index'
+import LogoLodgelink120 from '@cjo3/shared/assets/images/logo-lodgelink-120w.png'
+import LogoLodgelink180 from '@cjo3/shared/assets/images/logo-lodgelink-180w.png'
+import LogoLodgelink60 from '@cjo3/shared/assets/images/logo-lodgelink-60w.png'
+import LogoLaunchcode120 from '@cjo3/shared/assets/images/logo-launchcode-120w.png'
+import LogoLaunchcode180 from '@cjo3/shared/assets/images/logo-launchcode-180w.png'
+import LogoLaunchcode60 from '@cjo3/shared/assets/images/logo-launchcode-60w.png'
 import LogoAi120 from '@cjo3/shared/assets/images/logo-ai-120w.png'
 import LogoAi180 from '@cjo3/shared/assets/images/logo-ai-180w.png'
 import LogoAi60 from '@cjo3/shared/assets/images/logo-ai-60w.png'
@@ -49,6 +55,18 @@ export const ProfilePic: ImageAsset = {
   alt: 'profile-photo',
   mimeType: 'image/jpeg',
   paths: [ProfilePic1x, ProfilePic2x, ProfilePic3x]
+}
+
+export const LogoLodgelink: ImageAsset = {
+  alt: 'logo-lodgelink',
+  mimeType: 'image/png',
+  paths: [LogoLodgelink60, LogoLodgelink120, LogoLodgelink180]
+}
+
+export const LogoLaunchcode: ImageAsset = {
+  alt: 'logo-launchcode',
+  mimeType: 'image/png',
+  paths: [LogoLaunchcode60, LogoLaunchcode120, LogoLaunchcode180]
 }
 
 export const LogoHaru: ImageAsset = {
