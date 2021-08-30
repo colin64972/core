@@ -22,7 +22,9 @@ import {
   LogoHaru,
   LogoJumpfactor,
   LogoJuno,
-  LogoSauder
+  LogoSauder,
+  LogoLodgelink,
+  LogoLaunchcode
 } from '../assets'
 import { ContentContainer } from '../ContentContainer'
 import { HeroBar } from '../HeroBar'
@@ -216,7 +218,9 @@ const logoMap = {
   codecore: LogoCodecore,
   dappu: LogoDappu,
   sauder: LogoSauder,
-  ai: LogoAi
+  ai: LogoAi,
+  lodgelink: LogoLodgelink,
+  launchcode: LogoLaunchcode
 }
 
 export const Resume: React.FC = (): JSX.Element | null => {
