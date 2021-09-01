@@ -75,7 +75,7 @@ export const preOrder = async eventBody => {
       }`,
       metadata: {
         billableCount,
-        billableKeywords: JSON.stringify(trial.trialProduct.billableKeywords),
+        billableKeywords: JSON.stringify(trial.trialProduct.billableKeywords).substr(0, 499),
         country: eventBody.readableKeOptions.country,
         currency: eventBody.readableKeOptions.currency,
         dataSource: eventBody.readableKeOptions.dataSource,
